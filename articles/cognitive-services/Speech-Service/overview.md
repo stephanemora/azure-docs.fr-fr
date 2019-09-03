@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624260"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068841"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
@@ -84,12 +84,10 @@ Un exemple de code est disponible sur GitHub pour chacun des services Speech Azu
 
 Les services Speech Azure fonctionnent bien avec les modèles intégrés. Cependant, vous pouvez personnaliser et optimiser l’expérience pour votre produit ou environnement. Les options de personnalisation vont de l’ajustement du modèle acoustique aux polices de voix uniques pour votre marque. Une fois que vous avez créé un modèle personnalisé, vous pouvez l’utiliser avec tous les services Speech Azure.
 
-| Speech Service | Modèle | Description |
-|----------------|-------|-------------|
-| Reconnaissance vocale | [Modèle acoustique](how-to-customize-acoustic-models.md) | Créez un modèle acoustique personnalisé pour des applications, outils ou appareils utilisés dans des environnements particuliers, tels qu’une voiture ou un atelier, avec des conditions d’enregistrement spécifique. Par exemple, vous pouvez adapter l’enregistrement à des accent régionaux, à des bruits de fond spécifiques ou à l’utilisation d’un microphone particulier. |
-| | [Modèle de langage](how-to-customize-language-model.md) | Créez un modèle de langage personnalisé afin d’améliorer la transcription du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique. |
-| | [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et écrite d’un mot. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
-| Synthèse vocale | [Police de la voix](how-to-customize-voice-font.md) | Les polices de voix personnalisées vous permettent de créer une voix unique reconnaissable entre toutes pour votre marque. Il suffit d’une petite quantité de données pour commencer. Plus vous fournirez de données, plus naturelle et humaine sonnera votre police de voix. |
+| Speech Service | Plateforme | Description |
+|----------------|-------------|-------------|
+| Reconnaissance vocale | [Discours personnalisé](https://aka.ms/customspeech) | Personnalisez les modèles de reconnaissance vocale en fonction de vos besoins et des données disponibles. Éliminez les obstacles à la reconnaissance vocale, tels que le style d’élocution, le bruit de fond et le vocabulaire. |
+| Synthèse vocale | [Custom Voice](https://aka.ms/customvoice) | Créez une voix unique et reconnaissable pour vos applications de synthèse vocale, avec vos données vocales disponibles. Vous pouvez ensuite affiner le réglage des sorties vocales en ajustant tout un ensemble de paramètres vocaux. |
 
 ## <a name="reference-docs"></a>Documents de référence
 

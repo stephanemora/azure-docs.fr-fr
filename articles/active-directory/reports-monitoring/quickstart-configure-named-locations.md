@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988083"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127242"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Démarrage rapide : Configurer des emplacements nommés dans Azure Active Directory
 
 Les emplacements nommés vous permettent d’étiqueter des plages d’adresses IP approuvées dans votre entreprise. Azure AD utilise des emplacements nommés pour effectuer les actions suivantes :
-- Détecter les faux positifs dans les [événements à risque](concept-risk-events.md). La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur.   
+- Détecter les faux positifs dans les [détections de risques](concept-risk-events.md). La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur.   
 - Configurer l’[accès conditionnel en fonction des emplacements](../conditional-access/location-condition.md).
 
 Dans ce guide de démarrage rapide, vous apprenez à configurer des emplacements nommés dans votre environnement.

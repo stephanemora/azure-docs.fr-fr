@@ -16,18 +16,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43c070513f23564bd4679531e20b411f178920ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d9b9512df294b25fa73b890a646f29dfd0c3d88
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136755"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113625"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Créer une application App Service avec un déploiement continu à partir de GitHub à l’aide de l’interface CLI
 
 Cet exemple de script crée une application dans App Service avec ses ressources associées, puis configure un déploiement continu à partir d’un dépôt GitHub. Pour le déploiement GitHub sans déploiement continu, consultez [Créer une application et déployer du code à partir de GitHub](cli-deploy-github.md). Pour cet exemple, vous aurez besoin des éléments suivants :
 
-* Un dépôt GitHub avec le code de l’application, pour lequel vous disposez d’autorisations d’administration.
+* Un dépôt GitHub avec le code de l’application, pour lequel vous disposez d’autorisations d’administration. Pour obtenir des builds automatiques, structurez votre dépôt en fonction du tableau [Préparer votre dépôt](../deploy-continuous-deployment.md#prepare-your-repository).
 * Un [jeton d’accès personnel](https://help.github.com/articles/creating-an-access-token-for-command-line-use) pour votre compte GitHub.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

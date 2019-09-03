@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072339"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -64,8 +63,9 @@ Pour accéder aux métriques :
 
     ![Mesures](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes de la passerelle ayant abouti**. Vous pouvez également ajouter des métriques supplémentaires au graphique.
-3. Le graphique affiche le nombre total d’appels d’API ayant abouti.
+1. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes**. 
+1. Le graphique affiche le nombre total d’appels d’API.
+1. Le graphique peut être filtré à l’aide des dimensions de la métrique **Requêtes**. Par exemple, cliquez sur **Ajouter un filtre**, choisissez **Code de réponse de back-end**, entrez 500 comme valeur. À présent, le graphique montre le nombre de requêtes qui ont échoué dans le back-end d’API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurer une règle d’alerte pour une demande non autorisée
 
@@ -182,44 +182,44 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 
 | Propriété  | Type | Description |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | booléenne | True si la requête HTTP a échoué avec le code d’état de réponse dans la plage 2xx ou 3xx |
+| isRequestSuccess | boolean | True si la requête HTTP a échoué avec le code d’état de réponse dans la plage 2xx ou 3xx |
 | time | date-time | Timestamp de réception de la requête HTTP par la passerelle |
-| operationName | chaîne | Valeur constante « Microsoft.ApiManagement/GatewayLogs » |
-| category | chaîne | Valeur constante « GatewayLogs » |
+| operationName | string | Valeur constante « Microsoft.ApiManagement/GatewayLogs » |
+| category | string | Valeur constante « GatewayLogs » |
 | durationMS | integer | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée |
-| callerIpAddress | chaîne | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
-| correlationId | chaîne | Identificateur de requête http unique assigné par le service Gestion des API |
-| location | chaîne | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
-| httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
-| resourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| callerIpAddress | string | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
+| correlationId | string | Identificateur de requête http unique assigné par le service Gestion des API |
+| location | string | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
+| httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
+| resourceId | string | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objet | Propriétés de la requête actuelle |
-| method | chaîne | Méthode HTTP de la requête entrante |
-| url | chaîne | URL de la requête entrante |
-| clientProtocol | chaîne | Version du protocole HTTP de la requête entrante |
+| method | string | Méthode HTTP de la requête entrante |
+| url | string | URL de la requête entrante |
+| clientProtocol | string | Version du protocole HTTP de la requête entrante |
 | responseCode | integer | Code d’état de la réponse HTTP envoyée à un client |
-| backendMethod | chaîne | Méthode HTTP de la requête envoyée à un serveur principal |
-| backendUrl | chaîne | URL de la requête envoyée à un serveur principal |
+| backendMethod | string | Méthode HTTP de la requête envoyée à un serveur principal |
+| backendUrl | string | URL de la requête envoyée à un serveur principal |
 | backendResponseCode | integer | Code de la réponse HTTP reçue d’un serveur principal |
-| backendProtocol | chaîne | Version du protocole HTTP de la requête envoyée à un service principal | 
+| backendProtocol | string | Version du protocole HTTP de la requête envoyée à un service principal | 
 | requestSize | integer | Nombre d’octets reçus d’un client au cours du traitement de la requête | 
 | responseSize | integer | Nombre d’octets envoyés à un client au cours du traitement de la requête | 
-| cache | chaîne | État d’implication du cache du service Gestion des API dans le traitement des requêtes (par exemple, atteint, manqué, aucun) | 
+| cache | string | État d’implication du cache du service Gestion des API dans le traitement des requêtes (par exemple, atteint, manqué, aucun) | 
 | cacheTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du cache du service Gestion des API (connexion, envoi et réception d’octets) | 
 | backendTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du serveur principal (connexion, envoi et réception d’octets) | 
 | clientTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du client (connexion, envoi et réception d’octets) | 
-| apiId | chaîne | Identificateur d’entité d’API pour la requête actuelle | 
-| operationId | chaîne | Identificateur d’entité d’opération pour la requête actuelle | 
-| productId | chaîne | Identificateur d’entité de produit pour la requête actuelle | 
-| userId | chaîne | Identificateur d’entité d’utilisateur pour la requête actuelle | 
-| apimSubscriptionId | chaîne | Identificateur d’entité d’abonnement pour la requête actuelle | 
-| backendId | chaîne | Identificateur d’entité de serveur principal pour la requête actuelle | 
+| apiId | string | Identificateur d’entité d’API pour la requête actuelle | 
+| operationId | string | Identificateur d’entité d’opération pour la requête actuelle | 
+| productId | string | Identificateur d’entité de produit pour la requête actuelle | 
+| userId | string | Identificateur d’entité d’utilisateur pour la requête actuelle | 
+| apimSubscriptionId | string | Identificateur d’entité d’abonnement pour la requête actuelle | 
+| backendId | string | Identificateur d’entité de serveur principal pour la requête actuelle | 
 | lastError | objet | Dernière erreur de traitement de requête | 
 | elapsed | integer | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
-| source | chaîne | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
-| scope | chaîne | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
-| section | chaîne | Section du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
-| reason | chaîne | Motif de l’erreur | 
-| message | chaîne | Message d’erreur | 
+| source | string | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
+| scope | string | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
+| section | string | Section du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
+| reason | string | Motif de l’erreur | 
+| message | string | Message d’erreur | 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

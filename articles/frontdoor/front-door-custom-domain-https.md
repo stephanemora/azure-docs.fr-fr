@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450189"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907839"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -81,11 +81,17 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 > [!WARNING]
 > Azure Front Door Service prend actuellement en charge uniquement les comptes Key Vault dans le même abonnement que la configuration Front Door. Le choix d’un Key Vault sous un autre abonnement que votre porte d’entrée entraîne un échec.
 
-2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault.
+2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret**.
+
+> [!IMPORTANT]
+> Vous devez charger le certificat au format PFX **sans** protection par mot de passe.
 
 #### <a name="register-azure-front-door-service"></a>Inscrire Azure Front Door Service
 
 Inscrivez le principal du service pour Azure Front Door Service en tant qu’application dans Azure Active Directory par le biais de PowerShell.
+
+> [!NOTE]
+> Cette action ne doit être effectuée **qu’une fois** par locataire.
 
 1. Si nécessaire, installez [Azure PowerShell](/powershell/azure/install-az-ps) dans PowerShell sur votre ordinateur local.
 
@@ -95,18 +101,19 @@ Inscrivez le principal du service pour Azure Front Door Service en tant qu’app
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Octroyer à Azure Front Door Service l’accès à votre coffre de clés
  
-Octroyez à Azure Front Door Service l’autorisation d’accéder aux certificats sous la section Secrets de votre compte Azure Key Vault.
+Accordez à Azure Front Door Service l’autorisation d’accéder aux certificats de votre compte Azure Key Vault.
 
 1. Dans votre compte de coffre de clés, sous PARAMÈTRES, sélectionnez **Stratégies d’accès**, puis **Ajouter nouveau** pour créer une stratégie.
 
 2. Dans **Sélectionner le principal**, recherchez **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, puis choisissez **Microsoft.Azure.Frontdoor**. Cliquez sur **Sélectionner**.
 
+3. Sous **Autorisations du secret**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 
-3. Dans **Autorisations du secret**, sélectionnez **Obtenir** pour autoriser Front Door à obtenir et répertorier les certificats. 
+4. Sous **Autorisations de certificat**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 
-4. Sélectionnez **OK**. 
+5. Sélectionnez **OK**. 
 
-    Azure Front Door Service peut désormais accéder à ce coffre de clés et aux certificats (secrets) qui sont stockés dans ce coffre de clés.
+    Azure Front Door Service peut désormais accéder à ce coffre de clés et aux certificats qui sont stockés dans ce coffre de clés.
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Sélectionner le certificat à déployer pour Azure Front Door Service
  

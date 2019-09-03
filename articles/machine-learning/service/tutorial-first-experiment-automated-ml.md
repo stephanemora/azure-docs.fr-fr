@@ -10,26 +10,25 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 08/14/2019
-ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 01228dc01b8006a0a2476ddbbd6fa8ff430e280a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534396"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982754"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Didacticiel : Créer votre premier modèle de classification avec Machine Learning automatisé
 
 Dans ce tutoriel, vous allez découvrir comment créer votre première expérience de Machine Learning automatisé dans le portail Azure (préversion) sans écrire une seule ligne de code. Cet exemple crée un modèle de classification pour prédire si un client souscrit à un compte à terme auprès d’une institution financière.
 
-Quand vous utilisez les fonctionnalités de Machine Learning automatisé dans Azure Machine Learning Service et le portail Azure, vous lancez le processus de Machine Learning automatisé. La sélection de l’algorithme et l’optimisation des hyperparamètres sont automatiques. La technique de machine learning automatisé itère de nombreuses combinaisons d’algorithmes et d’hyperparamètres jusqu’à ce qu’elle trouve le meilleur modèle en fonction de vos critères.
+Avec le machine learning automatisé, vous pouvez automatiser des tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
 
-Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
+Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer un espace de travail pour Azure Machine Learning service
-> * Créer une expérience.
-> * Entraîner automatiquement un modèle de classification.
-> * Afficher les détails de l’exécution de l’entraînement
+> * Créer un espace de travail de service Azure Machine Learning.
+> * Exécuter une expérience de machine learning automatisé.
+> * Voir les détails de l'expérience.
 > * Déployer le modèle.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -42,7 +41,7 @@ Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-an-experiment"></a>Création d'une expérience
+## <a name="create-and-run-the-experiment"></a>Créer et exécuter l’expérience
 
 Ces étapes vous guident dans la configuration des expérimentations à partir de la sélection de données pour choisir votre métrique principale et le type de modèle. 
 
@@ -50,8 +49,6 @@ Ces étapes vous guident dans la configuration des expérimentations à partir d
 L’écran **Welcome to Automated Machine Learning (Bienvenue dans Machine Learning automatisé)** s’affiche, dans la mesure où il s’agit de votre première expérience avec le Machine Learning automatisé.
 
     ![Volet de navigation du portail Azure](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
-
-
 
 1. Sélectionnez **Créer une expérience**. Entrez **my-1st-automl-experiment** comme nom de l’expérience.
 
@@ -72,14 +69,11 @@ L’écran **Welcome to Automated Machine Learning (Bienvenue dans Machine Learn
 
 1. Sélectionnez **Charger** et choisissez le fichier **bankmarketing_train.csv** sur votre ordinateur local pour le charger sur le conteneur par défaut. La préversion publique prend uniquement en charge les chargements de fichiers locaux et les comptes de stockage Blob Azure. Une fois le chargement terminé, sélectionnez le fichier dans la liste. 
 
-    [![Sélectionner le fichier de données](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
-
 1. L’onglet **Aperçu** nous permet de configurer plus précisément nos données pour cette expérience.
 
     Sous l’onglet **Aperçu**, indiquez que les données incluent des en-têtes. Par défaut, le service inclut toutes les caractéristiques (colonnes) pour l’entraînement. Pour cet exemple, faites défiler vers la droite et **Ignorez** la caractéristique **day_of_week**.
 
     ![Configuration de l’onglet Aperçu](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
-
 
     >[!NOTE]
     > Le profilage des données n’est pas disponible avec les calculs qui ont 0 comme nombre minimal de nœuds.
@@ -103,9 +97,7 @@ L’écran **Welcome to Automated Machine Learning (Bienvenue dans Machine Learn
 
 1. Sélectionnez **Démarrer** pour exécuter l’expérience.
 
-   Une fois l’expérience démarrée, un écran **Détails de l’exécution** vide s’affiche avec l’état suivant en haut. 
-
-      ![Préparation de l’exécution](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+   Une fois l’expérience démarrée, un écran **Détails de l’exécution** vide s’affiche avec l’état suivant en haut.
       
 Le processus de préparation de l’expérience prend quelques minutes. Une fois le processus terminé, le message d’état devient **L’exécution est en cours d’exécution**.
 
@@ -137,11 +129,9 @@ Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le me
     
 1. Sélectionnez **Déployer**.
 
-    Le message suivant s’affiche une fois le déploiement terminé :
-
-    ![Déploiement terminé](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    Un message complet de déploiement s’affiche une fois le déploiement terminé.
     
-    Vous disposez maintenant d’un service web opérationnel pour générer des prédictions.
+Vous disposez maintenant d’un service web opérationnel pour générer des prédictions.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -167,7 +157,6 @@ Dans ce tutoriel de Machine Learning automatisé, vous avez utilisé le portail 
 
 > [!div class="nextstepaction"]
 > [Utiliser un service web](how-to-consume-web-service.md)
-
 
 + En savoir plus sur le [prétraitement](how-to-create-portal-experiments.md#preprocess).
 + En savoir plus sur le [profilage des données](how-to-create-portal-experiments.md#profile).

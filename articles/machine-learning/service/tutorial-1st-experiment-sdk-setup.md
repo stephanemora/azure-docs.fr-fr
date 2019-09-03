@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515330"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051665"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Didacticiel : Commencer à créer votre première expérience ML
 
@@ -73,7 +73,12 @@ Dès lors que votre machine virtuelle s’exécute, lancez l’interface web Jup
     > [!TIP]
     > Ce dossier se trouve sur le [conteneur de stockage](concept-workspace.md#resources) dans votre espace de travail plutôt que sur le notebook de machine virtuelle elle-même.  Vous pouvez supprimer la machine virtuelle du notebook et conserver tous vos travaux.  Lorsque vous créez une nouvelle machine virtuelle notebook, elle chargera ce même dossier. Si vous partagez votre espace de travail avec d’autres utilisateurs, ils verront votre dossier et vous verrez le leur.
 
-1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez `tutorials/tutorial-1st-experiment-sdk-train.ipynb` pour exécuter la **deuxième** partie du tutoriel.
+1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+> [!Warning]
+> Veillez à ouvrir le fichier `tutorial-1st-experiment-sdk-train.ipynb`, et **non pas** le fichier `.yml` du même nom. 
+
+Dans la **deuxième partie** du tutoriel, vous exécutez le code dans `tutorial-1st-experiment-sdk-train.ipynb` pour entraîner un modèle Machine Learning.
 
 ## <a name="end"></a> Nettoyer les ressources
 

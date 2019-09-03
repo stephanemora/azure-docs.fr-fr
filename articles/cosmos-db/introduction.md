@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384126"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905290"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -23,6 +23,11 @@ Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/t
 
 > [!div class="nextstepaction"]
 > [Essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+
+Vous pouvez aussi utiliser le [programme Cosmos DB Bootstrap](https://azurecosmosdb.github.io/CosmosBootstrap/) pour accélérer la création ou la migration de vos applications sur Azure Cosmos DB. Quand vous vous inscrivez à ce programme, les ingénieurs Azure Cosmos DB sont chargés de vous porter assistance sur votre projet et de vous aider à migrer vos données vers Azure Cosmos DB ou à créer des applications sur Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [S’inscrire au programme Cosmos DB Bootstrap](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB est le service de base de données distribué mondialement de Microsoft qui propose une augmentation de la taille des instances, une faible latence, cinq modèles de cohérence et des contrats SLA offrant des garanties complètes](./media/introduction/azure-cosmos-db.png)
 

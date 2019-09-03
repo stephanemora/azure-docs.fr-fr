@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534802"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036191"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Didacticiel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>Créer ou attacher une ressource de calcul existante
+### <a name="create-or-attach-an-existing-compute-target"></a>Créer ou attacher une cible de calcul existante
 
 En utilisant le service managé Capacité de calcul Azure Machine Learning, les scientifiques des données peuvent entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure. Il peut s’agir notamment de machines virtuelles prenant en charge les GPU. Dans ce tutoriel, vous allez créer la Capacité de calcul Azure Machine Learning qui vous servira d’environnement d’entraînement. Le code ci-dessous crée automatiquement les clusters de calcul s’ils n’existent pas encore dans votre espace de travail.
 
- **La création de la capacité de calcul prend environ cinq minutes.** Si la capacité de calcul se trouve déjà dans l’espace de travail, le code l’utilise et ignore le processus de création.
+ **La création de la cible de calcul prend environ cinq minutes.** Si la ressource de calcul se trouve déjà dans l’espace de travail, le code l’utilise et ignore le processus de création.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ Vous avez maintenant une idée de l’aspect de ces images et du résultat de pr
 
 ### <a name="upload-data-to-the-cloud"></a>Charger des données dans le cloud
 
-À présent, vous allez rendre les données accessibles à distance en les chargeant de votre ordinateur local vers Azure. Elles seront alors accessibles pour l’entraînement à distance. La banque de données est une construction pratique associée à votre espace de travail, dans laquelle vous pouvez charger et télécharger des données. Vous pouvez également interagir avec elle à partir de vos cibles de calcul distantes. Elle repose sur un compte de stockage d’objets blob Azure.
+Vous avez téléchargé et utilisé les données d’entraînement sur l’ordinateur où s’exécute votre notebook.  Dans la section suivante, vous allez entraîner un modèle sur la capacité de calcul Azure Machine Learning distante.  La ressource de calcul distante doit également accéder à vos données. Pour fournir l’accès, chargez vos données dans un magasin de données centralisé associé à votre espace de travail. Ce magasin de données fournit un accès rapide à vos données lors de l’utilisation de cibles de calcul distantes dans le cloud, comme c’est le cas dans le centre de données Azure.
 
-Les fichiers MNIST sont chargés dans un répertoire nommé `mnist` à la racine de la banque de données :
+Chargez les fichiers MNIST dans un répertoire nommé `mnist` à la racine du magasin de données. Pour plus d’informations, consultez [Accéder aux données depuis vos magasins de données](how-to-access-data.md).
 
 ```python
 ds = ws.get_default_datastore()

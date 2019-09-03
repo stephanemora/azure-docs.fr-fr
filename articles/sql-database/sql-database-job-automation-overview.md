@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935188"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113594"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
@@ -43,7 +43,7 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
 
-- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques.
+- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques Azure SQL.
 - **Travaux de base de données élastiques (préversion)** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données Azure SQL.
 
 Il convient de noter quelques différences importantes entre SQL Agent (disponible localement et dans le cadre de SQL Database Managed Instance) et l’agent de travail élastique de base de données (disponible pour les bases de données uniques dans Azure SQL Database et les bases de données dans SQL Data Warehouse).

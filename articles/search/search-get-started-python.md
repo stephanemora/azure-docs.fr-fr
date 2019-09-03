@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide Python : Créer, charger et interroger des index à l’aide des API REST - Recherche Azure'
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Python, de Jupyter Notebooks et d’une API REST Recherche Azure.
-ms.date: 07/11/2019
+ms.date: 08/28/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 352d26a1f3e781f7dbb6e502caea44bdb45b398a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656786"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129400"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index de Recherche Azure en Python à l’aide de notebooks Jupyter
 > [!div class="op_single_selector"]
@@ -71,6 +71,8 @@ Dans cette tâche, démarrez un notebook Jupyter et vérifiez que vous pouvez vo
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   Si vous recevez ConnectionError `"Failed to establish a new connection"`, vérifiez que la clé API est une clé d’administration principale ou secondaire, et que tous les caractères de début et de fin (`?` et `/`) sont en place.
 
 1. Dans la troisième cellule, formulez la requête. Cette requête GET cible la collection d’index de votre service de recherche et sélectionne la propriété de nom des index existants.
 

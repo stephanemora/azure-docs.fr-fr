@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099604"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -49,7 +49,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Central. Si vous avez suivi le guide de démarrage rapide [Créer votre application Azure IoT Central](quick-deploy-iot-central.md), vous pouvez réutiliser l’application que vous avez créée dans le cadre de ce guide. Dans le cas contraire, créez une application Azure IoT Central vide en procédant comme suit :
 
-1. Accédez à la page [Application Manager](https://aka.ms/iotcentral) (Gestionnaire d’application) d’Azure IoT Central.
+1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
 
 2. Entrez l’adresse e-mail et le mot de passe que vous utilisez pour accéder à votre abonnement Azure :
 
@@ -57,7 +57,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
 3. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application** :
 
-    ![Page du Gestionnaire d’applications d’Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Page du gestionnaire d’applications d’Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Pour créer une nouvelle application Azure IoT Central :
     
@@ -69,7 +69,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
     
    * Vous pouvez éventuellement choisir un nom d’application convivial, tel que **Climatiseurs Contoso**. Azure IoT Central génère un préfixe d’URL unique pour vous. Vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
     
-   * Sélectionnez **Créer**.
+   * Sélectionnez **Create** (Créer).
 
      ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 

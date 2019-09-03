@@ -4,26 +4,26 @@ description: Découvrez comment publier une offre de service managé qui intègr
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: bb2f26a170bbd60eb927bd00f6def7d033fafee9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810833"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011859"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
-Cet article explique comment publier une offre de services managés publics ou privés sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) via le [portail Cloud Partner](https://cloudpartner.azure.com/), qui permet à un client qui achète l’offre d’être intégré pour la gestion des ressources déléguées Azure. 
+Cet article explique comment publier une offre de services managés publics ou privés sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) via le [portail Cloud Partner](https://cloudpartner.azure.com/), qui permet à un client qui achète l’offre d’être intégré pour la gestion des ressources déléguées Azure.
 
 > [!NOTE]
 > Pour créer et publier ces offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide dans les étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale. Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) aux offres que vous publiez pour suivre votre impact sur les engagements client.
 >
 > Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, voir [Intégrer un client dans la gestion des ressources déléguées Azure](onboard-customer.md).
 
-La publication d’une offre de services managés est similaire à la publication d’un autre type d’offre sur la Place de marché Azure. Pour découvrir ce processus, voir [Guide de publication de la Place de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) et [Gérer les offres sur les places de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+La publication d’une offre de services managés est similaire à la publication d’un autre type d’offre sur la Place de marché Azure. Pour découvrir ce processus, voir [Guide de publication de la Place de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) et [Gérer les offres sur les places de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), en particulier la section [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
 > [!IMPORTANT]
 > Chaque plan d’une offre de services managés comprend une section **Détails du manifeste** dans laquelle vous définissez les entités Azure Active Directory (Azure AD) de votre locataire qui ont accès aux groupes de ressources ou aux abonnements délégués pour les clients qui achètent ce plan. Il est important de savoir que tout groupe (ou utilisateur ou principal de service) que vous incluez ici offrira les mêmes autorisations à chaque client achetant le plan. Pour affecter différents groupes à chaque client, vous devez publier un plan privé distinct exclusif pour chaque client.
@@ -89,7 +89,7 @@ Renseignez les champs suivants dans la section **Vue d’ensemble** :
 |**Titre**     |  Titre de l’offre. Il s’agit souvent du nom formel long. Il est affiché de façon visible dans la Place de marché. Longueur maximale de 50 caractères. Dans la plupart des cas, il doit s’agir du **Nom** que vous avez entré dans la section **Paramètres de l’offre**.       |
 |**Résumé**     | Brève description de la finalité ou de la fonction de votre offre. Généralement affiché sous le titre. Longueur maximale de 100 caractères.        |
 |**Long Summary** (Résumé long)     | Récapitulatif plus long de la finalité ou de la fonction de votre offre. Longueur maximale de 256 caractères.        |
-|**Description**     | Informations supplémentaires sur votre offre. Ce champ peut compter jusqu’à 3 000 caractères et prend en charge la mise en forme HTML simple.        |
+|**Description**     | Informations supplémentaires sur votre offre. Ce champ peut compter jusqu’à 3 000 caractères et prend en charge la mise en forme HTML simple. Vous devez inclure les mots « service managé » ou « services managés » quelque part dans votre description.       |
 |**Marketing Identifier** (Identificateur marketing)     | Identificateur unique compatible avec les URL. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est *contoso* et votre identificateur marketing *sampleApp*, l’URL de votre offre sur la Place de marché Azure sera *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
 |**ID d’abonnement pour préversion**     | Ajoutez entre 1 et 100 identificateurs d’abonnement. Les clients associés à ces abonnements pourront afficher l’offre sur la Place de marché Azure avant sa mise en ligne. Nous vous suggérons d’inclure ici vos propres abonnements afin de pouvoir prévisualiser l’apparence de votre offre sur la Place de marché Azure avant de la mettre à la disposition des clients  (le support technique Microsoft et les équipes d’ingénierie pourront également voir votre offre pendant cette période de préversion).   |
 |**Liens utiles**     | URL associées à votre offre, telles celles de la documentation, des notes de publication, du FAQ, etc.        |
@@ -112,7 +112,7 @@ Le logo **Bannière (815 x 290**) est facultatif mais recommandé. Si vous inc
 - L’arrière-plan de votre logo bannière peut ne pas être noir, blanc ou transparent. Assurez-vous que la couleur d’arrière-plan n’est pas trop claire, car le texte incorporé s’affichera en blanc.
 - Une fois que vous avez publié votre offre avec une icône de bannière, vous ne pouvez plus la supprimer (même si vous pouvez la mettre à jour avec une autre version si vous le souhaitez).
 
-Dans la section **Lead Management** (Gestion des prospects), vous pouvez sélectionner le système CRM dans lequel vos prospects seront stockés si vous le souhaitez. 
+Dans la section **Lead Management** (Gestion des prospects), vous pouvez sélectionner le système CRM dans lequel vos prospects seront stockés. Notez que, selon [les stratégies de certification des services managés](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), une **destination de prospect** est requise.
 
 Enfin, entrez votre **Privacy Policy URL** (URL de la politique de confidentialité) et vos **Terms of use** (Conditions d’utilisation) dans la section **Legal** (Légal). Vous pouvez également spécifier ici s’il faut ou non utiliser le [contrat standard](https://docs.microsoft.com/azure/marketplace/standard-contract) pour cette offre.
 

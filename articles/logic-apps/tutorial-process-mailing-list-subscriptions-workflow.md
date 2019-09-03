@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260596"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051711"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gérer les requêtes de liste de diffusion avec Azure Logic Apps
 
@@ -37,17 +38,17 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 ![Application logique terminée de niveau élevé](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer.
+Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un compte MailChimp. Créez une liste nommée « test-members-ML » dans laquelle votre application logique peut ajouter des adresses e-mail pour les membres approuvés. Si vous n’avez pas de compte, [ouvrez un compte gratuit](https://login.mailchimp.com/signup/) et découvrez [comment créer une liste](https://us17.admin.mailchimp.com/lists/#). 
 
-* Un compte de messagerie avec Office 365 Outlook ou Outlook.com, qui prend en charge des flux de travail d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
+* Un compte de messagerie avec Office 365 Outlook ou Outlook.com, qui prend en charge les workflows d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec les informations d’identification de votre compte Azure.
+Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
@@ -196,7 +197,7 @@ Recherchez « mailchimp », puis sélectionnez cette action : **MailChimp - A
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **ID de liste** | test-members-ML | Nom de votre liste de diffusion MailChimp | 
-   | **État** | subscribed | État de l’abonnement pour le nouveau membre. Pour plus d’informations, consultez <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage Subscribers with the MailChimp API</a> (Gérer les abonnés avec l’API MailChimp). | 
+   | **État** | subscribed | État de l’abonnement pour le nouveau membre. Pour plus d’informations, consultez [Manage Subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Gérer les abonnés avec l’API MailChimp). | 
    | **Adresse e-mail** | <*new-member-email-address*> | Dans la liste des paramètres ou la liste de contenu dynamique, sélectionnez le champ **De** sous **À la réception d’un e-mail**, qui transmet l’adresse e-mail du nouveau membre. 
    |  |  |  | 
 

@@ -10,27 +10,25 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136479"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113573"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Créer une application web avec un déploiement continu à partir de GitHub
 
-Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis configure un déploiement continu à partir d’un dépôt GitHub. Pour le déploiement GitHub sans déploiement continu, consultez [Créer une application web et déployer du code à partir de GitHub](powershell-deploy-github.md).
+Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis configure un [déploiement continu](../deploy-continuous-deployment.md) à partir d’un dépôt GitHub. Pour le déploiement GitHub sans déploiement continu, consultez [Créer une application web et déployer du code à partir de GitHub](powershell-deploy-github.md).
 
 Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
 
-- Une connexion avec Azure a été créée à l’aide de la commande `az login`.
-- Le code d’application se trouve dans un référentiel GitHub public ou privé dont vous êtes propriétaire.
-- Vous avez [créé un jeton d’accès dans votre compte GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+- Le code d’application se trouve dans un référentiel GitHub public ou privé dont vous êtes propriétaire. Pour obtenir des builds automatiques, structurez votre dépôt en fonction du tableau [Préparer votre dépôt](../deploy-continuous-deployment.md#prepare-your-repository).
+- Vous avez [créé un jeton d’accès personnel dans votre compte GitHub](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## <a name="sample-script"></a>Exemple de script
 

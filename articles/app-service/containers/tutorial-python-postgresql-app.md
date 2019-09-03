@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951905"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020183"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Créer une application web Python (Django) avec PostgreSQL dans Azure App Service
 
@@ -142,11 +142,11 @@ Quit the server with CONTROL-C.
 
 Dans un navigateur, accédez à `http://localhost:8000`. Vous devriez voir le message `No polls are available.`. 
 
-Accédez à `http://localhost:8000/admin` et connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé à la dernière étape. Cliquez sur **Add** (Ajouter) en regard de **Questions** et créez une question de sondage à choix multiple.
+Accédez à `http://localhost:8000/admin`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé à la dernière étape. Sélectionnez **Ajouter** en regard de **Questions**, puis créez une question de sondage à choix multiple.
 
 ![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Accédez à `http://localhost:8000` de nouveau et consultez la question de sondage affichée.
+Accédez à nouveau à `http://localhost:8000`, puis consultez la question de sondage affichée.
 
 L’exemple d’application Django stocke les données utilisateur dans la base de données. Si vous parvenez à ajouter une question de sondage, votre application écrit les données dans la base de données PostgreSQL locale.
 
@@ -269,13 +269,13 @@ Dès que l’utilisateur administrateur est créé, exécutez le serveur Django.
 python manage.py runserver
 ```
 
-Accédez à `http://localhost:8000` de nouveau. Vous devriez voir le message `No polls are available.` de nouveau. 
+Accédez à nouveau à `http://localhost:8000`. Vous devriez voir le message `No polls are available.` de nouveau. 
 
-Accédez à `http://localhost:8000/admin` et connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé, puis créez une autre question de sondage, comme avant.
+Accédez à `http://localhost:8000/admin`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé, puis créez une autre question de sondage comme précédemment.
 
 ![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Accédez à `http://localhost:8000` de nouveau et consultez la question de sondage affichée. Votre application écrit désormais les données dans la base de données, dans Azure.
+Accédez à nouveau à `http://localhost:8000`, puis consultez la question de sondage affichée. Votre application écrit désormais les données dans la base de données, dans Azure.
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
 
@@ -386,7 +386,7 @@ Vous devez voir la question de sondage que vous avez créée précédemment.
 
 App Service détecte un projet Django dans votre dépôt en recherchant dans chaque sous-répertoire un fichier _wsgi.py_ qui est créé par `manage.py startproject` par défaut. Quand il trouve le fichier, il charge l’application web Django. Pour obtenir plus d’informations sur la façon dont App Service charge les applications Python, consultez [Configurer une image Python intégrée](how-to-configure-python.md).
 
-Accédez à `<app-name>.azurewebsites.net` et connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé. Si vous le souhaitez, essayez de créer d’autres questions de sondage.
+Accédez à `<app-name>.azurewebsites.net`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé. Si vous le souhaitez, essayez de créer d’autres questions de sondage.
 
 ![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -400,7 +400,7 @@ Accédez à `<app-name>.azurewebsites.net` et connectez-vous à l’aide de l’
 
 Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+Dans le menu de gauche, sélectionnez **App Services**, puis sélectionnez le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-python-postgresql-app/app-resource.png)
 

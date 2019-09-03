@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69894093"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099174"
 ---
 Au cours de cette étape, vous allez créer une base de données unique Azure SQL Database. 
 
@@ -23,8 +23,8 @@ Au cours de cette étape, vous allez créer une base de données unique Azure SQ
 
 Créez votre groupe de ressources et votre base de données unique à l’aide du portail Azure.
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
-2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
+1. Dans le menu de gauche du **portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+2. Sélectionnez **+ Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
 3. Sélectionnez **Créer** :
 
    ![Créer une base de données unique](../media/sql-database-get-started-portal/create-single-database.png)
@@ -43,7 +43,7 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
        - **Nom du serveur** : tapez `mysqlserver` ainsi que des chiffres à des fins d’unicité.
        - **Connexion administrateur au serveur** : Saisissez `azureuser`.
        - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
-       - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `West US 2`.
+       - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `West US`.
 
          ![Nouveau serveur](../media/sql-database-get-started-portal/new-server.png)
 
@@ -86,7 +86,7 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

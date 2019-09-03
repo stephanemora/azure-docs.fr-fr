@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562808"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128049"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Démarrage rapide : Exécuter votre premier programme de traitement par lots avec l’API Python
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 L’application supprime automatiquement le conteneur de stockage créé et vous donne la possibilité de supprimer le travail et le pool Azure Batch. Vous êtes facturé pour le pool pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin du pool, supprimez-le. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Batch et le compte de stockage. Pour ce faire, dans le portail Azure, sélectionnez le groupe de ressources pour le compte Batch, puis cliquez sur **Supprimer le groupe de ressources**.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Batch et le compte de stockage. Pour ce faire, sur le portail Azure, sélectionnez le groupe de ressources pour le compte Batch, puis choisissez **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,21 +9,20 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598752"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069233"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
-## <a name="overview"></a>Vue d’ensemble ##
+## <a name="overview"></a>Vue d'ensemble ##
 
 L’environnement Azure App Service est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Cette fonctionnalité peut héberger vos :
 

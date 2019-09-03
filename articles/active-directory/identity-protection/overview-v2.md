@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717286"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125638"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Présentation d'Azure Active Directory Identity Protection (mise à jour)
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection est une fonctionnalité d'Azure Active Directory Pr
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>Événements à risque
+## <a name="risk-detections"></a>Détections de risques
 
-Azure AD Identity Protection détecte les événements à risque suivants : 
+Azure AD Identity Protection détecte les détections de risques suivantes : 
 
-| Type d’événement à risque | Description | Type de détection |
+| Type de détection des risques | Description | Type de détection |
 | --- | --- | --- |
 | Voyage inhabituel | Connexion à partir d'un emplacement inhabituel par rapport aux dernières connexions de l'utilisateur | Hors ligne |
 | Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). | Temps réel |
 | Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l'utilisateur concerné | Temps réel |
 | Adresse IP liée à un programme malveillant | Connexion à partir d'une adresse IP liée à un programme malveillant | Hors ligne |
-| Informations d'identification divulguées | Cet événement à risque indique que les informations d'identification valides de l'utilisateur ont fuité | Hors ligne |
+| Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fait l’objet d’une fuite | Hors ligne |
 
 ## <a name="types-of-risk"></a>Types de risques 
 
@@ -80,7 +80,7 @@ Un risque utilisateur reflète la probabilité qu'une identité donnée soit com
 Le risque utilisateur est calculé en prenant en compte tous les risques associés à l'utilisateur :
 
 - Toutes les connexions à risque
-- Tous les événements à risque non liés à une connexion
+- Toutes les détections de risques non liées à une connexion
 - Le risque utilisateur actuel
 - Toute action de correction des risques ou de rejet menée sur l’utilisateur jusqu’à ce jour
 
@@ -88,7 +88,7 @@ Le risque utilisateur est calculé en prenant en compte tous les risques associ�
 
 Azure AD a recours au machine learning pour détecter les anomalies et les activités suspectes, en utilisant à la fois les signaux détectés en temps réel pendant la connexion et les autres signaux liés aux utilisateurs et à leurs activités de connexion. À l’aide de ces données, Identity Protection calcule un risque de connexion en temps réel chaque fois qu’un utilisateur s’authentifie et détermine un niveau de risque global pour chaque utilisateur. Identity Protection vous permet d'agir automatiquement sur ces détections de risques en configurant des stratégies de risque utilisateur et de risque de connexion Identity Protection.  
 
-Pour comprendre comment Identity Protection détecte les risques, deux concepts importants doivent être pris en compte : le risque utilisateur et le risque de connexion. Le risque de connexion reflète la probabilité qu'une demande d'authentification donnée soit rejetée par le propriétaire de l'identité. Il existe deux types de risques de connexion : en temps réel et total. Le risque de connexion en temps réel est détecté au moment de la tentative de connexion (connexions à partir d'adresses IP anonymes, par exemple). Le risque de connexion total est la somme des risques de connexion détectés en temps réel et de tous les autres événements à risque ultérieurs associés aux connexions de l’utilisateur (voyage impossible, par exemple). Le risque utilisateur reflète la probabilité globale qu'une personne malveillante ait compromis une identité donnée. Le risque utilisateur englobe toutes les activités à risque liées à un utilisateur donné, notamment :
+Pour comprendre comment Identity Protection détecte les risques, deux concepts importants doivent être pris en compte : le risque utilisateur et le risque de connexion. Le risque de connexion reflète la probabilité qu'une demande d'authentification donnée soit rejetée par le propriétaire de l'identité. Il existe deux types de risques de connexion : en temps réel et total. Le risque de connexion en temps réel est détecté au moment de la tentative de connexion (connexions à partir d'adresses IP anonymes, par exemple). Le risque de connexion total est la somme des risques de connexions détectés en temps réel et de toutes les autres détections de risques ultérieures liées aux connexions de l’utilisateur (voyage impossible, par exemple). Le risque utilisateur reflète la probabilité globale qu'une personne malveillante ait compromis une identité donnée. Le risque utilisateur englobe toutes les activités à risque liées à un utilisateur donné, notamment :
 
 - Le risque de connexion en temps réel
 - Le risque de connexion ultérieur
@@ -102,7 +102,7 @@ Le parcours de détection d'un risque et de réponse d'Identity Protection pour 
 
 Prenons l’exemple d’une employée de Contoso. 
 
-1. L’employée tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte des événements à risque en temps réel. 
+1. L’employée tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte les détections de risques en temps réel. 
 2. Azure AD détecte que l’employée se connecte à partir d’une adresse IP anonyme, ce qui déclenche un niveau de risque de connexion moyen. 
 3. L’employée est invitée à s’authentifier au moyen de l’authentification multifacteur (MFA), car l’administrateur informatique de Contoso a configuré la stratégie d’accès conditionnel en fonction du risque de connexion d’Identity Protection. Pour un risque de connexion moyen ou supérieur, la stratégie exige une authentification multifacteur (MFA). 
 4. L’employée parvient à s’authentifier à l’aide de l’authentification MFA et accède à Exchange Online. Son niveau de risque utilisateur ne change pas. 
@@ -115,20 +115,20 @@ Mais que se passerait-il si une personne autre essayait de se connecter ?
 2. Azure AD détecte que la tentative de connexion provient d'une adresse IP anonyme, ce qui déclenche un risque de connexion en temps réel. 
 3. La personne malveillante reçoit une demande de MFA car l'administrateur informatique de Contoso a configuré la stratégie d'accès conditionnel en fonction du risque de connexion d'Identity Protection de manière à exiger une authentification multifacteur lorsque le risque de connexion est moyen ou supérieur. 
 4. L’acteur malveillant ne parvient pas à s’authentifier à l’aide de l’authentification multifacteur et ne peut donc pas accéder au compte Exchange Online de l’employée. 
-5. L’échec de l’authentification multifacteur a déclenché le signalement d’un événement à risque et a élevé le niveau de risque associé à l’employée. 
+5. L’échec de l’authentification multifacteur a déclenché le signalement d’une détection de risque et a élevé le niveau de risque associé à l’employée. 
 
 Maintenant qu’un acteur malveillant a tenté d’accéder au compte de l’employée, voyons ce qui se passera la prochaine fois qu’elle tentera de se connecter. 
 
-1. L’employée tente de se connecter à Exchange Online à partir d’Outlook. Au moment de la connexion, Azure AD détecte les événements à risque en temps réel ainsi que les risques utilisateur antérieurs. 
+1. L’employée tente de se connecter à Exchange Online à partir d’Outlook. Au moment de la connexion, Azure AD détecte les détections de risques en temps réel ainsi que les risques utilisateur antérieurs. 
 2. Azure AD ne détecte aucun risque de connexion en temps réel, mais détecte un risque utilisateur élevé en raison de l'activité à risque des scénarios précédents.  
 3. L’employée est invitée à réinitialiser son mot de passe, car l’administrateur informatique de Contoso a configuré la stratégie de risque utilisateur d’Identity Protection de manière à exiger un changement de mot de passe lorsqu’un utilisateur présentant un risque élevé se connecte. 
 4. Étant donné que l’employée est inscrite pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur, elle peut réinitialiser son mot de passe. 
 5. Une fois le mot de passe réinitialisé, les informations d’identification de l’employée ne sont plus compromises et son identité est de nouveau sécurisée. 
-6. Les précédents événements à risque liés à l’employée sont résolus et son niveau de risque utilisateur est automatiquement réinitialisé en réponse à l’atténuation de la compromission des informations d’identification. 
+6. Les précédentes détections de risques liées à l’employée sont résolues et le niveau de risque utilisateur est automatiquement réinitialisé en réponse à l’atténuation de la compromission des informations d’identification. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Comment configurer Identity Protection ? 
 
-Avant de commencer à utiliser Identity Protection, configurez une stratégie de risque utilisateur et une stratégie de risque de connexion. Une fois ces stratégies configurées et appliquées à un groupe de test, vous pouvez simuler des événements à risque pour comprendre comment Identity Protection réagira dans votre environnement. Les guides de démarrage rapide ci-dessous expliquent comment configurer les stratégies susmentionnées et les tester dans votre environnement. 
+Avant de commencer à utiliser Identity Protection, configurez une stratégie de risque utilisateur et une stratégie de risque de connexion. Une fois ces stratégies configurées et appliquées à un groupe de test, vous pouvez simuler des détections de risques pour comprendre comment Identity Protection réagira dans votre environnement. Les guides de démarrage rapide ci-dessous expliquent comment configurer les stratégies susmentionnées et les tester dans votre environnement. 
 
 Identity Protection prend en charge trois rôles dans Azure AD pour équilibrer les activités de gestion autour de votre déploiement : 
 
@@ -145,13 +145,17 @@ Pour plus d’informations, consultez [Attribution de rôles d’administrateur 
 >[!NOTE]
 > Avec la préversion publique d'Identity Protection (mise à jour), seuls les clients Azure AD Premium P2 auront accès au rapport sur les utilisateurs à risque et au rapport sur les connexions à risque.
 
-| Fonctionnalité | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
-| --- | --- | --- | --- |
-| Stratégie de risque d’utilisateur | OUI | Non | Non |
-| Stratégie en matière de risque à la connexion | OUI | Non | Non |
-| Rapport sur les utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
-| Rapports sur les connexions risquées | Accès total | Informations limitées | Informations limitées |
-| Stratégie d'inscription MFA | OUI | Non | Non |
+| Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | OUI | Non | Non |
+| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | OUI | Non | Non |
+| Rapports de sécurité | Vue d'ensemble | OUI | Non | Non |
+| Rapports de sécurité | Utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
+| Rapports de sécurité | Connexions risquées | Accès total | Informations limitées | Informations limitées |
+| Rapports de sécurité | Détections de risques | Accès total | Informations limitées | Non |
+| Notifications | Alertes Utilisateurs à risque détectés | OUI | Non | Non |
+| Notifications | Synthèse hebdomadaire | OUI | Non | Non |
+| | Stratégie d'inscription MFA | OUI | Non | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

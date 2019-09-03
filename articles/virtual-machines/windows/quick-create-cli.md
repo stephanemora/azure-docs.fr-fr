@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : créer une machine virtuelle Windows avec Azure PowerShell | Microsoft Docs'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure PowerShell pour créer une machine virtuelle Windows
+title: 'Démarrage rapide : Créer une machine virtuelle Windows à l’aide de l’interface de ligne de commande Azure | Microsoft Docs'
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour créer une machine virtuelle Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d50c3cc59bffba1c9124c59bbd6ed197025dabc8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723001"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088853"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 

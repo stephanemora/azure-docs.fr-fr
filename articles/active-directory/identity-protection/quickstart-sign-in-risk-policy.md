@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1e29735a860f5dc3b6ce8996af9fcd4962871
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ed5e5e26a27e13ba09ffcc97e0b2b0f1b37bc8bd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335305"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127699"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec Azure Active Directory Identity Protection  
 
@@ -34,7 +34,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
 - **Accès à une édition Azure AD Premium P2** : Azure AD Identity Protection est une fonctionnalité d’Azure AD Premium P2. 
 - **Identity Protection** : Identity Protection doit être activé pour suivre le scénario de ce démarrage rapide. Pour en savoir plus sur l’activation d’Identity Protection dans Azure AD, consultez la page [Activer Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Navigateur Tor** : le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en) est conçu pour vous aider à préserver votre confidentialité en ligne. Identity Protection détecte les connexions à partir du navigateur Tor en tant que **connexions depuis des adresses IP anonymes**, offrant un niveau de risque moyen. Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Navigateur Tor** : le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en) est conçu pour vous aider à préserver votre confidentialité en ligne. Identity Protection détecte les connexions à partir du navigateur Tor en tant que **connexions depuis des adresses IP anonymes**, offrant un niveau de risque moyen. Pour plus d’informations, consultez [Détections de risques dans Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Un compte test nommé Alain Charon** : si vous ignorez comment créer un compte test, consultez la page [Ajouter un utilisateur](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Tester la connexion 
@@ -48,7 +48,7 @@ L’objectif de cette étape consiste à vérifier que votre compte test peut ac
 
 ## <a name="create-your-conditional-access-policy"></a>Créer votre stratégie d’accès conditionnel 
 
-Le scénario de ce démarrage rapide utilise une connexion à partir du navigateur Tor pour générer la détection d’un événement à risque (**connexion depuis une adresse IP anonyme**). Le niveau de risque de cet événement est moyen. Pour répondre à cet événement à risque, définissez le niveau de risque de connexion sur Moyen. 
+Le scénario de ce guide de démarrage rapide utilise une connexion établie à partir d’un navigateur Tor pour générer une détection des risques de **connexions depuis des adresses IP anonymes**. Le niveau de risque de cette détection des risques est moyen. Pour répondre à cette détection des risques, définissez la condition de risque de connexion sur Moyen. 
 
 Cette section montre comment créer la stratégie d’accès conditionnel de risque de connexion nécessaire. Dans votre stratégie, définissez :
 

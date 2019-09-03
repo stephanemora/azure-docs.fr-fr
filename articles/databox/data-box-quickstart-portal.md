@@ -6,21 +6,43 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834718"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098779"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box à l’aide du portail Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Prise en main d’Azure Data Box Disk à l’aide du portail Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 Ce démarrage rapide explique comment déployer Azure Data Box à l’aide du portail Azure. Ces étapes précisent comment brancher les câbles, puis configurer et copier des données vers Data Box données afin de les charger dans Azure. Le démarrage rapide est effectué dans le portail Azure et sur l’interface utilisateur web locale de l’appareil.
 
 Pour obtenir des instructions pas à pas sur le déploiement et le suivi, consultez [Tutoriel : Commander Azure Data Box](data-box-deploy-ordered.md)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+Ce guide explique comment déployer Azure Data Box à partir du portail Azure. Les étapes incluent la vérification des prérequis, le câblage et la connexion de votre appareil ainsi que la copie des données sur votre appareil de façon à les charger dans Azure.
+
+::: zone-end
+
+::: zone target="docs"
+ 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
@@ -41,6 +63,31 @@ Avant de commencer :
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Prérequis
+
+Avant de commencer, vous devez avoir :
+
+1. Suivi le tutoriel [ : Commander Azure Data Box](data-box-deploy-ordered.md).
+2. Reçu votre Data Box et l’état de la commande sur le portail doit être **Remis**. 
+3. Passé en revue les [consignes de sécurité de la Data Box](data-box-safety.md).
+4. Reçu un cordon d’alimentation avec mise à la terre pour l’utiliser avec votre dispositif de stockage de 100 To.
+5. Accès à un ordinateur hôte contenant les données que vous souhaitez copier sur la Data Box. Votre ordinateur hôte doit
+    - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
+    - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
+6. Disposer d’une surface plane où placer la Data Box. Pour placer l’appareil à plat ou droit sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack.
+7. Vous devez disposer des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
+    - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Pour plus d’informations, consultez la [liste des câbles et des commutateurs pris en charge auprès de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) compatibles avec les cartes 10GBASE double port Mellanox ConnectX®-3 Pro avec l’interface réseau PCI Express 3.0.
+    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
+    - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -55,6 +102,8 @@ Cette étape prend environ 5 minutes.
 4. Entrez les détails de la commande et les informations d’expédition. Si le service est disponible dans votre région, fournissez les adresses e-mail de notification, vérifiez le résumé, puis créez la commande.
 
 Une fois la commande créée, l’appareil est préparé pour l’expédition.
+
+
 
 ## <a name="cable"></a>Câble 
 
@@ -132,5 +181,7 @@ Dans ce démarrage rapide, vous avez déployé un appareil Azure Data Box pour f
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md) (Utiliser le portail Azure pour administrer Data Box)
+
+::: zone-end
 
 

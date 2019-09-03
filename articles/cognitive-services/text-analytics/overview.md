@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697617"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032673"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -81,7 +81,7 @@ Cette section a été déplacée vers un article distinct pour une meilleure dé
 
 ## <a name="data-limits"></a>Limites de données
 
-Tous les points de terminaison de l’API Analyse de texte acceptent des données en texte brut. La limite actuelle est de 5 120 caractères par document. Si vous avez besoin d’analyser des documents plus volumineux, vous pouvez les morceler en blocs plus petits. Si vous avez malgré tout besoin d’une limite supérieure, [contactez-nous](https://azure.microsoft.com/overview/sales-number/) afin que nous puissions en discuter.
+Tous les points de terminaison de l’API Analyse de texte acceptent des données en texte brut. La limite actuelle est de 5 120 caractères par document. Si vous avez besoin d’analyser des documents plus volumineux, vous pouvez les morceler en blocs plus petits.
 
 | Limite | Valeur |
 |------------------------|---------------|
@@ -93,8 +93,8 @@ Votre limite de débit varie selon votre niveau tarifaire.
 
 | Niveau          | Demandes par seconde | Requêtes par minute |
 |---------------|---------------------|---------------------|
-| Multiservice | 1 000                | 1 000                |
-| S0/F0         | 100                 | 300                 |
+| S / Multiservice | 1 000                | 1 000                |
+| S0 / F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |
 | S3            | 500                 | 500                 |

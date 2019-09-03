@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619839"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997879"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -254,11 +254,11 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
 |EnableTableEndpoint | Active l’API Table Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Numéro de port à utiliser pour le point de terminaison Table Azure. La valeur par défaut est 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\> : Numéro de port unique|
 | KeyFile | Lit la clé d’autorisation dans le fichier spécifié. Utilisez l’option /GenKeyFile pour générer un fichier de clé | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\> : chemin du fichier |
-| ResetDataPath | Supprime de manière récursive tous les fichiers du chemin spécifié. Si vous ne spécifiez pas de chemin, le chemin par défaut est %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\> : Chemin de fichier  |
+| ResetDataPath | Supprime de manière récursive tous les fichiers du chemin spécifié. Si vous ne spécifiez pas de chemin, le chemin par défaut est %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath=\<chemin> | \<path\> : Chemin de fichier  |
 | StartTraces  |  Démarre la collecte des journaux de trace du débogage. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Arrête la collecte des journaux de trace du débogage. | CosmosDB.Emulator.exe /StopTraces  | |
 |FailOnSslCertificateNameMismatch | Par défaut, l’émulateur regénère son certificat SSL auto-signé, si le réseau SAN du certificat n’inclut pas les informations de l’hôte émulateur (nom de domaine, adresse IPv4 locale, « localhost » et « 127.0.0.1 »). Avec cette option, l’émulateur échoue au démarrage. Vous devez alors utiliser l’option /GenCert pour créer et installer un nouveau certificat SSL auto-signé. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Génère et installe un nouveau certificat SSL auto-signé, incluant de manière facultative une liste de noms DNS supplémentaires séparés par des virgules pour accéder à l’émulateur via le réseau. | CosmosDB.Emulator.exe /GenCert[ \<liste-de-noms-DNS-supplémentaires-séparés-par-des-virgules\>] | |
+| GenCert | Génère et installe un nouveau certificat SSL auto-signé, incluant de manière facultative une liste de noms DNS supplémentaires séparés par des virgules pour accéder à l’émulateur via le réseau. | CosmosDB.Emulator.exe /GenCert=\<noms-dns\> |\<noms-dns\> : Liste de noms DNS supplémentaires séparés par des virgules (facultatif)  |
 | DirectPorts |Spécifie les ports à utiliser pour une connectivité directe. Les valeurs par défaut sont 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\> : Liste de 4 ports séparée par des virgules |
 | Clé |Clé d’autorisation pour l’émulateur. La clé doit être le codage en base 64 d’un vecteur de 64 octets. | CosmosDB.Emulator.exe /Key:\<key\> | \<clé\> : La clé doit être le codage en base 64 d’un vecteur de 64 octets|
 | EnableRateLimiting | Spécifie que le comportement de limitation de taux de demandes est activé. |CosmosDB.Emulator.exe /EnableRateLimiting | |
@@ -367,7 +367,7 @@ Pour démarrer l’image, exécutez les commandes suivantes :
 
 md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
-docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator --rm
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 ```
 
 > [!NOTE]

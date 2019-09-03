@@ -1,6 +1,6 @@
 ---
 title: Prise en main d’Azure AD v2.0 avec les applications de serveur web ASP.NET | Microsoft Docs
-description: Implémentation de la connexion Microsoft dans une solution ASP.NET avec une application basée sur un navigateur web traditionnel utilisant le standard OpenID Connect
+description: Implémentation de la connexion Microsoft dans une solution ASP.NET à l’aide d’une application basée sur un navigateur web traditionnel et la norme OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce6ab2c5068d1628860356a9df0dd33c73948b3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511922"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113652"
 ---
-# <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion avec Microsoft à une application ASP.NET
+# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
 
-Ce guide explique comment implémenter la connexion avec Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel avec une norme OpenID Connect.
+Ce guide explique comment implémenter la connexion à Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel et OpenID Connect.
 
-À la fin de ce guide, votre application sera en mesure d’accepter les connexions à l’aide de comptes personnels, comme les comptes outlook.com, live.com et autres. Cela comprend également les comptes professionnels et scolaires de toute entreprise ou organisation ayant intégré Azure Active Directory.
+Quand vous aurez suivi ce guide, votre application sera en mesure d’accepter les connexions de comptes personnels à partir des mentions « j’aime » d’outlook.com et de live.com. De plus, les comptes professionnels et scolaires de toute entreprise ou organisation ayant intégré Azure Active Directory (Azure AD) pourra se connecter à votre application.
 
-> Pour suivre ce guide, vous avez besoin de Visual Studio 2019.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Télécharger Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/)
+> Pour suivre ce guide, vous avez besoin de Microsoft Visual Studio 2019.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Téléchargez Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
 ![Fonctionnement de l’exemple d’application généré par ce tutoriel](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-L’exemple d’application que vous créez est basé sur un scénario dans lequel vous utilisez le navigateur pour accéder à un site web ASP.NET qui vous invite à vous authentifier via un bouton de connexion. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
+L’exemple d’application que vous créez est basé sur un scénario dans lequel vous utilisez le navigateur pour accéder à un site web ASP.NET qui invite un utilisateur à s’authentifier par le biais d’un bouton de connexion. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
 
 ## <a name="libraries"></a>Bibliothèques
 
@@ -44,25 +44,25 @@ Ce guide utilise les bibliothèques suivantes :
 |Bibliothèque|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification.|
-|[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies.|
-|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Permet aux applications basées sur OWIN de s’exécuter sur IIS à l’aide du pipeline de requête ASP.NET.|
+|[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel (middleware) qui permet à une application de maintenir une session utilisateur à l’aide de cookies|
+|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Intergiciel (middleware) qui permet aux applications basées sur OWIN de s’exécuter sur IIS (Internet Information Services) à l’aide du pipeline de requête ASP.NET|
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
-Cette section explique comment installer et configurer le pipeline d’authentification via l’intergiciel OWIN sur un projet ASP.NET à l’aide d’OpenID Connect.
+Cette section montre comment installer et configurer le pipeline d’authentification par le biais du middleware OWIN sur un projet ASP.NET à l’aide d’OpenID Connect.
 
-> Vous préférez télécharger le projet Visual Studio de cet exemple ? [Téléchargez un projet](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) et passez à l’étape [Configuration](#register-your-application) pour configurer l’exemple de code avant l’exécution.
+> Vous préférez télécharger le projet Visual Studio de cet exemple ? [Téléchargez un projet](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip), puis passez à l’étape [Inscrire votre application](#register-your-application) pour configurer l’exemple de code avant de l’exécuter.
 
 ### <a name="create-your-aspnet-project"></a>Créer votre projet ASP.NET
 
-1. Dans Visual Studio : `File` > `New` > `Project`
-2. Sous *Visual C# \Web*, sélectionnez `ASP.NET Web Application (.NET Framework)`.
-3. Donnez un nom à votre application et cliquez sur *OK*.
-4. Sélectionnez `Empty` et cochez la case pour ajouter des références `MVC`.
+1. Dans Visual Studio : Accédez à **Fichier** > **Nouveau** > **Projet**.
+2. Sous **Visual C#\Web**, sélectionnez **Application web ASP.NET (.NET Framework)** .
+3. Donnez un nom à votre application et sélectionnez **OK**.
+4. Sélectionnez **Vide**, puis cochez la case pour ajouter des références **MVC**.
 
 ## <a name="add-authentication-components"></a>Ajouter les composants d’authentification
 
-1. Dans Visual Studio : `Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. Dans Visual Studio : Accédez à **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**.
 2. Ajoutez *les packages NuGet de l’intergiciel OWIN* en saisissant la commande suivante dans la fenêtre Console du gestionnaire de package :
 
     ```powershell
@@ -73,21 +73,21 @@ Cette section explique comment installer et configurer le pipeline d’authentif
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>À propos de ces bibliothèques
-> Les bibliothèques ci-dessus activent l’authentification unique à l’aide d’OpenID Connect via l’authentification basée sur les cookies. Une fois que l’authentification est terminée et que le jeton qui représente l’utilisateur est envoyé à votre application, l’intergiciel OWIN crée un cookie de session. Le navigateur utilise ensuite ce cookie pour les requêtes ultérieures afin que l’utilisateur n’ait pas besoin de saisir à nouveau le mot de passe, et aucune vérification complémentaire n’est nécessaire.
+> Ces bibliothèques activent l’authentification unique (SSO) avec OpenID Connect à l’aide de l’authentification basée sur les cookies. Une fois que l’authentification est terminée et que le jeton qui représente l’utilisateur est envoyé à votre application, l’intergiciel OWIN crée un cookie de session. Le navigateur utilise ensuite ce cookie pour les requêtes ultérieures afin d’éviter à l’utilisateur de retaper le mot de passe, et aucune vérification supplémentaire n’est nécessaire.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurer le pipeline d’authentification
 
-Les étapes suivantes permettent de créer une classe de démarrage d’intergiciel OWIN pour configurer l’authentification OpenID Connect. Cette classe sera exécutée automatiquement au démarrage de votre processus IIS.
+Les étapes suivantes permettent de créer une classe Startup de middleware OWIN pour configurer l’authentification OpenID Connect. Cette classe est exécutée automatiquement au démarrage de votre processus IIS.
 
 > [!TIP]
 > Si votre projet n’a pas de fichier `Startup.cs` dans le dossier racine :
-> 1. Cliquez avec le bouton droit sur le dossier racine du projet : > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nommez-le `Startup.cs`.
+> 1. Cliquez avec le bouton droit sur le dossier racine du projet, puis sélectionnez **Ajouter** > **Nouvel élément** > **Classe de démarrage OWIN**.<br/>
+> 2. Nommez-la **Startup.cs**.
 >
->> Assurez-vous que la classe sélectionnée est une classe de démarrage OWIN et non une classe C# standard. Pour le savoir, vérifiez que `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` s’affiche au-dessus de l’espace de noms.
+>> Vérifiez que la classe sélectionnée est une classe de démarrage OWIN et non une classe C# standard. Pour ce faire, vérifiez que vous voyez [assembly: OwinStartup(typeof({NameSpace}.Startup))] au-dessus de l’espace de noms.
 
-1. Ajoutez les références *OWIN* et *Microsoft.IdentityModel* à `Startup.cs` :
+1. Ajoutez les références *OWIN* et *Microsoft.IdentityModel* à Startup.cs:
 
     ```csharp
     using Microsoft.Owin;
@@ -100,7 +100,7 @@ Les étapes suivantes permettent de créer une classe de démarrage d’intergic
     using Microsoft.Owin.Security.Notifications;
     ```
 
-2. Remplacez la classe de démarrage par le code ci-dessous :
+2. Remplacez la classe de démarrage par le code suivant :
 
     ```csharp
     public class Startup
@@ -169,31 +169,32 @@ Les étapes suivantes permettent de créer une classe de démarrage d’intergic
     ```
 
 > [!NOTE]
-> Le paramètre `ValidateIssuer = false` est une simplification destinée aux seules fins de ce guide de démarrage rapide. Dans les applications réelles, vous devez valider l’émetteur. Consultez les exemples pour savoir comment procéder.
+> Le paramètre `ValidateIssuer = false` est une simplification destinée aux seules fins de ce guide de démarrage rapide. Dans les applications réelles, vous devez valider l’émetteur.
+> Pour découvrir comment procéder, consultez les exemples.
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Informations complémentaires
-> Les paramètres que vous fournissez dans *OpenIDConnectAuthenticationOptions* serviront de coordonnées pour que l’application puisse communiquer avec Azure AD. Vous devez également configurer l’authentification des cookies comme indiqué dans le code ci-dessus, car l’intergiciel OpenID Connect utilise des cookies en arrière-plan. La valeur *ValidateIssuer* indique à OpenID Connect de ne pas restreindre l’accès à une organisation spécifique.
+> ### <a name="more-information"></a>Plus d’informations
+> Les paramètres que vous fournissez dans *OpenIDConnectAuthenticationOptions* serviront de coordonnées pour que l’application puisse communiquer avec Azure AD. Étant donné que le middleware OpenID Connect utilise des cookies en arrière-plan, vous devez également configurer l’authentification des cookies comme le montre le code précédent. La valeur *ValidateIssuer* indique à OpenIdConnect de ne pas restreindre l’accès à une organisation spécifique.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Ajouter un contrôleur pour gérer les demandes de connexion et de déconnexion
 
-Cette étape explique comment créer un contrôleur pour exposer les méthodes de connexion et de déconnexion.
+Pour créer un contrôleur afin d’exposer les méthodes de connexion et de déconnexion, effectuez les étapes suivantes :
 
-1.  Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`.
-2.  Sélectionnez `MVC (.NET version) Controller – Empty`.
-3.  Cliquez sur *Ajouter*.
-4.  Nommez-le `HomeController`, puis cliquez sur *Ajouter*.
-5.  Ajoutez les références *OWIN* à la classe :
+1.  Cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis sélectionnez **Ajouter** > **Contrôleur**.
+2.  Sélectionnez **Contrôleur MVC (version .NET) – vide**.
+3.  Sélectionnez **Ajouter**.
+4.  Nommez-le **HomeController**, puis sélectionnez **Ajouter**.
+5.  Ajoutez des références OWIN à la classe :
 
     ```csharp
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
-    
-6. Ajoutez les deux méthodes ci-dessous pour gérer la connexion à votre contrôleur et la déconnexion de celui-ci en lançant une demande d’authentification via du code :
-    
+
+6. Ajoutez les deux méthodes suivantes pour gérer la connexion à votre contrôleur et la déconnexion de celui-ci en lançant une demande d’authentification :
+
     ```csharp
     /// <summary>
     /// Send an OpenID Connect sign-in request.
@@ -220,12 +221,12 @@ Cette étape explique comment créer un contrôleur pour exposer les méthodes d
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Créer la page d’accueil de l’application pour connecter des utilisateurs via un bouton de connexion
+## <a name="create-the-apps-home-page-for-user-sign-in"></a>Créer la page d’accueil de l’application pour la connexion de l’utilisateur
 
-Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et afficher les informations de l’utilisateur après l’authentification :
+Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et afficher les informations de l’utilisateur après authentification :
 
-1.  Cliquez avec le bouton droit sur le dossier `Views\Home` et sélectionnez `Add View`.
-2.  Nommez-le `Index`.
+1.  Faites un clic droit sur le dossier **Vues\Accueil** et sélectionnez **Ajouter une vue**.
+2.  Nommez la nouvelle vue **Index**.
 3.  Ajoutez le code HTML suivant, qui inclut le bouton de connexion, au fichier :
 
     ```html
@@ -267,18 +268,18 @@ Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et affich
     ```
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Informations complémentaires
-> Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez à [cette page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Conseils pour la personnalisation").
+> ### <a name="more-information"></a>Plus d’informations
+> Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour accéder à d’autres boutons de connexion, rendez-vous sur la page [Instructions de personnalisation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Instructions de personnalisation").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Ajouter un contrôleur pour afficher les revendications de l’utilisateur
-Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code ci-dessous tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion.
+Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code suivant tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion :
 
-1.  Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`
-2.  Sélectionnez `MVC {version} Controller – Empty`.
-3.  Cliquez sur *Ajouter*.
-4.  Nommez-le `ClaimsController`.
-5.  Remplacez le code de votre classe de contrôleur par le code ci-dessous afin d’ajouter l’attribut `[Authorize]` à la classe :
+1.  Cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis sélectionnez **Ajouter** > **Contrôleur**.
+2.  Sélectionnez **Contrôleur MVC {version} – vide**.
+3.  Sélectionnez **Ajouter**.
+4.  Nommez-le **ClaimsController**.
+5.  Remplacez le code de votre classe de contrôleur par le code suivant. Cette opération ajoute l’attribut `[Authorize]` à la classe :
 
     ```csharp
     [Authorize]
@@ -310,16 +311,16 @@ Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour pro
     ```
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Informations complémentaires
-> En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur peuvent uniquement être exécutées si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et tente d’accéder au contrôleur, OWIN initialise une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code ci-dessus examine la collection de revendications pour les attributs utilisateur spécifiques inclus dans le jeton d’ID de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également le *ID client*, qui représente l’identifiant de l’organisation de l’utilisateur. 
+> ### <a name="more-information"></a>Plus d’informations
+> En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur ne peuvent être exécutées que si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et qu’il tente d’accéder au contrôleur, OWIN lance une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code précédent examine la liste des revendications pour des attributs utilisateur spécifiques inclus dans le jeton d’ID de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également le *ID client*, qui représente l’identifiant de l’organisation de l’utilisateur. 
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Créer une vue pour afficher les revendications de l’utilisateur
 
 Dans Visual Studio, créez une vue pour afficher les revendications de l’utilisateur dans une page web :
 
-1.  Cliquez avec le bouton droit sur le dossier `Views\Claims` et sélectionnez `Add View`.
-2.  Nommez-le `Index`.
+1.  Cliquez avec le bouton droit sur le dossier **Views\Claims**, puis sélectionnez**Ajouter une vue**.
+2.  Nommez la nouvelle vue **Index**.
 3.  Ajoutez le code HTML suivant au fichier :
 
     ```html
@@ -358,30 +359,30 @@ Pour inscrire votre application et ajouter les informations d’inscription de l
 
 ### <a name="option-1-express-mode"></a>Option 1 : Mode Express
 
-Vous pouvez inscrire rapidement votre application en procédant comme suit :
+Pour inscrire rapidement votre application, effectuez les étapes suivantes :
 
 1. Accédez au nouveau volet [Portail Azure - Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
-1. Saisissez un nom pour votre application et cliquez sur **Inscrire**.
-1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
+1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
+1. Suivez les instructions permettant de télécharger et de configurer automatiquement votre nouvelle application en un seul clic.
 
 ### <a name="option-2-advanced-mode"></a>Option 2 : Mode Avancé
 
 Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 
-1. Accédez à Visual Studio et :
-   1. Dans l’Explorateur de solutions, sélectionnez le projet et examinez la fenêtre Propriétés (si vous ne voyez pas une fenêtre Propriétés, appuyez sur F4).
+1. Ouvrez Visual Studio, puis :
+   1. Dans l’Explorateur de solutions, sélectionnez le projet et examinez la fenêtre Propriétés (si aucune fenêtre Propriétés ne s’affiche, appuyez sur F4).
    1. Définissez l’option SSL activé sur `True`.
-   1. Cliquez avec le bouton droit sur le projet dans Visual Studio, puis choisissez **Propriétés** et cliquez sur l’onglet **Web**. Dans la section *Serveurs*, modifiez *l’URL du projet* de manière à indiquer l’URL SSL.
-   1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste d’URL de redirection dans la liste du portail d’inscription d’URL de redirection à l’étape suivante :<br/><br/>![Propriétés du projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+   1. Cliquez avec le bouton droit sur le projet dans Visual Studio et sélectionnez **Propriétés**, puis l’onglet **Web**. Dans la section **Serveurs**, remplacez l’**URL du projet** par l’**URL SSL**.
+   1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste des URL de redirection dans la liste des URL de redirection du portail d’inscription à l’étape suivante.<br/><br/>![Propriétés du projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Connectez-vous au [portail Azure](https://portal.azure.com) soit avec un compte professionnel ou scolaire, soit avec un compte Microsoft personnel.
+1. Si votre compte vous permet d’accéder à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
 1. Sélectionnez **Nouvelle inscription**.
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `ASPNET-Tutorial`.
-   1. Ajoutez l’URL SSL que vous avez copiée à partir de Visual Studio à l’étape 1 (par exemple `https://localhost:44368/`) dans **URL de réponse**, puis cliquez sur **Inscrire**.
-1. Sélectionnez le menu **Authentification**, définissez les **Jetons d’ID** sous **Octroi implicite**, puis sélectionnez **Enregistrer**.
-1. Ajoutez le code suivant dans le fichier `web.config` situé dans le dossier racine, sous la section `configuration\appSettings` :
+   1. Dans la section **Nom**, entrez un nom d’application explicite qui s’affichera aux utilisateurs de l’application, par exemple **ASPNET-Tutorial**.
+   1. Ajoutez l’URL SSL que vous avez copiée à partir de Visual Studio à l’étape 1 (par exemple, `https://localhost:44368/`) dans **URL de réponse**, puis sélectionnez **Inscrire**.
+1. Sélectionnez le menu **Authentification**, sélectionnez **Jetons d’ID** sous **Octroi implicite**, puis sélectionnez **Enregistrer**.
+1. Ajoutez le code suivant dans le fichier web.config situé dans le dossier racine, dans la section `configuration\appSettings` :
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -395,21 +396,30 @@ Pour inscrire votre application et ajouter manuellement les informations d’ins
 
 ## <a name="test-your-code"></a>Test de votre code
 
-Pour tester votre application dans Visual Studio, appuyez sur **F5** afin d’exécuter votre projet. Le navigateur s’ouvre sur l’emplacement http://<span></span>localhost:{port} et vous voyez le bouton **Se connecter avec Microsoft**. Sélectionnez le bouton pour démarrer le processus de connexion.
+Pour tester votre application dans Visual Studio, appuyez sur F5 afin d’exécuter votre projet. Le navigateur s’ouvre sur l’emplacement http://<span></span>localhost:{port} et le bouton **Se connecter avec Microsoft** s’affiche. Sélectionnez le bouton pour démarrer le processus de connexion.
 
-Lorsque vous êtes prêt pour le test, utilisez un compte Microsoft Azure Active Directory (compte professionnel ou scolaire) ou un compte Microsoft personnel (<span>live.</span>com ou <span>outlook.</span>com) pour vous connecter.
+Quand vous êtes prêt à exécuter votre test, utilisez un compte Azure AD (compte professionnel ou scolaire) ou un compte Microsoft personnel (<span>live.</span>com ou <span>outlook.</span>com) pour vous connecter.
 
 ![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Connexion à votre compte Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
+<!--start-collapse-->
+> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
+>  Les applications qui s’intègrent à la plateforme d’identité Microsoft suivent un modèle d’autorisation permettant aux utilisateurs et aux administrateurs de contrôler l’accès aux données. Une fois qu’un utilisateur s’est authentifié auprès d’Azure AD pour accéder à cette application, il est invité à donner son consentement pour les autorisations demandées par l’application (« Afficher votre profil de base » et « Conserver l’accès aux données auxquelles vous lui avez donné accès »). Après avoir accepté ces autorisations, l’utilisateur poursuit en accédant aux résultats de l’application. Toutefois, une page **Consentement de l’administrateur nécessaire** peut s’afficher à l’utilisateur si l’une des conditions suivantes se présente :
+>  > - Le développeur d’applications ajoute toutes les autorisations supplémentaires qui exigent le **consentement de l’administrateur**.
+>  > - Ou le locataire est configuré (dans **Applications d’entreprise -> Paramètres utilisateur**), ce qui empêche les utilisateurs de donner leur consentement pour les applications qui accèdent à des données de l’entreprise en leur nom.
+>
+> Pour plus d’informations, consultez [Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+<!--end-collapse-->
+
 #### <a name="view-application-results"></a>Afficher les résultats de l’application
 
-Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web. La page d’accueil correspond à l’URL HTTPS qui est spécifiée dans les informations d’inscription de votre application, dans le portail d’inscription des applications de Microsoft. La page d’accueil comprend le message de bienvenue *« Bonjour \<Utilisateur>, »* un lien pour se déconnecter et un lien pour afficher les revendications de l’utilisateur. Le lien des revendications de l’utilisateur redirige vers le contrôleur *Claims* que vous avez créé précédemment.
+Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web. La page d’accueil correspond à l’URL HTTPS qui est spécifiée dans les informations d’inscription de votre application, dans le portail d’inscription des applications de Microsoft. Cette page comprend le message de bienvenue *« Hello \<utilisateur> »* , un lien pour se déconnecter et un lien pour afficher les revendications de l’utilisateur. Le lien des revendications de l’utilisateur établit une connexion au contrôleur des revendications que vous avez créé précédemment.
 
-### <a name="browse-to-see-the-users-claims"></a>Accéder aux revendications de l’utilisateur
+### <a name="view-the-users-claims"></a>Afficher les revendications de l’utilisateur
 
-Pour afficher les revendications de l’utilisateur, sélectionnez le lien pour accéder à la vue de contrôleur qui est disponible uniquement pour les utilisateurs authentifiés.
+Pour voir les revendications de l’utilisateur, sélectionnez le lien permettant d’accéder à la vue de contrôleur qui est disponible uniquement pour les utilisateurs authentifiés.
 
 #### <a name="view-the-claims-results"></a>Afficher les résultats des revendications
 
@@ -417,18 +427,18 @@ Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tab
 
 |Propriété |Valeur |Description |
 |---|---|---|
-|**Name** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
-|**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur employé pour identifier l’utilisateur.
-|**Subject** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web.|
-|**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur.|
+|**Name** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur.
+|**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur utilisé pour identifier l’utilisateur|
+|**Subject** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web|
+|**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur|
 
-En outre, vous devez voir un tableau avec toutes les revendications qui se trouvent dans la requête d’authentification. Pour plus d’informations, consultez la [liste des revendications qui se trouvent dans un jeton d’ID AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+En outre, vous devriez voir un tableau de toutes les revendications qui se trouvent dans la demande d’authentification. Pour plus d’informations, consultez la [liste des revendications qui se trouvent dans un jeton d’ID Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Tester l’accès à une méthode disposant d’un attribut Authorize (facultatif)
 
-Pour tester l’accès en tant qu’utilisateur anonyme à un contrôleur protégé avec l’attribut `Authorize`, procédez comme suit :
+Pour tester l’accès en tant qu’utilisateur anonyme à un contrôleur qui est protégé par l’attribut `Authorize`, effectuez les étapes suivantes :
 
-1. Sélectionnez le lien de déconnexion de l’utilisateur et terminez le processus de déconnexion.
+1. Sélectionnez le lien de déconnexion de l’utilisateur, puis terminez le processus de déconnexion.
 2. Dans le navigateur, tapez http://<span></span>localhost:{port}/claims pour accéder à votre contrôleur qui est protégé par l’attribut `Authorize`.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Résultats attendus après l’accès à un contrôleur protégé
@@ -448,39 +458,46 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restreindre les utilisateurs autorisés à se connecter à votre application
 
-Par défaut, lorsque vous générez l’application créée par ce guide, votre application accepte des connexions de comptes personnels (y compris outlook.com, live.com et autres) et de comptes professionnels et scolaires de n’importe quelle société ou organisation intégrées à Azure Active Directory. Il s’agit d’une option recommandée pour les applications SaaS.
+Par défaut, quand vous générez l’application créée par ce guide, celle-ci accepte les connexions de comptes personnels (dont outlook.com et live.com, entre autres) ainsi que de comptes professionnels et scolaires de n’importe quelle entreprise ou organisation intégrée à Azure AD. Il s’agit d’une option recommandée pour les applications SaaS.
 
-Pour restreindre les utilisateurs qui peuvent se connecter à votre application, plusieurs options sont disponibles :
+Pour restreindre les utilisateurs qui peuvent se connecter à votre application, plusieurs options sont disponibles.
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Option 1 : Limiter la connexion à votre application aux utilisateurs de l’instance Active Directory d’une seule organisation (un seul locataire)
 
-Cette option est un scénario courant pour les *applications métier* : Si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure Active Directory spécifique (notamment les *comptes invités* de cette instance), effectuez les étapes suivantes :
+Cette option est souvent utilisée pour les *applications métier* : Si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure AD spécifique (y compris les *comptes invités* de cette instance), suivez les étapes suivantes :
 
-1. Dans le fichier **web.config**, remplacez la valeur du paramètre `Tenant` de `Common` par le nom du locataire de l’organisation, par exemple `contoso.onmicrosoft.com`.
+1. Dans le fichier web.config, remplacez la valeur `Common` du paramètre `Tenant` par le nom de locataire de l’organisation ; par exemple, `contoso.onmicrosoft.com`.
 2. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Option 2 : Restreindre l’accès à votre application aux utilisateurs figurant dans une liste spécifique d’organisations
+#### <a name="option-2-restrict-access-to-users-in-a-specific-list-of-organizations"></a>Option 2 : Restreindre l’accès aux utilisateurs figurant dans une liste spécifique d’organisations
 
-Vous pouvez limiter les connexions aux comptes d’utilisateurs d’une organisation Azure AD figurant dans la liste des organisations autorisées :
+Vous pouvez limiter l’accès de connexion aux comptes d’utilisateurs d’une organisation Azure AD figurant dans la liste des organisations autorisées :
 1. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
 2. Définissez la valeur du paramètre `ValidIssuers` sur la liste des organisations autorisées.
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : Utiliser une méthode personnalisée pour valider les émetteurs
 
-Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique concernant la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, consultez la rubrique relative à la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez le fonctionnement des applications web qui appellent des API web.
+Découvrez comment des applications web peuvent appeler des API web.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Découvrez les étapes permettant de créer l’application utilisée dans ce démarrage rapide
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Découvrir comment créer l’application utilisée dans ce guide de démarrage rapide
+
+Découvrez plus d’informations sur les applications web appelant des API web avec la plateforme d’identité Microsoft :
 
 > [!div class="nextstepaction"]
-> [Applications web appelant des API web]( https://aka.ms/msal-net-authorization-code)
+> [Applications web appelant des API web](scenario-web-app-sign-user-overview.md)
+
+Découvrez comment générer des applications web appelant Microsoft Graph :
+
+> [!div class="nextstepaction"]
+> [Tutoriel ASP.NET Microsoft Graph](https://docs.microsoft.com/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-Aidez-nous à améliorer la plateforme d’identité Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une enquête de deux questions :
 
 > [!div class="nextstepaction"]
 > [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

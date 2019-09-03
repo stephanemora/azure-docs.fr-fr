@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480044"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126129"
 ---
 ::: zone target="docs"
 
@@ -29,6 +29,16 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Se connecter aux disques et obtenir la clé d’accès
 > * Déverrouiller les disques sur le client Windows
 > * Déverrouiller les disques sur le client Linux
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Déballer, connecter et déverrouiller un disque Azure Data Box Disk
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -282,7 +292,7 @@ Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Fournissez la clé d’accès que vous avez obtenue à partir de **Général > Détails de l’appareil** dans le portail Azure. La lettre de lecteur affectée au disque s’affiche. 
+    -  Récupérez la clé d’accès sous **Général > Détails de l’appareil** dans le portail Azure et fournissez-la ici. La lettre de lecteur affectée au disque s’affiche. 
 4. Pour déverrouiller les disques sur un client Linux, ouvrez un terminal. Accédez au dossier où vous avez téléchargé le logiciel. Tapez les commandes suivantes pour modifier les autorisations de fichiers afin de pouvoir exécuter ces fichiers : 
 
     ```
@@ -294,7 +304,7 @@ Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Exécutez l’outil Data Box Disk Unlock. Fournissez la clé d’accès mentionnée dans le portail Azure en accédant à **Général > Détails de l’appareil**. Si vous le souhaitez, spécifiez une liste de volumes chiffrés BitLocker à déverrouiller entre guillemets simples.
+    Exécutez l’outil Data Box Disk Unlock. Récupérez la clé d’accès sous **Général > Détails de l’appareil** dans le portail Azure et fournissez-la ici. Si vous le souhaitez, spécifiez une liste de volumes chiffrés BitLocker à déverrouiller entre guillemets simples.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
@@ -303,7 +313,9 @@ Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez
 
 Une fois le disque déverrouillé, vous pouvez afficher son contenu.
 
-Pour plus d’informations sur la façon de configurer et de déverrouiller les disques, consultez [Tutoriel : Déballer, connecter et déverrouiller un disque Azure Data Box](data-box-disk-deploy-set-up.md).
+Pour plus d’informations sur la configuration des disques, consultez [Déballer votre disque Data Box](data-box-disk-deploy-set-up.md#unpack-your-disks).
+
+Pour plus d’informations sur le déverrouillage des disques, consultez [Déverrouiller Data Box Disk sur le client Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
 
 ::: zone-end
 

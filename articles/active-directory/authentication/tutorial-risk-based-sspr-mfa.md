@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113202"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125178"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Didacticiel : Utiliser des événements à risque pour déclencher l’authentification multifacteur et le changement du mot de passe
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Didacticiel : Utiliser des détections de risque pour déclencher l’authentification multifacteur et le changement du mot de passe
 
 Dans ce didacticiel, vous allez activer des fonctionnalités d’Azure Active Directory (Azure AD) Identity Protection, une fonctionnalité d’Azure AD Premium P2 qui va au-delà d’un simple outil de surveillance et de création de rapports. Pour protéger les identités de votre organisation, vous pouvez configurer des stratégies reposant sur des risques qui répondent automatiquement aux comportements à risque. Ces stratégies peuvent automatiquement déclencher un blocage ou une correction, notamment exiger des modifications de mot de passe et appliquer l’authentification multifacteur.
 
 Les stratégies Azure AD Identity Protection peuvent être utilisées en plus des stratégies d’accès conditionnel existantes, comme une couche supplémentaire de protection. Vos utilisateurs peuvent ne jamais déclencher un comportement à risque qu’elles nécessitant une de ces stratégies, mais en tant qu’administrateur, vous savez qu’ils sont protégés.
 
-Voici certains éléments susceptibles de déclencher un événement à risque :
+Voici certains éléments susceptibles de déclencher une détection de risque :
 
 * Utilisateurs avec des informations d’identification volées
 * Connexions depuis des adresses IP anonymes

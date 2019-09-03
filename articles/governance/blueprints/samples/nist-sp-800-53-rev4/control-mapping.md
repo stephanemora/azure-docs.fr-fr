@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a179c5919f647b567b2109ec1a73ac8bb6cda36b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7f55599c917011180ebb140d53defc0aca3acbb2
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479870"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983119"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4
 
@@ -55,23 +55,23 @@ Le fait de comprendre les implémentations CORS peut vous aider à vérifier que
 
 Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’assurer la redondance administrative. À l’inverse, un nombre trop élevé de propriétaires d’abonnement Azure peut augmenter le risque d’une violation par le biais d’un compte de propriétaire compromis. Ce blueprint permet de maintenir un nombre adapté de propriétaires d’abonnement Azure en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent le nombre de propriétaires pour les abonnements Azure. Ce blueprint affecte également des définitions Azure Policy qui vous permettent de contrôler l’appartenance au groupe Administrateurs sur les machines virtuelles Windows. La gestion des autorisations des propriétaires d’abonnement et des administrateurs de machine virtuelle peut vous aider à implémenter une séparation appropriée des tâches.
 
-- Trois propriétaires maximum doivent être désignés pour votre abonnement
+- Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
-- Plusieurs propriétaires doivent être attribués à votre abonnement
+- Plusieurs propriétaires doivent être affectés à votre abonnement
 
 ## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) Privilèges minimum | Révision des privilèges utilisateur
 
 Azure implémente le [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes à examiner en priorité. L’examen de ces indicateurs de compte peut vous aider à vous assurer que les contrôles de privilège minimum sont implémentés.
 
-- Trois propriétaires maximum doivent être désignés pour votre abonnement
+- Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
-- Plusieurs propriétaires doivent être attribués à votre abonnement
+- Plusieurs propriétaires doivent être affectés à votre abonnement
 
 ## <a name="ac-16-security-attributes"></a>Attributs de sécurité AC-16
 
@@ -148,19 +148,19 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 
 Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
 
-- Des contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Fonctionnalités essentielles | Logiciels autorisés / Mise sur liste verte
 
 Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
 
-- Des contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Logiciels installés par l’utilisateur
 
 Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
 
-- Des contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cp-7-alternate-processing-site"></a>CP-7 Site de traitement secondaire
 
@@ -219,7 +219,7 @@ Ce blueprint permet de gérer les vulnérabilités du système d’informations 
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos machines virtuelles doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
-- Les vulnérabilités doivent être corrigées à l’aide d’une solution d’évaluation des vulnérabilités
+- Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
 ## <a name="sc-5-denial-of-service-protection"></a>SC-5 Protection contre le déni de service
 
@@ -269,9 +269,9 @@ Ce blueprint permet d’appliquer votre stratégie sur l’utilisation des contr
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer le chiffrement transparent des données sur les bases de données SQL
-- Un chiffrement de disque doit être appliqué aux machines virtuelles
+- Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Exiger un chiffrement sur les comptes Data Lake Store
-- La technologie Transparent Data Encryption sur les bases de données SQL doit être activée
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
 
 ## <a name="si-2-flaw-remediation"></a>SI-2 Correction des défauts
 
@@ -283,7 +283,7 @@ Ce blueprint permet de gérer les défauts du système d’informations en affec
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos machines virtuelles doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
-- Les vulnérabilités doivent être corrigées à l’aide d’une solution d’évaluation des vulnérabilités
+- Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Protection contre les codes malveillants
 

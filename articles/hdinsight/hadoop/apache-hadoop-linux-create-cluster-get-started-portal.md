@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0e3ee1620d9dc004f3b3b0804fc42cc0d427a7ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805583"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036421"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : créer un cluster Apache Hadoop dans Azure HDInsight à l’aide du portail Azure
 
@@ -32,7 +32,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans le portail Azure, accédez à **Créer une ressource** > **Analytique** > **HDInsight**.
+1. Sur le portail Azure, accédez à **Créer une ressource** > **Analytique** > **HDInsight**.
 
     ![Databricks sur le portail Azure](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Databricks sur le portail Azure")
 
@@ -78,7 +78,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
 
     ![Bien démarrer avec HDInsight Linux résumé du cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-summary.png "Bien démarrer avec HDInsight Linux résumé du cluster")
 
-1. Sélectionnez **Créer**. La création d’un cluster prend environ 20 minutes.
+1. Sélectionnez **Create** (Créer). La création d’un cluster prend environ 20 minutes.
 
 1. Une fois que le cluster est créé, la page de vue d’ensemble du cluster s’affiche dans le portail Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: Créer et tester un appareil Azure IoT Plug-and-Play (préversion) | Microsoft Docs
+title: Créer et tester un appareil IoT Plug-and-Play (préversion) | Microsoft Docs
 description: Avec ce tutoriel destiné aux développeurs d’appareils, vous allez découvrir comment utiliser VS Code pour créer et tester un modèle de capacité d’appareil pour un appareil IoT Plug-and-Play (préversion).
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5a03eea84d0d68f06b432014fc4374e799914d67
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878720"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047982"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Didacticiel : Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
 

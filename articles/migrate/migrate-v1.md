@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228403"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905219"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -246,7 +246,6 @@ Pour installer l’agent sur une machine Linux :
 
 Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre avec l’agent MMA Operations Manager pour recueillir les données de dépendance nécessaires. [Plus d’informations](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) L’agent de dépendances doit être installé.
 
-
 ### <a name="install-the-dependency-agent"></a>Installer l’agent de dépendances
 
 1. Pour installer l’agent de dépendances sur une machine Windows, double-cliquez sur le fichier d’installation et suivez l’Assistant.
@@ -254,9 +253,11 @@ Pour les machines surveillées par System Center Operations Manager 2012 R2 ou
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Apprenez-en davantage sur la prise en charge de l’agent de dépendances pour les systèmes d’exploitation [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) et [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
-- [En savoir plus](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
+- Apprenez-en davantage sur la [prise en charge de l’agent de dépendances](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pour les systèmes d’exploitation Windows et Linux.
+- [En savoir plus](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
 
+>[!NOTE]
+> L’article sur Azure Monitor pour machines virtuelles mentionné qui fournit une vue d’ensemble des exigences système et des méthodes de déploiement de l’agent de dépendances est également applicable à la solution Service Map.
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Créer un groupe avec un mappage des dépendances
 

@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64bedef3cf52451d145a97385937ae2adc9b2b0c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 63c524880a47c6e519649bd871a6216d6faeefce
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968062"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907110"
 ---
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 ou ultérieur](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Une clé d’abonnement Azure pour Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Initialiser un projet avec Gradle
 
@@ -90,11 +88,12 @@ public class AltTranslation {
 }
 ```
 
-Ajoutez ces lignes à la classe `AltTranslation`. Vous remarquerez qu’en plus d’`api-version`, deux paramètres supplémentaires ont été ajoutés à `url`. Ces paramètres servent à définir l’entrée et la sortie de traduction. Dans cet exemple, il s’agit de l’anglais (`en`) et de l’espagnol (`es`).
+Ajoutez ces lignes à la classe `AltTranslation`. D’abord, la clé d’abonnement et le point de terminaison sont lus à partir des variables d’environnement. Ensuite, vous voyez qu’en plus du paramètre `api-version`, deux paramètres supplémentaires ont été ajoutés à `url`. Ces paramètres servent à définir l’entrée et la sortie de traduction. Dans cet exemple, il s’agit de l’anglais (`en`) et de l’espagnol (`es`).
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
 
 Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).

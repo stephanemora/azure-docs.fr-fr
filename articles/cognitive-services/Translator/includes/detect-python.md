@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7928d5a62c5ef13b9df8d29c8398d8f41bf7fe9b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9207814c921f51b10939c6e9d1747e1e124f9890
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968270"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907149"
 ---
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-Ce démarrage rapide nécessite :
-
-* Python 2.7.x ou 3.x
-* Une clé d’abonnement Azure pour Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
@@ -24,10 +21,7 @@ Créez un projet Python dans votre IDE ou votre éditeur favori. Copiez cet extr
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,35 +29,32 @@ import json
 
 Le premier commentaire ordonne à votre interpréteur Python d’utiliser l’encodage UTF-8. Puis, les modules requis sont importés pour lire votre clé d’abonnement depuis une variable d’environnement, élaborer la requête http, créer un identificateur unique et gérer la réponse JSON rendue par l’API Translator Text.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Définissez la clé d’abonnement, une URL de base et un chemin d’accès
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Définir la clé d’abonnement, le point de terminaison et le chemin
 
-Cet exemple tentera de lire votre clé d’abonnement Translator Text depuis la variable d’environnement `TRANSLATOR_TEXT_KEY`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` en tant que chaîne et commentez l’instruction conditionnelle.
+Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator Text depuis les variables d’environnement : `TRANSLATOR_TEXT_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscription_key` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
 
 Copiez ce code dans votre projet :
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `base_url`. `path` définit le chemin des `detect` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `endpoint`. `path` définit le chemin des `detect` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 >[!NOTE]
 > Pour plus d’informations sur les points de terminaison, les routes et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Détecter](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/detect?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## <a name="add-headers"></a>Ajouter les en-têtes
@@ -74,7 +65,7 @@ Copiez cet extrait de code dans votre projet :
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

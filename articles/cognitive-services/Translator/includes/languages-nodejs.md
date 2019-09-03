@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968214"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906910"
 ---
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-Ce démarrage rapide nécessite :
-
-* [Node 8.12.x ou version ultérieure](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 Ces modules sont requis pour construire la requête HTTP et créer un identificateur unique pour l’en-tête `'X-ClientTraceId'`.
 
+## <a name="set-the-endpoint"></a>Définir le point de terminaison
+
+Cet exemple tente de lire le point de terminaison Translator Text depuis une variable d’environnement : `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `endpoint` en tant que chaîne et commentez l’instruction conditionnelle.
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>Configurer la requête
 
 La méthode `request()`, accessible via le module de requête, permet de transférer la méthode HTTP, l’URL, les paramètres de requête, les en-têtes et le code JSON en tant qu’objet `options`. Dans cet extrait de code, nous allons configurer la requête :
@@ -41,7 +47,7 @@ La méthode `request()`, accessible via le module de requête, permet de transf�
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

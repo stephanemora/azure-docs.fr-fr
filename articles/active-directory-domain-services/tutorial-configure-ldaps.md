@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: f575dd882c217badb3320b85229149d9793ceb5f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619029"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011342"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -286,7 +286,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Lier et tester le protocole LDAP sécurisé pour un domaine managé Azure AD DS
 
 > [!div class="nextstepaction"]
-> [Découvrir comment fonctionne la synchronisation dans un domaine managé Azure AD Domain Services](synchronization.md)
+> [Configurer la synchronisation de hachage du mot de passe pour un environnement Azure AD hybride](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

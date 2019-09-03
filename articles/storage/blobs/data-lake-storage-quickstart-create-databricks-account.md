@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855494"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992302"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l’aide d’Azure Databricks
 
@@ -88,7 +88,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
 Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## <a name="create-storage-account-file-system"></a>Créer un système de fichiers de compte de stockage
+## <a name="create-storage-account-container"></a>Créer un conteneur de comptes de stockage
 
 Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure Databricks, puis exécutez les extraits de code pour configurer le compte de stockage.
 
@@ -102,7 +102,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
     ![Créer un notebook dans Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 4. Copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
 
@@ -113,15 +113,15 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
 
     > [!NOTE]
-    > Ce bloc de code accède directement au point de terminaison Data Lake Gen2 via OAuth. Toutefois, il existe d’autres moyens de connecter l’espace de travail Databricks à votre compte Data Lake Storage Gen2. Par exemple, vous pouvez monter le système de fichiers à l’aide d’OAuth ou utiliser un accès direct par clé partagée. <br>Pour voir des exemples de ces approches, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks.
+    > Ce bloc de code accède directement au point de terminaison Data Lake Gen2 via OAuth. Toutefois, il existe d’autres moyens de connecter l’espace de travail Databricks à votre compte Data Lake Storage Gen2. Par exemple, vous pouvez monter le conteneur à l’aide d’OAuth ou utiliser un accès direct par clé partagée. <br>Pour voir des exemples de ces approches, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks.
 
-5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `appID`, `password` et `tenant-id` par les valeurs que vous avez collectées au moment de la création du principal de service. Affectez le nom de système de fichiers de votre choix à la valeur d’espace réservé `file-system-name`.
+5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `appID`, `password` et `tenant-id` par les valeurs que vous avez collectées au moment de la création du principal de service. Affectez le nom de conteneur de votre choix à la valeur d’espace réservé `container-name`.
 
     > [!NOTE]
     > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
@@ -148,7 +148,7 @@ Dans la cellule, appuyez sur **Maj+Entrée** pour exécuter le code.
 
 Effectuez les tâches suivantes pour exécuter une tâche SQL Spark sur les données.
 
-1. Exécutez une instruction SQL pour créer une table temporaire en utilisant les données de l’exemple de fichier de données JSON, **small_radio_json.json**. Dans l’extrait de code suivant, remplacez les valeurs d’espace réservé par le nom de votre système de fichiers et le nom de votre compte de stockage. À l’aide du bloc-notes que vous avez créé précédemment, collez l’extrait de code dans une nouvelle cellule de code du bloc-notes, puis appuyez sur Maj+Entrée.
+1. Exécutez une instruction SQL pour créer une table temporaire en utilisant les données de l’exemple de fichier de données JSON, **small_radio_json.json**. Dans l’extrait de code suivant, remplacez les valeurs des espaces réservés par le nom de votre conteneur et par le nom de votre compte de stockage. À l’aide du bloc-notes que vous avez créé précédemment, collez l’extrait de code dans une nouvelle cellule de code du bloc-notes, puis appuyez sur Maj+Entrée.
 
     ```sql
     %sql
@@ -156,7 +156,7 @@ Effectuez les tâches suivantes pour exécuter une tâche SQL Spark sur les donn
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
+     path  "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

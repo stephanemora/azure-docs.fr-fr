@@ -1,5 +1,5 @@
 ---
-title: Créer un appareil Azure IoT Plug-and-Play (préversion) prêt pour la certification | Microsoft Docs
+title: Créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification | Microsoft Docs
 description: Avec ce tutoriel destiné aux développeurs d’appareils, vous allez découvrir comment créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification.
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878750"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047910"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification
 
@@ -124,7 +124,7 @@ Pour être certifié, l’appareil doit autoriser le provisionnement avec le [se
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>Implémenter les interfaces d’informations de modèle et de SDK
 
-L’Azure IoT device SDK implémente les interfaces d’informations de modèle et de SDK. Si vous utilisez la fonction de génération de code dans VS Code, votre code d’appareil utilise l’Azure IoT Plug-and-Play device SDK.
+L’Azure IoT device SDK implémente les interfaces d’informations de modèle et de SDK. Si vous utilisez la fonction de génération de code dans VS Code, le code de votre appareil utilise le kit IoT Plug-and-Play device SDK.
 
 Si vous avez choisi de ne pas utiliser le kit Azure IoT device SDK, vous pouvez utiliser le code source du SDK comme référence pour votre propre implémentation.
 

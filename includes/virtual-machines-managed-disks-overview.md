@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68320024"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104246"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -77,7 +77,9 @@ Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 
-La capture instantanée d’un disque managé est une copie en lecture seule et cohérente en cas d’incident d’un disque managé qui est stockée comme disque managé standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Elles sont facturées en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque managé avec une capacité approvisionnée de 64 Gio et une taille des données utilisées réelle de 10 Gio, cet instantané est facturé uniquement pour la taille des données utilisées de 10 Gio.  
+La capture instantanée d’un disque managé est une copie en lecture seule et cohérente en cas d’incident d’un disque managé qui est stockée comme disque managé standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. 
+
+Les instantanés sont facturés en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque managé avec une capacité approvisionnée de 64 Gio et une taille des données utilisées réelle de 10 Gio, cet instantané est facturé uniquement pour la taille des données utilisées de 10 Gio. Vous pouvez voir la taille utilisée de vos captures instantanées en examinant le [rapport d’utilisation d’Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Par exemple, si la taille de données utilisée d’un instantané est 10 Gio, le rapport d’utilisation affiche 10 Gio/(31 jours x 24 heures) = 0,013441 Gio comme quantité consommée.
 
 Pour en savoir plus sur la création de captures instantanées avec des disques managés, consultez les ressources suivantes :
 

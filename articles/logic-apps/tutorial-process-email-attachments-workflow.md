@@ -3,19 +3,20 @@ title: Tutoriel - Automatiser le traitement des e-mails et des pièces jointes -
 description: Didacticiel - Créer des flux de travail automatisés qui traitent les e-mails et les pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312659"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051779"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
@@ -61,9 +62,9 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
    | Paramètre | Valeur | Description |
    |---------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |  
-   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. |
-   | **Nom du compte de stockage** | attachmentstorageacct | Nom de votre compte de stockage |
-   | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre compte de stockage. |
+   | **Groupe de ressources** | <*Azure-resource-group*> | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. Cet exemple utilise « LA-Tutorial-RG ». <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. |
+   | **Nom du compte de stockage** | <*Azure-storage-account-name*> | Nom de votre compte de stockage, qui doit comporter entre 3 et 24 caractères, et ne peut contenir que des lettres minuscules et des chiffres. Cet exemple utilise « attachmentstorageacct ». |
+   | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre compte de stockage. Cet exemple utilise la région « USA Ouest ». |
    | **Performances** | standard | Ce paramètre spécifie les types de données pris en charge et les médias de stockage des données. Voir [Types de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Type de compte** | Usage général | [Type de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Réplication** | Stockage localement redondant (LRS) | Ce paramètre spécifie comment vos données sont copiées, stockées, gérées et synchronisées. Consultez [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../storage/common/storage-redundancy-lrs.md). |
@@ -621,7 +622,7 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
    | Paramètre | Valeur | Notes | 
    | ------- | ----- | ----- | 
    | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin d’accès** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** |
-   | **Objet**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. |
    | **To** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
    ||||
 

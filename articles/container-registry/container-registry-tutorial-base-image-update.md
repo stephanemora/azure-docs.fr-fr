@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68310521"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114617"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Didacticiel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
@@ -72,7 +72,16 @@ Lorsqu’une image de base est mise à jour, vous voyez la nécessité de régé
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>Tâches déclenchées par la mise à jour d’une image de base
 
-* Actuellement, pour les builds d’images à partir d’un Dockerfile, une tâche ACR détecte les dépendances sur les images de base dans le même registre de conteneurs Azure, un référentiel public Docker Hub ou un référentiel public dans Microsoft Container Registry. Si l’image de base spécifiée dans l’instruction `FROM` dans l’un de ces emplacements, la tâche ACR ajoute un hook pour garantir la régénération de l’image à chaque mise à jour de son image de base.
+* Pour les générations d’images à partir d’un fichier Dockerfile, une tâche ACR détecte les dépendances sur les images de base aux emplacements suivants :
+
+  * Le registre de conteneurs Azure dans lequel s’exécute la tâche
+  * Un autre registre de conteneurs Azure dans la même région 
+  * Un référentiel public dans Docker Hub 
+  * Un référentiel public dans le registre de conteneurs Microsoft
+
+   Si l’image de base spécifiée dans l’instruction `FROM` dans l’un de ces emplacements, la tâche ACR ajoute un hook pour garantir la régénération de l’image à chaque mise à jour de son image de base.
+
+* Actuellement, les tâches ACR suivent uniquement les mises à jour des images de base pour les images d’application (*runtime*). Elles ne suivent pas les mises à jour des images de base pour les images intermédiaires (*au moment de la génération*) utilisées dans des Dockerfiles multiétapes.  
 
 * Lorsque vous créez une tâche ACR avec la commande [az acr task create][az-acr-task-create], par défaut la tâche est *activée* se déclencher lors d’une mise à jour de l’image de base. Cela signifie que la propriété `base-image-trigger-enabled` est définie sur True. Si vous voulez désactiver ce comportement dans une tâche, mettez à jour la propriété sur False. Par exemple, exécutez la commande suivante [az acr task update][az-acr-task-update] :
 
@@ -82,7 +91,7 @@ Lorsqu’une image de base est mise à jour, vous voyez la nécessité de régé
 
 * Pour permettre à une tâche ACR de déterminer et de suivre les dépendances d’une image conteneur (incluant son image de base), vous devez d’abord déclencher sa tâche **au moins une fois**. Par exemple, déclenchez la tâche manuellement en utilisant la commande [az acr task run][az-acr-task-run].
 
-* Pour déclencher une tâche lors de la mise à jour de l’image de base, cette dernière doit posséder une balise *stable*, telle que `node:9-alpine`. Cette catégorisation est typique pour une image de base qui est mise à jour avec des correctifs de système d’exploitation et de framework vers une dernière version stable. Si l’image de base est mis à jour avec une nouvelle balise de version, elle ne déclenche pas de tâche. Pour plus d’informations, consultez la catégorisation d’image, voir [Conseils sur les meilleures pratiques](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* Pour déclencher une tâche lors de la mise à jour de l’image de base, cette dernière doit posséder une balise *stable*, telle que `node:9-alpine`. Cette catégorisation est typique pour une image de base qui est mise à jour avec des correctifs de système d’exploitation et de framework vers une dernière version stable. Si l’image de base est mis à jour avec une nouvelle balise de version, elle ne déclenche pas de tâche. Pour plus d’informations, consultez la catégorisation d’image, voir [Conseils sur les meilleures pratiques](container-registry-image-tag-version.md). 
 
 ### <a name="base-image-update-scenario"></a>Scénario de mise à jour d’une image de base
 
@@ -217,7 +226,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 Le résultat ressemble à ce qui suit. Le DÉCLENCHEUR de la dernière génération exécutée doit être « Mise à jour de l’image », ce qui indique que la tâche a été lancée par la tâche rapide de l’image de base.
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------

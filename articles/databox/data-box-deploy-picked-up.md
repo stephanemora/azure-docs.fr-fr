@@ -6,16 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 7/08/2019
+ms.date: 8/27/2019
 ms.author: alkohli
-ms.openlocfilehash: db0f0ac3073687b7c1cd8ca60e459e4bb3aa03f4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 368439d6e15d6c94bbb96d67fcb48ab006234c95
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626354"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098857"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Retourner l’appareil Data Box et vérifier le chargement des données dans Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 Ce didacticiel vous explique comment retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure.
 
@@ -39,12 +51,32 @@ Avant de commencer, vérifiez les points suivants :
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
+::: zone-end
+
+::: zone target="chromeless"
+
+Une fois la copie des données terminée, vous pouvez préparer et expédier l’appareil. Quand l’appareil arrive au centre de données Azure, les données sont automatiquement chargées vers Azure.
+
+## <a name="prepare-to-ship"></a>Préparer l’expédition
+
+Avant de préparer l’expédition, assurez-vous que les travaux de copie sont terminés.
+
+1. Accédez à la page **Préparation de l'expédition** dans l'interface utilisateur web locale et commencez la préparation de l'expédition. 
+2. Mettez l’appareil hors tension à partir de l’interface utilisateur web locale. Débranchez les câbles de l’appareil. 
+
+Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil.
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="ship-data-box-back"></a>Renvoyer la Data Box
 
 Vérifiez que la copie des données sur l’appareil a été effectuée et que la **préparation de l’expédition** a réussi. En fonction de la région où vous expédiez l’appareil, la procédure est différente.
 
+::: zone-end
 
-### <a name="ship-in-us-canada-europe"></a>Expédier aux États-Unis, au Canada et en Europe
+## <a name="ship-in-us-canada-europe"></a>Expédier aux États-Unis, au Canada et en Europe
 
 Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, au Canada ou en Europe.
 
@@ -60,9 +92,8 @@ Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, 
     Au lieu de planifier l’enlèvement, vous pouvez déposer la Data Box dans le point de dépôt le plus proche.
 4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée**. Un ID de suivi s’affiche également.
 
-### <a name="ship-in-asia-pacific-region"></a>Expédier dans la région Asie-Pacifique
 
-#### <a name="ship-in-australia"></a>Expédier en Australie
+## <a name="ship-in-australia"></a>Expédier en Australie
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour expédier en Australie.
 
@@ -89,13 +120,12 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 
 Si nécessaire, envoyez un e-mail au Support Quantium Solution à l’adresse Azure@quantiumsolutions.com, ou contactez-les par téléphone.
 
-
 Pour toute demande relative à votre commande par téléphone :
 
 - Envoyez d’abord un e-mail pour l’enlèvement.
 - Indiquez votre nom de commande par téléphone.
 
-#### <a name="ship-in-japan"></a>Expédier au Japon 
+## <a name="ship-in-japan"></a>Expédier au Japon 
 
 1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
 2. Mettez l’appareil hors tension et débranchez les câbles.
@@ -125,6 +155,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 - E-mail ：Customerservice.JP@quantiumsolutions.com 
 - Téléphone：+81 3 57 55 01 50 
 
+::: zone target="docs"
 
 ## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
 
@@ -155,9 +186,21 @@ Vérifiez que vos données ont été chargées dans Azure avant de les supprimer
 
     - Si vous avez copié un VHDX, ou un VHD dynamique ou de différenciation, le VHDX/VHD est chargé dans le compte de stockage de préproduction comme un objet blob de pages, mais la conversion du VHD en disque managé échoue. Accédez à votre compte de stockage de préproduction (**Compte de stockage > Objets blob**), puis sélectionnez le conteneur approprié (SSD Standard, HDD Standard ou SSD Premium). Les disques durs virtuels sont chargés en tant qu’objets blob de pages dans votre compte de stockage de préproduction.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+::: zone-end
+
 ## <a name="erasure-of-data-from-data-box"></a>Effacer les données de la Data Box
  
 Une fois que le chargement des données vers Azure est terminé, la Data Box efface les données de ses disques, conformément aux [instructions du standard NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone target="docs"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -174,5 +217,7 @@ Passez à l’article suivant pour apprendre à gérer la Data Box via l’inter
 
 > [!div class="nextstepaction"]
 > [Administrer l’appareil Azure Data Box à l’aide de l’interface utilisateur web locale](./data-box-local-web-ui-admin.md)
+
+::: zone-end
 
 

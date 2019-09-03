@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989720"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127274"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -54,9 +54,9 @@ Toutes les éditions d’Azure AD vous indiquent les rapports de sécurité Uti
 
 - Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez la liste des utilisateurs marqués à risque et à connexions à risque. 
 
-- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certains événements à risque sous-jacent qui ont été détectés pour chaque rapport. 
+- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certaines détections de risques sous-jacentes qui ont été détectées pour chaque rapport. 
 
-- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
+- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les détections de risques sous-jacentes. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
 
 ## <a name="activity-reports"></a>Rapports d’activité

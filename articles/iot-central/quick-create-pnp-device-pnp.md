@@ -1,5 +1,5 @@
 ---
-title: Connecter un appareil Azure IoT Plug-and-Play (préversion) à IoT Central | Microsoft Docs
+title: Connecter un appareil IoT Plug-and-Play (préversion) à Azure IoT Central | Microsoft Docs
 description: Utilisez un modèle de fonctionnalité d’appareil pour créer un code d’appareil. Ensuite, exécutez le code de l’appareil, examinez la connexion d’appareil à votre application IoT Central et utilisez les vues générées automatiquement.
 author: dominicbetts
 ms.author: dobett
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881688"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048961"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Démarrage rapide : Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil IoT Plug-and-Play et le connecter à votre application IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-Un _modèle de fonctionnalité d’appareil_ décrit les fonctionnalités d’un appareil [IoT Plug-and-Play](https://aka.ms/iot-pnp-docs). IoT Central peut utiliser un modèle de fonctionnalité d’appareil pour créer un modèle d’appareil et des visualisations pour un appareil quand l’appareil se connecte pour la première fois. Ce démarrage rapide vous montre comment :
+Un _modèle de fonctionnalité d’appareil_ décrit les fonctionnalités d’un appareil [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). IoT Central peut utiliser un modèle de fonctionnalité d’appareil pour créer un modèle d’appareil et des visualisations pour un appareil quand l’appareil se connecte pour la première fois. Ce démarrage rapide vous montre comment :
 
 * Utilisez Visual Studio Code pour créer un appareil IoT Plug-and-Play à l’aide d’un modèle de fonctionnalité d’appareil.
 * Exécutez le code de l’appareil dans Windows et vérifiez qu’il se connecte à votre application IoT Central.

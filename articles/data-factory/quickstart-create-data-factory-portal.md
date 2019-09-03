@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d5213ff21d92bf811b05802e4cb2ffab9b9a29c6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648550"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077043"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory
 
@@ -59,7 +59,7 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 
    La liste n’affiche que les emplacements pris en charge par Data Factory et où vos métadonnées Azure Data Factory sont stockées. Les magasins de données associés (tels que Stockage Azure et Azure SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent s’exécuter dans d’autres régions.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Une fois la création terminée, la page **Data Factory** s’affiche. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un onglet séparé.
    
@@ -71,7 +71,7 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 ## <a name="create-a-linked-service"></a>Créer un service lié
 Dans cette procédure, vous créez un service lié qui relie votre compte de stockage Azure à la fabrique de données. Le service lié comporte les informations de connexion utilisées par le service Data Factory lors de l’exécution pour s’y connecter.
 
-1. Sélectionnez **Connexions**, puis cliquez sur le bouton **Nouveau** dans la barre d’outils. 
+1. Sélectionnez **Connexions**, puis cliquez sur le bouton **Nouveau** dans la barre d’outils (le bouton **Connexions** se trouve au bas de la colonne de gauche sous **Ressources Factory**). 
 
 1. Dans la page **Nouveau service lié**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer**. 
 

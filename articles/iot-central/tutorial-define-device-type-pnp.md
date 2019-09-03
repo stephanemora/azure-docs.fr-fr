@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a622aa85d1d0a9dcd5d5ad9b2b30e7a3120ea974
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 660b2ead146695657ae13444cb7936eff8224f3a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878630"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099514"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutoriel : Définir un nouveau type d’appareil dans votre application Azure IoT Central (fonctionnalités d’évaluation)
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central (fonctionnalités d’évaluation)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-Ce tutoriel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité d’intégrateur. Un modèle d’appareil définit les capacités de votre appareil. Les capacités incluent la télémétrie que l’appareil envoie, les propriétés de l’appareil et les commandes auxquelles un appareil répond.
+Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit les capacités de votre appareil. Les capacités incluent la télémétrie que l’appareil envoie, les propriétés de l’appareil et les commandes auxquelles un appareil répond.
 
 Dans ce tutoriel, vous allez créer un modèle d’appareil **Capteur environnemental**. Un appareil capteur environnemental :
 
@@ -44,7 +44,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Central. Si vous avez suivi le guide de démarrage rapide [Créer votre application Azure IoT Central](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), vous pouvez réutiliser l’application que vous avez créée dans le cadre de ce guide. Dans le cas contraire, créez une application Azure IoT Central vide en procédant comme suit :
 
-1. Accédez à la page [Application Manager](https://aka.ms/iotcentral) (Gestionnaire d’applications) d’Azure IoT Central.
+1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
 
 1. Si vous disposez d’un abonnement Azure, connectez-vous avec les informations d’identification que vous utilisez pour y accéder. Sinon, inscrivez-vous à l’aide d’un compte Microsoft :
 
@@ -64,13 +64,13 @@ Pour créer une application Azure IoT Central qui utilise des fonctionnalités d
 
 1. Si vous créez une application d’essai, vous devez fournir vos coordonnées.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
     ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type-pnp/iotcentralcreate.png)
 
     Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-Vous avez également besoin d’une copie locale du fichier **EnvironmentalSensorInline.capabilitymodel.json** qui contient le modèle de capacité d’appareil [IoT Plug-and-Play](https://aka.ms/iot-pnp-docs). Vous pouvez le télécharger [ici](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Cliquez avec le bouton droit sur la page et sélectionnez **Enregistrer sous**.
+Vous avez également besoin d’une copie locale du fichier **EnvironmentalSensorInline.capabilitymodel.json** qui contient le modèle de capacité d’appareil [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Vous pouvez le télécharger [ici](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Cliquez avec le bouton droit sur la page et sélectionnez **Enregistrer sous**.
 
 Après avoir téléchargé le fichier, ouvrez-le dans un éditeur de texte et remplacez les deux instances de `<YOUR_COMPANY_NAME_HERE>` par votre nom. Utilisez uniquement les caractères a-z, A-Z, 0-9 et le trait de soulignement.
 
@@ -90,11 +90,11 @@ Les étapes suivantes montrent comment importer le modèle de capacité pour un 
 
 1. Pour ajouter un nouveau modèle d’appareil, sélectionnez **+ Nouveau** dans la page **Modèles d’appareil**.
 
-1. Choisissez **Personnalisé** dans la liste des modèles de capacité d’appareil.
+1. Choisissez **Personnalisé** dans la liste de modèles.
 
 1. Entrez **Capteur environnemental** comme nom de votre modèle d’appareil.
 
-1. Choisissez **Importer le modèle de capacité** pour créer un modèle de capacité d’appareil à partir d’un fichier JSON. Accédez au dossier dans lequel vous avez enregistré le fichier **EnvironmentalSensorInline.capabilitymodel.json** sur votre ordinateur local. Sélectionnez le fichier **EnvironmentalSensorInline.capabilitymodel.json**, puis sélectionnez Importer. Le modèle de capacité de capteur environnemental comprend les interfaces **Capteur environnemental** et **Informations sur l’appareil** :
+1. Choisissez **Importer le modèle de capacité** pour créer un modèle de capacité d’appareil à partir d’un fichier JSON. Accédez au dossier dans lequel vous avez enregistré le fichier **EnvironmentalSensorInline.capabilitymodel.json** sur votre ordinateur local. Sélectionnez le fichier **EnvironmentalSensorInline.capabilitymodel.json**, puis sélectionnez **Ouvrir**. Le modèle de capacité de capteur environnemental comprend les interfaces **Capteur environnemental** et **Informations sur l’appareil** :
 
     ![Modèle de capacité d’appareil Capteur environnemental](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -145,11 +145,11 @@ Une fois que vous avez sélectionné **Générer les vues par défaut**, elles s
 
 ### <a name="configure-a-view-to-visualize-devices"></a>Configurer une vue pour visualiser des appareils
 
-Un tableau de bord d’appareil permet à un opérateur de visualiser un appareil à l’aide de graphiques et de métriques. En tant qu’intégrateur, vous pouvez définir les informations qui s’affichent sur le tableau de bord d’un appareil. Vous pouvez définir plusieurs tableaux de bord pour les appareils. Pour créer un tableau de bord afin de visualiser la télémétrie du capteur environnemental, sélectionnez **Vues**, puis **Visualisation de l’appareil** :
+Un tableau de bord d’appareil permet à un opérateur de visualiser un appareil à l’aide de graphiques et de métriques. En tant que générateur, vous pouvez définir les informations qui s’affichent sur le tableau de bord d’un appareil. Vous pouvez définir plusieurs tableaux de bord pour les appareils. Pour créer un tableau de bord afin de visualiser la télémétrie du capteur environnemental, sélectionnez **Vues**, puis **Visualisation de l’appareil** :
 
-1. Toutes les propriétés de l’appareil, les propriétés du cloud, les données de télémétrie et les options statiques sont listées dans le panneau de droite. Vous pouvez glisser-déplacer l’un de ces éléments dans la vue. Faites glisser une propriété vers la vue. Vous pouvez configurer la vignette à l’aide de l’icône d’engrenage.
+1. Toutes les propriétés de l’appareil, les propriétés du cloud, les données de télémétrie et les options statiques sont listées sous **Propriétés**. Vous pouvez glisser-déplacer l’un de ces éléments dans la vue. Faites glisser la propriété **Niveau de luminosité** sur la vue. Vous pouvez configurer la vignette à l’aide de l’icône d’engrenage.
 
-1. Pour ajouter un graphique des données de télémétrie, sélectionnez **Humidité** et **Température**, puis **Combiner**. Pour voir ce graphique dans un autre format, tel qu’un graphique à secteurs ou un graphique à barres, sélectionnez le bouton **Changer de visualisation** en haut de la vignette.
+1. Pour ajouter un graphique des données de télémétrie, sélectionnez **Humidité** et **Température**, puis **Combiner**. Pour voir ce graphique dans un autre format tel qu’un graphique à secteurs ou un histogramme, sélectionnez le bouton **Changer de visualisation** en haut de la vignette.
 
 1. Cliquez sur **Enregistrer** pour enregistrer votre vue :
 
@@ -161,7 +161,7 @@ Un formulaire d’appareil permet à un opérateur de modifier les propriétés 
 
 Pour créer un formulaire afin de voir et de modifier les propriétés d’un capteur environnemental
 
-1. Sélectionnez la vignette **Modification des données de l’appareil et du cloud**.
+1. Accédez à **Vues** dans le modèle **Capteur environnemental**. Sélectionnez la vignette **Modification des données de l’appareil et du cloud** pour ajouter une nouvelle vue.
 
 1. Entrez le nom de formulaire **Propriétés du capteur environnemental**.
 
@@ -169,10 +169,9 @@ Pour créer un formulaire afin de voir et de modifier les propriétés d’un ca
 
 1. Sélectionnez les propriétés de l’appareil **Niveau de luminosité** et **État de l’appareil**. Sélectionnez ensuite **Ajouter une section**. Remplacez le titre de la section par **Propriétés du capteur**. Sélectionnez **Appliquer**.
 
-1. Sélectionnez les propriétés de l’appareil **Batterie restante**, **Modèle d’appareil**, **Version du microprogramme**, **Fabricant** et **Numéro de série**. Sélectionnez ensuite **Ajouter une section**. Remplacez le titre de la section par **Propriétés de l’appareil**. Sélectionnez **Appliquer**.
+1. Sélectionnez les propriétés d’appareil **Modèle d’appareil**, **Version du logiciel**, **Fabricant** et **Fabricant de processeur**. Sélectionnez ensuite **Ajouter une section**. Remplacez le titre de la section par **Propriétés de l’appareil**. Sélectionnez **Appliquer**.
 
 1. Cliquez sur **Enregistrer** pour enregistrer votre vue.
-
 
 ## <a name="publish-device-template"></a>Publier le modèle d’appareil
 
@@ -194,7 +193,7 @@ Une fois qu’un modèle d’appareil a été publié, il est visible dans la pa
 
 Dans ce tutoriel, vous avez appris à :
 
-* Créer un modèle d’appareil.
+* Créer un modèle d’appareil
 * Importer un modèle de capacité d’appareil
 * Créer des propriétés du cloud.
 * Créer des personnalisations.

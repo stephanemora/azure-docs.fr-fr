@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: cc062f830facb0d617dc649ecd17acfff0a740af
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618929"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125215"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -43,6 +43,9 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
 * Le locataire Azure AD doit être [configuré pour la réinitialisation du mot de passe en libre-service][configure-sspr].
+
+> [!IMPORTANT]
+> Après avoir créé un domaine managé Azure AD DS, vous ne pouvez pas déplacer l’instance vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région et le réseau virtuel les plus appropriés quand vous déployez l’instance Azure AD DS.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -222,6 +225,6 @@ Pour voir ce domaine managé en action, créez et joignez une machine virtuelle 
 [network-considerations]: network-considerations.md
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
-[on-prem-sync]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
