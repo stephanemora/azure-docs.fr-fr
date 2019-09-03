@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation Azure Data Science Virtual Machine
+title: Documentation sur Azure Data Science Virtual Machine
 metadata:
-  title: Documentation Data Science Virtual Machine - Azure
-  description: 'Découvrez comment utiliser Data Science Virtual Machine, environnement expérimental dans le cloud Azure créé pour la science des données. Des outils de science des données connus et d’autres outils sont préinstallés et préconfigurés pour commencer à créer rapidement des applications intelligentes à des fins d’analytique avancée.'
+  title: "Documentation sur Azure Data Science Virtual Machine\_- Azure"
+  description: 'Découvrez comment utiliser Data Science Virtual Machine, un environnement expérimental dans le cloud Azure qui est créé pour la science des données. La science des données et les outils de Machine Learning populaires sont préinstallés et préconfigurés. Cette conception vous permet de gagner du temps dans la génération d’applications intelligentes pour une analytique avancée.'
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,19 +14,19 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: Azure Data Science Virtual Machine (DSVM) est une image de machine virtuelle personnalisée avec des outils de science des données et de machine learning. Vous pouvez utiliser cette machine virtuelle pour créer des applications analytiques avancées intelligentes. <a href="overview.md">En savoir plus…</a>
+  description: Azure Data Science Virtual Machine (DSVM) est une image de machine virtuelle personnalisée avec des outils de science des données et de machine learning. Vous pouvez utiliser cette machine virtuelle afin de générer des applications intelligentes pour l’analytique avancée. <a href="overview.md">Plus d’informations</a>
 sections:
-  - title: "Démarrages en 5\_minutes"
+  - title: "Démarrages rapides en\_5\_minutes"
     items:
       - type: paragraph
-        text: "Découvrez comment configurer une DSVM Windows ou Linux\_:"
+        text: "Découvrez comment configurer une machine virtuelle Data Science Virtual Machine basée sur Windows ou\_Linux\_:"
       - type: paragraph
-        text: <b>DSVM Windows</b>
+        text: <b>Machine virtuelle DSVM Windows</b>
       - type: list
         style: unordered
         items:
           - html: <a href="provision-vm">Configurer une DSVM Windows</a>
-          - html: <a href="vm-do-ten-things">Utiliser une DSVM Windows</a>
+          - html: "<a href=\"vm-do-ten-things\">Utiliser une machine virtuelle de science des données\_Windows</a>"
       - type: paragraph
         text: <b>DSVM Linux (Ubuntu | CentOS)</b>
       - type: list
@@ -34,11 +34,11 @@ sections:
         items:
           - html: <a href="linux-dsvm-intro">Configurer une DSVM Linux CentOS</a>
           - html: <a href="dsvm-ubuntu-intro">Configurer une DSVM Linux Ubuntu</a>
-          - html: <a href="linux-dsvm-walkthrough">Utiliser une DSVM Linux</a>
-  - title: "Plus de technologies Microsoft\_Azure\_Machine\_Learning"
+          - html: "<a href=\"linux-dsvm-walkthrough\">Utiliser une machine virtuelle de science des données\_Linux</a>"
+  - title: "Plus de technologies Microsoft\_Azure Machine\_Learning"
     items:
       - type: paragraph
-        text: "Autres technologies disponibles dans Azure\_Machine\_Learning\_:"
+        text: "Autres technologies disponibles dans Microsoft\_Azure\_Machine\_Learning\_:"
       - type: list
         style: cards
         className: cardsFTitle

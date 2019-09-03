@@ -240,6 +240,8 @@
           href: virtual-machine-scale-sets-automatic-upgrade.md
         - name: Protection des instances (préversion)
           href: virtual-machine-scale-sets-instance-protection.md
+        - name: Arrêter la notification en cas de suppression (préversion)
+          href: virtual-machine-scale-sets-terminate-notification.md
         - name: Galeries d’images partagées
           items:
             - name: Vue d'ensemble

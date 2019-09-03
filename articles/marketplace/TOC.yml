@@ -46,7 +46,7 @@
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Solutions intégrées
               href: ./integrated-solutions-for-publishers.md
-        - name: Bonnes pratiques marketing
+        - name: Meilleures pratiques marketing
           href: ./gtm-marketing-best-practices.md
           items:
             - name: Bonnes pratiques pour le référencement des offres
@@ -60,6 +60,8 @@
         - name: Vos avantages sur la Place de marché
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Engagement en tant que partenaire de co-vente
+              href: ./marketplace-co-sell.md
             - name: Solutions recommandées
               href: ./preferred-solutions.md
             - name: Solutions intégrées
@@ -490,6 +492,13 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Tester votre offre
           href: ./partner-center-portal/test-drive.md
+        - name: Option de co-vente
+          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          items:
+            - name: Codes pays et région
+              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+            - name: Codes d’état
+              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: État de publication
       href: ./partner-center-portal/publishing-status.md
     - name: Mettre à jour les offres existantes

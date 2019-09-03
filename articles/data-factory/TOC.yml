@@ -147,6 +147,8 @@
           href: concepts-data-flow-overview.md
         - name: Mode débogage
           href: concepts-data-flow-debug-mode.md
+        - name: Gestion de JSON
+          href: concepts-data-flow-json.md
         - name: Dérive de schéma
           href: concepts-data-flow-schema-drift.md
         - name: Volet Inspecter
@@ -446,6 +448,8 @@
           href: control-flow-webhook-activity.md
     - name: Transformations de flux de données
       items:
+        - name: Fichiers à largeur fixe
+          href: how-to-fixed-width.md
         - name: Agrégat
           href: data-flow-aggregate.md
         - name: Ligne Alter
@@ -600,6 +604,8 @@
           href: data-migration-guidance-overview.md
         - name: Migrer des données d’AWS S3 vers Azure
           href: data-migration-guidance-s3-azure-storage.md
+        - name: Migrer des données du cluster Hadoop local vers Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
 - name: Informations de référence
   items:
     - name: .NET
