@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988287"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127388"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -112,12 +112,12 @@ Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l�
 
 ### <a name="anomalous-activity-reports"></a>Rapports d’activités anormales
 
-Les rapports d'activité anormaux fournissent des informations sur les événements à risque qu'Azure AD peut détecter et signaler.
+Les rapports d’activités anormales fournissent des informations sur les détections d’événements à risque qu’Azure AD est capable de signaler.
 
-Le tableau suivant répertorie les rapports de sécurité sur les activités anormales d’Azure AD et les types d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](concept-risk-events.md).  
+Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections d’événements à risque dans Azure Active Directory](concept-risk-events.md).  
 
 
-| Rapport d’activités anormales Azure AD |  Type d’événement à risque signalé par Identity Protection|
+| Rapport d’activités anormales Azure AD |  Type de détection d’événement à risque Identity Protection|
 | :--- | :--- |
 | Utilisateurs avec des informations d’identification volées | Informations d’identification divulguées |
 | Activité de connexion anormale | Voyage impossible vers des emplacements inhabituels |
@@ -126,15 +126,15 @@ Le tableau suivant répertorie les rapports de sécurité sur les activités ano
 | Connexions depuis des adresses IP avec des activités suspectes | Connexions depuis des adresses IP avec des activités suspectes |
 | - | Connexions depuis des emplacements non connus |
 
-Les rapports de sécurité sur les activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans le portail Azure :
+Les rapports d’activités anormales Azure AD suivants ne sont pas inclus en tant que détections d’événements à risque dans le portail Azure :
 
 * Connexions après plusieurs échecs
 * Connexions depuis plusieurs zones géographiques
 
 
-### <a name="detected-risk-events"></a>Événements à risque détectés
+### <a name="detected-risk-detections"></a>Détections d’événements à risque trouvées
 
-Sur le **portail Azure**, vous pouvez accéder aux rapports relatifs aux événements à risque détectés dans la section **Sécurité** du panneau [Azure Active Directory](https://portal.azure.com). Les événements à risque détectés sont suivis dans les rapports suivants :   
+Vous pouvez accéder aux rapports sur les détections d’événements à risque dans la section **Sécurité** du panneau **Azure Active Directory** du [portail Azure](https://portal.azure.com). Les détections d’événements à risque sont suivies dans les rapports suivants :   
 
 - [Utilisateurs à risque](concept-user-at-risk.md)
 - [Connexions risquées](concept-risky-sign-ins.md)

@@ -7,22 +7,22 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635916"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128187"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
 La compétence **Analyse d’image** extrait un ensemble complet de caractéristiques visuelles basées sur le contenu d’une image. Par exemple, vous pouvez générer une légende à partir d’une image, générer des balises ou identifier des célébrités et des paysages. Cette compétence utilise les modèles d’apprentissage automatique fournis par [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) dans Cognitive Services. 
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Les petits volumes (moins de 20 transactions) peuvent être exécutés gratuitement dans Recherche Azure, mais l’exécution de charges de travail plus volumineuses nécessite l’[attachement d’une ressource facturable Cognitive Services](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
 >
 > L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -37,9 +37,8 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  Chaîne indiquant la langue à retourner. Le service retourne les résultats de la reconnaissance dans une langue donnée. Si ce paramètre n’est pas spécifié, la valeur par défaut est « en ». <br/><br/>Les langues prises en charge sont les suivantes : <br/>*en* : anglais (par défaut) <br/> *zh* : chinois simplifié|
-|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *imageType* : détecte si l’image est de type clipart ou un dessin au trait.</li><li>  *color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
-| details   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*landmarks* : identifie les paysages éventuellement détectés dans l’image.</li></ul>
- |
+|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : catégorise le contenu de l’image en fonction d’une taxonomie définie dans la [documentation Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li>    *imageType* : détecte si l’image est de type clipart ou un dessin au trait.</li><li>  *color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
+| details   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*landmarks* : identifie les paysages éventuellement détectés dans l’image. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
@@ -49,7 +48,8 @@ Les paramètres respectent la casse.
 
 
 
-##  <a name="sample-definition"></a>Exemple de définition
+##  <a name="sample-skill-definition"></a>Exemple de définition de qualification
+
 ```json
         {
             "description": "Extract image analysis.",
@@ -316,7 +316,17 @@ Les paramètres respectent la casse.
             "targetFieldName": "faces"
         }
 ```
+### <a name="variation-on-output-field-mappings-nested-properties"></a>Variation sur les mappages de champs de sortie (propriétés imbriquées)
 
+Vous pouvez définir des mappages de champs de sortie sur des propriétés de niveau inférieur, comme simplement les points de repère ou les célébrités. Dans ce cas, assurez-vous que votre schéma d’index a un champ destiné à contenir spécifiquement les points de repère.
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
+            "targetFieldName": "landmarks"
+        }
+```
 ##  <a name="sample-input"></a>Exemple d’entrée
 
 ```json
@@ -493,6 +503,22 @@ Dans les cas d’erreur suivants, aucun élément n’est extrait.
 | NotSupportedVisualFeature  | Le type de caractéristique spécifié n’est pas valide. |
 | NotSupportedImage | Image non prise en charge, par exemple, pornographie enfantine. |
 | InvalidDetails | Modèle spécifique à un domaine non pris en charge. |
+
+Si vous obtenez une erreur similaire à `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, vérifiez le chemin. Les célébrités et les points de repère sont des propriétés sous `detail`.
+
+```json
+"categories":[  
+      {  
+         "name":"building_",
+         "score":0.97265625,
+         "detail":{  
+            "landmarks":[  
+               {  
+                  "name":"Forbidden City",
+                  "confidence":0.92013400793075562
+               }
+            ]
+```
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df13a6638c5ed72532b020ef7074123a2159b1c4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536109"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972378"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurer une connexion VPN vers votre cloud privé CloudSimple
 
@@ -21,7 +21,7 @@ Les passerelles VPN vous permettent de vous connecter à un réseau CloudSimple 
 
 ## <a name="vpn-gateway-types"></a>Types de passerelle VPN
 
-* Une connexion **VPN de point à site** est la façon la plus simple pour vous connecter à votre cloud privé depuis votre ordinateur. Utilisez la connectivité VPN de point à site pour vous connecter au cloud privé à distance.
+* Une connexion **VPN de point à site** est la façon la plus simple pour vous connecter à votre cloud privé à partir de votre ordinateur. Utilisez la connectivité VPN de point à site pour vous connecter au cloud privé à distance.
 * La connexion **VPN de site à site** vous permet de configurer vos charges de travail de cloud privé pour accéder aux services locaux. Vous pouvez également utiliser Active Directory localement comme source d’identité pour l’authentification auprès de votre vCenter de cloud privé.  Actuellement, le type **VPN basé sur une stratégie** est pris en charge.
 
 Dans une région, vous pouvez créer une passerelle VPN de site à site et une passerelle VPN de point à site.

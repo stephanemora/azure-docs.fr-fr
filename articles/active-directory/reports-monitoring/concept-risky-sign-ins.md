@@ -15,20 +15,20 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989924"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127431"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
-Azure Active Directory (Azure AD) détecte les actions suspectes liées aux comptes des utilisateurs. Pour chaque action détectée, un enregistrement appelé **événement à risque** est créé. Pour en savoir plus, consultez [Événements à risque dans Azure AD](concept-risk-events.md). 
+Azure Active Directory (Azure AD) détecte les actions suspectes liées aux comptes des utilisateurs. Pour chaque action détectée, un enregistrement appelé **détection d’événement à risque** est créé. Pour plus d’informations, consultez [Détections d’événements à risque dans Azure AD](concept-risk-events.md). 
 
 Vous pouvez accéder aux rapports de sécurité depuis le [portail Azure](https://portal.azure.com) en sélectionnant le panneau **Azure Active Directory** et en accédant à la section **Sécurité**. 
 
-Il existe deux rapports de sécurité distincts dont le calcul dépend des événements à risque :
+Il existe deux rapports de sécurité distincts dont le calcul dépend des détections d’événements à risque :
 
 - **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
 
@@ -36,7 +36,7 @@ Il existe deux rapports de sécurité distincts dont le calcul dépend des évé
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/10.png)
 
-Pour savoir comment configurer les stratégies qui déclenchent ces événements à risque, consultez [Guide pratique pour configurer la stratégie sur les risques liés à l’utilisateur](../identity-protection/howto-user-risk-policy.md).  
+Pour savoir comment configurer les stratégies qui déclenchent ces détections d’événements à risque, consultez [Guide pratique pour configurer la stratégie sur les risques liés à l’utilisateur](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Qui peut accéder au rapport sur les connexions risquées ?
 
@@ -54,9 +54,9 @@ Toutes les éditions d’Azure AD vous indiquent les rapports de connexions risq
 
 - Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez la liste des connexions risquées. 
 
-- L’édition **Azure Active Directory Premium 1** vous permet également d’examiner certains événements à risque sous-jacent, qui ont été détectés pour chaque rapport. 
+- L’édition **Azure Active Directory Premium 1** vous permet également d’examiner certaines détections d’événements à risque sous-jacents, qui ont été détectés pour chaque rapport. 
 
-- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur tous les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
+- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur toutes les détections d’événements à risque sous-jacents. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
 ## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport sur les connexions risquées pour les éditions Azure AD Free et Basic
 
@@ -90,26 +90,26 @@ Ce rapport fournit aussi une option permettant de :
 
 Le rapport sur les connexions risquées dans les éditions Azure AD Premium vous fournit les informations suivantes :
 
-- Informations agrégées sur les [types d’événements à risque](concept-risk-events.md) qui ont été détectés. Avec l’édition **Azure AD Premium P1**, les détections qui ne sont pas couvertes par la licence s’affichent comme des événements à risque **Connexion avec un risque supplémentaire détecté**. Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
+- Informations agrégées sur les [types de détections d’événements à risque](concept-risk-events.md) qui ont été détectés. Avec l’édition **Azure AD Premium P1**, les détections qui ne sont pas couvertes par la licence s’affichent comme des détections d’événements à risque **Connexion avec un risque supplémentaire détecté**. Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
 
 - Une option pour télécharger le rapport
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/456.png)
 
-Lorsque vous sélectionnez un événement à risque, vous obtenez une vue de rapport détaillé pour cet événement à risque qui vous permet d’effectuer les opérations suivantes :
+Lorsque vous sélectionnez une détection d’événement à risque, vous obtenez une vue de rapport détaillé qui vous permet d’effectuer les opérations suivantes :
 
 - Une option pour configurer une [stratégie de résolution du risque utilisateur](../identity-protection/howto-user-risk-policy.md)  
 
 - Passer en revue la chronologie de la détection de l’événement à risque  
 
-- Passer en revue la liste des utilisateurs pour lesquels cet événement à risque a été détecté
+- Passer en revue la liste des utilisateurs pour lesquels cette détection d’événement à risque a eu lieu
 
-- Fermer manuellement les événements à risque. 
+- Fermer manuellement les détections d’événements à risque 
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Vous pouvez trouver un événement à risque sans l’entrée correspondante dans le [rapport sur les connexions](concept-sign-ins.md). En effet, Identity Protection évalue le risque pour les connexions **interactives** et les connexions **non interactives**, alors que le rapport sur les connexions ne montre que les connexions interactives.
+> Parfois, vous risquez de trouver une détection d’événement à risque sans entrée correspondante dans le [rapport sur les connexions](concept-sign-ins.md). En effet, Identity Protection évalue le risque pour les connexions **interactives** et les connexions **non interactives**, alors que le rapport sur les connexions ne montre que les connexions interactives.
 
 Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport détaillé pour cet utilisateur qui vous permet d’effectuer les opérations suivantes :
 
@@ -119,12 +119,12 @@ Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport déta
 
 - Ignorer tous les événements
 
-- Analysez les événements à risque signalés pour l’utilisateur. 
+- Analysez les détections d’événements à risque signalés pour l’utilisateur. 
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/324.png)
 
-Pour analyser un événement à risque, sélectionnez-en un dans la liste.  
-Cette opération ouvre le panneau **Détails** pour cet événement à risque. Dans le panneau **Détails**, vous avez le choix entre fermer manuellement un événement à risque ou réactiver un événement à risque fermé manuellement. 
+Pour analyser une détection d’événement à risque, sélectionnez-en une dans la liste.  
+Le panneau **Détails** s’ouvre pour cette détection d’événement à risque. Dans le panneau **Détails**, vous avez le choix entre fermer manuellement une détection d’événement à risque ou la réactiver. 
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/325.png)
 
@@ -132,4 +132,4 @@ Cette opération ouvre le panneau **Détails** pour cet événement à risque. D
 
 - [Guide pratique pour configurer la stratégie d'utilisateur à risque](../identity-protection/howto-user-risk-policy.md)
 - [Guide pratique pour configurer la stratégie de remédiation des risques](../identity-protection/howto-user-risk-policy.md)
-- [Type d’événement à risque](concept-risk-events.md)
+- [Types de détections d’événements à risque](concept-risk-events.md)

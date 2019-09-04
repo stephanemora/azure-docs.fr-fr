@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967713"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012814"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Démarrage rapide : Créer une base de connaissances à partir du portail de service de l’API QnA Maker
 
@@ -45,14 +45,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     ![Définir les sources de données](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Donnez un **nom** à votre service. Les noms dupliqués et les caractères spéciaux sont pris en charge.
-    - Ajoutez des URL pour les données à extraire. Pour plus d’informations sur les types de sources prises en charge, [cliquez ici](../Concepts/data-sources-supported.md).
-    - Chargez des fichiers pour les données à extraire. Consultez les [prix](https://aka.ms/qnamaker-pricing) pour savoir combien de documents vous pouvez ajouter.
-    - Si vous souhaitez ajouter manuellement des QnA, vous pouvez ignorer l’**étape 4** illustré dans l’image précédente.
+1. Donnez un **nom** à votre service, par exemple `my first kb`. Les noms dupliqués et les caractères spéciaux sont pris en charge.
 
-1. Ajoutez des **échanges de conversation** à votre base de connaissances. Choisissez d’ajouter la prise en charge des échanges de conversation pour votre bot en effectuant un choix parmi les personnalités. 
+1. Ajoutez la page de résolution des problèmes QnA Maker en tant qu’URL : `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`, puis sélectionnez `+ Add URL`. Pour plus d’informations sur les types de sources prises en charge, [cliquez ici](../Concepts/data-sources-supported.md). Pour ce guide de démarrage rapide, **ne chargez pas de fichiers** pour les données à extraire. Consultez les [prix](https://aka.ms/qnamaker-pricing) pour savoir combien de documents vous pouvez ajouter.
 
-    ![Ajouter des échanges de conversation à la base de connaissances](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. Ajoutez un **échange _professionnel_** à votre base de connaissances. 
 
 1. Sélectionnez **Create your KB** (Créer votre base de connaissances).
 

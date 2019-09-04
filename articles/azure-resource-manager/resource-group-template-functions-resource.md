@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650432"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095748"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -188,7 +188,7 @@ Spécifiez la ressource en utilisant le nom de la ressource ou la [fonction reso
 
 Si vous utilisez une fonction **list** dans une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si la fonction **list** fait référence à une ressource qui n’existe pas. Utilisez la fonction **if** pour vous assurer que la fonction est évaluée lors du déploiement de la ressource. Consultez la [fonction if](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise « if » et « list » avec une ressource déployée de manière conditionnelle.
 
-### <a name="example"></a>Exemples
+### <a name="list-example"></a>Exemple de liste
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) suivant montre comment retourner les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs. Il retourne également un jeton SAS pour le compte de stockage. 
 
@@ -284,7 +284,7 @@ Chaque type pris en charge est renvoyé au format suivant :
 
 Le classement du tableau des valeurs retournées n’est pas garanti.
 
-### <a name="example"></a>Exemples
+### <a name="providers-example"></a>Exemple de fournisseurs
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) suivant montre comment utiliser la fonction provider :
 
@@ -433,7 +433,7 @@ Par exemple :
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` est correct `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` n’est pas correct
 
-### <a name="example"></a>Exemples
+### <a name="reference-example"></a>Exemple de référence
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) suivant déploie, puis référence une ressource.
 
@@ -600,7 +600,7 @@ Une utilisation courante de la fonction resourceGroup consiste à créer des res
 
 Vous pouvez également utiliser la fonction resourceGroup pour appliquer des balises du groupe de ressources à une ressource. Pour plus d’informations, voir [Appliquer les balises d’un groupe de ressources](resource-group-using-tags.md#apply-tags-from-resource-group).
 
-### <a name="example"></a>Exemples
+### <a name="resource-group-example"></a>Exemple de groupe de ressources
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) suivant retourne les propriétés du groupe de ressources.
 
@@ -737,7 +737,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 }
 ```
 
-### <a name="example"></a>Exemples
+### <a name="resource-id-example"></a>Exemple d’ID de ressource
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) suivant retourne l’ID de ressource pour un compte de stockage appartenant au groupe de ressources :
 
@@ -795,7 +795,7 @@ La fonction retourne les informations au format suivant :
 }
 ```
 
-### <a name="example"></a>Exemples
+### <a name="subscription-example"></a>Exemple d’abonnement
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) suivant montre la fonction subscription qui est appelée dans la section outputs. 
 

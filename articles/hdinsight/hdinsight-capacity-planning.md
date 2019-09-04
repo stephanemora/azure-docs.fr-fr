@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786497"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114306"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -94,7 +94,7 @@ Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin qu
 
 ### <a name="isolate-cluster-job-errors"></a>Isoler les erreurs de travaux de cluster
 
-Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour aider à isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *avancée*.
+Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud worker unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *Personnalisé (taille, paramètres, applications)* et utilisez la valeur 1 pour *Nombre de nœuds Worker* dans la section **Taille du cluster** lors du provisionnement d’un nouveau cluster dans le portail.
 
 Vous pouvez également installer un environnement de développement à nœud unique sur votre ordinateur local et y tester la solution. Hortonworks fournit un environnement de développement local à nœud unique pour les solutions Hadoop qui est utile pour le développement initial, la preuve de concept et les tests. Pour plus d’informations, consultez [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 

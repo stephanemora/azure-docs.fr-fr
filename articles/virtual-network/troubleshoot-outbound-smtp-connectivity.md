@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 64cf633d50fc81ae8d53f2b4ee2a9975a756f0c7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935366"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972491"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
 
@@ -38,7 +38,7 @@ Si vous vous êtes inscrit avant le 15 novembre 2017 aux offres d’abonnement P
 
 Pour les abonnements Paiement à l’utilisation ou Microsoft Partner Network créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement depuis les machines virtuelles appartenant à ces abonnements. Si vous voulez disposer de la capacité à envoyer des e-mails directement depuis des machines virtuelles Azure vers des fournisseurs de messagerie externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les requêtes seront étudiées et acceptées par Microsoft. Elles ne seront accordées qu’après des vérifications antifraude supplémentaires. Pour effectuer une requête, ouvrez un cas de support en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** . N’oubliez pas d’ajouter plus d’informations sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié.
 
-Lorsqu’un abonnement Paiement à l’utilisation ou Microsoft Partner Network est exempté et que les machines virtuelles ont été « arrêtées et démarrées » à partir du portail Azure, toutes les machines virtuelles au sein de cet abonnement seront exemptées à l’avenir. L’exemption s’applique uniquement à l’abonnement demandé.
+Lorsqu’un abonnement Paiement à l’utilisation ou Microsoft Partner Network est exempté et que les machines virtuelles ont été « arrêtées et démarrées » à partir du portail Azure, toutes les machines virtuelles au sein de cet abonnement seront exemptées à l’avenir. L’exemption est applicable uniquement à l’abonnement demandé, et s’applique uniquement au trafic de machine virtuelle routé directement vers Internet. Le routage du trafic du port 25 par le biais de services Azure PaaS tels que le [Pare-feu Azure](https://azure.microsoft.com/services/azure-firewall/) n’est pas pris en charge.
 
 > [!NOTE]
 > Microsoft se réserve le droit de révoquer cette exemption s’il s’avère qu’une violation des conditions d’utilisation du service s’est produite.

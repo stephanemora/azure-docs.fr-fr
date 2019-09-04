@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/02/2019
-ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 61b646ca1ec5a4826ac6418c1b80b88a89266012
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781314"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972547"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -70,6 +70,10 @@ Vous pouvez annuler, échanger ou rembourser des réservations avec certaines li
 ## <a name="vcore-size-flexibility"></a>Flexibilité de la taille vCore
 
 La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au sein d’un niveau de performances et d’une région, sans perdre le bénéfice de la capacité réservée. Grâce à la capacité réservée SQL Database, vous avez également la possibilité de déplacer temporairement vos bases de données à chaud entre des pools et des bases de données uniques dans le cadre de vos opérations normales (au sein du même niveau de performances et de la même région), sans perdre le bénéfice de la capacité réservée. En conservant une mémoire tampon non appliquée dans votre réservation, vous pouvez gérer efficacement les pics de performances sans dépasser votre budget.
+
+## <a name="limitation"></a>Limitation
+
+Vous ne pouvez pas réserver de bases de données SQL basées sur DTU (De base, Standard ou Premium).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

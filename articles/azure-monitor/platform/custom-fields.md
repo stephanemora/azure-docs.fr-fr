@@ -11,19 +11,19 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.date: 08/23/2019
 ms.author: bwren
-ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6b9c21a3d65e75abe11e705eba058b1d1fb17ff
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461818"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012730"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor
 
 > [!NOTE]
-> Cet article décrit comment analyser les données texte dans un espace de travail Log Analytics au moment de leur collecte. L’analyse des données texte dans une requête après leur collecte présente des avantages, comme expliqué [Analyser les données texte dans Azure Monitor](../log-query/parse-text.md).
+> Cet article décrit comment analyser les données texte dans un espace de travail Log Analytics au moment de leur collecte. Nous vous recommandons d’analyser les données texte dans un filtre de requête une fois qu’elles ont été collectées en suivant les instructions fournies dans [Analyser les données texte dans Azure Monitor](../log-query/parse-text.md). Cette méthode offre plusieurs avantages par rapport à l’utilisation de champs personnalisés.
 
 La fonction **Champs personnalisés** d’Azure Monitor vous permet de compléter les enregistrements existants dans votre espace de travail Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 

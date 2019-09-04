@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa7117fd7b5c8fa92f9d9cff1d7b1cbc18555840
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879429"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972617"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -22,13 +22,13 @@ Dans ce guide, vous apprendrez à utiliser un VPN de couche 2 (L2VPN) pour éte
 L'extension de réseaux de couche 2 basée sur L2VPN peut fonctionner avec ou sans réseaux NSX dans votre environnement VMware local. Si vous ne disposez pas de réseaux NSX pour les charges de travail locales, vous pouvez utiliser une passerelle de services NSX Edge autonome.
 
 > [!NOTE]
-> Ce guide couvre le scénario dans lequel des centres de données locaux et sur le cloud privé sont connectés via un VPN site à site.
+> Ce guide couvre le scénario dans lequel des centres de données locaux et sur le cloud privé sont connectés par le biais d’un VPN site à site.
 
 ## <a name="deployment-scenario"></a>Scénario de déploiement
 
 Pour étendre votre réseau local en utilisant L2VPN, vous devez configurer un serveur L2VPN (routeur NSX-T Tier0 de destination) et un client L2VPN (client autonome source).  
 
-Dans ce scénario de déploiement, votre cloud privé est connecté à votre environnement local via un tunnel VPN site à site qui permet aux sous-réseaux de gestion locaux et vMotion de communiquer avec les sous-réseaux de gestion du cloud privé et vMotion. Cette configuration est nécessaire pour Cross vCenter vMotion (xVC-vMotion). Un routeur NSX-T Tier0 est déployé comme serveur L2VPN dans le cloud privé.
+Dans ce scénario de déploiement, votre cloud privé est connecté à votre environnement local par le biais d’un tunnel VPN site à site qui permet aux sous-réseaux de gestion locaux et vMotion de communiquer avec les sous-réseaux de gestion du cloud privé et vMotion. Cette configuration est nécessaire pour Cross vCenter vMotion (xVC-vMotion). Un routeur NSX-T Tier0 est déployé comme serveur L2VPN dans le cloud privé.
 
 La passerelle NSX Edge autonome est déployée dans votre environnement local en tant que client L2VPN, avant d’être jumelée au serveur L2VPN. Un point de terminaison de tunnel GRE est créé de chaque côté, puis configuré pour « étendre » le réseau de couche 2 local à votre cloud privé. Cette configuration est illustrée dans la figure suivante.
 
@@ -276,7 +276,7 @@ POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
 "trust_crl_ids": []
 }
 ```
- 
+
 ### <a name="create-a-peer-endpoint"></a>Créer un point de terminaison homologue
 
 ```

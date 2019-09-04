@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900131"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013085"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -41,7 +41,7 @@ Exemple : test-offer-1
 
 <br>Exemple : Offre test 1&#8482;
 
-Sélectionnez **Créer**.  Une page **Présentation de l’offre** est créée.  
+Sélectionnez **Create** (Créer).  Une page **Présentation de l’offre** est créée.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -79,25 +79,29 @@ Afin de répertorier des offres SaaS avec la Place de marché commerciale sur Pa
 - Votre offre doit utiliser des [API de traitement SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) pour intégrer avec la Place de marché Azure.
 - Pour des exigences plus complètes, consultez le [Guide de publication des offres SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-on-azure-billing-infrastructure-costs"></a>Facturation des coûts d’infrastructure SaaS sur Azure
-Si l’offre SaaS est hébergée sur Azure, vous, l’éditeur, devez regrouper les frais d’utilisation de l’infrastructure Azure et les frais de licence logicielle dans le même élément de coût. Ce coût est facturé au client selon un tarif mensuel fixe. L’utilisation de l’infrastructure Azure est présentée et facturée directement à vous, le partenaire. Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client. Les éditeurs choisissent généralement d’inclure les frais d’utilisation de l’infrastructure Azure dans leurs tarifs de licence logicielle. 
+#### <a name="saas-pricing-and-billing-options"></a>Tarifs SaaS et options de facturation
+Lorsque des solutions SaaS sont exécutées dans l’abonnement Azure de l’éditeur, les frais de licence payés par les clients incluent le coût de l’infrastructure sur laquelle le logiciel est déployé. L’utilisation de l’infrastructure Azure est présentée et facturée directement à vous, le partenaire. Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client. Les éditeurs doivent grouper les frais d’utilisation de l’infrastructure Azure avec les frais liés aux licences logicielles. 
 
-Les frais de licence logicielle sont présentés comme des frais mensuels et à taux fixe, basés sur un site récurrent, et ne sont pas basés sur la consommation ou le compteur.
+SaaS propose une facturation mensuelle ou annuelle basée sur un tarif fixe pour chaque utilisateur, ou une facturation à l’utilisation à l’aide du service de facturation limitée. La place de marché commerciale de Microsoft fonctionne selon un modèle d’agence. Les prix sont définis par l’éditeur, les factures sont établies par Microsoft et l’éditeur est payé par Microsoft qui prélève des frais d’agence.
+
+Le tableau suivant montre un exemple de répartition des coûts et des paiements pour illustrer le modèle d’agence.
 
 |**Coût de votre licence**|**100 $/mois**|
 |:---|:---|
 |Coût d’utilisation Azure (D1/1 cœur)|Facturé directement à l’éditeur au lieu du client|
 |Microsoft facture au client le montant suivant :|100 $/mois (l’éditeur doit inclure les coûts d’infrastructure encourus ou transmis dans les frais de licence)|
 
-- Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et verse 80 $ à l’éditeur.
+|**Microsoft facture**|**100 $/mois**|
+|:---|:---|
+|Microsoft vous verse 80 % des revenus générés par les licences <br>**Pour les applications SaaS qualifiées, Microsoft paie 90 % de vos coûts de licence*|80 $/mois <br>*$* 90 $/mois*|
+
+- Dans cet exemple, Microsoft facture 100 $ au client pour votre licence logicielle et verse 80 $ à l’éditeur.
 - Les partenaires ayant été qualifiés pour les **Frais liés au service Place de marché réduits** verront des frais de transaction réduits sur les offres SaaS de mai 2019 à juin 2020. Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et verse 90 $ à l’éditeur.
 
 > [!NOTE]
 > **Frais liés au service Place de marché réduits** : Pour certaines offres SaaS que vous avez publiées sur notre Place de marché commercial, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d’éditeur Microsoft) à 10 %. Afin que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP.  L’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin de chaque mois afin de recevoir ces frais liés au service Place de marché réduits pour le mois.  Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits ne sont disponibles qu’aux offres qualifiées pour les frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retournent à leur montant initial. 
 
-|**Microsoft facture**|**100 $/mois**|
-|:---|:---|
-|Microsoft vous verse 80 % des revenus générés par les licences <br>**Pour les applications SaaS qualifiées, Microsoft paie 90 % de vos coûts de licence*|80 $/mois <br>*$* 90 $/mois*|
+
 
 
 #### <a name="csp-program-opt-in"></a>Abonnement au programme CSP
@@ -153,9 +157,23 @@ En activant une version d’évaluation, vous devrez configurer un environnement
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+Connectez-vous avec les clients directement en répertoriant votre offre dans les Places de marché et en introduisant votre système CRM afin de recevoir les informations de contact des clients immédiatement après qu’un client ait exprimé son intérêt ou déployé votre produit.
 
-Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
+- **Choisir une destination de prospect** (menu déroulant) : Renseignez les informations de connexion au système CRM sur lequel vous souhaitez que nous envoyions des prospects de client. 
+
+Partner Center prend en charge les systèmes CRM suivant pour la gestion des prospects. Sélectionnez le lien pour obtenir des instructions de configuration.
+
+- Blob Azure : renseignez l’adresse e-mail, le nom du conteneur et la chaîne de connexion du compte de stockage. 
+- [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : renseignez l’adresse e-mail et la chaîne de connexion du compte de stockage. 
+- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : renseignez l’adresse e-mail, l’URL et le mode d’authentification (Office 365 ou Azure Active Directory).
+- [Point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : renseignez l’adresse e-mail et l’URL du point de terminaison HTTPS. 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : renseignez l’adresse e-mail, l’ID du formulaire, l’ID du compte Munchkin et l’ID du serveur.
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : renseignez l’adresse e-mail et l’ID de l’organisation. 
+
+#### <a name="additional-lead-management-resources"></a>Ressources de gestion des prospects supplémentaires
+- [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Document d’une page présentant la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 

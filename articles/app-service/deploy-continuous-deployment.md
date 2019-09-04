@@ -9,18 +9,17 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 3c4811d990cfe107bc3bc4e6d359659b1935c6a4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 98f82914af8216789a04d3cfd2972f83c16b3fa0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297204"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070660"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
@@ -28,13 +27,11 @@ ms.locfileid: "68297204"
 
 Pour plus d'informations sur les services de contrôle de code source, consultez [Création d’un dépôt (GitHub)], [Création d’un dépôt (BitBucket)] ou [Créer un référentiel Git (Azure Repos)].
 
-Pour configurer manuellement le déploiement continu à partir d'un référentiel cloud que le portail ne prend pas directement en charge, comme [GitLab](https://gitlab.com/), consultez [Configurer manuellement un déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="authorize-azure-app-service"></a>Autoriser Azure App Service 
 
-Pour utiliser Azure Repos, assurez-vous que votre organisation Azure DevOps est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+Pour utiliser Azure Repos, assurez-vous que votre organisation Azure DevOps est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
 Pour Bitbucket ou GitHub, autorisez Azure App Service à se connecter à votre référentiel. Un service de contrôle de source ne nécessite qu'une seule autorisation. 
 
@@ -63,7 +60,7 @@ Vous pouvez utiliser le serveur de builds Kudu App Service intégré pour procé
 1. Sélectionnez votre fournisseur de contrôle de code source autorisé sur la page **Centre de déploiement**, puis choisissez **Continuer**. Pour GitHub ou Bitbucket, vous pouvez également sélectionner **Modifier le compte** pour changer de compte autorisé. 
    
    > [!NOTE]
-   > Pour utiliser Azure Repos, assurez-vous que votre organisation Azure DevOps Services est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+   > Pour utiliser Azure Repos, assurez-vous que votre organisation Azure DevOps Services est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
    
 1. Pour GitHub ou Azure Repos, sur la page **Fournisseur de builds**, sélectionnez **Service de builds App Service**, puis **Continuer**. Bitbucket utilise toujours le service de builds App Service.
    
@@ -81,7 +78,7 @@ Vous pouvez utiliser le serveur de builds Kudu App Service intégré pour procé
    - Pour Azure Repos, sélectionnez l'**Organisation Azure DevOps**, le **Projet**, le **Référentiel** et la **Branche** que vous souhaitez déployer en continu.
      
      > [!NOTE]
-     > Si votre organisation Azure DevOps n'est pas répertoriée, assurez-vous qu'elle est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+     > Si votre organisation Azure DevOps n'est pas répertoriée, assurez-vous qu'elle est liée à votre abonnement Azure. Pour plus d'informations, consultez [Configurer un compte Azure DevOps Services afin de le déployer sur une application web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
      
 1. Sélectionnez **Continuer**.
    
@@ -149,6 +146,10 @@ Pour désactiver le déploiement continu, sélectionnez **Déconnecter** en haut
 ![Désactiver le déploiement continu](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="use-unsupported-repos"></a>Utiliser des dépôts non pris en charge
+
+Pour les applications Windows, vous pouvez configurer manuellement le déploiement continu à partir d’un dépôt Git ou Mecurial sur le cloud que le portail ne prend pas directement en charge, comme [GitLab](https://gitlab.com/). Pour cela, choisissez la case Externe dans la page **Centre de déploiement**. Pour plus d’informations, consultez [Configurer le déploiement continu avec des étapes manuelles](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

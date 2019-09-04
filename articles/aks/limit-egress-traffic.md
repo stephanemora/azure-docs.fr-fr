@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639782"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034958"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Préversion - Limiter le trafic de sortie des nœuds de cluster et contrôler l’accès aux ports et services requis dans Azure Kubernetes Service (AKS)
 
@@ -85,15 +85,13 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
-| aksrepos.azurecr.io        | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). |
+| aksrepos.azurecr.io        | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). Ce registre contient des images/graphiques tiers (par exemple, un serveur de métriques, un serveur DNS de base, etc.) nécessaires au fonctionnement du cluster pendant la mise à niveau et la mise à l’échelle du cluster.|
 | *.blob.core.windows.net    | HTTPS:443 | Cette adresse est le magasin backend des images stockées dans ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Microsoft Container Registry (MCR). |
+| mcr.microsoft.com          | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, moby, etc.) nécessaires au fonctionnement du cluster pendant la mise à niveau et la mise à l’échelle du cluster. |
 | *.cdn.mscr.io              | HTTPS:443 | Cette adresse est requise pour le stockage MCR assuré par le réseau de distribution de contenu Azure (CDN). |
 | management.azure.com       | HTTPS:443 | Cette adresse est requises pour les opérations GET/PUT de Kubernetes. |
 | login.microsoftonline.com  | HTTPS:443 | Cette adresse est requise pour l’authentification Azure Active Directory. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Cette adresse est requise pour l’installation de packages sur des nœuds Linux. |
 | ntp.ubuntu.com             | UDP:123   | Cette adresse est requise pour la synchronisation temporelle NTP sur des nœuds Linux. |
-| *.docker.io                | HTTPS:443 | Cette adresse est requise pour l’extraction des images de conteneur requises pour l’avant du tunnel. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Adresses et ports recommandés facultatifs pour les clusters AKS
 
@@ -103,7 +101,7 @@ Les noms de domaine complets/règles d’application suivantes sont recommandés
 
 | FQDN                                    | Port      | Utilisation      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Cette adresse permet aux nœuds de cluster Linux de télécharger les correctifs et mises à jour de sécurité requis. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | Cette adresse permet aux nœuds de cluster Linux de télécharger les correctifs et mises à jour de sécurité requis. |
 | packages.microsoft.com                  | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour les opérations *apt-get* mises en cache. |
 | dc.services.visualstudio.com            | HTTPS:443 | Recommandé pour des mesures et une surveillance correctes à l’aide d’Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Recommandé pour des mesures et une surveillance correctes à l’aide d’Azure Monitor. |

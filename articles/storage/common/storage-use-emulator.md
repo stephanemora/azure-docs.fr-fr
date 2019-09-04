@@ -1,28 +1,28 @@
 ---
 title: Utilisation de l’émulateur de stockage Azure pour le développement et le test | Microsoft Docs
-description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’autorisation des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
+description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900339"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013553"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
-L'émulateur de stockage Microsoft Azure fournit un environnement local qui émule les services BLOB, de File d'attente et de Table Azure à des fins de développement. L’émulateur de stockage vous permet de tester localement votre application sur les services de stockage, sans souscrire d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur, vous pouvez commencer à utiliser un compte de stockage Azure dans le cloud.
+L’émulateur de stockage Microsoft Azure est un outil qui émule les services Blob, File d’attente et Table d’Azure à des fins de développement. Vous pouvez tester localement votre application sur les services de stockage sans souscrire d’abonnement Azure ni engendrer de frais. Quand vous êtes satisfait du fonctionnement de votre application dans l’émulateur, commencez à utiliser un compte de stockage Azure dans le cloud.
 
 ## <a name="get-the-storage-emulator"></a>Obtenir l’émulateur de stockage
 
 L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (téléchargement direct). Pour installer l’émulateur de stockage, vous devez disposer de privilèges administratifs sur votre ordinateur.
 
-Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Pour ceux qui envisagent un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
+Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Si vous avez besoin d’un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
 
 > [!NOTE]
 > Il n’est pas garanti que vous puissiez accéder aux données créées dans une version de l’émulateur de stockage à partir d’une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l’émulateur de stockage.
@@ -31,7 +31,7 @@ Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. P
 
 ## <a name="how-the-storage-emulator-works"></a>Fonctionnement de l’émulateur de stockage
 
-L’émulateur de stockage utilise une instance locale de Microsoft SQL Server et le système de fichiers local pour émuler les services de stockage Azure. Par défaut, l’émulateur de stockage s’appuie sur une base de données dans Microsoft SQL Server 2012 Express LocalDB. Vous pouvez configurer l’émulateur de stockage de sorte qu’il accède à une instance locale de SQL Server plutôt qu’à l’instance LocalDB. Pour plus d’informations, consultez la section [Démarrer et initialiser l’émulateur de stockage](#start-and-initialize-the-storage-emulator) plus loin dans cet article.
+L’émulateur de stockage utilise une instance locale de Microsoft SQL Server 2012 Express LocalDB pour émuler les services de stockage Azure. Vous pouvez configurer l’émulateur de stockage de sorte qu’il accède à une instance locale de SQL Server plutôt qu’à l’instance LocalDB. Pour en savoir plus, consultez la section [Démarrer et initialiser l’émulateur de stockage](#start-and-initialize-the-storage-emulator) plus loin dans cet article.
 
 L'émulateur de stockage se connecte à SQL Server ou LocalDB par l'intermédiaire de l'authentification Windows.
 
@@ -45,7 +45,10 @@ Pour démarrer l’émulateur de stockage Azure :
 2. Commencez à taper `Azure Storage Emulator`.
 3. Sélectionnez l’émulateur dans la liste des applications affichées.
 
-Au démarrage de l’émulateur de stockage, une fenêtre d’invite de commande apparaît. Vous pouvez utiliser cette fenêtre de console pour démarrer et arrêter l’émulateur de stockage, effacer des données, obtenir l’état et initialiser l’émulateur. Pour plus d’informations, consultez la section [Référence de l’outil en ligne de commande de l’émulateur de stockage](#storage-emulator-command-line-tool-reference) plus loin dans cet article.
+Au démarrage de l’émulateur de stockage, une fenêtre d’invite de commande apparaît. Vous pouvez utiliser cette fenêtre de console pour démarrer et arrêter l’émulateur de stockage. Vous pouvez également effacer des données, initialiser l’émulateur et afficher son état à partir de l’invite de commandes. Pour plus d’informations, consultez la section [Référence de l’outil en ligne de commande de l’émulateur de stockage](#storage-emulator-command-line-tool-reference) plus loin dans cet article.
+
+> [!NOTE]
+> L’émulateur de stockage Azure peut ne pas démarrer correctement si un autre émulateur de stockage comme Azurite s’exécute sur le système.
 
 Lorsque l’émulateur est en cours d’exécution, une icône est affichée dans la zone de notification de la barre des tâches Windows.
 
@@ -83,7 +86,7 @@ Pour plus d’informations sur ces commandes, consultez la section [Référence 
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Authentification des demandes auprès de l’émulateur de stockage
 
-Une fois l’émulateur de stockage installé et démarré, vous pouvez tester votre code sur celui-ci. Comme avec le Stockage Azure dans le cloud, chaque demande que vous effectuez auprès de l’émulateur de stockage doit être autorisée, sauf s’il s’agit d’une demande anonyme. Vous pouvez autoriser les demandes auprès de l’émulateur de stockage à l’aide de l’authentification par clé partagée ou d’une signature d’accès partagé (SAP).
+Une fois l’émulateur de stockage installé et démarré, vous pouvez tester votre code sur celui-ci. Chaque demande que vous effectuez auprès de l’émulateur de stockage doit être autorisée, sauf s’il s’agit d’une demande anonyme. Vous pouvez autoriser les demandes auprès de l’émulateur de stockage à l’aide de l’authentification par clé partagée ou d’une signature d’accès partagé (SAP).
 
 ### <a name="authorize-with-shared-key-credentials"></a>Autorisation à l’aide d’informations d’identification de clé partagée
 
@@ -95,7 +98,7 @@ Pour plus d’informations sur les chaînes de connexion, consultez [Configurati
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous pouvez créer le jeton SAP à l’aide d’un outil tel que [l’Explorateur de stockage](https://storageexplorer.com/) ou une autre application qui prend en charge l’authentification avec clé partagée.
+Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous pouvez créer le jeton SAS à l’aide de l’[Explorateur Stockage](https://storageexplorer.com/) ou d’une autre application prenant en charge l’authentification avec clé partagée.
 
 Vous pouvez également générer un jeton SAP à l’aide d’Azure PowerShell. L’exemple suivant génère un jeton SAP avec des autorisations complètes sur un conteneur de blobs :
 
@@ -124,7 +127,7 @@ Pour plus d’informations sur les signatures d’accès partagé, consultez [Ac
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>Adressage des ressources dans l’émulateur de stockage
 
-Les points de terminaison de service de l’émulateur de stockage sont différents de ceux d’un compte de stockage Azure. Cette différence est due au fait que l’ordinateur local n’effectue pas de résolution de noms de domaine ; les points de terminaison de l’émulateur de stockage doivent donc correspondre à des adresses locales.
+Les points de terminaison de service de l’émulateur de stockage sont différents de ceux d’un compte de stockage Azure. Dans la mesure où l’ordinateur local n’effectue pas de résolution de noms de domaine, les points de terminaison de l’émulateur de stockage doivent être des adresses locales.
 
 Lorsque vous adressez une ressource dans un compte de stockage Azure, vous utilisez le schéma suivant. Le nom du compte fait partie du nom d’hôte de l’URI et la ressource étant adressée fait partie du chemin d’accès de l’URI :
 
@@ -134,7 +137,7 @@ Par exemple, l’URI suivante est une adresse valide pour un objet blob dans un 
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Toutefois, dans l’émulateur de stockage, étant donné que l’ordinateur local n’effectue pas la résolution des noms de domaine, le nom de compte fait partie du chemin d’accès de l’URI au lieu du nom d’hôte. Utilisez le format d’URI suivant pour une ressource dans l’émulateur de stockage :
+Dans la mesure où l’ordinateur local n’effectue pas de résolution de noms de domaine, le nom du compte fait partie du chemin de l’URI au lieu du nom d’hôte. Utilisez le format d’URI suivant pour une ressource dans l’émulateur de stockage :
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -150,7 +153,7 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressage du compte secondaire avec RA-GRS
 
-À partir de la version 3.1, l’émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture (RA-GRS). Pour les ressources de stockage dans le cloud et dans l'émulateur local, vous pouvez accéder à l'emplacement secondaire en ajoutant -secondary au nom du compte. Par exemple, vous pouvez utiliser l'adresse suivante pour accéder à un objet blob en utilisant l'emplacement secondaire en lecture seule dans l'émulateur de stockage :
+À partir de la version 3.1, l’émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture (RA-GRS). Vous pouvez accéder à l’emplacement secondaire en ajoutant -secondary au nom du compte. Par exemple, vous pouvez utiliser l'adresse suivante pour accéder à un objet blob en utilisant l'emplacement secondaire en lecture seule dans l'émulateur de stockage :
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
@@ -161,14 +164,14 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 
 ## <a name="storage-emulator-command-line-tool-reference"></a>Référence de l’outil en ligne de commande de l’émulateur de stockage
 
-À partir de la version 3.0, une fenêtre de console s’affiche lorsque vous démarrez l’émulateur de stockage. Utilisez la ligne de commande de la fenêtre de console pour démarrer ou arrêter l’émulateur, ainsi que pour interroger l’état et effectuer d’autres opérations.
+À partir de la version 3.0, une fenêtre de console s’affiche lorsque vous démarrez l’émulateur de stockage. Utilisez la ligne de commande dans la fenêtre de console pour démarrer et arrêter l’émulateur. Vous pouvez également interroger l’état et effectuer d’autres opérations à partir de la ligne de commande.
 
 > [!NOTE]
 > Si l’émulateur de calcul Microsoft Azure est installé, une icône apparaît dans la zone de notification lorsque vous lancez l’émulateur de stockage. Cliquez avec le bouton droit sur l’icône pour faire apparaître un menu, qui fournit un moyen graphique pour démarrer et arrêter l’émulateur de stockage.
 >
 >
 
-### <a name="command-line-syntax"></a>Syntaxe de la ligne de commande
+### <a name="command-line-syntax"></a>Syntaxe de ligne de commande
 
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
@@ -178,22 +181,22 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 | Option | Description | Commande | Arguments |
 | --- | --- | --- | --- |
-| **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess* : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
+| **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
 | **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
 | **État** |Permet d’imprimer l’état de l’émulateur de stockage. |`AzureStorageEmulator.exe status` | |
 | **Clear** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : Efface les données d’objet blob. <br/>*queue* : Efface les données de file d’attente. <br/>*table* : Efface les données de table. <br/>*all* : Efface toutes les données de tous les services. |
-| **Init** |Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : Spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName* : Spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate* : Force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate* : Ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports* : Tente de réserver les ports HTTP associés aux services.<br/>*-unreserveports* : Tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess* : Effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
+| **Init** |Effectue une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : Spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName* : Spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate* : Force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate* : Ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports* : Tente de réserver les ports HTTP associés aux services.<br/>*-unreserveports* : Tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess* : Effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Différences entre l’émulateur de stockage et Azure Storage
 
-L’émulateur de stockage étant un environnement émulé exécuté dans une instance SQL locale, il existe des différences de fonctionnalités entre l’émulateur et un compte de stockage Azure dans le cloud :
+L’émulateur de stockage étant un environnement émulé local, il existe des différences entre l’émulateur et un compte de stockage Azure dans le cloud :
 
 * L'émulateur de stockage prend en charge uniquement un compte fixe et une clé d'authentification connue.
-* L’émulateur de stockage n’est pas un service de stockage évolutif et ne prend pas en charge un grand nombre de clients simultanés.
-* Comme décrit dans [Adressage des ressources dans l’émulateur de stockage](#addressing-resources-in-the-storage-emulator), les ressources ne sont pas adressées de la même manière dans l’émulateur de stockage et dans un compte de stockage Azure. Cette différence est due au fait que la résolution de noms de domaine est disponible dans le cloud, mais pas sur l’ordinateur local.
+* L’émulateur de stockage n’est pas un service de stockage scalable et ne prend pas en charge un grand nombre de clients simultanés.
+* Comme décrit dans [Adressage des ressources dans l’émulateur de stockage](#addressing-resources-in-the-storage-emulator), les ressources ne sont pas adressées de la même manière dans l’émulateur de stockage et dans un compte de stockage Azure. La différence est due au fait que la résolution de noms de domaine est disponible dans le cloud, mais pas sur l’ordinateur local.
 * À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et retournent toujours la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
 * Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
-* Si vous utilisez une version des services de stockage qui n’est pas encore prise en charge par l’émulateur, l’émulateur de stockage retourne une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - Demande incorrecte).
+* Si vous utilisez une version des services de stockage qui n’est pas prise en charge par l’émulateur, l’émulateur retourne une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - Demande incorrecte).
 
 ### <a name="differences-for-blob-storage"></a>Différences pour le stockage d’objets blob
 
@@ -211,7 +214,7 @@ Les différences suivantes s’appliquent au stockage d’objets blob dans l’�
 Les différences suivantes s’appliquent au stockage de tables dans l’émulateur :
 
 * Les propriétés de date du service de Table dans l’émulateur de stockage ne prennent en charge que la plage autorisée par SQL Server 2005 (les dates postérieures au 1er janvier 1753). Toutes les dates antérieures au 1er janvier 1753 sont remplacées par cette valeur. La précision des dates est limitée à la précision de SQL Server 2005, ce qui signifie que les dates sont précises au 1/300e de seconde.
-* L’émulateur de stockage prend en charge des valeurs de propriétés de clé de partition et de clé de ligne de moins de 512 octets chacune. De plus, la taille totale du nom du compte, du nom de table et de l’ensemble des noms de propriétés de clé ne peut pas dépasser 900 octets.
+* L’émulateur de stockage prend en charge des valeurs de propriétés de clé de partition et de clé de ligne de moins de 512 octets chacune. La taille totale du nom du compte, du nom de table et de l’ensemble des noms de propriétés de clé ne peut pas dépasser 900 octets.
 * La taille totale d’une ligne de table dans l’émulateur de stockage est limitée à moins de 1 Mo.
 * Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` ne prennent en charge que les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
 
@@ -223,15 +226,15 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-510"></a>Version 5.10
 
-* L’émulateur de stockage ne refuse pas la version 2019-07-07 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+* L’émulateur de stockage ne refuse pas la version 2019-07-07 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-59"></a>Version 5.9
 
-* L’émulateur de stockage ne refuse pas la version 2019-02-02 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+* L’émulateur de stockage ne refuse pas la version 2019-02-02 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-58"></a>Version 5.8
 
-* L’émulateur de stockage ne refuse pas la version 2018-11-09 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+* L’émulateur de stockage ne refuse pas la version 2018-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-57"></a>Version 5.7
 
@@ -248,7 +251,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-54"></a>Version 5.4
 
-* Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez avoir des réservations de port, utilisez l’option *-reserveports* de la commande **init** afin de les spécifier.
+* Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez des réservations de port, utilisez l’option *-reserveports* de la commande **init** pour les spécifier.
 
 ### <a name="version-53"></a>Version 5.3
 
@@ -279,7 +282,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-45"></a>Version 4.5
 
-* Corrige un bogue qui a provoqué l’échec de l’initialisation et de l’installation de l’émulateur de stockage lorsque la base de données de sauvegarde a été renommée.
+* Corrige un bogue provoquant l’échec de l’installation et de l’initialisation au moment du renommage de la base de données de sauvegarde.
 
 ### <a name="version-44"></a>Version 4.4
 
@@ -298,8 +301,8 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-41"></a>Version 4.1
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table, à l’exception des nouvelles fonctionnalités des objets blob d’ajout.
-* Si vous utilisez une version des services de stockage qui n’est pas encore prise en charge par l’émulateur, celui-ci retourne un message d’erreur explicite. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous rencontrez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte), téléchargez la dernière version de l’émulateur de stockage.
+* L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Il ne prend pas en charge les nouvelles fonctionnalités d’ajout d’objets blob.
+* L’émulateur retourne à présent un message d’erreur significatif pour les versions non prises en charge des services de stockage. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous obtenez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - demande incorrecte), téléchargez la dernière version de l’émulateur.
 * Correction d’un bogue dans lequel une condition de course a généré des données d’entité de table incorrectes lors d’opérations de fusion simultanées.
 
 ### <a name="version-40"></a>Version 4.0
@@ -312,12 +315,12 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-31"></a>Version 3.1
 
-* Le stockage géo-redondant avec accès en lecture (RA-GRS) est maintenant pris en charge dans l’émulateur de stockage. Les API Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge pour le compte secondaire et renvoient la valeur de l’élément de réponse LastSyncTime comme heure actuelle en fonction de la base de données SQL sous-jacente. Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez Bibliothèque cliente Microsoft Azure Storage pour .NET.
+* Le stockage géo-redondant avec accès en lecture (RA-GRS) est maintenant pris en charge dans l’émulateur de stockage. Les API `Get Blob Service Stats`, `Get Queue Service Stats` et `Get Table Service Stats` sont prises en charge pour le compte secondaire et renvoient la valeur de l’élément de réponse LastSyncTime comme heure actuelle en fonction de la base de données SQL sous-jacente. Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez Bibliothèque cliente Microsoft Azure Storage pour .NET.
 
 ### <a name="version-30"></a>Version 3.0
 
 * L’émulateur de stockage Azure n’est plus inclus dans le même package que l’émulateur de calcul.
-* L’interface graphique de l’émulateur de stockage est remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
+* L’interface utilisateur graphique de l’émulateur de stockage est dépréciée. Elle a été remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
 * La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
 ## <a name="next-steps"></a>Étapes suivantes

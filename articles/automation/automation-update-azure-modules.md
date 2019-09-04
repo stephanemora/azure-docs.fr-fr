@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a42fae4e7ff9ba9edc29c64480983987e41cf9c1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a71eb00ce4d4ace6ccc17e050946b39debed929c
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476799"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034885"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Guide de mise à jour des modules Azure PowerShell dans Azure Automation
 
@@ -30,6 +30,9 @@ Si vous développez vos scripts localement, il est recommandé d’installer loc
 
 > [!NOTE]
 > Un nouveau compte Automation peut ne pas contenir les derniers modules.
+
+> [!NOTE]
+> Vous ne serez pas en mesure de supprimer des modules globaux (modules prêts à l’emploi fournis par Automation).
 
 ## <a name="considerations"></a>Considérations
 

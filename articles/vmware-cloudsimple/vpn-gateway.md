@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d94e0e21f6a4564435a1674a933bd483073378f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536205"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972605"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurer des passerelles VPN sur le réseau CloudSimple
 
@@ -22,7 +22,7 @@ Les passerelles VPN vous permettent de vous connecter à un réseau CloudSimple 
 ## <a name="vpn-gateway-types"></a>Types de passerelle VPN
 
 * La connexion **VPN de site à site** vous permet de configurer vos charges de travail de cloud privé pour accéder aux services locaux. Vous pouvez également utiliser Active Directory localement comme source d’identité pour l’authentification auprès de votre vCenter de cloud privé.  Actuellement, seul le type **VPN basé sur une stratégie** est pris en charge.
-* Une connexion **VPN de point à site** est la façon la plus simple pour vous connecter à votre cloud privé depuis votre ordinateur. Utilisez la connectivité VPN de point à site si pour vous connecter au cloud privé à distance. Pour plus d’informations sur l’installation d’un client pour une connexion VPN de point à site, consultez [Configurer une connexion VPN à votre cloud privé](set-up-vpn.md).
+* Une connexion **VPN de point à site** est la façon la plus simple pour vous connecter à votre cloud privé à partir de votre ordinateur. Utilisez la connectivité VPN de point à site si pour vous connecter au cloud privé à distance. Pour plus d’informations sur l’installation d’un client pour une connexion VPN de point à site, consultez [Configurer une connexion VPN à votre cloud privé](set-up-vpn.md).
 
 Dans une région, vous pouvez créer une passerelle VPN de point à site et une passerelle VPN de site à site.
 

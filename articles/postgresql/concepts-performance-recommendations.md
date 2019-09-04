@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068837"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907489"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -47,7 +47,8 @@ Les recommandations de *création d’index* suggèrent de nouveaux index pour a
 ### <a name="drop-index-recommendations"></a>Recommandations de suppression d’index
 Outre la détection des index manquants, Azure Database pour PostgreSQL procède à l’analyse continue du niveau de performance des index existants. Si un index est rarement utilisé ou redondant, l’analyseur recommande sa suppression.
 
-
+## <a name="considerations"></a>Considérations
+* Il n’existe pas de recommandations concernant les performances pour les [réplicas en lecture](concepts-read-replicas.md).
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez plus d’informations sur la [surveillance et l’optimisation](concepts-monitoring.md) dans Azure Database pour PostgreSQL.
 

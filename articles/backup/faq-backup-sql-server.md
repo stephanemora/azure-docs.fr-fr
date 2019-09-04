@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737078"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982431"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -30,16 +30,17 @@ Dans certaines circonstances, le service Sauvegarde Azure déclenche des sauvega
   - Si une sauvegarde de fichier journal ou différentielle échoue en raison d’une erreur de validation de LSN, la sauvegarde de fichier journal ou différentielle suivante se transforme en sauvegarde complète.
   - Si aucune sauvegarde complète n’a eu lieu avant une sauvegarde de fichier journal ou différentielle, cette sauvegarde de fichier journal ou différentielle se transforme en sauvegarde complète.
   - Si la dernière sauvegarde complète jusqu'à une date et une heure est antérieure à 15 jours, la sauvegarde de fichier journal ou différentielle suivante se transforme en sauvegarde complète.
-  - Tous les travaux de sauvegarde annulés en raison d’une mise à niveau d’extension sont re-déclenchés une fois la mise à niveau terminée et l’extension démarrée.
+  - Tous les travaux de sauvegarde annulés en raison d’une mise à niveau d’extension sont redéclenchés une fois la mise à niveau terminée et l’extension démarrée.
   - Si vous choisissez de remplacer la base de données lors de la restauration, la sauvegarde de fichier journal ou différentielle suivante échoue et une sauvegarde complète est déclenchée.
-  - Si une sauvegarde complète est requise pour redéfinir les chaînes de fichier journal en raison d'une modification du modèle de récupération de base de données, cette sauvegarde est déclenchée lors de la planification suivante.
+  - Si une sauvegarde complète est requise pour redéfinir les chaînes de fichier journal en raison d’une modification du modèle de récupération de base de données, cette sauvegarde est déclenchée lors de la planification suivante.
 
 Par défaut, la correction automatique est activée pour tous les utilisateurs, mais si vous décidez de la désactiver, procédez comme suit :
 
   * Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez ou modifiez le fichier **ExtensionSettingsOverrides.json**.
-  * Dans le fichier  **ExtensionSettingsOverrides.json**, définissez *{« EnableAutoHealer » : false}* .
+  * Dans le fichier **ExtensionSettingsOverrides.json**, définissez *{"EnableAutoHealer": false}* .
   * Enregistrer vos modifications et fermez le fichier.
-  * Sur l’instance SQL Server, ouvrez **Gérer la tâche** , puis redémarrez le service **AzureWLBackupCoordinatorSvc**.  
+  * Sur l’instance SQL Server, ouvrez **Gérer la tâche** , puis redémarrez le service **AzureWLBackupCoordinatorSvc**.
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Puis-je contrôler le nombre de sauvegardes pouvant être exécutées simultanément sur le serveur SQL ?
 
@@ -71,12 +72,12 @@ Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alert
 Le menu **Travail de sauvegarde** affiche uniquement les travaux de sauvegarde ad hoc. Pour les travaux planifiés, utilisez [Surveillance à l'aide d'Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
-Oui, la  [protection automatique](backup-sql-server-database-azure-vms.md#enable-auto-protection) le permet.  
+Oui, la [protection automatique](backup-sql-server-database-azure-vms.md#enable-auto-protection) le permet.  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Si je supprime une base de données d’une instance protégée automatiquement, qu'advient-il des sauvegardes ?
 Si une base de données est supprimée d’une instance protégée automatiquement, les sauvegardes de cette base de données sont toujours essayées. Cela implique que la base de données supprimée devient défectueuse sous **Éléments de sauvegarde** mais reste protégée.
 
-Pour ne plus protéger cette base de données, utilisez  **Arrêter la sauvegarde** avec **Supprimer des données** sur cette base de données.  
+Pour ne plus protéger cette base de données, utilisez **Arrêter la sauvegarde** avec **Supprimer des données** sur cette base de données.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Si j'arrête une opération de sauvegarde d'une base de données protégée automatiquement, comment se comportera-t-elle ?
 Si vous choisissez d'**arrêter la sauvegarde en conservant les données**, aucune nouvelle sauvegarde n'interviendra et les points de récupération existants resteront intacts. La base de données sera toujours considérée comme protégée et s'affichera sous les **éléments de sauvegarde**.

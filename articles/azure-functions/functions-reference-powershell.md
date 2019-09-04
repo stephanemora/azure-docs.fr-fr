@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706395"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012710"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -84,7 +84,7 @@ $TriggerMetadata.sys
 
 | Propriété   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Moment, au format UTC, où fonction a été déclenchée        | Datetime |
+| UtcNow     | Moment, au format UTC, où fonction a été déclenchée        | DateTime |
 | MethodName | Nom de la fonction qui a été déclenchée     | string   |
 | RandGuid   | GUID unique pour cette exécution de la fonction | string   |
 
@@ -517,7 +517,7 @@ Le [plan de consommation](functions-scale.md#consumption-plan) s’exécute à l
 
 Azure PowerShell utilise des contextes _au niveau du processus_ et un état pour vous libérer d’une saisie excessive. Toutefois, si vous activez la concurrence dans votre Function App et appelez des actions qui changent l’état, vous pouvez être confronté à des conditions de concurrence. Ces conditions de concurrence sont difficiles à déboguer car un appel s’appuie sur un état donné et que l’autre appel a changé l’état.
 
-La concurrence est très importante dans Azure PowerShell car certaines opérations peuvent prendre beaucoup de temps. Faites toutefois preuve de vigilance. Si vous pensez être confronté à une condition de concurrence, redéfinissez la concurrence sur `1` et réessayez la requête.
+La concurrence est très importante dans Azure PowerShell car certaines opérations peuvent prendre beaucoup de temps. Faites toutefois preuve de vigilance. Si vous pensez que vous êtes confronté à une condition de concurrence, définissez le paramètre d’application PSWorkerInProcConcurrencyUpperBound sur `1` et utilisez plutôt l’[isolation du niveau processus Worker du langage](functions-app-settings.md#functions_worker_process_count) pour la concurrence.
 
 ## <a name="configure-function-scriptfile"></a>Configurer une fonction `scriptFile`
 

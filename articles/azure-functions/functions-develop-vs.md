@@ -1,21 +1,19 @@
 ---
 title: Développer Azure Functions à l’aide de Visual Studio | Microsoft Docs
 description: Découvrez comment développer et tester Azure Functions à l’aide d’Azure Functions Tools pour Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593276"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905676"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -212,6 +210,9 @@ Vous accédez ainsi à la boîte de dialogue **Paramètres de l’application** 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** représente une valeur de paramètre dans le fichier local.settings.json, et **Distant** correspond au paramètre actuel dans l’application de fonction dans Azure.  Sélectionnez **Ajouter le paramètre** pour créer un nouveau paramètre d’application. Utilisez le lien **Insérer une valeur locale** pour copier une valeur de paramètre dans le champ **Distant**. Les modifications en attente sont écrites dans le fichier de paramètres local et l’application de fonction lorsque vous sélectionnez **OK**.
+
+> [!NOTE]
+> Par défaut, le fichier local.settings.json n’est pas archivé dans le contrôle de code source. Cela signifie que lorsque vous clonez un projet Functions local à partir du contrôle de code source, le projet n’a pas de fichier local.settings.json. Dans ce cas, vous devez créer manuellement ce fichier à la racine du projet pour que la boîte de dialogue **Paramètres d’application** fonctionne comme prévu. 
 
 Vous pouvez également gérer les paramètres d’application d’une des manières suivantes :
 

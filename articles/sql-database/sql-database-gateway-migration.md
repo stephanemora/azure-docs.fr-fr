@@ -1,5 +1,5 @@
 ---
-title: Avis de migration de passerelle pour Azure SQL Database de la génération 2 vers la génération 3 | Microsoft Docs
+title: Avis de migration du trafic de passerelle pour Azure SQL Database | Microsoft Docs
 description: Cet article informe les utilisateurs de la migration des adresses IP des passerelles Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568109"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981284"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 
-Comme l’infrastructure Azure évolue, Microsoft actualise régulièrement le matériel, afin de proposer la meilleure expérience client possible. Dans les prochains mois, nous prévoyons d’ajouter des passerelles basées sur des générations de matériel plus récentes et de mettre hors service les passerelles basées sur du matériel plus ancien dans certaines régions.  
+Comme l’infrastructure Azure évolue, Microsoft actualise régulièrement le matériel, afin de proposer la meilleure expérience client possible. Dans les prochains mois, nous prévoyons d’ajouter des passerelles basées sur des générations de matériel plus récentes, de migrer le trafic vers ces passerelles et de mettre hors service les passerelles basées sur du matériel plus ancien dans certaines régions.  
 
 Les clients seront informés très tôt de toute modification apportée aux passerelles disponibles dans chaque région, par e-mail et via le portail Microsoft Azure. Les informations les plus récentes seront conservées dans la table [Adresses IP des passerelles Azure SQL Database](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses).
 
 ## <a name="impact-of-this-change"></a>Portée de ce changement
 
-La première série de désaffectations de passerelles est prévue pour le 1er septembre 2019 dans les régions suivantes :
-
+Le premier cycle de migration du trafic vers les passerelles plus récentes est prévu pour le **14 octobre 2019** dans les régions suivantes :
+- Brésil Sud
 - USA Ouest
 - Europe Ouest
 - USA Est
@@ -40,12 +40,14 @@ La première série de désaffectations de passerelles est prévue pour le 1er s
 - USA Est 2
 - Asie Est
 
-L’adresse IP désaffectée cessera d’accepter le trafic, et les nouvelles tentatives de connexion seront acheminées vers l’une des passerelles de la région.
+La migration du trafic change l’adresse IP publique résolue par DNS pour votre base de données SQL.
+Vous êtes impacté dans les cas suivants :
+- Vous avez codé en dur l’adresse IP d’une passerelle particulière dans votre pare-feu local.
+- Vous avez des sous-réseaux qui utilisent Microsoft.SQL comme point de terminaison de service, mais vous ne pouvez pas communiquer avec les adresses IP de passerelle.
 
-Utilisateurs qui ne sont pas affectés par cette modification :
-
-- Les clients qui utilisent la redirection dans le cadre de leur stratégie de connexion ne verront aucun changement.
-- Les connexions à la base de données SQL à partir de Microsoft Azure et l’utilisation des balises de service ne seront pas affectées.
+Vous n’êtes pas impacté dans les cas suivants : 
+- Vous utilisez la redirection comme stratégie de connexion.
+- Vous avez des connexions à SQL Database à partir d’Azure et vous utilisez des balises de service.
 - Il en va de même pour les connexions effectuées à l’aide des versions prises en charge de Microsoft JDBC Driver pour SQL Server. Pour les versions prises en charge du pilote JDBC, voir [Télécharger Microsoft JDBC Driver pour SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Que faire si vous êtes concerné

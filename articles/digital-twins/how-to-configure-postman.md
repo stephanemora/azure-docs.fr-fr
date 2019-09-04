@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873641"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904293"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -35,9 +35,9 @@ Avec le client Postman, les développeurs de solutions peuvent spécifier le typ
 
 Configurez votre application Azure Active Directory pour utiliser le flux d’octroi implicite OAuth 2.0.
 
-1. Suivez les étapes décrites dans [ce démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) pour créer une application Azure AD de type natif. Vous pouvez aussi réutiliser une inscription d’application native existante.
+1. Suivez les étapes de [notre guide de démarrage rapide](./quickstart-view-occupancy-dotnet.md) pour créer une application Azure AD. Vous pouvez également [créer une application native à l’aide du panneau AAD hérité](./how-to-use-legacy-aad.md).
 
-1. Sous **Autorisations requises**, sélectionnez **Ajouter**, puis entrez **Azure Digital Twins** sous **Ajouter un accès d’API**. Si votre recherche ne trouve pas cette API, sélectionnez **Azure Smart Spaces** à la place. Ensuite, sélectionnez **Accorder des autorisations > Autorisations déléguées**, puis **Terminé**.
+1. Sous **Autorisations de l’API**, sélectionnez **Ajouter une autorisation**. Ensuite, sélectionnez **Azure Digital Twins** sous **API utilisées par mon organisation**. Si votre recherche ne trouve pas cette API, sélectionnez **Azure Smart Spaces** à la place. Ensuite, sélectionnez **Autorisations déléguées**, **Lecture** > **Lecture.Écriture**, puis **Ajouter une autorisation**.
 
     [![Api d’ajout d’inscription d’application Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -75,7 +75,7 @@ Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, ad
     | Type d’autorisation | `Implicit` |
     | URL de rappel | `https://www.getpostman.com/oauth2/callback` |
     | URL d’authentification | Utilisez l’**URL d’autorisation** de l’étape 2 |
-    | ID client | Utilisez l’**ID d’application** de l’application Azure Active Directory qui a été créée ou réaffectée dans la section précédente |
+    | ID client | Utilisez l’**ID d’application** de l’application Azure Active Directory qui a été créée ou réutilisée dans la section précédente. |
     | Étendue | Laisser vide |
     | State | Laisser vide |
     | Authentification du client | `Send as Basic Auth header` |

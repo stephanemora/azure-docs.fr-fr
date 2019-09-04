@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614129"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996673"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -430,13 +430,15 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 2. Le **format de données source** est **Parquet**, **ORC**, ou **Texte délimité**, avec les configurations suivantes :
 
-   1. Le chemin d’accès au dossier ne contient pas de filtre de caractères génériques.
-   2. Le nom de fichier pointe vers un fichier unique ou est `*` ou `*.*`.
-   3. `rowDelimiter` doit être **\n**.
-   4. `nullValue` est soit défini sur **une chaîne vide** («») ou conserve sa valeur par défaut, et `treatEmptyAsNull` conserve également sa valeur par défaut ou n’est pas définie sur false.
-   5. `encodingName` est **utf-8**, qui est la valeur par défaut.
+   1. Le chemin du dossier ne contient pas de filtre de caractères génériques.
+   2. Le nom de fichier est vide ou pointe vers un fichier unique. Si vous spécifiez un nom de fichier avec caractères génériques dans l’activité de copie, les seuls caractères autorisés sont `*` et `*.*`.
+   3. `rowDelimiter` peut être **\n**, **\r\n** ou **\r** ou conserver sa valeur **par défaut**.
+   4. `nullValue` est défini sur **une chaîne vide** («») ou conserve sa valeur par défaut, et `treatEmptyAsNull` conserve sa valeur par défaut ou est défini sur true.
+   5. `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
    6. `quoteChar`, `escapeChar` et `skipLineCount` ne sont pas spécifiés. PolyBase est capable d’ignorer la ligne d’en-tête ; cela peut être paramétré en tant que `firstRowAsHeader` dans ADF.
    7. `compression` peut être **aucune compression**, **GZip** ou **Deflate**.
+
+3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true.
 
 ```json
 "activities":[
@@ -445,7 +447,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +459,11 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

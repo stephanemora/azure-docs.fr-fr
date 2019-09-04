@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 1e4496e2b5d2b21fd878ef68665b8e5b06fa6cc5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657846"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012545"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -42,13 +42,17 @@ Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entre
 
    ![Sélectionner l’abonnement à transférer](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
-1. Entrez l’adresse e-mail d’un utilisateur qui est administrateur de facturation du compte qui sera le nouveau propriétaire de l’abonnement, puis sélectionnez **Envoyer une demande de transfert**.
+1. Entrez l’adresse e-mail d’un utilisateur qui est administrateur de facturation du compte qui sera le nouveau propriétaire de l’abonnement.
+
+1. Si vous transférez votre abonnement au compte d’un autre locataire Azure AD, choisissez si vous souhaitez déplacer l’abonnement vers le locataire du nouveau compte. Pour plus d’informations, consultez [Transfert de l’abonnement à un compte dans un autre locataire Azure AD](#transferring-subscription-to-an-account-in-another-azure-ad-tenant).
 
     > [!IMPORTANT]
     >
-    > Si vous transférez la propriété de facturation de votre abonnement à un compte d’utilisateur dans un autre locataire Azure AD, toutes les affectations [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) servant à gérer les ressources de l’abonnement sont définitivement supprimées. Seul le nouveau propriétaire aura accès à la gestion des ressources de l’abonnement. Pour plus d’informations, consultez [Transfert de l’abonnement à un utilisateur dans un autre locataire Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md).
+    > Si vous choisissez de déplacer l’abonnement vers le locataire Azure AD du nouveau compte, toutes les affectations de [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) permettant de gérer les ressources de l’abonnement sont définitivement supprimées. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources de l’abonnement. Pour plus d’informations, consultez [Transfert de l’abonnement à un utilisateur dans un autre locataire Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md). Vous pouvez également désactiver la case à cocher Locataire Azure AD de l’abonnement pour transférer la propriété de facturation sans déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, les autorisations RBAC existantes permettant de gérer les ressources Azure sont conservées.
   
     ![Page d’envoi du transfert](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
+
+1. Sélectionnez **Envoyer la demande de transfert**.
 
 1. L’utilisateur reçoit un e-mail contenant des instructions pour l’examen de votre demande de transfert.
 
@@ -68,12 +72,12 @@ Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entre
 
 Un locataire Azure Active Directory (AD) est créé pour vous quand vous vous inscrivez à Azure. Le locataire représente votre compte. Le locataire vous permet de gérer l’accès à vos abonnements et ressources.
 
-Quand vous créez un abonnement, il est hébergé dans le locataire Azure AD de votre compte. Si vous souhaitez fournir à d’autres utilisateurs l’accès à vos abonnement ou ressources, vous devez les inviter à votre locataire. Cela vous aide à contrôler l’accès à vos abonnements et ressources.
+Quand vous créez un abonnement, il est hébergé dans le locataire Azure AD de votre compte. Si vous souhaitez fournir à d’autres utilisateurs l’accès à votre abonnement ou à ses ressources, vous devez les inviter à joindre votre locataire. Cela vous aide à contrôler l’accès à vos abonnements et ressources.
 
-Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, l’abonnement est déplacé vers le locataire du nouveau compte. Tous les utilisateurs, groupes ou principaux de service qui disposaient d’un [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement perdent leur accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Pour que les utilisateurs continuent de bénéficier de l’accès, le nouveau propriétaire doit [les ajouter manuellement à l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, vous pouvez déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, tous les utilisateurs, groupes ou principaux de service qui disposaient d’un [accès RBAC](../role-based-access-control/role-assignments-portal.md) pour gérer les abonnements et leurs ressources perdent cet accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Pour que les utilisateurs continuent de bénéficier de l’accès, le nouveau propriétaire doit [les ajouter manuellement à l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 
-## <a name="transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Transfert des abonnements Dev/Test Paiement à l’utilisation, Microsoft Partner Network (MPN) et Visual Studio
+## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Transfert des abonnements Dev/Test Paiement à l’utilisation, MPN et Visual Studio
 
 Les abonnements Visual Studio et Microsoft Partner Network bénéficient chaque mois de crédits Azure. Quand vous transférez ces abonnements, votre crédit n’est pas disponible dans le compte de facturation de destination. L’abonnement utilise le crédit disponible dans le compte de facturation de destination. Supposons que Pierre transfère un abonnement Visual Studio Enterprise au compte de Marie le 9 septembre et que Marie accepte le transfert. Une fois le transfert terminé, l’abonnement commence à utiliser le crédit disponible dans le compte de Marie. Le crédit est réinitialisé le 9 de chaque mois. 
 
@@ -83,8 +87,6 @@ Les abonnements Visual Studio et Microsoft Partner Network bénéficient chaque 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Transférer la propriété de facturation des abonnements Contrat Entreprise (EA)
 
 L’administrateur d’entreprise peut transférer la propriété des abonnements entre des comptes au sein d’une inscription. Pour plus d’informations, consultez [Transférer la propriété du compte](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) dans le portail EA.
-
-<a id="CSP"></a>
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Étapes suivantes après avoir accepté la propriété de facturation
 
@@ -129,10 +131,10 @@ Ces Questions fréquentes (FAQ) concernent les utilisateurs qui transfèrent la 
 
 Un administrateur de facturation est une personne qui a l’autorisation de gérer la facturation d’un compte. Il est autorisé à accéder à la facturation sur le [portail Azure](https://portal.azure.com) et à effectuer diverses tâches liées à la facturation comme la création d’abonnements, la consultation et le paiement des factures ou la mise à jour des modes de paiement.
 
-Pour identifier les abonnements pour lesquels vous êtes administrateur de facturation, effectuez les étapes suivantes :
+Pour identifier les comptes pour lesquels vous êtes administrateur de facturation, suivez les étapes ci-après :
 
 1. Accédez à la [page Gestion des coûts + facturation dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
-1. Sélectionnez **Abonnements** dans le volet gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis sélectionner **Abonnements** ou **Abonnements Azure**.
+1. Sélectionnez **Toutes les étendues de facturation** dans le volet de gauche. 
 1. La page Abonnements liste tous les abonnements pour lesquels vous êtes administrateur de facturation.
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?
@@ -147,11 +149,11 @@ Oui, vous pouvez transférer l’abonnement entre vos comptes. Vos comptes étan
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Un transfert d’abonnement entraîne-t-il une interruption de service ?
 
-Si vous transférez un abonnement à un utilisateur dans le même locataire Azure AD, l’impact est nul sur les ressources en cours d’exécution dans l’abonnement.  Toutefois, si vous transférez l’abonnement à un utilisateur dans un autre locataire, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement perdent leur accès. 
+Si vous transférez un abonnement à un compte dans le même locataire Azure AD, l’impact est nul sur les ressources en cours d’exécution dans l’abonnement. Toutefois, si vous transférez l’abonnement à un compte dans un autre locataire et décidez de déplacer l’abonnement vers ce locataire, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [accès RBAC](../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement perdent cet accès. Cela peut entraîner une interruption de service.
 
-### <a name="does-the-recipient-have-access-to-usage-and-billing-history"></a>Le destinataire a-t-il accès à l’historique des opérations et de facturation ?
+### <a name="do-users-in-new-account-have-access-to-usage-and-billing-history"></a>Les utilisateurs du nouveau compte ont-ils accès à l’historique d’utilisation et de facturation ?
 
-Les seules informations accessibles au destinataire sont le coût du dernier mois de votre abonnement. L’utilisation restante et l’historique de facturation ne sont pas transférés avec l’abonnement.
+Le coût de votre abonnement sur le dernier mois représente la seule information accessible aux utilisateurs du nouveau compte. L’utilisation restante et l’historique de facturation ne sont pas transférés avec l’abonnement.
 
 ### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>Comment migrer des données et des services de mon abonnement Azure vers un nouvel abonnement ?
 
@@ -159,22 +161,22 @@ Si vous ne pouvez pas transférer la propriété de l’abonnement, vous pouvez 
 
 ### <a name="if-i-transfer-a-visual-studio-or-microsoft-partner-network-subscription-does-my-credit-carry-forward-with-the-subscription-in-the-new-account"></a>Si je transfère un abonnement Visual Studio ou Microsoft Partner Network, mon crédit est-il reporté avec l’abonnement dans le nouveau compte ?
 
-Non, votre crédit n’est pas disponible dans le nouveau compte. L’utilisateur qui a accepté la demande de transfert doit avoir une licence Visual Studio pour procéder à l’acceptation. L’abonnement utilise le crédit Visual Studio qui est disponible dans le compte de l’utilisateur. Pour plus d’informations, consultez [Transfert des abonnements Dev/Test Paiement à l’utilisation, Microsoft Partner Network (MPN) et Visual Studio](#transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions).
+Non, votre crédit n’est pas disponible dans le nouveau compte. L’utilisateur qui a accepté la demande de transfert doit avoir une licence Visual Studio pour procéder à l’acceptation. L’abonnement utilise le crédit Visual Studio qui est disponible dans le compte de l’utilisateur. Pour plus d’informations, consultez [Transfert des abonnements Dev/Test Paiement à l’utilisation, Microsoft Partner Network (MPN) et Visual Studio](#transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions).
 
 
 ## <a name="frequently-asked-questions-faq-for-recipients"></a>Questions fréquentes (FAQ) pour les destinataires
 
-Ces Questions fréquentes (FAQ) concernent les utilisateurs qui deviennent titulaires de la facturation d’un abonnement Azure d’un autre compte.
+Ces FAQ concernent les utilisateurs qui acceptent la propriété de facturation d’un abonnement Azure d’un autre compte.
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Si je deviens titulaire de la facturation d’un abonnement d’un autre compte, les utilisateurs dans ce compte ont-ils toujours accès à mes ressources ?
 
-Si l’abonnement est transféré à un compte dans le même locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement conservent leur accès. Pour afficher les utilisateurs qui ont un accès RBAC à l’abonnement, effectuez les étapes suivantes :
+Oui. Toutefois, si votre compte est dans un locataire Azure AD différent du locataire de l’abonnement et que l’utilisateur qui a envoyé la demande de transfert déplace l’abonnement vers le locataire de votre compte, tous les [rôles Administrateur](billing-add-change-azure-subscription-administrator.md) et toutes les affectations de [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) sont supprimés. Pour visualiser les utilisateurs disposant d’un [accès RBAC](../role-based-access-control/overview.md) permettant de gérer les ressources de l’abonnement, suivez les étapes ci-après :
 
 1. Accédez à la [page Abonnement du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche.
 1. Sélectionnez **Attributions de rôles** en haut de la page. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès RBAC à l’abonnement.
 
-Si l’abonnement est transféré à un compte dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement perdent leur accès. Toutefois, même s’ils n’ont plus d’accès RBAC, ils peuvent toujours accéder à l’abonnement par le biais de certains mécanismes de sécurité, notamment :
+Même si les affectations de [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) sont supprimées lors du transfert, les utilisateurs du compte du propriétaire d’origine peuvent toujours avoir accès à l’abonnement moyennant certains mécanismes de sécurité, notamment :
 
 * Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure](../cloud-services/cloud-services-certs-create.md).
 * Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez la rubrique [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
@@ -199,11 +201,11 @@ Oui. Lors de l’acceptation de la demande de transfert, vous pouvez sélectionn
 
 ### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 
-Malheureusement, le transfert d’abonnement en libre-service n’est pas disponible pour votre compte de facturation. Nous ne prenons pas en charge le transfert de la propriété de facturation d’un compte Contrat Entreprise (EA) dans le portail Azure. En outre, les comptes Contrat client Microsoft qui sont créés dans le cadre d’une collaboration avec l’équipe des ventes Microsoft ne prennent pas en charge le transfert de la propriété de facturation des abonnements. 
+Le transfert d’abonnement en libre-service n’est pas disponible pour votre compte de facturation. Nous ne prenons pas en charge le transfert de la propriété de facturation pour les abonnements des comptes Contrat Entreprise (EA) dans le portail Azure. En outre, les comptes Contrat client Microsoft qui sont créés dans le cadre d’une collaboration avec un représentant Microsoft ne prennent pas en charge le transfert de la propriété de facturation. 
 
 ### <a id="no-button"></a> Pourquoi mon type d’abonnement ne prend-il pas en charge le transfert ? 
 
-Malheureusement, tous les types d’abonnements ne prennent pas en charge le transfert de la propriété de facturation. Pour voir la liste des types d’abonnements qui prennent en charge les transferts, consultez [Types d’abonnements pris en charge](#supported-subscription-types)
+Tous les types d’abonnements ne prennent pas en charge le transfert de la propriété de facturation. Pour voir la liste des types d’abonnements qui prennent en charge les transferts, consultez [Types d’abonnements pris en charge](#supported-subscription-types)
 
 ### <a id="no-button"></a> Quand j’essaie de transférer la propriété de facturation d’un abonnement, je reçois une erreur de refus d’accès. Pourquoi ? 
 

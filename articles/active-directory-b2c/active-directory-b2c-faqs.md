@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622264"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061374"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -43,11 +43,9 @@ Les comptes d’utilisateur des applications doivent toujours être créés par 
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 
-Nous prenons actuellement en charge Facebook, Google+, LinkedIn, Amazon, Twitter (aperçu), WeChat (aperçu), Weibo (aperçu) et QQ (aperçu). Nous ajouterons la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.
+Nous prenons actuellement en charge plusieurs fournisseurs d’identité sociale, notamment Amazon, Facebook, GitHub (préversion), Google, LinkedIn, compte Microsoft (MSA), QQ (préversion), Twitter, WeChat (préversion) et Weibo (préversion). Nous envisageons d’ajouter la prise en charge d’autres fournisseurs d’identité sociale populaires en fonction de la demande des clients.
 
-Azure AD B2C a également ajouté la prise en charge des [stratégies personnalisées](active-directory-b2c-overview-custom.md). Ces stratégies personnalisées permettent au développeur de créer sa propre stratégie avec tout fournisseur d’identité prenant en charge [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) ou SAML.
-
-Bien démarrer avec les stratégies personnalisées en consultant notre [pack de démarrage des stratégies personnalisées](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C prend également en charge les [stratégies personnalisées](active-directory-b2c-overview-custom.md). Les stratégies personnalisées vous permettent de créer votre propre stratégie pour tous les fournisseurs d’identité qui prennent en charge [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) ou SAML. Bien démarrer avec les stratégies personnalisées en consultant notre [pack de démarrage des stratégies personnalisées](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Puis-je configurer des étendues pour collecter plus d’informations sur les clients depuis différents fournisseurs d’identité sociaux ?
 

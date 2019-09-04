@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985998"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061496"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -221,10 +221,8 @@ Pour copier des données vers et depuis Table Azure, définissez la propriété 
 
 Pour les banques de données sans schéma comme Azure Table, Azure Data Factory déduit le schéma de l’une des manières suivantes :
 
-* Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, Azure Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
-* Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne sont pas incluses dans le résultat de l’opération de copie.
-
-Pour les sources de données sans schéma, la meilleure pratique consiste à définir la structure des données à l’aide de la propriété **structure**.
+* Si vous spécifiez le mappage de colonnes dans l’activité de copie, Data Factory utiliser la liste de colonnes côté source pour récupérer des données. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
+* Si vous ne spécifiez pas le mappage de colonnes dans l’activité de copie, Data Factory déduit le schéma à l’aide de la première ligne des données. Dans ce cas, si la première ligne ne contient pas le schéma complet (par exemple, si des colonnes ont la valeur Null), certaines colonnes ne sont pas incluses dans le résultat de l’opération de copie.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 

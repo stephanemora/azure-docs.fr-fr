@@ -1,5 +1,5 @@
 ---
-title: Pilote de volume Azure Files pour Service Fabric (version préliminaire) | Microsoft Docs
+title: Pilote de volume Azure Files pour Service Fabric (disponibilité générale) | Microsoft Docs
 description: Service Fabric prend en charge l’utilisation d’Azure Files pour sauvegarder des volumes à partir de votre conteneur. Actuellement en mode préliminaire.
 services: service-fabric
 author: athinanthny
@@ -9,18 +9,20 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.author: atsenthi
-ms.openlocfilehash: eb45dda9886450d217355d876ae35af954d99845
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 70784e2c8c91d39c34ba503cc3ebfcf3469939d9
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955592"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013493"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Pilote de volume Azure Files pour Service Fabric
-Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker. Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
+Le plug-in de volume Azure Files, un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker, est désormais en **disponibilité générale**.
+
+Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
 
 > [!NOTE]
-> La version 6.5.516.9494 du plug-in de volume Azure Files est une mise en production de préversion qui est disponible avec ce document. En tant que version préliminaire, son utilisation dans les environnements de production n’est **pas** prise en charge.
+> La version 6.5.661.9590 du plug-in de volume Azure Files est une version en disponibilité générale. 
 >
 
 ## <a name="prerequisites"></a>Prérequis
@@ -119,11 +121,11 @@ Vous pouvez télécharger l’application Service Fabric qui fournit les volumes
 4. Créez l’application, en étant très attentif à la valeur du paramètre d’application **ListenPort**. Cette valeur spécifie le port sur lequel le plug-in de volume Azure Files écoute les requêtes du démon Docker. Veillez à ce que le port fourni pour l’application corresponde à VolumePluginPorts dans le manifeste de cluster, et qu’il ne soit pas en conflit avec un autre port utilisé par le cluster ou vos applications.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -136,11 +138,11 @@ Suivez les étapes 1-3 [ci-dessus](/azure/service-fabric/service-fabric-containe
  Le nombre d’instances de service par défaut pour l’application de plug-in de volume Azure Files est -1, ce qui signifie qu’il y a une instance du service déployée sur chaque nœud du cluster. Toutefois, lorsque vous déployez l’application de plug-in de volume Azure Files sur un cluster de développement local, le nombre d’instances de service doit être configuré sur 1. Cela est possible avec le paramètre d’application **InstanceCount**. Par conséquent, la commande permettant de créer l’application de plug-in de volume Azure Files sur un cluster de développement local est :
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 
 ## <a name="configure-your-applications-to-use-the-volume"></a>Configurer vos applications pour utiliser le volume

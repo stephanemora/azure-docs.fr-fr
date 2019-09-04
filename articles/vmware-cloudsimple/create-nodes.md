@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533335"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972884"
 ---
-# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Approvisionner des nœuds pour la solution VMware de CloudSimple - Azure
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionner des nœuds pour la solution Azure VMware de CloudSimple
 
 Approvisionnez des nœuds sur le portail Azure. Vous pouvez ensuite configurer la capacité avec un paiement à l’utilisation pour votre environnement de cloud privé CloudSimple.
 
@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 11. Sélectionnez le nombre de nœuds à approvisionner.
 12. Sélectionnez **Vérifier + créer**.
 13. Passez en revue les paramètres. Pour modifier les paramètres, cliquez sur **Précédent**.
-14. Sélectionnez **Créer**.
+14. Sélectionnez **Create** (Créer).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

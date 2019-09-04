@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950681"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991806"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -32,7 +32,7 @@ Les API Stockage Blob sont désactivées afin d’éviter les problèmes de fonc
 
 Si l’un de ces derniers utilise des API d’objets BLOB et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, vous avez deux options.
 
-* **Option 1** : N’activez pas un espace de noms hiérarchique sur votre compte de stockage d’objets BLOB tant que les API d’objets BLOB ne sont pas interopérables avec les API Azure Data Lake Gen 2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités propres à Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+* **Option 1** : N’activez pas un espace de noms hiérarchique sur votre compte de stockage d’objets BLOB tant que les API d’objets BLOB ne sont pas interopérables avec les API Azure Data Lake Gen 2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au conteneur.
 
 * **Option 2** : Inscrivez-vous à la préversion publique de [l’accès multiprotocole sur Data Lake Storage](data-lake-storage-multi-protocol-access.md). Les outils et les applications qui appellent des API d’objets BLOB, ainsi que les fonctionnalités de stockage d’objets BLOB, telles que les journaux de diagnostic, peuvent fonctionner avec des comptes dotés d’un espace de noms hiérarchique.
 

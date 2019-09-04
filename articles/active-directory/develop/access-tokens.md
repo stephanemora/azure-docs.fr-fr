@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: fasttrack-edit
+ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b935f8bb15357e0ca79665b5620be5778ad3c554
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074322"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -170,7 +170,7 @@ Les jetons émis par Azure AD sont signés à l’aide d’algorithmes de chiffr
 }
 ```
 
-La revendication `alg` indique l’algorithme utilisé pour signer le jeton, tandis que la revendication `kid` indique la clé publique utilisée pour signer le jeton.
+La revendication `alg` indique l’algorithme utilisé pour signer le jeton, tandis que la revendication `kid` indique la clé publique utilisée pour le valider.
 
 À tout moment, Azure AD peut signer un jeton id_token à l'aide de l'un des ensembles de paires de clés publique-privée. Étant donné qu'Azure AD alterne le jeu de clés possible de façon périodique, votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD, spécifiez une fréquence raisonnable d’environ 24 heures.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261430"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904410"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -214,12 +214,11 @@ Pour le télécharger avec Linux, tapez :
 
 ### <a name="apply-custom-configuration-changes"></a>Appliquer des modifications de configuration personnalisées
 
-Pour appliquer les modifications de configuration personnalisées, procédez comme suit :
-
+Pour appliquer des modifications de configuration personnalisées, suivez les étapes ci-dessous en tant qu’utilisateur ROOT :
 
 1. Exécutez la commande suivante pour décompresser le fichier binaire.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Capture d’écran de la commande à exécuter](./media/vmware-azure-install-linux-master-target/image16.png)
 

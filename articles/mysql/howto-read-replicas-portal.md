@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 74f27f70c4a0752975a53b3889681d3910b1dd05
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510776"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906434"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 
@@ -45,9 +45,12 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
     ![Azure Database pour MySQL - Nom du réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Sélectionnez l’emplacement du serveur de réplica. Vous pouvez créer un réplica dans n’importe quelle région Azure. L’emplacement par défaut est le même que celui du serveur maître.
+6. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître.
 
     ![Azure Database pour MySQL - Emplacement du réplica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 7. Sélectionnez **OK** pour confirmer la création du réplica.
 

@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780933"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060727"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Prise en main des représentations d’appareils (Node.js)
 
@@ -29,7 +29,9 @@ ms.locfileid: "68780933"
 > L’article relatif aux [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les Kits de développement logiciel (SDK) Azure que l’on peut utiliser pour générer des applications pour périphérique et des applications principales.
 >
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Node.j version 10.0.x ou ultérieure.
 
@@ -53,28 +55,28 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Dans cette section, vous créez une application console Node.js qui ajoute des métadonnées d’emplacement à la représentation d’appareil associée à **myDeviceId**. Elle interroge ensuite les jumeaux d’appareil stockés dans le hub IoT en sélectionnant les appareils situés aux États-Unis, puis ceux qui signalent une connexion mobile.
 
-1. Créez un dossier vide nommé **addtagsandqueryapp**. Dans le dossier **addtagsandqueryapp**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
+1. Créez un dossier vide nommé **addtagsandqueryapp**. Dans le dossier **addtagsandqueryapp**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Le paramètre `--yes` accepte toutes les valeurs par défaut.
 
-    ```
-    npm init
+    ```cmd/sh
+    npm init --yes
     ```
 
 2. À l’invite de commandes, dans le dossier **addtagsandqueryapp**, exécutez la commande suivante pour installer le package **azure-iothub** :
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
 3. À l’aide d’un éditeur de texte, créez un fichier **AddTagsAndQuery.js** dans le dossier **addtagsandqueryapp**.
 
-4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**, puis remplacez la valeur de l’espace réservé **{iot hub connection string}** par la chaîne de connexion de l’IoT Hub que vous avez copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string) :
+4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**. Remplacez `{iot hub connection string}` par la chaîne de connexion IoT Hub que vous avez copiée dans [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
-   
+
         registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
@@ -87,7 +89,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
                       }
                     }
                 };
-   
+
                 twin.update(patch, function(err) {
                   if (err) {
                     console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
@@ -116,7 +118,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
-   
+
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
@@ -130,17 +132,17 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
 
     Le code précédent exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
 
-    Quand il crée l’objet **query**, le code précédent spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des jumeaux d’appareils, par exemple, les résultats de requêtes d’agrégation.
+    Quand le code crée l’objet **query**, il spécifie le nombre maximal de documents retournés dans le deuxième paramètre. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des jumeaux d’appareil, par exemple les résultats de requêtes d’agrégation.
 
 6. Exécutez l’application avec :
 
-    ```
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
    Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
-   
-    ![Affiche un appareil spécifique dans les résultats d’un requête](media/iot-hub-node-node-twin-getstarted/service1.png)
+
+   ![Affiche un appareil spécifique dans les résultats d’un requête](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
@@ -148,36 +150,36 @@ Dans la section suivante, vous allez créer une application d’appareil qui tra
 
 Dans cette section, vous allez créer une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, puis met à jour les propriétés signalées de sa représentation d’appareil afin qu’elles contiennent les informations indiquant qu’elle est connectée par le biais d’un réseau cellulaire.
 
-1. Créez un dossier vide nommé **reportconnectivity**. Dans le dossier **reportconnectivity**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
-   
-    ```
-    npm init
+1. Créez un dossier vide nommé **reportconnectivity**. Dans le dossier **reportconnectivity**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Le paramètre `--yes` accepte toutes les valeurs par défaut.
+
+    ```cmd/sh
+    npm init --yes
     ```
 
-2. À l’invite de commandes, dans le dossier **reportconnectivity**, exécutez la commande suivante pour installer les packages **azure-iot-device** et **azure-iot-device-mqtt** :
-   
-    ```
+2. Dans votre invite de commandes dans le dossier **reportconnectivity**, exécutez la commande suivante pour installer les packages **azure-iot-device** et **azure-iot-device-mqtt** :
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
 3. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.js** dans le dossier **reportconnectivity**.
 
-4. Ajoutez le code suivant au fichier **ReportConnectivity.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion à l’appareil que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
+4. Ajoutez le code suivant au fichier **ReportConnectivity.js**. Remplacez `{device connection string}` par la chaîne de connexion de l’appareil que vous avez copiée quand vous avez créé l’identité d’appareil **myDeviceId** dans[Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub).
 
-    ```
+    ```javascript
         'use strict';
         var Client = require('azure-iot-device').Client;
         var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
+
         var connectionString = '{device connection string}';
         var client = Client.fromConnectionString(connectionString, Protocol);
-   
+
         client.open(function(err) {
         if (err) {
             console.error('could not open IotHub client');
         }  else {
             console.log('client opened');
-   
+
             client.getTwin(function(err, twin) {
             if (err) {
                 console.error('could not get twin');
@@ -187,7 +189,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
                         type: 'cellular'
                     }
                 };
-   
+
                 twin.properties.reported.update(patch, function(err) {
                     if (err) {
                         console.error('could not update twin');
@@ -206,7 +208,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
 
 5. Exécuter l’application d’appareil
 
-    ```   
+    ```cmd/sh
         node ReportConnectivity.js
     ```
 
@@ -214,7 +216,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
 
 6. À présent que l’appareil a signalé ses informations de connectivité, il doit apparaître dans les deux requêtes. Accédez au dossier **addtagsandqueryapp**, puis réexécutez les requêtes :
 
-    ```   
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 

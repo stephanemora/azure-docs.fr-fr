@@ -8,16 +8,15 @@ manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774694"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114376"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -715,14 +714,19 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `out T paramName` - `T` peut être n’importe quel type sérialisable au format JSON. Si la valeur du paramètre est null lorsque la fonction se termine, Functions crée le message avec un objet null.
 * `out string` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
 * `out byte[]` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
-* `out BrokeredMessage` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
+* `out BrokeredMessage` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message (pour Functions 1.x).
+* `out Message` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message (pour Functions 2.x).
 * `ICollector<T>` ou `IAsyncCollector<T>` - Pour la création de plusieurs messages. Un message est créé quand vous appelez la méthode `Add` .
 
-Dans les fonctions asynchrones, utilisez la valeur de retour ou `IAsyncCollector` au lieu d’un paramètre `out`.
+Quand vous utilisez des fonctions C# :
 
-Ces paramètres concernent Azure Functions version 1.x ; pour 2.x, utilisez [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
+* Les fonctions asynchrones ont besoin d’une valeur renvoyée ou de `IAsyncCollector` au lieu d’un paramètre `out`.
 
-Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.<name from function.json>`. Vous pouvez affecter une chaîne, un tableau d’octets ou un objet Javascript (désérialisé dans JSON) à `context.binding.<name>`.
+* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
+
+Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.<name from function.json>`. Vous pouvez affecter une chaîne, un tableau d’octets ou un objet Javascript (désérialisé au format JSON) à `context.binding.<name>`.
+
+Pour envoyer un message à une file d’attente prenant en charge les sessions dans des langages autres que C#, utilisez le [SDK Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) plutôt que la liaison de sortie intégrée.
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 

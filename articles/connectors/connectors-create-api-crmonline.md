@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
+manager: carmonm
 ms.reviewer: estfan, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60313641"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051014"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
@@ -26,7 +27,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Un [compte Dynamics 365](https://dynamics.microsoft.com)
 
@@ -133,11 +134,11 @@ Sur la base de ces types de champs, voici des exemples de champs dans les décle
 | Champ | Description |
 |-------|-------------|
 | **Propriétaire** | Doit être un ID d’utilisateur valide ou un ID d’enregistrement d’équipe. |
-| **Type de propriétaire** | Doit être **systemusers** ou **teams**. |
+| **Type de propriétaire** | Doit être `systemusers` ou `teams`. |
 | **Concernant** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. |
-| **Type concernant** | Doit être un type de recherche, tel que **accounts** ou **contacts**. |
+| **Type concernant** | Doit être un type de recherche, tel que `accounts` ou `contacts`. |
 | **Client** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. |
-| **Type de client** | Doit être le type de recherche, tel que **accounts** ou **contacts**. |
+| **Type de client** | Doit être le type de recherche, par exemple `accounts` ou `contacts`. |
 |||
 
 Dans cet exemple, l’action nommée **Créer un enregistrement** crée un enregistrement de tâche :
@@ -187,12 +188,7 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d'informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

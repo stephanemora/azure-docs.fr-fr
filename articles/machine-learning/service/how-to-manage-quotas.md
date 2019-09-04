@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851118"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991973"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 
@@ -74,6 +74,14 @@ Ressources disponibles :
 
 <sup>1</sup> La durée de vie maximale fait référence au temps du début à la fin d’une exécution. Les exécutions terminées sont conservées indéfiniment ; les données des exécutions non terminées pendant la durée de vie maximale ne sont pas accessibles.
 <sup>2</sup> Les travaux sur un nœud Basse priorité doivent être vidés au préalable dès qu’il existe une contrainte de capacité. Il est recommandé d’implémenter des points de contrôle dans votre travail.
+
+### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
+Pour les pipelines Azure Machine Learning, il existe une limite de quota sur le nombre d’étapes d’un pipeline, ainsi que sur le nombre d’exécutions planifiées de pipelines publiés pour chaque région d’un abonnement.
+- Un pipeline peut contenir au maximum 30 000 étapes.
+- Le nombre maximal d’exécutions planifiées de pipelines publiés est limité à 100 000 par abonnement et par mois.
+
+> [!NOTE]
+> Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
 ### <a name="container-instances"></a>Container Instances
 

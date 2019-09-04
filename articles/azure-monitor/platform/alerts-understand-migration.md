@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302242"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061555"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendre le fonctionnement de l’outil de migration
 
@@ -36,7 +36,7 @@ Bien que l’outil peut migrer presque toutes les [règles d’alerte classiques
 - Les règles d’alerte classiques sur certaines métriques Cosmos DB. Consultez les [détails](#cosmos-db-metrics) plus loin dans cet article.
 - Règles d’alerte classiques sur toutes les mesures de services cloud et de machines virtuelles classiques (Microsoft. ClassicCompute/virtualMachines et Microsoft. ClassicCompute/domainNames/Slots/Roles). Consultez les [détails](#classic-compute-metrics) plus loin dans cet article.
 
-Si votre abonnement a des règles classiques de ce type, vous devez les migrer manuellement. Étant donné que nous ne pouvons pas fournir une migration automatique, les alertes de métrique classiques existantes de ces types continueront à fonctionner jusqu'à juin 2020. Cette extension vous donne le temps de passer aux nouvelles alertes. Toutefois, aucune nouvelle alerte classique ne pourra être créée après août 2019.
+Si votre abonnement a des règles classiques de ce type, vous devez les migrer manuellement. Étant donné que nous ne pouvons pas fournir une migration automatique, les alertes de métrique classiques existantes de ces types continueront à fonctionner jusqu'à juin 2020. Cette extension vous donne le temps de passer aux nouvelles alertes. Vous pouvez également continuer à créer des alertes classiques sur les exceptions listées ci-dessus jusqu’en juin 2020. Toutefois, pour tout le reste, aucune nouvelle alerte classique ne peut être créée après août 2019.
 
 > [!NOTE]
 > Outre les exceptions répertoriées ci-dessus, si vos règles d’alerte classiques ne sont pas valides, par exemple si elles portent sur des [métriques déconseillées](#classic-alert-rules-on-deprecated-metrics) ou des ressources qui ont été supprimées, elles ne seront pas migrées pendant la migration volontaire. Les règles d’alerte classiques non valides de ce type seront supprimées lors de la migration automatique.
@@ -260,9 +260,16 @@ Après avoir [déclenché la migration](alerts-using-migration-tool.md), vous re
 
 En raison des modifications apportées récemment aux règles d’alerte classiques dans votre abonnement, l’abonnement ne peut pas être migré. Ce problème est temporaire. Vous pourrez redémarrer la migration une fois que l’état de migration sera de nouveau **prêt pour la migration**, dans quelques jours.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Une stratégie ou un verrou d’étendue nous empêche de migrer vos règles
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Un verrou d’étendue nous empêche de migrer vos règles
 
-Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, une stratégie ou un verrou d’étendue empêche la création de ressources. En fonction de la stratégie ou du verrou d’étendue, certaines ou l’intégralité des règles n’ont pas pu être migrées. Vous pouvez résoudre ce problème en supprimant le verrou d’étendue ou la stratégie temporairement et en déclenchant à nouveau la migration.
+Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, un verrou d’étendue peut nous empêcher de créer ou de supprimer des ressources. En fonction du verrou d’étendue, certaines ou l’intégralité des règles n’ont pas pu être migrées. Vous pouvez résoudre ce problème en supprimant le verrou d’étendue pour l’abonnement, le groupe de ressources ou la ressource, lequel est listé dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), puis en redéclenchant la migration. Le verrou d’étendue ne peut pas être désactivé et doit être supprimé pendant la durée du processus de migration. [En savoir plus sur la gestion des verrous d’étendue](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Une stratégie avec effet de refus nous empêche de migrer vos règles
+
+Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, une stratégie peut nous empêcher de créer des ressources. En fonction de la stratégie, certaines ou l’intégralité des règles n’ont pas pu être migrées. Les stratégies qui bloquent le processus sont listées dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Pour résoudre ce problème, effectuez l’une ou l’autre des étapes suivantes :
+
+- Excluez les abonnements ou les groupes de ressources pendant la durée du processus de migration à partir de l’attribution de stratégie. [En savoir plus sur la gestion de l’étendue de l’exclusion des stratégies](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Supprimez l’effet de refus ou modifiez-le en le remplaçant par un effet d’audit ou d’ajout (qui, par exemple, permet de résoudre les problèmes liés aux balises manquantes). [En savoir plus sur la gestion de l’effet des stratégies](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

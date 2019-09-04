@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067196"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907419"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -109,7 +109,7 @@ Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues su
 
 Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
 
-### <a name="querystoreqsview"></a>query_store.qs_view
+### <a name="query_storeqs_view"></a>query_store.qs_view
 Cette vue retourne toutes les données du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données distinct, ID d’utilisateur et ID de requête. 
 
 |**Nom**   |**Type** | **Informations de référence**  | **Description**|
@@ -142,7 +142,7 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 |blk_read_time  |double précision    || Durée totale passée par l’instruction à lire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
 |blk_write_time |double précision    || Durée totale passée par l’instruction à écrire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
     
-### <a name="querystorequerytextsview"></a>query_store.query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Cette vue retourne les données du texte des requêtes du Magasin des requêtes. Il existe une ligne pour chaque valeur query_text distincte.
 
 |**Nom**|  **Type**|   **Description**|
@@ -150,7 +150,7 @@ Cette vue retourne les données du texte des requêtes du Magasin des requêtes.
 |query_text_id  |bigint     |ID de la table query_texts|
 |query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
 
-### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
+### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 
 |**Nom**|  **Type**|   **Informations de référence**| **Description**|
@@ -175,6 +175,7 @@ Query_store.staging_data_reset() retourne void
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 - Si un serveur PostgreSQL a le paramètre default_transaction_read_only activé, le Magasin des requêtes ne peut pas capturer les données.
 - La fonctionnalité Magasin des requêtes peut être interrompue si elle rencontre des requêtes Unicode longues (>= 6 000 octets).
+- Les [réplicas en lecture](concepts-read-replicas.md) répliquent les données du magasin des requêtes qui se trouve sur le serveur maître. Cela signifie que le magasin des requêtes d’un réplica en lecture ne fournit pas de statistiques concernant les requêtes qui sont exécutées sur le réplica en lecture.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

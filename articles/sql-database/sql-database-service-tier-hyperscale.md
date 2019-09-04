@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566714"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981159"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Niveau de service Hyperscale pour jusqu’à 100 To
 
@@ -110,7 +110,7 @@ Avec la possibilité d’ajouter ou de supprimer rapidement des nœuds de calcul
 
 Une base de données Hyperscale peut être créée à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou de [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont disponibles uniquement avec le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
-La commande T-SQL suivante crée une base de données Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `CREATE DATABASE`. Pour obtenir la liste des objectifs de service valides, consultez les [limites de ressources](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier).
+La commande T-SQL suivante crée une base de données Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `CREATE DATABASE`. Pour obtenir la liste des objectifs de service valides, consultez les [limites de ressources](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute).
 
 ```sql
 -- Create a HyperScale Database
@@ -232,7 +232,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Pools élastiques |  Les Pools élastiques ne sont actuellement pas pris en charge avec les bases de données SQL Hyperscale.|
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données du niveau Hyperscale vers un niveau non Hyperscale consiste à effectuer une exportation/importation à l’aide d’un fichier BACPAC.|
 | Migration de bases de données avec des objets en mémoire persistants | Hyperscale ne prend en charge que les objets en mémoire non persistants (types de tables, SP et fonctions natifs).  Les tables en mémoire persistantes doivent être supprimées et recréées en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.|
-| Suivi des changements de données | Vous ne pouvez pas utiliser le suivi des modifications de données avec des bases de données Hyperscale. |
+| Suivi des modifications | Vous ne pouvez pas utiliser le suivi des modifications avec des bases de données Hyperscale. |
 | Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale.  Vous pouvez effectuer des géo-restaurations (restaurations de base de données dans une région différente à des fins de récupération d’urgence ou autres). |
 | Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement transparent de base de données à l’aide d’Azure Key Vault (communément appelé Bring Your Own Key ou BYOK) n’est pas encore pris en charge pour Azure SQL Database Hyperscale, contrairement au chiffrement transparent des données à l’aide de Clés gérées par le service qui est pleinement pris en charge. |
 |Fonctionnalités de base de données intelligente | 1. Les modèles de conseiller Créer un index et Supprimer l’index ne sont pas formés pour les bases de données Hyperscale. <br/>2. Les conseillers Problème de schéma et DbParameterization récemment ajoutés ne sont pas pris en charge pour les bases de données Hyperscale.|

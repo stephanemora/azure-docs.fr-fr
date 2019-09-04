@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016388"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992233"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
 
@@ -235,7 +235,7 @@ Notez que certains produits tiers peuvent gérer la mise à niveau de Data Lake 
 
 * Si vous utilisez un outil qui ne copie pas les ACL, ou si vous ne souhaitez pas les copier, vous devrez définir les ACL sur la destination manuellement au niveau supérieur approprié. Pour cela, utilisez l’Explorateur Stockage. Assurez-vous que ces listes de contrôle d’accès sont les ACL par défaut afin que les fichiers et dossiers copiés en héritent.
 
-* Dans Data Lake Storage Gen1, le niveau le plus élevé auquel vous pouvez définir les ACL se trouve à la racine du compte. Dans Data Lake Storage Gen2, toutefois, le niveau le plus élevé auquel vous pouvez définir des ACL est dans le dossier racine d’un système de fichiers, pas du compte global. Par conséquent, si vous souhaitez définir des ACL par défaut au niveau du compte, vous devez dupliquer les ACL de tous les systèmes de fichiers dans votre compte Data Lake Storage Gen2.
+* Dans Data Lake Storage Gen1, le niveau le plus élevé auquel vous pouvez définir les ACL se trouve à la racine du compte. Dans Data Lake Storage Gen2, toutefois, le niveau le plus élevé auquel vous pouvez définir des ACL est le dossier racine d’un conteneur, pas le compte global. Par conséquent, si vous souhaitez définir des ACL par défaut au niveau du compte, vous devez dupliquer les ACL de tous les systèmes de fichiers dans votre compte Data Lake Storage Gen2.
 
 * Les restrictions concernant l’attribution de noms de fichier diffèrent entre les deux systèmes de stockage. Ces différences concernent plus particulièrement la copie depuis Data Lake Storage Gen2 vers Data Lake Storage Gen1, car ce dernier compte davantage de restrictions.
 

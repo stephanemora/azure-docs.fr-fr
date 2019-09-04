@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853173"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074263"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -30,7 +30,7 @@ Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d�
 
 ## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 
-Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, saisir des informations dans une base de donnée et fournir l’accès à l’application cliente.
+Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, en tant que clés dans une base de données et pour fournir l’accès à l’application cliente.  Lors de la création de clés pour une base de données, `idp` ne doit pas être utilisé car il mélange les scénarios d’invité.  La génération de clés doit être effectuée uniquement sur `sub` (qui est toujours unique), avec `tid` utilisé pour le routage si nécessaire.  Si vous avez besoin de partager des données entre des services, `oid`+`sub`+`tid` fonctionnera puisque plusieurs services obtiennent le même `oid`.
 
 ## <a name="claims-in-an-id_token"></a>Revendications dans un jeton id_token
 

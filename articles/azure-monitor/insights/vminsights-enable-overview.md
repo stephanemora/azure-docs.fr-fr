@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 039a4db11adf66e0c28826106df5845b42fedef5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688246"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905572"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour machines virtuelles (préversion)
 
@@ -33,7 +33,10 @@ Pour configurer Azure Monitor pour des machines virtuelles :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, prenez connaissance de ce qui suit.
+Avant de commencer, prenez connaissance de ce qui suit. 
+
+>[!NOTE]
+>Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](service-map.md).  
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -46,8 +49,8 @@ Azure Monitor pour machines virtuelles prend en charge un espace de travail Log 
 - Sud du Royaume-Uni
 - Europe Ouest
 - Asie Sud-Est
-- Australie Est
-- Sud-Australie Est
+- Australie Est<sup>1</sup>
+- Australie Sud-Est<sup>1</sup>
 
 <sup>1</sup> Cette région ne prend pas encore en charge la fonctionnalité d’intégrité d’Azure Monitor pour machines virtuelles.
 
@@ -153,6 +156,9 @@ La fonctionnalité Map dans Azure Monitor pour machines virtuelles obtient ses d
 
 Que vous activiez Azure Monitor pour machines virtuelles pour une seule machine virtuelle Azure ou que vous utilisiez les méthodes de déploiement à grande échelle, utilisez l’extension de l’agent Azure VM Dependency pour installer l’agent dans le cadre de cette expérience.
 
+>[!NOTE]
+>Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](service-map.md).  
+
 Dans un environnement hybride, vous pouvez télécharger et installer l’agent Dependency manuellement. Si vos machines virtuelles sont hébergées hors d’Azure, utilisez une méthode de déploiement automatisée.
 
 Le tableau suivant décrit les sources connectées prises en charge par la fonctionnalité Map dans un environnement hybride.
@@ -167,8 +173,8 @@ Vous pouvez télécharger le Dependency Agent à partir des emplacements suivant
 
 | Fichier | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 

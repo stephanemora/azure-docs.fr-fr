@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056287"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980704"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Didacticiel : Inscrire une application dans Azure Active Directory B2C
 
@@ -36,25 +36,28 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](tutoria
 ## <a name="register-a-web-application"></a>Inscrire une application web
 
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-3. Sélectionnez **Applications**, puis **Ajouter**.
-4. Entrez un nom pour l’application. Par exemple, *webapp1*.
-5. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-6. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Par exemple, vous pouvez le définir pour qu’il écoute localement sur `https://localhost:44316`. Si vous ne connaissez pas encore le numéro de port, vous pouvez entrer une valeur d’espace réservé que vous modifierez ultérieurement.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Applications**, puis **Ajouter**.
+1. Entrez un nom pour l’application. Par exemple, *webapp1*.
+1. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
+1. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Par exemple, vous pouvez le définir pour qu’il écoute localement sur `https://localhost:44316`. Si vous ne connaissez pas encore le numéro de port, vous pouvez entrer une valeur d’espace réservé que vous modifierez ultérieurement.
 
     Pour des besoins de test, comme ce tutoriel, vous pouvez le définir sur `https://jwt.ms`, ce qui affiche le contenu d’un jeton pour inspection. Pour ce tutoriel, définissez l’**URL de réponse** sur `https://jwt.ms`.
 
-    L’URL de réponse doit commencer par le schéma `https` et toutes les valeurs d’URL de réponse doivent partager un même domaine DNS. Par exemple, si l’application a l’URL de réponse `https://login.contoso.com`, vous pouvez lui ajouter une partie comme `https://login.contoso.com/new`. Sinon, vous pouvez référencer un sous-domaine DNS de `login.contoso.com`, comme `https://new.login.contoso.com`. Si vous voulez avoir une application avec les URL de réponse `login-east.contoso.com` et `login-west.contoso.com`, vous devez ajouter ces URL de réponse dans cet ordre : `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. Vous pouvez ajouter les deux dernières, car il s’agit de sous-domaines de la première URL de réponse, `contoso.com`.
+    Les restrictions suivantes s’appliquent aux URL de réponse :
 
-7. Cliquez sur **Créer**.
+    * L’URL de réponse doit commencer par le schéma `https`.
+    * L’URL de réponse respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin, ne spécifiez pas `.../ABC/response-oidc` dans l’URL de réponse. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
+
+1. Cliquez sur **Créer** pour terminer l’inscription de l’application.
 
 ## <a name="create-a-client-secret"></a>Créer une clé secrète client
 
 Si votre application échange un code contre un jeton, vous devez créer un secret d’application.
 
 1. Dans la page **Azure AD B2C – Applications**, sélectionnez l’application que vous avez créée, par exemple *webapp1*.
-2. Sélectionnez **Clés**, puis **Générer la clé**.
-3. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
+1. Sélectionnez **Clés**, puis **Générer la clé**.
+1. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

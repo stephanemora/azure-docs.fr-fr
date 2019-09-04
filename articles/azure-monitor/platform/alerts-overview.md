@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560437"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034811"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -77,7 +77,7 @@ Vous pouvez définir l’état d’une alerte afin d’indiquer où elle se situ
 
 Les états d’alerte suivants sont pris en charge.
 
-| État | Description |
+| State | Description |
 |:---|:---|
 | Nouveau | Le problème vient d’être détecté et n’a pas encore été examiné. |
 | Reconnu | Un administrateur a révisé l’alerte et a commencé à travailler sur celle-ci. |
@@ -96,6 +96,9 @@ La page des alertes par défaut fournit un résumé des alertes qui sont créée
 
 Vous pouvez également [énumérer par programmation les instances d’alertes générées sur votre ou vos abonnements à l’aide des API REST](#manage-your-alert-instances-programmatically).
 
+> [!NOTE]
+   >  Seules les alertes générées pendant les 30 derniers jours sont accessibles sur l’expérience utilisateur ou par le biais des API REST.
+
 Elle n’affiche pas et ne suit pas les [alertes classiques](#classic-alerts) plus anciennes. Vous pouvez modifier les abonnements ou filtrer des paramètres pour mettre à jour la page. 
 
 ![Page des alertes](media/alerts-overview/alerts-page.png)
@@ -104,8 +107,8 @@ Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus d
 
 | Colonne | Description |
 |:---|:---|
-| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
-| Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
+| Subscription | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
+| Resource group | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Période | Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
 
 Sélectionnez les valeurs suivantes en haut de la page Alertes pour ouvrir une autre page.
@@ -147,11 +150,11 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 
 | Colonne | Description |
 |:---|:---|
-| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
-| Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
+| Subscription | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
+| Resource group | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 | Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
-| Severity | Sélectionnez un niveau de gravité d’alerte ou *Tous* pour inclure les alertes de tous les niveaux de gravité. |
+| severity | Sélectionnez un niveau de gravité d’alerte ou *Tous* pour inclure les alertes de tous les niveaux de gravité. |
 | Condition de surveillance | Sélectionnez une condition de surveillance ou *Tous* pour inclure les alertes de conditions. |
 | État d’alerte | Sélectionnez un état d’alerte ou *Tous* pour inclure les alertes d’états. |
 | Service de surveillance | Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes créées par des règles utilisant ce service comme cible sont incluses. |

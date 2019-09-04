@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: cb82d47be11570baf7865468c804162a20a7685f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855481"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991578"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen2 à l’aide de Power BI
 
@@ -39,7 +39,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
     ![Obtenir la page de données](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. Dans la boîte de dialogue **Azure Data Lake Storage Gen2**, vous pouvez indiquer l’URL de votre compte , système de fichiers ou sous-répertoire Azure Data Lake Storage Gen2 à l’aide du format de point de terminaison du système de fichiers. Les URL de Data Lake Storage Gen2 ont le modèle `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` suivant, puis cliquez sur **OK**.
+4. Dans la boîte de dialogue **Azure Data Lake Storage Gen2**, vous pouvez indiquer l’URL de votre compte, conteneur ou sous-répertoire Azure Data Lake Storage Gen2 à l’aide du format de point de terminaison du conteneur. Les URL de Data Lake Storage Gen2 ont le modèle `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` suivant, puis cliquez sur **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Gérer les espaces de travail Log Analytics dans Azure Monitor | Microsoft Docs
-description: Vous pouvez gérer les espaces de travail Log Analytics dans Azure Monitor en accomplissant diverses tâches administratives sur les utilisateurs, les comptes, les espaces de travail et les comptes Azure.
+description: 'Vous pouvez gérer l’accès aux données stockées dans des espaces de travail Log Analytics dans Azure Monitor à l’aide d’autorisations au niveau de la ressource, de l’espace de travail ou de la table. Cet article explique comment :'
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: magoedte
-ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624335"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034710"
 ---
-# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données du journal et les espaces de travail dans Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
 Azure Monitor stocke les données de [journal](data-platform-logs.md) dans un espace de travail Log Analytics, qui n’est autre qu’un conteneur de données et d’informations de configuration. Pour gérer l’accès aux données de journal, vous accomplissez diverses tâches administratives liées à vos espaces de travail.
 
@@ -32,7 +32,7 @@ Cet article explique comment gérer l’accès aux journaux et administrer les e
 
 * Comment accorder l’accès aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail à l’aide d’Azure RBAC.
 
-## <a name="define-access-control-mode"></a>Définir le mode de contrôle d’accès
+## <a name="configure-access-control-mode"></a>Configurer le mode de contrôle d’accès
 
 Vous pouvez afficher le mode de contrôle d’accès configuré sur un espace de travail à partir du portail Azure ou avec Azure PowerShell.  Vous pouvez modifier ce paramètre à l’aide de l’une des méthodes prises en charge suivantes :
 
@@ -42,7 +42,7 @@ Vous pouvez afficher le mode de contrôle d’accès configuré sur un espace de
 
 * Modèle Azure Resource Manager
 
-### <a name="configure-from-the-azure-portal"></a>Configurer à partir du portail Azure
+### <a name="from-the-azure-portal"></a>À partir du portail Azure
 
 Vous pouvez afficher le mode de contrôle d’accès à l’espace de travail actuel dans la page **Vue d’ensemble** de l’espace de travail, dans le menu **Espace de travail Log Analytics**.
 
@@ -55,7 +55,7 @@ Vous pouvez changer ce paramètre dans la page **Propriétés** de l’espace de
 
 ![Changer le mode d’accès à l’espace de travail](media/manage-access/change-access-control-mode.png)
 
-### <a name="configure-using-powershell"></a>Configurer à l’aide de PowerShell
+### <a name="using-powershell"></a>Utiliser PowerShell
 
 Pour examiner le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement, utilisez la commande suivante :
 
@@ -99,18 +99,14 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-### <a name="configure-using-a-resource-manager-template"></a>Configurer à l’aide d’un modèle Resource Manager
+### <a name="using-a-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 
 Pour configurer le mode d’accès dans un modèle Azure Resource Manager, définissez sur une des valeurs suivantes l’indicateur de fonctionnalité **enableLogAccessUsingOnlyResourcePermissions** sur l’espace de travail.
 
 * **false** : définir l’espace de travail sur les autorisations en fonction du contexte de l’espace de travail. Il s’agit du paramétrage par défaut si l’indicateur n’est pas défini.
 * **true** : définir l’espace de travail sur les autorisations en fonction du contexte de la ressource.
 
-## <a name="manage-accounts-and-users"></a>Gérer les comptes et les utilisateurs
-
-Les autorisations appliquées à l’espace de travail pour un utilisateur particulier sont définies par son [mode d’accès](design-logs-deployment.md#access-mode) et le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode) de l’espace de travail. Avec le mode de contrôle d’accès **en fonction du contexte de l’espace de travail**, vous pouvez afficher tous les journaux figurant dans l’espace de travail que vous êtes autorisé à consulter, car les requêtes dans ce mode sont étendues à toutes les données de toutes les tables au sein de l’espace de travail. Avec le mode de contrôle d’accès **en fonction du contexte de la ressource**, vous affichez les données des journal figurant dans l’espace de travail pour une ressource, un groupe de ressources ou un abonnement particuliers lorsque vous effectuez une recherche directement à partir de la ressource dans le portail Azure auquel vous avez accès. Dans ce mode, l’étendue des requêtes englobe uniquement les données associées à cette ressource.
-
-### <a name="workspace-permissions"></a>Autorisations d’espace de travail
+## <a name="manage-access-using-workspace-permissions"></a>Gérer l’accès à l’aide d’autorisations au niveau de l’espace de travail
 
 Chaque espace de travail peut être associé à plusieurs comptes et chaque compte peut également avoir accès à plusieurs espaces de travail. L’accès est géré via de l’[accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -130,7 +126,7 @@ Les activités suivantes nécessitent également des autorisations Azure :
 
 ## <a name="manage-access-using-azure-permissions"></a>Gérer l’accès à l’aide d’autorisations Azure
 
-Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md). Pour voir des exemples de rôles personnalisés, consultez [Exemples de rôles personnalisés](#custom-role-examples).
 
 Azure intègre deux rôles utilisateur pour les espaces de travail Log Analytics :
 
@@ -180,7 +176,7 @@ Le rôle Contributeur Log Analytics inclut les actions Azure suivantes :
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visualisation de la clé du compte de stockage ; opération requise pour la configuration de Log Analytics pour la lecture des journaux d’activité à partir des comptes de stockage Azure |
 | `Microsoft.Insights/alertRules/*` | Ajout, mise à jour et suppression de règles d’alerte |
 | `Microsoft.Insights/diagnosticSettings/*` | Ajout, mise à jour et suppression de paramètres de diagnostic sur les ressources Azure |
-| `Microsoft.OperationalInsights/*` | Ajout, mise à jour et suppression de configuration pour les espaces de travail Log Analytics |
+| `Microsoft.OperationalInsights/*` | Ajout, mise à jour et suppression de configuration pour les espaces de travail Log Analytics. Pour modifier des paramètres avancés d’espace de travail, l’utilisateur a besoin de `Microsoft.OperationalInsights/workspaces/write`. |
 | `Microsoft.OperationsManagement/*` | Ajout et suppression de solutions de gestion |
 | `Microsoft.Resources/deployments/*` | Création et suppression de déploiements ; opération requise pour l’ajout et la suppression de solutions, d’espaces de travail et de comptes Automation |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Création et suppression de déploiements ; opération requise pour l’ajout et la suppression de solutions, d’espaces de travail et de comptes Automation |
@@ -207,6 +203,39 @@ Quand les utilisateurs interrogent les journaux à partir d’un espace de trava
 L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_  _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Notez que les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
 
 Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez créer différents contrôles d’accès pour différentes tables.
+
+## <a name="custom-role-examples"></a>Exemples de rôles personnalisés
+
+1. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources, effectuez les étapes suivantes :
+
+    * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
+
+    * Accordez aux utilisateurs des autorisations d’accès `*/read` ou `Microsoft.Insights/logs/*/read` à leurs ressources. S’ils ont déjà le rôle de [Lecteur Log Analytics](../../role-based-access-control/built-in-roles.md#reader) sur l’espace de travail, cela suffit.
+
+2. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources et configurer ses ressources pour envoyer des journaux à l’espace de travail, effectuez les étapes suivantes :
+
+    * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
+
+    * Accordez aux utilisateurs les autorisations suivantes sur l’espace de travail : `Microsoft.OperationalInsights/workspaces/read` et `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Avec ces autorisations, les utilisateurs ne peuvent pas exécuter des requêtes au niveau de l’espace de travail.
+
+    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `Microsoft.Insights/logs/*/read` et `Microsoft.Insights/diagnosticSettings/write`. S’ils ont déjà le rôle [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#contributor) sur cette ressource, cela suffit.
+
+3. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources, l’accès en lecture aux infos d’identification Azure AD et l’accès en lecture aux données de journal de la solution Update Management, effectuez les étapes suivantes :
+
+    * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
+
+    * Accordez aux utilisateurs les autorisations suivantes sur l’espace de travail : 
+
+        * `Microsoft.OperationalInsights/workspaces/read` : obligatoire pour que l’utilisateur puisse énumérer l’espace de travail et ouvrir le panneau correspondant dans le portail Azure.
+        * `Microsoft.OperationalInsights/workspaces/query/read` : obligatoire pour chaque utilisateur pouvant exécuter des requêtes.
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` : pour pouvoir lire les journaux de connexion Azure AD.
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` : pour pouvoir lire les journaux de la solution Update Management.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` : pour pouvoir lire les journaux de la solution Update Management.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` : pour pouvoir lire les journaux Update Management.
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` : obligatoire pour pouvoir utiliser la solution Update Management.
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` : obligatoire pour pouvoir utiliser la solution Update Management.
+
+    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `*/read` ou `Microsoft.Insights/logs/*/read`. S’ils ont le rôle de [Lecteur Log Analytics](../../role-based-access-control/built-in-roles.md#reader) sur l’espace de travail, cela suffit.
 
 ## <a name="table-level-rbac"></a>RBAC au niveau table
 

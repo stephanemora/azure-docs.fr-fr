@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 08/22/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6aa209b6e99be406634e01be47c6dd9572d62a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95c337501c46dd9b30ff20d71a9363ab03fdb608
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853431"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980444"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -81,15 +81,15 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 ### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
 | Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimale | Maximale |
 | --- | --- | --- | --- | --- | --- |
-| Durée de vie de jeton d’accès |AccessTokenLifetime<sup>4</sup> |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
+| Durée de vie de jeton d’accès |AccessTokenLifetime<sup>2</sup> |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |90 jours |10 minutes |90 jours |
 | Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor<sup>2</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor<sup>3</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
-* <sup>4</sup>Pour que le client web Microsoft Teams fonctionne, il est recommandé de définir AccessTokenLifetime sur une valeur supérieure à 15 minutes pour Microsoft Teams.
+* <sup>2</sup>Pour que le client web Microsoft Teams fonctionne, il est recommandé de définir AccessTokenLifetime sur une valeur supérieure à 15 minutes pour Microsoft Teams.
 
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |

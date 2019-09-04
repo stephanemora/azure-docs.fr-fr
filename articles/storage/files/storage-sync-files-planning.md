@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699339"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061745"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -245,7 +245,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 |--------|---------------------|
 | Australie Est | Nouvelle-Galles du Sud |
 | Sud-Australie Est | Victoria |
-| Brésil Sud | État de Sao Paolo |
+| Brésil Sud | État de Sao Paulo |
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
 | Inde centrale | Pune |
@@ -254,12 +254,15 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | USA Est | Virginie |
 | USA Est 2 | Virginie |
 | France Centre | Paris |
-| Centre de la Corée| Séoul |
-| Corée du Sud| Busan |
+| France Sud* | Marseille |
+| Centre de la Corée | Séoul |
+| Corée du Sud | Busan |
 | Japon Est | Tokyo, Saitama |
 | OuJapon Est | Osaka |
 | Centre-Nord des États-Unis | Illinois |
 | Europe Nord | Irlande |
+| Afrique du Sud Nord | Johannesbourg |
+| Afrique du Sud Ouest* | Le Cap |
 | États-Unis - partie centrale méridionale | Texas |
 | Inde Sud | Chennai |
 | Asie Sud-Est | Singapour |
@@ -274,6 +277,8 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | USA Ouest 2 | Washington |
 
 Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
+
+Pour les régions marquées d’un astérisque, vous devez contacter le support Azure pour demander l’accès au stockage Azure dans ces régions. Le processus est décrit dans [ce document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Reprise d’activité après sinistre Azure
 Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre à l’option de [redondance du stockage géoredondant](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d'une région Azure, Microsoft bascule le stockage vers la région associée. 
@@ -296,12 +301,15 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | France Centre      | France Sud       |
+| France Sud        | France Centre     |
 | Japon Est          | OuJapon Est         |
 | OuJapon Est          | Japon Est         |
 | Centre de la Corée       | Corée du Sud        |
 | Corée du Sud         | Centre de la Corée      |
 | Europe Nord        | Europe Ouest        |
 | Centre-Nord des États-Unis    | États-Unis - partie centrale méridionale   |
+| Afrique du Sud Nord  | Afrique du Sud Ouest  |
+| Afrique du Sud Ouest   | Afrique du Sud Nord |
 | États-Unis - partie centrale méridionale    | Centre-Nord des États-Unis   |
 | Inde Sud         | Inde centrale      |
 | Asie Sud-Est      | Asie Est          |

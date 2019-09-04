@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717673"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972518"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -24,6 +24,27 @@ Si vous avez des suggestions concernant les fonctionnalités de Site Recovery, [
 ## <a name="installing-updates"></a>Installation des mises à jour
 
 [Consultez cet article](service-updates-how-to.md) pour obtenir des instructions et du support sur la mise à jour de Site Recovery.
+
+## <a name="updates-august-2019"></a>Mises à jour (août 2019)
+
+### <a name="update-rollup-39"></a>Correctif cumulatif 39
+
+Le [correctif cumulatif 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif)
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité des machines virtuelles Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**Chiffrement sans Azure AD** | Le chiffrement sans une application Azure AD est désormais pris en charge pour la réplication de machines virtuelles Azure vers des disques managés exécutant Windows.
+**Ressources réseau pour le basculement** | Lors du basculement vers une autre région, vous pouvez désormais attacher des paramètres de ressource réseau (groupes de sécurité réseau, équilibrage de charge, adresse IP publique) à une machine virtuelle. 
 
 ## <a name="updates-july-2019"></a>Mises à jour (juillet 2019)
 

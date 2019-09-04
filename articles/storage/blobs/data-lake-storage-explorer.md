@@ -1,6 +1,6 @@
 ---
 title: Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2
-description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un système de fichiers dans un compte Azure Data Lake Storage Gen2, ainsi qu’un répertoire et un fichier. Vous apprenez ensuite à télécharger le fichier sur votre ordinateur local, et à afficher tout le fichier dans un répertoire.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un conteneur dans un compte Azure Data Lake Storage Gen2, ainsi qu’un répertoire et un fichier. Vous apprenez ensuite à télécharger le fichier sur votre ordinateur local, et à afficher tout le fichier dans un répertoire.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855610"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991414"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2
 
@@ -41,13 +41,13 @@ Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge
 
 ![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-file-system"></a>Créer un système de fichiers
+## <a name="create-a-container"></a>Créez un conteneur.
 
 Les objets blob sont toujours chargés dans un répertoire. Cela vous permet d’organiser des groupes d’objets blob comme vous organisez vos fichiers dans des dossiers sur votre ordinateur.
 
-Pour créer un répertoire, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneur d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre système de fichiers. Lorsque vous avez terminé, appuyez sur **Entrée** pour créer le système de fichiers. Une fois le répertoire d’objets blob créé, il apparaît sous le dossier **Conteneur d’objets blob** correspondant au compte de stockage sélectionné.
+Pour créer un répertoire, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneur d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur. Quand vous avez terminé, appuyez sur **Entrée** pour créer le conteneur. Une fois le répertoire d’objets blob créé, il apparaît sous le dossier **Conteneur d’objets blob** correspondant au compte de stockage sélectionné.
 
-![Explorateur Stockage Microsoft Azure - Création d’un système de fichiers](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Explorateur Stockage Microsoft Azure - Création d’un conteneur](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Charger des objets blob dans le répertoire
 

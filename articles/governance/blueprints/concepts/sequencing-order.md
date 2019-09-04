@@ -1,19 +1,19 @@
 ---
 title: Comprendre l’ordre de la séquence de déploiement
-description: Découvrez le cycle de vie que traverse une définition de blueprint, ainsi que les détails de chaque phase.
+description: Découvrez le cycle de vie que traverse une définition de blueprint ainsi que les détails de chaque phase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/25/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71584c9a69ebab6583973003aa51e94a1afe1b14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721291"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991997"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
@@ -51,6 +51,10 @@ Au moment de composer des définitions de blueprints de grande taille, il peut �
 
 Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de blueprint, pour les groupes de ressources, et les objets artefact prennent en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
 
+> [!NOTE]
+> Lors de la création d’objets blueprint, chaque ressource d’artefact obtient son nom à partir du nom de fichier si vous utilisez [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact) ou à partir du point de terminaison de l’URL si vous utilisez l’[API REST](/rest/api/blueprints/artifacts/createorupdate).
+> Les références _resourceGroup_ dans les artefacts doivent correspondre à celles définies dans la définition de blueprint.
+
 ### <a name="example---ordered-resource-group"></a>Exemple - Groupe de ressources classé
 
 Cet exemple de définition de blueprint présente un groupe de ressources pour lequel un ordre de séquencement personnalisé a été défini en déclarant une valeur pour `dependsOn`, ainsi qu’un groupe de ressources standard. Dans ce cas, l’artefact nommé **assignPolicyTags** est traité avant le groupe de ressources **ordered-rg**.
@@ -77,9 +81,7 @@ Cet exemple de définition de blueprint présente un groupe de ressources pour l
         },
         "targetScope": "subscription"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint",
-    "type": "Microsoft.Blueprint/blueprints",
-    "name": "mySequencedBlueprint"
+    "type": "Microsoft.Blueprint/blueprints"
 }
 ```
 
@@ -98,9 +100,7 @@ Cet exemple est un artefact de stratégie qui dépend d’un modèle Azure Resou
         ]
     },
     "kind": "policyAssignment",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
-    "type": "Microsoft.Blueprint/artifacts",
-    "name": "assignPolicyTags"
+    "type": "Microsoft.Blueprint/artifacts"
 }
 ```
 
@@ -134,9 +134,7 @@ L’artefact de modèle de niveau d’abonnement dépendant du groupe de ressour
         "description": ""
     },
     "kind": "template",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
-    "type": "Microsoft.Blueprint/blueprints/artifacts",
-    "name": "subtemplateWaitForRG"
+    "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
 ```
 

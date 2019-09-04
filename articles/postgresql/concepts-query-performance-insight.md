@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067554"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907467"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -41,6 +41,9 @@ Le tableau sous le graphique fournit plus d’informations sur les requêtes lon
 Sélectionnez l’onglet **Statistiques sur les attentes** pour voir les visualisations correspondantes sur les temps d’attente dans le serveur.
 
 ![Statistiques sur les attentes de l’analyse des performances des requêtes](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## <a name="considerations"></a>Considérations
+* Query Performance Insight n’est pas disponible pour les [réplicas en lecture](concepts-read-replicas.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez plus d’informations sur la [surveillance et l’optimisation](concepts-monitoring.md) dans Azure Database pour PostgreSQL.

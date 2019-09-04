@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 08/28/2019
 ms.locfileid: "67595520"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Chargement des données de Contoso Retail dans Azure SQL Data Warehouse
@@ -213,11 +213,11 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Charger les données dans de nouvelles tables
-Pour charger des données à partir d’Azure Blob Storage dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] par table. CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. 
+Pour charger des données à partir de Stockage Blob Azure dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Le chargement avec CTAS s’appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction [CTAS][CTAS] par table. 
  
-Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe. Dans cet exemple, nous créons la table de dimension et la table de faits qui joueront le rôle de tables distribuées par hachage. 4.3 Suivre la progression du chargement
+CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 
-Vous pouvez suivre la progression de votre chargement à l’aide des vues de gestion dynamique (DMV). 
+Dans cet exemple, nous créons la table de dimension et la table de faits qui joueront le rôle de tables distribuées par hachage. 
 
 ```sql
 SELECT GETDATE();
@@ -227,8 +227,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>5. Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. 
+### <a name="43-track-the-load-progress"></a>4.3 Suivre la progression du chargement
+Vous pouvez suivre la progression de votre chargement à l’aide des vues de gestion dynamique (DMV). 
 
 ```sql
 -- To see all requests
@@ -263,10 +263,10 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.
-Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].  Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes. Pour plus d’informations sur la maintenance des index columnstore, consultez l’article [Gérer les index columnstore][manage columnstore indexes] .
+## <a name="5-optimize-columnstore-compression"></a>5. Optimiser la compression columnstore
+Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
 
-6. Optimiser les statistiques 
+Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes. 
 
 ```sql
 SELECT GETDATE();
@@ -276,14 +276,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement.
+Pour plus d’informations sur la maintenance des index columnstore, consultez l’article [Gérer les index columnstore][manage columnstore indexes] .
 
-## <a name="6-optimize-statistics"></a>S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes.
-Si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques][statistics]. L’exemple suivant est un bon point de départ pour la création de statistiques. 
+## <a name="6-optimize-statistics"></a>6. Optimiser les statistiques
+Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement. S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes. Si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. 
 
-Il permet de créer des statistiques sur une colonne pour chaque colonne de la table de dimension, et chaque colonne de jointure des tables de faits.
+Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques][statistics].
 
-Vous pouvez toujours ajouter ultérieurement des statistiques sur une ou plusieurs colonnes dans d’autres colonnes de table de faits. Et voilà ! Vous avez correctement chargé les données publiques dans Azure SQL Data Warehouse.
+L’exemple suivant est un bon point de départ pour la création de statistiques. Il permet de créer des statistiques sur une colonne pour chaque colonne de la table de dimension, et chaque colonne de jointure des tables de faits. Vous pouvez toujours ajouter ultérieurement des statistiques sur une ou plusieurs colonnes dans d’autres colonnes de table de faits.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -327,10 +327,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a>Bon travail !
-Vous pouvez maintenant interroger les tables pour explorer vos données. Exécutez la requête suivante pour connaître le total des ventes par marque :
+## <a name="achievement-unlocked"></a>Et voilà !
+Vous avez correctement chargé les données publiques dans Azure SQL Data Warehouse. Bon travail !
 
-Étapes suivantes Pour charger le jeu de données complet, exécutez l’exemple [Charger l’ensemble de l’entrepôt de données Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) à partir du référentiel d’exemples Microsoft SQL Server.
+Vous pouvez maintenant interroger les tables pour explorer vos données. Exécutez la requête suivante pour connaître le total des ventes par marque :
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -340,10 +340,10 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
-To load the full data set, run the example <bpt id="p1">[</bpt>load the full Contoso Retail Data Warehouse<ept id="p1">](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md)</ept> from the Microsoft SQL Server Samples repository.
+## <a name="next-steps"></a>Étapes suivantes
+Pour charger le jeu de données complet, exécutez l’exemple [Charger l’ensemble de l’entrepôt de données Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) à partir du référentiel d’exemples Microsoft SQL Server.
 
-For more development tips, see <bpt id="p1">[</bpt>SQL Data Warehouse development overview<ept id="p1">][SQL Data Warehouse development overview]</ept>.
+Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

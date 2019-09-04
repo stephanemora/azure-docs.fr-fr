@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b4c1c60bcab770c5345645ffda3ac3558aa32cc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901289"
+ms.locfileid: "69972749"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Utiliser le site du cloud privé CloudSimple pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
 
@@ -74,6 +74,7 @@ Les sections suivantes contiennent des instructions pour configurer un déploiem
 * AD/DHCP/DNS installés pour votre cloud privé
 
 #### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portail CloudSimple : Créer un réseau local virtuel/sous-réseau dédié pour les pools de bureaux
+
 Créez un réseau local virtuel (VLAN) pour les pools de bureaux Horizon et attribuez-lui un CIDR de sous-réseau. Pour plus d'informations, consultez [Créer et gérer des réseaux VLAN/sous-réseaux](create-vlan-subnet.md). Il s'agit du réseau sur lequel toutes les machines virtuelles de bureau seront exécutées.
 
 Suivez les meilleures pratiques de sécurité standard pour sécuriser votre déploiement Horizon :

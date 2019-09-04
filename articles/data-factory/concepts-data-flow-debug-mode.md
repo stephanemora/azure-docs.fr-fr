@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014522"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991924"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -53,7 +53,14 @@ Quand le débogage est activé, l’onglet d’aperçu des données s’allume d
 
 ![Aperçu des données](media/data-flow/datapreview.png "Aperçu des données")
 
+> [!NOTE]
+> Les sources de fichier limitent uniquement les lignes que vous voyez et non celles qui sont en cours de lecture. Pour les jeux de données très volumineux, il est recommandé de prendre une petite partie de ce fichier et de l’utiliser pour votre test. Vous pouvez sélectionner un fichier temporaire dans les paramètres de débogage pour chaque source correspondant à un type de jeu de données de fichier.
+
 Quand vous exécutez le mode débogage dans Data Flow, vos données ne sont pas écrites dans la transformation Sink. Le but d’une session de débogage est de servir d’atelier de test pour vos transformations. Les récepteurs ne sont pas obligatoires durant le débogage et sont ignorés dans votre flux de données. Si vous souhaitez tester l’écriture des données dans votre récepteur, exécutez le flux de données à partir d’un pipeline Azure Data Factory et utilisez l’exécution Débogage à partir d’un pipeline.
+
+### <a name="testing-join-conditions"></a>Test des conditions de jointure
+
+Lors du test unitaire des transformations de jointure, de recherche ou Exists, veillez à utiliser un petit ensemble de données connues pour votre test. Vous pouvez utiliser l’option Paramètres de débogage évoquée plus haut pour définir un fichier temporaire à utiliser pour votre test. Cette opération est nécessaire, car lors de la limitation ou de l’échantillonnage de lignes à partir d’un jeu de données volumineux, vous ne pouvez pas prédire quelles lignes et quelles clés seront lues dans le flux dans le cadre du test. Le résultat n’est pas déterministe, ce qui signifie que vos conditions de jointure peuvent échouer.
 
 ### <a name="quick-actions"></a>Actions rapides
 

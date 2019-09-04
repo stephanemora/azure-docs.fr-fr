@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1324bb90c0b92daf709b695a0a8b3af9161c2e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65601571"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905429"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -60,16 +60,16 @@ Wire Data obtient ses données auprès de l’agent de dépendances Microsoft. C
 
 | **Source connectée** | **Pris en charge** | **Description** |
 | --- | --- | --- |
-| Agents Windows | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Windows. <br><br> Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/agent-windows.md), les agents Windows nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
-| Agents Linux | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Linux.<br><br> Outre [l’agent Log Analytics pour Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), les agents Linux nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
-| Groupe d’administration Microsoft System Center Operations Manager | OUI | Wire Data analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connecté. <br><br> Une connexion directe entre l’ordinateur agent System Center Operations Manager et Azure Monitor est requise. |
+| Agents Windows | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Windows. <br><br> Outre [l’agent Log Analytics pour Windows](../platform/agent-windows.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](vminsights-enable-overview.md#supported-operating-systems). |
+| Agents Linux | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Linux.<br><br> Outre [l’agent Log Analytics pour Linux](../learn/quick-collect-linux-computer.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](vminsights-enable-overview.md#supported-operating-systems). |
+| Groupe d’administration Microsoft System Center Operations Manager | OUI | Wire Data analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../platform/om-agents.md) connecté. <br><br> Une connexion directe entre l’ordinateur agent System Center Operations Manager et Azure Monitor est requise. |
 | Compte Azure Storage | Non | Wire Data collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
 
 Sous Windows, Microsoft Monitoring Agent (MMA) est utilisé à la fois par System Center Operations Manager et par Azure Monitor pour collecter et envoyer des données. En fonction du contexte, l’agent est nommé agent System Center Operations Manager, agent Log Analytics, MMA ou agent direct. System Center Operations Manager et Azure Monitor fournissent des versions légèrement différentes de MMA. Les deux versions peuvent envoyer leurs rapports à System Center Operations Manager, à Azure Monitor ou aux deux.
 
 Sous Linux, l’agent Log Analytics pour Linux collecte et envoie les données à Azure Monitor. Vous pouvez utiliser Wire Data sur des serveurs équipés d’agents directement connectés à Azure Monitor ou sur des serveurs se connectant à Azure Monitor au moyen de groupes d’administration System Center Operations Manager.
 
-L’agent de dépendances ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Les données de Wire Data sont toujours transmises par l’agent Log Analytics à Azure Monitor, directement ou par le biais de la passerelle Log Analytics.
+L’agent de dépendances ne transmet pas de données par lui-même et ne demande pas de modifications des pare-feu ni des ports. Les données de Wire Data sont toujours transmises par l’agent Log Analytics à Azure Monitor, directement ou par le biais de la passerelle Log Analytics.
 
 ![diagramme de l’agent](./media/wire-data/agents.png)
 
@@ -89,7 +89,7 @@ Si vos ordinateurs Windows ou Linux ne peuvent pas se connecter directement au s
 
 ### <a name="operating-systems"></a>Systèmes d’exploitation
 
-Les sections suivantes répertorient les systèmes d’exploitation pris en charge par l’agent de dépendances. Wire Data ne prend pas en charge les architectures 32 bits, quel que soit le système d’exploitation.
+Les sections suivantes listent les systèmes d’exploitation pris en charge par l’agent de dépendances. Wire Data ne prend pas en charge les architectures 32 bits, quel que soit le système d’exploitation.
 
 #### <a name="windows-server"></a>Windows Server
 
@@ -140,7 +140,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 
 | Version du SE | Version du noyau |
 |:--|:--|
-| Ubuntu 18.04 | Noyau 4.15.\*<br>4.18* |
+| Ubuntu 18.04 | noyau 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | noyau 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -149,7 +149,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 
 | Version du SE | Version du noyau
 |:--|:--|
-| 11 SP4 | 3.0* |
+| 11 SP4 | 3.0.* |
 
 ##### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -160,7 +160,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 
 ### <a name="dependency-agent-downloads"></a>Téléchargements de l’agent de dépendances
 
-| Fichier | SE | Version | SHA-256 |
+| Fichier | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -184,7 +184,7 @@ Des privilèges d’administrateur sont requis pour installer ou désinstaller l
 
 L’agent de dépendances s’installe sur les ordinateurs sous Windows par le biais de InstallDependencyAgent-Windows.exe. Si vous exécutez ce fichier exécutable sans aucune option, il démarre un Assistant que vous pouvez suivre pour une installation interactive.
 
-Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaque ordinateur sous Windows :
+Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaque ordinateur exécutant Windows :
 
 1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Windows hébergés dans votre environnement](../../azure-monitor/platform/agent-windows.md).
 2. Téléchargez l’agent de dépendances Windows en suivant le lien de la section précédente, puis exécutez-le à l’aide de la commande suivante : `InstallDependencyAgent-Windows.exe`
@@ -210,10 +210,10 @@ L’accès racine est requis pour installer ou configurer l’agent.
 
 L’agent de dépendances s’installe sur les ordinateurs Linux par le biais de InstallDependencyAgent-Linux64.bin, un script shell avec un fichier binaire à extraction automatique. Vous pouvez exécuter le fichier à l’aide de _sh_ ou ajouter des autorisations d’exécution au fichier lui-même.
 
-Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaque ordinateur Linux :
+Procédez comme suit pour installer l’agent de dépendances sur chaque ordinateur Linux :
 
 1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Linux hébergés dans votre environnement](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Téléchargez l’agent de dépendances Linux en suivant le lien de la section précédente, puis installez-le en tant que racine à l’aide de la commande suivante : sh InstallDependencyAgent-Linux64.bin
+2. Téléchargez l’agent de dépendances Linux en suivant le lien de la section précédente, puis installez-le en tant que racine à l’aide de la commande suivante : sh InstallDependencyAgent-Linux64.bin.
 3. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est : /var/opt/microsoft/dependency-agent/log.
 
 Pour afficher la liste des indicateurs d’installation, exécutez le programme d’installation avec l’indicateur `-help` comme suit.
@@ -240,7 +240,7 @@ Les fichiers de l’agent de dépendances sont placés dans les répertoires sui
 
 ### <a name="installation-script-examples"></a>Exemples de script d’installation
 
-Pour déployer facilement l’agent de dépendances sur plusieurs serveurs d’un coup, il est plus facile d’utiliser un script. Vous pouvez utiliser les exemples de script suivants pour télécharger et installer l’agent de dépendances sous Windows ou sous Linux.
+Pour déployer facilement l’agent de dépendances sur plusieurs serveurs d’un coup, il est plus facile d’utiliser un script. Vous pouvez utiliser les exemples de script suivants pour télécharger et installer l’agent de dépendances sur Windows ou Linux.
 
 #### <a name="powershell-script-for-windows"></a>Script PowerShell pour Windows
 
@@ -277,7 +277,7 @@ Node $NodeName
 
 {
 
-    # Download and install the Dependency Agent
+    # Download and install the Dependency agent
 
     xRemoteFile DAPackage
 
@@ -321,13 +321,13 @@ Node $NodeName
 
 Utilisez les sections suivantes comme guide pour supprimer l’agent de dépendances.
 
-#### <a name="uninstall-the-dependency-agent-on-windows"></a>Désinstaller l’agent de dépendances sous Windows
+#### <a name="uninstall-the-dependency-agent-on-windows"></a>Désinstaller l’agent de dépendances sur Windows
 
 Un administrateur peut désinstaller l’agent de dépendances pour Windows au moyen du Panneau de configuration.
 
 Un administrateur peut également exécuter %Programfiles%\Microsoft Dependency Agent\Uninstall.exe pour désinstaller l’agent de dépendances.
 
-#### <a name="uninstall-the-dependency-agent-on-linux"></a>Désinstaller l’agent de dépendances sous Linux
+#### <a name="uninstall-the-dependency-agent-on-linux"></a>Désinstaller l’agent de dépendances sur Linux
 
 Pour désinstaller complètement l’agent de dépendances de Linux, vous devez supprimer l’agent lui-même et le connecteur qui est installé automatiquement avec lui. Vous pouvez désinstaller les deux à l’aide de la commande ci-dessous :
 
@@ -390,7 +390,7 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 
 | Propriété | Description |
 |---|---|
-| Ordinateur | Nom de l’ordinateur sur lequel les données ont été recueillies |
+| Computer | Nom de l’ordinateur sur lequel les données ont été recueillies |
 | TimeGenerated | Heure de l’enregistrement |
 | LocalIP | Adresse IP de l’ordinateur local |
 | SessionState | Connecté ou déconnecté |
@@ -399,7 +399,7 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 | IPVersion | Version de l’adresse IP |
 | Direction | Entrant ou sortant |
 | MaliciousIP | Adresse IP d’une source malveillante connue |
-| Severity | Niveau de gravité suspecté |
+| severity | Niveau de gravité suspecté |
 | RemoteIPCountry | Pays/région de l’adresse IP distante |
 | ManagementGroupName | Nom du groupe d’administration Operations Manager |
 | SourceSystem | Source où les données ont été recueillies |
@@ -417,7 +417,6 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 | ProcessName | Chemin d’accès et nom de fichier du processus |
 | RemoteIPLongitude | Valeur de longitude de l’adresse IP |
 | RemoteIPLatitude | Valeur de latitude de l’adresse IP |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

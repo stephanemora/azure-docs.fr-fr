@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60600387"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904251"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gérer un serveur VMware vCenter
 
@@ -98,7 +98,7 @@ Aussitôt l’adresse IP mise à jour, les composants Site Recovery commencent �
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Migrer plusieurs machines virtuelles protégées vers un nouveau serveur vCenter
 
 > [!NOTE]
-> Cette section s’applique uniquement lorsque vous effectuez la migration de quelques machines virtuelles protégées vers un nouveau serveur vCenter. Si vous souhaitez protéger un nouvel ensemble de machines virtuelles à partir d’un nouveau serveur vCenter, [ajoutez des détails vCenter supplémentaires au serveur de configuration](#add-vmware-server-to-the-vault) et commencez par **[Activer la protection](vmware-azure-tutorial.md#enable-replication)** .
+> Cette section s’applique uniquement lorsque vous effectuez la migration de quelques machines virtuelles protégées vers un nouveau serveur vCenter. Si vous souhaitez protéger un nouvel ensemble de machines virtuelles à partir d’un nouveau serveur vCenter, [ajoutez des détails vCenter supplémentaires au serveur de configuration](#add-vmware-server-to-the-vault) et commencez par **[activer la protection](vmware-azure-tutorial.md#enable-replication)** .
 
 Pour déplacer plusieurs machines virtuelles vers un nouveau serveur vCenter :
 

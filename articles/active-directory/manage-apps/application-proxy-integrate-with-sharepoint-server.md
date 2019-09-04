@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1265341ecfdb7f418ea89bb0ec848a20c6b430cd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807799"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127684"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -37,7 +37,10 @@ Cet article suppose que vous avez déjà SharePoint 2013 ou une version plus ré
 * Ce scénario inclut des modifications de configuration pour votre serveur SharePoint. Nous vous recommandons d’utiliser un environnement intermédiaire. Ainsi, vous pouvez d’abord mettre à jour votre serveur de test, puis faciliter un cycle de test avant de passer en production.
 * Nous exigeons SSL sur l’URL publiée. SSL est également exigé sur l’URL interne pour veiller à ce que les liens soient envoyés/mappés correctement.
 
-## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Étape 1 : Configurer une délégation Kerberos contrainte (KCD)
+> [!NOTE]
+> Une bonne pratique consiste à utiliser des domaines personnalisés dans la mesure du possible. Avec un domaine personnalisé, vous pouvez configurer la même URL pour l’URL interne et l’URL externe. Ensuite, le même lien peut être utilisé pour accéder à l’application depuis l’intérieur ou l’extérieur de votre réseau. Cette configuration optimise l’expérience des utilisateurs et des autres applications qui ont besoin d’accéder à votre application. Pour plus d’informations, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
+
+## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Étape 1 : Configurer une délégation Kerberos contrainte (KCD)
 
 Pour les applications locales qui utilisent l’authentification Windows, vous pouvez obtenir l’authentification unique (SSO) à l’aide du protocole d’authentification Kerberos et d’une fonctionnalité appelée délégation Kerberos contrainte (KCD). Quand elle est configurée, la délégation KCD permet au connecteur de proxy d’application d’obtenir un jeton Windows pour un utilisateur, même si ce dernier ne s’est pas connecté directement à Windows. Pour en savoir plus sur la KCD, consultez [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx).
 

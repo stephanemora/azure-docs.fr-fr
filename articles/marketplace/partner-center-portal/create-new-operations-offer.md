@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900093"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033216"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Créer une nouvelle offre Dynamics 365 for Operations
 
@@ -84,7 +84,7 @@ Choisissez parmi les options suivantes :
 
 [!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
+Pour plus d'informations, consultez [Vue d'ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
@@ -339,11 +339,11 @@ L'option **Référencement sur la place de marché** située sous l’onglet **V
 
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
-Cette page vous permet de fournir des informations supplémentaires requises sur votre offre.
+Cette page vous permet de fournir des informations supplémentaires sur votre offre pour que nous puissions la valider. Ces informations ne sont pas montrées aux clients ni publiées sur la Place de marché.
 
-### <a name="validation-assets"></a>Ressource(s) de validation
+### <a name="validation-assets"></a>Ressources de validation
 
-Vous devez télécharger un rapport d’analyse de la personnalisation (CAR) dans cette section. Ce rapport est généré en analysant vos modèles de personnalisation et d’extension, en fonction d’un ensemble prédéfini de règles de meilleures pratiques.
+Vous devez charger un [rapport d’analyse de la personnalisation (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) dans cette section. Ce rapport est généré en analysant vos modèles de personnalisation et d’extension, en fonction d’un ensemble prédéfini de règles de meilleures pratiques.
 
 Ce fichier doit être au format .xls ou. xlsx. Si vous avez plus d’un rapport, vous pouvez télécharger un fichier .zip contenant tous les rapports.
 

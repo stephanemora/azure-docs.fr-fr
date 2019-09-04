@@ -1,211 +1,209 @@
 ---
-title: Supprimer un coffre Recovery Services dans Azure
-description: Décrit comment supprimer un coffre Recovery Services.
+title: Supprimer un coffre Recovery Services Sauvegarde Microsoft Azure
+description: Cet article explique comment supprimer un coffre Recovery Services Sauvegarde Microsoft Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 3d6d374b6e516180ec488fe4de1317a3c99a7f7c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018884"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050113"
 ---
-# <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
+# <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
-Cet article explique comment supprimer un coffre Recovery Services [Sauvegarde Azure](backup-overview.md). Il indique comment enlever les dépendances, puis supprimer un coffre.
+Cet article explique comment supprimer un coffre Recovery Services [Sauvegarde Microsoft Azure](backup-overview.md). Il indique comment enlever les dépendances, puis supprimer un coffre.
 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Vous ne pouvez pas supprimer un coffre de Recovery Services qui a des dépendances telles que des serveurs protégés ou des serveurs de gestion de sauvegarde associés à l’archivage.
+Vous ne pouvez pas supprimer un coffre Recovery Services qui a des dépendances comme des serveurs protégés ou des serveurs de gestion de sauvegarde associés.
 
-- Le coffre contenant les données de sauvegarde ne peut pas être supprimé (c’est-à-dire, même si vous avez arrêté la protection mais que vous avez conservé les données de sauvegarde).
+- Les coffres contenant des données de sauvegarde ne peuvent pas être supprimés (même si vous avez arrêté la protection mais conservé les données de sauvegarde).
 
-- Si vous supprimez un coffre qui contient des dépendances, le message d’erreur suivant s’affiche :
+- Si vous supprimez un coffre qui contient des dépendances, le message suivant s’affiche :
 
-  ![Erreur de suppression du coffre](./media/backup-azure-delete-vault/error.png)
+  ![Supprimez l’erreur du coffre.](./media/backup-azure-delete-vault/error.png)
 
-- Si vous supprimez un élément protégé local (MARS, MABS ou DPM dans Azure) à partir du portail contenant des dépendances, un message d’avertissement s’affiche :
+- Si vous supprimez d’un portail un élément protégé localement qui contient des dépendances, un message d’avertissement s’affiche :
 
-  ![Erreur de suppression de serveur protégé](./media/backup-azure-delete-vault/error-message.jpg)
+  ![Supprimez l’erreur du serveur protégé.](./media/backup-azure-delete-vault/error-message.jpg)
 
   
-Pour supprimer le coffre normalement, choisissez le scénario qui correspond à votre configuration et suivez les étapes recommandées :
+Pour supprimer le coffre, choisissez le scénario qui correspond à votre configuration et suivez les étapes recommandées :
 
 Scénario | Étapes de suppression des dépendances pour supprimer un coffre |
 -- | --
-J’ai des fichiers et des dossiers locaux protégés à l’aide de la sauvegarde de l’agent de Sauvegarde Azure (MARS) | Exécutez les étapes de la section supprimer les données de sauvegarde - [Pour l’agent MARS](#delete-backup-items-from-mars-management-console)
-J’ai des machines locales protégées à l’aide de MABS (Sauvegarde de serveur Microsoft Azure) ou de DPM vers Azure (System Center Data Protection Manager) | Exécuter les étapes de la section supprimer les données de sauvegarde - [Pour l’agent MABS](#delete-backup-items-from-mabs-management-console)
-J’ai des éléments protégés dans le cloud (par exemple, machine virtuelle laaS, partage de fichiers Azure, etc.)  | Exécutez les étapes de la section supprimer les données de sauvegarde - [Pour les éléments protégés dans le cloud](#delete-protected-items-in-cloud)
-J’ai des éléments protégés en local et dans le cloud | Exécutez les étapes de la section supprimer les données de sauvegarde dans la séquence ci-dessous : <br> - [Pour les éléments protégés dans le cloud](#delete-protected-items-in-cloud)<br> - [Pour l’agent MARS](#delete-backup-items-from-mars-management-console) <br> - [Pour l’agent MABS](#delete-backup-items-from-mabs-management-console)
-Je n’ai pas d’éléments protégés localement ou dans le cloud ; toutefois, je reçois toujours le message d’erreur de suppression du coffre | Suivez les étapes dans [Supprimer le coffre Recovery Services à l’aide du client Azure Resource Manager](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
+J’ai des fichiers et dossiers locaux protégés à l’aide de la sauvegarde de l’agent Sauvegarde Azure | Exécuter les étapes indiquées dans [Supprimer des éléments de sauvegarde de la console de gestion MARS](#delete-backup-items-from-the-mars-management-console)
+J’ai des machines locales protégées par MABS (serveur de sauvegarde Microsoft Azure) ou DPM (System Center Data Protection Manager) sur Azure | Exécuter les étapes indiquées dans [Supprimer des éléments de sauvegarde de la console de gestion MABS](#delete-backup-items-from-the-mabs-management-console)
+J’ai des éléments protégés dans le cloud (par exemple, une machine virtuelle laaS ou un partage Azure Files)  | Exécuter les étapes indiquées dans [Supprimer des éléments protégés dans le cloud](#delete-protected-items-in-the-cloud)
+J’ai des éléments protégés à la fois localement et dans le cloud | Effectuez les étapes décrites dans toutes les sections suivantes, dans l’ordre suivant : <br> 1. [Supprimer des éléments protégés dans le cloud](#delete-protected-items-in-the-cloud)<br> 2. [Supprimer des éléments de sauvegarde de la console de gestion MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. [Supprimer des éléments de sauvegarde de la console de gestion MABS](#delete-backup-items-from-the-mabs-management-console)
+Je n’ai pas d’éléments protégés localement ou dans le cloud ; toutefois, je reçois toujours le message d’erreur de suppression du coffre | Suivez les étapes indiquées dans [Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 
-## <a name="delete-protected-items-in-cloud"></a>Supprimer des éléments protégés dans le cloud
+## <a name="delete-protected-items-in-the-cloud"></a>Supprimer des éléments protégés dans le cloud
 
-Avant de poursuivre, lisez **[cette section](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
+Commencez par lire la section **[Avant de commencer](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
 
-Pour arrêter la protection et supprimer les données de sauvegarde, procédez comme suit :
+Pour arrêter la protection et supprimer les données de sauvegarde, effectuez les étapes suivantes :
 
-1. Dans le portail > **Coffre Recovery Services** > **Éléments de sauvegarde**, choisissez les éléments protégés dans le cloud (par exemple, une machine virtuelle Azure, le Stockage Azure (Azure Files), SQL sur une machine virtuelle Azure, etc.).
+1. À partir du portail, accédez à **Coffre Recovery Services**, puis à **Éléments de sauvegarde**. Ensuite, choisissez les éléments protégés dans le cloud (par exemple, machines virtuelles Azure, Stockage Azure [service Azure Files] ou SQL Server sur les machines virtuelles Azure).
 
-    ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/azure-storage-selected.png)
+    ![Sélectionnez le type de sauvegarde.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Cliquez avec le bouton droit sur l’élément de sauvegarde. Selon que celui-ci est protégé ou non, le menu affiche **Arrêter la sauvegarde** ou **Supprimer les données de sauvegarde**.
+2. Cliquez avec le bouton droit pour sélectionner l’élément de sauvegarde. Selon que l’élément de sauvegarde est protégé ou non, le menu présente soit le volet **Arrêter la sauvegarde**, soit le volet **Supprimer les données de sauvegarde**.
 
-    - Pour **Arrêter la sauvegarde**, sélectionnez **Supprimer les données de sauvegarde** dans le menu déroulant. Entrez le **Nom** de l’élément de sauvegarde (sensible à la casse), sélectionnez une **Raison**, entrez des **Commentaires**, puis cliquez sur **Arrêter la sauvegarde**.
+    - Si le volet **Arrêter la sauvegarde** s’affiche, sélectionnez **Supprimer les données de sauvegarde** dans le menu déroulant. Entrez le nom de l’élément de sauvegarde (ce champ respecte la casse), puis sélectionnez une raison dans le menu déroulant. Entrez vos commentaires, le cas échéant. Ensuite, sélectionnez **Arrêter la sauvegarde**.
 
-        ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/stop-backup-item.png)
+        ![Volet Arrêter la sauvegarde.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - Pour **Supprimer les données de sauvegarde**, entrez le Nom de l’élément de sauvegarde (sensible à la casse), sélectionnez une **Raison**, entrez des **Commentaires**, puis cliquez sur **Supprimer**. 
+    - Si le volet **Supprimer les données de sauvegarde** s’affiche, entrez le nom de l’élément de sauvegarde (ce champ respecte la casse), puis sélectionnez une raison dans le menu déroulant. Entrez vos commentaires, le cas échéant. Ensuite, sélectionnez **Supprimer**. 
 
-         ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+         ![Volet Supprimer les données de sauvegarde.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Vérifiez la **notification** ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/messages.png). Une fois l’action terminée, le service affiche le message suivant : **Arrêt de la sauvegarde et suppression des données de sauvegarde pour « *Élément de sauvegarde* »** . **L’opération s’est terminée correctement.**
-6. Cliquez sur **Actualiser**dans le menu **Éléments de sauvegarde** pour vérifier si l’élément de sauvegarde est supprimé.
+5. Vérifiez l’icône **Notification** : ![Icône Notification.](./media/backup-azure-delete-vault/messages.png) Une fois le processus terminé, le service affiche le message suivant : *Arrêt de la sauvegarde et suppression des données de sauvegarde pour «*  Élément de sauvegarde  *»* . *L’opération s’est terminée correctement.*
+6. Sélectionnez **Actualiser** dans le menu **Éléments de sauvegarde** pour vous assurer que l’élément de sauvegarde a été supprimé.
 
-      ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![Page Supprimer des éléments de sauvegarde.](./media/backup-azure-delete-vault/empty-items-list.png)
 
-## <a name="delete-protected-items-on-premises"></a>Supprimer des éléments protégés locaux
+## <a name="delete-protected-items-on-premises"></a>Supprimer des éléments protégés localement
 
-Avant de poursuivre, lisez **[cette section](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
+Commencez par lire la section **[Avant de commencer](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
 
-1. Dans le menu du tableau de bord du coffre, cliquez sur **Infrastructure de sauvegarde**.
-2. Selon votre scénario local, choisissez l’option ci-dessous :
+1. Dans le menu du tableau de bord du coffre, sélectionnez **Infrastructure de sauvegarde**.
+2. Selon votre scénario local, choisissez l’une des options suivantes :
 
-      - Pour **Agent de sauvegarde**, choisissez **Serveurs protégés** > **Agent de sauvegarde**, puis sélectionnez le serveur à supprimer. 
+      - Pour MARS, sélectionnez **Serveurs protégés**, puis **Agent Azure Backup**. Ensuite, sélectionnez le serveur à supprimer. 
 
-        ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/identify-protected-servers.png)
+        ![Pour MARS, sélectionnez votre coffre pour en ouvrir le tableau de bord.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Pour **Serveur de sauvegarde Azure**/**DPM**, choisissez  **Serveurs de gestion des sauvegardes**. Sélectionnez le serveur à supprimer. 
+      - Pour MABS ou DPM, sélectionnez  **Serveurs de gestion de sauvegarde**. Ensuite, sélectionnez le serveur à supprimer. 
 
 
-          ![sélectionner le coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![Pour MABS, sélectionnez votre coffre pour en ouvrir le tableau de bord.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. Le panneau**Supprimer** s’affiche avec le message d’avertissement.
+3. Le volet **Supprimer** s’affiche avec un message d’avertissement.
 
-     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-protected-server.png)
+     ![Volet Supprimer.](./media/backup-azure-delete-vault/delete-protected-server.png)
 
-     Examinez le message d’avertissement et les instructions fournies dans la case à cocher de consentement.
-    
+     Consultez le message d’avertissement et les instructions fournies dans la case à cocher de consentement.
     > [!NOTE]
-    >- Si le serveur protégé est synchronisé avec le service Azure et que les éléments de sauvegarde existent, la case à cocher de consentement affiche le nombre d’éléments de sauvegarde dépendants et le lien pour consulter les éléments de sauvegarde.
-    >- Si le serveur protégé n’est pas synchronisé avec le service Azure et que les éléments de sauvegarde existent, la case à cocher de consentement affiche le nombre d’éléments de sauvegarde.
-    >- Si les éléments de sauvegarde n’existent pas, la case à cocher de consentement demande la suppression.
+    >- Si le serveur protégé est synchronisé avec les services Azure et que les éléments de sauvegarde existent, la case à cocher de consentement indique le nombre d’éléments de sauvegarde dépendants et le lien pour les consulter.
+    >- Si le serveur protégé n’est pas synchronisé avec les services Azure et que les éléments de sauvegarde existent, la case à cocher de consentement présente uniquement le nombre d’éléments de sauvegarde.
+    >- En l’absence d’éléments de sauvegarde, la case à cocher de consentement demande une suppression.
 
-4. Activez la case à cocher de consentement, puis cliquez sur **Supprimer**.
-
-
+4. Cochez la case de consentement, puis sélectionnez **Supprimer**.
 
 
-5. Vérifiez la **notification** ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/messages.png). Une fois l’action terminée, le service affiche le message suivant : **Arrêt de la sauvegarde et suppression des données de sauvegarde pour « *Élément de sauvegarde* »** . **L’opération s’est terminée correctement.**
-6. Cliquez sur **Actualiser**dans le menu **Éléments de sauvegarde** pour vérifier si l’élément de sauvegarde est supprimé.
 
-Vous pouvez maintenant supprimer les éléments de sauvegarde de la console de gestion :
+
+5. Vérifiez l’icône **Notification** de ![suppression des données de sauvegarde](./media/backup-azure-delete-vault/messages.png). Une fois l’opération terminée, le service affiche le message suivant : *Arrêt de la sauvegarde et suppression des données de sauvegarde pour « Élément de sauvegarde ».* *L’opération s’est terminée correctement.*
+6. Sélectionnez **Actualiser** dans le menu **Éléments de sauvegarde** pour vous assurer que l’élément de sauvegarde est supprimé.
+
+Une fois ce processus terminé, vous pouvez supprimer les éléments de sauvegarde de la console de gestion :
     
-   - [Éléments protégés à l’aide de MARS](#delete-backup-items-from-mars-management-console)
-    - [Éléments protégés à l’aide de MABS](#delete-backup-items-from-mabs-management-console)
+   - [Supprimer des éléments de sauvegarde de la console de gestion MARS](#delete-backup-items-from-the-mars-management-console)
+    - [Supprimer des éléments de sauvegarde de la console de gestion MABS](#delete-backup-items-from-the-mabs-management-console)
 
 
-### <a name="delete-backup-items-from-mars-management-console"></a>Supprimez des éléments de sauvegarde de la console de gestion MARS
+### <a name="delete-backup-items-from-the-mars-management-console"></a>Supprimer des éléments de sauvegarde de la console de gestion MARS
 
-Pour supprimer des éléments de sauvegarde de la console de gestion MARS
+1. Ouvrez la console de gestion de MARS, accédez au volet **Actions** et sélectionnez **Planifier la sauvegarde**.
+2. Dans la page **Modifier ou arrêter une sauvegarde planifiée**, sélectionnez **Ne plus utiliser cette panification de sauvegarde et supprimer toutes les sauvegardes stockées**. Ensuite, sélectionnez **Suivant**.
 
-- Lancez la console de gestion de MARS, accédez au volet **Actions** et choisissez **Planifier la sauvegarde**.
-- À partir de l’Assistant **Modification ou arrêt d’une sauvegarde planifiée**, choisissez l’option **Ne plus utiliser cette panification de sauvegarde et supprimer toutes les sauvegardes stockées** et cliquez sur **Suivant**.
+    ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
-    ![Modifier ou arrêter une sauvegarde planifiée](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+3. Dans la page **Arrêter une sauvegarde planifiée**, sélectionnez **Terminer**.
 
-- À partir de l’Assistant **Arrêt d’une sauvegarde planifiée**, cliquez sur **Terminer**.
+    ![Arrêtez une sauvegarde planifiée.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+4. Vous êtes invité à entrer un code PIN de sécurité, que vous devez générer manuellement. Pour cela, commencez par vous connecter au portail Azure.
+5. Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
+6. Sous **Code PIN de sécurité**, sélectionnez **Générer**. Copiez ce code PIN. Il n’est valide que pendant cinq minutes.
+7. Dans la console de gestion, collez le code PIN, puis sélectionnez **OK**.
 
-    ![Arrêter une sauvegarde planifiée](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-- Vous êtes invité à entrer un code PIN de sécurité. Pour générer le code PIN, vous devez effectuer les étapes ci-dessous :
-  - Connectez-vous au portail Azure.
-  - Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
-  - Sous **Code PIN de sécurité**, cliquez sur **Générer**. Copiez ce code PIN. (Il n’est valide que pendant cinq minutes.)
-- Dans la console de gestion (application cliente), collez le code PIN et cliquez sur **Ok**.
+    ![Générez un code PIN de sécurité.](./media/backup-azure-delete-vault/security-pin.png)
 
-  ![Code PIN de sécurité](./media/backup-azure-delete-vault/security-pin.png)
+8. Dans la page **Modifier la progression de la sauvegarde**, le message suivant s’affiche : *Les données supprimées sont conservées pendant 14 jours. Passé ce délai, les données de sauvegarde sont définitivement supprimées.*  
 
-- Dans l’Assistant **Modifier la progression de la sauvegarde**, le message suivant s’affiche : *Les données de sauvegarde supprimées sont conservées pendant 14 jours. Passé ce délai, les données de sauvegarde sont définitivement supprimées.*  
+    ![Supprimez l’infrastructure de sauvegarde.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
-    ![Supprimer l’infrastructure de sauvegarde](./media/backup-azure-delete-vault/deleted-backup-data.png)
+Une fois les éléments de sauvegarde locaux supprimés, effectuez les étapes suivantes à partir du portail.
 
-Les éléments de sauvegarde étant supprimés de votre environnement local, effectuez les étapes suivantes à partir du portail.
+### <a name="delete-backup-items-from-the-mabs-management-console"></a>Supprimer des éléments de sauvegarde de la console de gestion MABS
 
-### <a name="delete-backup-items-from-mabs-management-console"></a>Supprimez des éléments de sauvegarde de la console de gestion MABS
+Il existe deux méthodes pour supprimer des éléments de sauvegarde de la console de gestion MABS.
 
-Pour supprimer des éléments de sauvegarde de la console de gestion MABS
+#### <a name="method-1"></a>Méthode 1
+Pour arrêter la protection et supprimer des données de sauvegarde, effectuez les étapes suivantes :
 
-**Méthode 1** pour arrêter la protection et supprimer les données de sauvegarde, procédez comme suit :
+1.  Ouvrez la console Administrateur DPM, puis sélectionnez **Protection** dans la barre de navigation.
+2.  Dans le volet d’informations, sélectionnez le membre du groupe de protection que vous souhaitez supprimer. Cliquez avec le bouton droit pour sélectionner l’option **Arrêter la protection des membres du groupe**.
+3.  Dans la boîte de dialogue **Arrêt de la protection**, cochez la case **Supprimer les données protégées**, puis **Supprimer le stockage en ligne**. Ensuite, sélectionnez **Arrêter la protection**.
 
-1.  Dans la console Administrateur DPM, cliquez sur **Protection** sur la barre de navigation.
-2.  Dans le volet d’informations, sélectionnez le membre du groupe de protection que vous souhaitez supprimer. Cliquez avec le bouton droit, puis choisissez l’option **Arrêter la protection des membres du groupe**.
-3.  Dans la boîte de dialogue **Arrêt de la protection**, cochez la case **Supprimer les données protégées** > **Supprimer le stockage en ligne**, puis cliquez sur **Arrêter la protection**.
+    ![Sélectionnez Supprimer les données protégées dans le volet Arrêter la protection.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    ![Supprimer le stockage en ligne](./media/backup-azure-delete-vault/delete-storage-online.png)
-
-L’état du membre protégé est désormais **Réplica inactif disponible**.
+    L’état du membre protégé devient *Réplica inactif disponible*.
 
 4. Cliquez avec le bouton droit sur le groupe de protection inactif, puis sélectionnez **Supprimer la protection inactive**.
 
-    ![Supprimer la protection inactive](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+    ![Supprimez la protection inactive.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-5. À partir de la fenêtre **Supprimer la protection inactive**, sélectionnez **Supprimer le stockage en ligne** et cliquez sur **Ok**.
+5. Dans la fenêtre **Supprimer la protection inactive**, cochez la case **Supprimer le stockage en ligne**, puis sélectionnez **OK**.
 
-    ![Supprimer les réplicas sur le disque et en ligne](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+    ![Supprimez le stockage en ligne.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-**La méthode 2** lance la console de **gestion MABS**. Dans la section **Sélectionner la méthode de protection des données**, décochez **Je voudrais une protection en ligne**.
+#### <a name="method-2"></a>Méthode 2
+Ouvrez la **console de gestion MABS**. Sous **Sélectionner la méthode de protection des données**, décochez la case **Je voudrais une protection en ligne**.
 
-  ![Sélectionner la méthode de protection des données](./media/backup-azure-delete-vault/data-protection-method.png)
+  ![Sélectionnez la méthode de protection des données.](./media/backup-azure-delete-vault/data-protection-method.png)
 
-Les éléments de sauvegarde étant supprimés de votre environnement local, effectuez les étapes suivantes à partir du portail.
+Une fois les éléments de sauvegarde locaux supprimés, effectuez les étapes suivantes à partir du portail.
 
 
 ## <a name="delete-the-recovery-services-vault"></a>Supprimer le coffre Recovery Services
 
 1. Une fois toutes les dépendances supprimées, faites défiler l’affichage jusqu’au volet **Bases** dans le menu du coffre.
-2. Vérifiez qu’il ne contient pas d’**Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou d’**Éléments répliqués** listés. Si des éléments apparaissent toujours dans le coffre, voir la section [Avant de commencer](#before-you-start).
+2. Vérifiez qu’aucun élément de sauvegarde, serveur de gestion de sauvegarde ni élément répliqué ne sont listés. Si des éléments apparaissent encore dans le coffre, reportez-vous à la section [Avant de commencer](#before-you-start).
 
-3. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
+3. Lorsqu’il n’y a plus d’éléments dans le coffre, sélectionnez **Supprimer** dans le tableau de bord du coffre.
 
-    ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+    ![Sélectionnez Supprimer dans le tableau de bord du coffre.](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-4. Pour confirmer la suppression du coffre, cliquez sur **Oui**. Le coffre est supprimé et le portail revient au menu de service **Nouveau** .
+4. Sélectionnez **Oui** pour confirmer la suppression du coffre. Le coffre est supprimé. Le portail revient au menu de service **Nouveau**.
 
-## <a name="delete-the-recovery-services-vault-using-azure-resource-manager-client"></a>Supprimer le coffre Recovery Services à l’aide du client Azure Resource Manager
+## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager
 
-Cette option qui permet de supprimer le coffre de Recovery Services est recommandée uniquement lorsque toutes les dépendances sont supprimées et que vous obtenez toujours le *message d’erreur de suppression du coffre*.
+Cette option de suppression du coffre Recovery Services est recommandée uniquement si toutes les dépendances sont supprimées alors que vous obtenez toujours le *message d’erreur de suppression du coffre*. Essayez l’une ou l’ensemble des astuces suivantes :
 
-- Dans le volet **Essentials** du menu du coffre, vérifiez qu’il n’y a pas d’**éléments de sauvegarde**, de **serveurs de gestion des sauvegardes** ou d’**éléments répliqués** listés. S’il existe des éléments de sauvegarde, voir la section [Avant de commencer](#before-you-start).
-- Réessayez [de supprimer le coffre à partir du portail](#delete-the-recovery-services-vault).
-- Si toutes les dépendances sont supprimées et que vous obtenez toujours l’*erreur de suppression du coffre*, utilisez l’outil ARMClient pour effectuer les étapes indiquées ci-dessous.
+- Dans le volet **Essentials** du menu du coffre, vérifiez qu’il n’y a pas d’éléments de sauvegarde, de serveurs de gestion de sauvegarde ou d’éléments répliqués listés. S’il existe des éléments de sauvegarde, reportez-vous à la section [Avant de commencer](#before-you-start).
+- Réessayez de [supprimer le coffre du portail](#delete-the-recovery-services-vault).
+- Si toutes les dépendances sont supprimées et que vous recevez toujours le *message d’erreur de suppression du coffre*, utilisez l’outil ARMClient pour effectuer les étapes suivantes (après la remarque).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Installez chocolatey à partir d’[ici](https://chocolatey.org/), puis, pour installer ARMClient, exécutez la commande ci-dessous :
+1. Accédez à [chocolatey.org](https://chocolatey.org/) pour télécharger et installer Chocolatey. Ensuite, installez ARMClient en exécutant la commande suivante :
 
    `choco install armclient --source=https://chocolatey.org/api/v2/`
-2. Connectez-vous à votre compte Azure, puis exécutez cette commande :
+2. Connectez-vous à votre compte Azure, puis exécutez la commande suivante :
 
     `ARMClient.exe login [environment name]`
 
 3. Dans le portail Azure, rassemblez l’ID d’abonnement et le nom du groupe de ressources pour le coffre à supprimer.
 
-Pour plus d’informations sur la commande ARMClient, consultez ce [document](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+Pour plus d’informations sur la commande ARMClient, reportez-vous au fichier [Lisez-moi ARMClient](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
-### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Utiliser le client Azure Resource Manager pour supprimer le coffre Recovery Services
+### <a name="use-the-azure-resource-manager-client-to-delete-a-recovery-services-vault"></a>Utiliser le client Azure Resource Manager pour supprimer un coffre Recovery Services
 
-1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre. Quand vous exécutez la commande, celle-ci supprime le coffre si vous n’avez pas de dépendances.
+1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre. Si vous n’avez pas de dépendances, le coffre est supprimé quand vous exécutez la commande suivante :
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. Si le coffre n’est pas vide, vous recevez le message d’erreur « Impossible de supprimer le coffre car celui-ci contient des ressources ». Pour supprimer un conteneur/élément protégé au sein d’un coffre, procédez comme suit :
+2. Si le coffre n’est pas vide, vous recevez le message d’erreur suivant : *Impossible de supprimer le coffre car celui-ci contient des ressources.* Pour supprimer un élément ou conteneur protégé au sein d’un coffre, exécutez la commande suivante :
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
@@ -216,5 +214,5 @@ Pour plus d’informations sur la commande ARMClient, consultez ce [document](ht
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez](backup-azure-recovery-services-vault-overview.md) les coffres Recovery Services.<br/>
-[En savoir plus](backup-azure-manage-windows-server.md) sur la surveillance et la gestion des coffres Recovery Services.
+[En savoir plus sur les coffres Recovery Services](backup-azure-recovery-services-vault-overview.md)<br/>
+[En savoir plus sur la supervision et la gestion des coffres Recovery Services](backup-azure-manage-windows-server.md)

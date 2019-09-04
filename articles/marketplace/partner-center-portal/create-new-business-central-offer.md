@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900161"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033277"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -354,7 +354,7 @@ L'option **Référencement sur la place de marché** située sous l’onglet **V
 
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
-Cette page vous permet de fournir des informations supplémentaires requises sur votre offre.
+Cette page vous permet de fournir des informations supplémentaires sur votre offre pour que nous puissions la valider. Ces informations ne sont pas montrées aux clients ni publiées sur la Place de marché.
 
 ### <a name="target-release"></a>Version cible
 
@@ -362,19 +362,19 @@ Indiquez la version de Microsoft Dynamics Business Central ciblée par votre sol
 
 ### <a name="supported-editions"></a>Éditions prises en charge
 
-Indiquez si votre solution prend en charge l’édition de base et/ou Premium de Microsoft Dynamics 365 Business Central. Au moins une valeur doit être sélectionnée.
+Si votre offre nécessite l’édition Premium de Microsoft Dynamics 365 Business Central, sélectionnez **Premium** uniquement. Sinon, sélectionnez à la fois **Essentials** et **Premium**.
 
 ### <a name="key-usage-scenario"></a>Principaux scénarios d’utilisation
 
-Chargez un fichier `.pdf` qui répertorie les scénarios d’utilisation principaux de votre offre répertoriés dans un document (au format. pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
+Vous devez charger un fichier `.pdf` qui liste les scénarios d’utilisation principaux de votre offre dans un document (au format .pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
 
 ### <a name="app-tests-automation"></a>Automatisation des tests d’application
 
-Chargez également un fichier **d’automatisation de tests d’application** ici (.app).
+Vous devez également charger un fichier d’**automatisation des tests d’application** (au format .app).
 
 ### <a name="test-accounts"></a>Comptes de test
 
-Si un compte de test est nécessaire pour que notre équipe de certification révise correctement votre offre, téléchargez un fichier .pdf, .doc ou .docx avec les informations de vos **Comptes de test**.
+Si un compte de test est nécessaire pour que notre équipe de certification puisse examiner correctement votre offre, vous devrez charger un fichier au format .pdf, .doc ou .docx avec les informations de vos **Comptes de test**.
 
 ## <a name="publish"></a>Publish
 

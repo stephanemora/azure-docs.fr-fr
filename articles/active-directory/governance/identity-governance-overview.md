@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499658"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033319"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -80,6 +80,8 @@ Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cep
 Vous pouvez également consulter l’onglet Prise en main **d’Identity Governance** dans le portail Azure pour commencer à utiliser la gestion des droits d’utilisation, les révisions d’accès, Privileged Identity Management et les conditions d’utilisation.
 
 ![Prise en main d’Identity Governance](./media/identity-governance-overview/getting-started.png)
+
+Si vous avez des commentaires sur les fonctionnalités de gouvernance des identités, cliquez sur **Vous avez des commentaires ?** dans le portail Azure pour les envoyer. L’équipe les examine régulièrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

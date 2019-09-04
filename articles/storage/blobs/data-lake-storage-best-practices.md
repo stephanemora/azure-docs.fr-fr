@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016053"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991868"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -31,11 +31,11 @@ Une fois que vous avez assigné les autorisations à un groupe de sécurité, aj
 
 ### <a name="security-for-groups"></a>Sécurité liée aux groupes
 
-Quand vos utilisateurs ou vous-même avez besoin d’accéder aux données dans un compte de stockage avec espace de noms hiérarchique activé, il est préférable d’utiliser des groupes de sécurité Azure Active Directory. Parmi les groupes recommandés pour démarrer, citons **ReadOnlyUsers**, **WriteAccessUsers** et **FullAccessUsers** pour la racine du système de fichiers, et même d’autres pour des sous-répertoires clés. S’il y a d’autres groupes ou utilisateurs attendus qui pourraient être ajoutés plus tard, mais non identifiés à l’heure actuelle, vous devriez réfléchir à créer des groupes de sécurité test qui peuvent accéder à certains dossiers. L’utilisation d’un groupe de sécurité vous évite de perdre du temps plus tard lors de l’assignation de nouvelles autorisations à des milliers de fichiers.
+Quand vos utilisateurs ou vous-même avez besoin d’accéder aux données dans un compte de stockage avec espace de noms hiérarchique activé, il est préférable d’utiliser des groupes de sécurité Azure Active Directory. Parmi les groupes recommandés pour démarrer, citons **ReadOnlyUsers**, **WriteAccessUsers** et **FullAccessUsers** pour la racine du conteneur, et même d’autres pour des sous-répertoires clés. S’il y a d’autres groupes ou utilisateurs attendus qui pourraient être ajoutés plus tard, mais non identifiés à l’heure actuelle, vous devriez réfléchir à créer des groupes de sécurité test qui peuvent accéder à certains dossiers. L’utilisation d’un groupe de sécurité vous évite de perdre du temps plus tard lors de l’assignation de nouvelles autorisations à des milliers de fichiers.
 
 ### <a name="security-for-service-principals"></a>Sécurité liée aux principaux de service
 
-Les principaux de service Azure Active Directory sont en général utilisés par des services tels qu’Azure Databricks pour accéder aux données dans Data Lake Storage Gen2. Pour de nombreux clients, un seul principal de service Azure Active Directory peut suffire, et ce dernier peut disposer de toutes les autorisations à la racine du système de fichiers Data Lake Storage Gen2. D’autres clients peuvent avoir besoin de plusieurs clusters avec différents principaux de service, où un cluster dispose de tous les accès aux données, et un autre de l’accès en lecture. 
+Les principaux de service Azure Active Directory sont en général utilisés par des services tels qu’Azure Databricks pour accéder aux données dans Data Lake Storage Gen2. Pour de nombreux clients, un seul principal de service Azure Active Directory peut suffire, et ce dernier peut disposer de toutes les autorisations à la racine du conteneur Data Lake Storage Gen2. D’autres clients peuvent avoir besoin de plusieurs clusters avec différents principaux de service, où un cluster dispose de tous les accès aux données, et un autre de l’accès en lecture. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Activer le pare-feu Data Lake Storage Gen2 avec accès au service Azure
 

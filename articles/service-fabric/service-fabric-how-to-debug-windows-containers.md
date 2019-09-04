@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 043623869163a27cdbbdd7115fca43486577ca7d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a5ccf527850e1c05c5d7e273ada905d65d64cee4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599439"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073956"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Activation Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 
@@ -81,4 +81,4 @@ Voici une liste des limitations connues du débogage de conteneurs dans Service 
     Visual Studio prend en charge la console et les types de projets ASP.NET pour .NET et .NET Core.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les fonctionnalités de Service Fabric et des conteneurs, consultez Vue d’ensemble des conteneurs Service Fabric](service-fabric-containers-overview.md).
+Pour en savoir plus sur les fonctionnalités de Service Fabric et des conteneurs, consultez [Vue d’ensemble des conteneurs Service Fabric](service-fabric-containers-overview.md).

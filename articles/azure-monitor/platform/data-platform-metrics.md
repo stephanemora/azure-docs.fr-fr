@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607022"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113518"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
@@ -99,11 +99,22 @@ Les **métriques personnalisées** sont des métriques que vous définissez en p
 
 ## <a name="retention-of-metrics"></a>Rétention des métriques
 Pour la plupart des ressources dans Azure, les métriques sont stockées pendant 93 jours. Il existe quelques exceptions :
-  * **Métriques de SE invité classiques**. Les métriques de SE invité classiques sont conservées 14 jours. Pour une rétention plus longue, nous recommandons d’utiliser les nouvelles métriques de SE invité collectées avec [l’extension de diagnostic Windows (WAD)](../platform/diagnostics-extension-overview.md) et, pour les machines virtuelles Linux, avec [l’agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
-  * **Métriques reposant sur un journal d’Application Insights**. En arrière-plan, les [métriques reposant sur un journal](../app/pre-aggregated-metrics-log-metrics.md) se traduisent par des requêtes de journal. Leur rétention correspond à celle des événements dans journaux sous-jacents. Pour les ressources Application Insights, les journaux sont stockés pendant 90 jours. 
+
+**Métriques de système d’exploitation invité**
+-   **Métriques de système d’exploitation invité classiques**. Il s’agit des compteurs de performances collectés par [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) ou [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md), puis routés vers un compte de stockage Azure. La période de conservation de ces métriques s’élève à 14 jours.
+-   **Métriques de système d’exploitation invité envoyées à Azure Monitor Metrics**. Il s’agit des compteurs de performances collectés par Windows Diagnostic Extension (WAD) et envoyés à [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), ou par le biais d’[InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) sur des machines Linux. La période de conservation de ces métriques s’élève à 93 jours.
+-   **Métriques de système d’exploitation invité collectées par l’agent Log Analytics**. Il s’agit des compteurs de performances collectés par l’agent Log Analytics et envoyés à un espace de travail Log Analytics. La période de rétention de ces métriques s’élève à 31 jours et peut aller jusqu’à 2 ans.
+
+**Métriques reposant sur un journal d’Application Insights**. 
+- En arrière-plan, les [métriques reposant sur un journal](../app/pre-aggregated-metrics-log-metrics.md) se traduisent par des requêtes de journal. Leur rétention correspond à celle des événements dans journaux sous-jacents. Pour les ressources Application Insights, les journaux sont stockés pendant 90 jours.
+
 
 > [!NOTE]
 > Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](diagnostic-logs-stream-log-store.md) pour les tendances à long terme.
+
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

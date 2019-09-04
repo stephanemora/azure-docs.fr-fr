@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735537"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060705"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Sauvegarder une base de données SAP HANA sur Azure
 
 Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde des bases de données SAP HANA sur Azure.
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion publique. Pour l’instant, elle n’est pas prête pour la production et elle n’offre pas de Contrat de niveau de service (SLA) garanti. 
+> Cette fonctionnalité est actuellement disponible en préversion publique. Pour l’instant, elle n’est pas prête pour la production et elle n’offre pas de Contrat de niveau de service (SLA) garanti.
 
 ## <a name="scenario-support"></a>Prise en charge du scénario
 
@@ -32,8 +32,11 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 ### <a name="current-limitations"></a>Limitations actuelles
 
 - Vous ne pouvez sauvegarder que les bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
-- Vous pouvez uniquement configurer la sauvegarde SAP HANA dans le Portail Azure. Cette fonctionnalité n’est pas configurable avec PowerShell, CLI ou l’API REST.
-- Vous ne pouvez sauvegarder les bases de données qu’en mode Montée en puissance.
+- Vous pouvez sauvegarder une seule instance SAP HANA en cours d’exécution sur une seule machine virtuelle Azure. La sauvegarde de plusieurs instances HANA dans la même machine virtuelle Azure n’est actuellement pas prise en charge.
+- Vous ne pouvez sauvegarder les bases de données qu’en mode Montée en puissance. Un scale-out, à savoir une instance HANA sur plusieurs machines virtuelles , n’est actuellement pas pris en charge pour la sauvegarde.
+- Vous ne pouvez pas sauvegarder une instance SAP HANA avec hiérarchisation dynamique sur un serveur étendu, c.-à-d. avec la présence d’une hiérarchisation dynamique sur un autre nœud. C’est globalement le scale-out qui n’est pas pris en charge.
+- Vous ne pouvez pas sauvegarder une instance SAP HANA avec une hiérarchisation dynamique activée sur le même serveur. La hiérarchisation dynamique n’est actuellement pas prise en charge.
+- Vous pouvez uniquement configurer la sauvegarde SAP HANA dans le Portail Azure. Cette fonctionnalité n’est pas configurable avec PowerShell ou CLI.
 - Vous pouvez sauvegarder les journaux de base de données toutes les 15 minutes. Les sauvegardes de fichiers journaux ne commencent à s’effectuer qu’en cas de réussite d’une sauvegarde complète de la base de données.
 - Vous pouvez exécuter des sauvegardes complètes ou différentielles. Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
 - Après avoir appliqué une stratégie de sauvegarde aux sauvegardes SAP HANA, vous ne pouvez plus la modifier. Si vous souhaitez modifier les paramètres de sauvegarde, créez ou attribuez une autre stratégie.
@@ -44,23 +47,16 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 
 Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations suivantes :
 
-1. Sur la machine virtuelle exécutant la base de données SAP HANA, installez le package Microsoft [.NET Core Runtime 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) officiel. Notez les points suivants :
-    - Seul le package **dotnet-runtime-2.1** vous est nécessaire. Vous n’avez pas besoin du package **aspnetcore-runtime-2.1**.
-    - Si la machine virtuelle ne dispose pas d’un accès Internet, procédez à une mise en miroir ou fournissez un cache hors connexion pour dotnet-runtime-2.1 (et tous les RPM dépendants) à partir du flux de package Microsoft spécifié sur la page.
-    - Lors de l’installation du package, vous pouvez être invité à spécifier une option. Si tel est le cas, spécifiez **Solution 2**.
-
-        ![Options d’installation du package](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. Sur la machine virtuelle, installez et activez les packages de pilotes ODBC à partir du package/média SUSE Linux Enterprise Server (SLES) officiels à l’aide de zypper, en procédant comme suit :
+1. Sur la machine virtuelle qui exécute la base de données SAP HANA, installez et activez les packages de pilotes ODBC à partir du package/média SUSE Linux Enterprise Server (SLES) officiels à l’aide de zypper, en procédant comme suit :
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la procédure [ci-dessous](#set-up-network-connectivity).
+2. Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la procédure [ci-dessous](#set-up-network-connectivity).
 
-4. Exécutez le script de préinscription dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. Le script est fourni [sur le portail](#discover-the-databases) dans le flux et il est nécessaire pour configurer les [autorisations adéquates](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
+3. Exécutez le script de préinscription dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. Le script est fourni [sur le portail](#discover-the-databases) dans le flux et il est nécessaire pour configurer les [autorisations adéquates](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurer la connectivité réseau
 
@@ -68,6 +64,7 @@ Pour toutes les opérations, la machine virtuelle SAP HANA nécessite une connec
 
 - Vous pouvez télécharger les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) des centres de données Azure, puis autoriser l’accès à ces adresses.
 - Si vous utilisez des Groupes de sécurité réseau (NSG), vous pouvez utiliser la [balise de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud pour autoriser toutes les adresses IP publiques Azure. Vous pouvez modifier les règles NSG à l’aide de la [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
+- Le port 443 doit être inclus dans la liste verte puisque le transport s’effectue par le biais du protocole HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Intégration à la préversion publique
 
@@ -79,8 +76,6 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -106,9 +101,9 @@ Maintenant, activez la sauvegarde.
 
 1. À l’étape 2, cliquez sur **Configurer la sauvegarde**.
 2. Dans **Sélectionner les éléments à sauvegarder**, sélectionnez toutes les bases de données que vous souhaitez protéger, puis choisissez **OK**.
-3. Dans **Stratégie de sauvegarde** > **Choisir une stratégie de sauvegarde**, créez une stratégie de sauvegarde pour les bases de données en suivant les instructions ci-dessous.
+3. Dans **Stratégie de sauvegarde** > **Choisir une stratégie de sauvegarde**, créez une stratégie de sauvegarde pour les bases de données en suivant les instructions ci-dessous.
 4. Après avoir créé la stratégie, dans le menu **Sauvegarde**, cliquez sur **Activer la sauvegarde**.
-5. Suivez la progression de la configuration de la sauvegarde dans la zone  **Notifications**  du portail.
+5. Vous pouvez suivre la progression de la configuration de la sauvegarde dans la zone **Notifications** du portail.
 
 ### <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
 
@@ -182,6 +177,15 @@ Si vous souhaitez effectuer une sauvegarde locale (à l’aide de HANA Studio) d
     - Définissez **log_backup_using_backint** sur **True (Vrai)** .
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>Mise à niveau des bases de données 1.0 protégées vers la version 2.0
+
+Si vous protégez des bases de données SAP HANA 1.0 et que vous voulez les mettre à niveau vers la version 2.0, effectuez les étapes décrites ci-dessous.
+
+- Arrêtez la protection avec conversation des données pour OLD SDC DB.
+- Réexécutez le script de préinscription avec les détails (sid et mdc) corrects. 
+- Réinscrivez l’extension (Sauvegarde > Afficher les détails-> Sélectionner la machine virtuelle Azure appropriée > Réinscrire). 
+- Cliquez sur Redécouvrir les bases de données pour la même machine virtuelle. Les nouvelles bases de données de l’étape 2 doivent apparaître avec des détails corrects (SYSTEMDB et Tenant DB, et non SDC). 
+- Protégez ces nouvelles bases de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

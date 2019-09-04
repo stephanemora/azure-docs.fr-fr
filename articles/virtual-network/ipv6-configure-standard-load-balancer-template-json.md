@@ -1,5 +1,5 @@
 ---
-title: Déployer une application double pile IPv6 avec Standard Load Balancer dans un réseau virtuel Azure - modèle Resource Manager (préversion)
+title: Déployer une application double pile IPv6 dans un réseau virtuel Azure - modèle Resource Manager (préversion)
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 avec Standard Load Balancer dans un réseau virtuel Azure à l’aide de modèles de machine virtuelle Azure Resource Manager.
 services: virtual-network
@@ -12,16 +12,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fa39285eea14856db1bceba9e90f92b19afabfd0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295410"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012846"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---template-preview"></a>Déployer une application double pile IPv6 avec Standard Load Balancer dans Azure - Modèle (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Déployer une application double pile IPv6 sur un réseau virtuel Azure - Modèle (préversion)
 
-Cet article fournit une liste de tâches de configuration IPv6 avec la partie du modèle de machine virtuelle Azure Resource Manager correspondante. Utilisez le modèle décrit dans cet article pour déployer dans Azure une application double pile (IPv4 + IPv6) incluant un réseau virtuel double pile avec des sous-réseaux IPv4 et IPv6, un équilibreur de charge avec des configurations frontales doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, un groupe de sécurité réseau et des adresses IP publiques. 
+Cet article fournit une liste de tâches de configuration IPv6 avec la partie du modèle de machine virtuelle Azure Resource Manager correspondante. Utilisez le modèle décrit dans cet article pour déployer dans Azure une application double pile (IPv4 + IPv6) avec Standard Load Balancer incluant un réseau virtuel double pile avec des sous-réseaux IPv4 et IPv6, un Standard Load Balancer avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, un groupe de sécurité réseau et des adresses IP publiques. 
 
 ## <a name="required-configurations"></a>Configurations requises
 

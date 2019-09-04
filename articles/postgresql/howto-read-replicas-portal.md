@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: d0f29e2c01d6295935ac56cb19c37e1ad6bbd21b
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510390"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907377"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Créer et gérer les réplicas en lecture dans Azure Database pour PostgreSQL (serveur unique) à partir du portail Azure
 
@@ -65,16 +65,19 @@ Pour créer un réplica en lecture, effectuez les étapes suivantes :
 
     ![Nommer le réplica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Sélectionnez un emplacement pour le réplica. Vous pouvez créer un réplica dans n’importe quelle région Azure. L’emplacement par défaut est le même que celui du serveur maître.
+5. Sélectionnez un emplacement pour le réplica. L’emplacement par défaut est le même que celui du serveur maître.
 
     ![Sélectionner un emplacement](./media/howto-read-replicas-portal/location-replica.png)
 
+   > [!NOTE]
+   > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
+
 6. Sélectionnez **OK** pour confirmer la création du réplica.
 
-Un réplica est créé à partir de la même configuration que celle du serveur maître. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur maître : génération de calcul, vCores, stockage et période de conservation de la sauvegarde. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
+Le réplica doit être créé en utilisant les mêmes paramètres de calcul et de stockage que le serveur maître. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur maître : génération de calcul, vCores, stockage et période de conservation de la sauvegarde. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
 
 > [!IMPORTANT]
-> Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
+> Avant de modifier un paramètre du serveur maître, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale à celle du serveur maître. Vous garantissez ainsi l’alignement du réplica sur les changements apportés au serveur maître.
 
 Une fois le réplica en lecture créé, vous pouvez le voir dans la fenêtre **Réplication** :
 
@@ -178,4 +181,5 @@ La métrique **Retard du réplica** indique le temps écoulé depuis la dernièr
 3. Pour votre **Agrégation**, sélectionnez **Max**. 
  
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez-en plus sur les [réplicas en lecture dans Azure Database pour PostgreSQL](concepts-read-replicas.md).
+* Découvrez-en plus sur les [réplicas en lecture dans Azure Database pour PostgreSQL](concepts-read-replicas.md).
+* Découvrez comment [créer et gérer des réplicas en lecture dans Azure CLI](howto-read-replicas-cli.md).

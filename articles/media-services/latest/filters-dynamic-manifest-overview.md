@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854055"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991426"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Manifestes de préfiltrage à l'aide du Packager dynamique
 
@@ -107,7 +107,7 @@ Voici l'élément multimédia filtré :
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>Ajustement de la fenêtre de présentation (DVR)
 
-Actuellement, Azure Media Services propose une archive circulaire dont la durée peut être configurée entre 5 minutes et 25 heures. Le filtrage de manifeste peut servir à créer une fenêtre DVR de substitution par-dessus l'archive, sans supprimer le média. Il existe de nombreux scénarios où les diffuseurs veulent fournir une fenêtre DVR limitée à déplacer avec la session en direct et qui garde en même temps une plus grande fenêtre d’archivage. Un diffuseur peut utiliser les données en dehors de la fenêtre DVR pour mettre en avant des clips ou il peut proposer des fenêtres DVR différentes pour différents appareils. Par exemple, la plupart des appareils mobiles ne gèrent pas les grandes fenêtres DVR (une fenêtre DVR peut durer 2 minutes pour les appareils mobiles quand elle dure une heure pour les clients de bureau).
+Azure Media Services propose une archive circulaire où la durée peut être configurée entre 1 minute et 25 heures. Le filtrage de manifeste peut servir à créer une fenêtre DVR de substitution par-dessus l'archive, sans supprimer le média. Il existe de nombreux scénarios où les diffuseurs veulent fournir une fenêtre DVR limitée à déplacer avec la session en direct et qui garde en même temps une plus grande fenêtre d’archivage. Un diffuseur peut utiliser les données en dehors de la fenêtre DVR pour mettre en avant des clips ou il peut proposer des fenêtres DVR différentes pour différents appareils. Par exemple, la plupart des appareils mobiles ne gèrent pas les grandes fenêtres DVR (une fenêtre DVR peut durer 2 minutes pour les appareils mobiles alors qu’elle dure une heure pour les ordinateurs de bureau).
 
 ![Fenêtre DVR][dvr_filter]
 

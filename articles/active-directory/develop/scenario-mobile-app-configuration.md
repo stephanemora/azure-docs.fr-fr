@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414794"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061401"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Application mobile appelant des API web - Configuration du code
 
-Une fois que vous avez créé votre application, vous allez apprendre à configurer le code à partir des paramètres de l’application que vous avez obtenus lors de l’inscription de l’application. Les applications mobiles ont également des spécificités complexes, qui sont liées à leur adaptation au framework utilisé pour créer ces applications
+Une fois que vous avez créé votre application, vous allez apprendre à configurer le code à l’aide des paramètres d’inscription de l’application. Les applications mobiles ont également des spécificités complexes, qui sont liées à leur adaptation au framework utilisé pour créer ces applications
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>Bibliothèques MSAL prenant en charge des applications mobiles
 
@@ -38,7 +38,7 @@ Bibliothèques Microsoft prenant en charge des applications mobiles :
 
 ## <a name="configuring-the-application"></a>Configuration de l’application
 
-Les applications mobiles utilisent la classe `PublicClientApplication` de MSAL. Voici comment l’instancier :
+Les applications mobiles utilisent la classe `PublicClientApplication`. Voici comment l’instancier :
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ Le paragraphe suivant explique comment configurer le code de l’application pou
 
 #### <a name="instantiating-the-application"></a>Instanciation de l’application
 
-Dans Xamarin, ou UWP, le moyen le plus simple d’instancier l’application est le suivant, `ClientId` où est le GUID de votre application inscrite.
+Dans Xamarin ou UWP, le moyen le plus simple d’instancier l’application est le suivant, où `ClientId` est le GUID de votre application inscrite.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -128,7 +128,7 @@ Enfin, il existe des spécificités à connaître au sujet des navigateurs sur A
 
 #### <a name="uwp-specific-considerations"></a>Considérations propres à UWP
 
-Sur UWP, vous pouvez utiliser des réseaux d’entreprise. Pour plus d’informations sur les spécificités UWP, consultez [Considérations relatives à la plateforme Windows universelle avec MSAL.NET](msal-net-uwp-considerations.md)
+Sur UWP, vous pouvez utiliser des réseaux d’entreprise. Pour plus d’informations sur l’utilisation de la bibliothèque MSAL avec UWP, consultez [Considérations propres à la plateforme Windows universelle avec MSAL.NET](msal-net-uwp-considerations.md).
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Configuration de l’application pour utiliser le répartiteur
 
@@ -186,7 +186,7 @@ Cette méthode est appelée chaque fois que l’application est lancée et perme
 
 #### <a name="step-3-set-a-uiviewcontroller"></a>Étape 3 : Définir un UIViewController()
 
-Avec Xamarin iOS, vous n’avez généralement pas besoin de définir une fenêtre d’objet, mais dans ce cas, vous devez envoyer et recevoir des réponses d’un répartiteur. Toujours dans `AppDelegate.cs`, définissez un ViewController.
+Avec Xamarin iOS, vous n’avez normalement pas besoin de définir une fenêtre d’objet, mais dans ce cas, vous devez le faire pour envoyer et recevoir des réponses d’un répartiteur. Toujours dans `AppDelegate.cs`, définissez un ViewController.
 
 Procédez comme suit pour définir la fenêtre de l’objet :
 

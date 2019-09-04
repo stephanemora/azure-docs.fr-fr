@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989638"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127143"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -348,10 +348,10 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Gestion des unités administratives|Télécharger un type d’événement à risque unique|
+|Gestion des unités administratives|Télécharger un seul type de détection d’événement à risque|
 |Gestion des unités administratives|Télécharger les administrateurs et l’état d’acceptation de synthèse hebdomadaire|
-|Gestion des unités administratives|Télécharger tous les types d’événements à risque|
-|Gestion des unités administratives|Télécharger les événements à risque d’utilisateur gratuit|
+|Gestion des unités administratives|Télécharger tous les types de détections d’événements à risque|
+|Gestion des unités administratives|Télécharger les détections d’événements à risque d’utilisateur gratuites|
 |Gestion des unités administratives|Télécharger les utilisateurs avec indicateur de risque|
 |Gestion des applications|Lot d’invitations traité|
 |Gestion des applications|Lot d’invitations chargé|

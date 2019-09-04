@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 0e9bdb22baed74ef948f369f9259784900486860
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569089"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981461"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -58,51 +58,51 @@ Si vous vous connectez en dehors d'Azure, la stratégie de connexion par défaut
 
 Le tableau ci-dessous répertorie les adresses IP des passerelles par région. Pour vous connecter à une base de données SQL Azure, vous devez autoriser le trafic réseau en direction et en provenance de **toutes** les passerelles pour la région.
 
-À l’avenir, nous allons ajouter des passerelles dans chaque région et mettre hors service les passerelles dans la colonne Adresse IP de passerelle désactivée dans le tableau ci-dessous. Pour en savoir plus sur le processus de désactivation, consultez l’article suivant : [Migration du trafic des bases de données SQL Azure Database vers des passerelles plus récentes](sql-database-gateway-migration.md)
+L’article suivant décrit comment migrer le trafic vers de nouvelles passerelles dans des régions spécifiques : [Migration du trafic des bases de données SQL Azure Database vers des passerelles plus récentes](sql-database-gateway-migration.md)
 
 
-| Nom de la région          | Adresse IP de la passerelle | Passerelle désactivée </br> Adresse IP| Remarques sur la désactivation | 
-| --- | --- | --- | --- |
-| Centre de l’Australie    | 20.36.105.0 | | |
-| Australie Centre 2   | 20.36.113.0 | | |
-| Australie Est       | 13.75.149.87, 40.79.161.1 | | |
-| Sud-Est de l’Australie | 191.239.192.109, 13.73.109.251 | | |
-| Brésil Sud         | 104.41.11.5        |                 | |
-| Centre du Canada       | 40.85.224.249      |                 | |
-| Est du Canada          | 40.86.226.166      |                 | |
-| USA Centre           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Aucune connexion après le 1er septembre 2019 |
-| Chine orientale           | 139.219.130.35     |                 | |
-| Chine Est 2         | 40.73.82.1         |                 | |
-| Chine du Nord          | 139.219.15.17      |                 | |
-| Chine Nord 2        | 40.73.50.0         |                 | |
-| Asie Est            | 191.234.2.139, 52.175.33.150 |       | |
-| USA Est              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
-| USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Aucune connexion après le 1er septembre 2019 |
-| France Centre       | 40.79.137.0, 40.79.129.1 |           | |
-| Centre de l’Allemagne      | 51.4.144.100       |                 | |
-| Nord-Est de l’Allemagne   | 51.5.144.179       |                 | |
-| Inde Centre        | 104.211.96.159     |                 | |
-| Sud de l’Inde          | 104.211.224.146    |                 | |
-| Inde Ouest           | 104.211.160.80     |                 | |
-| Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Aucune connexion après le 1er septembre 2019 |
-| OuJapon Est           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Aucune connexion après le 1er septembre 2019 |
-| Centre de la Corée        | 52.231.32.42       |                 | |
-| Corée du Sud          | 52.231.200.86      |                 | |
-| Centre-Nord des États-Unis     | 23.96.178.199      | 23.98.55.75     | Aucune connexion après le 1er septembre 2019 |
-| Europe Nord         | 40.113.93.91       | 191.235.193.75  | Aucune connexion après le 1er septembre 2019 |
-| Afrique du Sud Nord   | 102.133.152.0      |                 | |
-| Afrique du Sud Ouest    | 102.133.24.0       |                 | |
-| États-Unis - partie centrale méridionale     | 13.66.62.124       | 23.98.162.75    | Aucune connexion après le 1er septembre 2019 |
-| Asie Sud-Est      | 104.43.15.0        | 23.100.117.95   | Aucune connexion après le 1er septembre 2019 |
-| Émirats arabes unis Centre          | 20.37.72.64        |                 | |
-| Émirats arabes unis Nord            | 65.52.248.0        |                 | |
-| Sud du Royaume-Uni             | 51.140.184.11      |                 | |
-| Ouest du Royaume-Uni              | 51.141.8.11        |                 | |
-| Centre-USA Ouest      | 13.78.145.25       |                 | |
-| Europe Ouest          | 40.68.37.158       | 191.237.232.75  | Aucune connexion après le 1er septembre 2019 |
-| USA Ouest              | 104.42.238.205     | 23.99.34.75     | Aucune connexion après le 1er septembre 2019 |
-| USA Ouest 2            | 13.66.226.202      |                 | |
-|                      |                    |                 | |
+| Nom de la région          | Adresses IP de passerelle |
+| --- | --- |
+| Centre de l’Australie    | 20.36.105.0 |
+| Australie Centre 2   | 20.36.113.0 |
+| Australie Est       | 13.75.149.87, 40.79.161.1 |
+| Sud-Est de l’Australie | 191.239.192.109, 13.73.109.251 |
+| Brésil Sud         | 104.41.11.5, 191.233.200.14 |
+| Centre du Canada       | 40.85.224.249      |
+| Est du Canada          | 40.86.226.166      |
+| USA Centre           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Chine orientale           | 139.219.130.35     |
+| Chine Est 2         | 40.73.82.1         |
+| Chine du Nord          | 139.219.15.17      |
+| Chine Nord 2        | 40.73.50.0         |
+| Asie Est            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| USA Est              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| France Centre       | 40.79.137.0, 40.79.129.1 |
+| Centre de l’Allemagne      | 51.4.144.100       |
+| Nord-Est de l’Allemagne   | 51.5.144.179       |
+| Inde Centre        | 104.211.96.159     |
+| Sud de l’Inde          | 104.211.224.146    |
+| Inde Ouest           | 104.211.160.80     |
+| Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| OuJapon Est           | 104.214.148.156, 40.74.100.192 | 191.238.68.11, 40.74.97.10 | 
+| Centre de la Corée        | 52.231.32.42       |
+| Corée du Sud          | 52.231.200.86      |
+| Centre-Nord des États-Unis     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Europe Nord         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Afrique du Sud Nord   | 102.133.152.0      |
+| Afrique du Sud Ouest    | 102.133.24.0       |
+| États-Unis - partie centrale méridionale     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Asie Sud-Est      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Émirats arabes unis Centre          | 20.37.72.64        |
+| Émirats arabes unis Nord            | 65.52.248.0        |
+| Sud du Royaume-Uni             | 51.140.184.11      |
+| Ouest du Royaume-Uni              | 51.141.8.11        |
+| Centre-USA Ouest      | 13.78.145.25       |
+| Europe Ouest          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| USA Ouest              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| USA Ouest 2            | 13.66.226.202      |
+|                      |                    |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 

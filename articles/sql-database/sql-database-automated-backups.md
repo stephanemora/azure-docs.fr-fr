@@ -10,13 +10,14 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 06/27/2019
-ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+manager: craigg
+ms.date: 08/22/2019
+ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569459"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904321"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -32,10 +33,10 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 - **Restaurer une base de données existante dans le temps**, à un moment situé pendant la période de rétention, à l’aide du portail Microsoft Azure, de Microsoft Azure PowerShell, de Microsoft Azure CLI ou de l’API REST. Dans une base de données unique et des pools élastiques, cette opération crée une base de données au sein du même serveur que la base de données d’origine. Dans Managed Instance, cette opération peut créer une copie de la base de données, ou une instance Managed Instance, identique ou non, pour le même abonnement.
   - **[Modifier la période de rétention des sauvegardes](#how-to-change-the-pitr-backup-retention-period)** (entre 7 et 35 jours) pour configurer votre stratégie de sauvegarde.
-  - **Modifier la stratégie de conservation à long terme (10 ans maximum)** dans la base de données unique et les pools élastiques avec [le portail Microsoft Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+  - **Modifier la stratégie de conservation à long terme (10 ans maximum)** dans la base de données unique et les pools élastiques avec [le portail Microsoft Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
 - **Restaurer une base de données supprimée sur le moment où elle été supprimée,** ou tout moment pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le serveur logique ou Managed Instance sur lequel la base de données d’origine a été créée.
 - **Restaurer une base de données dans une autre région géographique**. La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
-- **Restaurer une base de données à partir d’une sauvegarde à long terme spécifique** dans une base de données unique ou un pool élastique, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) ou de [Microsoft Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+- **Restaurer une base de données à partir d’une sauvegarde à long terme spécifique** dans une base de données unique ou un pool élastique, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) ou de [Microsoft Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 - Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,7 +47,7 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 | | Le portail Azure | Azure PowerShell |
 |---|---|---|
 | Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Modifier la rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Base de données unique](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Managed Instance - N/A  |
+| Modifier la rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Base de données unique](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance - N/A  |
 | Restaurer la base de données dans le temps | [Base de données unique](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restauration d’une base de données supprimée | [Base de données unique](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restauration d’une base de données à partir du Stockage Blob Azure | Base de données unique - N/A <br/>Managed Instance - N/A  | Base de données unique - N/A <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -81,7 +82,7 @@ Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protég
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
-L’équivalent de sept jours de sauvegardes automatisées de vos bases de données est copié par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Une quantité de stockage minimal égale à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+Pour les bases de données uniques, une quantité minimale de stockage de sauvegarde égale à 100 % de la taille de la base de données est fournie sans frais supplémentaires. Pour les pools élastiques, une quantité minimale de stockage de sauvegarde égale à 100 % du stockage de données alloué pour le pool est fournie sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois. Cette consommation supplémentaire dépend de la charge de travail et de la taille des bases de données individuelles.
 
 Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847342"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991907"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Pour savoir comment affecter des rôles aux entités de sécurité dans l’éte
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L’impact des affectations de rôle sur les listes de contrôle d’accès au niveau fichier et répertoire
 
-Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La granularité la plus fine que gère la fonction RBAC se trouve au niveau du système de fichiers, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un système de fichiers, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce système de fichiers, indépendamment des attributions d’ACL.
+Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère la fonction RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
 
 Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Si le principal de sécurité n’a pas de rôle RBAC attribué ou si l’exécution de la demande ne correspond pas à l’autorisation accordée, des vérifications ACL sont effectuées pour déterminer si le principal de sécurité est autorisé à exécuter l’opération demandée.
 
@@ -81,7 +81,7 @@ Les ACL d’accès et les ACL par défaut ont la même structure.
 
 ### <a name="levels-of-permission"></a>Niveaux d’autorisation
 
-Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écriture** et **Exécution**. Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
+Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Exécution**. Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
 
 |            |    Fichier     |   Répertoire |
 |------------|-------------|----------|
@@ -90,7 +90,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
 > [!NOTE]
-> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de service, vous devez donner au principal du service les autorisations **Exécuter** sur le système de fichiers et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
+> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de service, vous devez donner au principal du service les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
 
 #### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 
@@ -154,7 +154,7 @@ Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Pa
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Affectation du groupe propriétaire pour un nouveau fichier ou répertoire
 
-* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un système de fichiers Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le système de fichiers si l’opération est réalisée avec OAuth. Si le système de fichiers est créé à l’aide d’une clé partagée, d’une SAP de compte ou d’une SAP de service, le propriétaire et le groupe propriétaire sont définis sur **$superuser**.
+* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un conteneur Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le conteneur si l’opération est réalisée avec OAuth. Si le conteneur est créé à l’aide d’une clé partagée, d’une SAS de compte ou d’une SAS de service, le propriétaire et le groupe propriétaire sont définis avec la valeur **$superuser**.
 * **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
 
 ##### <a name="changing-the-owning-group"></a>Modification du groupe propriétaire
@@ -216,13 +216,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 Comme illustré dans l’algorithme de vérification des accès, le masque limite l’accès pour les utilisateurs nommés, le groupe propriétaire et les groupes nommés.  
 
 > [!NOTE]
-> Pour un nouveau système de fichiers Data Lake Storage Gen2, la valeur par défaut du masque d’ACL du répertoire racine ("/") est de 750 pour les répertoires et 640 pour les fichiers. Les fichiers ne reçoivent pas le bit X, car il est sans importance pour les fichiers dans un système de stockage uniquement.
+> Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masque d’ACL du répertoire racine ("/") est de 750 pour les répertoires et 640 pour les fichiers. Les fichiers ne reçoivent pas le bit X, car il est sans importance pour les fichiers dans un système de stockage uniquement.
 >
 > Le masque peut être spécifié par appel. Ainsi, différents systèmes de consommation, tels que les clusters, peuvent être associés à différents masques plus efficaces pour leurs opérations de fichier. Si un masque est spécifié sur une requête donnée, il remplace complètement le masque par défaut.
 
 #### <a name="the-sticky-bit"></a>Le sticky bit
 
-Le sticky bit est une fonctionnalité avancée d’un système de fichiers POSIX. Dans le contexte de Data Lake Storage Gen2, il est peu probable que le sticky bit soit nécessaire. En résumé, si le sticky bit est activé sur un répertoire, un élément enfant peut uniquement être supprimé ou renommé par l’utilisateur propriétaire de l’élément enfant.
+Le sticky bit est une fonctionnalité avancée d’un conteneur POSIX. Dans le contexte de Data Lake Storage Gen2, il est peu probable que le sticky bit soit nécessaire. En résumé, si le sticky bit est activé sur un répertoire, un élément enfant peut uniquement être supprimé ou renommé par l’utilisateur propriétaire de l’élément enfant.
 
 Le sticky bit n’est pas affiché dans le Portail Azure.
 
@@ -291,7 +291,7 @@ Ou
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>Qui est le propriétaire d’un fichier ou d’un répertoire ?
 
-Le créateur d’un fichier ou d’un répertoire en devient le propriétaire. Dans le cas du répertoire racine, il s’agit de l’identité de l’utilisateur ayant créé le système de fichiers.
+Le créateur d’un fichier ou d’un répertoire en devient le propriétaire. Dans le cas du répertoire racine, il s’agit de l’identité de l’utilisateur ayant créé le conteneur.
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>Quel groupe est propriétaire d’un fichier ou d’un répertoire lors de sa création ?
 
@@ -320,7 +320,7 @@ Si vous avez le bon OID pour le principal du service, accédez à la page **Gér
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 
-Les affectations RBAC Azure peuvent être héritées. Les affectations passent de l’abonnement, du groupe de ressources et des ressources du compte de stockage à la ressource du système de fichiers.
+Les affectations RBAC Azure peuvent être héritées. Les affectations passent de l’abonnement, du groupe de ressources et des ressources du compte de stockage à la ressource du conteneur.
 
 Les ACL ne peuvent pas être héritées. Cependant, les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404613"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992351"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -117,6 +117,10 @@ Cliquez sur cette icône pour afficher le plan d'exécution et le profil de perf
 * Vous pouvez contrôler le nombre de partitions qu’ADF utilisera. Sur chaque transformation de source et de récepteur, ainsi que sur chaque transformation individuelle, vous pouvez définir un schéma de partitionnement. Pour les fichiers plus petits, vous pouvez trouver que sélectionner « Partition unique » fonctionne parfois mieux et plus rapidement que si vous demandez à Spark de partitionner vos fichiers de petite taille.
 * Si vous n’avez pas suffisamment d’informations sur vos données sources, vous pouvez choisir le partitionnement en tourniquet (round robin) et définir le nombre de partitions.
 * Si vous explorez vos données et que vous trouvez que vous avez des colonnes qui feraient de bonnes clés de code de hachage, utilisez l’option Partitionnement de hachage.
+* Quand vous effectuez un débogage dans l’aperçu des données ou avec l’option de débogage de pipeline, notez que la taille limite et la taille d’échantillonnage des jeux de données sources basés sur des fichiers s’appliquent uniquement au nombre de lignes retournées et non au nombre de lignes lues. Il s’agit d’un point important, car cela peut affecter les performances de vos exécutions de débogage, voire provoquer l’échec du flux.
+* N’oubliez pas que les clusters de débogage sont de petits clusters à nœud unique par défaut. Utilisez donc de petits fichiers temporaires pour le débogage. Sous Paramètres de débogage, pointez vers un petit sous-ensemble de données en utilisant un fichier temporaire.
+
+![Paramètres de débogage](media/data-flow/debugsettings3.png "Paramètres de débogage")
 
 ### <a name="file-naming-options"></a>Options d’attribution de noms de fichiers
 

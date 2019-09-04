@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a82cc4da3b9f4f0c654c95b9889a8bf73fd8ec5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989620"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127046"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -154,11 +154,11 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | ResultType | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
 | ResultSignature | Contient le code d’erreur éventuel de l’opération de connexion. |
 | resultDescription | Fournit la description de l’erreur pour l’opération de connexion. |
-| riskDetail | riskDetail | Fournit le motif de l’état spécifique d’un utilisateur à risque, d’une connexion ou d’un événement à risque. Les valeurs possibles sont : `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. La valeur `none` signifie qu’aucune action n’a été effectuée sur l’utilisateur ou la connexion jusqu’à présent. <br>**Remarque :** Les détails de cette propriété nécessitent une licence Azure AD Premium P2. Les autres licences retournent la valeur `hidden`. |
-| riskEventTypes | riskEventTypes | Types d’événements à risque associés à la connexion. Les valeurs possibles sont : `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` et `unknownFutureValue`. |
+| riskDetail | riskDetail | Fournit le motif de l’état spécifique d’un utilisateur à risque, d’une connexion ou d’une détection d’événement à risque. Les valeurs possibles sont : `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. La valeur `none` signifie qu’aucune action n’a été effectuée sur l’utilisateur ou la connexion jusqu’à présent. <br>**Remarque :** Les détails de cette propriété nécessitent une licence Azure AD Premium P2. Les autres licences retournent la valeur `hidden`. |
+| riskEventTypes | riskEventTypes | Types de détections d’événements à risque associés à la connexion. Les valeurs possibles sont : `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` et `unknownFutureValue`. |
 | riskLevelAggregated | riskLevel | Niveau de risque agrégé. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Niveau de risque pendant la connexion. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
-| riskState | riskState | Signale l’état de l’utilisateur à risque, de la connexion ou d’un événement à risque. Les valeurs possibles sont : `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
+| riskState | riskState | Signale l’état de l’utilisateur à risque, de la connexion ou d’une détection d’événement à risque. Les valeurs possibles sont : `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
 | DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ. |
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
 | CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
