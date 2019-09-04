@@ -146,7 +146,7 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 1. Cliquez sur l’option **Lancer le sélecteur de colonne** figurant dans le volet **Propriétés**.
 
-1. Cliquez sur **With rules**(À l’aide de règles).
+1. Cliquez sur **With rules**(à l’aide de règles).
 
 1. Sous **Commencer par**, cliquez sur **Aucune colonne**. Dans la ligne de filtre, sélectionnez **Inclure** et **Noms des colonnes**, puis sélectionnez notre liste de noms de colonnes dans la zone de texte. Ce filtre indique au module de transmettre uniquement les colonnes (fonctionnalités) sélectionnées.
 
@@ -223,9 +223,9 @@ Pour afficher la sortie du module [Évaluer le modèle][evaluate-model], cliquez
 
 Les statistiques suivantes s’affichent pour notre modèle :
 
-- **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
+- **Erreur Absolue Moyenne** (EAM) la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur d’absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur absolue relative**: la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
 - **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
 - **Coefficient de détermination** : aussi nommé **valeur R au carré**, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
