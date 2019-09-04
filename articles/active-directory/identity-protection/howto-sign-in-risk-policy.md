@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335412"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126306"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à la connexion
 
-Azure Active Directory détecte les [types d’événements à risque](../reports-monitoring/concept-risk-events.md#risk-event-types) en temps réel et hors connexion. Tous les événements à risque qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
+Azure Active Directory détecte les [types de détection de risque](../reports-monitoring/concept-risk-events.md#risk-detection-types) en temps réel et hors connexion. Toutes les détections de risques qui sont détectées pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Qu’est-ce que la stratégie de connexion à risque ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Azure AD calcule une valeur en fonction des événements à risque détectés au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Azure AD calcule une valeur en fonction des détections de risques détectées au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
 
 La stratégie de connexion à risque est une réponse automatisée que vous pouvez configurer pour un niveau de risque de connexion spécifique. Dans votre réponse, vous pouvez bloquer l’accès à vos ressources ou exiger la résolution d’un test de l’authentification multifacteur pour obtenir l’accès.
    

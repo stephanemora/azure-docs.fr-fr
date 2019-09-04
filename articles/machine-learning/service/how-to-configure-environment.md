@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848198"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128342"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -187,16 +187,21 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
 
     Cette commande installe le Kit de développement logiciel (SDK) Azure Machine Learning de base avec le notebook et des suppléments automl. Le supplément `automl` est une installation volumineuse, qui peut être retirée si vous ne prévoyez pas d’exécuter des expériences d’apprentissage automatique automatisées. Le supplément `automl` inclut également le Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning par défaut en tant que dépendance.
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
-   > Si vous recevez un message indiquant que PyYAML ne peut pas être désinstallé, utilisez plutôt la commande suivante :
+   > * Si vous recevez un message indiquant que PyYAML ne peut pas être désinstallé, utilisez plutôt la commande suivante :
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
+   > * À partir de macOS Catalina, zsh (interpréteur de commandes Z) est l'interpréteur de commandes de connexion par défaut et l'interpréteur de commandes interactif. Dans zsh, utilisez la commande suivante qui échappe les crochets à l'aide de « \\ » (barre oblique inverse) :
+   >
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes. Consultez le [guide d’installation](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour plus d’informations sur les options d’installation.
+
+   L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes. Pour plus d'informations sur les options d'installation, consultez le [guide d'installation](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 1. Installez d’autres packages pour votre expérimentation d’apprentissage automatique.
 
@@ -280,7 +285,7 @@ Pour utiliser Visual Studio Code pour le développement, procédez comme suit :
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
-Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il fournit un environnement basé sur Notebook collaboratif avec un cluster de calcul basé sur l’UC ou le GPU.
+Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il fournit un environnement basé sur Notebook collaboratif avec un cluster de calcul basé sur l'UC ou le GPU.
 
 Comment Azure Databricks fonctionne avec Azure Machine Learning service :
 + Vous pouvez effectuer l’apprentissage d’un modèle à l’aide de Spark MLlib et déployer le modèle sur ACI/AKS à partir d’Azure Databricks.
@@ -329,10 +334,10 @@ Une fois que le cluster est en cours d’exécution, [créez une bibliothèque](
    1. Sous l’onglet **Bibliothèques**, sélectionnez **Redémarrer**.
 
    Tenez également compte des aspects ci-dessous :
-   + Dans la configuration d’Automl, lorsque vous utilisez Azure Databricks, ajoutez les paramètres suivants :
+   + Dans la configuration d'AutoML, lorsque vous utilisez Azure Databricks, ajoutez les paramètres suivants :
        1. ```max_concurrent_iterations``` est basé sur le nombre de nœuds Worker dans votre cluster.
         2. ```spark_context=sc``` est basé sur le contexte spark par défaut.
-   + Ou, si vous avez une ancienne version du Kit de développement logiciel (SDK), désélectionnez-la des bibliothèques installées du cluster et déplacez-la vers la corbeille. Installez la nouvelle version du SDK et redémarrez le cluster. En cas de problème après cette opération, détachez et rattachez votre cluster.
+   + Ou, si vous avez une ancienne version du Kit de développement logiciel (SDK), désélectionnez-la des bibliothèques installées du cluster et déplacez-la vers la corbeille. Installez la nouvelle version du SDK et redémarrez le cluster. En cas de problème après le redémarrage, détachez et rattachez votre cluster.
 
 Si l’installation a réussi, la bibliothèque importée doit ressembler à l’une de celles présentées ci-dessous :
 
@@ -357,7 +362,7 @@ Lancez-vous :
 
 Utilisez le [portail Azure](https://portal.azure.com) pour bien démarrer avec Azure Notebooks.  Ouvrez votre espace de travail et, dans la section **Vue d’ensemble**, sélectionnez **Bien démarrer dans Azure Notebooks**.
 
-Par défaut, Azure Notebooks utilise un niveau de service gratuit limité à 4 Go de mémoire et de 1 Go de données. Cela étant, vous pouvez lever ces limites en attachant une instance Data Science Virtual Machine au projet Azure Notebooks. Pour plus d’informations, consultez [Gérer et configurer des projets Azure Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+Par défaut, Azure Notebooks utilise un niveau de service gratuit limité à 4 Go de mémoire et 1 Go de données. Cela étant, vous pouvez lever ces limites en attachant une instance Data Science Virtual Machine au projet Azure Notebooks. Pour plus d’informations, consultez [Gérer et configurer des projets Azure Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="workspace"></a>Créer un fichier de configuration d’espace de travail
 

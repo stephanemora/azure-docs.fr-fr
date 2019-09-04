@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033999"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061846"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
 Pour améliorer la sécurité de votre cluster AKS, vous pouvez limiter les pods pouvant être planifiés. Les pods qui demandent des ressources non autorisées ne sont pas exécutés dans le cluster AKS. Vous définissez cet accès à l’aide de stratégies de sécurité des pods. Cet article explique comment utiliser des stratégies de sécurité des pods pour limiter le déploiement de pods dans AKS.
 
 > [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en-l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
+> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
 > * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
@@ -71,7 +71,7 @@ Dans un cluster Kubernetes, un contrôleur d’admission est utilisé pour inter
 
 *PodSecurityPolicy* est un contrôleur d’admission qui confirme si une spécification de pod répond à vos besoins définis. Ces exigences peuvent limiter l’utilisation de conteneurs privilégiés, l’accès à certains types de stockage, ou l’utilisateur/groupe sous lequel le conteneur peut s’exécuter. Lorsque vous tentez de déployer une ressource où les spécifications de pod ne répondent pas aux exigences décrites dans la stratégie de sécurité des pods, la requête est refusée. Ce contrôle sur les pods pouvant être planifiés dans le cluster AKS empêche d’éventuelles vulnérabilités de sécurité ou escalades de privilèges.
 
-Lorsque vous activez la stratégie de sécurité des pods dans un cluster AKS, certaines stratégies par défaut sont appliquées. Ces stratégies par défaut fournissent une expérience prête à l’emploi pour définir les pods à planifier. Toutefois, les utilisateurs de cluster peuvent rencontrer des problèmes de déploiement de pods jusqu'à ce que vous définissez vos propres stratégies. L’approche recommandée est la suivante :
+Lorsque vous activez la stratégie de sécurité des pods dans un cluster AKS, certaines stratégies par défaut sont appliquées. Ces stratégies par défaut fournissent une expérience prête à l’emploi pour définir les pods à planifier. Toutefois, les utilisateurs de cluster peuvent rencontrer des problèmes de déploiement de pods jusqu'à ce que vous définissez vos propres stratégies. L'approche recommandée consiste à :
 
 * Créer un cluster AKS
 * Définir vos propres stratégies de sécurité des pods
@@ -136,7 +136,7 @@ Il est important de comprendre comment ces stratégies par défaut interagissent
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Créer un utilisateur de test dans un cluster AKS
 
-Par défaut, lorsque vous utilisez la commande [az aks get-credentials][az-aks-get-credentials], les informations d’identification *administrateur* pour le cluster AKS sont ajoutées à votre configuration `kubectl`. L’utilisateur administrateur ignore la mise en œuvre des stratégies de sécurité des pods. Si vous utilisez l’intégration Azure Active Directory pour vos clusters AKS, vous pouvez vous connecter avec les informations d’identification d’un utilisateur non administrateur pour voir la mise en œuvre des stratégies en action. Dans cet article, nous allons créer un compte d’utilisateur de test dans le cluster AKS que vous pouvez utiliser.
+Par défaut, lorsque vous utilisez la commande [az aks get-credentials][az-aks-get-credentials], les informations d'identification *administrateur* du cluster AKS sont ajoutées à votre configuration `kubectl`. L’utilisateur administrateur ignore la mise en œuvre des stratégies de sécurité des pods. Si vous utilisez l’intégration Azure Active Directory pour vos clusters AKS, vous pouvez vous connecter avec les informations d’identification d’un utilisateur non administrateur pour voir la mise en œuvre des stratégies en action. Dans cet article, nous allons créer un compte d’utilisateur de test dans le cluster AKS que vous pouvez utiliser.
 
 Créer un espace de noms exemple nommé *psp-aks* pour les ressources de test à l’aide de la commande [kubectl create namespace][kubectl-create]. Ensuite, créez un compte de service nommé *nonadmin-user* à l’aide de la commande [kubectl create serviceaccount][kubectl-create] :
 
@@ -202,7 +202,7 @@ $ kubectl-nonadminuser apply -f nginx-privileged.yaml
 Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: [spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
 ```
 
-Le pod n’atteint pas la phase de planification ; il n’existe aucune ressource à supprimer avant de poursuivre.
+Le pod n'atteint pas la phase de planification ; il n'existe aucune ressource à supprimer avant de poursuivre.
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Tester la création d’un pod non privilégié
 
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> À la première étape de cet article, la fonctionnalité de stratégie de sécurité des pods a été activée sur le cluster AKS. La pratique recommandée consistait à activer uniquement la fonctionnalité de stratégie de sécurité des pods après avoir défini vos propres stratégies. Il s’agit du stade où vous devez activer la fonctionnalité de stratégie de sécurité des pods. Au moins une stratégie personnalisée a été définie, et les comptes d’utilisateur ont été associés à ces stratégies. Désormais, vous pouvez utiliser en toute sécurité la fonctionnalité de stratégie de sécurité des pods et réduire les problèmes causés par les stratégies par défaut.
+> À la première étape de cet article, la fonctionnalité de stratégie de sécurité des pods a été activée sur le cluster AKS. La pratique recommandée consistait à activer uniquement la fonctionnalité de stratégie de sécurité des pods après avoir défini vos propres stratégies. Il s’agit du stade où vous devez activer la fonctionnalité de stratégie de sécurité des pods. Au moins une stratégie personnalisée a été définie, et les comptes d’utilisateur ont été associés à ces stratégies. Désormais, vous pouvez activer en toute sécurité la fonctionnalité de stratégie de sécurité des pods et réduire les problèmes causés par les stratégies par défaut.
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Retester la création d’un pod non privilégié
 

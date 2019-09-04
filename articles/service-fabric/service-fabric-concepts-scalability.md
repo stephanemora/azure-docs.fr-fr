@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781113"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035916"
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. Cette vidéo Channel 9 décrit comment vous pouvez générer des applications de microservices scalables :
@@ -121,6 +121,10 @@ Les [métriques](service-fabric-cluster-resource-manager-metrics.md) corresponde
 Une autre option de mise à l’échelle avec Service Fabric consiste à modifier la taille du cluster. Modifier la taille du cluster signifie ajouter ou supprimer des nœuds d’un ou plusieurs types dans le cluster. Supposons, par exemple, que tous les nœuds du cluster soient actifs. Cela signifie que quasiment toutes les ressources du cluster sont consommées. Dans ce cas, l’ajout de nœuds supplémentaires au cluster est le meilleur moyen d’effectuer la mise à l’échelle. Une fois que les nouveaux nœuds ont rejoint le cluster, Service Fabric Cluster Resource Manager déplace les services vers ces nœuds, ce qui diminue la charge totale sur les nœuds existants. Pour les services sans état avec « instance count = -1 », des instances de service supplémentaires sont créées automatiquement. Cela permet à certains appels d’être déplacés des nœuds existants vers les nouveaux nœuds. 
 
 Pour plus d’informations, consultez [Mise à l’échelle de cluster](service-fabric-cluster-scaling.md).
+
+## <a name="choosing-a-platform"></a>Choix d’une plateforme
+
+En raison des différences d’implémentation entre les systèmes d’exploitation, le choix d’utiliser Service Fabric sous Windows ou Linux peut être un élément essentiel de la mise à l’échelle de votre application. L’une des barrières potentielles est l’exécution de la journalisation intermédiaire. Service Fabric sous Windows utilise un pilote noyau pour un journal par machine, partagé entre les réplicas de service dynamique. Ce journal pèse environ 8 Go. Linux, d’autre part, utilise un journal de mises en lots de 256 Mo pour chaque réplica, ce qui le rend moins intéressant pour les applications qui veulent maximiser le nombre de réplicas de service légers fonctionnant sur un nœud donné. Ces différences dans les besoins de stockage temporaire pourraient potentiellement informer la plateforme souhaitée sur le déploiement du cluster Service Fabric.
 
 ## <a name="putting-it-all-together"></a>Exemple complet
 Reprenons toutes les idées que nous avons évoquées et prenons un exemple. Supposons que vous essayiez de créer un service qui agit comme un carnet d’adresses, avec les noms et les coordonnées de personnes. 

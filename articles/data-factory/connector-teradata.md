@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557872"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996580"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -189,7 +189,7 @@ Cette section fournit une liste des propriétés prises en charge par la source 
 ### <a name="teradata-as-source"></a>Teradata en tant que source
 
 >[!TIP]
->Pour savoir comment charger efficacement des données à partir de Teradata à l’aide du partitionnement, consultez la section [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata).
+>Pour charger efficacement des données à partir de Teradata à l'aide du partitionnement des données, consultez la section [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata).
 
 Pour copier des données à partir de Teradata, les propriétés prises en charge dans la section **source** de l'activité de copie sont les suivantes :
 
@@ -245,9 +245,9 @@ Le connecteur Teradata de Data Factory propose un partitionnement de données in
 
 ![Capture d’écran représentant les options de partition](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées sur l’option de partitionnement et les paramètres que vous avez spécifiés. Chaque requête permet de récupérer des données à partir de votre base de données Teradata.
+Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l'option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Teradata.
 
-Il est recommandé d’activer la copie en parallèle avec partitionnement des données, notamment lorsque vous chargez une grande quantité de données à partir de la base de données Teradata. Voici quelques suggestions de configurations pour différents scénarios :
+Il est recommandé d’activer la copie en parallèle avec partitionnement des données, notamment lorsque vous chargez une grande quantité de données à partir de la base de données Teradata. Vous trouverez ci-dessous quelques suggestions de configuration pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu'avec l'écriture dans un seul fichier.
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

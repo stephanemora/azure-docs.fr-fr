@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928025"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997817"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
@@ -66,6 +66,9 @@ Le système d’authentification peut fournir des conditions d’authentificatio
 L’arbre de décision présenté dans la section suivante vous aide à déterminer la méthode d’authentification adaptée à vos besoins. Vous pouvez ainsi décider si vous devez déployer une authentification cloud ou une authentification fédérée pour votre solution d’identité hybride Azure AD.
 
 ## <a name="decision-tree"></a>Arbre de décision
+
+> [!NOTE]
+> PTA ne fonctionne qu’avec l’ID secondaire lorsque UserPrincipalName est choisi comme ID secondaire. Ce n’est qu’à ce moment-là que le UserPrincipalName local sera synchronisé entre AD et AAD. Pour plus d’informations, consultez [L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 ![Authentification AD Azure : arbre de décision](./media/choose-ad-authn/azure-ad-authn-image1.png)
 

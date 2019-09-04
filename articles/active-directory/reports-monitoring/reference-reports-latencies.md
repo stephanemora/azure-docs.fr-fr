@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987941"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127032"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -64,11 +64,11 @@ Le tableau suivant répertorie les informations de latence pour les rapports de 
 | Les utilisateurs à risque          | 5 minutes   | 15 minutes  | 2 heures  |
 | Connexions risquées         | 5 minutes   | 15 minutes  | 2 heures  |
 
-## <a name="risk-events"></a>Événements à risque
+## <a name="risk-detections"></a>Détections de risques
 
-Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **événement à risque**.
+Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **détection de risque**.
 
-Le tableau suivant répertorie les informations de latence pour les événements à risque.
+Le tableau suivant répertorie les informations de latence pour les détections de risques.
 
 | Rapport | Minimale | Moyenne | Maximale |
 | :-- | --- | --- | --- |
@@ -84,4 +84,4 @@ Le tableau suivant répertorie les informations de latence pour les événements
 
 * [Vue d’ensemble des rapports Azure AD](overview-reports.md)
 * [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)
-* [Événements à risque dans Azure Active Directory](concept-risk-events.md)
+* [Détections de risques dans Azure Active Directory](concept-risk-events.md)

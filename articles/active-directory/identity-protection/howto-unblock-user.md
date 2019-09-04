@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4e3756435703c4e8c887a4e7b9d4f75a6701d840
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335379"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126246"
 ---
 # <a name="how-to-unblock-users"></a>Procédure : Débloquer des utilisateurs
 
@@ -52,7 +52,7 @@ Pour débloquer une connexion suspecte, vous disposez des options suivantes :
 Pour débloquer un compte à risque, vous disposez des options suivantes :
 
 1. **Réinitialiser le mot de passe réinitialisé** : vous pouvez réinitialiser le mot de passe de l’utilisateur. 
-2. **Ignorer tous les événements risque** : la stratégie de risque de l’utilisateur bloque un utilisateur si le niveau de risque d’un utilisateur configuré a été atteint. Vous pouvez réduire le niveau de risque d’un utilisateur en fermant manuellement les événements à risque signalés. 
+2. **Ignorer toutes les détections de risques** : la stratégie de risque de l’utilisateur bloque un utilisateur si le niveau de risque d’un utilisateur configuré a été atteint. Vous pouvez réduire le niveau de risque d’un utilisateur en fermant manuellement les détections de risques signalées. 
 3. **Exclure de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification est à l’origine de problèmes pour certains utilisateurs, vous pouvez les exclure de cette dernière. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

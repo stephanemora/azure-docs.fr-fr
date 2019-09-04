@@ -1,5 +1,5 @@
 ---
-title: Déployer une application double pile IPv6 avec Standard Load Balancer dans un réseau virtuel Azure - PowerShell
+title: Déployer une application double pile IPv6 dans un réseau virtuel Azure - PowerShell
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 avec un équilibreur de charge Standard Load Balancer dans un réseau virtuel Azure à l’aide d’Azure PowerShell.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 99e01aa611eea3d6379e2a250cc99d121e41aa82
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 05794cfaf6a550d32acdfb731a5f477111e65606
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269594"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011421"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---powershell-preview"></a>Déployer une application double pile IPv6 avec Standard Load Balancer dans Azure - PowerShell (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Déployer une application double pile IPv6 dans Azure - PowerShell (préversion)
 
-Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) incluant un sous-réseau et un réseau virtuel double pile, un équilibreur de charge avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
+Cet article montre comment utiliser Standard Load Balancer pour déployer dans Azure une application double pile (IPv4 + IPv6) incluant un sous-réseau et un réseau virtuel double pile, un équilibreur de charge Standard Load Balancer avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
 
 > [!Important]
 > La prise en charge du protocole IPv6 par le réseau virtuel Azure est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

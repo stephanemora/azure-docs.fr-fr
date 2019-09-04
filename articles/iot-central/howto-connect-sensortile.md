@@ -3,17 +3,17 @@ title: Connecter un appareil SensorTile.box à votre application Azure IoT Centr
 description: En tant que développeur d’appareils, apprenez à connecter un appareil SensorTile.box à votre application Azure IoT Central.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 04/24/2019
+ms.date: 08/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: ce0c5abe6e89094623c07afa2d1c85903e0e7ee7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3d804b1e14d1b79266a74340e8682f1bf03d8f30
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877444"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050535"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Connecter un appareil SensorTile.box à votre application Azure IoT Central
 
@@ -34,7 +34,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
 
 Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **SensorTile.box** et prenez note des détails de connexion de l’appareil : **ID de portée**, **ID d’appareil** et **Clé primaire** :
 
-1. Ajoutez un appareil à partir de l’Explorateur d’appareils. Sélectionnez **+ Nouveau > Réel** pour ajouter un appareil réel.
+1. Ajoutez un appareil à partir de la section Appareils. Sélectionnez **+ Nouveau > Réel** pour ajouter un appareil réel.
 
     * Entrez un **ID d’appareil** en minuscules ou utilisez **l’ID d’appareil** suggéré.
     * Entrez un **Nom de l’appareil** ou utilisez le nom suggéré.

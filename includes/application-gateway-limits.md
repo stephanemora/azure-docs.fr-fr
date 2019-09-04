@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148418"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70130082"
 ---
 | Ressource | Limite maximale/par défaut | Remarque |
 | --- | --- | --- |
@@ -37,6 +37,7 @@ ms.locfileid: "67148418"
 | Taille de téléchargement maximale Standard |2 Go | |
 | Taille de téléchargement maximale WAF |Passerelles WAF moyennes, 100 Mo<br>Grandes passerelles WAF, 500 Mo| |
 | Limite de taille de corps de WAF, sans les fichiers|128 Ko||
-|Règles personnalisées WAF maximales|100||
+| Règles personnalisées WAF maximales|100||
+| Nombre maximal d’exclusions WAF|100||
 
 <sup>1</sup> En cas de références SKU avec WAF activé, nous vous recommandons de limiter le nombre de ressources à 40 pour des performances optimales.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: e6c7dcd3015b0b8ab5b3c719ebd2397bc814b81a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c87132c3ae41dec82e3493f9a0ee2397455ff881
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717204"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971354"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Synthèse vocale (sous-graphique : charts/textToSpeech)
 
@@ -37,5 +37,6 @@ Pour remplacer le graphique en parapluie, ajoutez le préfixe `textToSpeech.` à
 | `image.args.apikey` (requis) | Utilisé pour le suivi des informations de facturation. ||
 | `service.type` | Le type de service Kubernetes du service de **synthèse vocale**. Consultez les [Instructions relatives aux types de service Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) pour plus d’informations et pour vérifier la prise en charge des fournisseurs cloud. | `LoadBalancer` |
 | `service.port`|  Le port du service de **synthèse vocale**. | `80` |
+| `service.annotations` | Les annotations de **synthèse vocale** pour les métadonnées du service. Les annotations sont des paires clé-valeur. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Indique si [l’Autoscaler de pods élastique](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) est activé. Si `true`, le `text-to-speech-autoscaler` sera déployé dans le cluster Kubernetes. | `true` |
 | `service.podDisruption.enabled` | Indique si le [Budget de perturbation de pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) est activé. Si `true`, le `text-to-speech-poddisruptionbudget` sera déployé dans le cluster Kubernetes. | `true` |

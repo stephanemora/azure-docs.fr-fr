@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 944bac44c1fc6504dfe1a93df5760ccf4ee46fa0
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105578"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982206"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Échanger des messages dans le cloud avec Azure Service Bus et Azure Logic Apps
 
@@ -29,11 +29,11 @@ Avec Azure Logic Apps et le connecteur Azure Service Bus, vous pouvez créer des
 * Renouvellement des verrous sur les messages et les sessions dans les files d’attente et les abonnements aux rubriques
 * Clôture des sessions dans les rubriques et les files d’attente
 
-Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
+Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
 * Un espace de noms et une entité de messagerie Service Bus, telle une file d’attente. Si vous ne disposez pas de ces éléments, découvrez comment [créer votre espace de noms Service Bus et une file d’attente](../service-bus-messaging/service-bus-create-namespace-portal.md). 
 
@@ -135,12 +135,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/servicebus/) du connecteur.
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Le connecteur Service Bus peut enregistrer jusqu’à 1 500 sessions uniques à la fois entre un bus de service et le cache du connecteur. Si le nombre de sessions dépasse cette limite, les anciennes sessions sont supprimées du cache. Pour obtenir d’autres détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/servicebus/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555330"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124121"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
+
 La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
@@ -46,6 +47,9 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 > * Le nombre maximal de caractères pour le nom de colonne est 500. 
 >
 
+>[!IMPORTANT]
+>La collecte de journaux personnalisée nécessite que l’application qui écrit le fichier journal vide régulièrement le contenu du journal sur le disque. Ceci est dû au fait que la collecte de journaux personnalisée repose sur des notifications de changement de système de fichiers pour le fichier journal qui est suivi actuellement.
+
 ## <a name="defining-a-custom-log"></a>Définition d’un journal personnalisé
 Utilisez la procédure suivante pour définir un fichier journal personnalisé.  Rendez-vous à la fin de cet article pour une procédure détaillée d’ajout d’un journal personnalisé.
 
@@ -64,7 +68,6 @@ Commencez par télécharger un exemple du journal personnalisé.  L’assistant 
 
 Si un délimiteur Timestamp est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans Azure Monitor contient la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Azure Monitor a collecté l’entrée.
 
-
 1. Cliquez sur **Parcourir** et accédez à un exemple de fichier.  Notez que ce bouton peut s’appeler **Choisir un fichier** dans certains navigateurs.
 2. Cliquez sur **Suivant**.
 3. L’Assistant Journal personnalisé télécharge le fichier et répertorie les enregistrements qu’il identifie.
@@ -75,7 +78,6 @@ Si un délimiteur Timestamp est utilisé, la propriété TimeGenerated de chaque
 Vous devez définir un ou plusieurs chemins indiquant à l’agent où trouver le journal personnalisé.  Vous pouvez soit fournir le chemin d’accès et le nom du fichier journal, soit indiquer un chemin d’accès avec un caractère générique pour le nom. Ce mécanisme prend en charge les applications qui créent un fichier par jour ou lorsqu’un fichier atteint une certaine taille. Vous pouvez également fournir plusieurs chemins d’accès pour un fichier journal.
 
 Par exemple, une application peut créer un fichier journal chaque jour avec la date dans le nom, comme dans log20100316.txt. Par exemple, ce modèle peut être *log\*.txt* et s’appliquer à un fichier journal conforme à la convention de dénomination de l’application.
-
 
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
@@ -105,7 +107,6 @@ Lorsque Azure Monitor commence la collecte du journal personnalisé, ses enregis
 > [!NOTE]
 > Si la propriété RawData est manquante dans la requête, vous devrez peut-être fermer et rouvrir votre navigateur.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
 L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
 
@@ -114,7 +115,6 @@ Pour supprimer un journal personnalisé que vous avez défini précédemment, pr
 
 1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux d’activité personnalisés** pour répertorier tous vos journaux d’activité personnalisés.
 2. Cliquez sur **Supprimer** en regard du journal personnalisé à supprimer.
-
 
 ## <a name="data-collection"></a>Collecte des données
 Azure Monitor collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Azure Monitor collecte les entrées à partir du point d’interruption, même si ces entrées ont été créées lorsque l’agent était hors connexion.
@@ -135,11 +135,11 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemple de procédure d’ajout d’un journal personnalisé
 La section suivante décrit la procédure complète de création d’un champ personnalisé.  L’exemple de journal collecté comporte une seule entrée sur chaque ligne commençant par une date et une heure, suivie de plusieurs champs (code, état et message) séparés par des virgules.  Plusieurs exemples d’entrée sont présentés ci-dessous.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Télécharger et analyser un exemple de journal
 Nous fournissons un des fichiers journaux et nous voyons les événements qu’il va collecter.  Dans ce cas, le délimiteur Nouvelle ligne suffit.  Cependant, si une entrée du journal s’étend sur plusieurs lignes, il faut utiliser un délimiteur Horodatage.
@@ -157,14 +157,10 @@ Nous utilisons le nom *MyApp_CL* et complétons le champ **Description**.
 ![Nom du journal](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Vérifier que les journaux d’activité personnalisés sont collectés
-Nous utilisons une requête *Type=MyApp_CL* pour retourner tous les enregistrements du journal collecté.
+Nous utilisons une requête simple *MyApp_CL* pour retourner tous les enregistrements du journal collecté.
 
 ![Requête de journal sans aucun champ personnalisé](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>Analyser les entrées du journal personnalisé
-Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code*, *Status* et *Message*, et pouvons voir la différence dans les enregistrements retournés par la requête.
-
-![Requête de journal avec des champs personnalisés](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>Alternatives aux journaux d’activité personnalisés
 Les journaux d’activité personnalisés sont très utiles lorsque vos données sont conformes aux critères énumérés, mais dans certains cas, une autre stratégie peut être nécessaire :

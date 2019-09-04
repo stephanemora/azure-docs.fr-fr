@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815263"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970382"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge des langues et des régions des services Speech
 
@@ -24,40 +24,40 @@ Les langues prises en charge varient selon les fonctions des services Speech. Le
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale de Microsoft prennent en charge les langues suivantes (paramètres régionaux). Différents niveaux de personnalisation sont disponibles pour chaque langue.
+Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale de Microsoft prennent en charge les langues suivantes (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases.  La personnalisation de la prononciation n'est actuellement disponible que pour les langues en-US et de-DE. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
 
-  Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabe (Égypte), standard moderne | Non | OUI | Non
- ca-ES | Catalan | Non | Non | Non
- da-DK | Danois (Danemark) | Non | Non | Non
- de-DE | Allemand (Allemagne) | OUI | OUI | OUI
- en-AU | Anglais (Australie) | Non | OUI | Non
- en-CA | Anglais (Canada) | Non | OUI | Non
- en-GB | Anglais (Royaume-Uni) | Non | OUI | Non
- en-IN | Anglais (Inde) | OUI | OUI | Non
- en-NZ | Anglais (Nouvelle-Zélande) | Non | OUI | Non 
- en-US | Anglais (États-Unis) | OUI | OUI | OUI
- es-ES | Espagnol (Espagne) | OUI | OUI | Non
- es-MX | Espagnol (Mexique) | Non | OUI | Non
- fi-FI | Finnois (Finlande) | Non | Non | Non
- fr-CA | Français (Canada) | Non | OUI | Non
- fr-FR | Français (France) | OUI | OUI | Non
- hi-IN | Hindi (Inde) | Non | OUI | Non
- it-IT | Italien (Italie) | OUI | OUI | Non
- ja-JP | Japonais (Japon) | Non | OUI | Non
- ko-KR | Coréen (Corée) | Non | OUI | Non
- nb-NO | Norvégien( Bokmål) (Norvège) | Non | Non | Non
- nl-NL | Néerlandais (Pays-Bas) | Non | OUI | Non
- pl-PL | Polonais (Pologne) | Non | Non | Non
- pt-br | Portugais (Brésil) | OUI | OUI | Non
- pt-PT | Portugais (Portugal) | Non | OUI | Non
- ru-RU | Russe (Russie) | OUI | OUI | Non
- sv-SE | Suédois (Suède) | Non | Non | Non
- zh-CN | Chinois (mandarin, simplifié) | OUI | OUI | Non
- zh-HK | Chinois (cantonais, traditionnel) | Non | OUI | Non
- zh-TW | Chinois (mandarin, taïwanais) | Non | OUI | Non
- th-TH | Thaï (Thaïlande) | Non | Non | Non
+  Code | Langage | Pris en charge | Personnalisable
+ ------|----------|---------------------|---------------------
+ ar-EG | Arabe (Égypte), standard moderne | OUI | OUI
+ ca-ES | Catalan | OUI | Non
+ da-DK | Danois (Danemark) | OUI | Non
+ de-DE | Allemand (Allemagne) | OUI | OUI
+ en-AU | Anglais (Australie) | OUI | OUI
+ en-CA | Anglais (Canada) | OUI | OUI
+ en-GB | Anglais (Royaume-Uni) | OUI | OUI
+ en-IN | Anglais (Inde) | OUI | OUI
+ en-NZ | Anglais (Nouvelle-Zélande) | OUI | OUI
+ en-US | Anglais (États-Unis) | OUI | OUI
+ es-ES | Espagnol (Espagne) | OUI | OUI
+ es-MX | Espagnol (Mexique) | OUI | OUI
+ fi-FI | Finnois (Finlande) | OUI | Non
+ fr-CA | Français (Canada) | OUI | OUI
+ fr-FR | Français (France) | OUI | OUI
+ hi-IN | Hindi (Inde) | OUI | OUI
+ it-IT | Italien (Italie) | OUI | OUI
+ ja-JP | Japonais (Japon) | OUI | OUI
+ ko-KR | Coréen (Corée) | OUI | OUI
+ nb-NO | Norvégien( Bokmål) (Norvège) | OUI | Non
+ nl-NL | Néerlandais (Pays-Bas) | OUI | OUI
+ pl-PL | Polonais (Pologne) | OUI | Non
+ pt-br | Portugais (Brésil) | OUI | OUI
+ pt-PT | Portugais (Portugal) | OUI | OUI
+ ru-RU | Russe (Russie) | OUI | OUI
+ sv-SE | Suédois (Suède) | OUI | Non
+ zh-CN | Chinois (mandarin, simplifié) | OUI | OUI
+ zh-HK | Chinois (cantonais, traditionnel) | OUI | OUI
+ zh-TW | Chinois (mandarin, taïwanais) | OUI | OUI
+ th-TH | Thaï (Thaïlande) | OUI | Non 
 
 
 ## <a name="text-to-speech"></a>Synthèse vocale

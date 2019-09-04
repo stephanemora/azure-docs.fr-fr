@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f19c16149dbed34c16d021ff7100cace9a06a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 57b441803a066b794d17b46afec4d930b94ebdea
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879143"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125134"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Fonctionnement : Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ Dans la mesure où la plupart des utilisateurs sont habitués à utiliser unique
 * Formez le personnel de votre support technique à la gestion de scénarios dans lesquels l’utilisateur ne parvient pas à se connecter, car il n’a pas accès à ses méthodes d’authentification, ou parce que celles-ci ne fonctionnent pas correctement.
    * À l’aide des stratégies d’accès conditionnel pour le service Azure MFA, votre personnel du support technique peut ajouter un utilisateur à un groupe qui est exclu d’une stratégie nécessitant MFA.
 * Pensez à utiliser des emplacements nommés à l’aide de l’accès conditionnel comme moyen de réduire les invites de vérification en deux étapes. Avec cette fonctionnalité, les administrateurs peuvent contourner la vérification en deux étapes des utilisateurs qui se connectent à partir d’un emplacement réseau approuvé sécurisé tel qu’un segment réseau utilisé pour l’intégration de nouveaux utilisateurs.
-* Déployez [Azure AD Identity Protection](../active-directory-identityprotection.md) et déclenchez la vérification en deux étapes en fonction des événements à risque.
+* Déployez [Azure AD Identity Protection](../active-directory-identityprotection.md) et déclenchez la vérification en deux étapes en fonction des détections des risques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

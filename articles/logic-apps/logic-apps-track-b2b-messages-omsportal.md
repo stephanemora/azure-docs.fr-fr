@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120124"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997842"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Suivre les messages B2B avec les journaux d’activité Azure Monitor
 
@@ -216,7 +216,7 @@ Voici les descriptions de propriété pour chaque message EDIFACT.
 | Destinataire | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | Application logique | Application logique dans laquelle les actions EDIFACT sont configurées |
 | Statut | État du message EDIFACT <br>Success = a reçu ou envoyé un message EDIFACT valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message EDIFACT non valide. <br>Pending = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et attendu. |
-| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
+| Ack | État de l'accusé de réception fonctionnel (CONTRL) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
 | Direction | Direction du message EDIFACT |
 | ID de corrélation : | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
 | Type de message | Type de message EDIFACT |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c1f3d1ec7bb9e9f449cea3f9aa36ca8f80348c6e
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: dc76d9a0d492d8ef0e37c0c34173216ff4c75164
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612814"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990567"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle CoreOS Linux à un domaine managé
 Cet article indique comment joindre une machine virtuelle CoreOS Linux dans Azure à un domaine managé Azure AD Domain Services.
@@ -79,9 +79,9 @@ Ensuite, mettez à jour votre fichier de configuration SSSD dans ('/etc/sssd/sss
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = contoso.COM
+domains = CONTOSO.COM
 
-[domain/contoso.COM]
+[domain/CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
@@ -99,17 +99,17 @@ ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
 krb5_server = contoso.com
-krb5_realm = contoso.COM
+krb5_realm = CONTOSO.COM
 ```
 
-Remplacez 'contoso.COM' par le nom de domaine DNS de votre domaine managé. Vérifiez que vous spécifiez le nom de domaine en lettres majuscules dans le fichier de configuration.
+Remplacez « CONTOSO.COM » par le nom de domaine DNS de votre domaine managé. Vérifiez que vous spécifiez le nom de domaine en lettres majuscules dans le fichier de configuration.
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Joindre la machine virtuelle Linux au domaine géré
 Maintenant que les packages requis sont installés sur la machine virtuelle Linux, la tâche suivante consiste à joindre cette machine virtuelle au domaine géré.
 
 ```console
-sudo adcli join -D contoso.COM -U bob@contoso.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
+sudo adcli join -D CONTOSO.COM -U bob@CONTOSO.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
 ```
 
 
@@ -129,10 +129,10 @@ sudo systemctl start sssd.service
 ## <a name="verify-domain-join"></a>Vérifier la jonction de domaine
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle CoreOS jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
-1. Sur votre terminal SSH, tapez la commande suivante pour vous connecter à la machine virtuelle CoreOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@contoso.COM »).
+1. Sur votre terminal SSH, tapez la commande suivante pour vous connecter à la machine virtuelle CoreOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO.COM »).
     
     ```console
-    ssh -l bob@contoso.COM contoso-coreos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-coreos.contoso.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.

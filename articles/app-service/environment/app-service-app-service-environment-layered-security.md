@@ -10,17 +10,16 @@ ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130685"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070140"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implémentation d’une architecture de sécurité en couche avec les environnements App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -41,7 +40,7 @@ Pour savoir quelles règles de sécurité réseau sont nécessaires, vous devez 
 
 Étant donné que les [groupes de sécurité réseau (NSG)][NetworkSecurityGroups] sont appliqués aux sous-réseaux et que les environnements App Service sont déployés dans des sous-réseaux, les règles contenues dans un NSG s’appliquent à **toutes** les applications s’exécutant dans un environnement App Service.  À l’aide de l’exemple d’architecture de cet article, une fois qu’un groupe de sécurité réseau est appliqué au sous-réseau contenant « apiase », toutes les applications s’exécutant dans l’environnement App Service « apiase » seront protégées par le même ensemble de règles de sécurité. 
 
-* **Déterminer l’adresse IP sortante des appelants en amont :**  Quelles sont les adresses IP des appelants en amont ?  L’accès de ces adresses devra être explicitement autorisé dans le NSG.  Les appels entre les environnements App Service étant considérés comme des appels « Internet », l’accès de l’adresse IP sortante assignée à chacun des trois environnements App Service en amont doit être autorisé dans le NSG pour le sous-réseau « apiase ».   Pour plus d’informations sur la détermination de l’adresse IP sortante pour les applications s’exécutant dans un environnement App Service, consultez l’article [Présentation de l’architecture réseau][NetworkArchitecture].
+* **Déterminer l’adresse IP sortante des appelants en amont :**  Quelles sont les adresses IP des appelants en amont ?  L’accès de ces adresses devra être explicitement autorisé dans le NSG.  Les appels entre les environnements App Service étant considérés comme des appels « Internet », l’accès de l’adresse IP sortante assignée à chacun des trois environnements App Service en amont doit être autorisé dans le NSG pour le sous-réseau « apiase ».   Pour plus d’informations sur la détermination de l’adresse IP sortante pour les applications s’exécutant dans un environnement App Service, consultez l’article Présentation de l’[architecture réseau][NetworkArchitecture].
 * **L’application API principale devra-t-elle s’appeler elle-même ?**  Un point subtil et parfois négligé est le scénario dans lequel l’application principale doit s’appeler elle-même.  Si une application API principale dans un environnement App Service doit s’appeler elle-même, elle est également traitée comme un appel « Internet ».  Dans l’exemple d’architecture, cette opération nécessite également d’autoriser l’accès à partir de l’adresse IP sortante de l’environnement App Service « apiase ».
 
 ## <a name="setting-up-the-network-security-group"></a>Configuration du groupe de sécurité réseau

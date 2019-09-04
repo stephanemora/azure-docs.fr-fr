@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236910"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997472"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Sources de données de journal d’événements Windows dans Azure Monitor
 Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
@@ -34,6 +34,9 @@ Lorsque vous tapez le nom d’un journal d’événements, Azure Monitor suggèr
 
 ![Configurer les événements Windows](media/data-sources-windows-events/configure.png)
 
+> [!NOTE]
+> Les événements critiques du journal d’événements Windows auront un niveau de gravité « Erreur » dans les journaux d’Azure Monitor.
+
 ## <a name="data-collection"></a>Collecte des données
 Azure Monitor collecte chaque événement correspondant à un niveau de gravité sélectionné à partir d’un journal d’événements surveillé à mesure que l’événement est créé.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion pendant un moment, il collecte les événements à partir de là où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.  Il est possible que ces événements ne soient pas collectés si des événements non collectés d’un journal sont écrasés pendant que l’agent est hors connexion.
 
@@ -46,7 +49,7 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 
 | Propriété | Description |
 |:--- |:--- |
-| Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
+| Computer |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
 | EventCategory |Catégorie de l’événement. |
 | EventData |Toutes les données d'événement au format brut. |
 | EventID |Numéro de l’événement. |

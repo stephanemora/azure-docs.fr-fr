@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: de5febaeecd176a8718364720132d3fa4433c57f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443628"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062017"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Sortie Azure Stream Analytics dans Azure Cosmos DB  
 Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration.
@@ -53,11 +53,11 @@ Les conteneurs Azure Cosmos DB [illimités](../cosmos-db/partition-data.md) cons
 > [!NOTE]
 > À ce stade, Azure Stream Analytics prend uniquement en charge un nombre illimité de conteneurs avec des clés de partition au niveau supérieur. Par exemple, la clé de partition `/region` est prise en charge. Les clés de partition imbriquées (par exemple, `/region/name`) ne sont pas prises en charge. 
 
-Selon votre choix de clé de partition, vous pourrez recevoir cet _avertissement_ :
+Selon votre choix de clé de partition, vous pourrez recevoir cet _avertissement_ :
 
 `CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
-Il est important de choisir une propriété de clé de partition présentant un nombre de valeurs distinctes, et vous permettant de distribuer votre charge de travail uniformément entre ces valeurs. Conséquence inhérente du partitionnement, les demandes impliquant la même clé de partition sont limitées par le débit maximal d’une seule partition. En outre, la taille de stockage des documents appartenant à la même clé de partition est limitée à 10 Go. Une clé de partition idéale apparaît fréquemment sous forme de filtre dans vos requêtes efficaces et possède une cardinalité suffisante pour garantir l’évolutivité de votre solution.
+Il est important de choisir une propriété de clé de partition présentant un nombre de valeurs distinctes, et vous permettant de distribuer votre charge de travail uniformément entre ces valeurs. Conséquence inhérente du partitionnement, les demandes impliquant la même clé de partition sont limitées par le débit maximal d’une seule partition. En outre, la taille de stockage des documents appartenant à la même clé de partition est limitée à 10 Go. Une clé de partition idéale apparaît fréquemment sous forme de filtre dans vos requêtes efficaces et possède une cardinalité suffisante pour garantir l’évolutivité de votre solution.
 
 Une clé de partition sert également de limite pour les transactions dans les procédures stockées et les déclencheurs de DocumentDB. Vous devez choisir la clé de partition de sorte que les documents impliqués dans les mêmes transactions partagent la même valeur de clé de partition. L’article [Partitionnement des données dans Cosmos DB](../cosmos-db/partitioning-overview.md) fournit des détails supplémentaires sur le choix d’une clé de partition.
 
@@ -66,7 +66,7 @@ Pour les conteneurs Azure Cosmos DB fixes arrivés à saturation, Stream Analyti
 La possibilité d’écrire dans plusieurs conteneurs fixes étant dépréciée, elle n’est pas l’approche recommandée pour mettre à l’échelle votre travail Stream Analytics.
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>Débit amélioré avec le niveau de compatibilité 1.2
-Avec le niveau de compatibilité 1.2, Stream Analytics prend en charge l’intégration native pour écrire en bloc dans Cosmos DB. Cela permet d’écrire efficacement dans Cosmos DB avec un débit optimisé et de gérer efficacement les requêtes de limitation. Le mécanisme d’écriture amélioré est disponible sous un nouveau niveau de compatibilité en raison d’une différence de comportement de l'opération upsert.  Avant le niveau 1.2, le comportement de l'opération upsert consiste à insérer ou fusionner le document. Avec le niveau 1.2, l'opération upsert consiste à insérer ou remplacer le document. 
+Avec le niveau de compatibilité 1.2, Stream Analytics prend en charge l’intégration native pour écrire en bloc dans Cosmos DB. Cela permet d’écrire efficacement dans Cosmos DB avec un débit optimisé et de gérer efficacement les requêtes de limitation. Le mécanisme d’écriture amélioré est disponible sous un nouveau niveau de compatibilité en raison d’une différence de comportement de l'opération upsert.  Avant le niveau 1.2, le comportement de l'opération upsert consiste à insérer ou fusionner le document. Avec le niveau 1.2, l'opération upsert consiste à insérer ou remplacer le document.
 
 Avant le niveau 1.2, une procédure stockée personnalisée est utilisée pour exécuter en bloc l'opération upsert sur les documents par clé de partition dans Cosmos DB, où un lot est écrit en tant que transaction. Si un seul enregistrement se heure à une erreur temporaire (limitation), le lot dans son intégralité doit faire l'objet d'une nouvelle tentative. Cela ralentit considérablement les scénarios présentant des limitations raisonnables. La comparaison suivante illustre le comportement des travaux avec le niveau 1.2.
 
@@ -79,7 +79,7 @@ Le taux d’événements entrants dans Event Hub est deux fois supérieur à ce 
 ![Comparaison des métriques Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
 Avec le niveau de compatibilité 1.2, Stream Analytics utilise de manière plus intelligente 100 % du débit disponible dans Cosmos DB, avec très peu de nouvelles soumissions dues aux limitations. Cela permet une meilleure expérience pour les autres charges de travail telles que les requêtes en cours d’exécution sur le conteneur en même temps. S'il vous faut tester la manière dont ASA évolue avec Cosmos DB en tant que récepteur pour 1 à 10 K de messages/seconde, ce [projet d’exemples Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) est à votre disposition.
-Veuillez noter que le débit de sortie Cosmos DB est identique avec les niveaux 1.0 et 1.1. Le niveau 1 2 ne correspondant actuellement pas au niveau par défaut, pouvez [définir le niveau de compatibilité](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) d’un travail Stream Analytics à l’aide du portail ou en appelant [l’API REST create job](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Il est *vivement recommandé* d'utiliser le niveau de compatibilité 1.2 dans ASA avec Cosmos DB. 
+Veuillez noter que le débit de sortie Cosmos DB est identique avec les niveaux 1.0 et 1.1. Le niveau 1 2 ne correspondant actuellement pas au niveau par défaut, pouvez [définir le niveau de compatibilité](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) d’un travail Stream Analytics à l’aide du portail ou en appelant [l’API REST create job](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Il est *vivement recommandé* d'utiliser le niveau de compatibilité 1.2 dans ASA avec Cosmos DB.
 
 
 
@@ -92,9 +92,18 @@ Lorsque vous créez une sortie Cosmos DB dans Stream Analytics, vous devez four
 |Champ           | Description|
 |-------------   | -------------|
 |Alias de sortie    | Alias faisant référence à cette sortie dans votre requête ASA.|
-|Abonnement    | Sélectionnez l’abonnement Azure.|
+|Subscription    | Sélectionnez l’abonnement Azure.|
 |ID de compte      | Nom ou URI de point de terminaison du compte Azure Cosmos DB.|
 |Clé de compte     | Clé d’accès partagé du compte Azure Cosmos DB.|
 |Base de données        | Nom de la base de données Azure Cosmos DB.|
 |Nom du conteneur | Nom du conteneur à utiliser. `MyContainer` est un exemple d’entrée valide ; un conteneur nommé `MyContainer` doit exister.  |
 |ID du document     | facultatif. Nom de colonne dans les événements de sortie utilisé comme clé unique sur laquelle doivent être basées les opérations d’insertion ou de mise à jour. Si vide, tous les événements sont insérés, sans option de mise à jour.|
+
+## <a name="error-handling-and-retries"></a>Gestion des erreurs et nouvelles tentatives
+
+En cas de panne transitoire, d’indisponibilité du service ou de limitation de bande passante lors de l’envoi d’événements à Cosmos DB, Stream Analytics effectue de nouvelles tentatives indéfiniment pour mener à bien l’opération. Dans les cas suivants, aucune nouvelle tentative n’est effectuée :
+
+- Unauthorized (code d’erreur HTTP 401)
+- NotFound (code d’erreur HTTP 404)
+- Forbidden (code d’erreur HTTP 403)
+- BadRequest (code d’erreur HTTP 400)

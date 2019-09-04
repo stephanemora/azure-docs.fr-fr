@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 62385f4bd07f4b80dc3d571d409e16c7e0dca205
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: c720dfe7aeaa39a1717362b040b5548e116cc246
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667857"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062084"
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 
@@ -49,11 +49,15 @@ Voici les instructions d’installation des prérequis.
 
 Dans cette section, vous créez une application console Python qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à votre **{ID d’appareil}** . Elle interroge ensuite les jumeaux d’appareils stockés dans le hub IoT en sélectionnant les appareils situés à Redmond, puis ceux qui signalent une connexion mobile.
 
-1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
+1. Dans votre répertoire de travail, ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**.
 
-   ```
+   ```cmd/sh
    pip install azure-iothub-service-client
    ```
+
+   > [!NOTE]
+   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **AddTagsAndQuery.py**.
 
@@ -66,7 +70,7 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Ajoutez le code suivant, en remplaçant la valeur d’espace réservé pour `[IoTHub Connection String]` et `[Device Id]` par la chaîne de connexion pour le hub IoT et l’ID d’appareil créés dans les sections précédentes.
+4. Ajoutez le code suivant. Remplacez `[IoTHub Connection String]` par la chaîne de connexion de l’IoT Hub que vous avez copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string). Remplacez `[Device Id]` par l’ID d’appareil que vous avez inscrit à l’étape [ Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -80,7 +84,7 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
 
 5. Ajoutez le code suivant au fichier **AddTagsAndQuery.py** :
 
-     ```python
+    ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
@@ -143,7 +147,7 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
 
     Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
 
-    ![Première requête affichant tous les appareils à Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![Première requête affichant tous les appareils à Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
 Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
@@ -151,11 +155,15 @@ Dans la section suivante, vous allez créer une application d’appareil qui tra
 
 Dans cette section, vous allez créer une application console Python qui se connecte à votre hub en tant que votre **{ID d’appareil}** , puis met à jour les propriétés signalées de son jumeau d’appareil afin qu’elles contiennent les informations indiquant qu’il est connecté par le biais d’un réseau cellulaire.
 
-1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
+1. À partir d’une invite de commandes dans votre répertoire de travail, installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python** :
 
-    ```
+    ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.py**.
 
@@ -167,7 +175,7 @@ Dans cette section, vous allez créer une application console Python qui se conn
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-4. Ajoutez le code suivant, en remplaçant la valeur d’espace réservé pour `[IoTHub Device Connection String]` par la chaîne de connexion pour l’appareil IoT Hub créé dans les sections précédentes.
+4. Ajoutez le code suivant. Remplacez la valeur d’espace réservé `[IoTHub Device Connection String]` par la chaîne de connexion de l’appareil que vous avez copiée dans [Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -227,7 +235,7 @@ Dans cette section, vous allez créer une application console Python qui se conn
             return
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-     ```
+    ```
 
     L’objet **Client** expose toutes les méthodes requises pour interagir avec des jumeaux d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère le jumeau de votre appareil, puis met à jour sa propriété signalée avec les informations de connectivité.
 
@@ -248,7 +256,7 @@ Dans cette section, vous allez créer une application console Python qui se conn
 
     Vous devez voir un message confirmant que les jumeaux d’appareils ont été mis à jour.
 
-    ![jumeaux mis à jour](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
+    ![jumeaux mis à jour](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. À présent que l’appareil a signalé ses informations de connectivité, il doit apparaître dans les deux requêtes. Revenez en arrière et réexécutez les requêtes :
 
@@ -258,7 +266,7 @@ Dans cette section, vous allez créer une application console Python qui se conn
 
     Cette fois, votre **{ID d’appareil}** doit apparaître dans les résultats des deux requêtes.
 
-    ![deuxième requête](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+    ![deuxième requête](./media/iot-hub-python-twin-getstarted/service-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

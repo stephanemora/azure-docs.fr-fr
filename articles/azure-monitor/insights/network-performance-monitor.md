@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 80bca606a2b06d85afc8a2115133f44d738f7e0a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312073"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035247"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -71,7 +71,7 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
 * **Moniteur de connectivité de service** : Installez un agent Log Analytics sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Log Analytics sur au moins un nœud dans O1, O2 et O3. 
 
-* **Moniteur ExpressRoute** : Installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
+* **Moniteur ExpressRoute** : Installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurer des agents Log Analytics pour la surveillance 
 
@@ -105,7 +105,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
 1. Ajoutez la solution Network Performance Monitor à votre espace de travail à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Vous pouvez également procéder comme décrit dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md). 
 2. Ouvrez votre espace de travail Log Analytics et cliquez sur la mosaïque **Vue d’ensemble**. 
-3. Sélectionnez la mosaïque **Network Performance Monitor**  avec le message  *La solution nécessite une configuration supplémentaire*.
+3. Sélectionnez la mosaïque **Network Performance Monitor** avec le message *La solution nécessite une configuration supplémentaire*.
 
    ![Vignette Analyseur de performances réseau](media/network-performance-monitor/npm-config.png)
 
@@ -133,7 +133,7 @@ Une fois l’installation terminée, les données sont renseignées en 30 minute
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Modifier les paramètres de surveillance pour les sous-réseaux et les nœuds 
 
-Tous les sous-réseaux pour lesquels au moins un agent a été installé sont répertoriés sous l’onglet  **Sous-réseaux** de la page de configuration. 
+Tous les sous-réseaux pour lesquels au moins un agent a été installé sont répertoriés sous l’onglet **Sous-réseaux** de la page de configuration. 
 
 
 Pour activer ou désactiver l’analyse de sous-réseaux spécifiques :
@@ -203,9 +203,9 @@ Une fois la solution Network Performance Monitor activée, la mosaïque de la so
 
 ### <a name="drill-down-for-depth"></a>Explorer en profondeur 
 
-Vous pouvez sélectionner différents liens du tableau de bord de la solution pour explorer de façon plus approfondie un aspect spécifique. Par exemple, lorsque vous voyez une alerte ou un lien réseau défectueux s’afficher sur le tableau de bord, sélectionnez le pour en savoir plus. Une page répertorie tous les liens de sous-réseau pour un lien réseau en particulier. Vous pouvez voir l’état de la perte, de la latence et d’intégrité de chaque lien de sous-réseau. Vous pouvez déterminer rapidement quel lien de sous-réseau pose problème. Sélectionnez **Afficher les liens de nœud** pour afficher tous les liens de nœud concernant le lien de sous-réseau défectueux. Ensuite, vous pouvez voir les liens de nœud à nœud, et identifier les liens de nœud défectueux. 
+Vous pouvez sélectionner différents liens du tableau de bord de la solution pour explorer de façon plus approfondie un aspect spécifique. Par exemple, lorsque vous voyez une alerte ou un lien réseau défectueux s’afficher sur le tableau de bord, sélectionnez le pour en savoir plus. Une page répertorie tous les liens de sous-réseau pour un lien réseau en particulier. Vous pouvez voir l’état de la perte, de la latence et d’intégrité de chaque lien de sous-réseau. Vous pouvez déterminer rapidement quel lien de sous-réseau pose problème. Sélectionnez **Afficher les liens de nœud** pour afficher tous les liens de nœud concernant le lien de sous-réseau défectueux. Ensuite, vous pouvez voir les liens de nœud à nœud, et identifier les liens de nœud défectueux. 
 
-Sélectionnez  **Afficher la topologie** pour afficher la topologie tronçon par tronçon des itinéraires entre les nœuds sources et de destination. Les itinéraires défectueux apparaissent en rouge. Vous pouvez afficher la latence apportée par chaque tronçon afin d’identifier rapidement le problème affectant une portion spécifique du réseau.
+Sélectionnez **Afficher la topologie** pour afficher la topologie, tronçon par tronçon, des itinéraires entre les nœuds source et de destination. Les itinéraires défectueux apparaissent en rouge. Vous pouvez afficher la latence apportée par chaque tronçon afin d’identifier rapidement le problème affectant une portion spécifique du réseau.
 
  
 
@@ -245,7 +245,7 @@ La topologie affichée sur la carte est celle du calque 3 et elle ne contient p
 
 ## <a name="log-queries-in-azure-monitor"></a>Requêtes de journal dans Azure Monitor
 
-Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans les [requêtes de journal](../log-query/log-query-overview.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone  **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
+Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans les [requêtes de journal](../log-query/log-query-overview.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
 
 ## <a name="alerts"></a>Alertes
 
@@ -277,7 +277,7 @@ Les informations sur les tarifs sont disponibles [en ligne](network-performance-
 
 * **UserVoice** : Vous pouvez poster vos idées concernant les fonctionnalités Network Performance Monitor que vous aimeriez voir améliorer. Visitez la [page UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Rejoignez notre cohorte** : Nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et avoir l’opportunité de nous aider à améliorer Network Performance Monitor. Si vous souhaitez y participer, répondez à cette  [enquête rapide](https://aka.ms/npmcohort). 
+* **Rejoignez notre cohorte** : Nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et avoir l’opportunité de nous aider à améliorer Network Performance Monitor. Si vous souhaitez y participer, répondez à cette [enquête rapide](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 En savoir plus sur [Analyseur de performances](network-performance-monitor-performance-monitor.md), [Moniteur de connectivité de service](network-performance-monitor-performance-monitor.md) et [Moniteur ExpressRoute](network-performance-monitor-expressroute.md) 

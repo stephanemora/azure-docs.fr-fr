@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779676"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125108"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -232,7 +232,7 @@ En fonction des mesures d'atténuation ou d'urgence prises lors d'une interrupti
 1. Dans le cadre de votre stratégie de contrôle des modifications, documentez chaque modification et l'état précédent pour pouvoir annuler les mesures d'urgence mises en place dès que les contrôles d'accès seront pleinement opérationnels.
 2. Supposons que des personnes malveillantes tentent de collecter des mots de passe en lançant des attaques par pulvérisation de mot de passe ou par hameçonnage pendant que l'authentification multifacteur est désactivée. Ces personnes malveillantes disposent également peut-être déjà de mots de passe qui, jusque-là, ne permettaient pas d'accéder à certaines ressources exposées pendant ce laps de temps. Pour les utilisateurs critiques tels que les cadres, vous pouvez partiellement atténuer ce risque en réinitialisant leurs mots de passe avant de désactiver l'authentification multifacteur.
 3. Archivez toutes les activités de connexion pour identifier qui a accès à quoi au moment de la désactivation de l'authentification multifacteur.
-4. [Triez tous les événements à risque signalés](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) au cours de ce laps de temps.
+4. [Triez toutes les détections à risque signalées](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) au cours de ce laps de temps.
 
 ## <a name="after-a-disruption"></a>Après une interruption
 
@@ -242,7 +242,7 @@ Une fois le service responsable de l’interruption restauré, annulez les modif
 2. Désactivez vos stratégies d'urgence. 
 3. Le cas échéant, restaurez les autres modifications que vous avez apportées et documentées pendant l'interruption.
 4. Si vous avez utilisé un compte d'accès d'urgence, n'oubliez pas de régénérer les informations d'identification et de sécuriser physiquement les nouvelles informations d'identification dans le cadre des procédures liées aux comptes d'accès d'urgence.
-5. Continuez à [trier tous les événements à risque signalés](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) après l'interruption pour activité suspecte.
+5. Continuez à [trier toutes les détections à risque signalées](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) après l'interruption pour activité suspecte.
 6. Révoquez tous les jetons d'actualisation émis [à l'aide de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) pour cibler un ensemble d'utilisateurs. La révocation de tous les jetons d’actualisation est importante pour les comptes à privilèges utilisés lors de l’interruption, et elle les obligera à se réauthentifier et à se conformer au contrôle des stratégies restaurées.
 
 ## <a name="emergency-options"></a>Options d'urgence
@@ -254,7 +254,7 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
    1. Si vous ne disposez pas de l'inventaire des adresses IP sortantes ou si vous devez activer l'accès à l'intérieur et à l'extérieur du réseau d'entreprise, vous pouvez ajouter tout l'espace d'adressage IPv4 en tant qu'adresses IP approuvées en spécifiant 0.0.0.0/1 et 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Si vous élargissez le champ des adresses IP approuvées pour débloquer l'accès, les événements à risque associés aux adresses IP (par exemple, un voyage impossible ou un emplacement inconnu) ne seront pas générés.
+ > Si vous élargissez le champ des adresses IP approuvées pour débloquer l'accès, les détections à risque associées aux adresses IP (par exemple, un voyage impossible ou un emplacement inconnu) ne seront pas générées.
 
 >[!NOTE]
  > La configuration des [adresses IP approuvées](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) pour l'authentification multifacteur Azure n'est disponible qu'avec les [licences Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).

@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720045"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051083"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Surveillez, recevez et envoyez des événements avec Azure Event Hubs et Azure Logic Apps
 
@@ -34,7 +35,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="check-permissions-and-get-connection-string"></a>Vérifier les autorisations et obtenir la chaîne de connexion
 
-Pour que votre application logique accède à votre hub d’événements, vérifiez vos autorisations et obtenez la chaîne de connexion pour votre espace de noms Event Hubs.
+Pour vous assurer que votre application logique peut accéder à votre hub d’événements, vérifiez vos autorisations et obtenez la chaîne de connexion pour votre espace de noms Event Hubs.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -102,7 +103,7 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
 1. Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur. 
 
-   Par exemple, pour filtrer les événements basés sur une valeur spécifique, telle qu'une catégorie, vous pouvez ajouter une condition pour que l'action **Envoyer un événement - Event Hubs** envoie uniquement les événements qui répondent à votre condition. 
+   Par exemple, pour filtrer les événements basés sur une valeur spécifique, telle qu’une catégorie, vous pouvez ajouter une condition pour que l’action **Envoyer un événement** envoie uniquement les événements qui répondent à votre condition. 
 
 > [!NOTE]
 > Tous les déclencheurs Event Hub sont des déclencheurs *d’interrogation longue*, ce qui signifie que lorsqu’un déclencheur est activé, il traite tous les événements, puis attend 30 secondes le temps qu’un plus grand nombre d’événements s’affichent dans votre hub d’événements.
@@ -165,7 +166,7 @@ Dans la liste des actions, sélectionnez cette action : **Envoyer un événemen
 
    ![Créer une connexion de hub d’événements](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-   Pour entrer manuellement la chaîne de connexion, choisissez **Entrer manuellement les informations de connexion**. 
+   Pour entrer manuellement la chaîne de connexion, sélectionnez **Entrer manuellement les informations de connexion**. 
    Découvrez [comment trouver votre chaîne de connexion](#permissions-connection-string).
 
 2. Sélectionnez la stratégie Event Hubs à utiliser, si elle n’est pas déjà sélectionnée. Cliquez sur **Créer**.

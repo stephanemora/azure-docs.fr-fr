@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835258"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099985"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -367,7 +366,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou sur la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
-Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle que vous utilisez. Une liste des types de machines virtuelles avec leurs quotas est disponible dans [Tailles des machines virtuelles Windows dans Azure][virtual-machines-sizes-windows].
+Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle que vous utilisez. Pour obtenir la liste des types de machines virtuelles et des quotas correspondants, consultez [Tailles des machines virtuelles Windows dans Azure][virtual-machines-sizes-windows].
 
 Pour connaître les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
 
@@ -457,7 +456,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
- Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle qui est utilisé. Pour obtenir une liste des types de machines virtuelles avec leurs quotas, consultez [Tailles des machines virtuelles Linux dans Azure][virtual-machines-sizes-linux].
+ Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle qui est utilisé. Pour obtenir la liste des types de machines virtuelles et des quotas correspondants, consultez [Tailles des machines virtuelles Linux dans Azure][virtual-machines-sizes-linux].
 
 Pour connaître les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
 

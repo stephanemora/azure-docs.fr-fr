@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335441"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126280"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à l’utilisateur
 
@@ -26,9 +26,9 @@ Cet article vous fournit les informations dont vous avez besoin pour configurer 
 
 ## <a name="what-is-a-user-risk-policy"></a>Qu’est-ce qu’une stratégie de risque utilisateur ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Bien que certains événements à risque puissent être détectés en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les événements à risque détectés. Par exemple, vous pouvez résoudre manuellement des événements à risque ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de connexion à risque pour le faire.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Bien que certaines détections de risques puissent être détectées en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les détections de risques détectées. Par exemple, vous pouvez résoudre manuellement des détections de risques ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de connexion à risque pour le faire.
 
-Tous les événements à risque qui ont été détectés pour un utilisateur et qui n’ont pas été résolus sont appelés événements à risque actifs. Les événements à risque actifs qui sont associés à un utilisateur sont appelés risque utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
+Toutes les détections de risques qui ont été détectées pour un utilisateur et qui n’ont pas été résolues sont appelées détections de risques actives. Les détections de risques actives qui sont associées à un utilisateur sont appelées risques utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
 
 ![Risque des utilisateurs](./media/howto-user-risk-policy/1031.png)
 
@@ -72,8 +72,8 @@ Vous pouvez définir une stratégie de sécurité de risque utilisateur pour blo
 
 Le blocage d’une connexion :
 
-* empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
-* permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
+* empêche la génération de nouvelles détections de risques pour l’utilisateur concerné ;
+* permet aux administrateurs de corriger manuellement les détections de risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
 ## <a name="best-practices"></a>Bonnes pratiques
 

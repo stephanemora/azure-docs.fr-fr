@@ -11,12 +11,12 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499558"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126387"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription de l’authentification multifacteur Azure
 
@@ -31,7 +31,7 @@ L’authentification multifacteur Azure permet de vérifier votre identité, à 
 Voici les raisons pour lesquelles il est conseillé d’exiger l’authentification multifacteur d’Azure pour les connexions utilisateur :
 
 - Elle fournit une authentification renforcée avec un éventail d’options de vérification simples.
-- Elle joue un rôle clé dans la protection et la récupération en cas d’événements à risque dans Identity Protection.
+- Elle joue un rôle clé dans la protection et la récupération en cas de détections de risques dans Identity Protection.
 
 Pour plus d’informations sur l’authentification multifacteur, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../authentication/howto-mfa-getstarted.md).
 

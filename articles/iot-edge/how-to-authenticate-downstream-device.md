@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c7665d281ff7c27fd8b61537804b6803b3b43
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 1634d7cd3dfe8d118e220fa8620ef6467c15ea2c
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360169"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983018"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -29,6 +29,12 @@ La configuration d’une connexion de passerelle transparente s’effectue en tr
 Pour s’authentifier auprès d’IoT Hub, les appareils en aval disposent de trois méthodes d’authentification : par clé symétrique (ou « clé d’accès partagé »), par certificat X.509 autosigné et par certificat X.509 signé par l’autorité de certification. Les étapes d’authentification sont similaires à celles utilisées pour configurer n’importe quel appareil IoT Edge avec IoT Hub, avec toutefois quelques différences au niveau de la déclaration de la relation de passerelle.
 
 Les étapes décrites dans cet article montrent comment provisionner manuellement les appareils. Elles n’expliquent pas comment effectuer un provisionnement automatique à l’aide du service Azure IoT Hub Device Provisioning. 
+
+## <a name="prerequisites"></a>Prérequis
+
+Suivez les étapes décrites dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
+
+Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config.yaml sur l’appareil de passerelle IoT Edge. Il est utilisé pour créer les certificats dans cet article et est référencé dans la chaîne de connexion des appareils en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte.
 
 ## <a name="symmetric-key-authentication"></a>Authentification par clé symétrique
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dcc7d2d03b3c4a3f4c8c772f38aa3785080d986
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9da0552e3ccc707c6b2f228b402f4e9db7dafee3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335354"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125705"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 
-Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les événements à risque :
+Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les détections de risques :
 
 - E-mail Utilisateurs à risque détectés
 - E-mail de synthèse hebdomadaire
@@ -31,7 +31,7 @@ Cet article vous offre une vue d’ensemble des deux e-mails de notification.
 
 En cas de détection d’un compte à risque, Azure AD Identity Protection génère une alerte par e-mail dont l’objet est **Utilisateurs à risque détecté**. Cet e-mail inclut un lien vers le rapport **[Utilisateurs associés à un indicateur de risque](../reports-monitoring/concept-user-at-risk.md)** . En guise de bonne pratique, vous devez examiner immédiatement les utilisateurs à risque.
 
-La configuration de cette alerte vous permet de spécifier à quel niveau de risque de l’utilisateur vous souhaitez que l’alerte soit générée. L’e-mail est généré lorsque le niveau de risque de l’utilisateur atteint la valeur que vous avez spécifiée ; toutefois, vous ne recevrez aucune nouvelle alerte Utilisateurs à risque détectés pour cet utilisateur une fois qu’il a atteint ce niveau de risque. Ainsi, si vous définissez une stratégie afin que le système envoie des alertes pour des utilisateurs à risques moyens, et que l’utilisateur John atteint ce niveau de risque, vous recevrez un e-mail Utilisateurs à risque détectés pour John, mais vous ne recevrez pas de deuxième alerte si John atteint le niveau de risque élevé ou est associé à d’autres événements à risque.
+La configuration de cette alerte vous permet de spécifier à quel niveau de risque de l’utilisateur vous souhaitez que l’alerte soit générée. L’e-mail est généré lorsque le niveau de risque de l’utilisateur atteint la valeur que vous avez spécifiée ; toutefois, vous ne recevrez aucune nouvelle alerte Utilisateurs à risque détectés pour cet utilisateur une fois qu’il a atteint ce niveau de risque. Ainsi, si vous définissez une stratégie afin que le système envoie des alertes pour des utilisateurs à risques moyens, et que l’utilisateur John atteint ce niveau de risque, vous recevrez un e-mail Utilisateurs à risque détectés pour John, mais vous ne recevrez pas de deuxième alerte si John atteint le niveau de risque élevé ou est associé à d’autres détections de risques.
 
 ![E-mail Utilisateurs à risque détectés](./media/notifications/01.png)
 
@@ -48,7 +48,7 @@ Pour ouvrir la boîte de dialogue connexe, cliquez sur **Alertes** dans la secti
 
 ## <a name="weekly-digest-email"></a>E-mail de synthèse hebdomadaire
 
-L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux événements à risque.  
+L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouvelles détections de risques.  
 Il inclut :
 
 - Les utilisateurs à risque

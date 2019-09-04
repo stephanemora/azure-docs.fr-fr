@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934617"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129313"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -130,7 +130,7 @@ Azure Active Directory comporte de nombreuses fonctionnalités qui interceptent 
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Mettre en œuvre une stratégie de sécurité en matière de risque des utilisateurs à l’aide d’Azure AD Identity Protection
 
-Le risque des utilisateurs indique la probabilité que l’identité d’un utilisateur a été compromise et est calculé en fonction des [événements à risque des utilisateurs](../../active-directory/identity-protection/overview.md) qui sont associés à l’identité d’un utilisateur. Une stratégie en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque pour un groupe ou un utilisateur spécifique. Selon un niveau de risque Faible, Moyen ou Élevé, une stratégie peut être configurée pour bloquer l’accès ou exiger une modification du mot de passe sécurisée à l’aide de l’authentification multifacteur. La recommandation de Microsoft est d’exiger une modification du mot de passe sécurisée pour les utilisateurs présentant un risque élevé.
+Le risque utilisateur indique la probabilité que l'identité d'un utilisateur ait été compromise et est calculé en fonction des [détections de risque utilisateur](../../active-directory/identity-protection/overview.md) associées à l'identité d'un utilisateur. Une stratégie en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque pour un groupe ou un utilisateur spécifique. Selon un niveau de risque Faible, Moyen ou Élevé, une stratégie peut être configurée pour bloquer l’accès ou exiger une modification du mot de passe sécurisée à l’aide de l’authentification multifacteur. La recommandation de Microsoft est d’exiger une modification du mot de passe sécurisée pour les utilisateurs présentant un risque élevé.
 
 ![Utilisateurs associés à un indicateur de risque](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ La [surveillance d’AD FS avec Azure AD Connect Health](../../active-directory/
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Surveiller les événements Azure AD Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) est un outil de notification, de surveillance et de rapports que vous pouvez utiliser pour détecter les vulnérabilités potentielles qui affectent les identités de votre organisation. Il détecte les événements à risque, tels que la fuite d’informations d’identification, un voyage impossible et les connexions depuis des appareils infectés, les adresses IP anonymes, les adresses IP associées à une activité suspecte et les emplacements inconnus. Activez les alertes de notification pour recevoir par un e-mail désignant les utilisateurs exposés et/ou un e-mail de résumé hebdomadaire.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) est un outil de notification, de surveillance et de rapports que vous pouvez utiliser pour détecter les vulnérabilités potentielles qui affectent les identités de votre organisation. Il repère les détections à risque, telles que les fuites d'informations d'identification, les déplacements impossibles, les connexions à partir d'appareils infectés, les adresses IP anonymes, les adresses IP associées à une activité suspecte et les emplacements inconnus. Activez les alertes de notification pour recevoir par un e-mail désignant les utilisateurs exposés et/ou un e-mail de résumé hebdomadaire.
 
 Azure AD Identity Protection fournit deux rapports importants que vous devez surveiller tous les jours :
 1. Les rapports sur les connexions à risque mettent en avant les activités de connexion d’utilisateurs que vous devriez examiner parce qu’il est possible que la connexion n’ait pas été établie par le propriétaire légitime.

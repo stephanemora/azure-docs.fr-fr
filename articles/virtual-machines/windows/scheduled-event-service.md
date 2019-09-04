@@ -1,6 +1,6 @@
 ---
-title: Configurer des notifications de maintenance pour les machines virtuelles Windows dans Azure | Microsoft Docs
-description: Découvrez comment configurer des notifications de maintenance planifiée pour vos machines virtuelles Azure.
+title: Surveiller les événements planifiés pour vos machines virtuelles Windows dans Azure | Microsoft Docs
+description: Découvrez comment surveiller vos machines virtuelles Azure pour les événements planifiés.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656944"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051846"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>Configurer des notifications relatives à la maintenance affectant votre machine virtuelle
+# <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
 
 Des mises à jour sont appliquées à différentes parties d’Azure tous les jours, pour assurer la sécurité des services et les mettre à jour. En plus des mises à jour planifiées, des événements non planifiés peuvent également se produire. Par exemple, en cas de dégradation ou de panne du matériel, les services Azure peuvent avoir besoin d’effectuer une maintenance non planifiée. Avec la migration dynamique, les mises à jour de préservation de la mémoire et en appliquant une limite stricte sur l’impact des mises à jour, ces événements sont dans la plupart des cas presque transparents pour les clients et ils n’ont pas d’impact ou causent au maximum un blocage de quelques secondes des machines virtuelles. Toutefois, pour certaines applications, même quelques secondes de blocage des machines virtuelles peuvent avoir un impact. Il est important de connaître à l’avance sur les opérations de maintenance Azure à venir pour garantir une expérience optimale pour ces applications. Le service [Scheduled Events](scheduled-events.md) fournit une interface de programmation qui vous informe des opérations de maintenance à venir et vous permet de gérer les maintenances de manière appropriée. 
 

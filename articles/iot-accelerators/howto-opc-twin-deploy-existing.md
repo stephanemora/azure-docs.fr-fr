@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fc70d140479be100e6aa52cf8105d3e466342cd7
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302666"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972283"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer OPC Twin dans un projet existant
 
@@ -142,4 +142,4 @@ Le client AAD à utiliser.
 Maintenant que vous avez découvert comment déployer OPC Twin dans un projet existant, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Sécuriser les communications du client OPC et d’OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Sécuriser les communications du client OPC UA et d'OPC UA PLC](howto-opc-vault-secure.md)

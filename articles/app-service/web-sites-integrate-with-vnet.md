@@ -9,17 +9,16 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740891"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066665"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.  
@@ -84,8 +83,9 @@ Bien que cette fonctionnalité soit disponible en préversion, elle est prise en
 * L’application et le réseau virtuel doivent être dans la même région.
 * Vous ne pouvez pas supprimer un réseau virtuel avec une application intégrée. Vous devez d’abord supprimer l’intégration. 
 * Vous ne pouvez disposer que d’une seule intégration au réseau virtuel régional par plan App Service. Plusieurs applications d’un même plan App Service peuvent utiliser le même réseau virtuel. 
+* Vous ne pouvez pas modifier l'abonnement d'une application ou d'un plan App Service lorsqu'une application utilise l'intégration au réseau virtuel régional.
 
-Une adresse est utilisée pour chaque instance du plan App Service. Si vous avez défini l’échelle votre application sur 5 instances, 5 adresses sont utilisées. Étant donné que la taille du sous-réseau ne peut pas être modifiée après l’affectation, vous devez utiliser un sous-réseau suffisamment grand pour s’adapter à la taille que votre application est susceptible d’atteindre. La taille /27 avec 32 adresses est recommandée, car elle permet de gérer un plan App Service Premium à l’échelle de 20 instances.
+Une adresse est utilisée pour chaque instance du plan App Service. Si vous avez défini l'échelle de votre application sur 5 instances, 5 adresses sont utilisées. Étant donné que la taille du sous-réseau ne peut pas être modifiée après l’affectation, vous devez utiliser un sous-réseau suffisamment grand pour s’adapter à la taille que votre application est susceptible d’atteindre. Une taille de /26 avec 64 adresses est recommandée. Une taille de /27 avec 32 adresses prendra en charge un plan App Service Premium de 20 instances si vous n'avez pas modifié la taille du plan App Service. Lorsque vous modifiez un plan App Service à la hausse ou à la baisse, vous avez brièvement besoin de deux fois plus d'adresses. 
 
 Si vous souhaitez que vos applications d’un autre plan App Service atteignent un réseau virtuel auquel sont déjà connectées des applications d’un autre plan App Service, vous devez sélectionner un sous-réseau différent de celui utilisé par l’intégration VNet préexistante.  
 
@@ -102,6 +102,8 @@ La fonctionnalité est en préversion aussi pour Linux. Pour utiliser la fonctio
    ![Sélectionner le réseau virtuel et le sous-réseau][7]
 
 Une fois que votre application est intégrée à votre réseau virtuel, elle utilise le serveur DNS avec lequel votre réseau virtuel est configuré. 
+
+L'intégration au réseau virtuel régional requiert que votre sous-réseau d'intégration soit délégué à Microsoft.Web.  L'interface utilisateur de l'intégration au réseau virtuel délègue automatiquement le sous-réseau à Microsoft.Web. Si votre compte ne dispose pas des autorisations réseau suffisantes, vous devez demander à une personne autorisée de configurer les attributs de votre sous-réseau d'intégration de manière à déléguer celui-ci. Pour déléguer manuellement le sous-réseau d'intégration, accédez à l'interface utilisateur du sous-réseau du service Réseau virtuel Azure et définissez la délégation sur Microsoft.Web.
 
 Pour déconnecter votre application du réseau virtuel, sélectionnez **Déconnecter**. Ceci redémarre votre application web. 
 
@@ -249,7 +251,7 @@ L’utilisation de la fonctionnalité d’intégration au réseau virtuel avec p
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également ouvrir la page [nom_site].scm.azurewebsites.net, puis accéder à l’onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console. 
+Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également accéder à la console Kudo via le site [nom du site].scm.azurewebsites.net. Une fois le site chargé, accédez à l'onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console. 
 
 #### <a name="tools"></a>Outils
 Les outils **ping**, **nslookup** et **tracert** ne fonctionnent pas dans la console en raison de contraintes de sécurité. Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé nameresolver.exe. La syntaxe est :

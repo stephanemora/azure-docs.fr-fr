@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934599"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129299"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -147,7 +147,7 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 #### <a name="identity-protection"></a>Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) est un service de sécurité offrant une vue centralisée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. Identity Protection utilise des fonctionnalités existantes de détection des anomalies d’Azure Active Directory (disponibles via les rapports d’activités anormales d’Azure AD) et introduit de nouveaux types d’événements à risque capables de détecter les anomalies en temps réel.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) est un service de sécurité offrant une vue centralisée des détections des risques et des vulnérabilités potentielles qui affectent les identités de votre organisation. Identity Protection utilise des fonctionnalités existantes de détection des anomalies d’Azure Active Directory (disponibles via les rapports d’activités anormales d’Azure AD) et introduit de nouveaux types de détections des risque capables de détecter les anomalies en temps réel.
 
 ## <a name="secure-resource-access"></a>Sécuriser l’accès aux ressources
 

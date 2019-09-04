@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849731"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018841"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -28,13 +28,13 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 - Lorsque la maintenance ne nécessite pas de redémarrage, Azure utilise une migration sur place pour mettre en pause la machine virtuelle pendant la mise à jour de l’hôte. Les opérations de maintenance qui ne nécessitent pas de redémarrage sont appliquées domaine d’erreur par domaine d’erreur. Elles sont arrêtées si des signaux d’avertissement sont reçus.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ces cas, vous disposez d’un intervalle de temps pour démarrer vous-même la maintenance, au moment qui vous convient le mieux.
+- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ce cas, vous disposez d'un délai généralement fixé à 35 jours pour entamer vous-même la maintenance, au moment qui vous convient.
 
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions) :
 
 - Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure.  
-- La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
+- La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, qui est généralement de 35 jours, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
 L’objectif de ces deux fenêtres est de vous donner suffisamment de temps pour commencer la maintenance et redémarrer votre machine virtuelle tout en sachant à quel moment Azure démarrera automatiquement la maintenance.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5ad912b1cee5495e18a5eb2da4d981eadd74dd7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559462"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066427"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrire des conversations à plusieurs participants avec le SDK Speech
 
@@ -25,7 +25,9 @@ L’API **ConversationTranscriber** du SDK Speech vous permet de transcrire des 
 
 * L’API de transcription de conversation est prise en charge pour C++, C# et Java sur Windows, Linux et Android.
 * Le kit de développement ROOBO est l’environnement matériel pris en charge pour la création de transcriptions de conversation, car il offre un ensemble circulaire de micros qui permet d’identifier efficacement l’orateur. [Pour plus d’informations, consultez Kit de développement logiciel (SDK) de dispositifs vocaux](speech-devices-sdk.md).
-* La prise en charge du SDK Speech pour la transcription de conversation est limitée à l’utilisation de flux en mode pull et push avec huit canaux audio PCM de 16 kHz et 16 bits.
+* La prise en charge du SDK Speech pour la transcription de conversation est limitée aux flux en mode pull et push avec 8 canaux audio PCM de 16 kHz et 16 bits. Actuellement, seuls les kits suivants sont pris en charge pour la capture audio 8 canaux :
+   * [ROOBO Smart Audio Circular 7-Mic DK](https://ddk.roobo.com/)
+   * [Azure Kinect DK](https://azure.microsoft.com/en-in/services/kinect-dk/)
 * La transcription de conversation est actuellement disponible dans les langues « en-US » et « zh-CN » dans les régions suivantes : centralus et eastasia.
 
 ## <a name="prerequisites"></a>Prérequis

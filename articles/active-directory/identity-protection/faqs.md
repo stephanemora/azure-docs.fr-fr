@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334021"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126521"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
 
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Identity Protection. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>Pourquoi certains événements à risque ont-ils le statut de « Clôturé (système) » ?
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>Pourquoi certaines détections de risque ont-elles le statut « Clôturé (système) » ?
 
-**R :** Ces événements de risque sont détectés par Identity Protection et clôturés ultérieurement, car ils n’ont plus été considérés comme dangereux. Ces événements ne sont pas comptabilisés dans le niveau de risque de l’utilisateur. 
+**R :** Ces détections de risques sont détectées par Identity Protection et clôturées ultérieurement, car les événements n’ont plus été considérés comme dangereux. Ces événements ne sont pas comptabilisés dans le niveau de risque de l’utilisateur. 
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Fournir des commentaires sur les événements à risque dans Azure AD Identity Protection - Azure Active Directory
-description: Comment et pourquoi vous devez fournir des commentaires sur les événements à risque dans Azure AD Identity Protection.
+title: Fournir des commentaires sur les détections de risques dans Azure AD Identity Protection - Azure Active Directory
+description: Comment et pourquoi vous devez fournir des commentaires sur les détections de risques dans Azure AD Identity Protection.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd0984a78860192f507323491952e895c8de8bf
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 32480e66a71c9e706b1f3eee1a3d459737120c5c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370199"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126329"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Procédure : Indiquer des commentaires sur les risques dans Azure AD Identity Protection
 
@@ -24,7 +24,7 @@ Azure AD Identity Protection vous permet d’indiquer des commentaires sur l’�
 
 ## <a name="what-is-a-detection"></a>Qu’est-ce qu’une détection ?
 
-Une détection Azure AD Identity Protection est un indicateur d’activité suspecte du point de vue des risques d’identité. Les activités suspectes sont appelées des événements à risque. Ces détections basées sur l’identité peuvent être fonction d’une heuristique, de l’apprentissage automatique, ou peuvent provenir encore des produits de partenaires. Ces détections permettent de déterminer les risques liées aux connexions et aux utilisateurs :
+Une détection Azure AD Identity Protection est un indicateur d’activité suspecte du point de vue des risques d’identité. Les activités suspectes sont appelées des détections de risques. Ces détections basées sur l’identité peuvent être fonction d’une heuristique, de l’apprentissage automatique, ou peuvent provenir encore des produits de partenaires. Ces détections permettent de déterminer les risques liées aux connexions et aux utilisateurs :
 
 * Un risque utilisateur reflète la probabilité qu’une identité soit compromise.
 * Un risque de connexion représente la probabilité qu’une connexion soit compromise (par exemple, elle n’est pas autorisée par le propriétaire de l’identité).
@@ -49,15 +49,15 @@ Voici les scénarios et les mécanismes d’envoi des commentaires sur les risqu
 | --- | --- | --- | --- |
 | **Connexion non compromise (faux positif)** <br> Le rapport « Connexions à risque » indique une connexion à risque [État du risque = À risque], mais celle-ci n’était pas compromise. | Sélectionnez la connexion, puis cliquez sur « Confirmer que la connexion est sécurisée ». | Azure AD déplace le risque d’agrégation de la connexion sur Aucun [État du risque = Sécurité confirmée ; Niveau de risque (agrégat) =-] et inverse son impact sur le risque de l’utilisateur. | Actuellement, l’option « Confirmer que la connexion est sécurisée » est uniquement disponible dans le rapport « Connexions à risque ». |
 | **Connexion compromise (vrai positif)** <br> Le rapport « Connexions à risque » indique une connexion à risque [État du risque = À risque] avec un risque faible [Niveau de risque (agrégat) = Faible], et cette connexion a été effectivement compromise. | Sélectionnez la connexion, puis cliquez sur « Confirmer que la connexion est compromise ». | Azure AD déplace le risque d’agrégation de la connexion et le risque utilisateur sur le niveau Élevé [État du risque = Compromission confirmée ; Niveau de risque = Élevé]. | Actuellement, l’option « Confirmer que la connexion est compromise » est uniquement disponible dans le rapport « Connexions à risque ». |
-| **Utilisateur compromis (vrai positif)** <br> Le rapport « Utilisateurs à risque » indique un utilisateur à risque [État du risque = À risque] avec un risque faible [Niveau de risque = Faible], et cet utilisateur a été effectivement compromis. | Sélectionnez l’utilisateur, puis cliquez sur « Confirmer que l’utilisateur est compromis ». | Azure AD déplace le risque utilisateur sur Élevé [État du risque = Compromission confirmée ; Niveau de risque = Élevé] et ajoute une nouvelle détection « L’administrateur a confirmé que cet utilisateur est compromis ». | Actuellement, l’option « Confirmer que l’utilisateur est compromis » est uniquement disponible dans le rapport « Utilisateurs à risque ». <br> La détection « L’administrateur a confirmé que cet utilisateur est compromis » figure dans l’onglet « Événements à risque non liés à une connexion » dans le rapport « Utilisateurs à risque ». |
+| **Utilisateur compromis (vrai positif)** <br> Le rapport « Utilisateurs à risque » indique un utilisateur à risque [État du risque = À risque] avec un risque faible [Niveau de risque = Faible], et cet utilisateur a été effectivement compromis. | Sélectionnez l’utilisateur, puis cliquez sur « Confirmer que l’utilisateur est compromis ». | Azure AD déplace le risque utilisateur sur Élevé [État du risque = Compromission confirmée ; Niveau de risque = Élevé] et ajoute une nouvelle détection « L’administrateur a confirmé que cet utilisateur est compromis ». | Actuellement, l’option « Confirmer que l’utilisateur est compromis » est uniquement disponible dans le rapport « Utilisateurs à risque ». <br> La détection « L’administrateur a confirmé que cet utilisateur est compromis » figure dans l’onglet « Détections de risques non liés à une connexion » dans le rapport « Utilisateurs à risque ». |
 | **Utilisateur corrigé en dehors d’Azure AD Identity Protection (vrai positif + corrigé)** <br> Le rapport « Utilisateurs à risque » indique un utilisateur à risque, et j’ai corrigé par la suite l’utilisateur en dehors d’Azure AD Identity Protection. | 1. Sélectionnez l’utilisateur, puis cliquez sur « Confirmer que l’utilisateur est compromis ». (Ce processus confirme à Azure AD que l’utilisateur a été effectivement compromis.) <br> 2. Attendez que le « Niveau de risque » de l’utilisateur soit défini sur Élevé. (Ce délai d’attente laisse à Azure AD le temps nécessaire pour envoyer les commentaires ci-dessus au moteur de risque.) <br> 3. Sélectionnez l’utilisateur, puis cliquez sur « Ignorer le risque lié à l’utilisateur ». (Ce processus confirme à Azure AD que l’utilisateur n’est plus compromis.) |  Azure AD déplace le risque utilisateur sur Aucun [État du risque = Ignoré ; Niveau de risque =-] et ferme le risque sur toutes les connexions existantes présentant un risque actif. | Cliquez sur « Ignorer le risque lié à l’utilisateur » pour fermer tous les risques liés à l’utilisateur et aux connexions passées. Il est impossible d’annuler cette opération. |
 | **Utilisateur non compromis (faux positif)** <br> Le rapport « Utilisateurs à risque » indique un utilisateur à risque, mais celui-ci n’est pas compromis. | Sélectionnez l’utilisateur, puis cliquez sur « Ignorer le risque lié à l’utilisateur ». (Ce processus confirme à Azure AD que l’utilisateur n’est pas compromis.) | Azure AD déplace le risque utilisateur sur Aucun [État du risque = Ignoré ; Niveau de risque =-]. | Cliquez sur « Ignorer le risque lié à l’utilisateur » pour fermer tous les risques liés à l’utilisateur et aux connexions passées. Il est impossible d’annuler cette opération. |
 | Je souhaite fermer le risque utilisateur, mais je ne sais pas si l’utilisateur est compromis/sécurisé. | Sélectionnez l’utilisateur, puis cliquez sur « Ignorer le risque lié à l’utilisateur ». (Ce processus confirme à Azure AD que l’utilisateur n’est plus compromis.) | Azure AD déplace le risque utilisateur sur Aucun [État du risque = Ignoré ; Niveau de risque =-]. | Cliquez sur « Ignorer le risque lié à l’utilisateur » pour fermer tous les risques liés à l’utilisateur et aux connexions passées. Il est impossible d’annuler cette opération. Nous vous recommandons de corriger l’utilisateur en cliquant sur « Réinitialiser le mot de passe » ou de lui demander de réinitialiser/modifier en toute sécurité ses informations d’identification. |
 
-Les commentaires sur les événements à risque utilisateur dans Azure AD Identity Protection sont traités hors connexion, et leur mise à jour peut prendre un certain temps. La colonne État de traitement du risque indique l’état actuel du traitement de vos commentaires.
+Les commentaires sur les détections de risques utilisateur dans Azure AD Identity Protection sont traités hors connexion, et leur mise à jour peut prendre un certain temps. La colonne État de traitement du risque indique l’état actuel du traitement de vos commentaires.
 
 ![État de traitement du risque du rapport Utilisateurs à risque](./media/howto-provide-risk-event-feedback/risky-users-provide-feedback.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Référence des événements à risque Azure Active Directory Identity Protection](risk-events-reference.md)
+[Référence des détections de risques Azure Active Directory Identity Protection](risk-events-reference.md)

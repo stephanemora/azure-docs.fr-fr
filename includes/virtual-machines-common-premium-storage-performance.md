@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817215"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036023"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -111,7 +111,7 @@ En savoir plus sur [iostat](https://linux.die.net/man/1/iostat) et [PerfMon](htt
 
 La nature des demandes d’E/S, la taille de machine virtuelle, la taille de disque, le nombre de disques, la mise en cache du disque, le traitement multithread et la profondeur de file d’attente représentent les principaux facteurs qui influencent les performances d’une application exécutée sur le stockage Premium. Vous pouvez contrôler certains de ces facteurs avec les dispositifs fournis par le système. La plupart des applications ne vous permettront peut-être pas de modifier directement la taille d’E/S et la profondeur de file d’attente. Par exemple, si vous utilisez SQL Server, vous ne pouvez choisir ni la taille d’E/S ni la profondeur de file d’attente. SQL Server choisit les valeurs optimales de taille d’E/S et de profondeur de file d’attente profondeur de manière à obtenir les meilleures performances. Il est important de comprendre les effets de ces deux types de facteurs sur les performances de votre application, afin que vous puissiez configurer les ressources appropriées pour répondre à vos besoins de performances.
 
-Dans cette section, reportez-vous à la liste de contrôle des exigences de performances applicatives que vous avez créée pour identifier le degré nécessaire d’optimisation des performances de votre application. Sur cette base, vous serez en mesure de déterminer les facteurs de cette section que vous devrez paramétrer. Pour évaluer les effets de chaque facteur sur les performances de votre application, exécutez les outils de benchmarking sur l’installation de votre application. Reportez-vous à la section Benchmarking à la fin de cet article pour connaître les étapes à suivre pour exécuter les outils d’évaluation courants sur les machines virtuelles Windows et Linux.
+Dans cette section, reportez-vous à la liste de contrôle des exigences de performances applicatives que vous avez créée pour identifier le degré nécessaire d’optimisation des performances de votre application. Sur cette base, vous serez en mesure de déterminer les facteurs de cette section que vous devrez paramétrer. Pour évaluer les effets de chaque facteur sur les performances de votre application, exécutez les outils de benchmarking sur l’installation de votre application. Reportez-vous à l’article Benchmarking (voir le lien à la fin) pour connaître les étapes à suivre pour exécuter les outils d’évaluation courants sur les machines virtuelles Windows et Linux.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Aperçu de l’optimisation des IOPS, du débit et de la latence
 
@@ -166,7 +166,7 @@ Pour obtenir une valeur d’E/S par seconde et de bande passante supérieure à 
 > [!NOTE]
 > lorsque vous augmentez les E/S par seconde ou le débit, l’autre valeur augmente également ; assurez-vous de ne pas franchir les limites de débit ou d’E/S par seconde du disque ou de la machine virtuelle lorsque vous augmentez l’une de ces valeurs.
 
-Pour évaluer les effets de la taille des E/S sur les performances de l’application, vous pouvez exécuter des outils d’évaluation sur votre machine virtuelle et sur vos disques. Créez plusieurs séries de tests et utilisez une taille d’E/S différente pour chaque exécution afin d’en déterminer l’impact. Reportez-vous à la section Benchmarking à la fin de cet article pour plus de détails.
+Pour évaluer les effets de la taille des E/S sur les performances de l’application, vous pouvez exécuter des outils d’évaluation sur votre machine virtuelle et sur vos disques. Créez plusieurs séries de tests et utilisez une taille d’E/S différente pour chaque exécution afin d’en déterminer l’impact. Pour plus de détails, reportez-vous à l’article Benchmarking, dont un lien est fourni à la fin.
 
 ## <a name="high-scale-vm-sizes"></a>Tailles des machines virtuelles à grande échelle
 
@@ -387,11 +387,3 @@ Azure Premium Storage configure la valeur spécifiée d’E/S par seconde et de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les types de disque disponibles :
-
-* [Sélectionner un type de disque](../articles/virtual-machines/windows/disks-types.md)  
-
-Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
-
-* [Bonnes pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

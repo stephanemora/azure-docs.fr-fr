@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5f5e023d8014a780fa21e2c3ba18050c4e1a5771
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323622"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095247"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -48,6 +47,7 @@ Pour afficher toutes les métriques de compte Batch :
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 2. Sous **Surveillance**, cliquez sur **Métriques**.
 3. Sélectionnez une ou plusieurs métriques. Si vous le souhaitez, sélectionnez des métriques de ressources supplémentaires à l’aide des listes déroulantes **Abonnements**, **Groupe de ressources**, **Type de ressource** et **Ressource**.
+    * Pour les métriques basées sur le nombre (comme « Nombre de cœurs dédiés » ou « Nombre de nœuds à priorité basse »), utilisez l’agrégation « Moyenne ». Pour les métriques basées sur les événements (comme « Événements de fin de redimensionnement de pool »), utilisez l’agrégation « Nombre ».
 
     ![Métriques Batch](media/batch-diagnostics/metrics-portal.png)
 
@@ -119,7 +119,7 @@ Si vous archivez les journaux de diagnostic Batch dans un compte de stockage, un
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -130,12 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Chaque fichier blob PT1H.json contient des événements au format JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h=12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m = 00) est toujours 00, étant donné que les événements du journal de diagnostic sont répartis en différents objets blob par heure. (Toutes les heures sont exprimées en heure UTC.)
+Chaque fichier blob `PT1H.json` contient des événements au format JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, `h=12`). Pendant l’heure en cours, les événements sont ajoutés au fichier `PT1H.json` à mesure qu’ils se produisent. La valeur de minute (`m=00`) est toujours `00`, étant donné que les événements du journal de diagnostic sont répartis en différents objets blob par heure. (Toutes les heures sont exprimées en heure UTC.)
 
+Voici un exemple d’entrée `PoolResizeCompleteEvent` dans un fichier journal `PT1H.json`. Il comprend des informations sur le nombre actuel et cible de nœuds dédiés et à faible priorité, ainsi que sur l’heure de début et de fin de l’opération :
 
-Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage. 
+Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account). Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage. 
 
 ### <a name="service-log-events"></a>Événements du journal de service
 Les journaux d’activité de service Azure Batch, s’ils sont collectés, contiennent des événements émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. Chaque événement émis par Batch est enregistré au format JSON. Par exemple, ceci est le corps d’un exemple d’**événement de création de pool** :

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877303"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100900"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 
@@ -50,7 +50,7 @@ La liste suivante décrit les actions utilisateur qui peuvent exiger une nouvell
 
 Que se passe-t-il au niveau des règles et des tableaux de bord d’appareil en cas de changement de version ?
 
-Les **règles** peuvent contenir des conditions dépendantes de propriétés. Si vous avez supprimé une ou plusieurs de ces propriétés, ces règles peuvent être séparées dans votre nouvelle version de modèle d’appareil. Vous pouvez accéder à ces règles spécifiques et mettre à jour les conditions pour corriger les règles. Les règles de la version précédente doivent fonctionner sans aucun impact.
+Les **règles** de la version précédente du modèle d'appareil continuent de fonctionner sans modification. Les règles ne migrent pas automatiquement vers la nouvelle version du modèle d'appareil. Comme d'habitude, vous pouvez créer des règles sur la nouvelle version du modèle. Pour plus d'informations, consultez l'article [Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central](howto-create-telemetry-rules.md).
 
 Les **tableaux de bord d’appareil** peuvent contenir plusieurs types de vignette. Certaines vignettes peuvent contenir des paramètres et des propriétés. Quand une propriété ou un paramètre utilisé dans une vignette est supprimé, la vignette est entièrement ou partiellement endommagée. Vous pouvez accéder à la vignette et corriger le problème en supprimant la vignette ou en mettant à jour son contenu.
 

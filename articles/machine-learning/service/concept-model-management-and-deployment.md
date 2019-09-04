@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11a4a17d7816d2302b6549cffb9517e10ad1258d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 270ebb6247e812d42ac84698d0073b41c639cb9a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442348"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011589"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps : Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
@@ -139,9 +139,9 @@ Pour plus d’informations, consultez [Guide pratique pour activer la collecte d
 
 Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audit de bout en bout de toutes vos ressources ML. Plus précisément :
 
-- Azure ML s’intègre à Git pour le suivi des informations du dépôt / de la branche / de la validation d’où provient votre code.
-- Les jeux de données Azure ML vous permettent de suivre et de gérer la version des données.
-- L’historique des exécutions Azure ML gère le code, les données et le calcul utilisés pour entraîner un modèle.
+- Azure ML [s’intègre à Git](how-to-set-up-training-targets.md#gitintegration) pour le suivi des informations du dépôt / de la branche / de la validation d’où provient votre code.
+- Les [jeux de données Azure ML](how-to-create-register-datasets.md) vous permettent de suivre et de gérer la version des données.
+- L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et du calcul utilisés pour entraîner un modèle.
 - Le registre de modèles Azure ML capture toutes les métadonnées associées à votre modèle (l’expérience qui l’a entraîné, où il est déployé, si ses déploiements sont sains).
 
 ## <a name="automate-the-end-to-end-ml-lifecycle"></a>Automatiser le cycle de vie ML de bout en bout 

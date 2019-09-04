@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991912"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019309"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -30,7 +30,7 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un billet sur le [Forum MSDN sur Azure Media Services]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
+### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
 
 | Problème | Description |
 | --- | --- |
@@ -42,10 +42,18 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 | Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
 | Les objets du kit SDK Media Services .NET ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec le cache Azure pour Redis. |Si vous essayez de sérialiser l’objet AssetCollection du SDK pour l’ajouter au cache Azure pour Redis, une exception est levée. |
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
+## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
 
-## <a name="march-2019"></a>Mars 2019
+## <a name="august-2019"></a>Août 2019
+
+### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
+
+Nous annonçons la dépréciation des processeurs multimédias *Windows Azure Media Encoder* (WAME) et *Azure Media Encoder* (AME), qui seront mis hors service le 30 novembre 2019.
+
+Pour plus d'informations, consultez [Migration de WAME vers Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) et [Migration d'AME vers Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+
+## <a name="march-2019"></a>Mars 2019
 
 L’utilisation de la fonctionnalité d’évaluation Media Hyperlapse d’Azure Media Services est déconseillée.
 
@@ -136,7 +144,7 @@ Pour plus d’informations sur ces propriétés, consultez [StreamingEndpoint](h
 
  Vous pouvez désormais utiliser Media Services pour accéder aux données de télémétrie/métriques pour ses services. Vous pouvez utiliser la version actuelle de Media Services pour recueillir des données de télémétrie pour les entités en temps réel de canal, de point de terminaison de streaming et d’archive. Pour plus d’informations, consultez [Télémétrie Azure Media Services](media-services-telemetry-overview.md).
 
-## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Version de juillet 2016
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>Version de juillet 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Mises à jour apportées au fichier manifeste (*.ISM) généré par les tâches d’encodage
 Quand une tâche d’encodage est soumise à Media Encoder Standard ou à Media Encoder Premium, elle génère un [fichier manifeste de streaming](media-services-deliver-content-overview.md) (*.ism) dans la ressource de sortie. Dans la dernière version de service, la syntaxe de ce fichier manifeste de streaming a été mise à jour.
 

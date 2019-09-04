@@ -1,35 +1,35 @@
 ---
-title: 'Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell'
-description: Dans ce tutoriel, vous découvrez comment déployer et configurer un pare-feu Azure avec Azure PowerShell.
+title: Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+description: Dans cet article, vous apprendrez à déployer et configurer un pare-feu Azure à l'aide d'Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
+ms.topic: article
 ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144919"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073079"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
 Vous pouvez utiliser le Pare-feu Azure pour contrôler l’accès réseau d’un réseau hybride à l’aide de règles définissant le trafic réseau autorisé et refusé.
 
-Pour ce tutoriel, vous créez trois réseaux virtuels :
+Pour cet article, vous créerez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, cet article utilise une connexion de passerelle VPN, et un réseau virtuel Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Déclarer les variables
@@ -43,12 +43,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer les machines virtuelles
 > * Tester le pare-feu
 
+Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reportez-vous à [Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l'aide du portail Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ce tutoriel, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+Pour cet article, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
@@ -58,7 +59,7 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
    Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 - Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
 
-Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
+Pour plus d'informations sur la création de ces itinéraires, consultez la section [Créer des itinéraires](#create-the-routes) de cet article.
 
 >[!NOTE]
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe. Par défaut, Pare-feu Azure ne prend en charge le tunneling forcé vers un réseau local.
@@ -74,7 +75,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="declare-the-variables"></a>Déclarer les variables
 
-L’exemple suivant déclare les variables avec les valeurs de ce didacticiel. Dans certains cas, vous devrez peut-être remplacer certaines valeurs par les vôtres pour travailler dans votre abonnement. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
+L'exemple suivant déclare les variables à l'aide des valeurs de cet article. Dans certains cas, vous devrez peut-être remplacer certaines valeurs par les vôtres pour travailler dans votre abonnement. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -118,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Créer le réseau virtuel du hub de pare-feu
 
-Tout d’abord, créez le groupe de ressources qui doit contenir les ressources de ce tutoriel :
+Commencez par créer le groupe de ressources qui doit contenir les ressources de cet article :
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -496,5 +497,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-> [!div class="nextstepaction"]
-> [Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+[Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

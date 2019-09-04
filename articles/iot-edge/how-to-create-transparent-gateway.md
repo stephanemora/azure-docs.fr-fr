@@ -4,17 +4,17 @@ description: Utiliser un appareil Azure IoT Edge en tant que passerelle transpar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698601"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982953"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -52,8 +52,6 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 Un appareil Azure IoT Edge à configurer comme passerelle. Effectuez les étapes d’installation IoT Edge pour l’un des systèmes d’exploitation suivants :
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
-
-Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config.yaml sur l’appareil de passerelle IoT Edge. Il est utilisé pour créer les certificats dans cet article et est référencé dans la chaîne de connexion des appareils en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte.
 
 ## <a name="generate-certificates-with-windows"></a>Générer des certificats avec Windows
 
@@ -142,15 +140,18 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
    Cette commande de script crée plusieurs fichiers de clés et de certificats, mais nous parlerons d’un de ces fichiers en particulier plus loin dans cet article :
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Entrez le nom d’hôte de passerelle, tel qu’il est indiqué dans le fichier iotedge\config.yaml situé sur l’appareil de passerelle. Le nom d’hôte de passerelle est utilisé pour nommer les fichiers et pendant la génération des certificats. 
+2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Donnez un nom au certificat d’autorité de certification, par exemple **MonEdgeDeviceCA**. Le nom est utilisé pour nommer les fichiers et pendant la génération des certificats. 
 
    ```powershell
-   New-CACertsEdgeDevice "<gateway hostname>"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    Cette commande de script crée plusieurs fichiers de clés et de certificats, dont ces deux fichiers que nous utiliserons plus loin dans cet article :
-   * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Si vous fournissez un nom autre que **MyEdgeDeviceCA**, les certificats et les clés créés par cette commande refléteront ce nom. 
 
 Maintenant que vous avez créé les certificats, passez à l’étape suivante pour [installer les certificats sur la passerelle](#install-certificates-on-the-gateway)
 
@@ -193,6 +194,8 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
 
 1. Créez le certificat d’autorité de certification racine et un certificat intermédiaire. Ces certificats sont placés dans *\<WRKDIR>* .
 
+   Si vous avez déjà créé des certificats racines et intermédiaires dans ce répertoire de travail, ne réexécutez pas ce script. La réexécution de ce script remplace les certificats existants. Au lieu de cela, passez à l’étape suivante. 
+
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
@@ -200,15 +203,18 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
    Le script crée plusieurs fichiers de clés et de certificats. Nous utiliserons ce fichier en particulier dans la section suivante :
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Entrez le nom d’hôte de passerelle, tel qu’il est indiqué dans le fichier iotedge/config.yaml situé sur l’appareil de passerelle. Le nom d’hôte de passerelle est utilisé pour nommer les fichiers et pendant la génération des certificats. 
+2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Donnez un nom au certificat d’autorité de certification, par exemple **MyEdgeDeviceCA**. Le nom est utilisé pour nommer les fichiers et pendant la génération des certificats. 
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<gateway hostname>"
+   ./certGen.sh create_edge_device_ca_certificate "MyEdgeDeviceCA"
    ```
 
    Le script crée plusieurs fichiers de clés et de certificats. Nous utiliserons ces deux fichiers en particulier dans la section suivante : 
-   * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Si vous fournissez un nom autre que **MyEdgeDeviceCA**, les certificats et les clés créés par cette commande refléteront ce nom. 
 
 ## <a name="install-certificates-on-the-gateway"></a>Installer des certificats sur la passerelle
 
@@ -216,8 +222,8 @@ Maintenant que vous avez créé une chaîne de certification, il vous reste à l
 
 1. Copiez les fichiers suivants à partir de *\<WRKDIR>* . Enregistrez-les à l’emplacement de votre choix sur votre appareil IoT Edge. Nous appellerons ce répertoire de destination *\<CERTDIR>* . 
 
-   * Certificat d’autorité de certification d’appareil : `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * Clé privée d’autorité de certification d’appareil : `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * Certificat d’autorité de certification d’appareil : `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * Clé privée d’autorité de certification d’appareil : `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
    * Autorité de certification racine : `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
    Vous pouvez utiliser un service comme [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer les fichiers de certificats.  Si vous avez généré les certificats directement sur l’appareil IoT Edge, vous pouvez ignorer cette étape et utiliser le chemin du répertoire de travail.
@@ -233,16 +239,16 @@ Maintenant que vous avez créé une chaîne de certification, il vous reste à l
 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
       ```
    
    * Linux : 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>/private/iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 

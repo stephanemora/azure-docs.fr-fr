@@ -9,22 +9,21 @@ editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859122"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098591"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Authentification et autorisation dans Azure App Service pour les applications mobiles
 
 Cet article décrit comment l’authentification et autorisation fonctionne lorsque vous développez des applications mobiles natives avec un serveur principal App Service. App Service fournit l’authentification intégrée et l’autorisation, pour que vos applications mobiles puissent se connecter aux utilisateurs sans modifier le code dans App Service. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur. 
 
-Cet article se concentre sur le développement d’applications mobiles. Si vous souhaitez démarrer rapidement avec l’authentification et l’autorisation App Service pour votre application mobile, consultez un des didacticiels suivants [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova]). 
+Cet article se concentre sur le développement d’applications mobiles. Pour une prise en main rapide de l'authentification et de l'autorisation App Service de votre application mobile, reportez-vous à l'un des didacticiels suivants : [Ajout de l'authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova]). 
 
 Pour en savoir plus sur l’authentification et l’autorisation dans App Service, consultez [Authentification et autorisation dans Azure App Service](../app-service/overview-authentication-authorization.md).
 
@@ -58,18 +57,18 @@ Pour plus d’informations sur le flux d’authentification, consultez [Flux d�
 Les didacticiels suivants expliquent comment ajouter une authentification à vos clients mobiles en utilisant le [flux dirigé vers le serveur](../app-service/overview-authentication-authorization.md#authentication-flow) :
 
 * [Ajout de l'authentification à votre application iOS][iOS]
-* [Ajout de l’authentification à votre application Android][Android]
+* [Ajout de l'authentification à votre application Android][Android]
 * [Ajout de l’authentification à votre application Windows][Windows]
-* [Ajout de l’authentification à votre application Xamarin.iOS][Xamarin.iOS]
-* [Ajout de l’authentification à votre application Xamarin.Android][Xamarin.Android]
-* [Ajout de l’authentification à votre application Xamarin.Forms][Xamarin.Forms]
-* [Ajout de l’authentification à votre application Cordova][Cordova]
+* [Ajout de l'authentification à votre application Xamarin.iOS][Xamarin.iOS]
+* [Ajout de l'authentification à votre application Xamarin.Android][Xamarin.Android]
+* [Ajout de l'authentification à votre application Xamarin.Forms][Xamarin.Forms]
+* [Ajout de l'authentification à votre application Cordova][Cordova]
 
 Utilisez les ressources suivantes si vous souhaitez exploiter le [flux dirigé vers le client](../app-service/overview-authentication-authorization.md#authentication-flow) pour Azure Active Directory :
 
-* [Bibliothèque Active Directory Authentication Library pour iOS][ADAL-iOS]
-* [Bibliothèque Active Directory Authentication Library pour Android][ADAL-Android]
-* [Bibliothèque Active Directory Authentication Library pour Windows et Xamarin][ADAL-dotnet]
+* [Bibliothèque d'authentification Active Directory pour iOS][ADAL-iOS]
+* [Bibliothèque d'authentification Active Directory pour Android][ADAL-Android]
+* [Bibliothèque d'authentification Active Directory pour Windows et Xamarin][ADAL-dotnet]
 
 Utilisez les ressources suivantes si vous souhaitez exploiter le [flux dirigé vers le client](../app-service/overview-authentication-authorization.md#authentication-flow) pour Facebook :
 

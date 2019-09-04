@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514079"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128654"
 ---
 # <a name="algorithm--module-reference-overview"></a>Vue d’ensemble des informations de référence sur les algorithmes et les modules
 
@@ -36,7 +36,7 @@ Les modules sont organisés par fonctionnalités :
 | Transformation des données | Opérations sur les données qui sont uniques à Machine Learning, telles que la normalisation ou le compartimentage de données, la sélection de fonctionnalité et la réduction de dimensionnalité.| [Sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md) <br/> [Modifier des métadonnées](edit-metadata.md) <br/> [Nettoyage des données manquantes](clean-missing-data.md) <br/> [Ajouter des colonnes](add-columns.md) <br/> [Ajouter des lignes](add-rows.md) <br/> [Supprimer les données en double](remove-duplicate-rows.md) <br/> [Joindre des données](join-data.md) <br/> [Fractionner les données](split-data.md) <br/> [Normaliser des données](normalize-data.md) <br/> [Partition et échantillon](partition-and-sample.md) |
 | Modules Python et R | Écrivez du code et incorporez-le dans un module pour intégrer Python et R à votre expérience. | [Exécuter un script Python](execute-python-script.md)   <br/> [Créer un modèle Python](create-python-model.md) <br/> [Exécuter un script R](execute-r-script.md)
 |  | **Algorithmes de Machine Learning** : | |
-| classification ; | Prédisez une classe.  Choisissez entre des algorithmes binaires (à deux classes) ou multiclasses.| [Forêt d’arbres décisionnels multiclasse](multiclass-decision-forest.md) <br/> [Régression logistique multiclasse](multiclass-logistic-regression.md)  <br/> [Réseau neuronal multiclasse](multiclass-neural-network.md)  <br/>  [Régression logistique à deux classes](two-class-logistic-regression.md)  <br/>[Perceptron moyenné à deux classes](two-class-averaged-perceptron.md) <br/> [Arbre de décision&nbsp;mis en avant&nbsp;à deux&nbsp;classes](two-class-boosted-decision-tree.md)  <br/> [Forêt d’arbres décisionnels à deux classes](two-class-decision-forest.md)  <br/> [Réseau neuronal à deux classes](two-class-neural-network.md)  <br/> [Prise en charge&nbsp;de machine&nbsp;vectorielle&nbsp;à deux classes](two-class-support-vector-machine.md) 
+| classification ; | Prédisez une classe.  Choisissez entre des algorithmes binaires (à deux classes) ou multiclasses.| [Forêt d’arbres décisionnels multiclasse](multiclass-decision-forest.md) <br/> [Arbre de décision multiclasse optimisé](multiclass-boosted-decision-tree.md) <br/> [Régression logistique multiclasse](multiclass-logistic-regression.md)  <br/> [Réseau neuronal multiclasse](multiclass-neural-network.md)  <br/>  [Régression logistique à deux classes](two-class-logistic-regression.md)  <br/>[Perceptron moyenné à deux classes](two-class-averaged-perceptron.md) <br/> [Arbre de décision&nbsp;mis en avant&nbsp;à deux&nbsp;classes](two-class-boosted-decision-tree.md)  <br/> [Forêt d’arbres décisionnels à deux classes](two-class-decision-forest.md)  <br/> [Réseau neuronal à deux classes](two-class-neural-network.md)  <br/> [Prise en charge&nbsp;de machine&nbsp;vectorielle&nbsp;à deux classes](two-class-support-vector-machine.md) 
 | Clustering | Regroupez des données.| [Clustering k-moyennes](k-means-clustering.md)
 | régression ; | Prédisez une valeur. | [Régression linéaire](linear-regression.md)  <br/> [Régression de réseau neuronal](neural-network-regression.md)  <br/> [Régression de forêt d’arbres décisionnels](decision-forest-regression.md)  <br/> [Régression&nbsp;d’arbre&nbsp;de décision&nbsp;mise en avant](boosted-decision-tree-regression.md)
 |  | **Créer et évaluer des modèles** : | |

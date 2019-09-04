@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679265"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018993"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connecter des données de journaux Office 365
 
@@ -37,6 +37,9 @@ Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic
 
 - Vous devez être un administrateur général ou un administrateur de la sécurité sur ce locataire
 - Sur votre ordinateur, à partir duquel vous vous êtes connecté à Azure Sentinel pour créer la connexion, assurez-vous que le port 4433 est ouvert pour le trafic web.
+- Si votre abonné ne dispose pas d’une licence Office 365 E3 ou Office 365 E5, vous devez activer l’audit unifié pour celui-ci à l’aide de l’un des processus suivants :
+    - [Utilisez le cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) et activez le paramètre « UnifiedAuditLogIngestionEnabled »).
+    - [Ou utilisez l’interface utilisateur du Centre de sécurité et de conformité](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Connexion à Office 365
 

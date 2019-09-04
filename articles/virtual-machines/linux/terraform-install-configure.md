@@ -9,18 +9,17 @@ editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 105b3805e1297f796e0353f9328044896248aaa0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876339"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081752"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
@@ -47,10 +46,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Créez un [principal de service Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform d’approvisionner des ressources dans Azure. Le principal de service autorise vos scripts Terraform à approvisionner des ressources dans votre abonnement Azure.
 
-Si vous avez plusieurs abonnements Azure, commencez par interroger votre compte avec [az account show](/cli/azure/account#az-account-show) pour obtenir une liste des valeurs d’ID d’abonnement et d’ID abonné :
+Si vous avez plusieurs abonnements Azure, commencez par interroger votre compte avec [az account list](/cli/azure/account#az-account-list) pour obtenir une liste des valeurs d’ID d’abonnement et d’ID abonné :
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Pour utiliser un abonnement sélectionné, paramétrez l’abonnement de cette session avec [az account set](/cli/azure/account#az-account-set). Définissez la variable d’environnement `SUBSCRIPTION_ID` pour qu’elle contienne la valeur du champ `id` retourné à partir de l’abonnement que vous souhaitez utiliser :

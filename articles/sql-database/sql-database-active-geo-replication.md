@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935066"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092811"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
@@ -106,6 +106,10 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 ## <a name="preparing-secondary-database-for-failover"></a>Préparation de la base de données secondaire pour le basculement
 
 Pour vous assurer que votre application peut accéder immédiatement au nouveau réplica principal après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de la base de données secondaires sont correctement configurées. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md). Pour garantir la conformité après le basculement, vérifiez que la stratégie de rétention de sauvegarde de la base de données secondaire correspond à celle du serveur principal. Ces paramètres ne font pas partie de la base de données et ne sont pas répliqués. Par défaut, le réplica secondaire est configuré avec une période de rétention de récupération jusqu`à une date et heure par défaut de sept jours. Pour plus d’informations, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> Si votre base de données est membre d'un groupe de basculement, vous ne pouvez pas lancer son basculement à l'aide de la commande de basculement de la géoréplication. Utilisez la commande de basculement du groupe. Pour basculer une base de données individuelle, vous devez d'abord la supprimer du groupe de basculement. Pour plus d'informations, consultez [Groupes de basculement](sql-database-auto-failover-group.md). 
+
 
 ## <a name="configuring-secondary-database"></a>Configuration d'une base de données secondaire
 

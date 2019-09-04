@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84eb0e230875b999218b67d47a66a3c92b494253
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237692"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072807"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l'aide d'un hub d'événements
 
@@ -35,7 +35,7 @@ Ce tutoriel explique comment créer et configurer un hub d’événements dans A
 1. Une fois votre hub d'événements créé, sélectionnez-le dans la liste.
 1. Dans le menu, sous **Entités**, sélectionnez **Event Hubs**.
 1. Sélectionnez le nom du hub d'événements pour le configurer.
-1. Sous **Entités**, sélectionnez **Groupes de consommateurs**, puis **Groupe de consommateurs**.
+1. Sous **Vue d’ensemble**, sélectionnez **Groupes de consommateurs**, puis **Groupe de consommateurs**.
 
     [![Créer un groupe de consommateurs](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
@@ -68,9 +68,9 @@ La mise à jour de Time Series Insights utilise des instances pour ajouter des d
 
 1. Sur la barre de recherche, recherchez **Event Hubs**. Dans la liste retournée, sélectionnez **Event Hubs**.
 
-1. Sélectionnez votre hub d'événements.
+1. Sélectionnez votre instance d’hub d’événements.
 
-1. Accédez à **Stratégies d'accès partagé** > **RootManageSharedAccessKey**. Copiez la valeur de la **Chaîne de connexion-clé primaire**.
+1. Accédez à **Stratégies d’accès partagé** > **MySendPolicy**. Copiez la valeur de la **Chaîne de connexion-clé primaire**.
 
     [![Copier la valeur de la chaîne de connexion de la clé primaire](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 

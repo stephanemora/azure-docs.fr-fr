@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 69951693f9d3bacb556453aba954620815884d43
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9e4f2e355240ba8682cbe9f86f2be94e7dd0d92d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177710"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032360"
 ---
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -28,7 +28,7 @@ Après avoir exécuté le script, notez l’**ID** et le **mot de passe** du pri
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
-## <a name="use-an-existing-service-principal"></a>Utiliser un principal de service existant
+### <a name="use-an-existing-service-principal"></a>Utiliser un principal de service existant
 
 Pour accorder l’accès au registre à un principal de service existant, vous devez assigner un nouveau rôle au principal de service. Comme pour la création d’un principal du service, vous pouvez notamment accorder un accès en envoi (push), un accès en envoi et tirage (pull), ou un accès propriétaire.
 

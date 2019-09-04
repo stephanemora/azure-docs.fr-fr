@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 5a09b8e589b0d4ae9daa3bbd32c38f4946d16d0e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567626"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060657"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à l’instance gérée Azure SQL Database
 
 Aujourd’hui, plusieurs choix s’offrent à vous pour déterminer comment et où héberger votre application.
 

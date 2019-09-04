@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c99f815bd58b03dbc43ba742577259be5638fef9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240498"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035729"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Utiliser le service Azure Machine Learning dans un notebook
 
@@ -27,8 +27,8 @@ Azure Notebooks est préconfiguré avec l’environnement nécessaire pour trava
 ## <a name="clone-the-sample-into-your-account"></a>Cloner l’exemple dans votre compte
 
 1. Connectez-vous à [Azure Notebooks](https://notebooks.azure.com/).
-1. Sélectionnez **My Projects** (Mes projets) pour accéder au tableau de bord des projets.
-1. Sélectionnez le bouton **Upload GitHub Repo** (Charger le dépôt GitHub) (flèche vers le haut) pour ouvrir la fenêtre contextuelle **Upload GitHub Repo** (Charger le dépôt GitHub).
+1. Sélectionnez **Mes projets** pour accéder au tableau de bord des projets.
+1. Sélectionnez le bouton **Charger le référentiel GitHub** (flèche haut) pour ouvrir la fenêtre contextuelle **Charger le référentiel GitHub**.
 1. Dans la fenêtre contextuelle, entrez `Azure/MachineLearningNotebooks` dans **Dépôt GitHub**, indiquez un nom de projet dans **Nom du projet**, par exemple « Service Azure Machine Learning », entrez un identificateur dans **ID de projet**, décochez **Public** si vous le souhaitez, puis sélectionnez **Importer**.
 
     ![Importer un exemple Azure Machine Learning Notebook dans votre compte Notebooks](media/azureml-import-project.png)
@@ -41,7 +41,7 @@ Azure Notebooks est préconfiguré avec l’environnement nécessaire pour trava
 
     - Étant donné qu’Azure Notebooks contient déjà les packages Python nécessaires, vous pouvez exécuter l’extrait de code de l’étape 2 de la configuration requise pour vérifier la version du SDK Azure ML.
 
-1. Une fois la configuration terminée, sélectionnez **01.getting-started** pour naviguer dans le dossier contenant les treize différents exemples de notebooks. Notez que chacun d’eux est explicite.
+1. Une fois la configuration terminée, sélectionnez **01.getting-started** pour ouvrir un dossier contenant treize exemples de notebooks différents. Notez que chacun d'eux est explicite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

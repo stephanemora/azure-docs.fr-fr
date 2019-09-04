@@ -9,17 +9,16 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073212"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -31,11 +30,11 @@ Azure App Service Environment est un déploiement d’Azure App Service dans un 
 - **Stockage** : le stockage est utilisé pour héberger les applications publiées client.
 
 > [!NOTE]
-> Il existe deux versions d’App Service Environment : ASEv1 et ASEv2. Dans un environnement ASEv1, vous devez gérer les ressources avant de pouvoir les utiliser. Pour savoir comment configurer et gérer un environnement ASEv1, consultez [Configuration d’un environnement App Service v1][ConfigureASEv1]. Le reste de cet article se concentre sur ASEv2.
+> Il existe deux versions d’App Service Environment : ASEv1 et ASEv2. Dans un environnement ASEv1, vous devez gérer les ressources avant de pouvoir les utiliser. Pour configurer et gérer un environnement ASEv1, consultez [Configuration d'un environnement App Service v1][ConfigureASEv1]. Le reste de cet article se concentre sur ASEv2.
 >
 >
 
-Vous pouvez déployer un environnement ASE (ASEv1 et ASEv2) avec une adresse IP virtuelle externe ou interne pour accéder à l’application. Le déploiement avec une adresse IP virtuelle externe est communément appelé ASE externe. La version interne est appelée ASE d’équilibrage de charge interne, car elle utilise un équilibreur de charge interne (ILB). Pour plus d’informations sur l’environnement ASE d’équilibrage de charge interne, consultez [Create and Use an Internal Load Balancer with an App Service Environment][MakeILBASE] (Créer et utiliser un équilibreur de charge interne avec un environnement App Service).
+Vous pouvez déployer un environnement ASE (ASEv1 et ASEv2) avec une adresse IP virtuelle externe ou interne pour accéder à l’application. Le déploiement avec une adresse IP virtuelle externe est communément appelé ASE externe. La version interne est appelée ASE d’équilibrage de charge interne, car elle utilise un équilibreur de charge interne (ILB). Pour plus d’informations sur l'environnement ASE d'équilibrage de charge interne, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement App Service][MakeILBASE].
 
 ## <a name="create-an-app-in-an-ase"></a>Créer une application dans un ASE ##
 
@@ -44,7 +43,7 @@ Pour créer une application dans un environnement ASE, vous utilisez le même pr
 - Au lieu de choisir un emplacement géographique dans lequel déployer votre application, vous choisissez un environnement ASE comme emplacement.
 - Tous les plans App Service créés dans un environnement ASE doivent être dans un niveau tarifaire Isolé.
 
-Si vous ne disposez pas d’un environnement ASE, vous pouvez en créer un en suivant les instructions de l’article [Create an App Service Environment][MakeExternalASE] (Créer un environnement App Service).
+Si vous n'avez pas d'environnement ASE, vous pouvez en créer un en suivant les instructions de l'article [Créer un environnement App Service][MakeExternalASE].
 
 Pour créer une application dans un ASE :
 
@@ -78,7 +77,7 @@ Pour créer une application dans un ASE :
     > Les applications Linux et les applications Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
     >
 
-2. Sélectionnez **Créer**.
+2. Sélectionnez **Create** (Créer).
 
 ## <a name="how-scale-works"></a>Fonctionnement de la mise à l’échelle ##
 
@@ -92,7 +91,7 @@ Dans un environnement ASE, vous pouvez monter en puissance jusqu’à 100 insta
 
 ## <a name="ip-addresses"></a>Adresses IP ##
 
-App Service a la possibilité d’allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d’un certificat SSL basé sur IP, comme indiqué ici : [Lier un certificat SSL personnalisé existant à Azure App Service][ConfigureSSL]. Toutefois, dans un environnement ASE, il existe une exception notable. Vous ne pouvez pas ajouter des adresses IP supplémentaires à utiliser pour un SSL basé sur IP dans un environnement ASE d’équilibrage de charge interne (ILB).
+App Service a la possibilité d’allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d'un certificat SSL basé sur IP, comme indiqué ici : [Lier un certificat SSL personnalisé existant à Azure App Service][ConfigureSSL]. Toutefois, dans un environnement ASE, il existe une exception notable. Vous ne pouvez pas ajouter des adresses IP supplémentaires à utiliser pour un SSL basé sur IP dans un environnement ASE d’équilibrage de charge interne (ILB).
 
 Dans un environnement ASEv1, vous devez allouer les adresses IP en tant que ressources avant de pouvoir les utiliser. Dans un environnement ASEv2, utilisez-les à partir de votre application comme vous le feriez dans l’App Service multilocataire. Il existe toujours une adresse de secours dans un environnement ASEv2, dans la limite de 30 adresses IP. Chaque fois que vous en utilisez une, une autre est ajoutée afin qu’une adresse soit toujours disponible si besoin. Un délai est nécessaire pour allouer une autre adresse IP, ce qui empêche d’ajouter des adresses IP de façon rapprochée.
 
@@ -100,20 +99,20 @@ Dans un environnement ASEv1, vous devez allouer les adresses IP en tant que ress
 
 Dans un environnement ASEv2, lorsque vous augmentez la taille des instances de vos plans App Service, les workers sont automatiquement ajoutés pour les prendre en charge. Chaque environnement ASE est créé avec deux serveurs frontaux. De plus, les serveurs frontaux se mettent automatiquement à l’échelle sur le rythme d’un serveur frontal toutes les 15 instances dans vos plans App Service. Par exemple, si vous avez 15 instances, vous avez trois serveurs frontaux. Si vous effectuez une mise à l’échelle pour 30 instances, vous avez quatre serveurs frontaux, et ainsi de suite.
 
-Ce nombre de serveurs frontaux doit être plus que suffisant pour la plupart des scénarios. Toutefois, vous pouvez le faire évoluer à un rythme plus rapide. Vous pouvez modifier le ratio sur la valeur d’un serveur frontal toutes les cinq instances. La modification du ratio est facturée. Pour en savoir plus, consultez [Tarification d’App Service][Pricing].
+Ce nombre de serveurs frontaux doit être plus que suffisant pour la plupart des scénarios. Toutefois, vous pouvez le faire évoluer à un rythme plus rapide. Vous pouvez modifier le ratio sur la valeur d’un serveur frontal toutes les cinq instances. La modification du ratio est facturée. Pour en savoir plus, consultez [Tarification d'Azure App Service][Pricing].
 
 Les ressources du serveur frontal sont le point de terminaison HTTP/HTTPS pour l’environnement ASE. Avec la configuration de serveur frontal par défaut, l’utilisation de mémoire par serveur frontal se situe en permanence autour de 60 %. Les charges de travail client ne s’exécutent pas sur un serveur frontal. Le facteur clé pour un serveur frontal par rapport à la mise à l’échelle est l’UC, qui dépend principalement du trafic HTTPS.
 
 ## <a name="app-access"></a>Accès de l’application ##
 
-Dans un environnement ASE externe, le domaine qui est utilisé lorsque vous créez des applications est différent de l’App Service multilocataire. Il inclut le nom de l’environnement App Service. Pour plus d’informations sur la création d’un environnement ASE externe, consultez [Create an App Service Environment][MakeExternalASE] (Créer un environnement App Service). Le nom de domaine dans un environnement ASE externe ressemble à *.&lt;asename&gt;.p.azurewebsites.net*. Par exemple, si votre ASE s’appelle _external-ase_, et si vous hébergez une application appelée _contoso_ dans cet environnement ASE, vous l’atteignez aux URL suivantes :
+Dans un environnement ASE externe, le domaine qui est utilisé lorsque vous créez des applications est différent de l’App Service multilocataire. Il inclut le nom de l’environnement App Service. Pour plus d'informations sur la création d'un environnement ASE externe, consultez [Créer un environnement App Service][MakeExternalASE]. Le nom de domaine dans un environnement ASE externe ressemble à *.&lt;asename&gt;.p.azurewebsites.net*. Par exemple, si votre ASE s’appelle _external-ase_, et si vous hébergez une application appelée _contoso_ dans cet environnement ASE, vous l’atteignez aux URL suivantes :
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-L’URL contoso.scm.external-ase.p.azurewebsites.net est utilisée pour accéder à la console Kudu ou pour publier votre application à l’aide de web deploy. Pour obtenir des informations sur la console Kudu, visionnez [Exploring the Super Secret Kudu Debug Console - with David Ebbo][Kudu] (Découverte de la console de débogage Kudu super secrète avec David Ebbo). La console Kudu offre une interface utilisateur web pour le débogage, le chargement et la modification des fichiers, etc.
+L’URL contoso.scm.external-ase.p.azurewebsites.net est utilisée pour accéder à la console Kudu ou pour publier votre application à l’aide de web deploy. Pour plus d'informations sur la console Kudu, consultez [Console Kudu pour Azure App Service][Kudu]. La console Kudu offre une interface utilisateur web pour le débogage, le chargement et la modification des fichiers, etc.
 
-Dans un environnement ASE d’équilibrage de charge interne, vous déterminez le domaine au moment du déploiement. Pour plus d’informations sur la création d’un environnement ASE d’équilibrage de charge interne, consultez [Create and use an ILB ASE][MakeILBASE] (Créer et utiliser un environnement ASE d’équilibrage de charge interne). Si vous spécifiez le nom de domaine _ilb-ase.info_, les applications se trouvant dans cet environnement ASE utilisent ce domaine lors de la création d’applications. Pour l’application nommée _contoso_, les URL sont :
+Dans un environnement ASE d’équilibrage de charge interne, vous déterminez le domaine au moment du déploiement. Pour plus d'informations sur la création d'un environnement ASE d'équilibrage de charge interne, consultez [Créer et utiliser un environnement ASE d'équilibrage de charge interne][MakeILBASE]. Si vous spécifiez le nom de domaine _ilb-ase.info_, les applications se trouvant dans cet environnement ASE utilisent ce domaine lors de la création d’applications. Pour l’application nommée _contoso_, les URL sont :
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
@@ -128,9 +127,9 @@ Tout comme vous le feriez avec l’App Service multilocataire, dans un environne
 - Opération de glisser-déplacer dans la console Kudu.
 - Un IDE tel que Visual Studio, Eclipse ou Intellij IDEA.
 
-Avec un environnement ASE externe, toutes ces options de publication ont le même comportement. Pour plus d’informations, consultez [Déploiement dans Azure App Service][AppDeploy]. 
+Avec un environnement ASE externe, toutes ces options de publication ont le même comportement. Pour plus d'informations, consultez [Déploiement dans Azure App Service][AppDeploy]. 
 
-La principale différence avec la publication concerne un environnement ASE d’équilibrage de charge interne. Avec un environnement ASE d’équilibrage de charge interne, les points de terminaison de publication sont tous disponibles uniquement via l’équilibrage de charge interne. L’équilibrage de charge interne se trouve sur une adresse IP privée dans le sous-réseau de l’environnement ASE du réseau virtuel. Si vous n’avez pas d’accès réseau à l’équilibrage de charge interne, vous ne pouvez pas publier d’applications dans cet environnement ASE. Comme indiqué dans [Create and Use an Internal Load Balancer with an App Service Environment][MakeILBASE] (Créer et utiliser un équilibreur de charge interne avec un environnement App Service), vous devez configurer le DNS pour les applications du système. Cela inclut le point de terminaison GCL. S’ils ne sont pas définis correctement, vous ne pouvez pas publier. Vos IDE doivent également avoir un accès réseau à l’équilibreur de charge interne pour publier directement dans celui-ci.
+La principale différence avec la publication concerne un environnement ASE d’équilibrage de charge interne. Avec un environnement ASE d’équilibrage de charge interne, les points de terminaison de publication sont tous disponibles uniquement via l’équilibrage de charge interne. L’équilibrage de charge interne se trouve sur une adresse IP privée dans le sous-réseau de l’environnement ASE du réseau virtuel. Si vous n’avez pas d’accès réseau à l’équilibrage de charge interne, vous ne pouvez pas publier d’applications dans cet environnement ASE. Comme indiqué dans [Créer et utiliser un environnement ASE d'équilibrage de charge interne][MakeILBASE], vous devez configurer le DNS pour les applications du système. Cela inclut le point de terminaison GCL. S’ils ne sont pas définis correctement, vous ne pouvez pas publier. Vos IDE doivent également avoir un accès réseau à l’équilibreur de charge interne pour publier directement dans celui-ci.
 
 À la base, les systèmes d’intégration continue sur Internet, comme GitHub et Azure DevOps, ne fonctionnent pas avec un environnement ASE d’équilibreur de charge interne, car le point de terminaison de publication n’est pas accessible via Internet. Pour Azure DevOps, vous pouvez contourner ce problème en installant un agent de mise en production auto-hébergé dans votre réseau interne où il peut accéder à l’équilibreur de charge interne. Vous pouvez aussi utiliser un système d’intégration continue qui s’appuie sur un modèle d’extraction, comme Dropbox.
 
@@ -148,7 +147,7 @@ Par exemple, si vous ajustez le ratio de mise à l’échelle sur 10, un serveur
 
 Si vous avez ajusté la taille des frontaux à 2 cœurs, mais n’avez pas modifié le rapport, vous payez pour les cœurs supplémentaires.  Un ASE est créé avec 2 serveurs frontaux, ainsi vous payeriez pour 2 cœurs supplémentaires même en dessous du seuil de mise à l’échelle automatique si vous augmentez la taille à des serveurs frontaux sur 2 cœurs.
 
-Pour en savoir plus, consultez [Tarification d’App Service][Pricing].
+Pour en savoir plus, consultez [Tarification d'Azure App Service][Pricing].
 
 ## <a name="delete-an-ase"></a>Supprimer un environnement ASE ##
 

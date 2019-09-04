@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c6b526cdd317e8b075d28e0fb9018501148c731c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850316"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971292"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -31,11 +31,23 @@ Lorsque des erreurs surviennent lors de l’exécution de runbooks dans Azure Au
    - **Erreurs de syntaxe**
    - **Erreurs logiques**
 
-2. **Veillez à ce que vos nœuds et votre espace de travail Automation disposent des modules nécessaires :** Si votre runbook importe des modules, assurez-vous qu’ils sont disponibles dans votre compte Automation à l’aide des étapes répertoriées dans [Importer des modules](../shared-resources/modules.md#import-modules). Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
+2. Examinez les [flux d’erreur](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) du runbook pour voir s’ils contiennent des messages spécifiques et comparez-les aux erreurs ci-dessous.
+
+3. **Veillez à ce que vos nœuds et votre espace de travail Automation disposent des modules nécessaires :** Si votre runbook importe des modules, assurez-vous qu’ils sont disponibles dans votre compte Automation à l’aide des étapes répertoriées dans [Importer des modules](../shared-resources/modules.md#import-modules). Mettez à jour vos modules vers la dernière version disponible en suivant les instructions fournies dans la section [Mise à jour des modules Azure dans Azure Automation](..//automation-update-azure-modules.md). Pour plus d'informations sur la résolution des problèmes, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
+
+### <a name="if-the-runbook-is-suspended-or-unexpectedly-failed"></a>En cas d'échec inattendu ou d'interruption du runbook
+
+Plusieurs raisons peuvent être à l’origine de l’échec ou de l’interruption d’un runbook :
+
+* Les [états du travail](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) définissent les états du runbook et les causes possibles.
+* [Ajoutez une sortie supplémentaire](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) au runbook pour identifier ce qui se passe avant l'interruption du runbook.
+* [Gérez les exceptions](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) qui sont levées par votre travail.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erreurs d’authentification avec des runbooks Azure Automation
 
 ### <a name="login-azurerm"></a>Scénario : Exécuter Login-AzureRmAccount pour se connecter
+
+Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Consultez [Gérer les comptes d'identification Azure Automation](https://docs.microsoft.com/azure/automation/manage-runas-account).
 
 #### <a name="issue"></a>Problème
 
@@ -574,6 +586,97 @@ Il existe deux façons de résoudre cette erreur :
 * Si votre runbook rencontre ce message d’erreur, exécutez-le sur un runbook Worker hybride.
 
 Pour en savoir plus sur ce comportement et sur d’autres comportements des runbooks Azure Automation, consultez [Comportement des runbooks](../automation-runbook-execution.md#runbook-behavior).
+
+## <a name="other"></a> : Mon problème n’est pas listé ci-dessus
+
+Les sections ci-dessous répertorient d'autres erreurs courantes en plus de la documentation de prise en charge pour vous aider à résoudre votre problème.
+
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Le runbook Worker hybride n’exécute pas de travaux ou ne répond pas
+
+Si vous exécutez des travaux à l'aide d'un Worker hybride plutôt qu'avec Azure Automation, vous devrez peut-être [résoudre les problèmes du Worker hybride lui-même](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Échec du runbook avec l’erreur « Aucune autorisation » ou une variante
+
+Les comptes d’identification n’ont peut-être pas les mêmes autorisations sur les ressources Azure que votre compte actuel. Vérifiez que votre compte d’identification [a les autorisations nécessaires pour accéder aux ressources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilisées dans votre script.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
+
+* Si les runbooks étaient précédemment exécutés et qu'ils se sont arrêtés, [vérifiez que le compte d'identification n'a pas expiré](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* Si vous utilisez des webhooks pour démarrer des runbooks, [vérifiez que le webhook n’a pas expiré](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+
+### <a name="issues-passing-parameters-into-webhooks"></a>Problèmes liés au passage de paramètres dans des webhooks
+
+Pour obtenir de l'aide sur le passage des paramètres dans des webhooks, consultez [Démarrer un runbook à partir d'un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+
+### <a name="issues-using-az-modules"></a>Problèmes liés à l'utilisation de modules Az
+
+L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Pour plus d'informations, consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+
+### <a name="runbook-job-completed-but-with-unexpected-results-or-errors"></a>Travail du runbook terminé mais avec des résultats inattendus ou des erreurs
+
+Des problèmes spécifiques et leurs solutions sont répertoriés ci-dessous, mais nous vous recommandons vivement de commencer par effectuer ces deux étapes de dépannage :
+
+* Essayez d'[exécuter le runbook localement](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#runbook-fails) avant de l'exécuter dans Azure Automation. Cela permet de déterminer si le problème est un bogue dans le runbook ou s’il s’agit d’un problème avec Azure Automation.
+* Examinez les [flux d’erreur](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) du runbook pour voir s’ils contiennent des messages spécifiques et comparez-les aux erreurs ci-dessous.
+* Ajoutez une [sortie supplémentaire](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) au runbook pour identifier où l'erreur se produit.
+
+### <a name="inconsistent-behavior-in-runbooks"></a>Comportement incohérent dans des runbooks
+
+Suivez les instructions de [Exécution de runbooks](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) afin d’éviter les problèmes liés aux travaux simultanés, à des ressources créées plusieurs fois ou à une logique liée à la chronologie dans les runbooks.
+
+### <a name="switching-between-multiple-subscriptions-in-a-runbook"></a>Basculer entre plusieurs abonnements dans un runbook
+
+Suivez l'aide fournie dans [Utilisation de plusieurs abonnements](https://docs.microsoft.com/azure/automation/automation-runbook-execution#working-with-multiple-subscriptions).
+
+### <a name="runbook-fails-with-error-the-subscription-cannot-be-found"></a>Échec du runbook avec l'erreur : L'abonnement est introuvable
+
+Ce problème peut se produire quand le runbook n’utilise pas de compte d’identification pour accéder aux ressources Azure. Pour résoudre le problème, suivez les étapes dans [Scenario: Unable to find the Azure subscription](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#unable-to-find-subscription) (Scénario : Impossible de trouver l’abonnement Azure).
+
+### <a name="error-your-azure-credentials-have-not-been-set-up-or-have-expired-please-run-connect-azurermaccount-to-set-up-your-azure-credentials"></a>Error: Vos informations d'identification Azure n'ont pas été configurées ou ont expiré. Exécutez connect-azureRmAccount pour configurer vos informations d'identification Azure.
+
+Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Consultez [Gérer les comptes d'identification Azure Automation](https://docs.microsoft.com/azure/automation/manage-runas-account).
+
+### <a name="error-run-login-azurermaccount-to-login"></a>Error: Exécuter Login-AzureRmAccount pour se connecter
+
+Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Consultez [Gérer les comptes d'identification Azure Automation](https://docs.microsoft.com/azure/automation/manage-runas-account).
+
+### <a name="runbook-fails-with-error-strong-authentication-enrollment-is-required"></a>Échec du runbook avec l'erreur : Inscription d'une authentification forte obligatoire
+
+Consultez [L'authentification auprès d'Azure a échoué, car l'authentification multifacteur est activée](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#auth-failed-mfa) dans le guide de résolution des problèmes de runbook.
+
+### <a name="runbook-fails-with-the-errors-no-permission-forbidden-403-or-some-variation"></a>Échec du runbook avec les erreurs : Aucune autorisation, Interdit, 403 ou toute autre variante
+
+Les comptes d’identification n’ont peut-être pas les mêmes autorisations sur les ressources Azure que votre compte actuel. Vérifiez que votre compte d'identification dispose des [autorisations nécessaires pour accéder aux ressources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilisées dans votre script.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
+
+* Si les runbooks étaient précédemment exécutés et qu'ils se sont arrêtés, vérifiez que le compte d'identification [n'a pas expiré](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* Si vous utilisez des webhooks pour démarrer les runbooks, vérifiez que le webhook [n'a pas expiré](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+
+### <a name="passing-parameters-into-webhooks"></a>Passage de paramètres dans des webhooks
+
+Pour obtenir de l'aide sur le passage des paramètres dans des webhooks, consultez [Démarrer un runbook à partir d'un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+
+### <a name="error-the-term-is-not-recognized"></a>Error: Le terme n'est pas reconnu
+
+Suivez les étapes décrites dans la section [Cmdlet non reconnue](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#cmdlet-not-recognized) du guide de résolution des problèmes de runbook
+
+### <a name="errors-about-typedata"></a>Erreurs relatives à TypeData
+
+Si vous recevez des erreurs relatives à TypeData, cela signifie que vous exécutez un workflow PowerShell avec des modules qui ne prennent pas en charge les workflows. Vous devez changer le type de runbook en PowerShell. Pour plus d'informations, consultez [Types de runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types#powershell-runbooks).
+
+### <a name="using-az-modules"></a>Utilisation de modules Az
+
+L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Pour plus d'informations, consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+
+### <a name="using-self-signed-certificates"></a>Utilisation de certificats autosignés
+
+Pour utiliser des certificats autosignés, vous devez suivre le guide relatif à la [création d'un certificat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
+
+## <a name="recommended-documents"></a>Documents recommandés
+
+* [Démarrage d’un Runbook dans Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Exécution d’un Runbook dans Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

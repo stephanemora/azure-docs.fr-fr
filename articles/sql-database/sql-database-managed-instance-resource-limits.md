@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874402"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060637"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -42,7 +42,8 @@ L’instance gérée d’Azure SQL Database peut être déployée sur deux gén�
 | Stockage réservé d’instance max. |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
+> - Le matériel Gen4 est graduellement abandonné. Il est recommandé de déployer de nouvelles instances gérées sur du matériel Gen5.
+> - À ce stade, le matériel Gen4 est disponible dans les régions suivantes : Europe Nord, Europe Ouest, USA Est, USA Centre Sud, USA Centre Nord, USA Ouest 2, USA Centre, Canada Centre, Inde Sud, Asie Sud-Est et Corée Centre.
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
@@ -50,7 +51,7 @@ L’instance gérée a deux niveaux de service : Usage général/Vital pour l�
 
 | **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
-| Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24, 32 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 |
+| Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 |
 | Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | Taille de stockage réservé maximale d’instance | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Taille de base de données maximale | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
@@ -64,10 +65,12 @@ L’instance gérée a deux niveaux de service : Usage général/Vital pour l�
 | Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore)<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Limité par la taille de stockage maximale d’instance. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
 | OLTP en mémoire | Non pris en charge | Disponible |
 | Nombre maximal de sessions | 30000 | 30000 |
+| Réplicas lisibles | 0 | 1 |
 
 > [!NOTE]
 > - Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’activité d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
 > - Le débit et les IOPS dépendent également de la taille de page qui n’est pas explicitement limitée par instance gérée.
+> Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -106,7 +109,7 @@ Le tableau suivant présente les limites régionales par défaut pour les abonne
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional et plateformes MSDN|2|32|
 
-\* Lorsque vous planifiez vos déploiements, considérez qu’un vCore Vital pour l’entreprise (en raison de la redondance renforcée) consomme généralement 4 fois plus de capacité qu’un vCore Usage général. Ainsi, pour vos calculs, 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où les instances gérées sont déployées et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
+\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple :  1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où les instances gérées sont déployées et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
 

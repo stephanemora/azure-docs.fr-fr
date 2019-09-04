@@ -9,17 +9,16 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf66a9e9aeee859953b4e1e2021a385491c6298e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137082"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069659"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
@@ -87,7 +86,7 @@ Utilisez l’extrait de code PowerShell ci-dessous pour effectuer les opération
 * convertir le fichier .pfx en une chaîne codée en base64 ;
 * enregistrer la chaîne codée en base64 dans un fichier distinct. 
 
-Le code PowerShell pour l’encodage en base64 à été adapté à partir du [Blog relatif aux scripts PowerShell][examplebase64encoding]:
+Le code PowerShell pour l’encodage en base64 à été adapté à partir du [Blog relatif aux scripts PowerShell][examplebase64encoding] :
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -163,7 +162,7 @@ App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les in
 
 Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les serveurs frontaux, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter la taille des instances de votre plan App Service, vous devez commencer par augmenter la taille des instances du pool de workers dans lequel vous voulez héberger le plan.
 
-Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, voir [Présentation d’App Service Environment v1][ASEv1Intro].
+Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 
 Pour créer un ASEv1 à l’aide d’un modèle Resource Manager, voir [Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager][ILBASEv1Template].
 

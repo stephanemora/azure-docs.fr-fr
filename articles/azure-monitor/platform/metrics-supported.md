@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 49780ec342ea168d27ab8a029c41a1c18a6ffcc4
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019051"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051825"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -1435,33 +1435,33 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Aucune dimension|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|Aucune dimension|
-|log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal|Aucune dimension|
-|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|Aucune dimension|
-|storage|Espace de données utilisé|Octets|Maximale|Taille de base de données totale|Aucune dimension|
+|log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal. Non applicable aux entrepôts de données.|Aucune dimension|
+|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
+|storage|Espace de données utilisé|Octets|Maximale|Taille de base de données totale. Non applicable aux entrepôts de données.|Aucune dimension|
 |connection_successful|Connexions réussies|Count|Total|Connexions réussies|Aucune dimension|
 |connection_failed|Connexions ayant échoué|Count|Total|Connexions ayant échoué|Aucune dimension|
 |blocked_by_firewall|Bloqué par le pare-feu|Count|Total|Bloqué par le pare-feu|Aucune dimension|
-|deadlock|Blocages|Count|Total|Blocages|Aucune dimension|
-|storage_percent|Pourcentage d'espace de données utilisé|Pourcentage|Maximale|Pourcentage de la taille de la base de données|Aucune dimension|
-|xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|Aucune dimension|
-|workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|Aucune dimension|
-|sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|Aucune dimension|
-|dtu_limit|Limite DTU|Count|Moyenne|Limite DTU|Aucune dimension|
-|dtu_used|DTU utilisé|Count|Moyenne|DTU utilisé|Aucune dimension|
-|cpu_limit|Limite UC|Count|Moyenne|Limite UC|Aucune dimension|
-|cpu_used|UC utilisée|Count|Moyenne|UC utilisée|Aucune dimension|
-|dwu_limit|Limite DWU|Count|Maximale|Limite DWU|Aucune dimension|
-|dwu_consumption_percent|Pourcentage DWU|Pourcentage|Maximale|Pourcentage DWU|Aucune dimension|
-|dwu_used|DWU utilisé|Count|Maximale|DWU utilisé|Aucune dimension|
+|deadlock|Blocages|Count|Total|Interblocages. Non applicable aux entrepôts de données.|Aucune dimension|
+|storage_percent|Pourcentage d'espace de données utilisé|Pourcentage|Maximale|Pourcentage de la taille de la base de données. Non applicable aux entrepôts de données ou base de données hyperscale.|Aucune dimension|
+|xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire. Non applicable aux entrepôts de données.|Aucune dimension|
+|workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de Workers. Non applicable aux entrepôts de données.|Aucune dimension|
+|sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions. Non applicable aux entrepôts de données.|Aucune dimension|
+|dtu_limit|Limite DTU|Count|Moyenne|Limite DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
+|dtu_used|DTU utilisé|Count|Moyenne|DTU utilisé. S’applique aux bases de données basées sur DTU.|Aucune dimension|
+|cpu_limit|Limite UC|Count|Moyenne|Limite UC. S’applique aux bases de données basées sur vCore.|Aucune dimension|
+|cpu_used|UC utilisée|Count|Moyenne|UC utilisée. S’applique aux bases de données basées sur vCore.|Aucune dimension|
+|dwu_limit|Limite DWU|Count|Maximale|Limite DWU. S’applique uniquement aux entrepôts de données.|Aucune dimension|
+|dwu_consumption_percent|Pourcentage DWU|Pourcentage|Maximale|Pourcentage DWU. S’applique uniquement aux entrepôts de données.|Aucune dimension|
+|dwu_used|DWU utilisé|Count|Maximale|DWU utilisé. S’applique uniquement aux entrepôts de données.|Aucune dimension|
 |dw_cpu_percent|Pourcentage d’utilisation de l’unité centrale au niveau du nœud DW|Pourcentage|Moyenne|Pourcentage d’utilisation de l’unité centrale au niveau du nœud DW|DwLogicalNodeId|
 |dw_physical_data_read_percent|Pourcentage E/S des données au niveau du nœud DW|Pourcentage|Moyenne|Pourcentage E/S des données au niveau du nœud DW|DwLogicalNodeId|
-    |cache_hit_percent|Pourcentage d’accès au cache|Pourcentage|Maximale|Pourcentage d’accès au cache|Aucune dimension|
-|cache_used_percent|Pourcentage de cache utilisé|Pourcentage|Maximale|Pourcentage de cache utilisé|Aucune dimension|
-|local_tempdb_usage_percent|Pourcentage de tempdb locale|Pourcentage|Moyenne|Pourcentage de tempdb locale|Aucune dimension|
-|app_cpu_billed|Processeur d'application facturé|Count|Total|Processeur d'application facturé|Aucune dimension|
-|app_cpu_percent|Pourcentage processeur d'application|Pourcentage|Moyenne|Pourcentage processeur d'application|Aucune dimension|
-|app_memory_percent|Pourcentage de mémoire d’application utilisé|Pourcentage|Moyenne|Pourcentage de mémoire d’application utilisé|Aucune dimension|
-|allocated_data_storage|Espace de données alloué|Octets|Moyenne|Espace de données alloué|Aucune dimension|
+|cache_hit_percent|Pourcentage d’accès au cache|Pourcentage|Maximale|Pourcentage d’accès au cache. S’applique uniquement aux entrepôts de données.|Aucune dimension|
+|cache_used_percent|Pourcentage de cache utilisé|Pourcentage|Maximale|Pourcentage de cache utilisé. S’applique uniquement aux entrepôts de données.|Aucune dimension|
+|local_tempdb_usage_percent|Pourcentage de tempdb locale|Pourcentage|Moyenne|Pourcentage de tempdb locale. S’applique uniquement aux entrepôts de données.|Aucune dimension|
+|app_cpu_billed|Processeur d'application facturé|Count|Total|Processeur d’application facturé. S’applique aux bases de données serverless.|Aucune dimension|
+|app_cpu_percent|Pourcentage processeur d'application|Pourcentage|Moyenne|Pourcentage processeur d'application. S’applique aux bases de données serverless.|Aucune dimension|
+|app_memory_percent|Pourcentage de mémoire d’application utilisé|Pourcentage|Moyenne|Pourcentage de mémoire d’application utilisé. S’applique aux bases de données serverless.|Aucune dimension|
+|allocated_data_storage|Espace de données alloué|Octets|Moyenne|Espace de données alloué. Non applicable aux entrepôts de données.|Aucune dimension|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -1470,17 +1470,17 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Aucune dimension|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|Aucune dimension|
 |log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal|Aucune dimension|
-|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|Aucune dimension|
+|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU. S’applique aux pools élastiques basés sur DTU.|Aucune dimension|
 |storage_percent|Pourcentage d'espace de données utilisé||Pourcentage|Moyenne|Pourcentage de stockage|Aucune dimension|
 |workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|Aucune dimension|
 |sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|Aucune dimension|
-|eDTU_limit|Limite eDTU|Count|Moyenne|Limite eDTU|Aucune dimension|
+|eDTU_limit|Limite eDTU|Count|Moyenne|Limite eDTU. S’applique aux pools élastiques basés sur DTU.|Aucune dimension|
 |storage_limit|Taille maximale des données|Octets|Moyenne|Limite de stockage|Aucune dimension|
-|eDTU_used|eDTU utilisé|Count|Moyenne|eDTU utilisé|Aucune dimension|
+|eDTU_used|eDTU utilisé|Count|Moyenne|eDTU utilisé. S’applique aux pools élastiques basés sur DTU.|Aucune dimension|
 |storage_used|Espace de données utilisé|Octets|Moyenne|Stockage utilisé|Aucune dimension|
 |xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|Aucune dimension|
-|cpu_limit|Limite UC|Count|Moyenne|Limite UC|Aucune dimension|
-|cpu_used|UC utilisée|Count|Moyenne|UC utilisée|Aucune dimension|
+|cpu_limit|Limite UC|Count|Moyenne|Limite UC. S’applique aux pools élastiques basés sur vCore.|Aucune dimension|
+|cpu_used|UC utilisée|Count|Moyenne|UC utilisée. S’applique aux pools élastiques basés sur vCore.|Aucune dimension|
 |allocated_data_storage|Espace de données alloué|Octets|Moyenne|Espace de données alloué|Aucune dimension|
 |allocated_data_storage_percent|Pourcentage d'espace de données alloué|Pourcentage|Maximale|Pourcentage d'espace de données alloué|Aucune dimension|
 

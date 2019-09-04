@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615894"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969648"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -55,7 +55,7 @@ Pour simplifier la configuration du réseau pour les charges de travail d’appl
 
 L’adresse IP pour les services et les équilibreurs de charge peut être affectée dynamiquement, ou vous pouvez spécifier une adresse IP statique existante à utiliser. Des adresses IP statiques internes et externes peuvent être affectées. Cette adresse IP statique existante est souvent liée à une entrée DNS.
 
-Des équilibreurs de charge *internes* et *externes* peuvent être créés. Les équilibreurs de charge internes ne recevant qu’une adresse IP privée, ils ne sont pas accessibles à partir d’Internet.
+Des équilibreurs de charge *internes* et *externes* peuvent être créés. Les équilibreurs de charge internes ne recevant qu'une adresse IP privée, ils ne sont pas accessibles à partir d'Internet.
 
 ## <a name="azure-virtual-networks"></a>Réseaux virtuels Azure
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 021aedc94b59f73e18679783cfc8b981924769c3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592358"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126125"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Limites d’Azure Data Box Heavy
 
@@ -26,7 +26,8 @@ Tenez compte de ces limites quand vous déployez et utilisez votre appareil Azur
 
 ## <a name="data-box-heavy-limits"></a>Limites de Data Box Heavy
 
-- Le service Data Box peut stocker jusqu’à 1 milliard de fichiers par nœud.
+- Le service Data Box Heavy peut stocker jusqu’à 1 milliard de fichiers par nœud.
+- Data Box Heavy prend en charge un maximum de 512 conteneurs ou partages par nœud dans le cloud. Les répertoires de niveau supérieur au sein du partage utilisateur deviennent des conteneurs ou des partages de fichiers Azure dans le cloud.
 
 ## <a name="azure-storage-limits"></a>Limites de Stockage Azure
 

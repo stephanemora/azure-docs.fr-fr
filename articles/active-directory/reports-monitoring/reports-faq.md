@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987922"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127022"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -37,7 +37,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : J’utilise les API de point de terminaison `https://graph.windows.net/<tenant-name>/reports/` pour tirer (pull) par programmation les rapports de sécurité Azure AD (concernant certains types de détections, tels que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
 
-**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux événements à risque](../identity-protection/graph-get-started.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les événements à risque sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
+**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux détections de risques](../identity-protection/graph-get-started.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les détections de risques sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
 
 ---
 
@@ -107,7 +107,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ## <a name="risky-sign-ins"></a>Connexions risquées
 
-**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond dans le rapport sur les connexions. Est-ce normal ?**
+**Q : ldentity Protection m’informe d’une détection de risque, mais je ne vois pas à quelle connexion il correspond dans le rapport sur les connexions. Est-ce normal ?**
 
 **R :** Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
 
@@ -115,7 +115,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Comment faire pour savoir pourquoi une connexion ou un utilisateur ont été signalés comme étant « à risque » dans le portail Azure ?**
 
-**R :** Si vous avez un abonnement **Azure AD Premium**, vous pouvez en savoir plus sur les événements à risque sous-jacent en sélectionnant l’utilisateur dans **Utilisateurs associés à un indicateur de risque** ou en sélectionnant un enregistrement dans le rapport **Connexions risquées**. Si vous avez un abonnement **Gratuit** ou **De base**, vous pouvez afficher les utilisateurs à risque et les rapports de connexions risquées, mais vous pouvez pas consulter les événements à risque sous-jacents.
+**R :** Si vous avez un abonnement **Azure AD Premium**, vous pouvez en savoir plus sur les détections de risques sous-jacentes en sélectionnant l’utilisateur dans **Utilisateurs associés à un indicateur de risque** ou en sélectionnant un enregistrement dans le rapport **Connexions risquées**. Si vous avez un abonnement **Gratuit** ou **De base**, vous pouvez afficher les utilisateurs à risque et les rapports de connexions risquées, mais vous pouvez pas consulter les détections de risques sous-jacentes.
 
 ---
 
@@ -125,7 +125,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ---
 
-**Q : Que signifie l’événement à risque « Connexion avec un risque supplémentaire détectée » ?**
+**Q : Que signifie la détection de risque « Connexion avec un risque supplémentaire détectée » ?**
 
 **R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, « Connexion avec un risque supplémentaire détectée » fonctionne comme un conteneur de connexions pour les détections propres aux abonnés d’Azure AD Identity Protection.
 

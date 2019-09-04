@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479810"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051837"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -35,11 +35,12 @@ ITSMC prend en charge les connexions avec les outils ITSM suivants :
 -   Provance
 -   Cherwell
 
-Avec ITSMC, vous pouvez
+Avec ITSMC, vous pouvez :
 
 -  Créer des éléments de travail dans l’outil ITSM, en fonction de vos alertes Azure (alertes de métriques, alertes de journal d’activité et alertes Log Analytics).
 -  Si vous le souhaitez, vous pouvez synchroniser les données d’incidents et de demandes de modification de vos outils ITSM vers un espace de travail Azure Log Analytics.
 
+En savoir plus sur les [conditions légales et la politique de confidentialité](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 Vous pouvez commencer à utiliser le connecteur ITSM en effectuant les étapes suivantes :
 
@@ -103,7 +104,7 @@ Une fois que vous avez préparé votre outils ITSM, suivez les étapes ci-dessou
 4. Spécifiez les paramètres de connexion comme décrit dans l’article [Configuration de la connexion ITSM avec vos produits/services ITSM](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
-   > 
+   >
    > Par défaut, ITSMC actualise les données de configuration de la connexion toutes les 24 heures. Pour actualiser instantanément les données de votre connexion avec vos modifications ou mises à jour du modèle, cliquez sur le bouton **Synchroniser** sur le panneau de votre connexion.
 
    ![Actualisation de la connexion](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -141,7 +142,7 @@ Procédez comme suit :
 Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d’actions qui contient une action ITSM. Quand l’alerte se déclenche, l’élément de travail est créé/mis à jour dans l’outil ITSM.
 
 > [!NOTE]
-> 
+>
 > Pour plus d’informations sur la tarification de l’action ITSM, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/monitor/) pour les groupes d’actions.
 
 
@@ -174,7 +175,7 @@ Les incidents et les demandes de modification sont synchronisés entre votre pro
 Les informations suivantes présentent des exemples de données collectées par ITSM :
 
 > [!NOTE]
-> 
+>
 > Selon le type d’élément de travail importé dans Log Analytics, l’événement **ServiceDesk_CL** contient les champs suivants :
 
 **Élément de travail :** **Incidents**  
@@ -184,7 +185,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID du service d’assistance
-- État
+- State
 - Urgence
 - Impact
 - Priorité
@@ -194,7 +195,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Fermé par
 - Source
 - Affecté à
-- Catégorie
+- Category
 - Intitulé
 - Description
 - Date de création
@@ -217,7 +218,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Affecté à
 - Intitulé
 - Type
-- Catégorie
+- Category
 - State
 - Escalade
 - État conflictuel
@@ -242,7 +243,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Champ Log Analytics | Champ ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | État |
+| IncidentState_s | State |
 | Urgency_s |Urgence |
 | Impact_s |Impact|
 | Priority_s | Priorité |
@@ -251,7 +252,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Fermé par |
 | Source_s| Type de contact |
 | AssignedTo_s | Affecté à  |
-| Category_s | Catégorie |
+| Category_s | Category |
 | Title_s|  Brève description |
 | Description_s|  Notes |
 | CreatedDate_t|  Ouvert |
@@ -269,8 +270,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Affecté à  |
 | Title_s|  Brève description |
 | Type_s|  Type |
-| Category_s|  Catégorie |
-| CRState_s|  État|
+| Category_s|  Category |
+| CRState_s|  State|
 | Urgency_s|  Urgence |
 | Priority_s| Priorité|
 | Risk_s| Risque|

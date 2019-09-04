@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d0c6841e29323ceab0758f4c4d6881abd24532d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099974"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -321,7 +320,7 @@ Ce document décrit les différents domaines à prendre en compte lors du déplo
 
 En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS.
 
-Avant de continuer, il est recommandé de lire [cette documentation][virtual-machines-sql-server-infrastructure-services].
+Avant de continuer, il est recommandé de lire [cette][virtual-machines-sql-server-infrastructure-services] documentation.
 
 Dans les sections suivantes, des parties de la documentation à laquelle le lien ci-dessus renvoie sont regroupées et mentionnées. Les particularités concernant SAP sont également indiquées et certains concepts décrits plus en détail. Cependant, nous vous recommandons vivement d’examiner la documentation ci-dessus avant de lire la documentation propre à SQL Server.
 
@@ -329,7 +328,7 @@ Avant de continuer, il y a certaines informations spécifiques sur SQL Server da
 
 * **Prise en charge des versions SQL** : Pour les clients SAP, les versions SQL Server 2008 R2 et ultérieures sont prises en charge sur les machines virtuelles Microsoft Azure. Les éditions antérieures ne sont pas prises en charge. Pour plus d’informations, voir cette [déclaration officielle](https://support.microsoft.com/kb/956893) générale. En règle générale, SQL Server 2008 l’est également. Cependant, en raison de fonctionnalités significatives pour SAP introduites avec SQL Server 2008 R2, SQL Server 2008 R2 est la version minimale requise pour SAP. En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS. Cet article est donc limité à SQL Server 2016 et SQL Server 2017.
 * **Performances SQL** : Les machines virtuelles hébergées par Microsoft Azure fonctionnent bien par rapport aux autres offres de virtualisation cloud publiques, mais les résultats peuvent varier au cas par cas. Consultez l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Utilisation d’images de la Place de marché Azure** : La méthode la plus rapide pour déployer une nouvelle machine virtuelle Microsoft Azure est d’utiliser une image de la Place de marché Microsoft Azure. En effet, cette plateforme propose des images qui contiennent les versions les plus récentes de SQL Server. Les images hébergeant déjà SQL Server ne peuvent pas être directement utilisées pour les applications SAP NetWeaver. En effet, le classement par défaut installé au sein de ces images correspond à celui de SQL Server, et non au classement requis par les systèmes SAP NetWeaver. Pour pouvoir utiliser ces images, suivez la procédure décrite dans le chapitre [Utilisation d’images SQL Server issues de la Place de marché Microsoft Azure][dbms-guide-5.6]. 
+* **Utilisation d’images de la Place de marché Azure** : La méthode la plus rapide pour déployer une nouvelle machine virtuelle Microsoft Azure est d’utiliser une image de la Place de marché Microsoft Azure. En effet, cette plateforme propose des images qui contiennent les versions les plus récentes de SQL Server. Les images hébergeant déjà SQL Server ne peuvent pas être directement utilisées pour les applications SAP NetWeaver. En effet, le classement par défaut installé au sein de ces images correspond à celui de SQL Server, et non au classement requis par les systèmes SAP NetWeaver. Pour pouvoir utiliser ces images, suivez la procédure décrite dans le chapitre [Utilisation d'images SQL Server issues de la Place de marché Microsoft Azure][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recommandations portant sur la structure des machines virtuelles/disques VHD pour les déploiements de SQL Server associés à SAP
@@ -497,7 +496,7 @@ Lors de l’utilisation de l’écouteur de groupe de disponibilité, tenez comp
 
 * L’utilisation de l’écouteur de groupe de disponibilité n’est possible que sur un système Windows Server 2012 ou version ultérieure, utilisé en tant que SE invité de la machine virtuelle. Pour Windows Server 2012, veillez à appliquer ce correctif : <https://support.microsoft.com/kb/2854082> 
 * Ce correctif n’existe pas pour Windows Server 2008 R2. La fonction AlwaysOn doit être utilisée de la même manière que la fonctionnalité de mise en miroir de bases de données, via la spécification d’un partenaire de basculement dans la chaîne de connexion (grâce au paramètre SAP default.pfl dbs/mss/server : voir la note SAP [965908]).
-* Lorsque vous utilisez un écouteur de groupe de disponibilité, les machines virtuelles de base de données doivent être connectées à un équilibreur de charge dédié. Pour éviter qu’Azure n’affecte de nouvelles adresses IP lorsque les deux machines virtuelles sont arrêtées en même temps, il convient d’affecter des adresses IP statiques aux interfaces réseau de ces machines au sein de la configuration Always On (la procédure de définition d’une adresse IP statique est décrite dans [cet article][virtual-networks-reserved-private-ip]).
+* Lorsque vous utilisez un écouteur de groupe de disponibilité, les machines virtuelles de base de données doivent être connectées à un équilibreur de charge dédié. Pour éviter qu'Azure n'attribue de nouvelles adresses IP lorsque les deux machines virtuelles sont arrêtées en même temps, il convient d'attribuer des adresses IP statiques aux interfaces réseau de ces machines au sein de la configuration Always On (la procédure de définition d'une adresse IP statique est décrite dans [cet][virtual-networks-reserved-private-ip] article).
 * La création d’une configuration de cluster WSFC requiert certaines étapes spécifiques lorsque ce cluster doit se voir affecter une adresse IP spécifique, car la fonctionnalité actuelle d’Azure affecte au nom du cluster la même adresse IP que celle du nœud sur lequel le cluster est créé. Cela signifie que l’attribution d’une adresse IP différente au cluster doit faire l’objet d’une étape manuelle.
 * L’écouteur de groupe de disponibilité va être créé dans Azure avec les points de terminaison TCP/IP qui sont affectés aux machines virtuelles exécutant les réplicas principaux et secondaires du groupe de disponibilité.
 * Il peut être nécessaire de sécuriser ces points de terminaison avec des ACL.
@@ -553,7 +552,7 @@ Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcouri
 1. Utilisez la dernière version du système SGBD, comme SQL Server 2017, qui présente les avantages les plus intéressants dans Azure. 
 2. Planifiez avec soin votre paysage de système SAP dans Azure, afin de trouver l’équilibre entre la disposition des fichiers de données et les restrictions d’Azure :
    * Évitez d’utiliser un trop grand nombre de disques. Cependant, vous devez en configurer suffisamment pour atteindre le nombre d’E/S par seconde nécessaire.
-   * Si vous n’utilisez pas la fonctionnalité Disques managés, n’oubliez pas que les E/S par seconde sont limitées pour chaque compte Stockage Azure, et que les comptes de stockage sont limités au sein de chaque abonnement Azure ([plus d’informations ici][azure-subscription-service-limits]). 
+   * Si vous n'utilisez pas la fonctionnalité Disques managés, n'oubliez pas que les E/S par seconde sont limitées pour chaque compte Stockage Azure, et que les comptes de stockage sont limités au sein de chaque abonnement Azure ([plus d'informations disponibles ici][azure-subscription-service-limits]). 
    * N’effectuez une agrégation par bandes que si vous devez obtenir un débit supérieur.
 3. N’installez pas vos logiciels et ne placez pas les fichiers nécessitant une persistance sur le lecteur D:\, car il n’est pas permanent. Les données placées sur ce lecteur ne sont pas conservées après le redémarrage de Windows.
 4. N’utilisez pas la mise en cache de disque Azure pour le stockage Azure standard.
@@ -563,4 +562,4 @@ Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcouri
 8. À l’aide de SQL Server TDE, appliquez les derniers correctifs de SQL Server.
 9. Utilisez la fonctionnalité de compression de base de données la plus élevée possible. Il s’agit de la compression de page pour SQL Server.
 10. Veillez à recourir à des images SQL Server de Microsoft Azure Marketplace. Si vous utilisez le serveur SQL numéro un, vous devez modifier le classement de l’instance avant d’installer un système SAP NetWeaver sur ce serveur.
-11. Installez et configurez la surveillance d’hôte SAP pour Azure comme le décrit le [Guide de déploiement][deployment-guide].
+11. Installez et configurez la surveillance d'hôte SAP pour Azure comme décrit dans le [Guide de déploiement][deployment-guide].

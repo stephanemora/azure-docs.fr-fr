@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569515"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066019"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
-L’audit pour Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs. Par ailleurs, l’audit :
+L’audit pour Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure, votre espace de travail Log Analytics ou Event Hubs. Par ailleurs, l’audit :
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
 
@@ -121,11 +121,22 @@ Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure M
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
-    ![Afficher les journaux d’audit](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Afficher les journaux d’audit](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- Ensuite, cliquez sur **Ouvrir dans OMS** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux d’activité dans Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
+- Ensuite, vous avez deux façons d’afficher les journaux :
+    
+    Cliquez sur **Log Analytics** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux d’activité dans l’espace de travail Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
+    
+    ![ouvrir dans l’espace de travail Log Analytics](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![Ouvrir dans Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Cliquer sur **Afficher le tableau de bord** en haut de la page **Enregistrements d’audit** ouvre un tableau de bord affichant les informations des journaux d’audit, dans lequel vous pouvez accéder aux insights de sécurité, l’accès aux données sensibles et plus encore. Ce tableau de bord est conçu pour vous aider à obtenir des Insights sur la sécurité de vos données.
+    Vous pouvez également personnaliser l’intervalle de temps et la requête de recherche. 
+    ![Afficher le tableau de bord Log Analytics](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Tableau de bord Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Insights sur la sécurité Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général**, cliquez sur **Journaux d’activité**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
     Vous pouvez également utiliser les [journaux Azure Monitor](../log-analytics/log-analytics-log-search.md) pour exécuter des recherches avancées sur les données de votre journal d’audit. Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search.md).
@@ -257,7 +268,7 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 - [Obtenir la stratégie d’audit *étendue* de base de données](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenir la stratégie d’audit *étendue* de serveur](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gérer l’audit de base de données SQL à l’aide de modèles ARM
+## <a id="subheading-10"></a>Gérer l’audit des bases de données SQL à l’aide des modèles Azure Resource Manager
 
 Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 

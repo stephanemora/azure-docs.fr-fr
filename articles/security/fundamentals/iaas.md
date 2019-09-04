@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927924"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061911"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -70,7 +70,7 @@ Vos coadministrateurs et administrateurs d’abonnement peuvent modifier ce para
 Les organisations qui contrôlent l’accès aux machines virtuelles et leur configuration renforcent la sécurité globale de leurs machines virtuelles.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Utiliser plusieurs machines virtuelles pour améliorer la disponibilité
-Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour bénéficier d’une meilleure disponibilité, utilisez un [groupe à haute disponibilité](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour bénéficier d’une meilleure disponibilité, utilisez un [groupe à haute disponibilité](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) ou des [zones de disponibilité](../../availability-zones/az-overview.md).
 
 Un groupe à haute disponibilité est un regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. En cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et votre application globale reste disponible pour vos clients. Les groupes à haute disponibilité sont une fonctionnalité essentielle pour créer des solutions cloud fiables.
 
@@ -182,7 +182,7 @@ Surveillez et limitez la connectivité Internet directe des machines virtuelles.
 **Détail** : utiliser RBAC pour garantir que seul le groupe de mise en réseau central possède l’autorisation d’accès aux ressources réseau.
 
 **Bonne pratique** : identifier les machines virtuelles exposées qui autorisent l’accès à partir de « n’importe quelle » adresse IP source et y remédier.   
-**Détail** : utiliser Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos Groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Security Center vous recommande de modifier ces règles de trafic entrant afin de [restreindre l’accès](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) aux adresses IP source qui en ont réellement besoin.
+**Détail** : utiliser Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos Groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Security Center vous recommande de modifier ces règles de trafic entrant afin de [restreindre l’accès](../../security-center/security-center-network-recommendations.md) aux adresses IP source qui en ont réellement besoin.
 
 **Bonne pratique** : restreindre les ports de gestion (RDP, SSH).   
 **Détail** : [L’accès juste-à-temps (JAT) aux machines virtuelles](../../security-center/security-center-just-in-time.md) peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. Lorsque l’accès JAT est activé, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de Groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution JAT.

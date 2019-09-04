@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304595"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114774"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -150,3 +150,15 @@ Si vous configurez * **.contoso.com**, cela autorise *anyvalue*.contoso.com, mai
 ## <a name="what-does-provisioning-state-failed-mean"></a>Que signifie l’*état d’approvisionnement : Échec* ?
 
 Chaque fois qu’une modification de configuration est appliquée, Pare-feu Azure tente de mettre à jour toutes ses instances de serveur principal sous-jacentes. Dans de rares cas, il se peut qu’une de ces instances de serveur principal ne soit pas mise à jour avec la nouvelle configuration et le processus de mise à jour s’arrête avec un état d’approvisionnement ayant échoué. Votre Pare-feu Azure est toujours opérationnel, mais la configuration appliquée peut se trouver dans un état incohérent, où certaines instances ont toujours la configuration précédente et d’autres ont l’ensemble de règles mis à jour. Si cela se produit, essayez de mettre à jour votre configuration une fois de plus jusqu’à la réussite de l’opération que votre Pare-feu aie l’état d’approvisionnement *Réussite*.
+
+## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Une limite de caractères s'applique-t-elle aux noms des pare-feu ?
+
+Oui. Le nom d'un pare-feu est limité à 50 caractères.
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Pourquoi le service Pare-feu Azure impose-t-il une taille de sous-réseau de /26 ?
+
+Le Pare-feu Azure doit approvisionner davantage de machines virtuelles au fil de sa mise à l'échelle. Avec un espace d'adressage de /26, le pare-feu dispose de suffisamment d'adresses IP pour prendre en charge la mise à l'échelle.
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>La taille du sous-réseau du pare-feu doit-elle changer au fil de la mise à l'échelle du service ?
+
+Non. Un sous-réseau de /26 suffit au Pare-feu Azure.

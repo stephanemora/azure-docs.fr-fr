@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 17ae6dc8d1d583e5223a64ee079731fa5d9dc63c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901437"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102973"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 for Customer Engagement
 
@@ -97,7 +97,7 @@ Pour configurer Azure Active Directory pour Dynamics 365 for Customer Engagement
 
     ![Ajout d’autorisations](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Après avoir suivi les étapes 1 à 13 sur le portail Azure, accédez à votre instance Dynamics 365 for Customer Engagement via son URL (par exemple, https://tenant.crm.dynamics.com) ).
+14. Après avoir suivi les étapes 1 à 13 sur le portail Azure, accédez à votre instance de Dynamics 365 for Customer Engagement via son URL (par exemple, `https://tenant.crm.dynamics.com`).
 15. Accédez à Paramètres en sélectionnant l’icône d’engrenage, puis à **Paramètres avancés** dans la barre de navigation supérieure.
 16. Dans la page Paramètres, accédez au menu Paramètres dans la barre de navigation supérieure, puis sélectionnez **Sécurité**.
 17. Dans la page Sécurité, sélectionnez **Utilisateurs**.  Dans la page Utilisateurs, sélectionnez la liste déroulante « Utilisateurs activés » pour basculer vers **Utilisateurs de l’application**.
@@ -105,7 +105,7 @@ Pour configurer Azure Active Directory pour Dynamics 365 for Customer Engagement
 
     ![Créer un utilisateur](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. Dans **Nouvel utilisateur**, assurez-vous que l’option UTILISATEUR: UTILISATEUR DE L’APPLICATION est sélectionnée. Spécifiez un nom d’utilisateur, un nom complet et une adresse e-mail pour l’utilisateur que vous souhaitez utiliser avec cette connexion. Par ailleurs, collez **l’ID d’application** de l’application que vous avez créée dans le portail Azure à l’étape 8. Sélectionnez **Enregistrer et fermer** pour terminer l’ajout de l’utilisateur.
+19. Dans **Nouvel utilisateur**, assurez-vous que UTILISATEUR :  UTILISATEUR DE L'APPLICATION est sélectionné. Spécifiez un nom d’utilisateur, un nom complet et une adresse e-mail pour l’utilisateur que vous souhaitez utiliser avec cette connexion. Par ailleurs, collez **l’ID d’application** de l’application que vous avez créée dans le portail Azure à l’étape 8. Sélectionnez **Enregistrer et fermer** pour terminer l’ajout de l’utilisateur.
 
     ![Nouvel utilisateur](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -170,7 +170,7 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
 
-1. Accédez à la page **Configuration de l’offre** de votre offre.
+1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Se connecter** dans la section Gestion des prospects.
 
     ![Se connecter à Gestion des prospects](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)

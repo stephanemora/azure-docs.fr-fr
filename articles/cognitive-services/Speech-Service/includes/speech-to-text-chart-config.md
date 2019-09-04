@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: 1b46c58d3f3c804052e637f7bde2e1a456764dba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3f390affe7badb401277aa86d1867c763aa0ae3b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717237"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971306"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Reconnaissance vocale (sous-graphique : charts/speechToText)
 
@@ -37,5 +37,6 @@ Pour remplacer le graphique en parapluie, ajoutez le préfixe `speechToText.` à
 | `image.args.apikey` (requis) | Utilisé pour le suivi des informations de facturation. ||
 | `service.type` | Le type de service Kubernetes du service de **reconnaissance vocale**. Consultez les [Instructions relatives aux types de service Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) pour plus d’informations et pour vérifier la prise en charge des fournisseurs cloud. | `LoadBalancer` |
 | `service.port`|  Le port du service de **reconnaissance vocale**. | `80` |
+| `service.annotations` | Les annotations de **reconnaissance vocale** pour les métadonnées du service. Les annotations sont des paires clé-valeur. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Indique si [l’Autoscaler de pods élastique](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) est activé. Si `true`, le `speech-to-text-autoscaler` sera déployé dans le cluster Kubernetes. | `true` |
 | `service.podDisruption.enabled` | Indique si le [Budget de perturbation de pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) est activé. Si `true`, le `speech-to-text-poddisruptionbudget` sera déployé dans le cluster Kubernetes. | `true` |

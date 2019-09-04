@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df2f9aa56e22bd4060c823b02900fa914a0fd7f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532804"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073840"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initialiser des applications clientes avec MSAL.js
 Cet article décrit l’initialisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec une instance d’application agent utilisateur. L’application agent utilisateur est une forme d'application cliente publique dans laquelle le code client est exécuté dans un agent utilisateur, par exemple un navigateur web. Ces clients ne stockent pas de secrets car le contexte du navigateur est directement accessible. Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
@@ -123,7 +123,7 @@ Voici l’ensemble des options configurables actuellement prises en charge dans 
 
 - **validateAuthority** : facultatif.  Validez l’émetteur des jetons. La valeur par défaut est `true`. Pour les applications B2C, étant donné que la valeur d’autorité est connue et peut être différente pour chaque stratégie, la validation de l’autorité ne fonctionne pas et doit être définie sur `false`.
 
-- **redirectUri** : facultatif.  L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. La valeur par défaut est `window.location.href`.
+- **redirectUri** : facultatif.  L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail. La valeur par défaut est `window.location.href`.
 
 - **postLogoutRedirectUri** : facultatif.  Redirige l’utilisateur vers `postLogoutRedirectUri` après la déconnexion. Par défaut, il s’agit de `redirectUri`.
 

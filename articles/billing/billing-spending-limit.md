@@ -9,18 +9,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/28/2019
 ms.author: banders
-ms.openlocfilehash: fb43f29827309fc8986ee6b4653f5edf303cc21d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 1324b60de05805cd409975358ff78e5b2b27eef1
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490614"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114448"
 ---
 # <a name="azure-spending-limit"></a>Limite de dépense d’Azure
 
-La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client optant pour un essai d’Azure ou une offre incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est de 0 $. Elle ne peut pas être modifiée. La limite de dépense n’est pas disponible pour les abonnements faisant l’objet d’un paiement à l’utilisation et les plans d’engagement. Pour plus d’informations, consultez la [liste complète des offres Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
+La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client optant pour un essai d’Azure ou une offre incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est de 0 $ et n’est pas modifiable. Par exemple, vous ne pouvez pas fixer la limite de dépense à 100 $. Cependant, vous pouvez supprimer la limite de dépense. Par conséquent, soit vous n’avez pas de limite, soit vous avez une limite nulle qui vous empêche de couvrir la plupart des dépenses. La limite de dépense n’est pas disponible pour les abonnements faisant l’objet d’un paiement à l’utilisation et les plans d’engagement. Pour plus d’informations, consultez la [liste complète des offres Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Atteindre une limite de dépense
 
@@ -43,7 +43,7 @@ Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un 
 Pour supprimer votre limite de dépense, procédez comme suit :
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez un abonnement. Si l’abonnement est désactivé parce que la limite de dépense a été atteinte, cliquez sur la notification : **L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais.** Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
+1. Sélectionnez un abonnement. Si l’abonnement est désactivé car la limite de dépense est atteinte, cliquez sur la notification : **L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais.** Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
 1. Sélectionnez une option adaptée à votre situation.
 
 ![Sélection d’une option de suppression de la limite de dépense](./media/billing-spending-limit/remove-spending-limit.PNG)

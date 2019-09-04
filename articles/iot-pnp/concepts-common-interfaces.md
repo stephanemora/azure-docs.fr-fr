@@ -7,16 +7,16 @@ ms.date: 07/16/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 848210509bf9ab0ffec35004cbb07e39d6de1bc0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114263"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces communes de la préversion d’IoT Plug-and-Play
 
-Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces communes. Les interfaces communes bénéficient des solutions IoT, car elles offrent des fonctionnalités cohérentes. La [certification](tutorial-build-device-certification.md) requiert que votre appareil implémente plusieurs interfaces communes. Vous pouvez récupérer des définitions d’interfaces communes dans le référentiel de modèles global.
+Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces communes. Les interfaces communes bénéficient des solutions IoT, car elles offrent des fonctionnalités cohérentes. La [certification](tutorial-build-device-certification.md) requiert que votre appareil implémente plusieurs interfaces communes. Vous pouvez récupérer des définitions d’interfaces communes dans le référentiel de modèles public.
 
 ## <a name="summary-of-common-interfaces"></a>Résumé des interfaces communes
 
@@ -35,7 +35,7 @@ Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces co
 
 ### <a name="cli"></a>Interface de ligne de commande
 
-Vous pouvez utiliser l’extension Azure IoT pour que l’interface de ligne de commande Azure récupère les interfaces communes dans le référentiel de modèles global.
+Vous pouvez utiliser l’extension Azure IoT pour que l’interface de ligne de commande Azure récupère les interfaces communes dans le référentiel de modèles public.
 
 ```cmd/sh
 az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
@@ -49,9 +49,9 @@ az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionStri
 
 1. Appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes.
 
-1. Entrez **Plug-and-Play**, puis sélectionnez IoT Plug-and-Play   **: Ouvrir le référentiel de modèles**. Choisissez **Référentiel de modèles global**. Le référentiel de modèles global s’ouvre dans VS Code.
+1. Entrez **Plug-and-Play**, puis sélectionnez IoT Plug-and-Play   **: Ouvrir le référentiel de modèles**. Choisissez **Public repository (Référentiel public)** . Le référentiel de modèles public s’ouvre dans VS Code.
 
-1. Dans le référentiel de modèles global, entrez le nom de l’interface dans le champ de recherche.
+1. Dans le référentiel de modèles public, entrez le nom de l’interface dans le champ de recherche.
 
 1. Pour créer une copie locale de l’interface, sélectionnez-la dans les résultats de la recherche, puis sélectionnez **Télécharger**.
 

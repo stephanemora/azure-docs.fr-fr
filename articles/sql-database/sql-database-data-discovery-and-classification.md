@@ -7,20 +7,21 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/22/2019
+ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569045"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072963"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse
 
-Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l'**étiquetage** & et la **protection** des données sensibles dans vos bases de données.
+Découverte et classification des données offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage** & et la **protection** des données sensibles dans vos bases de données.
+
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 
 - Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes.
@@ -76,7 +77,7 @@ Une fois que la stratégie au niveau du locataire a été définie, vous pouvez 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Advanced Data Security** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Data Security, puis cliquez sur la carte **Découverte et classification des données (préversion)** .
+2. Accédez à **Advanced Data Security** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Data Security, puis cliquez sur la carte **Découverte et classification des données**.
 
    ![Analyser une base de données](./media/sql-data-discovery-and-classification/data_classification.png)
 

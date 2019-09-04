@@ -10,17 +10,16 @@ ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130702"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069963"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Se connecter en toute sécurité aux ressources principales à partir d'un environnement App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,7 +27,7 @@ ms.locfileid: "62130702"
 
 Par exemple, un serveur SQL Server peut être en cours d'exécution sur un cluster de machines virtuelles dont le port 1433 est verrouillé.  Le point de terminaison peut être placé dans une liste de contrôle d'accès pour autoriser uniquement l'accès à partir d'autres ressources se trouvant sur le même réseau virtuel.  
 
-De même, les points de terminaison sensibles peuvent s'exécuter localement et être connectés à Azure via des connexions [de site à site][SiteToSite] ou [Azure ExpressRoute][ExpressRoute].  Par conséquent, seules les ressources des réseaux virtuels connectés aux tunnels site à site ou ExpressRoute peuvent accéder aux points de terminaison locaux.
+De même, les points de terminaison sensibles peuvent s’exécuter localement et être connectés à Azure via des connexions de [site à site][SiteToSite] ou [Azure ExpressRoute][ExpressRoute].  Par conséquent, seules les ressources des réseaux virtuels connectés aux tunnels site à site ou ExpressRoute peuvent accéder aux points de terminaison locaux.
 
 Pour tous ces scénarios, les applications s'exécutant dans un environnement App Service peuvent se connecter de façon sécurisée aux différents serveurs et aux différentes ressources.  Le trafic sortant à partir d'applications qui s'exécutent dans un environnement App Service vers des points de terminaison privés se trouvant sur le même réseau virtuel (ou connectés au même réseau virtuel) circulent uniquement sur le réseau virtuel.  Le trafic sortant vers des points de terminaison privés ne circule pas via le réseau Internet public.
 
@@ -50,7 +49,7 @@ Une configuration courante de SQL Server comprend un point de terminaison qui �
 
 Pour limiter le trafic sur ce point de terminaison, vous avez le choix entre deux approches :
 
-* [Listes de contrôle d'accès réseau][NetworkAccessControlLists] (ACL réseau)
+* [Listes de contrôle d’accès réseau][NetworkAccessControlLists] (ACL réseau)
 * [Groupes de sécurité réseau][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Restriction de l'accès à l'aide d'une ACL réseau
@@ -86,9 +85,9 @@ Le résultat final est un ensemble de règles de sécurité qui bloquent l'accè
 ![Règles de sécurité réseau par défaut][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Prise en main
-Pour bien démarrer avec les environnements App Service, consultez [Présentation de l’environnement App Service][IntroToAppServiceEnvironment]
+Pour prendre en main les environnements App Service, consultez [Présentation de l'environnement App Service][IntroToAppServiceEnvironment]
 
-Pour plus d'informations sur le contrôle du trafic entrant vers votre environnement App Service, consultez [Contrôle du trafic entrant vers un environnement App Service][ControlInboundASE]
+Pour plus d’informations sur le contrôle du trafic entrant vers votre environnement App Service, consultez [Contrôle du trafic entrant vers un environnement App Service][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
