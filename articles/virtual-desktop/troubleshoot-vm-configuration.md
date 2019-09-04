@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876751"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073929"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -34,39 +34,45 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 
 **Cause :** Une faute de frappe a été commise lors de la saisie des informations d'identification dans les correctifs d'interface du modèle Azure Resource Manager.
 
-**Correctif :** Suivez ces instructions pour corriger les informations d’identification.
+**Correctif :** Pour résoudre ce problème, effectuez l’une des actions suivantes.
 
-1. Ajoutez manuellement les machines virtuelles à un domaine.
-2. Procédez au redéploiement une fois les informations d’identification confirmées. Consultez [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Pour joindre des machines virtuelles à un domaine en utilisant un modèle, consultez [Joindre une machine virtuelle Windows existante au domaine AD](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Ajoutez manuellement les machines virtuelles à un domaine.
+- Redéployez le modèle une fois les informations d’identification confirmées. Consultez [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Pour joindre des machines virtuelles à un domaine en utilisant un modèle, consultez [Joindre une machine virtuelle Windows existante au domaine AD](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Error: Le délai d'attente pour l’entrée utilisateur a expiré.
 
 **Cause :** Le compte utilisé pour joindre le domaine peut présenter une authentification multifacteur (MFA).
 
-**Correctif :** Suivez ces instructions pour terminer la jonction de domaine.
+**Correctif :** Pour résoudre ce problème, effectuez l’une des actions suivantes.
 
-1. Supprimez temporairement l’authentification multifacteur du compte.
-2. Utilisez un compte de service.
+- Supprimez temporairement l’authentification multifacteur du compte.
+- Utilisez un compte de service.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error: Le compte utilisé lors de l'approvisionnement ne dispose pas des autorisations requises pour mener à bien l'opération.
 
 **Cause :** Pour des raisons de réglementation et de conformité, le compte utilisé ne dispose pas des autorisations requises pour joindre des machines virtuelles au domaine.
 
-**Correctif :** Suivez ces instructions.
+**Correctif :** Pour résoudre ce problème, effectuez l’une des actions suivantes.
 
-1. Utilisez un compte appartenant au groupe d'administrateurs.
-2. Accordez les autorisations nécessaires au compte utilisé.
+- Utilisez un compte appartenant au groupe d'administrateurs.
+- Accordez les autorisations nécessaires au compte utilisé.
 
 ### <a name="error-domain-name-doesnt-resolve"></a>Error: Le nom de domaine est impossible à résoudre.
 
-**Cause 1 :** Les machines virtuelles sont situées dans un groupe de ressources qui n’est pas associé au réseau virtuel (VNET) où se trouve le domaine.
+**Cause 1 :** Les machines virtuelles se trouvent dans un réseau virtuel qui n’est pas associé au réseau virtuel (VNET) où se trouve le domaine.
 
 **Correctif 1 :** Créez un peering de réseaux virtuels entre le réseau virtuel dans lequel les machines virtuelles ont été approvisionnées et le réseau virtuel dans lequel le contrôleur s'exécute. Consultez [Créer un peering de réseaux virtuels - Resource Manager - Abonnements différents](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Cause 2 :** Lorsque vous utilisez AadService (AADS), les entrées DNS ne sont pas définies.
+**Cause 2 :** Lors de l’utilisation d’Azure Active Directory Domain Services (Azure AD DS), les paramètres du serveur DNS du réseau virtuel ne sont pas mis à jour sur le réseau virtuel pour pointer vers les contrôleurs de domaine gérés.
 
-**Correctif 2 :** Pour définir des services de domaine, consultez [Activer Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Correctif 2 :** Pour mettre à jour les paramètres DNS du réseau virtuel contenant Azure AD DS, voir [Mettre à jour les paramètres DNS pour le réseau virtuel Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Cause 3 :** Les paramètres de serveur DNS de l’interface réseau ne pointent pas vers le serveur DNS approprié sur le réseau virtuel.
+
+**Correctif 3 :** Effectuez l’une des actions suivantes pour résoudre le problème, en suivant les étapes décrites dans [Modifier les serveurs DNS].
+- Définissez les paramètres de serveur DNS de l’interface réseau sur **Personnalisés** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), puis spécifiez les adresses IP privées des serveurs DNS sur le réseau virtuel.
+- Définissez les paramètres de serveur DNS de l’interface réseau sur **Hériter de VNet** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>L'agent Windows Virtual Desktop et le chargeur de démarrage Windows Virtual Desktop ne sont pas installés.
 

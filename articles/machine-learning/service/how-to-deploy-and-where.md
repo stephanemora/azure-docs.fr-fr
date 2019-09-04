@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7f856c0b69788c3d0b711d567777aba6cb4c6918
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897687"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036090"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -78,12 +78,29 @@ Les extraits de code de cette section montrent comment inscrire un modèle à pa
 
 + **Avec le kit SDK**
 
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+  Lorsque vous utilisez le kit de développement logiciel (SDK) pour effectuer l’apprentissage d’un modèle, vous pouvez recevoir un objet [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) ou [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master), en fonction de la façon dont vous effectuez l’apprentissage. Chaque objet peut être utilisé pour inscrire un modèle créé par un exécution d’expérimentation.
 
-  Le `model_path` fait référence à l’emplacement cloud du modèle. Dans cet exemple, le chemin d’accès à un fichier unique est utilisé. Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` dans le répertoire contenant les fichiers.
+  + Inscrire un modèle à partir d’un objet `azureml.core.Run` :
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    Le `model_path` fait référence à l’emplacement cloud du modèle. Dans cet exemple, le chemin d’accès à un fichier unique est utilisé. Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` dans le répertoire contenant les fichiers. Pour plus de détails, voir les informations de référence sur [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-).
+
+  + Inscrire un modèle à partir d’un objet `azureml.train.automl.run.AutoMLRun` :
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    Dans cet exemple, les paramètres `metric` et `iteration` ne sont pas spécifiés, ce qui a pour effet que l’itération avec la meilleure métrique principale est inscrite. La valeur `model_id` retournée par l’exécution est utilisée à la place d’un nom de modèle.
+
+    Pour plus de détails, voir les informations de référence sur [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-).
 
 + **Avec l’interface CLI**
 
@@ -151,10 +168,10 @@ Les cibles de calcul (ou ressources de calcul) suivantes peuvent héberger votre
 
 Le déploiement du modèle requiert ce qui suit :
 
-* Un __script d'entrée__. Ce script accepte les requêtes, évalue la requête à l'aide du modèle et renvoie les résultats.
+* Un __script d'entrée__. Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
 
     > [!IMPORTANT]
-    > Le script d'entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
+    > Le script d’entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
     >
     > Si le format des données de la requête n'est pas utilisable par votre modèle, le script peut les convertir à un format acceptable. Il peut également transformer la réponse avant de la renvoyer au client.
 
@@ -184,6 +201,9 @@ Le script contient deux fonctions qui chargent et exécutent le modèle :
 Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui sera utilisé pour la gestion du modèle dans le Registre. Vous utilisez ce nom avec [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin de chaque fichier de modèle présent sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire qui contient ces fichiers.
 
 Lorsque vous inscrivez un modèle, vous lui donnez un nom qui reflète l’emplacement du modèle, localement ou durant le déploiement du service.
+
+> [!IMPORTANT]
+> Si vous avez effectué l’apprentissage d’un modèle à l’aide d’un Machine Learning automatisé, une valeur `model_id` est utilisée comme nom de modèle. Pour obtenir un exemple d’inscription et de déploiement d’un modèle formé à l’aide d’un Machine Learning automatisé, voir [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment).
 
 L’exemple ci-dessous retourne le chemin d’un seul fichier appelé `sklearn_mnist_model.pkl` (mais qui a été inscrit sous le nom `sklearn_mnist`) :
 
@@ -416,7 +436,20 @@ def run(request):
 
 La configuration de l’inférence décrit comment configurer le modèle pour les prédictions. Cette configuration ne fait pas partie de votre script d'entrée. Elle référence votre script d'entrée et sert à localiser toutes les ressources requises par le déploiement. Elle est utilisée plus tard lors du déploiement du modèle.
 
-L’exemple suivant montre comment créer une configuration d’inférence. Cette configuration spécifie le runtime, le script d’entrée et (facultatif) le fichier d’environnement conda :
+La configuration de l’inférence peut utiliser des environnements Azure Machine Learning pour définir les dépendances logicielles nécessaires pour votre déploiement. Les environnements vous permettent de créer, de gérer et de réutiliser les dépendances logicielles requises pour l’apprentissage et le déploiement. L’exemple suivant présente le chargement d’un environnement à partir de votre espace de travail, puis son utilisation avec la configuration de l’inférence :
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
+
+Vous pouvez également spécifier directement les dépendances sans utiliser d’environnement. L’exemple suivant montre comment créer une configuration d’inférence qui charge des dépendances logicielles à partir d’un fichier Conda :
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -468,10 +501,40 @@ Chacune des classes des services web Local, ACI et AKS peut être importée à p
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-> [!TIP]
-> Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire. Vous pouvez profiler votre modèle à l’aide du kit de développement logiciel (SDK) ou de l'interface CLI. Pour plus d’informations, consultez la référence [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) et [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
->
-> Les résultats du profilage du modèle sont fournis sous la forme d’un objet `Run`. Pour plus d’informations, consultez la référence sur la classe [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py).
+#### <a name="profiling"></a>Profilage
+
+Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire. Vous pouvez profiler votre modèle à l’aide du kit de développement logiciel (SDK) ou de l'interface CLI. Les exemples suivants montrent comment utiliser un profilage du Kit de développement logiciel (SDK) :
+
+> [!IMPORTANT]
+> Lors de l’utilisation d’un profilage, la configuration d’inférence que vous fournissez ne peut pas référencer un environnement Azure Machine Learning. Au lieu de cela, définissez les dépendances logicielles à l’aide du paramètre `conda_file` de l’objet `InferenceConfig`.
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+Ce code affiche un résultat similaire au texte suivant :
+
+```python
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+Les résultats du profilage du modèle sont fournis sous la forme d’un objet `Run`.
+
+Pour plus d’informations sur l’utilisation d’un profilage à partir de l’interface de ligne de commande, voir [Profil de modèle Azure Machine Learning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+
+Pour plus d’informations, voir les documents de référence suivants :
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [Schéma de fichier de configuration d’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Déployer sur la cible
 
@@ -742,7 +805,136 @@ Pour obtenir d’autres exemples de projets et des exemples, consultez les exemp
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## <a name="package-models"></a>Modèles de package
+
+Dans certains cas, vous pouvez créer une image Docker sans déployer le modèle. Par exemple, lorsque vous planifiez un [déploiement sur Azure App Service](how-to-deploy-app-service.md). Vous pouvez également télécharger l’image et l’exécuter sur une installation locale de Docker. Vous pouvez même télécharger les fichiers utilisés pour générer l’image, les inspecter, les modifier, puis générer l’image manuellement.
+
+L’empaquetage de modèle vous permet d’effectuer les deux. Il empaquette toutes les ressources nécessaires pour héberger un modèle en tant que service web, et vous permet de télécharger une image Docker entièrement générée ou les fichiers nécessaires pour en générer une. Vous pouvez utiliser l’empaquetage de modèle de deux façons :
+
+* __Télécharger un modèle empaqueté__ : Vous téléchargez une image Docker contenant le modèle et les autres fichiers nécessaires pour l’héberger en tant que service web.
+* __Générer un fichier Docker__ : Vous téléchargez le fichier Docker, le modèle, le script d’entrée et les autres ressources nécessaires pour générer une image Docker. Vous pouvez ensuite inspecter les fichiers ou apporter des modifications avant de générer l’image localement.
+
+Les deux packages permettent d’obtenir une image Docker locale. 
+
+> [!TIP]
+> La création d’un package est similaire au déploiement d’un modèle, car elle utilise un modèle inscrit et une configuration d’inférence.
+
+> [!IMPORTANT]
+> Des fonctionnalités telles que le téléchargement d’une image entièrement générée ou la création d’une image localement requièrent l’installation d’un [Docker](https://www.docker.com) opérationnel sur votre environnement de développement.
+
+### <a name="download-a-packaged-model"></a>Télécharger un modèle empaqueté
+
+L’exemple suivant montre comment générer une image qui est inscrite dans le registre de conteneurs Azure pour votre espace de travail :
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+Après avoir créé un package, vous pouvez utiliser `package.pull()` pour extraire l’image dans votre environnement Docker local. La sortie de cette commande affiche le nom de l’image. Par exemple : `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. Après le téléchargement, utilisez la commande `docker images` pour afficher la liste des images locales :
+
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
+
+Pour démarrer un conteneur local à l’aide de cette image, utilisez la commande suivante pour démarrer un conteneur nommé à partir de l’interpréteur de commandes ou de la ligne de commande. Remplacez la valeur `<imageid>` par l’ID d’image retourné par la commande `docker images` :
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+Cette commande démarre la version la plus récente de l’image nommée `myimage`. Elle mappe le port local 6789 au port du conteneur sur lequel le service web écoute (5001). Elle affecte également le nom `mycontainer` au conteneur, ce qui en facilite l’arrêt. Après le démarrage, vous pouvez envoyer des demandes à `http://localhost:6789/score`.
+
+### <a name="generate-dockerfile-and-dependencies"></a>Générer un fichier Docker et des dépendances
+
+L’exemple suivant montre comment télécharger le fichier Docker, le modèle et les autres ressources nécessaires pour générer l’image localement. Le paramètre `generate_dockerfile=True` indique que nous souhaitons les fichiers, et non une image entièrement générée :
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+# Download the package
+package.save("./imagefiles")
+# Get the Azure Container Registry that the model/dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
+```
+
+Ce code télécharge les fichiers nécessaires à la création de l’image dans le répertoire `imagefiles`. Le fichier Docker inclus dans les fichiers d’enregistrement référence une image de base stockée dans un registre de conteneurs Azure. Lors de la génération de l’image sur votre installation Docker locale, vous devez utiliser l’adresse, le nom d’utilisateur et le mot de passe pour vous authentifier auprès de ce registre. Pour générer l’image à l’aide d’une installation Docker locale, procédez comme suit :
+
+1. À partir d’un interpréteur de commandes ou d’une session de ligne de commande, utilisez la commande suivante pour authentifier Docker auprès du registre de conteneurs Azure. Remplacez `<address>`, `<username>` et `<password>` par les valeurs récupérées à l’aide de `package.get_container_registry()` :
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. Pour créer l’image, utilisez la commande suivante. Remplacez `<imagefiles>` par le chemin d’accès au répertoire dans lequel la commande `package.save()` a enregistré les fichiers :
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    Cette commande définit le nom de l’ image sur `myimage`.
+
+Pour vérifier que l’image a été générée, utilisez la commande `docker images`. L’image `myimage` doit figurer dans la liste :
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+Pour démarrer un conteneur basé sur cette image, utilisez la commande suivante :
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+Cette commande démarre la version la plus récente de l’image nommée `myimage`. Elle mappe le port local 6789 au port du conteneur sur lequel le service web écoute (5001). Elle affecte également le nom `mycontainer` au conteneur, ce qui en facilite l’arrêt. Après le démarrage, vous pouvez envoyer des demandes à `http://localhost:6789/score`.
+
+### <a name="example-client-to-test-the-local-container"></a>Exemple de client pour tester le conteneur local
+
+Le code suivant est un exemple de client Python utilisable avec le conteneur :
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+Pour d’autres exemples de clients dans d’autres langages de programmation, voir [Utiliser des modèles déployés en tant que services web](how-to-consume-web-service.md).
+
+### <a name="stop-the-docker-container"></a>Arrêter le conteneur Docker
+
+Pour arrêter le conteneur, utilisez la commande suivante à partir d’un autre interpréteur de commandes ou d’une autre ligne de commande :
+
+```bash
+docker kill mycontainer
+```
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
+
 Pour supprimer un service web déployé, utilisez `service.delete()`.
 Pour supprimer un modèle inscrit, utilisez `model.delete()`.
 
