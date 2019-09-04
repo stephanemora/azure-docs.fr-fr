@@ -98,4 +98,4 @@ Dès que vos licences achetées sont provisionnées dans votre annuaire, vous re
 Le processus d’activation ne prend généralement que quelques minutes, après lesquelles vous pourrez utiliser votre locataire Azure AD. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous disposez d’Azure AD Premium, vous pouvez [personnaliser votre domaine](add-custom-domain.md), ajouter une [personnalisation pour votre entreprise](customize-branding.md), [créer un locataire](active-directory-access-create-new-tenant.md) et [ajouter des groupes](active-directory-groups-create-azure-portal.md)et [des utilisateurs](add-users-azure-active-directory.md).
+À présent que vous disposez d’Azure AD Premium, vous pouvez [personnaliser votre domaine](add-custom-domain.md), ajouter une [personnalisation pour votre entreprise](customize-branding.md), [créer un locataire](active-directory-access-create-new-tenant.md) et [ajouter des groupeset](active-directory-groups-create-azure-portal.md)et [des utilisateurs](add-users-azure-active-directory.md).

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101365"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -49,7 +48,7 @@ ms.locfileid: "67202937"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Ce guide fait partie de la documentation sur l’implémentation et le déploiement des logiciels SAP sur Microsoft Azure. Avant de lire ce guide, consultez le [guide de planification et d’implémentation][planning-guide]. Ce document décrit les aspects généraux du déploiement de systèmes SGBD de type SAP sur des machines virtuelles Microsoft Azure à l’aide des fonctionnalités Azure IaaS.
+Ce guide fait partie de la documentation sur l’implémentation et le déploiement des logiciels SAP sur Microsoft Azure. Avant de lire ce guide, consultez le [Guide de planification et d’implémentation][planning-guide]. Ce document décrit les aspects généraux du déploiement de systèmes SGBD de type SAP sur des machines virtuelles Microsoft Azure à l’aide des fonctionnalités Azure IaaS.
 
 Ce document vient compléter la documentation sur l’installation SAP et les notes SAP, qui constituent les principales ressources à consulter pour installer et déployer des logiciels SAP sur des plateformes.
 

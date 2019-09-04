@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963442"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980497"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
@@ -87,7 +87,9 @@ Azure Active Directory applique les deux stratégies et l’utilisateur n’obti
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L’accès conditionnel fonctionne-t-il avec Exchange ActiveSync ?
 
-Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel, avec toutefois quelques [limites](block-legacy-authentication.md). 
+Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
+
+Certaines applications cloud comme SharePoint Online et Exchange Online prennent également en charge les protocoles d’authentification existants. Quand une application cliente peut utiliser un protocole d’authentification hérité pour accéder à une application cloud, Azure AD ne peut pas appliquer de stratégie d’accès conditionnel sur cette tentative d’accès. Pour empêcher une application cliente de contourner la mise en œuvre des stratégies, vous devez vérifier s’il est possible d’activer uniquement l’authentification moderne sur les applications cloud concernées.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Comment devez-vous configurer l’accès conditionnel avec des applications Office 365 ?
 

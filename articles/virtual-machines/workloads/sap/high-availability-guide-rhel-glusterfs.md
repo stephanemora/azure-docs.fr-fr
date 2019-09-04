@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711246"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101121"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver
 
@@ -44,7 +43,7 @@ ms.locfileid: "60711246"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 Cet article décrit comment déployer les machines virtuelles, les configurer et installer un cluster GlusterFS pouvant être utilisé pour stocker les données partagées d’un système SAP hautement disponible.
-Ce guide décrit comment configurer un cluster GlusterFS utilisé par deux systèmes SAP : NW1 et NW2. Les noms des ressources (par exemple les machines virtuelles, les réseaux virtuels) de l’exemple partent du principe que vous avez utilisé le [modèle de serveur du fichier SAP][template-file-server] avec le préfixe de ressource **glust**.
+Ce guide décrit comment configurer un cluster GlusterFS utilisé par deux systèmes SAP : NW1 et NW2. Les noms des ressources (comme les machines virtuelles et les réseaux virtuels) de l'exemple partent du principe que vous avez utilisé le [modèle de serveur du fichier SAP][template-file-server] avec le préfixe de ressource **glust**.
 
 Commencez par lire les notes et publications SAP suivantes
 
@@ -63,8 +62,8 @@ Commencez par lire les notes et publications SAP suivantes
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
 * [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
-* [Déploiement de Machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
-* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
+* [Déploiement de machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
+* [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Documentation du produit pour Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentation RHEL générale
   * [Vue d’ensemble des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -89,8 +88,8 @@ Vous pouvez utiliser un modèle Azure de github pour déployer l’ensemble des 
 La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles.
 Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle de serveur de fichiers SAP][template-file-server] dans le portail Azure.
-1. Entrez les paramètres suivants.
+1. Ouvrez le [modèle de serveur de fichiers SAP][template-file-server] dans le portail Azure
+1. Entrez les paramètres suivants
    1. Préfixe de ressource  
       Entrez le préfixe à utiliser. Cette valeur sera utilisée comme préfixe pour les ressources déployées.
    2. Nombre de systèmes SAP Saisissez le nombre de systèmes SAP qui utiliseront ce serveur de fichiers. Cette action déploie le nombre de disques requis, etc.
@@ -356,4 +355,4 @@ Les éléments suivants sont précédés de **[A]** - applicable à tous les nœ
 * [Déploiement de machines virtuelles Azure pour SAP][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

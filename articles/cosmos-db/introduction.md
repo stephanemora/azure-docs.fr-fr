@@ -37,11 +37,11 @@ Vous pouvez aussi utiliser le [programme Cosmos DB Bootstrap](https://azurecosmo
 
 Cosmos DB vous permet de générer des applications hautement disponibles et très réactives dans le monde entier. Cosmos DB réplique en toute transparence vos données où que soient les utilisateurs, afin que ces derniers puissent interagir avec le réplica des données le plus proche.
 
-Cosmos DB permet d’ajouter ou de supprimer des régions Azure dans votre compte Cosmos à tout moment, via un clic sur un bouton. Cosmos DB réplique de façon continue vos données dans toutes les régions associées à votre compte Cosmos, tandis que votre application reste hautement disponible grâce aux fonctionnalités de*multirésidence* du service. Pour plus d’informations, consultez l’article sur la [distribution mondiale](distribute-data-globally.md).
+Cosmos DB permet d’ajouter ou de supprimer des régions Azure dans votre compte Cosmos à tout moment, via un clic sur un bouton. Cosmos DB réplique de façon continue vos données dans toutes les régions associées à votre compte Cosmos, tandis que votre application reste hautement disponible grâce aux fonctionnalités *multi-résidence* du service. Pour plus d’informations, consultez l’article sur la [distribution mondiale](distribute-data-globally.md).
 
 ### <a name="always-on"></a>Always On
 
-À l’aide d’une intégration profonde avec l’infrastructure Azure et d’une [réplication multimaître transparente](global-dist-under-the-hood.md), Cosmos DB offre une [haute disponibilité de 99,999 %](high-availability.md) pour les lectures et les écritures. Cosmos DB offre permet également d’appeler par programmation (ou via le portail) le basculement régional de votre compte Cosmos. Cette fonctionnalité est la garantie que votre application basculera en cas de défaillance au niveau régional.
+À l’aide d’une intégration profonde avec l’infrastructure Azure et d’une [réplication multimaître transparente](global-dist-under-the-hood.md), Cosmos DB offre une [haute disponibilité de 99,999 %](high-availability.md) pour les lectures et les écritures. Cosmos DB permet également d’appeler par programmation (ou via le portail) le basculement régional de votre compte Cosmos. Cette fonctionnalité est la garantie que votre application basculera en cas de défaillance au niveau régional.
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>Extensibilité élastique du débit et du stockage à l’échelon mondial
 
@@ -81,7 +81,7 @@ Cosmos DB est le seul service à proposer les [meilleurs contrats SLA complets 
 
 ### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>Analytique opérationnelle distribuée à l’échelle mondiale et IA avec Apache Spark intégré en mode natif
 
-Vous pouvez exécuter [Spark](spark-connector.md)directement sur les données stockées dans Cosmos DB. Cette fonctionnalité vous permet d’effectuer des analyses opérationnelles de faible latence à l’échelle mondiale sans impact sur les charges de travail transactionnelles survenant directement sur Cosmos DB. Pour plus d’informations, consultez [Analytique opérationnelle distribuée à l’échelle mondiale](lambda-architecture.md).
+Vous pouvez exécuter [Spark](spark-connector.md) directement sur les données stockées dans Cosmos DB. Cette fonctionnalité vous permet d’effectuer des analyses opérationnelles de faible latence à l’échelle mondiale sans impact sur les charges de travail transactionnelles survenant directement sur Cosmos DB. Pour plus d’informations, consultez [Analytique opérationnelle distribuée à l’échelle mondiale](lambda-architecture.md).
 
 ### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>Développer des applications sur Cosmos DB à l’aide d’API OSS (Open Source Software) populaires
 

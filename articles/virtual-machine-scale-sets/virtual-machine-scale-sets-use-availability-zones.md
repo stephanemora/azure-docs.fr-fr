@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803262"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907981"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -34,11 +34,11 @@ Lorsque vous déployez un groupe identique dans une ou plusieurs zones depuis la
 
 Avec « max spreading » (répartition max.), un seul domaine d’erreur s’affiche dans la vue d’instance de machine virtuelle ainsi que dans les métadonnées de l’instance, quel que soit le nombre de domaines d’erreur sur lesquels les machines virtuelles sont réparties. La répartition dans chaque zone est implicite.
 
-Pour utiliser « max spreading » (répartition max.), définissez la valeur *platformFaultDomainCount* sur *1*. Pour utiliser « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur), définissez la valeur *platformFaultDomainCount* sur *5*. Dans la version d’API *2017-12-01*, *platformFaultDomainCount* est défini sur *1* par défaut pour les groupes identiques de zone unique et inter-zones. Actuellement, seul « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur) est pris en charge pour les groupes identiques régionaux.
+Pour utiliser « max spreading » (répartition max.), définissez la valeur *platformFaultDomainCount* sur *1*. Pour utiliser « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur), définissez la valeur *platformFaultDomainCount* sur *5*. Dans la version d’API *2017-12-01*, *platformFaultDomainCount* est défini sur *1* par défaut pour les groupes identiques de zone unique et inter-zones. Actuellement, seul « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur) est pris en charge pour les groupes identiques régionaux (non-zonaux).
 
 ### <a name="placement-groups"></a>Groupes de placement
 
-Lorsque vous déployez un groupe identique, vous avez également la possibilité de déployer avec un seul [groupe de placement](./virtual-machine-scale-sets-placement-groups.md) par zone de disponibilité, ou plusieurs groupes par zone. Pour les groupes identiques régionaux, le choix consiste à avoir un groupe de placement unique dans la région, ou plusieurs groupes dans la région. Pour la plupart des charges de travail, nous recommandons d’utiliser plusieurs groupes de placement, qui permettent une plus grande mise à l’échelle. Dans la version d’API *2017-12-01*, pour les groupes identiques de zone unique et inter-zones l’option par défaut est plusieurs groupes de placement, mais pour les groupes identiques régionaux l’option par défaut est un seul groupe de placement.
+Lorsque vous déployez un groupe identique, vous avez également la possibilité de déployer avec un seul [groupe de placement](./virtual-machine-scale-sets-placement-groups.md) par zone de disponibilité, ou plusieurs groupes par zone. Pour les groupes identiques régionaux (non-zonaux), le choix consiste à avoir un groupe de placement unique dans la région ou plusieurs groupes dans la région. Pour la plupart des charges de travail, nous recommandons d’utiliser plusieurs groupes de placement, qui permettent une plus grande mise à l’échelle. Dans la version d’API *2017-12-01*, pour les groupes identiques de zone unique et inter-zones l’option par défaut est plusieurs groupes de placement, mais pour les groupes identiques régionaux (non-zonaux) l’option par défaut est un seul groupe de placement.
 
 > [!NOTE]
 > Si vous utilisez « max spreading » (répartition max), vous devez utiliser plusieurs groupes de placement.
@@ -65,7 +65,7 @@ Quand vous créez un groupe identique dans une zone unique, vous contrôlez la z
 Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-overview.md#services-support-by-region). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
 - [Portail Azure](#use-the-azure-portal)
-- Azure CLI
+- D’Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Modèles Microsoft Azure Resource Manager](#use-azure-resource-manager-templates)
 

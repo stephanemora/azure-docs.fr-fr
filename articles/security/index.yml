@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentation sur la sécurité Azure
-summary: La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages uniques en matière de sécurité, dérivés des informations de sécurité globales, des contrôles orientés client sophistiqués et une infrastructure de sécurité renforcée. Cette combinaison puissante permet de protéger vos applications et vos données, prend en charge vos efforts de conformité, et offre une sécurité rentable pour les entreprises de toutes tailles.
+summary: La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages uniques en matière de sécurité découlant des informations de sécurité mondiales, dérivés des informations de sécurité globales, des contrôles orientés client sophistiqués et une infrastructure de sécurité renforcée. Cette combinaison puissante permet de protéger vos applications et vos données, prend en charge vos efforts de conformité, et offre une sécurité rentable pour les entreprises de toutes tailles.
 brand: azure
 metadata:
   title: Documentation sur la sécurité Azure
-  description: La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages uniques en matière de sécurité, dérivés des informations de sécurité globales, des contrôles orientés client sophistiqués et une infrastructure de sécurité renforcée. Cette combinaison puissante permet de protéger vos applications et vos données, prend en charge vos efforts de conformité, et offre une sécurité rentable pour les entreprises de toutes tailles.
+  description: La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages uniques en matière de sécurité découlant des informations de sécurité mondiales, dérivés des informations de sécurité globales, des contrôles orientés client sophistiqués et une infrastructure de sécurité renforcée. Cette combinaison puissante permet de protéger vos applications et vos données, prend en charge vos efforts de conformité, et offre une sécurité rentable pour les entreprises de toutes tailles.
   services: security
   ms.service: security
   ms.subservice: na
