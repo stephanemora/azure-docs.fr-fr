@@ -4,15 +4,15 @@ description: Dans cet article, vous découvrez comment déployer et configurer u
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 7/10/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707160"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114825"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Déployer et configurer un pare-feu Azure à l’aide d’Azure CLI
 
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location eastus
 Ce réseau virtuel comporte trois sous-réseaux.
 
 > [!NOTE]
-> La taille minimale du sous-réseau AzureFirewallSubnet est /26.
+> La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.0.1.0/26
 az network vnet subnet create \
   --name Workload-SN \
   --resource-group Test-FW-RG \

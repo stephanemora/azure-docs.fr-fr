@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405422"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018948"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.
@@ -206,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Si vous avez une requête qui consomme une grande quantité de mémoire ou si vous avez reçu un message d’erreur à propos de l’allocation de tempdb, le problème vient souvent d’une instruction [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) très lourde en cours d’exécution qui échoue pendant l’opération de déplacement des données finale. Vous pouvez généralement identifier ce problème dans une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.
+Si vous avez une requête qui consomme une grande quantité de mémoire ou si vous avez reçu un message d’erreur à propos de l’allocation de tempdb, le problème peut être dû à une instruction [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) très lourde en cours d’exécution qui échoue pendant l’opération de déplacement des données finale. Vous pouvez généralement identifier ce problème dans une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.  Utilisez [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) pour surveiller les opérations ShuffleMove. 
 
-Pour atténuer ce problème, vous pouvez diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions de chargement de sorte que le volume des données ne dépasse pas la limite de tempdb définie à 1 To par nœud. Vous pouvez également mettre à l’échelle votre cluster vers une taille plus grande qui répartit la taille de tempdb sur plus de nœuds en la réduisant sur chaque nœud individuel. 
+Pour atténuer ce problème, vous pouvez diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions de chargement de sorte que le volume des données ne dépasse pas la limite de tempdb définie à 1 To par nœud. Vous pouvez également mettre à l’échelle votre cluster vers une taille plus grande qui répartit la taille de tempdb sur plus de nœuds en la réduisant sur chaque nœud individuel.
+
+En plus des instructions CTAS et INSERT SELECT, les requêtes volumineuses et complexes s’exécutant avec une mémoire insuffisante peuvent déborder dans tempdb et faire échouer les requêtes.  Envisagez une exécution avec une plus grande [classe de ressources](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) pour éviter tout débordement dans tempdb.
 
 ## <a name="monitor-memory"></a>Surveiller la mémoire
 
@@ -260,6 +262,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## <a name="monitor-polybase-load"></a>Surveiller la charge PolyBase
+La requête suivante fournit une estimation de la progression de votre charge. La requête affiche uniquement les fichiers en cours de traitement. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

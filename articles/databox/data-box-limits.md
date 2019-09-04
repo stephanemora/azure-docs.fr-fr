@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 2e1ed8df490343e569f9466fd56458f652dafaf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13d5bce46883ea4ddca91d7222f68a19ba65c21c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244617"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098816"
 ---
 # <a name="azure-data-box-limits"></a>Limites d’Azure Data Box
 
@@ -26,6 +26,7 @@ Tenez compte de ces limites quand vous déployez et utilisez votre solution Micr
 ## <a name="data-box-limits"></a>Limites du service Data Box
 
 - Le service Data Box peut stocker jusqu’à 500 millions de fichiers.
+- Data Box prend en charge un maximum de 512 conteneurs ou partages dans le cloud. Les répertoires de niveau supérieur au sein du partage utilisateur deviennent des conteneurs ou des partages de fichiers Azure dans le cloud. 
 
 ## <a name="azure-storage-limits"></a>Limites du stockage Azure
 

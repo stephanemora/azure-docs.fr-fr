@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847920"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019099"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > Dès qu’elles sont hors de portée, les exécutions enfants sont automatiquement marquées comme étant terminées.
 
-Vous pouvez également démarrer des exécutions enfants une par une, mais dans la mesure où chaque création entraîne un appel réseau, cette méthode est moins efficace que l’envoi d’un lot d’exécutions.
+Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Chaque création se traduisant par un appel réseau, la création d'un lot d'exécutions est plus efficace que la création d'exécutions une à une.
 
-Pour interroger les exécutions enfants d’un parent spécifique, utilisez la méthode [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-).
+### <a name="submit-child-runs"></a>Envoyer des exécutions enfants
+
+Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Ainsi, vous pouvez créer des hiérarchies d’exécutions parentes et enfants, chacune s’exécutant sur différentes cibles de calcul, connectées par un ID d’exécution parente commun.
+
+Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode « submit_child » de l'instance de contexte.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+Dans une exécution enfant, vous pouvez afficher l’ID d’exécution parente :
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Interroger les exécutions enfants
+
+Pour interroger les exécutions enfants d’un parent spécifique, utilisez la méthode [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). L’argument « recursive = True » vous permet d’interroger une arborescence imbriquée d’enfants et de petits-enfants.
 
 ```python
 print(parent_run.get_children())

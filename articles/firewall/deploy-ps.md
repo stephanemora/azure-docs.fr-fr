@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 4c6ccce493ffb25d7a2237e0d98a2b71b35c92c1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620992"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114778"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
 
@@ -57,7 +57,7 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Le groupe de ressources contient toutes les ressources utilisées dans ce déploiement.
+Le groupe de ressources contient toutes les ressources nécessaires à ce déploiement.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -67,15 +67,14 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 Ce réseau virtuel comporte trois sous-réseaux :
 
+> [!NOTE]
+> La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 ```azurepowershell
-$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/24
+$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-
-> [!NOTE]
-> La taille minimale du sous-réseau AzureFirewallSubnet est /26.
-
 Créez maintenant le réseau virtuel :
 
 ```azurepowershell
@@ -223,7 +222,7 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
 
 1. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, puis connectez-vous. De là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work** et connectez-vous.
 
-3. Sur **SRV-Work**, ouvrez une fenêtre PowerShell et exécutez la commande suivante :
+3. Sur **SRV-Work**, ouvrez une fenêtre PowerShell et exécutez les commandes suivantes :
 
    ```
    nslookup www.google.com
@@ -242,7 +241,7 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Les demandes www.google.com doivent réussir, et les demandes de www.microsoft.com devraient échouer. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
+   En principe, les requêtes sur www.google.com réussissent, et les requêtes sur www.microsoft.com échouent. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
 
 Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
@@ -251,7 +250,7 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu :
+Conservez vos ressources de pare-feu pour le prochain tutoriel ou, si vous n’en avez plus besoin, supprimez le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu :
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

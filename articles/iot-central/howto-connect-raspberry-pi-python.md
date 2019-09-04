@@ -3,17 +3,17 @@ title: Connecter un appareil Raspberry Pi à votre application Azure IoT Central
 description: En tant que développeur d’appareils, comment connecter un appareil Raspberry Pi à votre application Azure IoT Central en utilisant Python.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bd506bf1210692feb017f3b526c3b6d4bca36004
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3f91e09e35eec0685cb4333802b860fb08412cb6
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877424"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019741"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (Python)
 
@@ -29,6 +29,9 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer de ce qu
 
 * Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 * Un appareil Raspberry Pi exécutant le système d’exploitation Raspbian. L’appareil Raspberry Pi doit être en mesure de se connecter à Internet. Pour plus d’informations, consultez [Configurer votre appareil Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
+
+> [!TIP]
+> Pour découvrir la configuration et la connexion à un appareil Raspberry Pi, voir [Prise en main de Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi).
 
 ## <a name="sample-devkits-application"></a>**Exemple d’application Devkits**
 
@@ -63,12 +66,37 @@ Les étapes suivantes décrivent comment télécharger et configurer l’exemple
 * Envoie des valeurs de télémétrie et de propriétés à Azure IoT Central.
 * Répond à des modifications de paramètres effectuées dans Azure IoT Central.
 
-Pour configurer l’appareil, [suivez les instructions détaillées sur GitHub.](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md)
+1. Connectez-vous à un environnement d’interpréteur de commandes sur votre Raspberry pi, soit à partir du bureau Raspberry pi, soit à distance à l’aide de SSH.
 
-1. Une fois l’appareil configuré, il envoie des mesures de télémétrie à Azure IoT Central.
+1. Exécutez la commande suivante pour installer le client Python IoT Central :
+
+    ```sh
+    pip install iotc
+    ```
+
+1. Téléchargez l’exemple de code Python :
+
+    ```sh
+    curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
+    ```
+
+1. Modifiez le fichier `app.py` que vous avez téléchargé et remplacez les espaces réservés `DEVICE_ID`, `SCOPE_ID` et `PRIMARY/SECONDARY device KEY` par les valeurs de connexion que vous avez notées précédemment. Enregistrez vos modifications.
+
+    > [!TIP]
+    > Dans l’interpréteur de commandes sur l’appareil Raspberry Pi, vous pouvez utiliser l’éditeur de texte **nano** ou **vi**.
+
+1. Utilisez la commande suivante pour exécuter cet exemple :
+
+    ```sh
+    python app.py
+    ```
+
+    Votre Raspberry pi commence à envoyer des mesures de télémétrie à Azure IoT Central.
+
 1. Dans votre application Azure IoT Central, vous pouvez voir comment le code s’exécutant sur l’appareil Raspberry Pi interagit avec l’application :
 
     * Dans la page **Mesures** de votre appareil réel, vous pouvez voir la télémétrie envoyée depuis l’appareil Raspberry Pi.
+    * La page **Propriétés** affiche la propriété d’appareil **Numéro gravé**.
     * Dans la page **Paramètres**, vous modifier les paramètres de l’appareil Raspberry Pi, comme le voltage et la vitesse du ventilateur. Lorsque l’appareil Raspberry Pi accuse réception de la modification, le paramètre s’affiche comme étant **synchronisé**.
 
 ## <a name="raspberry-pi-device-template-details"></a>Détails de modèle d’appareil Raspberry Pi

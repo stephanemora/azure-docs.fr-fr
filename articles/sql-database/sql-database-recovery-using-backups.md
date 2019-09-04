@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566982"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103118"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes automatisées d’une base de données
 
@@ -113,7 +113,7 @@ Pour récupérer une base de données avec le Portail Azure, ouvrez la page de v
 
 Vous pouvez restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière sauvegarde géo-répliquée. La géorestauration utilise une sauvegarde géorépliquée comme source. Elle peut être demandée même si la base de données ou le centre de données est inaccessible en raison d’une panne.
 
-La géorestauration constitue l’option de récupération par défaut lorsque la base de données n’est pas disponible en raison d’un incident dans la région d’hébergement. Vous pouvez restaurer la base de données sur un serveur dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où la sauvegarde est effectuée et celui où elle est géo-répliquée dans un objet blob Azure dans une autre région. C’est pourquoi la base de données restaurée peut avoir jusqu'à une heure de retard par rapport à la base de données d’origine. L’illustration ci-dessous illustre la restauration de la base de données à partir de la dernière sauvegarde disponible dans une autre région.
+La géorestauration constitue l’option de récupération par défaut lorsque la base de données n’est pas disponible en raison d’un incident dans la région d’hébergement. Vous pouvez restaurer la base de données sur un serveur dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où la sauvegarde est effectuée et celui où elle est géo-répliquée dans un objet blob Azure dans une autre région. C’est pourquoi la base de données restaurée peut avoir jusqu’à une heure de retard par rapport à la base de données d’origine. L’illustration ci-dessous illustre la restauration de la base de données à partir de la dernière sauvegarde disponible dans une autre région.
 
 ![Restauration géographique](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -127,7 +127,7 @@ La restauration dans le temps sur un géo-réplica secondaire n’est pas prise 
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Géo-restauration à l’aide du portail Azure
 
-Pour effectuer une géorestauration d’une base de données lors de sa [période de rétention basée sur des DTU](sql-database-service-tiers-dtu.md) ou [période de rétention basée sur des vCores](sql-database-service-tiers-vcore.md) à l’aide du portail Azure, ouvrez la page des bases de données SQL, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix.
+Pour effectuer une géorestauration d’une base de données à l’aide du portail Azure, ouvrez la page SQL Database, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix.
 
 > [!Note]
 > La géorestauration avec le Portail Azure n’est pas disponible dans Managed Instance. Utilisez plutôt PowerShell.

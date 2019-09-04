@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593162"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996769"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Documentation de référence sur le moteur de règles Azure CDN de Verizon Premium
 
@@ -70,6 +70,8 @@ Caractère spécial | Description
 \* | Un astérisque permet de mettre en correspondance une ou plusieurs fois le caractère qui le précède.
 Espace | Un caractère d’espace est généralement traité comme un caractère littéral.
 'valeur' | Les guillemets simples sont traités comme des caractères littéraux. Un jeu de guillemets simples n’a pas de signification particulière.
+
+Les conditions et fonctionnalités de correspondance qui prennent en charge les expressions régulières acceptent les modèles définis par des expressions régulières compatibles Perl (PCRE).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

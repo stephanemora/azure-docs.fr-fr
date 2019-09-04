@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571129"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982677"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>Contrôle d’accès en fonction du rôle(RBAC) et Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ Le contrôle d’accès en fonction du rôle joue un rôle déterminant dans la 
 
 ![Vue d’ensemble du contrôle d’accès en fonction du rôle](media/rbac-overview.png)
 
-* **Principaux de sécurité** : Un principal de sécurité peut être un utilisateur, un groupe, des principaux de service ou une[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Les principaux de sécurité doivent disposer de privilèges en utilisant mes groupes d’Azure Active Directory.
+* **Principaux de sécurité** : Un principal de sécurité peut être un utilisateur, un groupe, des [principaux de service](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) ou une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Les principaux de sécurité doivent disposer de privilèges en utilisant mes groupes d’Azure Active Directory.
 
 * **Définitions de rôles** : Une définition de rôle, ou simplement rôle, est une collection d’autorisations. Ces autorisations définissent les opérations qui peuvent être effectuées par les principaux de sécurité attribués à la définition de rôle. Cette fonctionnalité est fournie par les rôles de ressources Azure et les rôles d’administrateur d’Azure Active Directory. Azure est fourni avec un ensemble de rôles intégrés (lien) qui peuvent être complétés par des rôles personnalisés.
 

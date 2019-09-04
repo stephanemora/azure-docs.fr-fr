@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612887"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124675"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services : Forum Aux Questions (FAQ)
 Cette page répond aux questions fréquemment posées sur les services de domaine Azure Active Directory. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -61,6 +61,9 @@ Non. Le domaine fourni par les services de domaine Azure AD est un domaine gér
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Les utilisateurs invités de mon annuaire peuvent-ils utiliser Azure Active Directory Domain Services ?
 Non. Les utilisateurs invités de votre annuaire Azure AD qui utilisent le processus d’invitation [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) sont synchronisés avec votre domaine managé Azure AD Domain Services. Toutefois, les mots de passe de ces utilisateurs ne sont pas stockés dans votre annuaire Azure AD. C’est pourquoi Azure AD Domain Services n’a aucun moyen de synchroniser les hachages NTLM et Kerberos pour ces utilisateurs dans votre domaine managé. Par conséquent, ces utilisateurs ne peuvent pas se connecter au domaine managé ni joindre des ordinateurs au domaine managé.
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?
+Non. Après avoir créé un domaine managé Azure AD Domain Services, vous ne pouvez pas déplacer l’instance vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région et le réseau virtuel les plus appropriés quand vous déployez l’instance Azure AD DS.
 
 ## <a name="administration-and-operations"></a>Administration et opérations
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Puis-je me connecter au contrôleur de domaine de mon domaine géré à l’aide du Bureau à distance ?

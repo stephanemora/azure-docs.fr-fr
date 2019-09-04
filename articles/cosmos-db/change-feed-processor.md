@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573973"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018780"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB 
 
@@ -76,7 +76,9 @@ Comme mentionné dans l’introduction, le processeur de flux de modification pe
 
 Si ces trois conditions s’appliquent, le processeur de flux de modification utilise un algorithme de distribution égal, répartit tous les baux dans le conteneur de baux sur toutes les instances en cours d’exécution et parallélise le calcul. Un bail ne peut appartenir qu’à une seule instance à la fois, ce qui signifie que le nombre maximal d’instances est égal au nombre de baux.
 
-Les instances peuvent croître et se réduire et le processeur de flux de modification ajuste dynamiquement la charge en la redistribuant en conséquence.
+Le nombre d’instances peut croître et diminuer, et le processeur de flux de modification ajuste la charge de façon dynamique en la redistribuant en conséquence.
+
+En outre, le processeur de flux de modification peut s’ajuster de manière dynamique à l’échelle des conteneurs en raison des augmentations de débit ou de stockage. Lorsque votre conteneur croît, le processeur de flux de modification gère en toute transparence ces scénarios en augmentant les baux de manière dynamique et en distribuant les nouveaux baux aux instances existantes.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Flux de modification et débit provisionné
 
@@ -85,7 +87,7 @@ Vous êtes facturé pour les unités de requête consommées, car des unités de
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Exemples d’utilisation sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Exemples d’utilisation sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Exemples supplémentaires sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Étapes suivantes

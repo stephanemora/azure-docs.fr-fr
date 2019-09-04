@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013641"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997919"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -206,6 +206,8 @@ Les trois valeurs de paramètre `task` différentes déterminent la liste des al
 
 ### <a name="primary-metric"></a>Métrique principale
 La métrique principale ; comme indiqué dans les exemples ci-dessus, elle détermine la métrique à utiliser pendant la formation du modèle dans un but d’optimisation. La métrique principale que vous pouvez sélectionner est déterminée par le type de tâche que vous choisissez. Vous trouverez plus bas une liste des métriques disponibles.
+
+Pour découvrir les définitions spécifiques de celles-ci, voir [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
 
 |classification ; | régression ; | Prévision de séries chronologiques
 |-- |-- |--

@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bd850fe2cac7194d78005f4c0a57523bc8323c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846596"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124484"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB, acronyme de GRand Unified Bootloader, est probablement la première chose que vous voyez quand vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, il n’est pas accessible par le biais du protocole SSH. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -59,9 +58,24 @@ Une fois en mode mono-utilisateur, procédez comme suit pour ajouter un nouvel u
 RHEL vous amène directement en mode mono-utilisateur s’il ne peut pas démarrer normalement. Toutefois, si vous n’avez pas configuré d’accès racine pour le mode mono-utilisateur, vous n’aurez pas de mot de passe racine et vous ne pourrez pas vous connecter. Il existe une solution (voir « Entrer manuellement en mode mono-utilisateur » ci-dessous), mais il est conseillé de configurer un accès racine dès le départ.
 
 ### <a name="grub-access-in-rhel"></a>Accès au GRUB dans RHEL
-RHEL est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur n’importe quelle touche. Vous verrez apparaître l’écran GRUB.
+RHEL est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur n’importe quelle touche. Vous verrez apparaître l’écran GRUB. S’il n’apparaît pas, assurez-vous que les lignes suivantes sont présentes dans votre fichier GRUB (`/etc/default/grub`) :
 
-> Remarque : Red Hat fournit également la documentation de démarrage en mode de récupération, mode d’urgence et mode de débogage, ainsi que la documentation de réinitialisation du mot de passe racine. [Cliquez ici pour y accéder](https://aka.ms/rhel7grubterminal).
+#### <a name="rhel-8"></a>RHEL 8 :
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+```
+
+#### <a name="rhel-7"></a>RHEL 7 :
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL_OUTPUT="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 net.ifnames=0"
+```
+
+> [!NOTE]
+> Red Hat fournit également la documentation de démarrage en mode de récupération, mode d’urgence et mode de débogage, ainsi que la documentation de réinitialisation du mot de passe racine. [Cliquez ici pour y accéder](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurer l’accès racine pour le mode mono-utilisateur dans RHEL
 Dans RHEL, le mode mono-utilisateur nécessite l’activation d’un utilisateur racine, qui est désactivé par défaut. Si vous avez besoin d’activer le mode d’utilisateur unique, appliquez les instructions suivantes :
@@ -194,7 +208,7 @@ Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgenc
 Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans Oracle Linux nécessite l’activation du GRUB et de l’utilisateur racine.
 
 ### <a name="grub-access-in-oracle-linux"></a>Accès au GRUB dans Oracle Linux
-Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur « Échap ». Vous verrez apparaître l’écran GRUB. Si vous ne voyez pas grub, vérifiez que la valeur de la ligne `GRUB_TERMINAL` contient « serial console », comme suit : `GRUB_TERMINAL="serial console"`.
+Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur « Échap ». Vous verrez apparaître l’écran GRUB. Si vous ne voyez pas grub, vérifiez que la valeur de la ligne `GRUB_TERMINAL` contient « serial console », comme suit : `GRUB_TERMINAL="serial console"`. Reconstruisez GRUB avec `grub2-mkconfig -o /boot/grub/grub.cfg`.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Mode mono-utilisateur dans Oracle Linux
 Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilisateur dans Oracle Linux.

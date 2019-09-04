@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0a99c1b8f655943840bf68b59ee1506a8985dbdd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329572"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065978"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Azure Stream Analytics
 
@@ -159,9 +159,9 @@ L’essentiel est plus de tout d’anticiper la modification de la vitesse de tr
 
 Dans le scénario extrême où les événements entrants sont tous retardés, [il est possible que tous les événements différés soient supprimés](stream-analytics-time-handling.md) si vous avez appliqué une plage d’arrivée tardive à votre travail. La suppression des événements peut sembler un comportement étrange au début, mais si l’on considère que Stream Analytics est un moteur de traitement en temps réel, celui-ci s’attend donc à ce que les événements entrants soient proches du temps Horloge. Il doit donc supprimer les événements qui violent ces contraintes.
 
-### <a name="backfilling-process"></a>Processus de renvoi
+### <a name="lambda-architectures-or-backfill-process"></a>Architectures lambda ou processus de renvoi
 
-Heureusement, le modèle d’archivage de données précédent peut être utilisé pour traiter normalement ces événements tardifs. L’idée est que le travail d’archivage traite les événements entrants à l’heure d’arrivée, et archive les événements dans le compartiment du moment opportun, dans un objet blob Azure ou dans Azure Data Lake Store, avec leur heure d’événement. Peu importe l’heure tardive à laquelle un événement arrive, il n’est jamais supprimé. Il est toujours placé dans le compartiment du moment opportun. Lors de la récupération, il est possible de retraiter les événements archivés et de renvoyer les résultats dans le magasin voulu.
+Heureusement, le modèle d’archivage de données précédent peut être utilisé pour traiter normalement ces événements tardifs. L’idée est que le travail d’archivage traite les événements entrants à l’heure d’arrivée, et archive les événements dans le compartiment du moment opportun, dans un objet blob Azure ou dans Azure Data Lake Store, avec leur heure d’événement. Peu importe l’heure tardive à laquelle un événement arrive, il n’est jamais supprimé. Il est toujours placé dans le compartiment du moment opportun. Lors de la récupération, il est possible de retraiter les événements archivés et de renvoyer les résultats dans le magasin voulu. Cela est similaire à la façon dont les modèles lambda sont implémentés.
 
 ![Renvoi ASA](media/stream-analytics-solution-patterns/backfill.png)
 

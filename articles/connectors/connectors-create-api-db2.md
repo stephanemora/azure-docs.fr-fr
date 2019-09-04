@@ -7,27 +7,27 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: plarsen, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60314077"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051038"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gérer les ressources IBM DB2 avec Azure Logic Apps
 
 Avec Azure Logic Apps et le connecteur IBM DB2, vous pouvez créer des flux de travail et des tâches automatisés basés sur les ressources stockées dans votre base de données DB2. Vos flux de travail peuvent se connecter aux ressources dans votre base de données, lire et lister vos tables de base de données, ajouter des lignes, changer des lignes, supprimer des lignes, et bien plus encore. Vous pouvez inclure des actions dans vos applications logiques qui obtiennent des réponses de votre base de données et mettent la sortie à la disposition d’autres actions.
 
-Cet article explique comment vous pouvez créer une application logique qui effectue différentes opérations de base de données. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
+Cet article explique comment vous pouvez créer une application logique qui effectue différentes opérations de base de données. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="supported-platforms-and-versions"></a>Plateformes et versions prises en charge
 
-Le connecteur DB2 inclut un client Microsoft qui communique avec les serveurs DB2 distants via un réseau TCP/IP. Vous pouvez utiliser ce connecteur pour accéder aux bases de données cloud telles qu’IBM Bluemix dashDB ou IBM DB2 pour Windows s’exécutant dans la virtualisation Azure. Vous pouvez également accéder à des bases de données DB2 locales après avoir [installé et configuré la passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md).
+Le connecteur DB2 inclut un client Microsoft qui communique avec les serveurs DB2 distants via un réseau TCP/IP. Vous pouvez utiliser ce connecteur pour accéder aux bases de données cloud telles qu’IBM DB2 pour Windows s’exécutant dans la virtualisation Azure. Vous pouvez également accéder à des bases de données DB2 locales après avoir [installé et configuré la passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md).
 
-Le connecteur IBM DB2 prend en charge les plateformes et versions IBM DB2 ci-après, ainsi que les produits IBM DB2 compatibles, tels qu’IBM Bluemix dashDB, qui prennent en charge les versions 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
+Le connecteur IBM DB2 prend en charge les plateformes et versions IBM DB2 ci-après, ainsi que les produits IBM DB2 compatibles qui prennent en charge les versions 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
 
 | Plateforme | Version | 
 |----------|---------|
@@ -52,7 +52,7 @@ Le connecteur IBM DB2 prend en charge les opérations de base de données ci-apr
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Une base de données IBM DB2, cloud ou locale
 
@@ -362,12 +362,7 @@ Développez l’action **Supprimer la ligne**.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d'informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/db2/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/db2/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

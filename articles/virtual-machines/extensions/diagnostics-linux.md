@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871925"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092679"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -135,9 +135,7 @@ storageAccountSasToken | [Jeton SAS de compte](https://azure.microsoft.com/blog/
 mdsdHttpProxy | (facultatif) Informations du proxy HTTP nécessaires pour permettre à l’extension de se connecter au compte de stockage et au point de terminaison spécifiés.
 sinksConfig | (facultatif) Détails des destinations alternatives auxquelles les métriques et les événements peuvent délivrés. Les détails spécifiques de chaque récepteur de données pris en charge par l’extension sont traités dans les sections qui suivent.
 
-
-> [!NOTE]
-> Lors du déploiement de l’extension avec un modèle de déploiement Azure, le compte de stockage et le jeton SAS doivent être créés au préalable et ensuite transmis au modèle. Vous ne pouvez pas déployer une machine virtuelle, un compte de stockage, ni configurer l’extension d’un modèle unique. La création d’un jeton SAS dans un modèle n’est pas prise en charge actuellement.
+Pour obtenir un jeton SAS dans un modèle Resource Manager, utilisez la fonction **listAccountSas**. Pour obtenir un exemple de modèle, consultez [Exemple de fonction de liste](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 Vous pouvez facilement construire le jeton SAS nécessaire via le portail Azure.
 

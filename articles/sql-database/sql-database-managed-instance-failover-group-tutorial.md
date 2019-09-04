@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624987"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103075"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement
 
@@ -29,7 +29,9 @@ Ajoutez une instance managée SQL Database à un groupe de basculement. Dans cet
 > - Test de basculement
 
   > [!NOTE]
-  > La création d’une instance gérée peut prendre beaucoup de temps. En conséquence, ce didacticiel peut prendre plusieurs heures. Pour plus d’informations sur les délais d’approvisionnement, consultez [Opérations de gestion des instances gérées](sql-database-managed-instance.md#managed-instance-management-operations). L’utilisation de groupes de basculement avec des instances gérées est actuellement en préversion. 
+  > - Ce didacticiel explique comment configurer vos ressources dans le respect des [conditions préalables à la configuration de groupes de basculement pour une instance managée](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - La création d’une instance gérée peut prendre beaucoup de temps. En conséquence, ce didacticiel peut prendre plusieurs heures. Pour plus d’informations sur les délais d’approvisionnement, consultez [Opérations de gestion des instances gérées](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - L’utilisation de groupes de basculement avec des instances gérées est actuellement en préversion. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,16 +40,18 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 - Si vous n’avez pas encore d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/). 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1 - Créer un groupe de ressources et une instance managée principale
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1 - Créer un groupe de ressources et une instance managée principale
 Au cours de cette étape, vous allez créer le groupe de ressources et l’instance managée principale pour votre groupe de basculement à l’aide du portail Azure. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure. 
-1. Saisissez `managed instance` dans la zone de recherche et sélectionnez l’option pour Azure SQL Managed instance. 
-1. Sélectionnez **Créer** pour lancer la page de création de **l’instance managée SQL**. 
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant Afficher les détails sur la vignette Bases de données.
+1. Sélectionnez **Créer** dans la vignette **Instances managées SQL**. 
+
+    ![Sélectionner instance managée](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Sur la page **Créer une Azure SQL Database Managed Instance** sous l'onglet **Général**
     1. Sous **Détails du projet**, sélectionnez votre **Abonnement** dans la liste déroulante, puis choisissez de **Créer** un groupe de ressources. Saisissez un nom pour votre groupe de ressources, par exemple `myResourceGroup`. 
-    1. Sous **Détails de l’instance managée**, indiquez le nom de votre instance managée et la région où vous souhaitez déployer votre instance managée. Veillez à sélectionner une région avec une [région jumelée](/azure/best-practices-availability-paired-regions). Laissez **Calcul + Stockage** aux valeurs par défaut. 
+    1. Sous **Détails de l’instance managée**, indiquez le nom de votre instance managée et la région où vous souhaitez déployer votre instance managée. Laissez **Calcul + Stockage** aux valeurs par défaut. 
     1. Sous **Compte administrateur**, fournissez un identifiant d’administrateur, comme `azureuser`, et un mot de passe d’administrateur complexe. 
 
     ![Créer une instance managée principale](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +83,7 @@ Pour créer un réseau virtuel, procédez comme suit :
     | **Nom** |  Le nom du réseau virtuel qui sera utilisé par l’instance gérée secondaire, par exemple `vnet-sql-mi-secondary`. |
     | **Espace d’adressage** | L’espace d’adressage pour votre réseau virtuel, par exemple `10.128.0.0/16`. | 
     | **Abonnement** | L’abonnement dans lequel votre instance managée principale et le groupe de ressources se trouvent. |
-    | **Région** | L’emplacement auquel vous allez déployer votre instance managée secondaire ; il doit se trouver dans une [région jumelée](/azure/best-practices-availability-paired-regions) à l’instance managée principale.  |
+    | **Région** | Emplacement dans lequel vous allez déployer votre instance managée secondaire. |
     | **Sous-réseau** | Le nom de votre sous-réseau. `default` est fourni pour vous par défaut. |
     | **Plage d’adresses**| La plage d’adresses de votre sous-réseau. Celle-ci doit être différente de la plage d’adresses de sous-réseau utilisée par le réseau virtuel de votre instance managée principale, comme `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
@@ -90,15 +94,18 @@ Pour créer un réseau virtuel, procédez comme suit :
 ## <a name="3---create-a-secondary-managed-instance"></a>3 - Créer une instance managée secondaire
 Lors de cette étape, vous allez créer une instance gérée secondaire dans le portail Azure, ce qui configurera également la mise en réseau entre les deux instances managées. 
 
-Votre deuxième instance gérée doit :
+Votre deuxième instance managée doit :
 - Être vide. 
-- Se trouver dans une [région jumelée](/azure/best-practices-availability-paired-regions) avec son instance gérée principale équivalente. 
 - Avoir un sous-réseau et une plage d’adresses IP différents de ceux de l’instance managée principale. 
 
 Pour créer votre instance managée secondaire, procédez comme suit : 
 
-1. Dans le [portail Azure](http://portal.azure.com), sélectionnez **Créer une ressource**, puis recherchez *Azure SQL Managed Instance*. 
-1. Sélectionnez l'option **Azure SQL Managed Instance** publiée par Microsoft, puis sélectionnez **Créer** sur la page suivante.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant Afficher les détails sur la vignette Bases de données.
+1. Sélectionnez **Créer** dans la vignette **Instances managées SQL**. 
+
+    ![Sélectionner instance managée](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Dans l'onglet **Général** de la page **Créer une Azure SQL Database Managed Instance**, renseignez les champs requis pour configurer votre instance managée secondaire. 
 
    Le tableau suivant montre les valeurs nécessaires pour l’instance managée secondaire :
@@ -108,7 +115,7 @@ Pour créer votre instance managée secondaire, procédez comme suit :
     | **Abonnement** |  L’abonnement dans lequel votre instance managée principale se trouve. |
     | **Groupe de ressources**| Le groupe de ressources où se trouve votre instance managée principale. |
     | **Nom de l’instance managée** | Le nom de votre nouvelle instance managée secondaire, par exemple `sql-mi-secondary`  | 
-    | **Région**| L’emplacement de la [région jumelée](/azure/best-practices-availability-paired-regions) pour votre instance managée secondaire.  |
+    | **Région**| Emplacement de votre instance managée secondaire.  |
     | **Connexion administrateur de l’instance managée** | L’identifiant que vous souhaitez utiliser pour votre nouvelle instance managée secondaire, par exemple `azureuser`. |
     | **Mot de passe** | Un mot de passe complexe qui sera utilisé par la connexion de l’administrateur à la nouvelle instance gérée secondaire.  |
     | &nbsp; | &nbsp; |
@@ -208,9 +215,8 @@ Pour configurer la connectivité, procédez comme suit :
 ## <a name="7---create-a-failover-group"></a>7 - Créer un groupe de basculement
 Au cours de cette étape, vous allez créer le groupe de basculement et y ajouter des instances managées. 
 
-1. Dans la [portail Azure](https://portal.azure.com), accédez à **Tous les services** et saisissez `managed instance` dans la zone de recherche. 
-1. (Facultatif) Sélectionnez l’étoile en face **d’Instances managées SQL** pour ajouter des instances managées en tant que raccourci à la barre de navigation de gauche. 
-1. Sélectionnez **Instances managées SQL** et sélectionnez votre instance managée principale, par exemple `sql-mi-primary`. 
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez l’instance managée principale que vous avez créée dans le cadre de la première section, par exemple `sql-mi-primary`. 
 1. Sous **Paramètres**, accédez à **Groupes de basculement d’instance**, puis choisissez **Ajouter un groupe** pour ouvrir la page **Groupe de basculement d’instance**. 
 
    ![Ajouter un groupe de basculement](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445291"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982907"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Utilisation détaillée des certificats Azure IoT Edge
 
@@ -93,14 +93,14 @@ New-CACertsCertChain rsa
 De même, ces commandes génèrent le « certificat d’autorité de certification d’appareil ».
 
 ```bash
-./certGen.sh create_edge_device_certificate "<gateway device name>"
+./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
 ```
 
 ```Powershell
-New-CACertsEdgeDevice "<gateway device name>"
+New-CACertsEdgeDeviceCA "<gateway device name>"
 ```
 
-* Le **\<nom d’appareil de passerelle\>** transmis dans ces scripts **ne doit pas** être le même que le paramètre « hostname » du fichier config.yaml. Les scripts permettent d’éviter les problèmes en ajoutant une chaîne « .ca » au **\<nom d’appareil de passerelle\>** afin d’éviter le conflit de noms dans le cas où un utilisateur a configuré IoT Edge à l’aide du même nom aux deux emplacements. Toutefois, il est déconseillé d’utiliser le même nom.
+* Le **\<nom d’appareil de passerelle\>** transmis dans ces scripts ne doit pas être le même que le paramètre « hostname » du fichier config.yaml. Les scripts permettent d’éviter les problèmes en ajoutant une chaîne « .ca » au **\<nom d’appareil de passerelle\>** afin d’éviter le conflit de noms dans le cas où un utilisateur a configuré IoT Edge à l’aide du même nom aux deux emplacements. Toutefois, il est déconseillé d’utiliser le même nom.
 
 >[!Tip]
 > Pour connecter vos appareils IoT feuille et applications utilisant notre Kit de développement logiciel (SDK) d’appareil IoT via IoT Edge, vous devez ajouter le paramètre GatewayHostName facultatif à la fin de la chaîne de connexion de l’appareil. Lorsque le certificat de serveur Edge Hub est généré, il est basé sur une version en minuscules du nom d’hôte indiqué dans le fichier config.yaml. Par conséquent, pour que les noms correspondent et que la vérification du certificat TLS réussisse, vous devez saisir le paramètre GatewayHostName en minuscules.

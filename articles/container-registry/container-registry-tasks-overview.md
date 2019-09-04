@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311866"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114798"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -56,7 +56,7 @@ Découvrez comment utiliser les tâches rapides dans le premier didacticiel d’
 
 ## <a name="automatic-build-on-source-code-commit"></a>Génération automatique lors de la validation du code source
 
-Utilisez ACR Tasks pour déclencher automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git. Les tâches de génération, configurables avec la commande Azure CLI [az acr task][az-acr-task], vous permettent de spécifier un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe valide du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel.
+Utilisez ACR Tasks pour déclencher automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git dans GitHub ou Azure DevOps. Les tâches de génération, configurables avec la commande Azure CLI [az acr task][az-acr-task], vous permettent de spécifier un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe valide du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel.
 
 > [!IMPORTANT]
 > Si vous avez créé précédemment des tâches pendant la préversion avec la commande `az acr build-task`, ces tâches doivent être recréées à l’aide de la commande [az acr task][az-acr-task].
@@ -73,10 +73,14 @@ Quand une image de framework d’application ou de système d’exploitation est
 
 Comme ACR Tasks détecte de manière dynamique les dépendances de l’image de base quand il génère une image de conteneur, il peut savoir quand l’image de base d’une image d’application est mise à jour. Avec une [tâche de build](container-registry-tutorial-base-image-update.md#create-a-task) préconfigurée, ACR Tasks **regénère automatiquement chaque image d’application** pour vous. Grâce à ces détection et regénération automatiques, ACR Tasks vous permet d’économiser le temps et les efforts normalement nécessaires au suivi et à la mise à jour manuels de chaque image d’application faisant référence à votre image de base mise à jour.
 
-Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième didacticiel d’ACR Tasks, [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Une tâche ACR effectue le suivi d’une mise à jour d’image de base lorsque l’image de base se trouve dans l’un des emplacements suivants :
 
-> [!NOTE]
-> Actuellement, les mises à jour de l’image de base ne déclenchent des générations que lorsque les images de base et d’application se trouvent dans le même registre de conteneurs Azure ou lorsque l’image de base réside dans un référentiel Docker Hub public ou Microsoft Container Registry.
+* Le registre de conteneurs Azure dans lequel s’exécute la tâche
+* Un autre registre de conteneurs Azure dans la même région 
+* Un référentiel public dans Docker Hub
+* Un référentiel public dans Microsoft Container Registry
+
+Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième didacticiel d’ACR Tasks, [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 ## <a name="multi-step-tasks"></a>Tâches multiétapes
 

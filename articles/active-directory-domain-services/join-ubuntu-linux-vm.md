@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612292"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990592"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -88,7 +88,7 @@ Ensuite, installez les packages requis pour la jonction de domaine sur la machin
 3. Pendant l’installation de Kerberos, vous voyez un écran rose. L’installation du package « krb5-user » demande le nom de domaine (en majuscules). L’installation écrit les sections [realm] et [domain_realm] dans /etc/krb5.conf.
 
     > [!TIP]
-    > Si le nom de votre domaine managé est contoso.com, saisissez « contoso.COM » comme domaine. N’oubliez pas que le nom de domaine doit être écrit en majuscules.
+    > Si le nom de votre domaine managé est contoso.com, saisissez CONTOSO.COM comme domaine. N’oubliez pas que le nom de domaine doit être écrit en majuscules.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configurer les paramètres de protocole NTP (Network Time Protocol) sur la machine virtuelle Linux
@@ -121,7 +121,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 1. Découvrez le domaine géré par les services de domaine Azure AD. Sur votre terminal SSH, saisissez la commande suivante :
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Joignez l’ordinateur au domaine. Sur votre terminal SSH, saisissez la commande suivante :
@@ -149,7 +149,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     > Si votre machine virtuelle n'est pas en mesure de rejoindre le domaine, assurez-vous que le groupe de sécurité réseau de la machine virtuelle autorise le trafic Kerberos sortant sur le port TCP + UDP 464 vers le sous-réseau de réseau virtuel pour votre domaine Azure AD DS géré.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 Vous devez voir apparaître un message signalant que l’ordinateur a bien été joint au domaine géré : « La machine a bien été inscrite dans le domaine ».
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Vérifier la jonction de domaine
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle Ubuntu jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
-1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle Ubuntu jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@contoso.COM »).
+1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle Ubuntu jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO.COM »).
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.

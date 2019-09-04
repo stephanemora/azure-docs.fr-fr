@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558848"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068856"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
@@ -63,13 +63,7 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 
 ## <a name="customization"></a>Personnalisation
 
-Outre le modèle universel utilisé par Speech Services, vous pouvez créer des modèles acoustiques, de langage et de prononciation personnalisés, propres à votre expérience. Voici une liste d’options de personnalisation :
-
-| Modèle | Description |
-|-------|-------------|
-| [Modèle acoustique](how-to-customize-acoustic-models.md) | Créer un modèle acoustique personnalisé s’avère utile si vos applications, outils ou appareils sont utilisés dans un environnement particulier, par exemple dans une voiture ou une usine où les conditions d’enregistrement sont spécifiques. Par exemple, vous pouvez avoir à traiter des façons de parler avec un accent, des bruits de fond spécifiques ou l’utilisation d’un microphone spécifique pour l’enregistrement. |
-| [Modèle de langage](how-to-customize-language-model.md) | Créez un modèle de langage personnalisé afin d’améliorer la transcription du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique. |
-| [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et écrite d’un mot. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
+En plus du modèle de base standard utilisé par les services vocaux, vous pouvez personnaliser des modèles en fonction de vos besoins avec des données disponibles afin de surmonter certains obstacles à la reconnaissance vocale, tels que le style d’élocution, le vocabulaire et le bruit de fond (voir [Custom Speech](how-to-custom-speech.md)).
 
 > [!NOTE]
 > Les options de personnalisation varient selon la langue/paramètres régionaux (voir [Langues prises en charge](supported-languages.md)).

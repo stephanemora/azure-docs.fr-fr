@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60952606"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051000"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Rechercher des actualités avec la recherche Bing et Azure Logic Apps
 
@@ -23,8 +24,8 @@ Cet article explique comment rechercher des actualités, des vidéos et d’autr
 
 Par exemple, vous pouvez rechercher des éléments d’actualités en fonction de critères de recherche et les publier comme tweets dans votre flux Twitter.
 
-Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">référence du connecteur de recherche Bing</a>.
+Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur de recherche Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -68,7 +69,7 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
 4. Sélectionnez l’intervalle et la fréquence à laquelle vous souhaitez que le déclencheur recherche des résultats.
 
-5. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+5. Lorsque c'est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 6. Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur.
 
@@ -80,7 +81,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Dans le portail Azure ou Visual Studio, ouvrez votre application logique dans le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
 
-2. Sous le déclencheur ou l’action, choisissez **Nouvelle étape** > **Ajouter une action**.
+2. Sous le déclencheur ou l’action, sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
    Cet exemple utilise ce déclencheur :
 
@@ -89,7 +90,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
    ![Ajouter une action](./media/connectors-create-api-bing-search/add-action.png)
 
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
+   Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 3. Dans la zone de recherche, entrez « recherche Bing » comme filtre.
 Dans la liste des actions, sélectionnez l’action souhaitée.
@@ -116,7 +117,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
    Par exemple, supposez que vous souhaitez obtenir les résultats dont le nom de la catégorie inclut le mot « tech » (technique).
 
    1. Cliquez dans la zone **Requête de recherche** pour afficher la liste de contenu dynamique. 
-   Dans cette liste, choisissez **Expression** pour que le Générateur d’expressions apparaisse. 
+   Dans cette liste, sélectionnez **Expression** pour que le Générateur d’expressions apparaisse. 
 
       ![Déclencheur de recherche Bing](./media/connectors-create-api-bing-search/bing-search-action.png)
 
@@ -131,7 +132,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
       ![Sélectionner un champ](./media/connectors-create-api-bing-search/expression-select-field.png)
 
-   4. Une fois que vous avez terminé, sélectionnez **OK**.
+   4. Quand vous avez terminé, sélectionnez **OK**.
 
       À présent, l’expression apparaît dans la zone **Requête de recherche** au format suivant :
 
@@ -141,7 +142,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+5. Lorsque c'est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 <a name="create-connection"></a>
 
@@ -162,16 +163,11 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    ![Créer une connexion](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. Lorsque vous êtes prêt, choisissez **Créer**.
+2. Sélectionnez **Créer** lorsque vous avez terminé.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme le décrit le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/bingsearch/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

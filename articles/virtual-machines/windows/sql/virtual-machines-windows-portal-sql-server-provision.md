@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900387"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102234"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -37,21 +36,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner une des images préconfigurées à partir de la galerie des machines virtuelles. Les étapes suivantes montrent comment sélectionner une des images SQL Server 2017.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre compte.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis entrez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez **+ Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires en sélectionnant **Afficher les détails**. 
+1. Entrez `2017` dans la zone de recherche d’image SQL Server sur la vignette **machines virtuelles SQL**, puis sélectionnez **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server 2016** dans la liste déroulante. 
 
-1. Dans le portail Azure, cliquez sur **Créer une ressource**. Le portail ouvre la fenêtre **Nouveau**.
 
-1. Dans la fenêtre **Nouveau**, cliquez sur **Calcul** , puis sur **Afficher tout**.
-
-1. Dans le champ de recherche, tapez **SQL Server 2017**, puis appuyez sur ENTRÉE.
-
-1. Dans les listes déroulantes des filtres, sélectionnez _Windows Server 2016_ pour le **Système d’exploitation** et _Microsoft_ comme **Éditeur**. 
-
-     ![Fenêtre Nouveau calcul](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. Passez en revue les images SQL Server disponibles. Chaque image identifie une version de SQL Server et un système d’exploitation.
-
-1. Sélectionnez l'image intitulée **Licence SQL Server gratuite : SQL Server 2017 Developer sous Windows Server 2016**.
+   ![Sélectionner une image de machine virtuelle SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > L’édition Developer est utilisée dans cette procédure pas à pas, car il s’agit d’une version complète et gratuite de SQL Server pour les tests de développement. Vous payez uniquement pour le coût d’exécution de la machine virtuelle. Vous êtes libre, toutefois, de choisir les images à utiliser dans cette procédure pas à pas. Pour obtenir une description des images disponibles, consultez la [Vue d’ensemble des machines virtuelles Windows SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -61,9 +51,8 @@ Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner 
    >
    > Pour en savoir plus sur ces options, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
 
-1. Sous **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Resource Manager est le modèle de déploiement recommandé pour les nouvelles machines virtuelles. 
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 
 ## <a id="configure"></a> Options de configuration
@@ -122,7 +111,7 @@ Sous l’onglet **Disques**, configurez les options de vos disques.
 * Sous **Avancé**, sélectionnez **Oui** sous **Utiliser des disques managés**.
 
    > [!NOTE]
-   > Microsoft recommande la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés][../managed-disks-overview.md). Pour plus de détails sur les disques managés dans un groupe à haute disponibilité, consultez l’article [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../manage-availability.md).
+   > Microsoft recommande la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../managed-disks-overview.md). Pour plus de détails sur les disques managés dans un groupe à haute disponibilité, consultez l’article [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../manage-availability.md).
 
 ![Paramètres des disques des machines virtuelles SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

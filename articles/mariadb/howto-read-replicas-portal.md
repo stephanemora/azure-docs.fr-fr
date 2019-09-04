@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.date: 08/21/2019
+ms.openlocfilehash: a7e7beb3cdef7551a1bce2a693b8044ea6ed8946
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876307"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907678"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB avec le portail Azure
 
@@ -45,9 +45,12 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
     ![Azure Database for MariaDB - Nom du réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Sélectionnez l’emplacement du serveur de réplica. Vous pouvez créer un réplica dans n’importe quelle région Azure. L’emplacement par défaut est le même que celui du serveur maître.
+6. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître.
 
     ![Azure Database for MariaDB - Nom du réplica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 7. Sélectionnez **OK** pour confirmer la création du réplica.
 

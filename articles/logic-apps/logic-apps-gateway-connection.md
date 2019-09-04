@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 029dc8daaf456c155d46eefa699772882bdabee5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546274"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982884"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -65,7 +65,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez ensuite
 
    | Propriété | Description | 
    |----------|-------------|
-   | **Nom** | Le nom pour votre ressource de passerelle | 
+   | **Nom de la ressource** | Nom de votre ressource de passerelle, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). | 
    | **Abonnement** | Le nom de votre abonnement Azure, qui doit être le même que celui de votre application logique. L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter. | 
    | **Groupe de ressources** | Le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour organiser les ressources connexes | 
    | **Lieu** | Azure limite cet emplacement à la région sélectionnée pour le service cloud de la passerelle pendant [l’installation de la passerelle](../logic-apps/logic-apps-gateway-install.md). <p>**Remarque**: Assurez-vous que l’emplacement de la ressource de passerelle correspond à l’emplacement du service cloud de celle-ci. Autrement, votre installation de passerelle pourrait ne pas figurer dans la liste des passerelles installées dans laquelle vous allez opérer une sélection à l’étape suivante. Vous pouvez utiliser des régions différentes pour votre ressource de passerelle et votre application logique. | 

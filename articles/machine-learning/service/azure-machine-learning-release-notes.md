@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777ab4c05f70cba403fe6d2318c9d498b5dd4ff3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897562"
+ms.locfileid: "69971507"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -100,6 +100,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
 ### <a name="azure-portal"></a>Portail Azure
 + **Fonctionnalité en préversion**
   + La diffusion en continu des fichiers journaux et des fichiers de sortie est désormais disponible pour les pages de détail de l’exécution. Ces fichiers diffusent des mises à jour en temps réel lorsque l’aperçu est activé.
+  + La possibilité de définir un quota au niveau de l’espace de travail est publiée en version préliminaire. Les quotas AmlCompute sont alloués au niveau de l’abonnement, mais nous vous permettons désormais de distribuer ces quotas entre les espaces de travail et de les allouer pour un partage et une gouvernance équitables. Cliquez simplement sur le panneau **Utilisations+quotas** dans la barre de navigation de gauche de votre espace de travail, puis sélectionnez l’onglet **Configurer les quotas**. Notez que vous devez être administrateur d’abonnement pour pouvoir définir des quotas au niveau de l’espace de travail, car il s’agit d’une opération entre espaces de travail.
 
 ## <a name="2019-08-05"></a>05-08-2019
 

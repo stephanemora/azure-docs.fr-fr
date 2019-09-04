@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 59ece9c37a563efba6329a30c06c1b596b1a5d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058158"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982725"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -175,11 +175,11 @@ Si vous ne pouvez accéder à aucune de ces vignettes, demandez l’accès Colla
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions et accès en écriture
 
-Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-overview.md) nécessitent un accès en écriture. Par exemple, si un utilisateur est assigné au rôle de Lecteur, il ne peut pas voir les fonctions au sein d’une application de fonction. Le portail affiche **(aucun accès)** .
+Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-overview.md) nécessitent un accès en écriture. Par exemple, si un utilisateur est assigné au rôle [Lecteur](built-in-roles.md#reader), il ne peut pas voir les fonctions au sein d’une application de fonction. Le portail affiche **(aucun accès)** .
 
 ![Aucun accès aux applications de fonction](./media/troubleshooting/functionapps-noaccess.png)
 
-Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres.
+Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres. Pour accéder à ces fonctionnalités, vous aurez besoin du rôle [Contributeur](built-in-roles.md#contributor).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)

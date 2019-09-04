@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567258"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998223"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -344,9 +344,12 @@ Le moyen le plus simple de configurer l’emplacement d’enregistrement des mé
 
 Si vous utilisez des pools élastiques ou des instances gérées, vous devez aussi configurer les paramètres de diagnostic dans ces ressources pour permettre la diffusion en continu des données de télémétrie de diagnostic vers l’espace de travail.
 
-### <a name="use-the-sql-analytics-solution"></a>Utiliser la solution SQL Analytics
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Utiliser la solution SQL Analytics à des fins de surveillance et d'alerte
 
-Vous pouvez utiliser SQL Analytics comme un tableau de bord hiérarchique pour afficher vos ressources SQL Database. Pour découvrir comment utiliser la solution SQL Analytics, consultez [Surveiller une base de données SQL à l’aide de la solution SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+Vous pouvez utiliser SQL Analytics comme un tableau de bord hiérarchique pour afficher vos ressources SQL Database.
+
+- Pour découvrir comment utiliser la solution SQL Analytics, consultez [Surveiller une base de données SQL à l’aide de la solution SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Pour savoir comment configurer des alertes pour SQL Database et une instance managée basée sur SQL Analytics, consultez [Création d'alertes pour SQL Database et une instance managée](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Transmission en continu vers Event Hubs
 
@@ -715,3 +718,7 @@ Pour plus d’informations sur les concentrateurs d’événements, lisez :
 
 - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+Pour savoir comment configurer des alertes basées sur la télémétrie à partir de Log Analytics, consultez :
+
+- [Création d'alertes pour SQL Database et une instance managée](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ac4310e851808d6e6d89d1a2b506975eea3b1d69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029324"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128634"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Module de régression logistique multiclasse
 
@@ -68,4 +67,4 @@ Après l’apprentissage, vous pouvez visualiser un résumé des paramètres du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

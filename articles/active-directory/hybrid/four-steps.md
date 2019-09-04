@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124920"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -141,7 +141,7 @@ Par défaut, Azure AD déverrouille les comptes quand il effectue une réinitial
 
 Azure fournit des rapports qui peuvent être utilisés par vous et votre organisation pour s’assurer que les utilisateurs sont inscrits pour l’authentification multifacteur (MFA) et la réinitialisation de mot de passe en libre-service (SSPR) Les utilisateurs qui ne sont pas inscrits devront peut-être être formés sur le processus.
 
-Le [rapport de connexions](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) d’authentification multifacteur inclut des informations sur l’utilisation de l’authentification multifacteur (MFA) et sur son fonctionnement dans votre organisation. Avoir accès à l’activité de connexion (et aux audits et événements à risque) pour Azure AD est essentiel pour la résolution des problèmes, l’analyse de l’utilisation et les investigations d’analyse.
+Le [rapport de connexions](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) d’authentification multifacteur inclut des informations sur l’utilisation de l’authentification multifacteur (MFA) et sur son fonctionnement dans votre organisation. Avoir accès à l’activité de connexion (et aux audits et détections des risques) pour Azure AD est essentiel pour la résolution des problèmes, l’analyse de l’utilisation et les investigations d’analyse.
 
 De même, le [rapport de gestion des mots de passe en libre-service](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) peut être utilisé pour déterminer qui est (ou n’est pas) inscrit pour la réinitialisation de mot de passe en libre-service (SSPR).
 

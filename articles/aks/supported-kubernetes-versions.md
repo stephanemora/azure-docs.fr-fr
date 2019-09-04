@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898874"
+ms.locfileid: "69982708"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,6 @@ Kubernetes utilise le schéma de contrôle de version standard [Semantic Version
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Chaque chiffre de la version indique la compatibilité générale avec la version précédente :
@@ -39,7 +38,7 @@ Chaque chiffre de la version indique la compatibilité générale avec la versio
 * Les versions mineures changent lorsque des modifications de fonctionnalités rétrocompatibles avec les autres versions mineures sont apportées.
 * Les versions des correctifs changent lorsque des corrections de bogues rétrocompatibles sont apportées.
 
-En général, les utilisateurs doivent s’efforcer d’exécuter la dernière version de correctif de la version mineure qu’ils utilisent, par exemple si votre cluster de production est sur *1.13.6* et *1.13.7* est la dernière version de correctif disponible pour la série *1.13*, vous devez passer à *1.13.7* dès que vous êtes en mesure d’assurer la compatibilité et le bon état de votre cluster.
+En général, les utilisateurs doivent s’efforcer d’exécuter la dernière version de correctif de la version mineure qu’ils utilisent, par exemple si votre cluster de production est sur *1.12.14* et *1.12.15* est la dernière version de correctif disponible pour la série *1.12*, vous devez passer à *1.12.15* dès que vous êtes en mesure d’assurer la compatibilité et le bon état de votre cluster.
 
 ## <a name="kubernetes-version-support-policy"></a>Stratégie de prise en charge des versions de Kubernetes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 125f1bc14a376523a22984e9d8efa7848408bf7a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472050"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035218"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploration des journaux d’activité .NET/.NET Core dans Application Insights
 
@@ -31,15 +31,15 @@ Envoyez des journaux de suivi de diagnostic pour votre application ASP.NET/ASP.N
 Installez le framework de journalisation de votre choix dans votre projet, ce qui générera une entrée dans app.config ou web.config.
 
 ```XML
-    <configuration>
-      <system.diagnostics>
-    <trace autoflush="true" indentsize="0">
+ <configuration>
+  <system.diagnostics>
+    <trace>
       <listeners>
         <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
     </trace>
   </system.diagnostics>
-   </configuration>
+</configuration>
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Configuration d’Application Insights pour la collecte des journaux d’activité
@@ -202,7 +202,7 @@ Si votre application envoie de grandes quantités de données et si vous utilise
 * [Diagnostiquer les défaillances et les exceptions dans ASP.NET][exceptions]
 * [En savoir plus sur Recherche][diagnostic]
 * [Configuration des tests de disponibilité et de réactivité][availability]
-* [Résolution des problèmes][qna]
+* [Dépannage][qna]
 
 <!--Link references-->
 

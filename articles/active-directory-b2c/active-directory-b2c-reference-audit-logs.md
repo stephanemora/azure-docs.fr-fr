@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d8cc67b8e243fb2b97cd1522a850adc63c84428e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835411"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969628"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -44,7 +44,8 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 > Pour les activités CRUD des objets utilisateur, reportez-vous à la catégorie **Annuaire principal**.
 
 ## <a name="example-activity"></a>Exemple d’activité
-L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe : ![Exemple de page Détails de l’activité du journal d’audit du Portail Microsoft Azure](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe :  
+    ![Exemple de page Détails de l’activité du journal d’audit du Portail Microsoft Azure](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Le volet des détails de l’activité contient les informations pertinentes suivantes :
 

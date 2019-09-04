@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f07ab41e0e495783a2d9592230336818b4a54d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619458"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972705"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter
 
@@ -30,7 +30,7 @@ Lorsque vous créez un Cloud privé, un utilisateur **CloudOwner**  est créé d
 
 Un groupe nommé **Cloud-owner-Group** est créé lors du déploiement d’un cloud privé. Les utilisateurs de ce groupe peuvent administrer diverses parties de l’environnement vSphere sur le cloud privé. Ce groupe obtient automatiquement des privilèges **Cloud-Owner-Role** et l’utilisateur **CloudOwner** est ajouté en tant que membre de ce groupe.  CloudSimple crée des groupes supplémentaires disposant de privilèges limités pour faciliter la gestion.  Vous pouvez ajouter n'importe quel utilisateur à ces groupes préalablement créés. Les privilèges définis ci-dessous sont automatiquement attribués aux utilisateurs de ces groupes.
 
-### <a name="pre-created-groups"></a>Groupes préalablement créés
+### <a name="pre-created-groups"></a>Groupes précréés
 
 | Nom du groupe | Objectif | Role |
 | -------- | ------- | ------ |

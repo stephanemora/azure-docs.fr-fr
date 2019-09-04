@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714700"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102863"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
 
@@ -34,7 +34,7 @@ La capture de paquets requiert la connectivité suivante :
 * Connexions entrante et sortante à l’adresse IP 169.254.169.254
 * Connexions entrante et sortante à l’adresse IP 168.63.129.16
 
-Si un groupe de sécurité réseau est associé à l’interface réseau ou à un sous-réseau dans lequel figure l’interface réseau, assurez-vous qu’il existe des règles autorisant les ports ci-dessus. 
+Si un groupe de sécurité réseau est associé à l’interface réseau ou à un sous-réseau dans lequel figure l’interface réseau, assurez-vous qu’il existe des règles autorisant les ports ci-dessus. De même, l’ajout d’itinéraires de trafic définis par l’utilisateur à votre réseau peut empêcher la connectivité aux adresses IP et ports précités. Vérifiez qu’ils sont accessibles. 
 
 ## <a name="start-a-packet-capture"></a>Démarrer une capture de paquets
 

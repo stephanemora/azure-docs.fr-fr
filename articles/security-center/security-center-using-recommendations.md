@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640871"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990556"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
@@ -75,6 +75,6 @@ Superviser les recommandations dans Security Center vous permet d’éliminer le
 ## <a name="next-steps"></a>Étapes suivantes
 Vérifiez que vous avez un processus de supervision en place, qui vous permet de contrôler régulièrement les recommandations dans Security Center afin de garantir que vos ressources restent bien sécurisées au fil du temps.
 
-Ce scénario vous a montré comment utiliser les stratégies de sécurité et les recommandations dans Security Center pour prévenir une attaque de sécurité. Reportez au [scénario de réponse aux incidents](security-center-incident-response.md) pour découvrir comment mettre en place un plan de réponse aux incidents avant qu’une attaque ne survienne.
+Ce scénario vous a montré comment utiliser les stratégies de sécurité et les recommandations dans Security Center pour prévenir une attaque de sécurité.
 
-Découvrez comment réagir aux menaces avec la fonctionnalité de [réponse aux incidents](security-center-incident-response.md).
+Pour découvrir comment répondre aux menaces, voir [Gestion et traitement des alertes de sécurité](security-center-managing-and-responding-alerts.md).

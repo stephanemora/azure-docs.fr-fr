@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036250"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019125"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -71,6 +71,12 @@ Les notes de publication suivantes concernent la version 7.0.0.0 de l’agent Az
 
 - Prise en charge de tailles de partage de fichiers plus importantes
     - Avec la préversion des partages de fichiers Azure plus volumineux, nous augmentons nos limites de prise en charge de la synchronisation de fichiers. Dans le cadre de cette première étape, Azure File Sync prend désormais en charge jusqu’à 25 To et 50 millions de fichiers dans un seul espace de noms qui se synchronise. Pour demander à disposer de la préversion du partage de fichiers volumineux, remplissez ce formulaire https://aka.ms/azurefilesatscalesurvey. 
+- Prise en charge du paramètre de pare-feu et de réseau virtuel sur les comptes de stockage
+    - Azure File Sync prend désormais en charge le paramètre de pare-feu et de réseau virtuel sur les comptes de stockage. Pour configurer votre déploiement de manière à utiliser le paramètre de pare-feu et de réseau virtuel, consultez [Configurer les paramètres de pare-feu et de réseau virtuel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- Cmdlet PowerShell pour synchroniser immédiatement les fichiers modifiés dans le partage de fichiers Azure
+    - Pour synchroniser immédiatement les fichiers modifiés dans le partage de fichiers Azure, vous pouvez utiliser la cmdlet PowerShell Invoke-AzStorageSyncChangeDetection afin de lancer manuellement la détection des modifications apportées au partage de fichiers Azure. Cette cmdlet est destinée aux scénarios dans lesquels un certain type de processus automatisé apporte des modifications au partage de fichiers Azure ou dans lesquels les modifications sont apportées par un administrateur (comme le déplacement de fichiers et de répertoires dans le partage). Pour les modifications d'utilisateurs finaux, il est recommandé d’installer l’agent Azure File Sync dans une machine virtuelle IaaS et de demander aux utilisateurs finaux d'accéder au partage de fichiers via la machine virtuelle IaaS. Ainsi, toutes les modifications sont rapidement synchronisées avec d’autres agents, sans qu’il soit nécessaire d’utiliser la cmdlet Invoke-AzStorageSyncChangeDetection. Pour plus d’informations, consultez la documentation [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection).
+- Expérience améliorée du portail en présence de fichiers non synchronisés
+    - Si certains de vos fichiers ne sont pas synchronisés, nous faisons maintenant la distinction entre les erreurs temporaires et les erreurs persistantes dans le portail. Les erreurs temporaires se corrigent généralement sans intervention de l’administrateur. Par exemple, un fichier en cours d’utilisation ne sera synchronisé qu'une fois le descripteur de fichier fermé. Pour les erreurs persistantes, nous affichons maintenant le nombre de fichiers concernés par chaque erreur. Le nombre d’erreurs persistantes s'affiche également dans la colonne des fichiers non synchronisés de tous les points de terminaison de serveur d'un groupe de synchronisation.
 - Amélioration de la restauration au niveau fichier de Sauvegarde Azure
     - Les fichiers restaurés à l’aide de Sauvegarde Azure sont désormais détectés et synchronisés plus rapidement sur le point de terminaison de serveur.
 - Amélioration de la fiabilité de la cmdlet de rappel de hiérarchisation cloud 

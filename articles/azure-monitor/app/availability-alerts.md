@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: cc022f91d4b4fec42929769df8c979320548a1f9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304767"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114391"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -61,11 +61,15 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ### <a name="alert-on-custom-analytics-queries"></a>Créer des alertes sur les requêtes d’analytique personnalisées
 
-À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer des alertes sur les [requêtes dans les journaux personnalisées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Avec des requêtes personnalisées, vous pouvez créer des alertes sur une condition arbitraire qui peut vous aider à obtenir le signal le plus fiable pour des problèmes de disponibilité. C’est également très pertinent si vous envoyez les résultats de disponibilité personnalisés à l’aide du Kit de développement logiciel (SDK) TrackAvailability. 
+À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer des alertes sur les [requêtes dans les journaux personnalisées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Avec des requêtes personnalisées, vous pouvez créer des alertes sur une condition arbitraire qui peut vous aider à obtenir le signal le plus fiable pour des problèmes de disponibilité. Cela s’applique également si vous envoyez les résultats de disponibilité personnalisés à l’aide du Kit de développement logiciel (SDK) TrackAvailability.
 
 > [!Tip]
 > Les mesures sur les données de disponibilité incluent tous les résultats de disponibilité personnalisés que vous pouvez soumettre en appelant notre Kit de développement logiciel (SDK) TrackAvailability. Vous pouvez utiliser la prise en charge de la création d’alertes sur les mesures pour créer des alertes sur les résultats de disponibilité personnalisés.
 >
+
+## <a name="automate-alerts"></a>Automatiser les alertes
+
+Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -75,4 +79,3 @@ Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 
 * [Tests web à plusieurs étapes](availability-multistep.md)
 * [Surveiller la disponibilité et de la réactivité d’un site web](monitor-web-app-availability.md)
-

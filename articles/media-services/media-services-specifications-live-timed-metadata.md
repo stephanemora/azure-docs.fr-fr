@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/2/2019
+ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 444d5ca996c014bdbf2e62cacf2563c7b63372e4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: df2a86dd1292f58511765e842ee97daddcff4e3e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69015721"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102932"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
-Dernière mise à jour : 2019-07-02
+Dernière mise à jour : 2019-08-22
 
 ### <a name="conformance-notation"></a>Notation de conformité
 
@@ -74,6 +74,7 @@ Les documents suivants contiennent des dispositions qui, par référence à ce t
 | [AMF0]            | [« Action Message Format AMF0 »](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
 | [DASH-IF-IOP]     | Guide d’interopérabilité du Forum du secteur DASH v4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | Métadonnées chronométrées pour HTTP Live Streaming - [https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
+| [CMAF-ID3]         | [Métadonnées chronométrées au format CMAF (Common Media Application Format)](https://aomediacodec.github.io/av1-id3/)
 | [ID3v2]           | Version de balise ID3 2.4.0  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure) |
 | [ISO-14496-12]    | ISO/IEC 14496-12 : Partie 12: Format ISO de base pour les fichiers médias, quatrième édition 15/07/2012  |
 | [MPEGDASH]        | Information technology – Dynamic adaptive streaming over HTTP (DASH) – Part 1: Media presentation description and segment formats. Mai 2014. Publié. URL : https://www.iso.org/standard/65274.html |
@@ -95,21 +96,146 @@ Les documents suivants contiennent des dispositions qui, par référence à ce t
 
 ## <a name="2-timed-metadata-ingest"></a>2. Réception de métadonnées chronométrées
 
-## <a name="21-rtmp-ingest"></a>2.1 Réception RTMP
+Azure Media Services prend en charge les métadonnées intrabande en temps réel pour les protocoles [RTMP] et Smooth Streaming [MS-SSTR-Ingest]. Les métadonnées en temps réel peuvent être utilisées pour définir des événements personnalisés, avec vos propres schémas personnalisés (JSON, binaires, XML), ainsi que des formats définis par le secteur comme ID3 ou SCTE-35 pour la signalisation des annonces dans un flux de diffusion. 
 
-Le RTMP prend en charge les signaux de métadonnées chronométrées envoyés sous forme de messages de signal AMF0 incorporés dans le flux RTMP. Les messages de signal peuvent être envoyés avant que l’événement réel ou d’un signal de jointure publicitaire [SCTE35] doivent se produire. Pour prendre en charge ce scénario, l’heure réelle de l’événement est envoyée dans le message de signal. Pour plus d'informations, voir [AMF0].
+Cet article fournit des détails sur la façon d’envoyer des signaux de métadonnées chronométrées personnalisés à l’aide des protocoles de réception pris en charge d'Azure Media Services. Cet article explique également comment les manifestes pour TLS, DASH et Smooth Streaming sont agrémentés de signaux de métadonnées chronométrées et comment ils sont transportés en intrabande lorsque le contenu est remis à l’aide de CMAF (fragments MP4) ou de segments Transport Stream (TS) pour HLS. 
+
+Les scénarios de cas d’usage courants pour les métadonnées chronométrées sont les suivants :
+
+ - Signaux publicitaires SCTE-35 pour déclencher des coupures publicitaires dans un événement en direct ou une diffusion linéaire
+ - Métadonnées ID3 personnalisées pouvant déclencher des événements dans une application cliente (navigateur, iOS ou Android)
+ - Métadonnées JSON, binaires ou XML personnalisées définies pour déclencher des événements dans une application cliente
+ - Télémétrie à partir d’un encodeur live, d’une caméra IP ou d’un drone
+ - Événements à partir d’une caméra IP comme la détection des mouvements, des visages, etc.
+ - Informations de position géographique à partir d’une caméra d’action, d’un drone ou d’un appareil mobile
+ - Paroles de chanson
+ - Limites du programme sur un flux en temps réel linéaire
+ - Images ou métadonnées augmentées à afficher sur un flux en temps réel
+ - Scores sportifs ou informations sur les jeux chronométrés
+ - Packages de publicité interactive à afficher avec la vidéo dans le navigateur
+ - Questionnaires ou sondages
+  
+Les événements en direct et le packager Azure Media Services sont capables de recevoir ces signaux de métadonnées chronométrées et de les convertir en flux de métadonnées pouvant atteindre des applications clientes à l’aide de protocoles basés sur des normes, tels que HLS et DASH.
+
+
+## <a name="21-rtmp-timed-metadata"></a>2.1 Métadonnées chronométrées RTMP
+
+Le protocole [RTMP] permet d’envoyer des signaux de métadonnées chronométrées pour différents scénarios, y compris des métadonnées personnalisées et des signaux publicitaires SCTE-35. 
+
+Les signaux publicitaires (messages de signal) sont envoyés sous forme de messages de signal [AMF0] incorporés dans le flux [RTMP]. Les messages de signal peuvent être envoyés avant que l’événement réel ou d’un signal de jointure publicitaire [SCTE35] doivent se produire. Pour prendre en charge ce scénario, le timestamp réel de présentation de l’événement est envoyé dans le message de signal. Pour plus d'informations, voir [AMF0].
+
+Les commandes [AMF0] suivantes sont prises en charge par Azure Media Services à des fins de réception RTMP :
+
+- **onUserDataEvent** : utilisée pour les métadonnées personnalisées ou les métadonnées chronométrées [ID3v2]
+- **onAdCue** : utilisée principalement pour signaler une opportunité de placement publicitaire dans le stream en direct. Deux formes de signal sont prises en charge, un mode simple et un mode « SCTE-35 ». 
+- **onCuePoint** - pris en charge par certains encodeurs matériels locaux, tels que l’encodeur Elemental Live, pour signaler des messages [SCTE35]. 
+  
 
 Le tableau suivant décrit le format de la charge utile du message AMF que Media Services ingère pour les modes de message [SCTE35] et « simple ».
 
 Le nom du message [AMF0] peut être utilisé pour différencier plusieurs flux d’événements du même type.  Pour les messages [SCTE-35] et le mode « simple », le nom du message AMF DOIT être « onAdCue », comme requis dans la spécification [Adobe-Primetime].  Tous les champs non listés ci-dessous sont ignorés par Azure Media Services à la réception.
 
-## <a name="211-rtmp-signal-syntax"></a>2.1.1 Syntaxe de signal RTMP
+## <a name="211-rtmp-with-custom-metadata-using-onuserdataevent"></a>2.1.1 RTMP avec métadonnées personnalisées utilisant « onUserDataEvent »
+
+Si vous souhaitez fournir des flux de métadonnées personnalisés à partir de votre encodeur en amont, caméra IP, drone ou appareil à l’aide du protocole RTMP, utilisez le type de commande de message de données « onUserDataEvent » [AMF0].
+
+La commande de message de données **« onUserDataEvent »** DOIT contenir une charge utile de message avec la définition suivante pour être capturée par Media Services et empaquetée dans le format de fichier intrabande, ainsi que les manifestes pour HLS, Dash et Smooth Streaming.
+Il est recommandé d’envoyer des messages de métadonnées chronométrées au plus une fois toutes les 0,5 seconde (500 ms) pour éviter que des problèmes de stabilité liés au stream en direct ne surviennent. Chaque message peut agréger des métadonnées à partir de plusieurs images si vous devez fournir des métadonnées au niveau de l'image. Si vous envoyez des flux à débit binaire multiple, il est recommandé de fournir également les métadonnées sur un débit binaire unique pour réduire la bande passante et éviter les interférences avec le traitement vidéo/audio. 
+
+La charge utile pour **« onUserDataEvent »** doit correspondre à un message au format XML EventStream [MPEGDASH]. Cela facilite la transmission des schémas définis personnalisés qui peuvent être acheminés dans des charges utiles « emsg » pour le contenu CMAF [MPEGCMAF] fourni via les protocoles HLS ou DASH. Chaque message d'événement en direct DASH contient un élément schemeIdUri qui fonctionne comme un identificateur de schéma de message URN et définit la charge utile du message. Certains schémas tels que « https://aomedia.org/emsg/ID3  » pour [ID3v2] ou **urn: SCTE: scte35:2013: bin** pour [SCTE-35] sont normalisés par les consortiums du secteur à des fins d'interopérabilité. Tout fournisseur d’applications peut définir son propre schéma personnalisé à l’aide d’une URL qu’il contrôle (domaine détenu) et fournir une spécification à cette URL, le cas échéant. Si un lecteur possède un descripteur pour le schéma défini, il s’agit du seul composant qui doit comprendre la charge utile et le protocole.
+
+Le schéma correspondant à la charge utile XML EventStream [MPEG-DASH] est défini comme (extrait d'ISO-IEC-23009-1 DASH 3e édition). Notez qu’un seul « EventType » par « EventStream » est pris en charge pour l’instant. Seul le premier élément **Événement** est traité si plusieurs événements sont fournis dans **EventStream**.
+
+```xml
+  <!-- Event Stream -->
+  <xs:complexType name="EventStreamType">
+    <xs:sequence>
+      <xs:element name="Event" type="EventType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="xlink:href"/>
+    <xs:attribute ref="xlink:actuate" default="onRequest"/>
+    <xs:attribute name="schemeIdUri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="timescale" type="xs:unsignedInt"/>
+  </xs:complexType>
+  <!-- Event  -->
+  <xs:complexType name="EventType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="presentationTime" type="xs:unsignedLong" default="0"/>
+    <xs:attribute name="duration" type="xs:unsignedLong"/>
+    <xs:attribute name="id" type="xs:unsignedInt"/>
+    <xs:attribute name="contentEncoding" type="ContentEncodingType"/>
+    <xs:attribute name="messageData" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+```
+
+
+### <a name="example-xml-event-stream-with-id3-schema-id-and-base64-encoded-data-payload"></a>Exemple de flux d’événements XML avec ID de schéma ID3 et charge utile de données encodées en base64  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="https://aomedia.org/emsg/ID3">
+         <Event contentEncoding="Base64">
+          -- base64 encoded ID3v2 full payload here per [CMAF-TMD] --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-base64-encoded-binary-data"></a>Exemple de flux d’événements avec ID de schéma personnalisé et données binaires encodées en base64  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:binary">
+         <Event contentEncoding="Base64">
+          -- base64 encoded custom binary data message --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-custom-json"></a>Exemple de flux d’événements avec ID de schéma personnalisé et JSON personnalisé  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:JSON">
+         <Event>
+          [
+            {"key1" : "value1"},
+            {"key2" : "value2"}
+          ]
+         </Event>
+   <EventStream>
+```
+
+### <a name="built-in-supported-scheme-id-uris"></a>URI d’ID de schéma pris en charge intégrés
+| URI d’ID de schéma                 |  Description                                             |
+|-------------------------------|----------------------------------------------------------|
+| https:\//aomedia.org/emsg/ID3   | Décrit la façon dont les métadonnées [ID3v2] peuvent être transmises en tant que métadonnées chronométrées dans un MP4 fragmenté [MPEGCMAF] compatible CMAF. Pour plus d'informations, consultez [Métadonnées chronométrées au format CMAF (Common Media Application Format)](https://aomediacodec.github.io/av1-id3/) |
+
+### <a name="event-processing-and-manifest-signaling"></a>Traitement des événements et signalisation des manifestes
+
+À réception d’un événement **« onUserDataEvent »** valide, Azure Media Services recherche une charge utile XML valide qui correspond à EventStreamType (défini dans [MPEGDASH]), analyse la charge utile XML et la convertit en zone « emsg » version 1 de fragment MP4 [MPEGCMAF] à des fins de stockage dans l'archive en temps réel et de transmission au packager Media Services.   Le packager détecte la zone « emsg » dans le stream en direct et :
+
+- (a) l'empaquète dynamiquement dans des segments TS à des fins de remise aux clients HLS en conformité avec la spécification de métadonnées chronométrées HLS [HLS-TMD], ou
+- (b) la transmet pour une remise en fragments CMAF via HLS ou DASH, ou 
+- (c) la convertit en signal de piste partiellement allouée pour une remise via Smooth Streaming [MS-SSTR].
+
+En plus des paquets CMAF ou TS PES au format « emsg » pour HLS, les manifestes pour DASH (MPD) et Smooth Streaming contiennent une référence aux flux d’événements intrabande (également appelée piste partiellement allouée dans Smooth Streaming). 
+
+Les événements individuels ou leurs charges utiles de données ne sont PAS directement générés dans les manifestes HLS, DASH ou Smooth. 
+
+### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Contraintes et valeurs par défaut d’informations supplémentaires pour les événements onUserDataEvent
+
+- Si l’échelle de temps n’est pas définie dans l’élément EventStream, l’échelle de temps RTMP 1 kHz est utilisée par défaut
+- La remise d’un message onUserDataEvent est limitée à une fois toutes les 500 ms max. Si vous envoyez des événements de manière plus fréquente, cela peut avoir un impact sur la bande passante et la stabilité du flux en temps réel
+
+## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 Signalisation de signal publicitaire RTMP avec « onCuePoint »
 
 Azure Media Services peut écouter et répondre à plusieurs types de messages [AMF0] utilisables pour signaler différentes métadonnées synchronisées en temps réel dans le flux en direct.  La spécification [Adobe-Primetime] définit deux types de signal appelés modes « simple » et « SCTE-35 ». Pour le mode « simple », Media Services prend en charge un seul message de signal AMF appelé « onAdCue » à l’aide d’une charge utile qui correspond à la table ci-dessous définie pour le signal « mode simple ».  
 
 La section suivante présente la charge utile du « mode simple » RTMP, utilisable pour signaler un signal publicitaire « spliceOut » de base qui sera transmis au manifeste du client pour TLS, DASH et Microsoft Smooth Streaming. Cela s’avère très utile dans les scénarios où le client ne dispose pas d’un système complexe d’insertion ou de déploiement de signalement d’annonces basées sur SCTE-35, et où il utilise un encodeur local de base pour envoyer le message de signal via une API. En règle générale, l’encodeur local prend en charge une API REST pour déclencher ce signal, ce qui permet également « d’épisser » le flux vidéo en insérant une image IDR dans la vidéo et en démarrant un nouveau groupe d’images.
 
-## <a name="212--simple-mode-ad-signaling-with-rtmp"></a>2.1.2  Signalisation d’annonce en mode simple avec RTMP
+## <a name="213--rtmp-ad-cue-signaling-with-oncuepoint---simple-mode"></a>2.1.3 Signalisation de signal publicitaire RTMP avec « onCuePoint » - Mode simple
 
 | Nom du champ | Type de champ | Requis ? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
@@ -121,7 +247,7 @@ La section suivante présente la charge utile du « mode simple » RTMP, utili
 
 ---
  
-## <a name="213-scte-35-mode-ad-signaling-with-rtmp"></a>2.1.3 Signalisation d’annonce en mode SCTE-35 avec RTMP
+## <a name="214-rtmp-ad-cue-signaling-with-oncuepoint---scte-35-mode"></a>2.1.4 Signalisation de signal publicitaire RTMP avec « onCuePoint » - Mode SCTE-35
 
 Lorsque vous travaillez avec un flux de travail de production de diffusion plus avancé qui requiert la transmission du message de charge utile SCTE-35 complet au manifeste TLS ou DASH, il est préférable d’utiliser le « mode SCTE-35 » de la spécification [Adobe-Primetime].  Ce mode prend en charge les signaux SCTE-35 intrabande envoyés directement dans un encodeur live local, qui encode ensuite les signaux dans le flux RTMP à l’aide du « mode SCTE-35 » indiqué dans la spécification [Adobe-Primetime]. 
 
@@ -139,7 +265,7 @@ Dans ce scénario, la charge utile suivante DOIT être envoyée à partir de l�
 | time       | Number     | Obligatoire | Heure de présentation de l’événement ou de la jointure publicitaire.  L’heure et la durée de présentation **DOIVENT** être en phase avec les points d’accès du flux (SAP) de type 1 ou 2, comme défini dans la norme [ISO-14496-12] Annexe I. Pour les sorties HLS, l’heure et la durée **DOIVENT** correspondre aux limites de segment. L’heure et la durée de présentation de messages d’événements différents au sein du même flux d’événements NE DOIVENT PAS se chevaucher. Les unités sont des fractions de seconde.
 
 ---
-## <a name="214-elemental-live-oncuepoint-ad-markers-with-rtmp"></a>2.1.4 les marqueurs publicitaires « onCuePoint » Elemental Live avec RTMP
+## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 Signalisation de signal publicitaire RTMP avec « onCuePoint » pour Elemental Live
 
 L’encodeur local Elemental Live prend en charge les marqueurs publicitaires dans le signal RTMP. Azure Media Services prend actuellement en charge uniquement le type de marqueur publicitaire « onCuePoint » pour RTMP.  Vous pouvez activer cette option dans les paramètres de groupe Adobe RTMP au sein des paramètres ou de l’API de l’encodeur live Elemental Media en définissant « **ad_markers** » sur « onCuePoint ».  Pour plus de détails, veuillez vous référer à la documentation d’Elemental Live. L’activation de cette fonctionnalité dans le groupe RTMP transmettra les signaux SCTE-35 aux sorties Adobe RTMP à traiter par Azure Media Services.
 
@@ -156,7 +282,7 @@ Le type de message « onCuePoint » est défini dans [Adobe-Flash-AS] et poss�
 
 Quand ce mode de marqueur publicitaire est utilisé, la sortie du manifeste TLS est similaire au mode « simple » d’Adobe. 
 
-### <a name="215-cancellation-and-updates"></a>2.1.5 Annulation et mises à jour
+### <a name="216-cancellation-and-updates"></a>2.1.6 Annulation et mises à jour
 
 Des messages peuvent être annulés ou mis à jour par l’envoi de plusieurs messages avec les mêmes heure et ID de présentation. L’heure et l’ID de présentation identifient de façon unique l’événement, et le dernier message reçu pour une heure de présentation spécifique qui correspond aux contraintes de décompte est le message traité. L’événement mis à jour remplace tout message reçu précédemment. La contrainte de décompte est de quatre secondes. Les messages reçus au moins quatre secondes avant l’heure de présentation seront traités.
 
@@ -465,6 +591,13 @@ Lorsque les messages ont le format décrit ci-dessus, ils sont envoyés aux clie
 Lors du test de votre implémentation avec la plateforme Azure Media Services, commencez par effectuer des tests avec un LiveEvent « pass-through » avant de passer au test sur un LiveEvent d’encodage.
 
 ---
+
+## <a name="change-history"></a>Historique des modifications
+
+| Date     | Changements                                                                            |
+|----------|------------------------------------------------------------------------------------|
+| 02/07/19  | Révision de la réception RTMP pour prise en charge SCTE35, ajout de RTMP « onCuePoint » pour Elemental Live | 
+| 22/08/19 | Mise à jour pour ajouter OnUserDataEvent à RTMP pour les métadonnées personnalisées                         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Afficher les parcours d’apprentissage de Media Services.
