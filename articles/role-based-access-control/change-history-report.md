@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242101"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172412"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle apportés aux ressources Azure
 
@@ -92,7 +92,7 @@ Properties              :
 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour afficher les journaux d’activité avec l’interface de ligne de commande Azure, utilisez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
@@ -133,7 +133,7 @@ Voici une requête qui retourne les nouvelles attributions de rôle organisées 
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
 | parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
@@ -142,8 +142,8 @@ Voici une requête qui retourne des changements d’attribution de rôle affich�
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
-| summarize count() by bin(TimeGenerated, 1d), OperationName
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationNameValue
 | render timechart
 ```
 

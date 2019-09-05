@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114306"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207159"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -60,7 +60,7 @@ Pour un cluster à 48 nœuds, nous recommandons 4 à 8 comptes de stockage. Bien
 
 ## <a name="choose-a-cluster-type"></a>Choisir un type de cluster
 
-Le type de cluster détermine la charge de travail pour laquelle votre cluster HDInsight est configuré, par exemple, [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) ou [Apache Spark](https://spark.apache.org/). Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
+Le type de cluster détermine la charge de travail pour laquelle votre cluster HDInsight est configuré, par exemple, [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) ou [Apache Spark](https://spark.apache.org/). Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
 
 ## <a name="choose-the-vm-size-and-type"></a>Choisir la taille et le type de machine virtuelle
 

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 26cb4a23b051f6182d1cd4e12c148ef8a378f415
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515924"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231781"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -211,7 +211,7 @@ Vous venez de passer en revue le mappage des contrôles de l’exemple de bluepr
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 57dc9c05778563bc0c5df1a8ac8895b51008b01f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656840"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242430"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Résoudre les problèmes d’inscription Azure
 
@@ -106,7 +106,7 @@ Assurez-vous que vous utilisez les bonnes informations de connexion. Consultez e
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Je n’arrive pas à activer un nouvel abonnement Azure dans Open
 
-Pour pouvoir créer un nouvel abonnement Azure dans Open, vous devez disposer d’une clé d’activation de service en ligne (OSA) valide associée à au moins un jeton Azure dans Open. Si vous ne disposez d’aucune clé OSA, contactez l’un des partenaires Microsoft répertoriés dans [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+Pour pouvoir créer un nouvel abonnement Azure dans Open, vous devez disposer d’une clé d’activation de service en ligne (OSA) valide associée à au moins un jeton Azure dans Open. Si vous ne disposez d’aucune clé OSA, contactez l’un des partenaires Microsoft répertoriés dans [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Error: *Vous n’êtes pas éligible à un abonnement Azure*
 
@@ -131,7 +131,7 @@ Autres articles sur la résolution des problèmes liés à la facturation et aux
 - [Aucun abonnement trouvé](billing-no-subscriptions-found.md)
 - [Désactivation de l’affichage des coûts d’entreprise](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l’aide
+## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l'aide
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

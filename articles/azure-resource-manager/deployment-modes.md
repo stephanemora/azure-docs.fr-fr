@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508207"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258958"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -21,7 +21,7 @@ Pour les deux modes, Resource Manager essaie de créer toutes les ressources sp�
 
 ## <a name="complete-mode"></a>Mode Complet
 
-En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources qui sont spécifiées dans le modèle, mais qui ne sont pas déployées du fait qu’une [condition](resource-group-authoring-templates.md#condition) a la valeur false, ne sont pas supprimées.
+En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources qui sont spécifiées dans le modèle, mais qui ne sont pas déployées du fait qu’une [condition](conditional-resource-deployment.md) a la valeur false, ne sont pas supprimées.
 
 Soyez prudent lorsque vous utilisez le mode Complet avec les [boucles de copie](resource-group-create-multiple.md). Toutes les ressources qui ne sont pas spécifiées dans le modèle après la résolution de la boucle de copie sont supprimées.
 

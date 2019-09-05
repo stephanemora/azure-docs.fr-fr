@@ -3,25 +3,25 @@ title: Fonctions de modèle Azure Resource Manager - logiques | Documents Micros
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447970"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194789"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
-* [et](#and)
+* [and](#and)
 * [bool](#bool)
 * [si](#if)
 * [non](#not)
-* [ou](#or)
+* [or](#or)
 
 ## <a name="and"></a>and
 
@@ -33,8 +33,8 @@ Vérifie si toutes les valeurs de paramètres sont true.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |boolean |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |boolean |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -317,8 +317,8 @@ Vérifie si l’une des valeurs du paramètre est true.
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |boolean |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arg2 |OUI |boolean |La deuxième valeur pour vérifier si c’est true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 

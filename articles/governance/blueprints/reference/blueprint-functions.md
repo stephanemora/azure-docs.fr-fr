@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcf073c58a723b8dbd835ac331c0ce9d16187445
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209398"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232855"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Fonctions à utiliser avec Azure Blueprints
 
@@ -368,7 +368,7 @@ Utilisez le nom d’affichage de l’abonnement et la fonction `concat()` pour c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md).

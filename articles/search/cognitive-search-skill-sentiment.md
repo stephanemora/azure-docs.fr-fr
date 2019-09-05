@@ -2,7 +2,7 @@
 title: Compétence Sentiment de la recherche cognitive | Microsoft Docs
 description: Extrayez le score de sentiment positif/négatif d’un texte dans un pipeline d’enrichissement Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: df5e33cfc19d4e91fdf4eddc50b25a2b380f0dc4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638938"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183353"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Compétence cognitive Sentiment
 

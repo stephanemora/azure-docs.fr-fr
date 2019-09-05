@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360834"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141897"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Utilisation des rubriques et abonnements Service Bus avec Python
 
@@ -35,11 +35,11 @@ Cet article explique comment utiliser les rubriques et les abonnements Service B
 
 ## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes du [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
+2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 
     > [!NOTE]
     > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
-3. Installez le [package Python Azure][Azure Python package]. Consultez le [Guide d’installation de Python](../python-how-to-install.md).
+3. Installez le [package Python Azure][Azure Python package]. Consultez le [Guide d’installation de Python](/azure/python/python-sdk-azure-install).
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 

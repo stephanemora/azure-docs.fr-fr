@@ -7,13 +7,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766617"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231935"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -68,7 +67,7 @@ Il n’existe aucune limite quant au nombre de fois qu’une affectation peut ê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md).

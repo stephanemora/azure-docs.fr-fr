@@ -3,21 +3,20 @@ title: Règles d’affectation des noms des entités Azure Data Factory | Micros
 description: Décrit les règles d'affectation de noms pour les entités Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: bc5e801d-0b3b-48ec-9501-bb4146ea17f1
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-ms.openlocfilehash: c02a9393de72b827b7e38b52d06589f042d581b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4397f7efdb9ff797375584f5a43af2833a6a2989
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787000"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140990"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
 Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.

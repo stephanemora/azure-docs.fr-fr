@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311578"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162249"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs
 Si vous avez déjà [créé votre première machine virtuelle](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), vous l’avez probablement fait à partir d’une [image de la Place de marché](devtest-lab-configure-marketplace-images.md) préchargée. Maintenant, si vous souhaitez ajouter d’autres machines virtuelles à votre laboratoire, vous pouvez également choisir une *base* qui est soit une [image personnalisée](devtest-lab-create-template.md) soit une [formule](devtest-lab-manage-formulas.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle à un laboratoire dans DevTest Labs.
@@ -107,7 +107,7 @@ Les étapes suivantes montrent comment afficher ou modifier les paramètres d’
 ## <a name="save-azure-resource-manager-template"></a>Enregistrer un modèle Azure Resource Manager
 Un modèle Azure Resource Manager constitue un moyen déclaratif de définir un déploiement qui peut être répété.
 Les étapes suivantes expliquent comment enregistrer le modèle Azure Resource Manager pour la machine virtuelle en cours de création.
-Une fois enregistré, vous pouvez utiliser le modèle Azure Resource Manager pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
+Une fois enregistré, vous pouvez utiliser le modèle Azure Resource Manager pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../azure-resource-manager/template-deployment-overview.md).
 
 1. Dans le volet **Machine virtuelle**, sélectionnez **Afficher le modèle Azure Resource Manager**.
 2. Dans le volet **Afficher le modèle Azure Resource Manager**, sélectionnez le texte du modèle.

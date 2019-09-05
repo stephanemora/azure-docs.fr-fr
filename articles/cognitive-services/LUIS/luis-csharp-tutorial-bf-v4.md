@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c78359920ebc5faab2e0a678a901bcb8581a4e45
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560657"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207327"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Didacticiel : Utiliser un Web App Bot activé avec Language Understanding dans C#
 
@@ -40,7 +40,7 @@ ms.locfileid: "68560657"
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
 
-1. Dans la zone de recherche, recherchez et sélectionnez **Bot d’application web**. Sélectionnez **Créer**.
+1. Dans la zone de recherche, recherchez et sélectionnez **Bot d’application web**. Sélectionnez **Create** (Créer).
 
 1. Dans **Service Bot**, fournissez les informations requises :
 
@@ -66,7 +66,7 @@ ms.locfileid: "68560657"
     |Langage du SDK|Langage de programmation de bot|**C#**|
     |Bot|Type de bot|**Bot de base**|
     
-1. Sélectionnez **Créer**. Le service de bot est alors créé et déployé sur Azure. Une partie de ce processus crée une application LUIS nommée `luis-csharp-bot-XXXX`. Ce nom est basé sur le nom de l’application /Azure Bot Service.
+1. Sélectionnez **Create** (Créer). Le service de bot est alors créé et déployé sur Azure. Une partie de ce processus crée une application LUIS nommée `luis-csharp-bot-XXXX`. Ce nom est basé sur le nom de l’application /Azure Bot Service.
 
     [![Créer un bot d’application web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
@@ -347,7 +347,7 @@ Dans Visual Studio, démarrez le bot. Une fenêtre de navigateur s’ouvre avec 
 
 1. Dans l’émulateur de bot, réserver un vol en entrant l’énoncé suivant : 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

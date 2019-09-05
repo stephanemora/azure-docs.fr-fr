@@ -4,14 +4,14 @@ description: Découvrez comment trouver les frais d’unités de requête pour t
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093738"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240783"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -176,7 +176,7 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 
 1. [Créez un compte Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) et remplissez-le avec des données, ou sélectionnez un compte existant qui contient déjà des données.
 
-1. Ouvrez le volet **Explorateur de données**, puis sélectionnez la collection sur laquelle vous voulez travailler.
+1. Accédez au volet **Explorateur de données**, puis sélectionnez le conteneur sur lequel vous voulez travailler.
 
 1. Sélectionnez **Nouvelle requête**.
 

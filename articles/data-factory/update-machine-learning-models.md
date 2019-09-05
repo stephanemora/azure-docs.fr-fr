@@ -3,21 +3,20 @@ title: Mettre à jour des modèles d’apprentissage automatique à l’aide d�
 description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et de l’apprentissage automatique.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335474"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140543"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 Cet article vient compléter l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article.

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128342"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278824"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -76,7 +76,7 @@ La machine virtuelle de notebooks est :
 
 + **Personnalisable**. Avec une offre de machine virtuelle sécurisée et gérée, vous conservez un accès total aux fonctionnalités matérielles et les personnalisez à votre gré. Par exemple, créez rapidement la dernière version de machine virtuelle reposant sur NVidia V100 pour effectuer un débogage pas à pas de la nouvelle architecture de réseau neuronal.
 
-Pour mettre fin à la facturation relative à la machine virtuelle de notebooks, [arrêtez la machine virtuelle de notebooks](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
+Pour mettre fin à la facturation relative à la machine virtuelle de notebooks, [arrêtez la machine virtuelle de notebooks](tutorial-1st-experiment-sdk-train.md#clean-up-resources). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -411,5 +411,4 @@ Il existe trois façons de créer le fichier de configuration :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Entraîner un modèle](tutorial-train-models-with-aml.md) sur Azure Machine Learning avec le jeu de données MNIST
-- Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk)
-- En savoir plus sur le [package de préparation des données pour Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

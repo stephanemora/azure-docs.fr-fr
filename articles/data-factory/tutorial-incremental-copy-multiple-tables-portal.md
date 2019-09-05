@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566003"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140749"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
 Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données Azure SQL.    
@@ -67,7 +66,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 * **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
-* **Base de données SQL Azure**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
+* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
@@ -284,7 +283,7 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
 
    ![Cliquer sur le lien d’installation rapide](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
-1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)**, cliquez sur **Fermer**. 
+1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)** , cliquez sur **Fermer**. 
 
    ![Installation du runtime d’intégration - réussie](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
 1. Dans la fenêtre **Installation du runtime d’intégration**, cliquez sur **Terminer**. 
@@ -347,7 +346,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **SQL Server**, puis cliquez sur **Terminer**. 
@@ -362,7 +361,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
 
 ### <a name="create-a-sink-dataset"></a>Créer un jeu de données récepteur
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -394,7 +393,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 ### <a name="create-a-dataset-for-a-watermark"></a>Créer un jeu de données pour un filigrane
 Dans cette étape, vous allez créer un jeu de données pour stocker une valeur de limite supérieure. 
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -421,7 +420,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis cliquez sur **Pipeline**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis cliquez sur **Pipeline**.
 
     ![Nouveau pipeline : menu](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
 1. Dans l’onglet **Général** de la fenêtre **Propriétés**, entrez **IncrementalCopyPipeline** comme **nom**. 
@@ -440,7 +439,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 1. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**, puis entrez `@pipeline().parameters.tableList` dans le champ **Éléments**. L’activité ForEach parcourt une liste de tables et effectue l’opération de copie incrémentielle. 
 
     ![Activité ForEach : paramètres](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-1. Sélectionnez l’activité **ForEach** dans le pipeline si elle n’est pas déjà sélectionnée. Cliquez sur le bouton **Modifier (icône Crayon)**.
+1. Sélectionnez l’activité **ForEach** dans le pipeline si elle n’est pas déjà sélectionnée. Cliquez sur le bouton **Modifier (icône Crayon)** .
 
     ![Activité ForEach : modification](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
 1. Dans la boîte à outils **Activités**, développez **Général** puis faites glisser et déposez l’activité **Recherche** sur la surface du concepteur de pipeline. Ensuite, saisissez **LookupOldWaterMarkActivity** dans **Nom**.

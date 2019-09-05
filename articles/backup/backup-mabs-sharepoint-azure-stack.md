@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/8/2018
+ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: ac87fa66b72f2d7eaaf1ae2cd71bfeb827469444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8200bfb4e99d7847dc1661a4258b2171f24a9aed
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688684"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210272"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 Les batteries de serveurs SharePoint sur Azure Stack peuvent être sauvegardées sur Microsoft Azure à l’aide du serveur de sauvegarde Azure et ce, de la même façon que d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. Le serveur de sauvegarde Azure vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de délai de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour bénéficier d’une conservation à long terme économique.

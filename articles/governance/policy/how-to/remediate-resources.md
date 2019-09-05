@@ -7,19 +7,16 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077118"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241138"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
 Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Azure Policy d’exécuter l’effet de l’action **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
@@ -190,7 +187,7 @@ Pour accéder à d’autres cmdlets et exemples de correction, consultez le modu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez des exemples affichés à la page [Exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
 - Découvrez comment [créer des stratégies par programmation](programmatically-create.md).

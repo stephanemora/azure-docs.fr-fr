@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 98b5fb06bf018c9176fc989786d8bd1821914f43
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558482"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147767"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub (.NET)
 
@@ -47,7 +47,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 > [!NOTE]
 > IoT Hub offre la prise en charge de nombreux langages (notamment C, Java, Python et Javascript) et plateformes d’appareils par le biais des Kits Azure IoT device SDK. Pour obtenir des instructions pas à pas expliquant comment connecter votre appareil à Azure IoT Hub, voir le [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot).
 
-Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
+## <a name="prerequisites"></a>Prérequis
 
 * Visual Studio
 

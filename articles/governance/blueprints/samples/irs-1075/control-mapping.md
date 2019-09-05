@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1f12545bce29d0ca32c7c7a62c56b8c9604c4268
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7b64c4cbb1253a12e82f56ea08587e091d5340a9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983129"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231803"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Correspondance des contrôles de l’exemple blueprint IRS 1075
 
@@ -329,7 +329,7 @@ Vous venez de passer en revue la mise en correspondance des contrôles du bluepr
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

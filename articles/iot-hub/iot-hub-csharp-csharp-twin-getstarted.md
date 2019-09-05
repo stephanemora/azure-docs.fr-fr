@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: e748ade19fe64399015acfc35892c5d9081bf9e3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c07b110f0d4c31713ab432b5b5e337f3b69dfc55
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062104"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147715"
 ---
 # <a name="get-started-with-device-twins-net"></a>Prise en main des représentations d’appareils (.NET)
 
@@ -33,8 +33,6 @@ Dans ce tutoriel, vous allez créer les applications console .NET suivantes :
 >
 
 ## <a name="prerequisites"></a>Prérequis
-
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Visual Studio.
 

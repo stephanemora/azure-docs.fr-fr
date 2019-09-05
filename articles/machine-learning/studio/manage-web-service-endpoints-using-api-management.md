@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347257"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279269"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio à l’aide de Gestion des API
 ## <a name="overview"></a>Vue d'ensemble
@@ -214,7 +214,7 @@ Cliquez sur **Oui** pour publier l’expérience.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Test du service web
-Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Microsoft Azure pour Python (voir : [Installation de Python](../../python-how-to-install.md)).
+Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Microsoft Azure pour Python (voir : [Installation de Python](/azure/python/python-sdk-azure-install)).
 
 Il vous faudra également **l’espace de travail**, le **service** et **l’api_key** de votre expérimentation pour l’exemple de source ci-dessous. Vous pouvez trouver l’espace de travail et le service en cliquant sur **Requête/réponse** ou **Exécution de lot** pour votre expérimentation dans le tableau de bord de service web.
 
@@ -301,7 +301,7 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
     except urllib2.HTTPError, error:
         printHttpError(error)
         return
-    with open(output_file, "w+") as f:
+    with open(output_file, "wb+") as f:
         f.write(response.read())
     print(resultsLabel + " have been written to the file " + output_file)
     return

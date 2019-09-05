@@ -7,13 +7,12 @@ ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719754"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232935"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -26,10 +25,10 @@ Les modes de verrouillage ne peuvent cependant pas être modifiés en dehors des
 
 Les ressources créées par des artefacts dans une attribution de blueprint ont quatre états possibles : **Non verrouillé**, **Lecture seule**, **Modification/suppression impossible** ou **Suppression impossible**. Chaque type d’artefact peut être en état **Non verrouillé**. Le tableau suivant permet de déterminer l’état d’une ressource :
 
-|Mode|Type de ressource d’artefact|État|Description|
+|Mode|Type de ressource d’artefact|State|Description|
 |-|-|-|-|
 |Ne pas verrouiller|*|Non verrouillé|Les ressources ne sont pas protégées par des blueprints. Cet état est également utilisé pour des ressources ajoutées à un artéfact de groupe de ressources **En lecture seule** ou **Ne pas supprimer** à partir de l’extérieur d’une attribution de blueprint.|
-|Lecture seule|Groupe de ressources|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
+|Lecture seule|Resource group|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 |Lecture seule|Groupe de non-ressources|Lecture seule|La ressource ne peut pas être modifiée de quelque manière que ce soit (aucune modification possible et suppression impossible).|
 |Ne pas supprimer|*|Suppression impossible|Les ressources peuvent être modifiées mais pas supprimées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 
@@ -112,7 +111,7 @@ Exemple d’un corps de requête qui inclut **excludedPrincipals** :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Suivre le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
-- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).

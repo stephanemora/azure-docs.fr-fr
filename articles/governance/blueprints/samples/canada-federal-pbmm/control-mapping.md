@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d88a5af1f68677dd68decb96411db06ea91ffd25
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 96b58a84befcd4a5661804b1265eae119f09977f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103653"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232814"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -310,7 +310,7 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

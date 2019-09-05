@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d259ea02824937f0c496bb253fa4b6c1f5cea412
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015633"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259382"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -25,9 +25,9 @@ Dans ce guide, nous vous montrons comment utiliser [Azure CLI](https://docs.micr
 
 Les exemples dans le guide partent du principe que vous utilisez le shell Bash sur Ubuntu, mais les autres plateformes devraient fonctionner de manière similaire. 
 
-[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
-
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.

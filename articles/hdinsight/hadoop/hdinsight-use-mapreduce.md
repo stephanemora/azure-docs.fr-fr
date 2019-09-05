@@ -8,49 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1bb7a6737115f903391997a5430c32f9a40465f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707952"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207113"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utiliser MapReduce dans Apache Hadoop sur HDInsight
 
-Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. 
-
-## <a id="whatis"></a>Qu’est-ce que MapReduce ?
-
-Apache Hadoop MapReduce est une infrastructure logicielle qui permet d’écrire des tâches traitant d’importantes quantités de données. Les données d’entrée sont fractionnées en blocs indépendants. Chaque bloc est traité en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
-
-* **Mappeur** : il consomme les données d’entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur).
-
-* **Raccord de réduction** : il consomme les tuples émis par le Mappeur et effectue une opération de synthèse qui crée un résultat plus petit, combiné à partir des données du Mappeur.
-
-Un exemple de tâche MapReduce de comptage de mots de base est illustré dans le diagramme suivant :
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-Le résultat de ce travail indique le nombre d’occurrences de chaque mot dans le texte.
-
-* Le mappeur prend chaque ligne du texte saisi en tant qu'entrée, et la divise en mots. Il émet une paire clé/valeur pour chaque occurrence de mot ou si le mot est suivi d’un 1. Le résultat est trié avant d'être envoyé au raccord de réduction.
-* Ce dernier calcule la somme du compte de mots, puis émet une seule paire clé/valeur contenant le mot défini, suivi par la somme de ses occurrences.
-
-MapReduce peut être implémenté dans plusieurs langues. Java est l'implémentation la plus courante. Ce langage est utilisé à titre d’exemple dans ce document.
-
-## <a name="development-languages"></a>Langues de développement
-
-Les langages ou infrastructures basés sur Java et la Machine virtuelle Java peuvent être exécutés directement comme une tâche MapReduce. L’exemple utilisé dans ce document est une application Java MapReduce. Les langages autres que Java, comme C#, Python ou des exécutables autonomes, doivent utiliser la **diffusion en continu Hadoop**.
-
-La diffusion en continu Hadoop communique avec le mappeur et le raccord de réduction via STDIN et STDOUT. Le mappeur et le raccord de réduction lisent les données ligne par ligne depuis STDIN et écrivent la sortie dans STDOUT. Chaque ligne lue ou émise par le mappeur et le raccord de réduction doit être au format d’une paire clé / valeur, délimitée par un caractère de tabulation :
-
-    [key]/t[value]
-
-Pour plus d’informations, consultez [Diffusion en continu Hadoop](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-Pour obtenir des exemples d’utilisation de diffusion en continu Hadoop avec HDInsight, consultez le document suivant :
-
-* [Développement de tâches MapReduce C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight.
 
 ## <a id="data"></a>Exemple de données
 
@@ -158,7 +125,6 @@ Pour savoir comment utiliser les données dans HDInsight, consultez les document
 
 * [Utilisation d’Apache Pig avec HDInsight][hdinsight-use-pig]
 
-
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -167,5 +133,3 @@ Pour savoir comment utiliser les données dans HDInsight, consultez les document
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

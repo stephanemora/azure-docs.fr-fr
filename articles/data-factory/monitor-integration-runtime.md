@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b84ea0b9859e69eaf45cd9a89b2443cf42949f79
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122649"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141081"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -77,7 +77,7 @@ Le tableau suivant fournit des descriptions des propriétés de surveillance pou
 | Utilisation du processeur | Utilisation du processeur dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. |
 | Réseau (entrée/sortie) | Utilisation du réseau dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
 | Tâches simultanées (en cours d’exécution/limite) | **Exécution en cours**. Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. <br/><br/>**Limite**. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, quand des activités expirent alors même que le processeur, la mémoire ou le réseau est sous-utilisé. Cette fonctionnalité est également disponible avec un runtime d’intégration d’auto-hébergé à nœud unique. |
-| Rôle | Il existe deux types de rôles dans un runtime d’intégration auto-hébergé à nœuds multiples : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur. Il est utilisé pour extraire des tâches ou des travaux auprès de services cloud et pour les répartir entre différents nœuds rôles de travail. Le nœud répartiteur est également un nœud rôle de travail. |
+| Role | Il existe deux types de rôles dans un runtime d’intégration auto-hébergé à nœuds multiples : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur. Il est utilisé pour extraire des tâches ou des travaux auprès de services cloud et pour les répartir entre différents nœuds rôles de travail. Le nœud répartiteur est également un nœud rôle de travail. |
 
 Certains paramètres de ces propriétés semblent plus logiques dans une configuration d’au moins deux nœuds dans le runtime d’intégration auto-hébergé (autrement dit, dans un scénario d’augmentation du nombre d’instances).
 
@@ -173,8 +173,8 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | CatalogAdminPassword | Mot de passe administrateur du serveur Azure SQL Database/ Managed Instance existant. |
 | CatalogPricingTier | Niveau tarifaire de la base de données SSISDB hébergée par le serveur Azure SQL Database existant.  Ne s’applique pas à Azure SQL Database Managed Instance hébergeant la base de données SSISDB. |
 | VNetId | ID de ressource de réseau virtuel que votre runtime d’intégration Azure-SSIS doit rejoindre. |
-| Sous-réseau | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
-| ID | ID de ressource de votre runtime d’intégration Azure-SSIS. |
+| Subnet | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
+| id | ID de ressource de votre runtime d’intégration Azure-SSIS. |
 | Type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel votre fabrique de données et le runtime d’intégration Azure-SSIS ont été créés. |
 | DataFactoryName | Nom de votre service Azure Data Factory. |

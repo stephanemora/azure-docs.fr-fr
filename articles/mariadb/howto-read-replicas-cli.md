@@ -6,19 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ba0f3bd002b2675c33ea5106ce64c7957c9989d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907658"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309121"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>Création et gestion des réplicas en lecture dans Azure Database for MariaDB à l’aide de l’interface de ligne de commande Azure
 
 Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans la même région Azure que le serveur maître dans le service Azure Database for MariaDB à l’aide de l’interface de ligne de commande Azure.
-
-> [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. Les réplicas en lecture (même région et entre régions) sont actuellement en préversion publique.
 
 ## <a name="prerequisites"></a>Prérequis
 

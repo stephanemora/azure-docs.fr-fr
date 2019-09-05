@@ -7,13 +7,12 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 71584c9a69ebab6583973003aa51e94a1afe1b14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991997"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231926"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
@@ -146,7 +145,7 @@ Si une dépendance d’artefact qui n’est pas susceptible de modifier l’ordr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60682830"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232891"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -332,7 +332,7 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md).

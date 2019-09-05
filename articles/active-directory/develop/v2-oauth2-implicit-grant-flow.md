@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ab5ba4fde7469854954ed19d2e643f2b8a23f34f
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482220"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193262"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -130,7 +130,7 @@ error=access_denied
 | `error` |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
-## <a name="validate-the-idtoken"></a>Valider le jeton id_token
+## <a name="validate-the-id_token"></a>Valider le jeton id_token
 
 La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez également valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport aux exigences de votre application. Le point de terminaison de la plateforme d’identités Microsoft utilise les [jetons web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
@@ -213,16 +213,6 @@ error=user_authentication_required
 | `error_description` |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
 Si vous recevez cette erreur dans la requête iFrame, l’utilisateur doit se connecter de nouveau de manière interactive, ceci pour récupérer un nouveau jeton. Vous êtes invité à gérer ce cas de la manière la plus appropriée pour votre application.
-
-## <a name="validating-access-tokens"></a>Validation des jetons d’accès
-
-Quand vous recevez un access_token, veillez à valider la signature du jeton, ainsi que les réclamations suivantes. En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires.
-
-* Revendication **audience** : il s’agit de vérifier que le jeton était bien destiné à votre application
-* Revendication **émetteur** : il s’agit de vérifier que le jeton a été émis vers votre application par le point de terminaison de la plateforme d’identités Microsoft
-* Revendications **pas avant** et **heure d’expiration** : il s’agit de vérifier que le jeton n’est pas arrivé à expiration
-
-Pour plus d’informations sur les revendications se trouvant dans le jeton d’accès, consultez l’article [Informations de référence sur les jetons d’accès](access-tokens.md)
 
 ## <a name="refreshing-tokens"></a>Actualisation des jetons
 

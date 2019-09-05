@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276789"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -66,7 +66,7 @@ La vidéo suivante montre l’utilisation d’une clé Cognitive Services.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
 
 >[!WARNING]
-> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, Speech et Vision personnalisée.
+> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, services Speech, Custom Vision et Détecteur d’anomalies.
 
 Cette option utilise également une clé d’abonnement pour authentifier les requêtes. La principale différence tient au fait qu’une clé d’abonnement n’est pas liée à un service spécifique. Vous pouvez ainsi utiliser une seule clé pour authentifier des requêtes auprès de plusieurs services Cognitive Services. Pour plus d’informations sur la disponibilité régionale, les fonctionnalités prises en charge et les tarifs, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 

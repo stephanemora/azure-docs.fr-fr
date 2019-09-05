@@ -7,12 +7,12 @@ ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 118ff46ca3b640c6ec24ab85fd598f213229417a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d02dca4438b55d51cccb5cc1b55679eb72b73991
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014014"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232803"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -219,7 +219,7 @@ Maintenant que vous avez revu la correspondance des recommandations du blueprint
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

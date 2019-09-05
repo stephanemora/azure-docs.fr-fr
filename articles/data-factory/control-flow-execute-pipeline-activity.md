@@ -3,21 +3,20 @@ title: Activité d’exécution du pipeline dans Azure Data Factory | Microsoft 
 description: Découvrez comment vous pouvez utiliser l’activité d’exécution de pipeline pour appeler un pipeline Data Factory à partir d’un autre pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808852"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141702"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activité d’exécution du pipeline dans Azure Data Factory
 L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.

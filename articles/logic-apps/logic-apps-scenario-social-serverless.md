@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6f0176253d0f1953e9c779a317cfe7bf453acb8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385454"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164860"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -106,7 +106,7 @@ Pour afficher des historiques d’exécution précédentes dans Visual Studio ou
 
 ## <a name="create-automated-deployment-templates"></a>Créer des modèles de déploiement automatisé
 
-Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez comment [automatiser le déploiement d’applications logiques](logic-apps-azure-resource-manager-templates-overview.md).
+Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez comment [automatiser le déploiement d’applications logiques](logic-apps-azure-resource-manager-templates-overview.md).
 
 Vous trouverez un exemple de modèle de déploiement avec une fonction Azure dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

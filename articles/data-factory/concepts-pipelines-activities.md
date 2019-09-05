@@ -3,21 +3,20 @@ title: Pipelines et activités dans Azure Data Factory | Microsoft Docs
 description: Découvrez les pipelines et les activités dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976744"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142551"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -173,8 +172,8 @@ Les stratégies ont un impact sur le comportement d’exécution d’une activit
 Nom JSON | Description | Valeurs autorisées | Obligatoire
 --------- | ----------- | -------------- | --------
 timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan | Non. Le délai d’expiration par défaut est de 7 jours.
-retry | Nombre maximal de nouvelles tentatives | Entier | Non. La valeur par défaut est 0
-retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier | Non. La valeur par défaut est de 30 secondes
+retry | Nombre maximal de nouvelles tentatives | Integer | Non. La valeur par défaut est 0
+retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Integer | Non. La valeur par défaut est de 30 secondes
 secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Boolean | Non. La valeur par défaut est false.
 
 ### <a name="control-activity"></a>Activité de contrôle

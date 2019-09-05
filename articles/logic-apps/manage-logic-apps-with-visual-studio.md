@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 694ff490d7623b2dff26a61ccae8106a276b84af
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447901"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164888"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -99,13 +99,13 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
    ![Ouvrir l’application logique déployée à partir du portail Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    Une fois l’application logique ouverte dans Logic Apps, au bas du concepteur, vous pouvez choisir **Mode Code** pour examiner la structure de définition d’application logique sous-jacente. 
-   Pour créer un modèle de déploiement pour l’application logique, apprenez à [télécharger un modèle Azure Resource Manager](#download-logic-app) pour cette application logique. Découvrez-en plus sur les [modèles Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
+   Pour créer un modèle de déploiement pour l’application logique, apprenez à [télécharger un modèle Azure Resource Manager](#download-logic-app) pour cette application logique. Découvrez-en plus sur les [modèles Resource Manager](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Télécharger à partir d’Azure
 
-Vous pouvez télécharger des applications logiques à partir du [portail Azure](https://portal.azure.com) et les enregistrer en tant que modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Vous pouvez ensuite modifier localement les modèles avec Visual Studio et personnaliser les applications logiques pour différents environnements de déploiement. Le téléchargement d’applications logiques *paramètre* automatiquement leurs définitions dans des [modèles Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), qui utilisent également JSON (JavaScript Objet Notation).
+Vous pouvez télécharger des applications logiques à partir du [portail Azure](https://portal.azure.com) et les enregistrer en tant que modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Vous pouvez ensuite modifier localement les modèles avec Visual Studio et personnaliser les applications logiques pour différents environnements de déploiement. Le téléchargement d’applications logiques *paramètre* automatiquement leurs définitions dans des [modèles Resource Manager](../azure-resource-manager/template-deployment-overview.md), qui utilisent également JSON (JavaScript Objet Notation).
 
 1. Dans Visual Studio, ouvrez Cloud Explorer, puis recherchez et sélectionnez l’application logique à télécharger à partir d’Azure.
 

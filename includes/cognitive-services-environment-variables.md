@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 6d6451d50a00569eb1da8f5b0a0dc10d3c6b1115
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841541"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274668"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>Configurer une variable d’environnement pour l’authentification
 
@@ -17,28 +17,30 @@ Les applications ont besoin d’authentifier l’accès à Cognitive Services qu
 
 Après avoir obtenu votre clé, écrivez-la dans une variable d’environnement sur la machine locale exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `your-key` par l’une des clés de votre ressource.
 
-* Windows
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    ```console
-    setx COGNITIVE_SERVICE_KEY "your-key"
-    ```
+```console
+setx COGNITIVE_SERVICE_KEY "your-key"
+```
 
-    Après avoir ajouté la variable d’environnement, vous devrez peut-être redémarrer tous les programmes en cours d’exécution qui devront la lire, y compris la fenêtre de console. Par exemple, si vous utilisez Visual Studio comme éditeur, redémarrez Visual Studio avant d’exécuter l’exemple.
+Après avoir ajouté la variable d’environnement, vous devrez peut-être redémarrer tous les programmes en cours d’exécution qui devront la lire, y compris la fenêtre de console. Par exemple, si vous utilisez Visual Studio comme éditeur, redémarrez Visual Studio avant d’exécuter l’exemple.
 
-* Linux
-    
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-    
-    Après avoir ajouté la variable d’environnement, exécutez `source ~/.bashrc` depuis la fenêtre de console pour appliquer les changements.
-    
-* macOS
-    
-    Modifiez votre profil bash_profile, et ajoutez la variable d’environnement :
-    
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-    
-    Après avoir ajouté la variable d’environnement, exécutez `source .bash_profile` depuis la fenêtre de console pour appliquer les changements.
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export COGNITIVE_SERVICE_KEY=your-key
+```
+
+Après avoir ajouté la variable d’environnement, exécutez `source ~/.bashrc` depuis la fenêtre de console pour appliquer les changements.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Modifiez votre profil bash_profile, et ajoutez la variable d’environnement :
+
+```bash
+export COGNITIVE_SERVICE_KEY=your-key
+```
+
+Après avoir ajouté la variable d’environnement, exécutez `source .bash_profile` depuis la fenêtre de console pour appliquer les changements.
+
+***

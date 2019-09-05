@@ -8,12 +8,13 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592412"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241403"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Didacticiel : Commander Azure Data Box Heavy
 
@@ -74,7 +75,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     
    [![Rechercher Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
 

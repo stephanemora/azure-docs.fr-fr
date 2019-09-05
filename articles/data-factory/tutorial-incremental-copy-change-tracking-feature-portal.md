@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66168946"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140804"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -229,7 +228,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 ### <a name="create-a-dataset-to-represent-source-data"></a>Créer un jeu de données pour représenter les données sources 
 Dans cette étape, vous créez un jeu de données pour représenter les données source. 
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -248,7 +247,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Créez un jeu de données pour représenter les données copiées dans le magasin de données récepteur. 
 Dans cette étape, vous créez un jeu de données pour représenter les données copiées à partir du magasin de données source. Vous avez créé le conteneur adftutorial dans votre stockage Blob Azure dans le cadre des conditions préalables. Créez le conteneur s’il n’existe pas (ou) attribuez-lui le nom d’un conteneur existant. Dans ce didacticiel, le nom de fichier de sortie est généré dynamiquement à l’aide de l’expression : `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer**. 
@@ -268,7 +267,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 ### <a name="create-a-dataset-to-represent-change-tracking-data"></a>Créer un jeu de données pour représenter les données de suivi des modifications 
 Dans cette étape, vous créez un jeu de données pour stocker la version de suivi des modifications.  Vous avez créé la table table_store_ChangeTracking_version dans le cadre des conditions préalables.
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 2. Sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
 3. Vous voyez un nouvel onglet pour configurer le jeu de données. Vous voyez également le jeu de données dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le jeu de données en **ChangeTrackingDataset**.
 4. Basculez vers l’onglet **Connexions**, et procédez comme suit : 
@@ -294,7 +293,7 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
 5. Basculez vers l’onglet **Récepteur** et sélectionnez **SinkDataset** pour le champ **Jeu de données récepteur**. 
 
     ![Activité de copie - récepteur](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Pour valider la définition du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
+6. Pour valider la définition du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** . 
 
     ![Valider le pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Pour publier des entités (services liés, jeux de données et pipelines), cliquez sur **Publier**. Patientez jusqu’à ce que la publication réussisse. 
@@ -423,7 +422,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 14. **Connectez l’activité de copie à l’activité de procédure stockée**. Glissez-déposez le bouton **vert** associé à l’activité de copie l’activité de procédure stockée. 
 
     ![Connecter les activités de copie et de procédure stockée](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
+15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** . 
 
     ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 

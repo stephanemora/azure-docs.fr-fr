@@ -7,13 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356979"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231958"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -240,7 +239,7 @@ La définition des **paramètres dynamiques** pendant l’affectation s’effect
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Affichez la liste des [fonctions de blueprint](../reference/blueprint-functions.md).
-- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).

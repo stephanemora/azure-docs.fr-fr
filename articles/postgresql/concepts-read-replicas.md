@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 82c286ce60751775308d0f2c197d86785c4f0a14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/04/2019
+ms.openlocfilehash: 75fcbdc20c1caf191d4a22672fc9641b36c263c5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991583"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309340"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -33,8 +33,6 @@ La fonctionnalité de réplica en lecture utilise la réplication asynchrone Pos
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
 
-> [!IMPORTANT]
-> La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
 Vous pouvez disposer d’un serveur maître dans toute [région Azure Database pour PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles.
 

@@ -1,20 +1,19 @@
 ---
 title: Configurer la récupération d’urgence pour une machine virtuelle IaaS Azure vers une région Azure secondaire
 description: Ce démarrage rapide présente les étapes nécessaires à la récupération d’urgence d’une machine virtuelle IaaS Azure entre des régions Azure à l’aide du service Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/30/2019
+ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46376091649a2c2b1498fd13e8775fb161de32c1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399544"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146954"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure        
 

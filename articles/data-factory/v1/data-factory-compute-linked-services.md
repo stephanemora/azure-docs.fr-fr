@@ -3,22 +3,20 @@ title: Environnements de calcul pris en charge par Azure Data Factory | Microsof
 description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565716"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140245"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -349,7 +347,7 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 | accountName          | Le nom du compte Data Lake Analytics.  | OUI                                      |
 | dataLakeAnalyticsUri | L’URI de Data Lake Analytics.           | Non                                       |
 | subscriptionId       | L’ID d’abonnement Azure.                    | Non<br /><br />(Si non spécifié, l’abonnement de la fabrique de données est utilisé.) |
-| nom_groupe_ressources    | Le nom du groupe de ressources Azure.                | Non<br /><br /> (Si non spécifié, le groupe de ressources de la fabrique de données est utilisé.) |
+| resourceGroupName    | Le nom du groupe de ressources Azure.                | Non<br /><br /> (Si non spécifié, le groupe de ressources de la fabrique de données est utilisé.) |
 
 ### <a name="authentication-options"></a>Options d’authentification
 Pour votre service lié Data Lake Analytics, vous avez le choix entre l’authentification à l’aide d’un principal du service ou d’informations d’identification utilisateur.

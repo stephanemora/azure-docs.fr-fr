@@ -3,18 +3,18 @@ title: Fonctions des modèles Resource Manager | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205431"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258888"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
-Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](resource-group-authoring-templates.md#syntax).
+Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](template-expressions.md).
 
 Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](resource-group-authoring-templates.md#functions).
 
@@ -205,9 +205,9 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [découper](resource-group-template-functions-string.md#trim)
+* [trim](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [URI](resource-group-template-functions-string.md#uri)
+* [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 * [utcNow](resource-group-template-functions-string.md#utcnow)

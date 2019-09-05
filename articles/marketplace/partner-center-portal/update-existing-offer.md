@@ -1,18 +1,18 @@
 ---
 title: Mettre à jour une offre de Place de marché commerciale existante
 description: Comment mettre à jour une offre de Place de marché commerciale existante, notamment la modification, la suppression d’un brouillon, l’annulation d’une demande de publication, l’arrêt de la vente d’une offre ou d’un plan et la synchronisation des audiences privées.
-author: mattwojo
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442092"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191765"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la Place de marché commerciale existante
 

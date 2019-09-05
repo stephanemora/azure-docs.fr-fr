@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542988"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258843"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
@@ -175,7 +175,7 @@ Lorsque vous décidez des [dépendances](resource-group-define-dependencies.md) 
 
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
 
-* Les ressources avec l’[élément condition](resource-group-authoring-templates.md#condition) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
+* Les ressources avec l’[élément condition](conditional-resource-deployment.md) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
 
 * Ajoutez les dépendances l’une après l’autre sans les définir explicitement. Par exemple, votre machine virtuelle dépend d’une interface de réseau virtuel, et l’interface de réseau virtuelle dépend d’un réseau virtuel et d’adresses IP publiques. Par conséquent, la machine virtuelle est déployée après les trois ressources. Cependant, ne définissez pas explicitement la machine virtuelle comme dépendante de ces trois ressources. Cette approche permet de clarifier l’ordre des dépendances et de simplifier les modifications ultérieures du modèle.
 

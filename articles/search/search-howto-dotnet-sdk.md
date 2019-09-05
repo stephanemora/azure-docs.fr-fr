@@ -2,19 +2,19 @@
 title: Comment utiliser la Recherche Azure à partir d’une application .NET - Recherche Azure
 description: Découvrez comment utiliser la Recherche Azure dans une application .NET avec C# et le SDK .NET. Les tâches basées sur du code incluent la connexion au service, l’indexation de contenu et l’interrogation de l’index.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450009"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208245"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Comment utiliser Azure Search à partir d'une application .NET
 
@@ -579,7 +579,7 @@ Le kit de développement logiciel utilise JSON.NET pour sérialiser et déséria
 * Mappez des noms de propriété dans le code et des noms de champ de votre index.
 * Créez des attributs personnalisés qui peuvent être utilisés pour le mappage des propriétés aux champs du document.
 
-Vous pouvez trouver des exemples d’implémentation de sérialisation personnalisée dans les tests d’unités du kit de développement logiciel Azure Search .NET Azure GitHub. [Ce dossier](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models) est un bon point de départ. Il contient des classes qui sont utilisées par les tests de sérialisation personnalisés.
+Vous pouvez trouver des exemples d’implémentation de sérialisation personnalisée dans les tests d’unités du kit de développement logiciel Azure Search .NET Azure GitHub. [Ce dossier](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models) est un bon point de départ. Il contient des classes qui sont utilisées par les tests de sérialisation personnalisés.
 
 ### <a name="searching-for-documents-in-the-index"></a>Recherche de documents dans l'index
 La dernière étape dans l’exemple d’application consiste à rechercher certains documents dans l’index :

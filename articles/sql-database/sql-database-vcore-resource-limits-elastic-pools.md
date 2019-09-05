@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2a5190cada0ca834cada4e02bfe7549dc43da4b8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640854"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309513"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -140,8 +140,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|7000|7000|7000|7000|7000|7000|7000|
 |Limites du taux de journalisation (Mbits/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
-|Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
-|Nombre maximal de connexions simultanées par pool (requêtes)*|1680|1890|2100|2520|33600|4200|8400|
+|Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|1680|1890|2100|2520|3360|4200|8400|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 16|0 ; 0,25 ; 0,5 ; 1... 18|0 ; 0,25 ; 0,5 ; 1... 20|0 ; 0,25 ; 0,5 ; 1... 20 ; 24|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40 ; 80|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: ellacroi
-ms.openlocfilehash: b8d0759d96b0b2566934f117f5dea32ec4ad015c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000017"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309018"
 ---
 # <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
 
@@ -263,7 +263,7 @@ La Place de marché Microsoft Azure est conçue pour les professionnels de l’i
 
 **Pourquoi publier mon application sur la Place de marché Microsoft Azure et quel profit vais-je en tirer ?**
 
-La Place de marché Azure est un marché qui permet aux partenaires Microsoft de promouvoir et de vendre des produits et services aux clients Azure. Les éditeurs obtiennent instantanément l’accès à 140 marchés mondiaux, à notre réseau de plus de 300 000 partenaires et au réseau de clients professionnels Azure.  La place de marché inclut plus de 90 % des sociétés composant le Fortune 500 et un grand nombre des meilleurs développeurs au monde. Les nouveaux partenaires sur la Place de marché Microsoft Azure bénéficient automatiquement d’un ensemble [d’avantages de commercialisation gratuits](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) destinés à les aider à renforcer la présence de leurs offres sur la Place de marché d’Azure.
+La Place de marché Azure est un marché qui permet aux partenaires Microsoft de promouvoir et de vendre des produits et services aux clients Azure. Les éditeurs obtiennent instantanément l’accès à 140 marchés mondiaux, à notre réseau de plus de 300 000 partenaires et au réseau de clients professionnels Azure.  La place de marché inclut plus de 90 % des sociétés composant le Fortune 500 et un grand nombre des meilleurs développeurs au monde. Les nouveaux partenaires sur la Place de marché Microsoft Azure bénéficient automatiquement d’un ensemble [d’avantages de commercialisation gratuits](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) destinés à les aider à renforcer la présence de leurs offres sur la Place de marché d’Azure.
 
 **Quel est le facteur de différenciation entre la Place de marché Azure et AppSource ?**
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 2ef4047b5dcb0658f4bc48da41ff4e177386fa40
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 803162110ead050f9d1a595b11c29ec6707640a8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048577"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147413"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Node.js)
 
@@ -32,11 +32,11 @@ ms.locfileid: "70048577"
 > [!NOTE]
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
+
+* Node.j version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
-
-* Installez la dernière version du [SDK Node.js](https://github.com/Azure/azure-iot-sdk-node).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

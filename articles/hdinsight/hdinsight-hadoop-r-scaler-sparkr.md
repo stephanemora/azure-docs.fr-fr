@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873330"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231129"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importation des données météorologiques et des données de compagnies aériennes vers Spark DataFrames
 
-Nous allons maintenant utiliser la fonction [read.df()](http://spark.apache.org/docs/latest/api/R/read.df.html) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
+Nous allons maintenant utiliser la fonction [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Joindre les données météorologiques et les données de compagnies aériennes
 
-Nous allons maintenant utiliser la fonction [join()](http://spark.apache.org/docs/latest/api/R/join.html) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
+Nous allons maintenant utiliser la fonction [join()](https://spark.apache.org/docs/latest/api/R/join.html) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

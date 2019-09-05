@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 48a30ef86cdb10b540ffe1231294542ccff87255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11ac4e10cbd116ed204a8a11274408f5a5a9b4d9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622318"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183130"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Créer et gérer des machines virtuelles avec DevTest Labs à l’aide de l’interface de ligne de commande Azure
 Ce guide de démarrage rapide vous montre pas à pas comment créer, démarrer, vous connecter à, mettre à jour et nettoyer une machine de développement dans votre lab. 
@@ -41,7 +41,7 @@ La commande de création d’une machine virtuelle est celle-ci : `az lab vm cr
 La commande suivante crée une image basée sur Windows à partir de la Place de marché Azure. Le nom de l’image est identique à celui que vous voyez quand vous créez une machine virtuelle par le biais du portail Azure. 
 
 ```azurecli
-az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
 La commande suivante crée une machine virtuelle basée sur une image personnalisée disponible dans le lab :

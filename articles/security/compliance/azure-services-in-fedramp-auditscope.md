@@ -1,18 +1,18 @@
 ---
 title: Étendue d’audit des services Azure dans FedRAMP et DoD SRG
 description: Cet article contient des tables pour Azure Public et Azure Government indiquant l’étendue d’audit atteint par un service donné au sein du FedRAMP (Niveau modéré/ élevé) et du DoD SRG (Niveau d’impact 2, 4 ou 5).
-author: Jain-Garima
-ms.author: gjain
+author: davib
+ms.author: davib
 ms.date: 5/17/2019
 ms.topic: article
 ms.service: security
 ms.reviewer: rochiou
-ms.openlocfilehash: f4bf6b90c06a2c17f44c693e5062d66be756347a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 15ba9b010948513e6bc60fb8cc77255bdf566b44
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845769"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308184"
 ---
 # <a name="azure-services-by-fedramp-and-dod-cc-srg-audit-scope"></a>Services Azure par étendue d’audit du FedRAMP et du DoD SRG
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955182"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277107"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -55,7 +55,7 @@ Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exacti
 - Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous définissez le seuil sur **30**, vous pouvez donner des réponses aux requêtes comme « Où puis-je modifier ma base de connaissances ? »
 
 > [!NOTE]
-> Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/troubleshooting-runtime.md).
+> Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
 ## <a name="set-threshold"></a>Définir le seuil 
 

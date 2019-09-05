@@ -3,21 +3,20 @@ title: Créer des déclencheurs de fenêtre bascule dans Azure Data Factory | Mi
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline sur une fenêtre bascule.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: shlo
-ms.openlocfilehash: 0f78136edf58e76ed478bef9c255791d256c34a5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678476"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141548"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -95,13 +94,13 @@ Le tableau suivant présente les principaux éléments JSON liés à la périodi
 | **type** | Type du déclencheur. Le type correspond à la valeur fixe « TumblingWindowTrigger ». | String | « TumblingWindowTrigger » | OUI |
 | **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque**: Cet élément est \<readOnly>. | String | « Started », « Stopped », « Disabled » | OUI |
 | **frequency** | Chaîne qui représente l’unité de fréquence (minutes ou heures) à laquelle le déclencheur doit être répété. Si les valeurs de date **startTime** sont plus précises que la valeur **frequency**, les dates **startTime** sont prises en compte quand les limites de la fenêtre sont calculées. Par exemple, si la valeur de **frequency** est horaire et que la valeur de **startTime** est 2017-09-01T10:10:10Z, la première fenêtre est (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | « minute », « hour »  | OUI |
-| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. | Entier | Entier positif. | OUI |
+| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. | Integer | Entier positif. | OUI |
 | **startTime**| Première occurrence, qui peut être dans le passé. Le premier intervalle de déclencheur est (**startTime**, **startTime** + **interval**). | DateTime | Valeur DateTime. | OUI |
 | **endTime**| Dernière occurrence, qui peut être dans le passé. | DateTime | Valeur DateTime. | OUI |
 | **delay** | Délai duquel différer le démarrage du traitement des données pour la fenêtre. L’exécution du pipeline est démarrée après l’heure d’exécution prévue + **delay**. **delay** définit la durée d’attente du déclencheur après l’heure d’échéance avant de déclencher une nouvelle exécution. **delay** ne modifie pas la valeur **startTime** de la fenêtre. Par exemple, une valeur **delay** de 00:10:00 indique un délai de 10 minutes. | Timespan<br/>(hh:mm:ss)  | Valeur d’intervalle de temps où la valeur par défaut est 00:00:00. | Non |
-| **maxConcurrency** | Nombre d’exécutions simultanées du déclencheur qui sont déclenchées pour des fenêtres qui sont prêtes. Par exemple, pour un renvoi des exécutions qui ont eu lieu toutes les heures la veille, 24 fenêtres sont générées. Si **maxConcurrency** = 10, les événements du déclencheur sont déclenchés uniquement pour les 10 premières fenêtres (00:00-01:00 - 09:00-10:00). Une fois que les 10 premières exécutions déclenchées du pipeline sont terminées, les exécutions du déclencheur sont déclenchées pour les 10 fenêtres suivantes (10:00-11:00 - 19:00-20:00). Pour poursuivre avec l’exemple de **maxConcurrency** = 10, s’il y a 10 fenêtres prêtes, il y a au total 10 exécutions du pipeline. Si une seule fenêtre est prête, il n’y a qu’une seule exécution du pipeline. | Entier | Entier compris entre 1 et 50. | OUI |
-| **retryPolicy : Nombre** | Nombre de nouvelles tentatives avant que l’exécution du pipeline ne soit marquée comme « Failed » (Échec).  | Entier | Nombre entier, où la valeur par défaut est 0 (aucune nouvelle tentative). | Non |
-| **retryPolicy: intervalInSeconds** | Délai en secondes entre chaque nouvelle tentative | Entier | Nombre de secondes, où la valeur par défaut est 30. | Non |
+| **maxConcurrency** | Nombre d’exécutions simultanées du déclencheur qui sont déclenchées pour des fenêtres qui sont prêtes. Par exemple, pour un renvoi des exécutions qui ont eu lieu toutes les heures la veille, 24 fenêtres sont générées. Si **maxConcurrency** = 10, les événements du déclencheur sont déclenchés uniquement pour les 10 premières fenêtres (00:00-01:00 - 09:00-10:00). Une fois que les 10 premières exécutions déclenchées du pipeline sont terminées, les exécutions du déclencheur sont déclenchées pour les 10 fenêtres suivantes (10:00-11:00 - 19:00-20:00). Pour poursuivre avec l’exemple de **maxConcurrency** = 10, s’il y a 10 fenêtres prêtes, il y a au total 10 exécutions du pipeline. Si une seule fenêtre est prête, il n’y a qu’une seule exécution du pipeline. | Integer | Entier compris entre 1 et 50. | OUI |
+| **retryPolicy : Nombre** | Nombre de nouvelles tentatives avant que l’exécution du pipeline ne soit marquée comme « Failed » (Échec).  | Integer | Nombre entier, où la valeur par défaut est 0 (aucune nouvelle tentative). | Non |
+| **retryPolicy: intervalInSeconds** | Délai en secondes entre chaque nouvelle tentative | Integer | Nombre de secondes, où la valeur par défaut est 30. | Non |
 | **dependsOn : type** | Type de TumblingWindowTriggerReference. Requis si une dépendance est définie. | String |  « TumblingWindowTriggerDependencyReference », « SelfDependencyTumblingWindowTriggerReference » | Non |
 | **dependsOn: size** | Taille de la fenêtre bascule de dépendance. | Timespan<br/>(hh:mm:ss)  | Valeur TimeSpan positive où la valeur par défaut correspond à la taille de la fenêtre du déclencheur enfant  | Non |
 | **dependsOn: offset** | Décalage du déclencheur de dépendance. | Timespan<br/>(hh:mm:ss) |  Valeur TimeSpan qui doit être négative dans une autodépendance. Si aucune valeur n’est spécifiée, la fenêtre est la même que le déclencheur lui-même. | Autodépendance : OUI<br/>Autre : Non  |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e71757215f6a0a5b664abd3f8a9ee632b1535f3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876368"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210198"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -106,7 +106,7 @@ Pour restaurer vos fichiers, Sauvegarde Azure fournit un script à exécuter sur
 
     Le script est téléchargé et un mot de passe s’affiche, comme dans l’exemple suivant :
 
-    ```
+    ```output
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 

@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 117b6d53a3392e8a4f75d5d1966e3f48fb66d5ce
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 36a160ad3c6b925931c6274a44cfb5492d6a562a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966411"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140637"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -235,7 +234,7 @@ Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de donn�
 ### <a name="create-azure-sql-database-linked-service"></a>Créez le service lié Azure SQL Database.
 Dans cette étape, vous liez votre base de données Azure SQL à la fabrique de données.
 
-1. Créez un fichier JSON nommé **AzureSQLDatabaseLinkedService.json** dans le dossier **C:\ADFTutorials\IncCopyChangeTrackingTutorial** avec le contenu suivant : Remplacez **&lt;server&gt;, &lt;database name **, &lt;user id&gt; et &lt;password&gt;** par le nom de votre serveur SQL Azure, de votre base de données, l’ID utilisateur et le mot de passe avant d’enregistrer le fichier. 
+1. Créez un fichier JSON nommé **AzureSQLDatabaseLinkedService.json** dans le dossier **C:\ADFTutorials\IncCopyChangeTrackingTutorial** avec le contenu suivant : Remplacez server, database name **, &lt;user id&gt; et &lt;password&gt;** par le nom de votre serveur SQL Azure, de votre base de données, l’ID utilisateur et le mot de passe avant d’enregistrer le fichier. 
 
     ```json
     {

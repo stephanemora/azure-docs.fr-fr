@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975735"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135533"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -88,7 +88,7 @@ Lorsque vous configurez DNS pour votre nom de domaine personnalisé, vous avez l
 -   Configurer un enregistrement A qui pointe vers l’adresse IP de votre passerelle de gestion des API.
 
 > [!NOTE]
-> Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, consultez le [FAQ sur la gestion des API](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).
+> Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, consultez le [FAQ sur la gestion des API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

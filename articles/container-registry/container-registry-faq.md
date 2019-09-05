@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309285"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142673"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -31,7 +31,7 @@ Cet article aborde les questions fréquemment posées et les problèmes connus l
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Puis-je créer un registre de conteneurs Azure à l’aide d’un modèle Resource Manager ?
 
-Oui. Voici [un modèle](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) que vous pouvez utiliser pour créer un registre.
+Oui. Voici [un modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que vous pouvez utiliser pour créer un registre.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe-t-il une analyse de sécurité des vulnérabilités pour les images dans ACR ?
 

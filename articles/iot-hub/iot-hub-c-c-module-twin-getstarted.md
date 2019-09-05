@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 0e0ad63ffb8d9c22d1b527644bc78e229ac6830c
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: bbec8c79b7d1b1a3f8864e12a6dc5b6c07bbb05d
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668213"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147826"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (C)
 
@@ -31,7 +31,7 @@ ms.locfileid: "68668213"
 > [!NOTE]
 > Pour plus d’informations sur les Kits de développement logiciel (SDK) Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, voir l’article [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.)
 

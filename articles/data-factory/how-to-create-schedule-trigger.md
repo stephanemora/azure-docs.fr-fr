@@ -3,21 +3,20 @@ title: Créer des déclencheurs de planification dans Azure Data Factory | Micro
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline selon une planification.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: shlo
-ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996369"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141623"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -359,8 +358,8 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 
 | Élément JSON | Description | Valeurs valides |
 |:--- |:--- |:--- |
-| **minutes** | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Entier</li><li>Tableau d’entiers</li></ul>
-| **hours** | Heures d’exécution du déclencheur dans la journée. | <ul><li>Entier</li><li>Tableau d’entiers</li></ul> |
+| **minutes** | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Integer</li><li>Tableau d’entiers</li></ul>
+| **hours** | Heures d’exécution du déclencheur dans la journée. | <ul><li>Integer</li><li>Tableau d’entiers</li></ul> |
 | **weekDays** | Jours d’exécution du déclencheur dans la semaine. La valeur ne peut être spécifiée qu’avec une fréquence hebdomadaire uniquement. | <ul><li>Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche</li><li>Tableau des valeurs de jour (la taille maximale du tableau est de 7)</li><li>Les valeurs de jour ne respectent pas la casse</li></ul> |
 | **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Tableau d’objets **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.</li><li>L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.</li></ul> |
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Toute valeur <= -1 et >= -31</li><li>Toute valeur >= 1 et <= 31</li><li>Tableau de valeurs</li></ul> |

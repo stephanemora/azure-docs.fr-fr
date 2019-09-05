@@ -3,19 +3,19 @@ title: Indexer des objets blob contenant plusieurs documents d’index de recher
 description: Analyser les objets blob Azure à la recherche de contenu textuel à l’aide de l’indexeur d’objets blob de la Recherche Azure. Chaque objet blob peut contenir un ou plusieurs documents d’index de Recherche Azure.
 ms.date: 05/02/2019
 author: arv100kri
-manager: briansmi
+manager: nitinme
 ms.author: arjagann
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c2a17d006f65854a89b9fac1818fcec420c07dc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024663"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182307"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexation d’objets blob produisant plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :

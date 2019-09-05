@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982791"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279129"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
 Le déploiement d’un modèle Azure Machine Learning en tant que service web crée une API REST. Vous pouvez envoyer des données à cette API et recevoir la prédiction retournée par le modèle. Dans ce document, découvrez comment créer des clients pour le service web en utilisant C#, Go, Java et Python.
 
-Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou FPGA. Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://aka.ms/aml-sdk). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification ou les jetons.
+Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou FPGA. Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification ou les jetons.
 
 Le flux de travail général pour la création d’un client qui utilise un service web de Machine Learning est le suivant :
 

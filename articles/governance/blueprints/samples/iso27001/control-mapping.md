@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: b37f5aca010c4b0bfd8d87c95d85e66f35b42f81
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515441"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232758"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mappage des contrôles de l’exemple blueprint ISO 27001
 
@@ -211,7 +211,7 @@ Vous venez de passer en revue le mappage des contrôles du blueprint ISO 27001.
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

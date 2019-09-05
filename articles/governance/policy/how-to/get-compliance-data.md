@@ -7,13 +7,12 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237527"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239159"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -28,8 +27,6 @@ Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel m
 
 > [!WARNING]
 > Si l’état de conformité indiqué est **Non inscrit**, vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle (RBAC) appropriées, comme décrit dans [Contrôle d’accès en fonction du rôle (RBAC) dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Déclencheurs d’évaluation
 

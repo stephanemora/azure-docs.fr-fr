@@ -2,7 +2,7 @@
 title: Compétence de recherche cognitive conditionnelle (Recherche Azure) | Microsoft Docs
 description: La compétence conditionnelle permet le filtrage, la création de valeurs par défaut et la fusion de valeurs.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: 21a36988b31571f2110fe4fd2802aa5d84ee0216
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 29e50a3d978338eaa46566574e6a20685a14bda4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635922"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186380"
 ---
 #   <a name="conditional-skill"></a>Compétence conditionnelle
 

@@ -3,22 +3,21 @@ title: Créer une fabrique de données Azure à l’aide de Python | Microsoft D
 description: Créez une fabrique de données Azure pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: 2c2b43b0f9a6d5764f885163db7fb0e67f0a8e9e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 143da2a08dd79c3f08a7bd8e8ec57d233e98df93
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444181"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140927"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
