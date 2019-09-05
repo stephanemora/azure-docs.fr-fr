@@ -3,18 +3,18 @@ title: Étendre Azure IoT Central avec une analyse personnalisée | Microsoft Do
 description: En tant que développeur de solutions, configurez une application IoT Central pour réaliser des visualisations et des analyses personnalisées. Cette solution utilise Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/21/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e039e2b8d9c183b5bfee1bee47e4addc4c873bf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1649d1ad50a62374cb5a1d9491c594e1b485ec1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743439"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100974"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>Étendre Azure IoT Central avec une analyse personnalisée
 
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ### <a name="iot-central-application"></a>Application IoT Central
 
-Créez une application IoT Central à partir de la page [Azure IoT Central - Mes applications](https://aka.ms/iotcentral) avec les paramètres suivants :
+Créez une application IoT Central sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral) avec les paramètres suivants :
 
 | Paramètre | Valeur |
 | ------- | ----- |
@@ -49,21 +49,21 @@ Créez une application IoT Central à partir de la page [Azure IoT Central - Mes
 
 Les exemples et captures d’écran de cet article concernent la région **USA Est**. Choisissez un emplacement proche de vous et assurez-vous de créer toutes vos ressources dans la même région.
 
-### <a name="resource-group"></a>Groupe de ressources
+### <a name="resource-group"></a>Resource group
 
 Utilisez le [Portail Azure pour créer un groupe de ressources](https://portal.azure.com/#create/Microsoft.ResourceGroup) appelé **IoTCentralAnalysis** afin de contenir les autres ressources que vous créez. Créez vos ressources Azure dans le même emplacement que votre application IoT Central.
 
 ### <a name="event-hubs-namespace"></a>Espace de noms Event Hubs
 
-Utilisez le [Portail Azure pour créer un espace de noms Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) avec les paramètres suivants :
+Utilisez le [portail Azure pour créer un espace de noms Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) avec les paramètres suivants :
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Nom    | Choisir le nom de votre espace de noms |
+| Nom    | Choisissez le nom de votre espace de noms |
 | Niveau tarifaire | De base |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | IoTCentralAnalysis |
-| Lieu | USA Est |
+| Subscription | Votre abonnement |
+| Resource group | IoTCentralAnalysis |
+| Location | USA Est |
 | Unités de débit | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Espace de travail Azure Databricks
@@ -73,9 +73,9 @@ Utilisez le [Portail Azure pour créer un service Azure Databricks](https://port
 | Paramètre | Valeur |
 | ------- | ----- |
 | Nom de l’espace de travail    | Choisir le nom de votre espace de travail |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | IoTCentralAnalysis |
-| Lieu | USA Est |
+| Subscription | Votre abonnement |
+| Resource group | IoTCentralAnalysis |
+| Location | USA Est |
 | Niveau de tarification | standard |
 
 Une fois que vous avez créé les ressources nécessaires, votre groupe de ressources **IoTCentralAnalysis** doit ressembler à la capture d’écran suivante :
@@ -84,9 +84,9 @@ Une fois que vous avez créé les ressources nécessaires, votre groupe de resso
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
-Vous pouvez configurer une application IoT Central pour exporter en continu des données de télémétrie vers un concentrateur d’événements. Dans cette section, vous allez créer un concentrateur d’événements pour recevoir des données de télémétrie depuis votre application IoT Central. Le concentrateur d’événements fournit les données de télémétrie à votre tâche Stream Analytics pour le traitement.
+Vous pouvez configurer une application IoT Central pour exporter en continu des données de télémétrie vers un Event Hub. Dans cette section, vous allez créer un Event Hub pour recevoir des données de télémétrie depuis votre application IoT Central. L’Event Hub fournit les données de télémétrie à votre travail Stream Analytics afin qu’elles soient traitées.
 
-1. Dans le Portail Azure, accédez à votre espace de noms Event Hubs et sélectionnez **+ Event Hub**.
+1. Dans le portail Azure, accédez à votre espace de noms Event Hubs et sélectionnez **+ Event Hub**.
 1. Nommez votre concentrateur d’événements **centralexport**, puis sélectionnez **Créer**.
 1. Dans la liste de concentrateurs d’événements dans votre espace de noms, sélectionnez **centralexport**. Puis sélectionnez **Stratégies d’accès partagé**.
 1. Sélectionnez **Ajouter**. Créez une stratégie nommée **Listen** avec la revendication **Listen**.
@@ -99,7 +99,7 @@ Votre espace de noms Event Hubs se présente comme la capture d’écran suivant
 
 ## <a name="configure-export-in-iot-central"></a>Configurer l’exportation dans IoT Central
 
-Accédez à l’[application IoT Central](https://aka.ms/iotcentral) que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre concentrateur d’événements. Pour configurer l’exportation :
+Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
 
 1. Accédez à la page **Exportation de données continue**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
 1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** :

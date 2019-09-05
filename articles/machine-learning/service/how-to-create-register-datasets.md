@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/21/2019
-ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 08/22/2019
+ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616340"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992111"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Créer des jeux de données et y accéder (préversion) dans Azure Machine Learning
 
@@ -26,7 +26,7 @@ Avec les jeux de données Azure Machine Learning, vous pouvez :
 
 * **Conserver une copie unique des données dans votre stockage** référencée par des jeux de données. 
 
-* **Accéder facilement aux données lors de l’entraînement du modèle** sans vous soucier de la chaîne de connexion ou du chemin des données.
+* **Accéder facilement aux données lors de l’entraînement du modèle** sans vous soucier des chaînes de connexion ou des chemins des données.
 
 * **Partager des données et collaborer** avec d’autres utilisateurs.
 
@@ -44,7 +44,8 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 > Certaines classes Dataset (préversion) comportent des dépendances sur le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
 ## <a name="dataset-types"></a>Types de jeux de données
-Les jeux de données sont classés en différents types, en fonction de la façon dont les utilisateurs les consomment lors de l’entraînement. Actuellement, nous prenons en charge les TabularDatasets qui représentent les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas. Un TabularDataset peut être créé à partir de fichiers CSV, TSV, Parquet, de résultats de requête SQL, etc. Pour obtenir la liste complète, consultez notre documentation.
+
+Les jeux de données sont classés en différents types, en fonction de la façon dont les utilisateurs les consomment lors de l’entraînement. Actuellement, nous prenons en charge les [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) qui représentent les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas. Vous pouvez créer un objet `TabularDataset` à partir de fichiers CSV, TSV, Parquet, de résultats de requête SQL, et ainsi de suite. Pour obtenir la liste complète, consultez notre documentation.
 
 Pour en savoir plus sur les changements d’API à venir, consultez [Qu'est-ce que le service Azure Machine Learning ?](https://aka.ms/tabular-dataset) 
 
@@ -136,7 +137,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-your-data-during-training"></a>Accédez à vos données pendant la formation
 
-Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin de récupérer votre espace de travail et jeu de données inscrit par nom. La méthode `get_by_name` sur la classe `Dataset` retourne par défaut la dernière version du jeu de données enregistrée avec l’espace de travail.
+Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin de récupérer votre espace de travail et jeu de données inscrit par nom. La méthode [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne par défaut la dernière version du jeu de données inscrite auprès de l’espace de travail.
 
 ```Python
 %%writefile $script_folder/train.py

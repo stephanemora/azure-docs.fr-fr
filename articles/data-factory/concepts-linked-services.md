@@ -3,21 +3,20 @@ title: Services liés dans Azure Data Factory | Microsoft Docs
 description: Apprenez-en davantage sur les services liés dans Azure Data Factory. Les services liés lient le calcul et les banques de données à une fabrique de données.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870131"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137116"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Services liés dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -92,10 +91,11 @@ Le service lié suivant est un service lié Stockage Azure. Notez que le type es
 ```
 
 ## <a name="create-linked-services"></a>Créez des services liés
+
 Vous pouvez créer des services liés en utilisant l’un des outils ou Kits de développement logiciel (SDK) suivants : [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modèle Azure Resource Manager et Portail Azure
 
 ## <a name="data-store-linked-services"></a>Services liés de banque de données
-Pour la connexion aux banques de données, vous pouvez consulter nos [banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats). Reportez-vous à la liste pour connaître les propriétés de connexion spécifiques requises pour les différentes banques de données.
+Vous trouverez la liste des données stockées prises en charge par Data Factory dans l’article [Vue d’ensemble des connecteurs](copy-activity-overview.md#supported-data-stores-and-formats). Cliquez sur un magasin de données pour en savoir plus sur les propriétés de connexion prises en charge.
 
 ## <a name="compute-linked-services"></a>Services liés de calcul
 Reportez-vous aux [environnements de calcul pris en charge](compute-linked-services.md) pour plus d’informations sur les différents environnements de calcul auxquels vous pouvez vous connecter à partir de votre fabrique de données, ainsi que les différentes configurations.

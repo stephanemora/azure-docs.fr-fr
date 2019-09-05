@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/21/2019
 ms.author: jingwang
-ms.openlocfilehash: 1baa28dd1c9cc323e3dc7ca6fc5fbe2eac54652a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828861"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996666"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
@@ -126,31 +126,33 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 
 Pour utiliser l’authentification du jeton d’application Azure AD basée sur le principal de service, effectuez les étapes suivantes :
 
-1. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
+1. Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Active Directory pour votre instance gérée](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
 
     - ID de l'application
     - Clé de l'application
     - ID client
 
-2. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) pour le l’identité managée Azure Data Factory. Dans SQL Server Management Studio (SSMS), connectez-vous à votre instance managée à l’aide d’un compte SQL Server qui est un **sysadmin**. Dans la base de données de **référence**, exécutez le code T-SQL suivant :
+3. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) pour le l’identité managée Azure Data Factory. Dans SQL Server Management Studio (SSMS), connectez-vous à votre instance managée à l’aide d’un compte SQL Server qui est un **sysadmin**. Dans la base de données de **référence**, exécutez le code T-SQL suivant :
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données à partir de laquelle ou vers laquelle vous souhaitez copier des données, puis exécutez la commande T-SQL suivante : 
+4. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données à partir de laquelle ou vers laquelle vous souhaitez copier des données, puis exécutez la commande T-SQL suivante : 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-3. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+5. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-4. Configurez un service lié Azure SQL Database Managed Instance dans Azure Data Factory.
+6. Configurez un service lié Azure SQL Database Managed Instance dans Azure Data Factory.
 
 **Exemple : utilisez l’authentification du principal de service**
 
@@ -185,25 +187,27 @@ Une fabrique de données peut être associée à une [identité managée pour le
 
 Pour utiliser l’authentification par identité managée, effectuez les étapes suivantes.
 
-1. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) pour le l’identité managée Azure Data Factory. Dans SQL Server Management Studio (SSMS), connectez-vous à votre instance managée à l’aide d’un compte SQL Server qui est un **sysadmin**. Dans la base de données de **référence**, exécutez le code T-SQL suivant :
+1. Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Active Directory pour votre instance gérée](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) pour le l’identité managée Azure Data Factory. Dans SQL Server Management Studio (SSMS), connectez-vous à votre instance managée à l’aide d’un compte SQL Server qui est un **sysadmin**. Dans la base de données de **référence**, exécutez le code T-SQL suivant :
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données à partir de laquelle ou vers laquelle vous souhaitez copier des données, puis exécutez la commande T-SQL suivante : 
+3. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données à partir de laquelle ou vers laquelle vous souhaitez copier des données, puis exécutez la commande T-SQL suivante : 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+4. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
     ```
 
-4. Configurez un service lié Azure SQL Database Managed Instance dans Azure Data Factory.
+5. Configurez un service lié Azure SQL Database Managed Instance dans Azure Data Factory.
 
 **Exemple : utilise l’authentification d’identité managée**
 

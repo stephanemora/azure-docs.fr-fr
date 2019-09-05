@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 20577459e7dee2530efc17581bcc51b7d6bf2789
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558642"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073364"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -140,7 +139,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 + **Relais SMTP** : connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` et `ies.global.microsoft.com`
 
-+ **CAPTCHA du portail des développeurs** : Connectivité réseau sortante pour CAPTCHA du portail de développeur, qui se résout sur l’hôte `client.hip.live.com`.
++ **CAPTCHA du portail des développeurs** : Connectivité réseau sortante pour CAPTCHA du portail de développeur, qui se résout sous les hôtes `client.hip.live.com` et `partner.hip.live.com`.
 
 + **Diagnostics du portail Azure** : pour activer le flux des journaux de diagnostic à partir du portail Azure lors de l’utilisation de l’extension de la gestion des API depuis l’intérieur d’un réseau virtuel, un accès sortant vers `dc.services.visualstudio.com` sur le port 443 est requis. Cela permet de résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation d’extension.
 

@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 27a675982711f8d8f0b36ea0cc2600de45e97a6e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b9ff0dfa98fb3b6f12974512e197142d44223b80
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348464"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080282"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -127,26 +126,27 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
     ```
     Dans cet exemple, le disque du système d’exploitation attaché est le lecteur F. Vérifiez que vous utilisez la bonne lettre de lecteur. 
 
-    - Si le disque a pu être déverrouillé à l’aide de la clé BEK, nous considérerons que le problème BitLocker été résolu. 
+8. Une fois que le disque a été déverrouillé à l’aide de la clé BEK, détachez le disque de la machine virtuelle de récupération, puis recréez la machine virtuelle à l’aide de ce nouveau disque de système d’exploitation.
 
-    - Si l’utilisation de la clé BEK ne permet pas de déverrouiller le disque, vous pouvez choisir de suspendre la protection afin de désactiver temporairement BitLocker en exécutant la commande suivante :
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Si vous vous apprêtez à recréer la machine virtuelle à l’aide du disque dytem, vous devez déchiffrer entièrement le lecteur. Pour ce faire, exécutez la commande suivante :
+    > [!NOTE]
+    > L’échange de disque de système d’exploitation n’est pas pris en charge pour les machines virtuelles utilisant le chiffrement de disque.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.  Détachez le disque de la machine virtuelle de récupération, puis rattachez-le à la machine virtuelle affectée en tant que disque système. Pour plus d’informations, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération](troubleshoot-recovery-disks-windows.md).
+9. Si la nouvelle machine virtuelle ne peut toujours pas démarrer normalement, essayez l’une des étapes suivantes après avoir déverrouillé le lecteur :
+
+    - Suspendez la protection pour désactiver temporairement BitLocker en exécutant la commande suivante :
+
+                    manage-bde -protectors -disable F: -rc 0
+           
+    - Déchiffrez entièrement le lecteur. Pour ce faire, exécutez la commande suivante :
+
+                    manage-bde -off F:
 
 ### <a name="key-encryption-key-scenario"></a>Scénario impliquant une clé de chiffrement principale
 
 Dans un scénario impliquant une clé de chiffrement principale, effectuez les étapes suivantes :
 
 1. Vérifiez que le compte d’utilisateur connecté nécessite l’autorisation « unwrapped » (non wrappée) dans les stratégies d’accès au coffre de clés sous **Utilisateur|Autorisations de clé|Opérations de chiffrement|Ne pas inclure la clé**.
-2. Enregistrez les scripts suivants dans un fichier .PS1 :
+2. Enregistrez le script suivant dans un fichier .PS1 :
 
     ```powershell
     #Set the Parameters for the script
@@ -184,6 +184,7 @@ Dans un scénario impliquant une clé de chiffrement principale, effectuez les �
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -198,7 +199,7 @@ Dans un scénario impliquant une clé de chiffrement principale, effectuez les �
     ########################################################################################################################
 
     #Get wrapped BEK and place it in JSON object to send to KeyVault REST API
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $keyVaultName -Name $secretName
+    $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name $secretName
     $wrappedBekSecretBase64 = $keyVaultSecret.SecretValueText
     $jsonObject = @"
     {
@@ -208,7 +209,7 @@ Dans un scénario impliquant une clé de chiffrement principale, effectuez les �
     "@
 
     #Get KEK Url
-    $kekUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name $kekName).Key.Kid;
+    $kekUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name $kekName).Key.Kid;
     $unwrapKeyRequestUrl = $kekUrl+ "/unwrapkey?api-version=2015-06-01";
 
     #Call KeyVault REST API to Unwrap 
@@ -231,7 +232,7 @@ Dans un scénario impliquant une clé de chiffrement principale, effectuez les �
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Définissez les paramètres. Le script va traiter le secret KEK pour créer la clé BEK, puis l’enregistrer dans un dossier local de la machine virtuelle de récupération.
+3. Définissez les paramètres. Le script va traiter le secret KEK pour créer la clé BEK, puis l’enregistrer dans un dossier local de la machine virtuelle de récupération. Si vous recevez des erreurs lors de l’exécution du script, consultez la section [Résolution des problèmes de script](#script-troubleshooting).
 
 4. La sortie suivante s’affiche au début de l’exécution du script :
 
@@ -254,17 +255,38 @@ Dans un scénario impliquant une clé de chiffrement principale, effectuez les �
     ```
     Dans cet exemple, le disque du système d’exploitation attaché est le lecteur F. Vérifiez que vous utilisez la bonne lettre de lecteur. 
 
-    - Si le disque a pu être déverrouillé à l’aide de la clé BEK, nous considérerons que le problème BitLocker été résolu. 
+6. Une fois que le disque a été déverrouillé à l’aide de la clé BEK, détachez le disque de la machine virtuelle de récupération, puis recréez la machine virtuelle à l’aide de ce nouveau disque de système d’exploitation. 
 
-    - Si l’utilisation de la clé BEK ne permet pas de déverrouiller le disque, vous pouvez choisir de suspendre la protection afin de désactiver temporairement BitLocker en exécutant la commande suivante :
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Si vous vous apprêtez à recréer la machine virtuelle à l’aide du disque dytem, vous devez déchiffrer entièrement le lecteur. Pour ce faire, exécutez la commande suivante :
+    > [!NOTE]
+    > L’échange de disque de système d’exploitation n’est pas pris en charge pour les machines virtuelles utilisant le chiffrement de disque.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. Si la nouvelle machine virtuelle ne peut toujours pas démarrer normalement, essayez l’une des étapes suivantes après avoir déverrouillé le lecteur :
 
-6. Détachez le disque de la machine virtuelle de récupération, puis rattachez-le à la machine virtuelle affectée en tant que disque système. Pour plus d’informations, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération](troubleshoot-recovery-disks-windows.md).
+    - Suspendez la protection pour désactiver temporairement BitLocker en exécutant la commande suivante :
+
+             manage-bde -protectors -disable F: -rc 0
+           
+    - Déchiffrez entièrement le lecteur. Pour ce faire, exécutez la commande suivante :
+
+                    manage-bde -off F:
+## <a name="script-troubleshooting"></a>Résolution des problèmes de script
+
+**Erreur : Impossible de charger le fichier ou l’assembly**
+
+Cette erreur se produit parce que les chemins d’accès des assemblys ADAL sont incorrects. Si le module AZ est installé uniquement pour l’utilisateur actuel, les assemblys ADAL se trouvent dans `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+
+Vous pouvez également rechercher le dossier `Az.Accounts` pour trouver le chemin d’accès correct.
+
+**Erreur : Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret n’est pas reconnu en tant que nom d’une cmdlet**
+
+Si vous utilisez l’ancien module AZ PowerShell, vous devez remplacer les deux commandes par `Get-AzureKeyVaultSecret` et `Get-AzureKeyVaultSecret`.
+
+**Exemples de paramètres**
+
+| parameters  | Exemple de valeur  |Commentaires   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | Nom du coffre de clés qui stocke la clé |
+|$kekName   |mykey   | Nom de la clé utilisée pour chiffrer la machine virtuelle|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | Nom du secret de la clé de la machine virtuelle|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK |Chemin d’accès pour l’écriture du fichier BEK.|
+|$adTenant  |contoso.onmicrosoft.com   | Nom de domaine complet ou GUID de votre Azure Active Directory qui héberge le coffre de clés |

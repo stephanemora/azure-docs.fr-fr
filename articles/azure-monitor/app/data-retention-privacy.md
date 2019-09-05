@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518843"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991176"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -83,12 +83,11 @@ Pour les pages web, ouvrez la fenêtre de débogage de votre navigateur.
 Cela est possible en écrivant un [plug-in de processeur de télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Combien de temps sont conservées les données ?
-Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 90 jours maximum. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser l’ [exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage.
+Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 730 jours maximum. Vous pouvez [sélectionner une durée de rétention](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 jours. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser [l’exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage durant l’ingestion des données. 
+
+Des frais supplémentaires sont facturés pour les données conservées pendant plus de 90 jours. Plus d’informations sur la tarification d’Application Insights sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
-
-> [!NOTE]
-> La fonction de rétention de variable pour Application Insights est désormais disponible en préversion. En savoir plus [ici](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant quinze jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
@@ -167,7 +166,7 @@ Par le biais du code :
 
 Par défaut, `ServerTelemetryChannel` utilise le dossier de données d’application local `%localAppData%\Microsoft\ApplicationInsights` ou le dossier temp `%TMP%` de l’utilisateur actuel. (Consultez l’[implémentation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ici.) Dans un environnement Linux, le stockage local sera désactivé sauf si un dossier de stockage est spécifié.
 
-L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la `ConfigureServices()` méthode de votre classe  `Startup.cs`  :
+L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la méthode `ConfigureServices()` de votre classe `Startup.cs` :
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -241,7 +240,7 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Demandes<br/>**Exceptions**<br/>session<br/>users |
-| [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Installer Status Monitor sur IIS][redfield] |Les dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
 | [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
@@ -276,10 +275,10 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | Disponibilité |Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test |
 | SDK diagnostics |Message de suivi ou exception |
 
-Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config].
+Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
 
 > [!NOTE]
-> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker l’adresse IP, vous pouvez le faire avec un [initialiseur de télémétrie](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) vous présentera vos options.
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [https://www.maxmind.com](https://www.maxmind.com).
@@ -298,4 +297,3 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

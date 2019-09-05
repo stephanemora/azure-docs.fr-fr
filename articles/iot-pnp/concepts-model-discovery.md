@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879229"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114269"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implémenter la découverte de modèles IoT Plug-and-Play (préversion) dans une solution IoT
 
@@ -69,9 +69,9 @@ Quand la solution reçoit une notification de nouvelle connexion d’appareil, p
 1. Lisez le message de télémétrie de découverte pour récupérer les ID du modèle de capacité et des interfaces implémentées par l’appareil.
 1. Pour chaque ID, lisez le fichier JSON complet pour rechercher les capacités de l’appareil.
 1. Vérifiez la présence de chaque interface dans tous les caches que vous avez générés pour stocker les fichiers JSON récupérés précédemment par votre solution.
-1. Vérifiez ensuite si une interface avec cet ID est présente dans le référentiel de modèles global. Pour plus d’informations, consultez la documentation sur le [référentiel de modèles global](howto-manage-models.md).
-1. Si l’interface n’est pas présente dans le référentiel de modèles global, recherchez-la dans tous les référentiels de modèles privés connus de votre solution. Vous avez besoin d’une chaîne de connexion pour accéder à un référentiel de modèles privé. Pour plus d’informations, consultez la documentation sur le [référentiel de modèles privé](howto-manage-models.md).
-1. Si vous ne trouvez pas toutes les interfaces dans le référentiel de modèles global ou dans un référentiel privé, vous pouvez vérifier si l’appareil peut fournir la définition d’interface. Un appareil peut implémenter l’interface standard [ModelDefinition](concepts-common-interfaces.md) pour publier des informations sur la façon de récupérer des fichiers d’interface à l’aide d’une commande.
+1. Vérifiez ensuite si une interface avec cet ID est présente dans le référentiel de modèles public. Pour plus d’informations, consultez [Référentiel de modèles public](howto-manage-models.md).
+1. Si l’interface n’est pas présente dans le référentiel de modèles public, recherchez-la dans tous les référentiels de modèles d’entreprise connus de votre solution. Vous avez besoin d’une chaîne de connexion pour accéder à un référentiel de modèles d’entreprise. Pour plus d’informations, consultez [Référentiel de modèles d’entreprise](howto-manage-models.md).
+1. Si vous ne trouvez pas toutes les interfaces dans le référentiel de modèles public ni dans un référentiel de modèles d’entreprise, vous pouvez vérifier si l’appareil peut fournir la définition d’interface. Un appareil peut implémenter l’interface standard [ModelDefinition](concepts-common-interfaces.md) pour publier des informations sur la façon de récupérer des fichiers d’interface à l’aide d’une commande.
 1. Si vous avez trouvé des fichiers JSON pour chaque interface implémentée par l’appareil, vous pouvez énumérer les capacités de l’appareil. Utilisez la logique que vous avez écrite précédemment pour permettre aux utilisateurs d’interagir avec l’appareil.
 1. Vous pouvez appeler l’API Digital Twins à tout moment pour récupérer l’ID de modèle de capacité et les ID d’interface pour l’appareil.
 

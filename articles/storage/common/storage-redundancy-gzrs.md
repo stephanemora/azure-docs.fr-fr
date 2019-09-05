@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516136"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036331"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
@@ -70,7 +70,7 @@ Lorsqu’une zone de disponibilité devient indisponible, Azure procède à des 
 Si une défaillance affecte l’ensemble de la région principale, Microsoft tente d’abord de restaurer la région principale. Si la restauration n’est pas possible, Microsoft effectue le basculement vers la région secondaire, afin que la région secondaire devienne la nouvelle région principale. Si RA-GZRS est activé pour le compte de stockage, les applications conçues pour ce scénario peuvent lire à partir de la région secondaire en attendant le basculement. Si RA-GZRS n’est pas activé pour le compte de stockage, les applications ne seront pas en mesure de lire sur la région secondaire tant que le basculement n’est pas terminé.
 
 > [!NOTE]
-> GZRS et RA-GZRS sont actuellement en préversion dans la région USA Est 2 uniquement. Le basculement de compte géré par le client (préversion) n’est pas encore disponible dans USA Est 2, les clients ne peuvent donc pas gérer les événements de basculement de compte avec les comptes GZRS et RA-GZRS. Au cours de la préversion, Microsoft gérera les événements de basculement affectant les comptes GZRS et RA-GZRS.
+> GZRS et RA-GZRS sont actuellement en préversion dans la région USA Est uniquement. Le basculement de compte géré par le client (préversion) n’est pas encore disponible dans USA Est 2, les clients ne peuvent donc pas gérer les événements de basculement de compte avec les comptes GZRS et RA-GZRS. Au cours de la préversion, Microsoft gérera les événements de basculement affectant les comptes GZRS et RA-GZRS.
 
 Étant donné que les données sont répliquées de façon asynchrone dans la région secondaire, une défaillance qui affecte la région principale peut entraîner une perte de données si la région principale ne peut pas être récupérée. L’intervalle entre les écritures les plus récentes dans la région principale et la dernière écriture dans la région secondaire est appelé objectif de point de récupération (RPO). Le RPO indique le moment où les données peuvent être récupérées. Stockage Azure comporte généralement un RPO inférieur à 15 minutes, même s’il n’existe actuellement aucun contrat de niveau de service sur la durée de réplication des données sur la région secondaire.
 

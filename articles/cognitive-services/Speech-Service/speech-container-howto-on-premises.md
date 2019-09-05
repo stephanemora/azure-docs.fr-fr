@@ -1,5 +1,5 @@
 ---
-title: Utilisation avec Kubernetes et Helm - Speech Service
+title: Utiliser le conteneur Speech Service avec Kubernetes et Helm
 titleSuffix: Azure Cognitive Services
 description: À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/16/2019
+ms.date: 8/26/2019
 ms.author: dapine
-ms.openlocfilehash: 420ac45b7d3b5e97772b1aa712ba6b8442ac1de2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562764"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066505"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Utilisation avec Kubernetes et Helm
+# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Speech Service avec Kubernetes et Helm
 
 L’une des options permettant de gérer vos conteneurs vocaux en local consiste à utiliser Kubernetes et Helm. À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration. Pour plus d'informations sur l'exécution de conteneurs Docker sans orchestration Kubernetes, consultez [Installer et exécuter des conteneurs Speech Service](speech-container-howto.md).
 
@@ -150,7 +150,7 @@ Pour installer le *graphique helm*, nous allons devoir exécuter la commande [`h
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
+    --version 0.1.1 \
     --values <config-values.yaml> \
     --name onprem-speech
 ```

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014190"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084874"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -270,3 +270,7 @@ Si vous avez besoin d’aide pour passer à une version plus récente d’Azure 
 * Recherchez des questions techniques et obtenez des réponses, ou posez vos questions en parcourant la [communauté Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Bénéficier du support pour Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q : Pourquoi les événements 6311 et 6401 se produisent-ils après des erreurs d’étape de synchronisation?**
+
+Les événements 6311 **Le serveur a rencontré une erreur inattendue lors de l’exécution d’un rappel** et 6401 **Le contrôleur de l’agent de gestion a rencontré une erreur inattendue** sont toujours consignés après une erreur d’étape de synchronisation. Pour résoudre ces erreurs, vous devez nettoyer les erreurs de l’étape de synchronisation.  Pour plus d’informations, consultez [Résolution des erreurs lors de la synchronisation](tshoot-connect-sync-errors.md) et [Résolution des problèmes de synchronisation d’objet avec la synchronisation Azure AD Connect](tshoot-connect-objectsync.md)

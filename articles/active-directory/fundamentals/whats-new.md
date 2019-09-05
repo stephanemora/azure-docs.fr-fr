@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f2f1f7f5d8509a28557e9704bc178be465b1ee
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 28f19787044f90cc9db0fc38f548ede22a111434
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648656"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125231"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -114,7 +114,7 @@ Pour plus d’informations, voir [Quelles sont les nouveautés en matière d’a
 
 Les clients Azure AD peuvent désormais définir des stratégies pour gérer les clés de sécurité FIDO2 pour les utilisateurs et groupes de leur organisation. Les utilisateurs finaux peuvent également enregistrer eux-mêmes leurs clés de sécurité, les utiliser pour se connecter à leurs comptes Microsoft sur des sites web à l’aide d’appareils compatibles FIDO, ainsi que pour se connecter à leurs appareils Windows 10 connectés à Azure AD.
 
-Pour plus de détails, voir la section [Activer l’authentification sans mot de passe pour Azure AD (préversion)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) qui traite des informations relatives à l’administrateur, et la section [Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) qui traite des informations relatives à l’utilisateur final.
+Pour plus de détails, voir la section [Activer l’authentification sans mot de passe pour Azure AD (préversion)](/azure/active-directory/authentication/concept-authentication-passwordless) qui traite des informations relatives à l’administrateur, et la section [Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) qui traite des informations relatives à l’utilisateur final.
 
 ---
 
@@ -590,7 +590,7 @@ Pour plus d’informations sur l’accès conditionnel et la réinitialisation d
 
 Une fonction de détection des informations sur les menaces Azure AD est désormais intégrée à la fonctionnalité mise à jour Azure AD Identity Protection. Cette nouvelle fonction permet de détecter une activité utilisateur inhabituelle pour un utilisateur ou une activité spécifique qui correspond à des modèles d’attaque connus selon les sources d’information sur les menaces internes et externes de Microsoft.
 
-Pour plus d’informations sur la version actualisée d’Azure AD Identity Protection, consultez le billet de blog concernant les [quatre principales améliorations apportées à Azure AD Identity Protection désormais disponibles en préversion publique](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) et l’article [Présentation d’Azure Active Directory Identity Protection (actualisée)](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2). (article). Pour plus d’informations sur la détection d’informations sur les menaces Azure AD, consultez l’article [Événements à risque Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence).
+Pour plus d’informations sur la version actualisée d’Azure AD Identity Protection, consultez le billet de blog concernant les [quatre principales améliorations apportées à Azure AD Identity Protection désormais disponibles en préversion publique](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) et l’article [Présentation d’Azure Active Directory Identity Protection (actualisée)](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2). (article). Pour plus d’informations sur la détection d’informations sur les menaces Azure AD, consultez l’article [Détections de risques Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence).
 
 ---
 

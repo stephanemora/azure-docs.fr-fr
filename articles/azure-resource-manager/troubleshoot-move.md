@@ -4,14 +4,14 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624301"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061781"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Résoudre les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou abonnement
 
@@ -43,7 +43,11 @@ Quand c’est possible, divisez les grands déplacements en opérations de dépl
 
 ## <a name="resource-not-in-succeeded-state"></a>Ressource qui n’est pas dans un état de réussite
 
-Si vous obtenez un message d’erreur indiquant qu’une ressource ne peut pas être déplacée parce qu’elle n’est pas dans un état de réussite, le problème peut en fait être lié à une ressource dépendante qui bloque le déplacement. Consultez [État des ressources dépendantes](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
+Quand vous obtenez un message d’erreur indiquant qu’une ressource ne peut pas être déplacée parce qu’elle n’est pas dans un état de réussite, le problème peut en fait être lié à une ressource dépendante qui bloque le déplacement. En général, le code d’erreur est **MoveCannotProceedWithResourcesNotInSucceededState**.
+
+Si le groupe de ressources source ou cible contient un réseau virtuel, les états de toutes les ressources dépendantes pour le réseau virtuel sont vérifiés au cours du déplacement. La vérification comprend les ressources qui dépendent directement et indirectement du réseau virtuel. Si l’une de ces ressources est en état d’échec, le déplacement est bloqué. Par exemple, si une machine virtuelle qui utilise le réseau virtuel a échoué, le déplacement est bloqué. Le déplacement est bloqué même lorsque la machine virtuelle n’est pas l’une des ressources déplacées et ne se trouve pas dans l’un des groupes de ressources à déplacer.
+
+Lorsque vous recevez cette erreur, deux options s’offrent à vous. Déplacez vos ressources vers un groupe de ressources qui n’a pas de réseau virtuel ou [contactez le support technique](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

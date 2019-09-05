@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515284"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035722"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -136,7 +136,7 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Copie de base de données|Création d’une base de données comme copie.<br>Exportation vers un fichier BACPAC.|
 |SQL Data Sync|Synchronisation entre les bases de données hub et membre qui s’exécutent selon une planification configurable ou qui sont exécutées manuellement|
 |Modification de certaines métadonnées de base de données|Ajout de nouvelles balises de base de données.<br>Changement du nombre maximal de vCores, du nombre minimal de vCores ou du délai de mise en pause automatique.|
-|SQL Server Management Studio (SSMS)|L’utilisation de SSMS version 18 et l’ouverture d’une nouvelle fenêtre de requête pour toute base de données du serveur reprennent les bases de données du même serveur qui ont été mises en pause automatiquement. Ce comportement ne se produit pas si vous utilisez SSMS version 17.9.1 avec IntelliSense désactivé.|
+|SQL Server Management Studio (SSMS)|L’utilisation de versions de SSMS antérieures à 18.1 et l’ouverture d’une nouvelle fenêtre de requête pour toute base de données du serveur entraînent la reprise des bases de données du même serveur qui ont été mises en pause automatiquement. Ce comportement ne se produit pas si vous utilisez SSMS version 18.1 ou ultérieure.|
 
 La reprise automatique est également déclenchée durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640622"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141148"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
@@ -124,6 +124,15 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 <sup>4</sup> Nombre maximal de 30 compétences par group de compétences.
 
 <sup>5</sup> Les charges de travail de recherche cognitive et d’analyse d’images dans l’indexation d’objets blob Azure ont des durées d’exécution plus courtes que l’indexation de texte standard. L’analyse d’images et le traitement en langage naturel sont gourmands en ressources et consomment une quantité disproportionnée de la puissance de traitement disponible. Leur durée d’exécution a été réduite pour donner aux autres travaux de la file d’attente la possibilité de s’exécuter.  
+
+## <a name="synonym-limits"></a>Limites des synonymes
+
+Le nombre maximal de mappages de synonymes autorisé varie en fonction du niveau de tarification. Chaque règle peut avoir jusqu’à 20 expansions, où une expansion est un terme equivalvent. Par exemple, pour le mot « chat », l’association avec « minou », « félin » et « felis » (le genre des chats) est comptée comme 3 expansions.
+
+| Ressource | Gratuit | De base | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Mappages de synonymes maximum |3 |3|5\. |10 |20 |20 | 10 | 10 |
+| Nombre maximal de règles par mappage |5 000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Requêtes par seconde
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730238"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991851"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -40,7 +40,7 @@ Event Hubs Dedicated offre trois avantages convaincants pour les clients qui ont
 Un cluster dédié garantit une capacité à pleine échelle et peut gérer jusqu'à plusieurs gigaoctets de données en continu avec un stockage durable et une latence inférieure à la seconde pour s'adapter à un pic de trafic. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Accès inclusif et exclusif aux fonctionnalités 
-L'offre dédiée comprend des fonctionnalités gratuites telles que Capture, et offre un accès exclusif à de futures fonctionnalités comme BYOK. Le service gère également l'équilibrage de charge, les mises à jour du système d'exploitation, les correctifs de sécurité et le partitionnement pour le client, afin que vous puissiez consacrer moins de temps à la maintenance de l'infrastructure et plus de temps à la création de fonctionnalités côté client.  
+L’offre dédiée comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à de futures fonctionnalités comme BYOK (Bring Your Own Key). Le service gère également l'équilibrage de charge, les mises à jour du système d'exploitation, les correctifs de sécurité et le partitionnement pour le client, afin que vous puissiez consacrer moins de temps à la maintenance de l'infrastructure et plus de temps à la création de fonctionnalités côté client.  
 
 #### <a name="cost-savings"></a>Réduction des coûts
 À des volumes d'entrée élevés (>100 unités de débit), un cluster coûte nettement moins cher par heure que l'achat d'une quantité comparable d'unités de débit avec l'offre Standard.

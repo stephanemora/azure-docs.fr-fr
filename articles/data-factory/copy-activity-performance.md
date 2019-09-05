@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614187"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996456"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -41,30 +41,30 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 ADF offre une architecture serverless qui autorise le parallélisme à différents niveaux, ce qui permet aux développeurs de créer des pipelines pour utiliser pleinement la bande passante de votre réseau, ainsi que les IOPS et la bande passante de stockage pour maximiser le débit de déplacement de données pour votre environnement.  Cela signifie que vous pouvez estimer le débit atteignable en mesurant le débit minimal offert par le magasin de données source, le magasin de données de destination et la bande passante réseau entre la source et la destination.  Le tableau ci-dessous calcule la durée de la copie en fonction de la taille des données et de la limite de bande passante pour votre environnement. 
 
-| Taille des données/bande passante | 50 Mbits/s    | 100 Mbits/s  | 200 Mbits/s  | 500 Mbits/s  | 1 Gbit/s   | 10 Gbits/s  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1 Go                  | 2,7 min    | 1,4 min   | 0,7 min   | 0,3 min   | 0,1 min  | 0,0 min  |
-| 10 Go                 | 27,3 min   | 13,7 min  | 6,8 min   | 2,7 min   | 1,3 min  | 0,1 min  |
-| 100 Go                | 4,6 heures    | 2,3 heures   | 1,1 heures   | 0,5 heure   | 0,2 heures  | 0,0 heure  |
-| 1 To                  | 46,6 heures   | 23,3 heures  | 11,7 heures  | 4,7 heures   | 2,3 heures  | 0,2 heures  |
-| 10 To                 | 19,4 jours  | 9,7 jours  | 4,9 jours  | 1,9 jours  | 0,9 jour | 0,1 jour |
-| 100 To                | 194,2 jours | 97,1 jours | 48,5 jours | 19,4 jours | 9,5 jours | 0,9 jour |
-| 1 Po                  | 64,7 mois    | 32,4 mois   | 16,2 mois   | 6,5 mois    | 3,2 mois   | 0,3 mois   |
-| 10 Po                 | 647,3 mois   | 323,6 mois  | 161,8 mois  | 64,7 mois   | 31.6 mois  | 3,2 mois   |
+| Taille des données / <br/> bandwidth | 50 Mbits/s    | 100 Mbits/s  | 500 Mbits/s  | 1 Gbit/s   | 5 Gbit/s   | 10 Gbits/s  | 50 Gbit/s   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 Go**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
+| **10 Go**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
+| **100 Go**                  | 4,6 heures    | 2,3 heures   | 0,5 heure   | 0,2 heures  | 0,05 heure | 0,02 heure | 0,0 heure   |
+| **1 To**                    | 46,6 heures   | 23,3 heures  | 4,7 heures   | 2,3 heures  | 0,5 heure  | 0,2 heures  | 0,05 heure  |
+| **10 To**                   | 19,4 jours  | 9,7 jours  | 1,9 jours  | 0,9 jour | 0,2 jour | 0,1 jour | 0,02 jour |
+| **100 To**                  | 194,2 jours | 97,1 jours | 19,4 jours | 9,7 jours | 1,9 jours | 1 jour   | 0,2 jour  |
+| **1 Po**                    | 64,7 mois    | 32,4 mois   | 6,5 mois    | 3,2 mois   | 0,6 mois   | 0,3 mois   | 0,06 mois   |
+| **10 Po**                   | 647,3 mois   | 323,6 mois  | 64,7 mois   | 31.6 mois  | 6,5 mois   | 3,2 mois   | 0,6 mois    |
 
 La copie ADF est scalable à différents niveaux :
 
 ![Mise à l’échelle de la copie ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
-- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez mettre à l’échelle manuellement la machine ou la monter en charge sur plusieurs machines ([jusqu’à 4 nœuds](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds.
-- Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs conversations.
 - Le flux de contrôle ADF peut démarrer plusieurs activités de copie en parallèle, par exemple [Pour chaque boucle](control-flow-for-each-activity.md).
+- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez mettre à l’échelle manuellement la machine ou la monter en charge sur plusieurs machines ([jusqu’à 4 nœuds](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds.
+- Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs threads [en parallèle](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Procédure de réglage des performances
 
 Effectuez cette procédure pour régler les performances de votre service Azure Data Factory avec l’activité de copie.
 
-1. **Établissez une ligne de base.** Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Collectez les détails de l’exécution et les caractéristiques des performances suivant la [surveillance de l’activité de copie](copy-activity-overview.md#monitoring).
+1. **Choisir un jeu de données de test et établir une base de référence.** Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Le jeu de données que vous choisissez doit représenter vos modèles de données classiques (structure de dossiers, modèle de fichier, schéma de données, etc.) et être suffisamment grand pour évaluer les performances de copie, par exemple il faut 10 minutes ou plus pour que l’activité de copie se termine. Collectez les détails de l’exécution et les caractéristiques des performances suivant la [surveillance de l’activité de copie](copy-activity-overview.md#monitoring).
 
 2. **Comment optimiser les performances d’une seule activité de copie** :
 
@@ -78,7 +78,7 @@ Effectuez cette procédure pour régler les performances de votre service Azure 
 
    L’activité de copie doit être mise à l’échelle de façon quasi linéaire au fur et à mesure que vous augmentez le paramètre DIU.  Si, en doublant le paramètre DIU, vous ne voyez pas le double de débit, deux événements sont peut-être en train de se produire :
 
-   - Le modèle de copie spécifique que vous exécutez ne tire pas parti de l’ajout de DIU.  Même si vous avez spécifié une valeur DIU plus grande, la valeur DIU réelle utilisée est restée la même et vous obtenez donc le même débit qu’auparavant.  Si c’est le cas, passez à l’étape 3.
+   - Le modèle de copie spécifique que vous exécutez ne tire pas parti de l’ajout de DIU.  Même si vous avez spécifié une valeur DIU plus grande, la valeur DIU réelle utilisée est restée la même et vous obtenez donc le même débit qu’auparavant.  Si tel est le cas, optimisez le débit agrégé en exécutant plusieurs copies simultanément comme à l’étape 3.
    - En ajoutant des DIU (plus de puissance) et en augmentant ainsi le taux d’extraction, de transfert et de chargement des données, le magasin de données source, le réseau intermédiaire ou le magasin de données de destination a atteint son goulot d’étranglement et est peut-être limité.  Si c’est le cas, essayez de contacter votre administrateur de magasin de données ou votre administrateur réseau pour augmenter la limite supérieure ou réduire le paramètre DIU jusqu’à ce que la limitation ne se produise plus.
 
    **Si l’activité de copie est exécutée sur un runtime d’intégration auto-hébergé :**
@@ -90,7 +90,7 @@ Effectuez cette procédure pour régler les performances de votre service Azure 
    Si vous souhaitez obtenir un débit plus élevé, vous pouvez appliquer un scale-up ou scale-out à l’IR auto-hébergé :
 
    - Si l’UC et la mémoire disponible sur le nœud de l’IR auto-hébergé ne sont pas entièrement utilisées, mais que l’exécution de travaux simultanés atteint la limite, vous devez procéder à une opération de scale-up en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.  Pour obtenir des instructions, consultez [ces informations](create-self-hosted-integration-runtime.md#scale-up).
-   - Si, en revanche, l’UC est élevée sur le nœud de l’IR auto-hébergé et que la mémoire disponible est faible, vous pouvez ajouter un nouveau nœud pour faciliter l’application d’un scale-out à la charge sur plusieurs nœuds.  Pour obtenir des instructions, consultez [ces informations](create-self-hosted-integration-runtime.md#high-availability-and-scalability).
+   - Si, en revanche, le processeur est élevé sur le nœud de l’IR auto-hébergé ou que la mémoire disponible est faible, vous pouvez ajouter un nouveau nœud pour faciliter l’application d’un scale-out à la charge sur plusieurs nœuds.  Pour obtenir des instructions, consultez [ces informations](create-self-hosted-integration-runtime.md#high-availability-and-scalability).
 
    Quand vous appliquez un scale-up ou scale-out à la capacité du runtime d’intégration auto-hébergé, répétez la série de tests de performances pour voir si vous obtenez de plus en plus de débit.  Si le débit ne s’améliore plus, il est probable que le magasin de données source, le réseau intermédiaire ou le magasin de données de destination ait atteint son goulot d’étranglement et qu’il commence à être limité. Si c’est le cas, essayez de contacter votre administrateur de magasin de données ou votre administrateur réseau pour augmenter la limite supérieure ou revenez au paramètre de mise à l’échelle précédent pour l’IR auto-hébergé. 
 
@@ -98,9 +98,7 @@ Effectuez cette procédure pour régler les performances de votre service Azure 
 
    Maintenant que vous avez optimisé les performances d’une seule activité de copie, si vous n’avez pas encore atteint les limites supérieures de débit de votre environnement (réseau, magasin de données source et magasin de données de destination), vous pouvez exécuter plusieurs activités de copie en parallèle à l’aide de constructions de flux de contrôle ADF telles qu’une [boucle For Each](control-flow-for-each-activity.md).
 
-4. **Diagnostiquez et optimisez les performances**. Si les performances que vous observez ne répondent pas à vos attentes, identifiez les goulots d’étranglement. Ensuite, optimisez les performances pour supprimer ou réduire l’effet des goulots d’étranglement.
-
-   Dans certains cas, quand vous exécutez une activité de copie dans Azure Data Factory, vous voyez un message « Conseils sur le réglage des performances » en haut des [données de supervision de l’activité de copie](copy-activity-overview.md#monitor-visually) comme indiqué dans l’exemple suivant. Le message vous indique le goulot d’étranglement qui a été identifié pour l’exécution de copie donnée. Il vous guide également sur les modifications à apporter pour optimiser le débit de copie. Les conseils sur le réglage des performances fournissent actuellement des suggestions telles que :
+4. **Conseils sur le réglage des performances et fonctionnalités d’optimisation.** Dans certains cas, quand vous exécutez une activité de copie dans Azure Data Factory, vous voyez un message « Conseils sur le réglage des performances » en haut des [données de supervision de l’activité de copie](copy-activity-overview.md#monitor-visually) comme indiqué dans l’exemple suivant. Le message vous indique le goulot d’étranglement qui a été identifié pour l’exécution de copie donnée. Il vous guide également sur les modifications à apporter pour optimiser le débit de copie. Les conseils sur le réglage des performances fournissent actuellement des suggestions telles que :
 
    - Utilisez PolyBase lorsque vous copiez des données dans Azure SQL Data Warehouse.
    - Augmentez les unités de requête Azure Cosmos DB ou les DTU (Database Throughput Units) Azure SQL Database lorsque la ressource sur le côté de la banque de données est le goulot d’étranglement.
@@ -114,12 +112,11 @@ Effectuez cette procédure pour régler les performances de votre service Azure 
 
    ![Surveillance de la copie avec conseils d'optimisation des performances](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   En outre, vous trouverez ci-dessous quelques considérations courantes. Une description complète du diagnostic des performances dépasserait la portée de cet article.
+   De plus, voici quelques-unes des fonctionnalités d’optimisation des performances que vous devez connaître :
 
-   - Fonctionnalités d’optimisation des performances :
-     - [Copie en parallèle](#parallel-copy)
-     - [Unités d’intégration de données](#data-integration-units)
-     - [Copie intermédiaire](#staged-copy)
+   - [Copie en parallèle](#parallel-copy)
+   - [Unités d’intégration de données](#data-integration-units)
+   - [Copie intermédiaire](#staged-copy)
    - [Extensibilité du runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **Étendez la configuration à l’ensemble de votre jeu de données.** Lorsque vous êtes satisfait des résultats et des performances de l’exécution, vous pouvez étendre la définition et le pipeline pour couvrir l’ensemble de votre jeu de données.
@@ -136,7 +133,9 @@ Azure Data Factory fournit les fonctionnalités d’optimisation des performance
 
 Une unité d’intégration de données est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Azure Data Factory. Une unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Le nombre d’unités d’intégration de données autorisées pour dynamiser l’exécution d’une activité de copie se situe entre 2 et 256. S’il n’est pas spécifié, le tableau suivant répertorie les unités d’intégration de données par défaut utilisées dans différents scénarios de copie :
+Vous serez facturé **nombre d’unités d’intégration de données utilisées \* durée de copie \* prix unitaire/DIU-heure**. Consultez les tarifs actuels [ici](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Une monnaie locale et une remise distincte peuvent s’appliquer par type d’abonnement.
+
+Le nombre d’unités d’intégration de données autorisées pour dynamiser l’exécution d’une activité de copie se situe **entre 2 et 256**. S’il n’est pas spécifié ou si vous choisissez « Auto » dans l’interface utilisateur, Data Factory applique dynamiquement le paramètre d’unités d’intégration de données optimal en fonction de la paire source-récepteur et du modèle de données. Le tableau suivant liste les unités d’intégration de données par défaut utilisées dans différents scénarios de copie :
 
 | Scénario de copie | Unités d’intégration de données par défaut déterminées par service |
 |:--- |:--- |
@@ -151,7 +150,7 @@ Vous pouvez voir les unités d’intégration de données utilisées pour chaque
 > [!NOTE]
 > Pour l’instant, un nombre d’unités d’intégration de données supérieur à quatre s’applique uniquement lorsque vous copiez plusieurs fichiers à partir du Stockage Azure, d’Azure Data Lake Storage, d’Amazon S3, de Google Cloud Storage, d’un FTP cloud ou d’un SFTP cloud vers d’autres banques de données cloud.
 
-**Exemple**
+**Exemple :**
 
 ```json
 "activities":[
@@ -173,10 +172,6 @@ Vous pouvez voir les unités d’intégration de données utilisées pour chaque
 ]
 ```
 
-#### <a name="data-integration-units-billing-impact"></a>Impact des unités d’intégration de données sur la facturation
-
-Gardez à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. La durée totale de déplacement de données qui vous est facturée correspond à la somme de la durée de toutes les unités d’intégration de données. Si un travail de copie prenait auparavant une heure avec deux unités cloud et qu’il prend maintenant 15 minutes avec huit unités cloud, le montant total de la facture reste identique.
-
 ### <a name="parallel-copy"></a>Copie en parallèle
 
 Vous pouvez utiliser la propriété **parallelCopies** pour indiquer le parallélisme que vous voulez que l’activité de copie utilise. Vous pouvez penser cette propriété comme le nombre maximum de threads dans une activité de copie qui peut lire dans votre source ou écrire dans vos banques de données réceptrices en parallèle.
@@ -193,6 +188,15 @@ Pour chaque exécution d’activité de copie, Azure Data Factory détermine le 
 > Lorsque vous copiez des données entre banques basées sur fichier, le comportement par défaut offre généralement le meilleur débit. Le comportement par défaut est déterminé automatiquement en fonction de votre modèle de fichier source.
 
 Pour contrôler la charge sur les machines qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies**. La valeur doit être un nombre entier supérieur ou égal à 1. Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
+
+**Points à noter :**
+
+- Lorsque vous copiez des données entre des banques basées sur fichier, **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de banque de données source donnée pour charger des données de manière parallèle et orthogonale à la valeur **parallelCopies**. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
+- Lorsque vous copiez des données à partir de magasins qui ne sont pas basés sur des fichiers (sauf [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et le connecteur [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) en tant que source avec le partitionnement des données activé) vers des magasins qui sont basés sur des fichiers, le service de déplacement des données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
+- La propriété **parallelCopies** est orthogonale par rapport à **dataIntegrationUnits**. La première valeur est calculée à partir de toutes les unités d’intégration de données.
+- Lorsque vous spécifiez une valeur pour la propriété **parallelCopies**, songez à l’augmentation de la charge sur vos banques de données source et réceptrice. Envisagez également l’augmentation de la charge pour le runtime d’intégration auto-hébergé si l’activité de copie repose sur celui-ci, par exemple, pour une copie hybride. Cela se produit en particulier lorsque plusieurs activités ou exécutions simultanées des mêmes activités ont lieu en même temps dans la même banque de données. Si vous remarquez que la banque de données ou le runtime d’intégration auto-hébergé est submergé par la charge, diminuez la valeur **parallelCopies** pour alléger la charge.
+
+**Exemple :**
 
 ```json
 "activities":[
@@ -213,13 +217,6 @@ Pour contrôler la charge sur les machines qui hébergent vos banques de donnée
     }
 ]
 ```
-
-**Points à noter :**
-
-* Lorsque vous copiez des données entre des banques basées sur fichier, **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de banque de données source donnée pour charger des données de manière parallèle et orthogonale à la valeur **parallelCopies**. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
-* Lorsque vous copiez des données à partir de magasins qui ne sont pas basés sur des fichiers (sauf [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et le connecteur [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) en tant que source avec le partitionnement des données activé) vers des magasins qui sont basés sur des fichiers, le service de déplacement des données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
-* La propriété **parallelCopies** est orthogonale par rapport à **dataIntegrationUnits**. La première valeur est calculée à partir de toutes les unités d’intégration de données.
-* Lorsque vous spécifiez une valeur pour la propriété **parallelCopies**, songez à l’augmentation de la charge sur vos banques de données source et réceptrice. Envisagez également l’augmentation de la charge pour le runtime d’intégration auto-hébergé si l’activité de copie repose sur celui-ci, par exemple, pour une copie hybride. Cela se produit en particulier lorsque plusieurs activités ou exécutions simultanées des mêmes activités ont lieu en même temps dans la même banque de données. Si vous remarquez que la banque de données ou le runtime d’intégration auto-hébergé est submergé par la charge, diminuez la valeur **parallelCopies** pour alléger la charge.
 
 ### <a name="staged-copy"></a>copie intermédiaire
 
@@ -305,5 +302,5 @@ Voici des références relatives à la surveillance et au réglage des performan
 Consultez les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
-- [Mappage de schéma de l’activité de copie](copy-activity-schema-and-type-mapping.md)
-- [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
+- [Utiliser Azure Data Factory pour migrer des données de Data Lake ou Data Warehouse vers Azure](data-migration-guidance-overview.md)
+- [Migrer des données d’Amazon S3 vers le stockage Azure](data-migration-guidance-s3-azure-storage.md)

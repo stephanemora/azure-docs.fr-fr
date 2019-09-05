@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 44ee910aa1a5f3c1a703b9ed4202d395359970cb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575243"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099950"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -121,7 +120,7 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 
 ## <a name="change-log"></a>Journal des modifications
-
+- 22/08/2019 : Modifications apportées à la [configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) afin de mettre à jour les URL pour la création de rôle personnalisée  
 - 16/08/2019 : Modifications apportées à [Configuration de Pacemaker sur Red Hat Enterprise Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) pour rappeler aux clients de mettre à jour les actions dans le rôle personnalisé s’ils effectuent une mise à jour vers la nouvelle version de l’agent de clôture Azure  
 - 15/08/2019 : Modifications apportées à [Configurations du stockage des machines virtuelles SAP HANA Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) pour refléter la disponibilité générale du disque de stockage Ultra (anciennement disque SSD Ultra)
 - 01/08/2019 : Modifications apportées à [Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) pour intégrer les modifications spécifiquement pour SLES 15 

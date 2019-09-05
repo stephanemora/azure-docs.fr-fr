@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879122"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125024"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -76,7 +76,7 @@ Les stratégies d’accès conditionnel forcent l’inscription, obligeant les u
 * Connexions depuis des appareils infectés
 * Connexions depuis des adresses IP avec des activités suspectes
 
-Certains des événements à risque détectés par Azure Active Directory Identity Protection se produisent en temps réel, et d’autres nécessitent un traitement en mode hors connexion. Les administrateurs peuvent choisir de bloquer les utilisateurs qui présentent des comportements à risque et y remédier manuellement, exiger une modification de mot de passe ou demander une authentification multifacteur dans le cadre de leurs stratégies d’accès conditionnel.
+Certaines des détections des risques détectées par Azure Active Directory Identity Protection se produisent en temps réel, et d’autres nécessitent un traitement en mode hors connexion. Les administrateurs peuvent choisir de bloquer les utilisateurs qui présentent des comportements à risque et y remédier manuellement, exiger une modification de mot de passe ou demander une authentification multifacteur dans le cadre de leurs stratégies d’accès conditionnel.
 
 ## <a name="define-network-locations"></a>Définir les emplacements réseau
 

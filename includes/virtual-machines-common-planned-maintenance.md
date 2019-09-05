@@ -5,15 +5,15 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 4/30/2019
+ms.date: 8/22/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b2a7bbef2c421281780c0191fa32381468899bbf
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177043"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020329"
 ---
 Azure met régulièrement à jour sa plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. L’objectif de ces mises à jour comprend l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, la mise à niveau des composants réseau et la désactivation du matériel. 
 
@@ -21,7 +21,7 @@ Les mises à jour affectent rarement les machines virtuelles hébergées. Lorsqu
 
 - Si une mise à jour sans redémarrage est possible, la machine virtuelle est en pause pendant la mise à jour de l’hôte ou fait l’objet d’une migration dynamique vers un hôte déjà mis à jour.
 
-- Si la maintenance nécessite un redémarrage, vous êtes averti de la maintenance planifiée. Azure vous permet également de disposer d’un intervalle de temps durant lequel vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. La période de maintenance manuelle est généralement de 30 jours, sauf si la maintenance est urgente. Azure investit dans des technologies qui permettent de réduire le nombre de cas où une maintenance de la plateforme exige que les machines virtuelles soient redémarrées. 
+- Si la maintenance nécessite un redémarrage, vous êtes averti de la maintenance planifiée. Azure vous permet également de disposer d’un intervalle de temps durant lequel vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. La période de maintenance manuelle est généralement de 35 jours, sauf si la maintenance est urgente. Azure investit dans des technologies qui permettent de réduire le nombre de cas où une maintenance de la plateforme exige que les machines virtuelles soient redémarrées. 
 
 Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez  [Gérer la disponibilité des machines virtuelles pour Windows](../articles/virtual-machines/windows/manage-availability.md) ou l’article correspondant pour [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -39,7 +39,7 @@ La maintenance avec préservation de la mémoire fonctionne avec plus de 90 % de
 
 Ces opérations de maintenance qui ne nécessitent pas de redémarrage sont appliquées à un domaine d’erreur à la fois. Elles sont interrompues si elles reçoivent des signaux d’avertissement relatifs à l’intégrité. 
 
-Ces types de mise à jour peuvent affecter certaines applications. Lorsque la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. Afin de préparer la maintenance de la machine virtuelle et de réduire l’impact sur la maintenance d’Azure, essayez d’[utiliser Scheduled Events pour Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) sur de telles applications. Azure travaille sur les fonctionnalités de contrôle de maintenance pour ces applications sensibles. 
+Ces types de mise à jour peuvent affecter certaines applications. Lorsque la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. Afin de préparer la maintenance de la machine virtuelle et de réduire l’impact sur la maintenance d’Azure, essayez d’[utiliser Scheduled Events pour Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) sur de telles applications. Azure fournit également un contrôle total sur une telle maintenance de plateforme avec un impact non nul sur les [hôtes dédiés Azure](../articles/virtual-machines/windows/dedicated-hosts.md) et les [machines virtuelles isolées](../articles/security/fundamentals/isolation-choices.md). La fonctionnalité de contrôle de maintenance est en préversion et vous pouvez y demander l’accès en soumettant un [formulaire d’inscription](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u). Cela vous donne la possibilité d’ignorer les mises à jour de plateforme avec un impact non nul et d’appliquer les mises à jour sous forme de lot à l’heure de votre choix dans une fenêtre de 35 jours consécutifs.
 
 ### <a name="live-migration"></a>Migration dynamique
 

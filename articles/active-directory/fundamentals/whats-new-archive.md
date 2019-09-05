@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b338ad90c01c109cc9b2e222f1d7bcaa09f20346
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b72bf3c95c1d2217688fbc98a4383aed898f7c0e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812952"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192675"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -31,6 +31,124 @@ Les notes de publication des nouveautés vous donnent des informations sur les s
 - Résolution des bogues
 - Fonctionnalités dépréciées
 - Modifications planifiées
+
+---
+
+## <a name="february-2019"></a>Février 2019
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Chiffrement de jeton configurable SAML Azure AD (préversion publique) 
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Authentification unique
+
+Vous pouvez maintenant configurer toute application SAML prise en charge pour qu’elle reçoive des jetons SAML chiffrés. Lorsqu’il est configuré et utilisé avec une application, Azure AD chiffre les assertions SAML émises à l’aide d'une clé publique obtenue à partir d’un certificat stocké dans Azure AD.
+
+Pour plus d’informations sur la configuration de votre chiffrement de jetons SAML, consultez [Configurer le chiffrement de jetons SAML Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Créer une révision d’accès pour les groupes ou les applications à l’aide des Révisions d’accès Azure AD
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Révisions d’accès  
+**Fonctionnalité de produit :** Gouvernance
+
+Vous pouvez maintenant inclure plusieurs groupes ou applications dans une seule révision d’accès Azure AD pour l’appartenance au groupe ou l’affectation d’application. Les révisions d’accès avec plusieurs groupes ou applications sont définies à l’aide des mêmes paramètres et tous les réviseurs inclus sont avertis en même temps.
+
+Pour plus d’informations sur la création d’une révision d’accès à l’aide des Révisions d’accès Azure AD, consultez [Créer une révision d’accès de groupes ou d’applications dans les Révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - Février 2019
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+En février 2019, nous avons ajouté à notre galerie d’applications les 27 applications suivantes qui prennent en charge la fédération :
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MindTickle](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [FAT FINGER](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight-CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), Permission Click, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [Seismic](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [Share A Dream](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [webMethods Integration Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [Knowledge Anywhere LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [OU Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [Periscope Data](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [Netop Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud by Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [ClickUp Productivity Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>Inscription MFA/SSPR combinée améliorée
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Réinitialisation de mot de passe en libre-service  
+**Fonctionnalité de produit :** Authentification utilisateur
+
+En réponse aux commentaires des clients, nous avons amélioré l’expérience en préversion d’inscription MFA/SSPR combinée, pour aider vos utilisateurs à inscrire plus rapidement leurs informations de sécurité pour MFA et SSPR. 
+
+**Pour activer l’expérience améliorée pour vos utilisateurs dès aujourd’hui, procédez comme suit :**
+
+1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**. 
+
+2. Dans l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité – actualiser**, choisissez d’activer les fonctionnalités pour un **Groupe sélectionné d’utilisateurs** ou pour **Tous les utilisateurs**.
+
+Au cours des prochaines semaines, nous supprimerons la possibilité d’activer l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les locataires sur lesquels elle n’est pas encore activée.
+
+**Pour voir si le contrôle sera supprimé pour votre locataire, procédez comme suit :**
+
+1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**.  
+
+2. Si l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité** est définie sur **Aucun**, l’option sera supprimée de votre locataire.
+
+Que vous ayez précédemment activé l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les utilisateurs ou non, l’ancienne expérience sera désactivée à une date ultérieure. Pour cette raison, nous vous recommandons vivement d’opter pour la nouvelle expérience améliorée dès que possible.
+
+Pour plus d’informations sur l’expérience d’inscription améliorée, consultez [Améliorations utiles de l’expérience d’inscription de réinitialisation du mot de passe et MFA combinée Azure AD](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>Expérience de gestion de stratégie mise à jour pour les flux utilisateur
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Nous avons mis à jour le processus de création et de gestion de stratégie pour les flux utilisateur (anciennement, les stratégies intégrées). Cette nouvelle expérience est désormais la valeur par défaut pour tous vos locataires Azure AD.
+
+Vous pouvez fournir vos commentaires et suggestions en utilisant les icônes smiley content ou smiley mécontent dans la zone **Envoyez-nous vos commentaires** en haut de l’écran du portail.
+
+Pour plus d’informations sur la nouvelle expérience de gestion de stratégie, consultez le blog [Azure AD B2C now has JavaScript customization and many more new features](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) (Azure AD B2C inclut désormais la personnalisation JavaScript et beaucoup d’autres fonctionnalités nouvelles).
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Choisir des versions d’éléments de page spécifiques fournies par Azure AD B2C
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez maintenant choisir une version spécifique des éléments de page fournis par Azure AD B2C. En sélectionnant une version spécifique, vous pouvez tester vos mises à jour avant qu’elles s’affichent sur une page et vous pouvez obtenir un comportement prévisible. En outre, vous pouvez maintenant vous inscrire pour appliquer des versions de page spécifiques afin d’autoriser les personnalisations JavaScript. Pour activer cette fonctionnalité, accédez à la page **Propriétés** dans vos flux utilisateur.
+
+Pour plus d’informations sur la sélection de versions spécifiques des éléments de page, consultez le blog [Azure AD B2C now has JavaScript customization and many more new features](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) (Azure AD B2C inclut désormais la personnalisation JavaScript et beaucoup d’autres fonctionnalités nouvelles).
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Exigences de mot de passe de l’utilisateur configurable pour B2C (DG)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez maintenant configurer la complexité du mot de passe de votre organisation pour les utilisateurs finaux, au lieu d’utiliser votre stratégie de mot de passe Azure AD native. À partir du panneau **Propriétés** de vos flux utilisateur (anciennement, les stratégies intégrées), vous pouvez choisir une complexité du mot de passe entre **Simple** ou **Forte**, ou vous pouvez créer un ensemble **Personnalisé** d’exigences.
+
+Pour plus d’informations sur la configuration de la complexité du mot de passe, consultez [Configurer les exigences de complexité des mots de passe dans Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nouveaux modèles par défaut pour les expériences d’authentification de marque personnalisée
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez désormais utiliser nos nouveaux modèles par défaut, situés sur le panneau **Dispositions de pages** de vos flux utilisateur (anciennement, les stratégies intégrées), pour créer une expérience d’authentification de marque personnalisée pour vos utilisateurs.
+
+Pour plus d’informations sur l’utilisation des modèles, consultez [Azure Active Directory B2C inclut désormais la personnalisation JavaScript et beaucoup d’autres fonctionnalités nouvelles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595).
 
 ---
 
@@ -215,7 +333,7 @@ Les administrateurs Azure AD peuvent à présent réinitialiser leur mot de pass
 
 - SMS
 
-Pour plus d’informations sur l’utilisation de l’application Microsoft Authenticator pour réinitialiser les mots de passe, consultez [Réinitialisation de mot de passe en libre-service Azure AD - Application Mobile et SSPR (préversion)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
+Pour plus d’informations sur l’utilisation de l’application Microsoft Authenticator pour réinitialiser les mots de passe, consultez [Réinitialisation de mot de passe en libre-service Azure AD - Application Mobile et SSPR (préversion)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr)
 
 ---
 
@@ -1843,11 +1961,11 @@ Pour plus d’informations sur le référencement de votre application dans la g
 **Catégorie de service :** Identity Protection  
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
+L’insight que vous obtenez pour une détection des risques est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
 
-Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes par la licence s’affichent comme des événements à risque Connexion avec un risque supplémentaire détecté.
+Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes par la licence s’affichent comme des détections des risques Connexion avec un risque supplémentaire détecté.
 
-Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
+Pour plus d’informations, consultez [Détections des risques dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 ---
 
@@ -1913,7 +2031,7 @@ Avec la disponibilité générale de la nouvelle console d’administration d’
 
 **Qu’est-ce qui est disponible ?**
 
-Dans le cadre de la transition vers la nouvelle console d’administration, nous avons créé 2 API pour récupérer les journaux d’activité d’Azure AD. Le nouvel ensemble d’API fournit une fonctionnalité enrichie de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données précédemment disponibles via les rapports de sécurité sont désormais accessibles via l’API d’événements à risque Identity Protection dans Microsoft Graph.
+Dans le cadre de la transition vers la nouvelle console d’administration, nous avons créé 2 API pour récupérer les journaux d’activité d’Azure AD. Le nouvel ensemble d’API fournit une fonctionnalité enrichie de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données précédemment disponibles via les rapports de sécurité sont désormais accessibles via l’API de détection des risques Identity Protection dans Microsoft Graph.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -2264,13 +2382,13 @@ Pour plus d’informations, consultez [Contrôles dans l’accès conditionnel A
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>Agrégation d’événements à risque en temps réel
+### <a name="aggregation-of-real-time-risk-detections"></a>Agrégation de détections des risques en temps réel
 
-**Type :** Fonctionnalité modifiée    
+**Type :** Fonctionnalité modifiée    
 **Catégorie de service :** Identity Protection  
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-Dans Azure AD Identity Protection, tous les événements à risque en temps réel qui proviennent de la même adresse IP un jour donné sont maintenant agrégés par type d’événement à risque. Cette modification permet de limiter le nombre d’événements à risque affichés, sans modifier la sécurité utilisateur.
+Dans Azure AD Identity Protection, toutes les détections des risques en temps réel qui proviennent de la même adresse IP un jour donné sont maintenant agrégées par type de détection des risques. Cette modification permet de limiter le nombre de détections des risques affichées, sans modifier la sécurité utilisateur.
 
 La détection en temps réel sous-jacente s’exécute à chaque connexion de l’utilisateur. Si vous avez configuré une stratégie de sécurité des risques de connexion pour l’authentification multifacteur ou pour bloquer l’accès, elle se déclenche à chaque connexion présentant un risque.
  
@@ -2360,7 +2478,7 @@ Pour plus d’informations, consultez [PIM pour les ressources Azure (préversio
 
 ### <a name="access-reviews"></a>Révisions d’accès
 
-**Type :** Nouvelle fonctionnalité  
+**Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Révisions d’accès  
 **Fonctionnalité de produit :** Conformité  
 
@@ -2388,7 +2506,7 @@ Pour plus d’informations, consultez [Masquer une application de l’expérienc
 
 **Qu’est-ce qui est disponible ?**
 
- Dans le cadre de la transition vers la nouvelle console d’administration, deux API permettant de récupérer les journaux d’activité d’Azure AD sont disponibles. Le nouvel ensemble d’API fournit une fonctionnalité enrichie de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données auparavant disponibles dans les rapports de sécurité sont désormais accessibles via l’API Identity Protection Risk Events dans Microsoft Graph.
+ Dans le cadre de la transition vers la nouvelle console d’administration, deux API permettant de récupérer les journaux d’activité d’Azure AD sont disponibles. Le nouvel ensemble d’API fournit une fonctionnalité enrichie de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données auparavant disponibles dans les rapports de sécurité sont désormais accessibles via l’API Identity Protection Risk Detections dans Microsoft Graph.
 
 
 ## <a name="september-2017"></a>Septembre 2017

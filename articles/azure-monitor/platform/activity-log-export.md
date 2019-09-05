@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639636"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034847"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
@@ -55,7 +55,7 @@ Le profil de journal définit ce qui suit.
 
 **Les régions (emplacements) qui doivent être exportées.** Vous devez inclure tous les emplacements car de nombreux événements du journal d’activité sont des événements globaux.
 
-**Durée pendant laquelle le journal d’activité doit être conservé dans un compte de stockage.** Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
+**Durée pendant laquelle le journal d’activité doit être conservé dans un compte de stockage.** Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 365.
 
 Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé, les stratégies de rétention n’ont aucun effet. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux d’activité de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’activité d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux d’activité de votre compte de stockage peut prendre jusqu’à 24 heures.
 
@@ -117,7 +117,7 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
     | StorageAccountId |Non |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
     | serviceBusRuleId |Non |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Il s'agit d'une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
-    | RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
+    | RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
     | Category |Non |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont _Write_, _Delete_ et _Action_. |
 
 ### <a name="example-script"></a>Exemple de script

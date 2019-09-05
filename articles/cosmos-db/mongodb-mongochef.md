@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46cac6720bbef133d6b3f7a269cf97a81cddd0c5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61331950"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062119"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Se connecter à un compte Cosmos avec Studio 3T
 
@@ -22,6 +22,9 @@ Pour vous connecter à un compte Cosmos avec l’API Azure Cosmos DB pour MongoD
 
 * Télécharger et installer [Studio 3T](https://studio3t.com/)
 * Obtenir vos informations de [chaîne de connexion](connect-mongodb-account.md) Cosmos DB
+
+> [!NOTE]
+> Actuellement, les versions v1.2 et antérieures de Robo 3T sont prises en charge par l’API de Cosmos DB pour MongoDB. 
 
 ## <a name="create-the-connection-in-studio-3t"></a>Créer la connexion dans Studio 3T
 Pour ajouter votre compte Cosmos au gestionnaire de connexions Studio 3T, procédez comme suit :

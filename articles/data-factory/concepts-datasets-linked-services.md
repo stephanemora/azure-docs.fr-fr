@@ -3,21 +3,20 @@ title: Jeux de données dans Azure Data Factory | Microsoft Docs
 description: En savoir plus sur les jeux de données dans Data Factory. Les jeux de données représentent des données d’entrée/sortie.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866472"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137298"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -147,9 +146,7 @@ Notez les points suivants :
 - linkedServiceName fait référence à un service lié de type AzureSqlDatabase, qui est défini dans l’extrait de code JSON suivant.
 
 ## <a name="dataset-type"></a>Type de jeu de données
-Il existe différents types de jeux de données, selon la banque de données que vous utilisez. Consultez le tableau suivant pour obtenir la liste des magasins de données pris en charge par Data Factory. Cliquez sur un magasin de données pour savoir comment créer un service lié et un jeu de données pour ce magasin de données.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+Il existe différents types de jeux de données, selon la banque de données que vous utilisez. Vous trouverez la liste des données stockées prises en charge par Data Factory dans l’article [Vue d’ensemble des connecteurs](connector-overview.md). Cliquez sur un magasin de données pour savoir comment créer un service lié et un jeu de données pour ce magasin de données.
 
 Dans l’exemple de la section précédente, le type du jeu de données est défini sur **AzureSqlTable**. De même, pour un jeu de données d’objets blob Azure, le type du jeu de données est défini sur **AzureBlob**, comme indiqué dans le JSON suivant :
 
@@ -182,8 +179,8 @@ Chaque colonne de la structure contient les propriétés suivantes :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-Nom | Nom de la colonne. | OUI
-Type | Type de données de la colonne. Data Factory prend en charge les types de données intermédiaires suivants en tant que valeurs admises : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan** | Non
+name | Nom de la colonne. | OUI
+type | Type de données de la colonne. Data Factory prend en charge les types de données intermédiaires suivants en tant que valeurs admises : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan** | Non
 culture | Culture .NET à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non
 format | Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non
 
@@ -225,4 +222,4 @@ Consultez les didacticiels suivants pour obtenir des instructions pas à pas sur
 - [Démarrage rapide : créer une fabrique de données à l’aide de .NET](quickstart-create-data-factory-dot-net.md)
 - [Démarrage rapide : créer une fabrique de données à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
 - [Démarrage rapide : créer une fabrique de données à l’aide d’une API REST](quickstart-create-data-factory-rest-api.md)
-- [Démarrage rapide : créer une fabrique de données à l’aide du portail Azure](quickstart-create-data-factory-portal.md)
+- [Démarrage rapide : créer une fabrique de données à l’aide du Portail Azure](quickstart-create-data-factory-portal.md)

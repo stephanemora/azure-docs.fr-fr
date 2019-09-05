@@ -4,7 +4,6 @@ description: Vue d’ensemble du contrôle d’accès Service Bus avec des signa
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,20 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017738"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013049"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
 Les *signatures d’accès partagé* (SAP) constituent le mécanisme principal de sécurité de la messagerie Service Bus. Cet article décrit les SAP, leur fonctionnement et comment les utiliser indépendamment de la plateforme.
 
 SAP protège l’accès à Service Bus en fonction de règles d’autorisation. Celles-ci sont configurées sur un espace de noms, ou sur une entité de messagerie (relais, file d’attente ou rubrique). Une règle d’autorisation a un nom, est associée à des droits spécifiques et comporte une paire de clés de chiffrement. Vous utilisez le nom et la clé de la règle via le Kit de développement logiciel (SDK) Service Bus ou dans votre propre code pour générer un jeton SAP. Un client peut ensuite passer le jeton à Service Bus pour prouver l’autorisation pour l’opération demandée.
+
+> [!NOTE]
+> Azure Service Bus prend en charge l’autorisation de l’accès à un espace de noms Service Bus et à ses entités à l’aide d’Azure Active Directory (Azure AD). Le fait d’autoriser des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD confère une sécurité et une facilité d’utilisation supérieures à ce qu’offrent les signatures d’accès partagé. Avec Azure AD, il n’est pas nécessaire de stocker les jetons d’accès dans votre code, ce qui élimine les risques de failles de sécurité potentielles.
+>
+> Nous vous recommandons d’utiliser Azure AD avec vos applications Azure Service Bus dans la mesure du possible. Pour plus d’informations, consultez les articles suivants :
+> - [Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus](authenticate-application.md).
+> - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Présentation des signatures d’accès partagé (SAS)
 
@@ -57,7 +63,7 @@ Lorsque vous créez un espace de noms Service Bus, une règle de stratégie nomm
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuration de l’authentification de signature d’accès partagé
 
-Vous pouvez configurer la règle [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sur les espaces de noms, les files d’attente ou rubriques Service Bus. La configuration d’un abonnement [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sur un abonnement Service Bus n’est pas pris en charge pour l’instant, mais vous pouvez utiliser les règles configurées sur un espace de noms ou une rubrique permettant de sécuriser l’accès aux abonnements. Pour obtenir un exemple fonctionnel qui illustre cette procédure, consultez l’exemple [Gestion des files d’attente Azure Service bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+Vous pouvez configurer la règle [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sur les espaces de noms, les files d’attente ou rubriques Service Bus. La configuration d’un abonnement [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sur un abonnement Service Bus n’est pas pris en charge pour l’instant, mais vous pouvez utiliser les règles configurées sur un espace de noms ou une rubrique permettant de sécuriser l’accès aux abonnements. Pour obtenir un exemple fonctionnel qui illustre cette procédure, consultez l’exemple [Utilisation de l’authentification de signature d’accès partagé (SAS) avec les abonnements Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +94,7 @@ Le jeton contient les valeurs non hachées afin que le destinataire puisse recal
 
 L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>` ; qui est, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L’URI doit être [encodée en pourcentage](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
+**L’URI doit être [encodée en pourcentage](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 La règle de l’autorisation d’accès partagé utilisée pour la signature doit être configurée sur l’entité spécifiée par cette URI, ou par un de ses parents hiérarchiques. Par exemple, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` dans l’exemple précédent.
 
@@ -104,8 +110,8 @@ Si vous avez connaissance ou suspectez qu’une clé est compromise et si vous d
 
 Les scénarios décrits ci-après incluent la configuration des règles d’autorisation, la génération de jetons SAP et l’autorisation de client.
 
-Pour visionner un exemple fonctionnel d’application Service Bus qui illustre la configuration et l’autorisation SAP, consultez l’exemple suivant dans notre référentiel GitHub : [Gestion des files d’attente Azure Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
- 
+Pour visionner un exemple fonctionnel d’application Service Bus qui illustre la configuration et l’autorisation SAP, consultez [Authentification de la Signature d’accès partagé avec Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un exemple d’utilisation de règles d’autorisation SAS configuré sur les espaces de noms ou des rubriques pour sécuriser les abonnements Service Bus est disponible ici : [Utilisation de l’authentification de signature d’accès partagé (SAS) avec les abonnements Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accès aux règles d’autorisation d’accès partagé sur une entité
 
 Avec les bibliothèques .NET Framework Service Bus, vous pouvez accéder à un objet [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configuré sur une file d’attente ou une rubrique Service Bus, par le biais de la collection [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) dans les objets [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) correspondants.

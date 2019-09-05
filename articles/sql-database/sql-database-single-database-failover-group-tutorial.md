@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a80dc8ccaa72a57986ed6c64f7ab7050ab4c7de5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935022"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098997"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Didacticiel : Ajouter une base de données unique Azure SQL Database à un groupe de basculement
 
@@ -61,16 +61,15 @@ Dans de cette étape, vous allez créer un [groupe de basculement](sql-database-
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le portail Azure. 
 
 
-1. En haut à gauche du [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. 
-1. Tapez `sql servers` dans la zone de recherche. 
-1. (Facultatif) Sélectionnez l’icône d’étoile en regard de Serveurs SQL pour mettre **Serveurs SQL** dans les Favoris, puis ajoutez-le à votre volet de navigation gauche. 
-    
-    ![Rechercher les serveurs SQL](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard **d’Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez la base de données unique créée dans la section 2, comme `mySampleDatbase`. 
+1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
-1. Sélectionnez **Serveurs SQL**, puis choisissez le serveur créé dans la section 1, comme `mysqlserver`.
+   ![Ouvrir un serveur pour une base de donnée unique](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement. 
 
-    ![Ajouter un nouveau groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Ajouter un nouveau groupe de basculement](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
     - **Nom du groupe de basculement** : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`. 
@@ -78,16 +77,16 @@ Créez votre groupe de basculement et ajoutez-y votre base de données en utilis
         - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
         - **Connexion administrateur au serveur** : Tapez `azureuser`.
         - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
-        - **Emplacement** : Choisissez un emplacement dans la liste déroulante, par exemple USA Est 2. Cet emplacement ne peut pas être le même que celui de votre serveur principal.
+        - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `East US`. Cet emplacement ne peut pas être le même que celui de votre serveur principal.
 
     > [!NOTE]
     > La connexion au serveur et les paramètres de pare-feu doivent correspondre à ceux de votre serveur principal. 
     
-      ![Créer un serveur secondaire pour le groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Créer un serveur secondaire pour le groupe de basculement](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Base de données dans le groupe** : Une fois qu’un serveur secondaire est sélectionné, cette option est déverrouillée. Sélectionnez-la pour **Sélectionner les bases de données à ajouter**, puis choisissez la base de données créée dans la section 1. L’ajout de la base de données au groupe de basculement démarre automatiquement le processus de géoréplication. 
         
-    ![Ajouter la base de données SQL au groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Ajouter la base de données SQL au groupe de basculement](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -99,12 +98,12 @@ Créez votre groupe de basculement et ajoutez-y votre base de données unique en
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -194,16 +193,21 @@ Dans cette étape, vous allez faire basculer votre groupe de basculement sur le 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Testez le basculement en utilisant le portail Azure. 
 
-1. Accédez à votre serveur **SQL** dans le [portail Azure](https://portal.azure.com). 
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard **d’Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Sélectionnez la base de données unique créée dans la section 2, comme `mySampleDatbase`. 
+1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
+
+   ![Ouvrir un serveur pour une base de donnée unique](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis choisissez le groupe de basculement créé dans la section 2. 
   
-   ![Sélectionner le groupe de basculement à partir du portail](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![Sélectionner le groupe de basculement à partir du portail](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Vérifiez quel est le serveur principal et quel est le serveur secondaire. 
 1. Sélectionnez **Basculer** dans le volet des tâches pour faire basculer votre groupe de basculement contenant votre exemple de base de données unique. 
 1. Sélectionnez **Oui** en réponse à l’avertissement qui signale que les sessions TDS seront déconnectées. 
 
-   ![Basculer votre groupe de basculement contenant votre base de données SQL](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Basculer votre groupe de basculement contenant votre base de données SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. Vérifiez quel est maintenant le serveur principal et quel est le serveur secondaire. Si le basculement a réussi, les deux serveurs doivent avoir échangé leur rôle. 
 1. Resélectionnez **Basculer** pour rétablir les serveurs dans leur rôle d’origine. 

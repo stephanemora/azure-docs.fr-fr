@@ -4,17 +4,16 @@ description: Check-list des attributs de sécurité utilisés pour l’évaluati
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: aschhab
+ms.openlocfilehash: 875754282f9e7a2b8dd92b0eb2d7e277ac842696
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443901"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013106"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributs de sécurité pour la messagerie Azure Service Bus
 
@@ -52,7 +51,7 @@ Cet article décrit les attributs de sécurité intégrés à la messagerie Azur
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
 | Authentication| OUI | Géré par le biais de [l’identité de service managé Azure Active Directory ](service-bus-managed-service-identity.md); consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).|
-| Authorization| OUI | Prend en charge l’autorisation via [RBAC](service-bus-role-based-access-control.md) (préversion) et jeton SAS ; consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md). |
+| Authorization| OUI | Prend en charge l’autorisation par [RBAC](authenticate-application.md) et jeton SAS. Consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md). |
 
 
 

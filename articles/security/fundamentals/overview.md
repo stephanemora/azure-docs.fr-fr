@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8e8b4ed3e101a13d369fff7b47ecbb00f8c04a52
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899804"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129355"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
@@ -270,6 +270,7 @@ Le pare-feu d’applications web est une fonctionnalité de la passerelle [Azure
 
 
 Un pare-feu d’applications web centralisé pour protéger contre les attaques web facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection de l’application contre les menaces d’intrusion. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
+
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) vous permet de contrôler la répartition du trafic utilisateur pour les points de terminaison de service dans différents centres de données. Les points de terminaison de service pris en charge par Traffic Manager incluent des machines virtuelles Azure, des applications web et des services cloud. Vous pouvez également utiliser Traffic Manager avec des points de terminaison externes non-Azure. Traffic Manager utilise le DNS (Domain Name System) pour diriger les demandes des clients vers le point de terminaison approprié en fonction de la [méthode de routage du trafic](../../traffic-manager/traffic-manager-routing-methods.md) et de l’intégrité des points de terminaison.
 
@@ -295,18 +296,8 @@ Vous pouvez activer les catégories de journaux de diagnostic suivantes pour les
 -   Compteur de règles : contient les entrées correspondant au nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Azure Security Center vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité. Les recommandations relatives au réseau se concentrent autour des pare-feu, des groupes de sécurité réseau, de la configuration des règles de trafic entrant, et bien plus encore.
 
-Les recommandations disponibles pour le réseau sont les suivantes :
-
--   [Ajouter un pare-feu de nouvelle génération](../../security-center/security-center-add-next-generation-firewall.md) Recommande l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité.
-
--   [Router le trafic uniquement au moyen d’un pare-feu de nouvelle génération](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) Recommande la configuration de règles de groupe de sécurité réseau qui forcent le trafic entrant de votre machine virtuelle via votre pare-feu de nouvelle génération.
-
--   [Activer des groupes de sécurité réseau sur les sous-réseaux ou les machines virtuelles](../../security-center/security-center-enable-network-security-groups.md) Recommande d’activer des groupes de sécurité réseau sur les sous-réseaux ou les machines virtuelles.
-
--   [Restreindre l’accès via un point de terminaison accessible sur Internet](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) Recommande de configurer des règles de trafic entrant pour les groupes de sécurité réseau.
-
+[Azure Security Center](../../security-center/security-center-intro.md) analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des [suggestions](../../security-center/security-center-recommendations.md) qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
 
 ## <a name="compute"></a>Calcul
 
@@ -374,7 +365,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) est une fonctionnalité Premium d’Azure Active Directory qui vous permet d’identifier les applications cloud utilisées par les employés de votre organisation.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) est un service de sécurité qui utilise les fonctionnalités de détection d’anomalie d’Azure Active Directory pour fournir une vue consolidée des événements à risque et des vulnérabilités potentielles qui pourraient affecter les identités de votre organisation.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) est un service de sécurité qui utilise les fonctionnalités de détection d’anomalie d’Azure Active Directory pour fournir une vue consolidée des détections des risques et des vulnérabilités potentielles qui pourraient affecter les identités de votre organisation.
 
 - La fonctionnalité [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) vous permet de joindre des machines virtuelles Azure à un domaine sans devoir déployer des contrôleurs de domaine. Les utilisateurs se connectent à ces machines virtuelles à l’aide de leurs informations d’identification Active Directory d’entreprise et accèdent aux ressources en toute transparence.
 

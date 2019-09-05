@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 2010799dd590808a2c5be7d9e2330bd60e2c7913
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841936"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061457"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données Microsoft Access à l’aide de Azure Data Factory
 
@@ -33,6 +33,9 @@ Pour utiliser ce connecteur Microsoft Access, vous devez :
 
 - Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 - Installez le pilote ODBC Microsoft Access pour le magasin de données sur la machine exécutant le runtime d’intégration.
+
+>[!NOTE]
+>La version 2016 du pilote ODBC de Microsoft Access ne fonctionne pas avec ce connecteur. Utilisez plutôt la version de pilote 2013 ou 2010.
 
 ## <a name="getting-started"></a>Prise en main
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/16/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5883c1aa20af106dd39bffc95036ee90f312ffea
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295660"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051595"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -77,13 +77,29 @@ Pour comprendre le flux de travail de streaming en direct dans Media Services v3
 2. Créez un [événement en temps réel](live-events-outputs-concept.md). <br/>Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. Sinon, lancez-le dès que vous souhaitez commencer le streaming.<br/> Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre juste après sa création. La facturation commence donc dès que son exécution démarre. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
 3. Récupérez la ou les URL ingérées et configurez votre encodeur local afin qu’il utilise cette URL pour envoyer le flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
 4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
-5. Créez un objet **Asset**.
-6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.<br/>La **sortie en direct** archive le flux dans l’**actif multimédia**.
-7. Créer un **localisateur de streaming**  avec les types intégrés de la [stratégie de streaming](streaming-policy-concept.md)
+5. Créez un objet **Asset**. 
+
+    Chaque sortie en direct est associée à un actif multimédia, qu’elle utilise pour enregistrer la vidéo dans le conteneur de stockage d’objets blob Azure associé. 
+6. Créez une **sortie en direct** et utilisez le nom de l’actif multimédia que vous avez créée afin que le flux puisse être archivé dans l’actif multimédia.
+
+    Les sorties en direct démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez la sortie en direct, vous ne supprimez pas l’actif multimédia sous-jacent ni le contenu de celui-ci.
+7. Créez un **localisateur de streaming** avec les [types intégrés de la stratégie de streaming](streaming-policy-concept.md).
+
+    Pour publier la sortie en temps réel, vous devez créer un StreamingLocator (localisateur de streaming) pour la ressource associée. 
 8. Listez les chemins dans le **Localisateur de streaming** pour récupérer les URL à utiliser (elles sont déterministes).
 9. Récupérez le nom d’hôte du **point de terminaison de streaming** (Origin) à partir duquel vous souhaitez effectuer le streaming.
 10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
 11. Si vous ne souhaitez plus afficher votre **événement en direct**, arrêtez le streaming de l’événement et supprimez le **localisateur de streaming**.
+12. Si vous avez terminé de diffuser en continu les événements et que vous voulez nettoyer les ressources configurées précédemment, suivez la procédure ci-dessous.
+
+    * Arrêtez d’envoyer le flux à partir de l’encodeur.
+    * Arrêtez l’événement en direct. Une fois l’événement en direct arrêté, aucuns frais ne sont encourus. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
+    * Vous pouvez arrêter votre point de terminaison de diffusion en continu, sauf si vous souhaitez continuer à fournir l’archive de votre événement en direct en tant que flux à la demande. Si l’événement en direct est dans l’état Arrêté, aucuns frais ne sont encourus.
+
+Une fois arrêté, l’événement en direct est automatiquement converti en contenu à la demande. Même après l’arrêt et la suppression de l’événement, les utilisateurs pourront lire votre contenu archivé en tant que vidéo à la demande tant que vous n’aurez pas supprimé l’élément multimédia. Un élément multimédia ne peut pas être supprimé s’il est utilisé par un événement ; vous devez d’abord supprimer l’événement.
+
+> [!TIP]
+> Consultez le [tutoriel sur le streaming en direct](stream-live-tutorial-with-api.md), l’article examine le code qui implémente les étapes décrites ci-dessus.
 
 ## <a name="other-important-articles"></a>Autres articles importants
 

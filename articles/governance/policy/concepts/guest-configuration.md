@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624103"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036320"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -28,11 +28,16 @@ Il n’est pas encore possible d’appliquer des configurations.
 
 Pour auditer les paramètres à l’intérieur d’une machine virtuelle, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante.
 
-### <a name="register-guest-configuration-resource-provider"></a>Inscrire le fournisseur de ressources de configuration d’invité
+### <a name="limits-set-on-the-exension"></a>Limites définies sur l’extension
+
+Afin de limiter l’impact de l’extension sur les applications qui s’exécutent à l’intérieur de la machine, la configuration d’invité ne peut pas dépasser plus de 5 % de l’utilisation du processeur.
+Cela est vrai à la fois pour les configurations fournies par Microsoft comme « intégrées » et pour les configurations personnalisées créées par les clients.
+
+## <a name="register-guest-configuration-resource-provider"></a>Inscrire le fournisseur de ressources de configuration d’invité
 
 Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources. Pour ce faire, vous pouvez utiliser le portail ou PowerShell. Le fournisseur de ressources est inscrit automatiquement si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail.
 
-#### <a name="registration---portal"></a>Inscription - portail
+### <a name="registration---portal"></a>Inscription - portail
 
 Pour inscrire le fournisseur de ressources pour la configuration d’invité via le portail Azure, effectuez les étapes suivantes :
 
@@ -44,7 +49,7 @@ Pour inscrire le fournisseur de ressources pour la configuration d’invité via
 
 1. Filtrez ou faites défiler jusqu’à ce que vous localisiez **Microsoft.GuestConfiguration**, puis cliquez sur **Inscrire** sur la même ligne.
 
-#### <a name="registration---powershell"></a>Inscription - PowerShell
+### <a name="registration---powershell"></a>Inscription - PowerShell
 
 Pour inscrire le fournisseur de ressources pour la configuration d’invité via PowerShell, exécutez la commande suivante :
 
@@ -53,7 +58,7 @@ Pour inscrire le fournisseur de ressources pour la configuration d’invité via
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### <a name="validation-tools"></a>Outils de validation
+## <a name="validation-tools"></a>Outils de validation
 
 À l’intérieur de la machine virtuelle, le client de configuration d’invité utilise des outils locaux pour exécuter l’audit.
 
@@ -68,7 +73,7 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 
 Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes. Une fois l'affectation d'invité reçue, les paramètres sont vérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation Azure Policy à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine virtuelle.
 
-### <a name="supported-client-types"></a>Types de clients pris en charge
+## <a name="supported-client-types"></a>Types de clients pris en charge
 
 Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
@@ -89,7 +94,7 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 
 Windows Server Nano Server n’est pris en charge dans aucune version.
 
-### <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
+## <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
 
 Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines virtuelles nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du [groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). Il n’existe pas actuellement d’étiquette de service pour la configuration d’invité Azure Policy.
 
@@ -100,7 +105,7 @@ Pour les listes d’adresses IP, vous pouvez télécharger les [plages d’adres
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **Audit**. La définition **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
+Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **AuditIfNotExists**. La définition **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
 
 La définition de stratégie **DeployIfNotExists** valide et corrige les éléments suivants :
 
@@ -111,18 +116,18 @@ La définition de stratégie **DeployIfNotExists** valide et corrige les éléme
 
 Si l’attribution de **DeployIfNotExists** n’est pas conforme, une [tâche de correction](../how-to/remediate-resources.md#create-a-remediation-task) peut être utilisée.
 
-Une fois que l’attribution de **DeployIfNotExists** est conforme, l’attribution de la stratégie **Audit** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme.
+Une fois que l’attribution de **DeployIfNotExists** est conforme, l’attribution de la stratégie **AuditIfNotExists** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme.
 L’outil de validation fournit les résultats au client de configuration d’invité. Le client transmet à l’extension invité les résultats pour les rendre disponibles via le fournisseur de ressources de la configuration d’invité.
 
 Azure Policy utilise la propriété **complianceStatus** des fournisseurs de ressources de configuration d’invité pour signaler la conformité dans le nœud **Conformité**. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> La stratégie **DeployIfNotExists** est requise pour que la stratégie **Audit** retourne les résultats.
-> Sans la stratégie **DeployIfNotExists**, la stratégie **Audit** affiche « 0 sur 0 » ressource comme état.
+> La stratégie **DeployIfNotExists** est requise pour que la stratégie **AuditIfNotExists** retourne des résultats.
+> Sans la stratégie **DeployIfNotExists**, la stratégie **AuditIfNotExists** affiche « 0 sur 0 » ressource comme état.
 
-Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **Audit** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
+Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
 
-## <a name="multiple-assignments"></a>Affectations multiples
+### <a name="multiple-assignments"></a>Affectations multiples
 
 Actuellement, les stratégies de configuration d’invité prennent en charge l’affectation d’une seule affectation d’invité par machine virtuelle, même si l’affectation de stratégie utilise des paramètres différents.
 

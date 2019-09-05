@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5e07243720872ff4555d4c000dcb7b0b7236e66f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534605"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126754"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -39,6 +39,7 @@ Les SDK Application Insights pour .NET et .NET Core sont fournis avec `Dependenc
 |[Kit de développement logiciel (SDK) client ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versions 3.0.0 et ultérieures. |
 |Azure Cosmos DB | Suivi automatique uniquement si HTTP/HTTPS est utilisé. Le mode TCP ne sera pas capturé par Application Insights. |
 
+S’il vous manque une dépendance ou si vous utilisez un autre kit SDK, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Si la dépendance n’est pas collectée automatiquement, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configurer le suivi automatique des dépendances dans les applications console
 
