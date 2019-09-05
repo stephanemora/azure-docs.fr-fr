@@ -219,10 +219,16 @@
       items:
         - name: Documentation sur les instances managées
           href: sql-database-managed-instance-index.yml
-        - name: Fonctionnalités des instances managées
+        - name: Vue d’ensemble des instances gérées
           href: sql-database-managed-instance.md
         - name: Questions fréquentes (FAQ) sur les instances managées
           href: sql-database-managed-instance-faq.md
+        - name: Pools d’instances
+          items:
+            - name: Vue d’ensemble des pools d’instances
+              href: sql-database-instance-pools.md
+            - name: Guide de procédures des pools d’instances
+              href: sql-database-instance-pools-how-to.md
         - name: Informations de référence sur l’API de gestion
           href: sql-database-managed-instance-create-manage.md
         - name: Limites des ressources

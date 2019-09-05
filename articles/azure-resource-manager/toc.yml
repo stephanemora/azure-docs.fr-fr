@@ -85,26 +85,30 @@
   items:
     - name: Créer des modèles
       items:
-        - name: Outil de développement - VS Code
+        - name: Utiliser VS Code
           href: resource-manager-tools-vs-code.md
-        - name: Créer un modèle
-          href: how-to-create-template.md
-        - name: Nom et type de ressource enfant
-          href: child-resource-name-type.md
-        - name: Créer des groupes de ressources et des ressources dans l’abonnement
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: Définir les dépendances des ressources
-          href: resource-group-define-dependencies.md
+        - name: Écrire des modèles d’expression
+          href: template-expressions.md
+        - name: Ressources
+          items:
+            - name: Nom et type de ressource enfant
+              href: child-resource-name-type.md
+            - name: Déploiement conditionnel
+              href: conditional-resource-deployment.md
+            - name: Définir les dépendances des ressources
+              href: resource-group-define-dependencies.md
+            - name: Définir l’emplacement des ressources
+              href: resource-location.md
+            - name: Utiliser des extensions de modèle
+              href: resource-manager-use-extensions.md
         - name: Modulariser les modèles
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: Créer plusieurs instances
           href: resource-group-create-multiple.md
-        - name: Utiliser des extensions de modèle
-          href: resource-manager-use-extensions.md
-        - name: Mettre à jour les ressources
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: Créer des groupes de ressources et des ressources dans l’abonnement
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: Déployer des modèles
       items:
         - name: Déployer - portail

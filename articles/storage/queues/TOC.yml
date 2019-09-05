@@ -1,4 +1,4 @@
-- name: Documentation Stockage File d'attente Azure
+- name: Documentation de Stockage File d’attente Azure
   href: /azure/storage/queues/
 - name: Vue d'ensemble
   expanded: true

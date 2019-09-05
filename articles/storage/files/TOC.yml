@@ -1,5 +1,5 @@
-- name: Documentation Stockage Azure
-  href: /azure/storage/
+- name: Documentation Azure Files
+  href: index.yml
 - name: Vue d'ensemble
   expanded: true
   items:

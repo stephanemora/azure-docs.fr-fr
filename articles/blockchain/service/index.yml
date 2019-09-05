@@ -1,57 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Azure Blockchain Service
+summary: Découvrez comment créer des applications blockchain. Tutoriels, informations de référence sur les API et autre documentation vous montrent comment utiliser Azure Blockchain Service pour créer, développer et gérer des applications blockchain dans Azure.
 metadata:
-  title: 'Documentation Azure Blockchain Service – Tutoriels, informations de référence d’API'
-  description: 'Découvrez comment créer des applications blockchain. Tutoriels, informations de référence sur les API et autre documentation vous montrent comment utiliser Azure Blockchain Service pour créer, développer et gérer des applications blockchain dans Azure.'
+  title: Documentation Azure Blockchain Service – Tutoriels, informations de référence d’API
+  description: Découvrez comment créer des applications blockchain. Tutoriels, informations de référence sur les API et autre documentation vous montrent comment utiliser Azure Blockchain Service pour créer, développer et gérer des applications blockchain dans Azure.
   services: azure-blockchain
-  author: patricka
-  manager: femila
   ms.service: azure-blockchain
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/13/2019
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 'Découvrez comment créer des applications blockchain. Tutoriels, informations de référence sur les API et autre documentation vous montrent comment utiliser Azure Blockchain Service pour créer, développer et utiliser des applications blockchain dans Azure.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment créer des membres de consortium dans Azure et comment s’y connecter.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/deploy.svg
-            text: Créer un membre de consortium
-            href: /azure/blockchain/service/create-member
-          - image:
-              src: ./media/index/multi-connect.svg
-            text: Se connecter à l’aide de MetaMask
-            href: /azure/blockchain/service/connect-metamask
-          - image:
-              src: ./media/index/cligeneric.svg
-            text: Se connecter à l’aide de Geth
-            href: /azure/blockchain/service/connect-geth
-          - image:
-              src: ./media/index/code-blocks.svg
-            text: Se connecter à l’aide de Truffle
-            href: /azure/blockchain/service/connect-truffle
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment créer, configurer et développer des applications blockchain dans Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/blockchain/service/send-transaction">Créer un membre Azure Blockchain Service et envoyer une transaction</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">API REST</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: c5816bb2278c138a8df07c5c289d53a818614d86
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240832"
+landingContent:
+- title: À propos d’Azure Blockchain Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos d’Azure Blockchain Service
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Réseaux de blockchain de consortium privé
+      url: consortium.md
+    - text: Accès aux données et sécurité
+      url: data-security.md
+    - text: Outils de développement
+      url: develop.md
+- title: Prise en main
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Créer un membre de blockchain - Portail
+      url: create-member.md
+    - text: Créer un membre blockchain - Interface CLI
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: Utiliser MetaMask pour se connecter et Remix pour déployer un contrat intelligent
+      url: connect-metamask.md
+    - text: Utiliser Geth pour vous connecter à un nœud de transaction
+      url: connect-geth.md
+    - text: Utiliser Truffle pour se connecter à un nœud de transaction
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: Utiliser les contrats intelligents sur Azure Blockchain Service
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: Déployer et configurer votre réseau
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: Écrire et tester des contrats intelligents avec VS Code
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: Envoyer des données au registre
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: Publier des événements et des données de registre
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: gérer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer les membres de blockchain - Interface CLI
+      url: manage-cli.md
+    - text: Gérer les membres de consortium - PowerShell
+      url: manage-consortium-powershell.md
+    - text: Configurer les nœuds de transaction
+      url: configure-transaction-nodes.md
+    - text: Configurer l’accès à Active Directory
+      url: configure-aad.md
+- title: API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/blockchain

@@ -1,30 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Open Datasets Preview
+### YamlMime:Landing
+title: Documentation Azure Open Datasets Preview
+summary: Azure Open Datasets offre des données organisées et nettoyées que vous pouvez utiliser avec une préparation minimale, y compris la météo, des recensements et les congés, pour enrichir les modèles ML.
 metadata:
-  title: "Documentation Azure Open Datasets Preview - Tutoriels, informations de référence sur les API | Microsoft\_Docs"
-  description: 'Découvrez comment utiliser Azure Open Datasets, les données organisées et nettoyées à utiliser avec un minimum de préparation. Les jeux de données ouverts rassemblent des données publiques (météo, congés, etc.) permettant d''enrichir les modèles de Machine Learning. Des didacticiels, exemples et documents de référence sur les API vous expliquent comment procéder.'
-  ms.service: open-datasets
+  title: Documentation Open Datasets Preview - Azure
+  description: Azure Open Datasets offre des données organisées et nettoyées que vous pouvez utiliser avec une préparation minimale, y compris la météo, des recensements et les congés, pour enrichir les modèles ML.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: data-science-vm
   ms.topic: landing-page
+  ms.collection: collection
   author: cjgronlund
   ms.author: cgronlun
-  ms.date: 05/02/2019
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-abstract:
-  description: 'Découvrez comment utiliser Azure Open Datasets, les données organisées et nettoyées à utiliser avec un minimum de préparation. Les jeux de données ouverts englobent des données publiques (météo, congés, etc.) permettant d''enrichir les modèles de Machine Learning. Des didacticiels, exemples et documents de référence sur les API vous expliquent comment procéder.'
-sections:
-  - title: Tutoriel pas à pas
-    items:
-      - type: paragraph
-        text: <a href="tutorial-opendatasets-automl">Créer un modèle de régression avec Machine Learning automatisé</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: <a href="samples">Notebooks pour enrichir les jeux de données</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py">Informations de référence sur l''API</a>'
+  ms.date: 09/03/2019
+  ms.openlocfilehash: a44b9bca7062e451c23453cacbe7042dacb4916c
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70274017"
+landingContent:
+- title: Azure Open Datasets
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Open Datasets
+      url: overview-what-are-open-datasets.md
+    - text: Exemples
+      url: samples.md
+- title: Prise en main
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer un modèle de régression avec le machine learning automatisé
+      url: tutorial-opendatasets-automl.md
+- title: Explorer le contenu de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Python
+      url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py
