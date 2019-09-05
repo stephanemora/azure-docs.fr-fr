@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 796d2a4730f5de8d2f294fb2b30a0616b81f3e59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061457"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276239"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données Microsoft Access à l’aide de Azure Data Factory
 
@@ -86,7 +86,7 @@ Les propriétés prises en charge pour le service lié Microsoft Access sont les
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données Microsoft Access.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Microsoft Access.
 
 Pour copier des données à partir de Microsoft Access, les propriétés suivantes sont prises en charge :
 
