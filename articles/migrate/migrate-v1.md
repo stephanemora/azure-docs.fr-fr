@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905219"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142080"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -201,7 +201,7 @@ Pour utiliser la visualisation des dépendances, vous associez un espace de trav
 1. Pour attacher un espace de travail Log Analytics à un projet, dans **Vue d’ensemble**, accédez à **Essentials**, puis cliquez sur **Requiert une configuration**.
 2. Vous pouvez créer un espace de travail ou attacher un espace de travail existant :
   - Pour créer un espace de travail, spécifiez un nom. L’espace de travail est créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
-  - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Seuls les espaces de travail créés dans une région [Service Map prise en charge](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions) sont répertoriés. Pour attacher un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
+  - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Seuls les espaces de travail créés dans une région [Service Map prise en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) sont répertoriés. Pour attacher un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
 
 > [!NOTE]
 > Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.

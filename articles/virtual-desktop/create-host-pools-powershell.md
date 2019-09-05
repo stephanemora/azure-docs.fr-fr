@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563289"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163678"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
@@ -25,7 +25,7 @@ Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez 
 Exécutez la cmdlet suivante pour vous connecter à l’environnement Windows Virtual Desktop
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Exécutez ensuite cette cmdlet pour créer un nouveau pool d’hôtes dans votre locataire Windows Virtual Desktop :
@@ -82,7 +82,7 @@ Avant d'installer les agents Windows Virtual Desktop et d'inscrire les machines 
 5. Authentifiez-vous avec un compte de domaine qui dispose de privilèges d’accès sur les machines de jonction de domaine.
 
     >[!NOTE]
-    > Si vous joignez vos machines virtuelles à un environnement Azure AD Domain Services, vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop (préversion)
 

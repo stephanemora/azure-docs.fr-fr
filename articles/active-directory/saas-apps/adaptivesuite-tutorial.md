@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488934"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213621"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Didacticiel : Intégrer Adaptive Insights à Azure Active Directory
 
@@ -81,7 +81,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section  **Configuration SAML de base**, effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 

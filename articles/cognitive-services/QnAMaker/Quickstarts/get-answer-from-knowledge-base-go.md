@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b903dfea11e5ac2390eb437e699ee8ec790a5061
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e5bb77c25b4f9fe00b75918812a1d52feff3b2a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562977"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308207"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec Go
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Go
 
 Ce guide de démarrage rapide vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances QnA Maker publiée. La base de connaissances contient des questions et réponses de [sources de données](../Concepts/data-sources-supported.md) telles que des FAQ. La [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) est envoyée au service QnA Maker. La [réponse](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclut la réponse la plus prévisible. 
 

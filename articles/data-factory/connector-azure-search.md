@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726217"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275933"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
@@ -75,7 +75,7 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données de Recherche Azure.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données de Recherche Azure.
 
 Pour copier des données dans Recherche Azure, les propriétés suivantes sont prises en charge :
 

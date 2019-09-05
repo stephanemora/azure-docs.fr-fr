@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 5a69882f6bb38ac8e005ce5552fe57383a58cc63
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 40c170575e0b6e6264eed8a464ac73012cbe8627
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542582"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276504"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personnaliser CoreDNS avec Azure Kubernetes Service
 
 AKS (Azure Kubernetes Service) utilise le projet [CoreDNS][coredns] pour la gestion et la résolution DNS de cluster avec tous les clusters de version *1.12.x* et supérieures. Avant, le projet utilisé était kube-dns. Ce projet kube-dns est désormais déconseillé. Pour plus d’informations sur la personnalisation de CoreDNS et sur Kubernetes, consultez la [documentation officielle en amont][corednsk8s].
 
-AKS étant un service managé, vous ne pouvez pas modifier la configuration principale pour CoreDNS (fichier *CoreFile*). Au lieu de cela, vous utilisez un fichier *ConfigMap* Kubernetes pour remplacer les paramètres par défaut. Pour afficher les ConfigMaps CoreDNS AKS par défaut, utilisez la commande `kubectl get configmaps -namespace=kube-system coredns -o yaml`.
+AKS étant un service managé, vous ne pouvez pas modifier la configuration principale pour CoreDNS (fichier *CoreFile*). Au lieu de cela, vous utilisez un fichier *ConfigMap* Kubernetes pour remplacer les paramètres par défaut. Pour afficher les ConfigMaps CoreDNS AKS par défaut, utilisez la commande `kubectl get configmaps --namespace=kube-system coredns -o yaml`.
 
 Cet article vous montre comment utiliser les ConfigMaps pour les options de personnalisation de base de CoreDNS dans AKS.
 

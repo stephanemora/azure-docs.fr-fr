@@ -3,21 +3,20 @@ title: Surveiller les fabriques de données à l’aide d’Azure Monitor |Micro
 description: Apprenez à utiliser Azure Monitor pour surveiller les pipelines Data Factory en activant les journaux de diagnostic à partir des informations d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: shlo
-ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0614de8bbb1429c84bf5f2e55c1765f3e4863f3a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326867"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141126"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.

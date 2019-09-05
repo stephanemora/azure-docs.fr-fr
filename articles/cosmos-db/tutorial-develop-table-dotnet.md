@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 75f1554f7522723d71666633a03761d07e797e33
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443502"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142597"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Bien démarrer avec l’API Table d’Azure Cosmos DB et le stockage Table Azure à l’aide du SDK .NET
 
@@ -49,7 +49,7 @@ Dans Visual Studio, créez une application console .NET. Les étapes suivantes
 
 1. Dans le champ **Nom de projet**, entrez un nom pour votre application, tel que **CosmosTableSamples**. Vous pouvez fournir un autre nom.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Tous les exemples de code figurant dans cette démonstration peuvent être ajoutés à la méthode Main() dans le fichier **Program.cs** de votre application console.
 
@@ -217,36 +217,36 @@ L’exemple de code suivant crée un objet entité et l’ajoute à la table. La
 Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter**, **Nouvel élément** et ajoutez une classe nommée **SamplesUtils.cs**. Cette classe stocke tout le code requis pour effectuer des opérations CRUD sur les entités. 
 
 ```csharp
-public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
-    {
-      if (entity == null)
-    {
-       throw new ArgumentNullException("entity");
-    }
-    try
-    {
-       // Create the InsertOrReplace table operation
-       TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
+ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
+ {
+     if (entity == null)
+     {
+         throw new ArgumentNullException("entity");
+     }
+     try
+     {
+         // Create the InsertOrReplace table operation
+         TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
 
-       // Execute the operation.
-       TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
-       CustomerEntity insertedCustomer = result.Result as CustomerEntity;
-        
-        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
-        if (result.RequestCharge.HasValue)
-          {
-            Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
-          }
+         // Execute the operation.
+         TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
+         CustomerEntity insertedCustomer = result.Result as CustomerEntity;
 
-        return insertedCustomer;
-        }
-        catch (StorageException e)
-        {
-          Console.WriteLine(e.Message);
-          Console.ReadLine();
-          throw;
-        }
-    }
+         // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure Cosmos DB
+         if (result.RequestCharge.HasValue)
+         {
+             Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
+         }
+
+         return insertedCustomer;
+     }
+     catch (StorageException e)
+     {
+         Console.WriteLine(e.Message);
+         Console.ReadLine();
+         throw;
+     }
+ }
 ```
 
 ### <a name="get-an-entity-from-a-partition"></a>Obtenir une entité à partir d’une partition

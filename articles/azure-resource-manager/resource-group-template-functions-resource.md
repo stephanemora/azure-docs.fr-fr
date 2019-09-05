@@ -3,15 +3,15 @@ title: Ressources - fonctions de modèle Azure Resource Manager | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 08/20/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095748"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306926"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -41,7 +41,7 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 |:--- |:--- |:--- |:--- |
 | nom_ressource ou identificateur_ressource |OUI |string |Identificateur unique pour la ressource. |
 | apiVersion |OUI |string |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
-| functionValues |Non |objet | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
+| functionValues |Non |object | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
 
 ### <a name="implementations"></a>Implémentations
 
@@ -61,7 +61,6 @@ Les utilisations possibles de list* sont indiquées dans le tableau suivant.
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft.ContainerRegistry/registries | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |

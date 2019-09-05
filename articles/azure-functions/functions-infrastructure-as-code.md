@@ -12,12 +12,12 @@ ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 976121e2fd7af280ccc959ba2a93aceb4ae2bdea
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085399"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276827"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -195,16 +195,22 @@ Un plan Consommation ne doit pas nécessairement être défini. Un tel plan est 
 Le plan Consommation est un type spécial de ressource « serverfarm ». Pour Windows, vous pouvez le spécifier en utilisant la valeur `Dynamic` pour les propriétés `computeMode` et `sku` :
 
 ```json
-{
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
-    }
+{  
+   "type":"Microsoft.Web/serverfarms",
+   "apiVersion":"2016-09-01",
+   "name":"[variables('hostingPlanName')]",
+   "location":"[resourceGroup().location]",
+   "properties":{  
+      "name":"[variables('hostingPlanName')]",
+      "computeMode":"Dynamic"
+   },
+   "sku":{  
+      "name":"Y1",
+      "tier":"Dynamic",
+      "size":"Y1",
+      "family":"Y",
+      "capacity":0
+   }
 }
 ```
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535057"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279737"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -75,7 +75,7 @@ Quand vous publiez une offre Transaction avec l’option Gratuit ou BYOL (apport
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Options de tarification Paiement à l'utilisation et Abonnement (en fonction du site)
 
-Lorsque vous publiez une offre Transaction avec l’option de tarification Paiement à l’utilisation ou Abonnement, Microsoft fournit la technologie et les services nécessaires pour traiter les achats, retours et rétrofacturations des licences logicielles. Dans ce scénario, l’éditeur autorise Microsoft à agir en tant qu’agent. L’éditeur autorise Microsoft à faciliter la transaction de licence logicielle, tout en conservant sa qualité de vendeur, fournisseur, distributeur et concédant.
+Quand vous publiez une offre Transaction avec l’option de tarification Paiement à l’utilisation ou Abonnement, Microsoft fournit la technologie et les services nécessaires pour traiter les achats, retours et rétrofacturations des licences logicielles. Dans ce scénario, l’éditeur autorise Microsoft à agir en tant qu’agent. L’éditeur autorise Microsoft à faciliter la transaction de licence logicielle, tout en conservant sa qualité de vendeur, fournisseur, distributeur et concédant.
 
 Microsoft permet aux clients de commander, acquérir une licence et utiliser le logiciel de l’éditeur selon les conditions générales de la Place de marché commerciale de Microsoft et du contrat de licence utilisateur final de l’éditeur. Les éditeurs sont tenus de fournir leur contrat de licence utilisateur final ou de sélectionnez le [contrat Standard](https://docs.microsoft.com/azure/marketplace/standard-contract) lors de la création de l'offre.
 

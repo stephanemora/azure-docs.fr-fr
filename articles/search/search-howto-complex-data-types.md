@@ -2,7 +2,7 @@
 title: Modélisation de types de données complexes - Recherche Azure
 description: Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche Azure à l’aide de types de données ComplexType et Collections.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 services: search
@@ -10,12 +10,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: e7e6ddefd13d669c949389bc4fad85fb6cff4d3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b9c9b35adc0dde032723c3c60adedf5b2e7b4cb6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621378"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183199"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
 

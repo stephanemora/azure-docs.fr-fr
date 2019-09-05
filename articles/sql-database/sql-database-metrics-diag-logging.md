@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998223"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135188"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -555,7 +555,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
-|ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQ |
+|ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : Errors |
 |OperationName|Nom de l’opération. Toujours : ErrorEvent |
 |Ressource|Nom de la ressource |

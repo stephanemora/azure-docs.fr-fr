@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6c06d789e6a005c0079f889cead6a75f4d0baf19
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c4eba3e08e403243e76ac891d3bfcb59f12cad85
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875715"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211903"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
 
@@ -39,9 +39,29 @@ En tant qu’_opérateur_, vous utilisez l’interface utilisateur Azure IoT Cen
 
 Utilisez le menu de navigation gauche pour accéder aux différentes zones de l’application. Vous pouvez développer ou réduire la barre de navigation en sélectionnant **<** ou **>**  :
 
-| Menu | Description |
-| ---- | ----------- |
-| ![Menu de navigation gauche](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Le bouton **Tableau de bord** affiche le tableau de bord de votre application. En tant que créateur, vous pouvez personnaliser le tableau de bord pour vos opérateurs. Les utilisateurs peuvent également créer leurs propres tableaux de bord.</li><li>Le bouton **Device Explorer** liste les appareils simulés et réels associés à chaque modèle d’appareil dans l’application. En tant qu’opérateur, vous utilisez **Device Explorer** pour gérer vos appareils connectés.</li><li>Le bouton **Device Sets** vous permet d’afficher et de créer des ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des ensembles d’appareils comme une collection logique d’appareils spécifiée par une requête.</li><li>Le bouton **Analytique** montre les analytiques dérivées des données de télémétrie de l’appareil pour les appareils et les ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application.</li><li>Le bouton **Tâches** permet une gestion des appareils en bloc en vous faisant créer et exécuter des tâches pour effectuer des mises à jour à grande échelle.</li><li>Le bouton **Modèles d’appareil** montre les outils qu’un générateur utilise pour créer et gérer des modèles d’appareil.</li><li>Le bouton **Exportation de données continue** sert à un administrateur pour configurer une exportation continue vers d’autres services Azure, tels que le stockage et les files d’attente.</li><li>Le bouton **Administration** montre les pages d’administration de l’application depuis lesquelles un administrateur peut gérer les paramètres, les utilisateurs et les rôles de l’application.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+
+      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+    
+      **Device Explorer** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+    
+      **Device Sets** enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.
+    
+      **Analytics** shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.
+    
+      **Jobs** enables bulk device management by having you create and run jobs to perform updates at scale.
+    
+      **Device Templates** shows the tools a builder uses to create and manage device templates.
+    
+      **Continuous Data Export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+    
+      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>Recherche, aide et support
 

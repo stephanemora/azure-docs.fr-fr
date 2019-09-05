@@ -1,7 +1,7 @@
 ---
 title: Définition d’interface pour des compétences personnalisées dans une recherche cognitive - Recherche Azure
 description: Interface d’extraction de données personnalisée pour compétence personnalisée d’API web dans un pipeline de recherche cognitive dans Recherche Azure
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: d917525706eaede9431cb1bbb9a51783156cf118
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c424fec550a52830db8e32682b68f49f486ba119
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639200"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183495"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline de recherche cognitive
 

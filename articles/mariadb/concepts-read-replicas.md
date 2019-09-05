@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/04/2019
+ms.openlocfilehash: db2457cc3e320ac413cb245f51810b654c63aa22
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992180"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308988"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database for MariaDB sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) du moteur MariaDB avec ID de transaction global (GTID). Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
-
-> [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. Les réplicas en lecture (même région et entre régions) sont actuellement en préversion publique.
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database for MariaDB classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
@@ -37,9 +34,6 @@ La fonctionnalité de réplica en lecture utilise la réplication asynchrone. La
 
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
-
-> [!IMPORTANT]
-> La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
 Vous pouvez disposer d’un serveur maître dans toute [région Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles.
 

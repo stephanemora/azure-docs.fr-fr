@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 9a22de93dfa45d16f289871bc548a998f9c91c68
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050343"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147437"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
 
@@ -34,7 +34,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications à exécuter sur des appareils et sur le back-end de la solution, consultez [Kits SDK Azure IoT](iot-hub-devguide-sdks.md).
 >
 
-Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
+## <a name="prerequisites"></a>Prérequis
 
 * Visual Studio.
 

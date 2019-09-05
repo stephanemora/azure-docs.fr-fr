@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 96270ccccd8f043f116f686938c8f47c5f4f0a41
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "68841908"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Didacticiel : Configurer Templafy pour l’approvisionnement automatique d’utilisateurs
@@ -41,7 +41,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="assigning-users-to-templafy"></a>Affectation d’utilisateurs à Templafy
 
-Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application dans Azure AD a été attribuée sont synchronisés.
+Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre d’une attribution automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application a été attribuée dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer l’approvisionnement automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à Templafy. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs ou groupes à Templafy en suivant les instructions fournies ici :
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md)

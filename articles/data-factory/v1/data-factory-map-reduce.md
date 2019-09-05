@@ -3,22 +3,21 @@ title: Appeler le programme MapReduce à partir d'Azure Data Factory
 description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824216"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139293"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]

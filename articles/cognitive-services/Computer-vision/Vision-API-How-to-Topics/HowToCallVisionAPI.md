@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 97b9e0defb3f349a6e202572bc0e3005d5d87e9c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564536"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141200"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
@@ -47,19 +47,19 @@ Les fonctionnalités sont présentées en deux options :
 
 Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête.
 
-Pour obtenir une clé d’essai gratuit, consultez la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
 
 1. La clé d’abonnement est passée par le biais d’une chaîne de requête, comme dans l’exemple suivant d’API Vision par ordinateur :
 
-```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+    ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 
 1. La clé d’abonnement peut également être passée en la spécifiant dans l’en-tête de requête HTTP :
 
-```ocp-apim-subscription-key: <Your subscription key>```
+    ```ocp-apim-subscription-key: <Your subscription key>```
 
 1. Quand vous utilisez la bibliothèque de client, la clé d’abonnement est passée par le biais du constructeur de VisionServiceClient :
 
-```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
 
 ## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Charger une image dans le service API Vision par ordinateur et obtenir en retour les étiquettes, les descriptions et les noms des célébrités
 

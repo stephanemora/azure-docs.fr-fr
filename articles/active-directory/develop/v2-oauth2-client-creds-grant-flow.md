@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3bb18f11de92680d296d747fc34e16c3264c369
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852209"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193282"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -170,7 +170,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
 | Paramètre | Condition | Description |
@@ -250,10 +251,6 @@ Une réponse d’erreur ressemble à ceci :
 | `trace_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic. |
 | `correlation_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic sur les différents composants. |
 
-> [!NOTE]
-> Afin que votre application soit en mesure de recevoir le jeton v2, vous pouvez mettre à jour le fichier manifeste de l’application depuis le portail azure. Vous pouvez ajouter l’attribut `accessTokenAcceptedVersion` et définir la valeur sur 2 comme `"accessTokenAcceptedVersion": 2`. Consultez l’article [Manifeste d’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) pour en savoir plus. Par défaut, l’application reçoit actuellement un jeton v1. S’il n’est pas défini dans le manifeste d’application/API web, la valeur de cet attribut dans le manifeste est par défaut 1, et l’application reçoit le jeton v1.  
-
-
 ## <a name="use-a-token"></a>Utilisation d’un jeton
 
 Maintenant que vous avez acquis un jeton, utilisez-le pour effectuer des demandes auprès de la ressource. Lorsque le jeton expire, répétez la demande auprès du point de terminaison `/token` pour acquérir un nouveau jeton d’accès.
@@ -269,7 +266,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>Exemples de code et autres documents

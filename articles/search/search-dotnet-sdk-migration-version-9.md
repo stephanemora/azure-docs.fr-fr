@@ -2,7 +2,7 @@
 title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 9 - Recherche Azure
 description: Migrez le code vers le SDK .NET Recherche Azure version 9 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541764"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183240"
 ---
 # <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Mettre à niveau vers la version 9 du SDK .NET Recherche Azure
 

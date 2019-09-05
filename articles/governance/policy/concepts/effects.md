@@ -7,13 +7,12 @@ ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448566"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231529"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 577bf7f157eb89da360fa6cbdd4d22c1054f234f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966712"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277430"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utiliser l’apprentissage actif pour améliorer votre base de connaissances
 
@@ -56,7 +56,7 @@ Il est important que QnA Maker obtienne des commentaires explicites sur les rép
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Mettre à niveau votre version de runtime pour utiliser l’apprentissage actif
 
-L’apprentissage actif est pris en charge dans la version 4.4.0 du runtime et dans les versions ultérieures. Si votre base de connaissances a été créée dans une version antérieure, [mettez à niveau votre runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) pour utiliser cette fonctionnalité. 
+L’apprentissage actif est pris en charge dans la version 4.4.0 du runtime et dans les versions ultérieures. Si votre base de connaissances a été créée dans une version antérieure, [mettez à niveau votre runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) pour utiliser cette fonctionnalité. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>Activer l’apprentissage actif pour afficher des suggestions
 

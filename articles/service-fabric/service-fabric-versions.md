@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: b7d34095568fa1d98c5f2987a70397ca042c8867
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7a3cfe62520ed82dcf494a33f3bd188dbebe76
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036407"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279982"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
-Assurez-vous que votre cluster exécute toujours une version prise en charge d’Azure Service Fabric. La prise en charge de la version précédente se termine sous 60 jours après que nous annonçons le lancement d’une nouvelle version d’Azure Service Fabric. Les nouvelles versions sont annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Assurez-vous que votre cluster exécute toujours une version prise en charge d’Azure Service Fabric. La prise en charge de la version précédente se termine sous 60 jours après que nous annonçons le lancement d’une nouvelle version d’Azure Service Fabric. Les nouvelles versions sont annoncées sur le [blog de l’équipe Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
 
 Consultez les documents suivants pour savoir plus en détail comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric :
 

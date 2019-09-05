@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f103bde99eb5b21d06988f11ac6f17fcf50ceb31
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534852"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278271"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Créer et gérer les espaces de travail du service Azure Machine Learning
 
-Dans cet article, vous créez, affichez et supprimez des [**espaces de travail du service Azure Machine Learning**](concept-workspace.md) dans le Portail Azure pour le [service Azure Machine Learning](overview-what-is-azure-ml.md).  Le portail est le moyen le plus simple de prendre en main les espaces de travail, mais à mesure que vos besoins évoluent ou que les besoins de l’automatisation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md), [à l’aide de code Python](https://aka.ms/aml-sdk) ou [via l’extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+Dans cet article, vous créez, affichez et supprimez des [**espaces de travail du service Azure Machine Learning**](concept-workspace.md) dans le Portail Azure pour le [service Azure Machine Learning](overview-what-is-azure-ml.md).  Le portail est le moyen le plus simple de prendre en main les espaces de travail, mais à mesure que vos besoins évoluent ou que les besoins de l’automatisation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md), [à l’aide de code Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [via l’extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 

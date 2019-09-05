@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: af01b6127a8a3e20edfac19ce3b54cecb9d561d1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640581"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308966"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeurs dans Azure Search
 
@@ -48,11 +48,7 @@ Les indexeurs analysent les magasins de données sur Azure.
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
-* [Stockage de tables Azure](search-howto-indexing-azure-tables.md) 
-
-> [!Note]
-> Stockage Table Azure n’est pas pris en charge pour la [recherche cognitive](cognitive-search-concept-intro.md).
->
+* [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 
 ## <a name="basic-configuration-steps"></a>Étapes de configuration de base
 Les indexeurs peuvent offrir des fonctionnalités propres à la source de données. À cet égard, certains aspects de la configuration de l’indexeur ou de la source de données varient en fonction du type d’indexeur. Cependant, tous les indexeurs présentent une composition et des exigences de base identiques. Les étapes communes à tous les indexeurs sont décrites ci-dessous.

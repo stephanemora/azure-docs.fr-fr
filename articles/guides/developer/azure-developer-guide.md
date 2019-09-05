@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 78c126559c4b919ebc81b49ed5567dd0d0196039
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971580"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308579"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -234,10 +234,10 @@ Azure repose sur un ensemble d’API REST qui prennent en charge l’interface u
 Outre les API REST, de nombreux services Azure vous permettent de gérer par programmation les ressources de vos applications en utilisant les kits SDK Azure spécifiques à la plateforme, notamment les kits SDK pour les plateformes de développement suivantes :
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/javascript/azure)
+-   [Node.JS](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](https://docs.microsoft.com/python/azure)
+-   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Go](https://docs.microsoft.com/azure/go)
 

@@ -3,22 +3,20 @@ title: Surveiller et gérer les pipelines à l’aide du portail Azure et de Pow
 description: Découvrez comment utiliser le portail Azure et Azure PowerShell pour surveiller et gérer les fabriques de données et les pipelines Azure que vous avez créés.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122715"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139656"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -89,7 +87,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 <table>
 <tr>
-    <th align="left">État</th><th align="left">Sous-état</th><th align="left">Description</th>
+    <th align="left">State</th><th align="left">Sous-état</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure n’est pas venue pour l’exécution de la tranche.</td>

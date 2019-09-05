@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: a06bd5a1a061de82230e93b867ea88e333b3cc93
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8455a9c9ecff89643e090f1d763a44f97f5779f5
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442549"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206884"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Didacticiel : Utilisez un Web App Bot activé avec Language Understanding dans Node.js 
 
@@ -40,15 +40,15 @@ Utilisez Node.js pour créer un bot conversationnel intégré avec compréhensio
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
 
-1. Dans la zone de recherche, recherchez et sélectionnez **Bot d’application web**. Sélectionnez **Créer**.
+1. Dans la zone de recherche, recherchez et sélectionnez **Bot d’application web**. Sélectionnez **Create** (Créer).
 
 1. Dans **Service Bot**, fournissez les informations requises :
 
     |Paramètre|Objectif|Paramétrage suggéré|
     |--|--|--|
     |Nom du robot|Nom de la ressource|`luis-nodejs-bot-` + `<your-name>`, par exemple, `luis-nodejs-bot-johnsmith`|
-    |Abonnement|Abonnement où créer le bot.|Votre abonnement principal.
-    |Groupe de ressources|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-nodejs-bot-resource-group`.|
+    |Subscription|Abonnement où créer le bot.|Votre abonnement principal.
+    |Resource group|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-nodejs-bot-resource-group`.|
     |Location|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
     |Niveau tarifaire|Utilisé pour les limites de demande de service et la facturation.|`F0` est le niveau gratuit.
     |Nom de l’application|Utilisé comme sous-domaine durant le déploiement de votre bot sur le cloud (par exemple, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, par exemple, `luis-nodejs-bot-johnsmith`|
@@ -66,7 +66,7 @@ Utilisez Node.js pour créer un bot conversationnel intégré avec compréhensio
     |Langage du SDK|Langage de programmation de bot|**Node.JS**|
     |Bot|Type de bot|**Bot de base**|
     
-1. Sélectionnez **Créer**. Le service de bot est alors créé et déployé sur Azure. Une partie de ce processus crée une application LUIS nommée `luis-nodejs-bot-XXXX`. Ce nom est basé sur le nom de l’application /Azure Bot Service.
+1. Sélectionnez **Create** (Créer). Le service de bot est alors créé et déployé sur Azure. Une partie de ce processus crée une application LUIS nommée `luis-nodejs-bot-XXXX`. Ce nom est basé sur le nom de l’application /Azure Bot Service.
 
     [![Créer un bot d’application web](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
@@ -339,7 +339,7 @@ Pour développer le code de bot d’application web, téléchargez-le et utilise
 
 1. Dans l’émulateur de bot, réserver un vol en entrant l’énoncé suivant : 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

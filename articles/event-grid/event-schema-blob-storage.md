@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: bed6c3f1efcb2d0ef34e827ddb2b521f8c038940
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bd85353aa37cf182a807d99cdc9fb63ead00edeb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445765"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232436"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schéma d’événements Azure Event Grid pour le stockage Blob
 
@@ -317,14 +317,12 @@ L’objet de données comporte les propriétés suivantes :
 | contentOffset | number | Décalage, en octets, d’une opération d’écriture effectuée au point où l’application de déclenchement d’événement a effectué l’écriture dans le fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | destinationUrl |string | URL du fichier qui existera une fois l’opération terminée. Par exemple, si un fichier est renommé, la propriété `destinationUrl` contient l’URL du nouveau nom de fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | sourceUrl |string | URL du fichier qui existe avant l’opération. Par exemple, si un fichier est renommé, `sourceUrl` contient l’URL du nom de fichier d’origine avant l’opération de renommage. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
-| url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST d’objet blob, l’URL présente la structure suivante : *\<nom-compte-stockage\>.blob.core.windows.net/\<nom-conteneur\>/\<nom-fichier\>* . <br>Si le client utilise une API REST Data Lake Storage, l’URL présente la structure suivante : *\<nom-compte-stockage\>.dfs.core.windows.net/\<nom-système-fichiers\>/\<nom-fichier\>* .
-|
-| recursive| string| `True` pour effectuer l’opération sur tous les répertoires enfants ; sinon, `False`. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
+| url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST d’objet blob, l’URL présente la structure suivante : *\<nom-compte-stockage\>.blob.core.windows.net/\<nom-conteneur\>/\<nom-fichier\>* . <br>Si le client utilise une API REST Data Lake Storage, l’URL présente la structure suivante : *\<nom-compte-stockage\>.dfs.core.windows.net/\<nom-système-fichiers\>/\<nom-fichier\>* . |
+| recursive | string | `True` pour effectuer l’opération sur tous les répertoires enfants ; sinon, `False`. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
 | sequencer | string | Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob. |
 | storageDiagnostics | object | Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements. |
-
 |Propriété|Type|Description|
- |-------------------|------------------------|-----------------------------------------------------------------------|
+|-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

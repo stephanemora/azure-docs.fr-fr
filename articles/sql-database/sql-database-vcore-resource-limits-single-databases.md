@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/22/2019
-ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.date: 08/29/2019
+ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972534"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164302"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -74,7 +74,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille maximale des données TempDB (Go)|224|256|288|320|384|384|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
-|Nombre maximal d’IOPS de données (64 Ko)|3 500|4000|4500|5 000|7000|7000|
+|Nombre maximal d’IOPS de données (64 Ko)|3 500|4000|4500|5 000|8000|12 000|
 |Taux de journalisation maximal (Mbits/s)|26,25|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
@@ -120,7 +120,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille maximale des données TempDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données (64 Ko)|7000|7000|7000|7000|7000|7000|7000|
+|Nombre maximal d’IOPS de données (64 Ko)|8000|9000|10000|12 000|16000|20000|40000|
 |Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|

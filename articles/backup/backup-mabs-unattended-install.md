@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639644"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210166"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure
 
@@ -26,7 +26,7 @@ Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azu
 
 2. Collez le code suivant dans le fichier MABSSetup.ini. Remplacez le texte entre crochets (\< \>) par des valeurs de votre environnement. Voici un exemple de texte :
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -49,7 +49,7 @@ Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azu
 
 3. Enregistrez le fichier . Ensuite, à une invite de commandes avec élévation de privilèges, entrez la commande suivante :
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

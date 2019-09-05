@@ -2,19 +2,19 @@
 title: Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure - Recherche Azure
 description: Mettre à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure à partir d’une version précédente. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025187"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182250"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure 
 

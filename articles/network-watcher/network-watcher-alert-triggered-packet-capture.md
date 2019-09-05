@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711915"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165153"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -305,8 +305,7 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
 
                 #Get existing packetCaptures
                 $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher

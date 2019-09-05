@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879866"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162537"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -164,8 +164,6 @@ Selon les décisions que vous avez prises précédemment en vous aidant des cons
 ### <a name="consume-and-archive-azure-ad-logs"></a>Consommer et archiver les journaux Azure AD
 
 [Trouver les rapports d’activité sur le Portail Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
-
-[Utiliser le pack de contenu Power BI pour Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
 
 [Archiver des journaux Azure AD dans un compte de stockage Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 124af71e458e103392c554a9c86d679f691df5b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877107"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147657"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planifier et diffuser des travaux (Node.js)
 
@@ -49,8 +49,6 @@ Ce didacticiel vous explique les procédures suivantes :
 * **scheduleJobService.js**, qui appelle une méthode directe sur l’application d’appareil simulé et met à jour les propriétés souhaitées du jumeau d’appareil à l’aide d’un travail.
 
 ## <a name="prerequisites"></a>Prérequis
-
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Node.j version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 

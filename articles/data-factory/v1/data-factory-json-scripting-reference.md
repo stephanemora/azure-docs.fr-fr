@@ -3,22 +3,20 @@ title: Azure Data Factory - Référence de script JSON | Microsoft Docs
 description: Fournit des schémas JSON pour les entités Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 279a016d60ecb1bc80baf92a7fa60365145e397d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f94d3cdbbd1683b20dbe1d370bcac43817458f44
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836258"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139378"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -102,12 +100,12 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 
 | Propriété | Valeurs autorisées | Valeur par défaut | Description |
 | --- | --- | --- | --- |
-| accès concurrentiel |Entier <br/><br/>Valeur maximale : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
+| accès concurrentiel |Integer <br/><br/>Valeur maximale : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Détermine l’ordre des segments de données qui sont traités.<br/><br/>Par exemple, si vous avez 2 segments (l’un se produisant à 16 heures et l’autre à 17 heures) et que les deux sont en attente d’exécution. Si vous définissez executionPriorityOrder sur NewestFirst, le segment à 17 h est traité en premier. De même, si vous définissez executionPriorityOrder sur OldestFIrst, le segment à 16 h est traité en premier. |
-| retry |Entier<br/><br/>La valeur max peut être 10 |0 |Nombre de nouvelles tentatives avant que le traitement des données du segment ne soit marqué comme un échec. L'exécution de l'activité pour un segment de données est répétée jusqu'au nombre de tentatives spécifié. La nouvelle tentative est effectuée dès que possible après l'échec. |
+| retry |Integer<br/><br/>La valeur max peut être 10 |0 |Nombre de nouvelles tentatives avant que le traitement des données du segment ne soit marqué comme un échec. L'exécution de l'activité pour un segment de données est répétée jusqu'au nombre de tentatives spécifié. La nouvelle tentative est effectuée dès que possible après l'échec. |
 | timeout |TimeSpan |00:00:00 |Délai d'expiration de l'activité. Exemple : 00:10:00 (implique un délai d’expiration de 10 minutes)<br/><br/>Si une valeur n’est pas spécifiée ou est égale à 0, le délai d’expiration est infini.<br/><br/>Si le temps de traitement des données sur un segment dépasse la valeur du délai d’expiration, il est annulé et le système tente de réexécuter le traitement. Le nombre de nouvelles tentatives dépend de la propriété « retry ». Quand le délai d’expiration est atteint, l’état est défini sur TimedOut. |
 | delay |TimeSpan |00:00:00 |Spécifie le délai avant le début du traitement des données du segment.<br/><br/>L’exécution d’activité pour une tranche de données est démarrée une fois que le délai a dépassé l’heure d’exécution prévue.<br/><br/>Exemple : 00:10:00 (implique un délai de 10 minutes) |
-| longRetry |Entier<br/><br/>Valeur maximale : 10 |1 |Le nombre de nouvelles tentatives longues avant l’échec de l’exécution du segment.<br/><br/>Les tentatives longRetry sont espacées par longRetryInterval. Par conséquent, si vous devez spécifier un délai entre chaque tentative, utilisez longRetry. Si les valeurs Retry et longRetry sont spécifiées, chaque tentative longRetry inclut des tentatives Retry et le nombre maximal de tentatives sera égal à Retry * longRetry.<br/><br/>Par exemple, si nous avons les paramètres suivants dans la stratégie de l’activité :<br/>Retry : 3<br/>longRetry : 2<br/>longRetryInterval : 01:00:00<br/><br/>Supposons qu’il existe un seul segment à exécuter (dont l’état est Waiting) et que l’exécution de l’activité échoue à chaque fois. Au départ, il y aurait 3 tentatives consécutives d'exécution. Après chaque tentative, l’état du segment serait Retry. Une fois les 3 premières tentatives terminées, l’état du segment serait LongRetry.<br/><br/>Après une heure (c’est-à-dire la valeur de longRetryInterval), il y aurait un autre ensemble de 3 tentatives consécutives d’exécution. Ensuite, l'état du segment serait Failed et aucune autre tentative ne serait exécutée. Par conséquent, 6 tentatives ont été exécutées.<br/><br/>Si une exécution réussit, l’état de la tranche est Ready et aucune nouvelle tentative n’est tentée.<br/><br/>La valeur longRetry peut être utilisée dans les situations où les données dépendantes arrivent à des moments non déterministes ou lorsque l’environnement global où le traitement des données se produit est douteux. Dans ces cas, l’exécution de nouvelles tentatives l’une après l’autre peut ne pas être utile et procéder ainsi après un intervalle de temps précis produit la sortie désirée.<br/><br/>Mise en garde : ne définissez pas de valeurs élevées pour longRetry ou longRetryInterval. En règle générale, des valeurs plus élevées impliquent d’autres problèmes systémiques. |
+| longRetry |Integer<br/><br/>Valeur maximale : 10 |1 |Le nombre de nouvelles tentatives longues avant l’échec de l’exécution du segment.<br/><br/>Les tentatives longRetry sont espacées par longRetryInterval. Par conséquent, si vous devez spécifier un délai entre chaque tentative, utilisez longRetry. Si les valeurs Retry et longRetry sont spécifiées, chaque tentative longRetry inclut des tentatives Retry et le nombre maximal de tentatives sera égal à Retry * longRetry.<br/><br/>Par exemple, si nous avons les paramètres suivants dans la stratégie de l’activité :<br/>Retry : 3<br/>longRetry : 2<br/>longRetryInterval : 01:00:00<br/><br/>Supposons qu’il existe un seul segment à exécuter (dont l’état est Waiting) et que l’exécution de l’activité échoue à chaque fois. Au départ, il y aurait 3 tentatives consécutives d'exécution. Après chaque tentative, l’état du segment serait Retry. Une fois les 3 premières tentatives terminées, l’état du segment serait LongRetry.<br/><br/>Après une heure (c’est-à-dire la valeur de longRetryInterval), il y aurait un autre ensemble de 3 tentatives consécutives d’exécution. Ensuite, l'état du segment serait Failed et aucune autre tentative ne serait exécutée. Par conséquent, 6 tentatives ont été exécutées.<br/><br/>Si une exécution réussit, l’état de la tranche est Ready et aucune nouvelle tentative n’est tentée.<br/><br/>La valeur longRetry peut être utilisée dans les situations où les données dépendantes arrivent à des moments non déterministes ou lorsque l’environnement global où le traitement des données se produit est douteux. Dans ces cas, l’exécution de nouvelles tentatives l’une après l’autre peut ne pas être utile et procéder ainsi après un intervalle de temps précis produit la sortie désirée.<br/><br/>Mise en garde : ne définissez pas de valeurs élevées pour longRetry ou longRetryInterval. En règle générale, des valeurs plus élevées impliquent d’autres problèmes systémiques. |
 | longRetryInterval |TimeSpan |00:00:00 |Le délai entre les nouvelles tentatives longues |
 
 ### <a name="typeproperties-section"></a>Section typeProperties
@@ -373,7 +371,7 @@ La section [Activité](#activity) fournit des descriptions pour les éléments J
 
 Cliquez sur le lien du magasin qui vous intéresse pour afficher les schémas JSON pour les services liés, les jeux de données et la source/récepteur pour l’activité de copie.
 
-| Catégorie | Banque de données
+| Category | Banque de données
 |:--- |:--- |
 | **Microsoft Azure** |[stockage d’objets blob Azure](#azure-blob-storage) |
 | &nbsp; |Azure Data Lake Store |
@@ -886,7 +884,7 @@ Si vous copiez des données dans Azure Cosmos DB, réglez le **type de récepteu
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | --- | --- | --- | --- |
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : `Name.First` dans la table de sortie produit la structure JSON suivante dans le document Cosmos DB :<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractère utilisé pour séparer les niveaux d'imbrication.<br/><br/>La valeur par défaut est `.` (point). |Caractère utilisé pour séparer les niveaux d'imbrication. <br/><br/>La valeur par défaut est `.` (point). |
-| writeBatchSize |Nombre de requêtes parallèles auprès du service Azure Cosmos DB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données dans/à partir d’Azure Cosmos DB à l’aide de cette propriété. Vous pouvez obtenir de meilleures performances en augmentant writeBatchSize car davantage de requêtes sont envoyées à Azure Cosmos DB. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de requêtes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de demande par seconde). |Entier |Non (valeur par défaut : 5) |
+| writeBatchSize |Nombre de requêtes parallèles auprès du service Azure Cosmos DB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données dans/à partir d’Azure Cosmos DB à l’aide de cette propriété. Vous pouvez obtenir de meilleures performances en augmentant writeBatchSize car davantage de requêtes sont envoyées à Azure Cosmos DB. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de requêtes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de demande par seconde). |Integer |Non (valeur par défaut : 5) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non |
 
 #### <a name="example"></a>Exemples
@@ -1594,10 +1592,10 @@ Pour définir un service lié Amazon Redshift, définissez le **type** du servic
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
+| server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Aucune valeur par défaut : 5439 |
 | database |Nom de la base de données Amazon Redshift. |OUI |
-| userName |Nom d’utilisateur ayant accès à la base de données. |OUI |
+| username |Nom d’utilisateur ayant accès à la base de données. |OUI |
 | password |Mot de passe du compte d’utilisateur. |OUI |
 
 #### <a name="example"></a>Exemples
@@ -1710,7 +1708,7 @@ Pour définir un service lié IBM DB2, définissez le **type** du service lié s
 | database |Nom de la base de données DB2. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |OUI |
 
@@ -1822,7 +1820,7 @@ Pour définir un service lié MySQL, définissez le **type** du service lié sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom du serveur MySQL. |OUI |
+| server |Nom du serveur MySQL. |OUI |
 | database |Nom de la base de données MySQL. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
@@ -2113,11 +2111,11 @@ Pour définir un service lié PostgreSQL, définissez le **type** du service li�
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom du serveur PostgreSQL. |OUI |
+| server |Nom du serveur PostgreSQL. |OUI |
 | database |Nom de la base de données PostgreSQL. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |OUI |
 
@@ -2232,10 +2230,10 @@ Pour définir un service lié SAP Business Warehouse (BW), définissez le **type
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | string | OUI
+server | Nom du serveur sur lequel réside l’instance SAP BW. | string | OUI
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI
-userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
 password | Mot de passe pour l’utilisateur. | string | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | string | OUI
 encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
@@ -2342,9 +2340,9 @@ Pour définir un service lié SAP HANA, définissez le **type** du service lié 
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
+server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI
-userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
 password | Mot de passe pour l’utilisateur. | string | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | OUI
 encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
@@ -2671,11 +2669,11 @@ Pour définir un service lié Sybase, définissez le **type** du service lié su
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom du serveur Sybase. |OUI |
+| server |Nom du serveur Sybase. |OUI |
 | database |Nom de la base de données Sybase. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Sybase. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Sybase locale. |OUI |
 
@@ -2791,9 +2789,9 @@ Pour définir un service lié Teradata, définissez le **type** du service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom du serveur Teradata. |OUI |
+| server |Nom du serveur Teradata. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. |OUI |
 
@@ -2908,7 +2906,7 @@ Pour définir un service lié Cassandra, définissez le **type** du service lié
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/><br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |OUI |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Aucune valeur par défaut : 9042 |
 | authenticationType |Basique ou anonyme |OUI |
-| userName |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
+| username |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui, si authenticationType est défini sur De base. |
 | gatewayName |Le nom de la passerelle qui est utilisée pour se connecter à la base de données Cassandra locale. |OUI |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Non |
@@ -3032,10 +3030,10 @@ Pour définir un service lié MongoDB, définissez le **type** du service lié s
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
+| server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
 | authenticationType |De base ou anonyme. |OUI |
-| userName |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
+| username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
 | password |Mot de passe pour l’utilisateur. |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Facultatif (si l’authentification de base est utilisée). Par défaut : utilise le compte d’administrateur et la base de données spécifiée à l’aide de la propriété databaseName. |
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
@@ -3177,8 +3175,8 @@ Pour définir un jeu de données Amazon S3, définissez le **type** du jeu de do
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| bucketName |Le nom de compartiment S3. |Chaîne |OUI |
-| key |La clé d’objet S3. |Chaîne |Non |
+| bucketName |Le nom de compartiment S3. |String |OUI |
+| key |La clé d’objet S3. |String |Non |
 | prefix |Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la clé est vide. |string |Non |
 | version |La version de l’objet S3 si le contrôle de version S3 est activé. |Chaîne |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non | |
@@ -3554,7 +3552,7 @@ Pour définir un service lié FTP, définissez le **type** du service lié sur *
 | --- | --- | --- | --- |
 | host |Nom ou adresse IP du serveur FTP |OUI |&nbsp; |
 | authenticationType |Spécification du type d’authentification |OUI |Basic, anonyme |
-| userName |L’utilisateur ayant accès au serveur FTP |Non |&nbsp; |
+| username |L’utilisateur ayant accès au serveur FTP |Non |&nbsp; |
 | password |Mot de passe de l’utilisateur (nom d’utilisateur) |Non |&nbsp; |
 | encryptedCredential |Informations d’identification chiffrées pour accéder au serveur FTP |Non |&nbsp; |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur FTP local |Non |&nbsp; |
@@ -3880,7 +3878,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| userName | Utilisateur ayant accès au serveur SFTP. |OUI |
+| username | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
 
 ```json
@@ -3929,7 +3927,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| userName |Utilisateur ayant accès au serveur SFTP |OUI |
+| username |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |
@@ -4084,7 +4082,7 @@ Définissez `authenticationType` sur `Basic`, `Digest` ou `Windows` et spécifie
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
+| username | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
 
 ```json
@@ -4273,7 +4271,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
 | --- | --- | --- |
 | url |URL du service OData. |OUI |
 | authenticationType |Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme, De base et OAuth (notez qu’à l’heure actuelle, Azure Data Factory prend en charge uniquement l’authentification OAuth basée sur Azure Active Directory). <br/><br/> Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. |OUI |
-| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
+| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Oui (uniquement si vous utilisez l’authentification de base) |
 | authorizedCredential |Si vous utilisez OAuth, cliquez sur le bouton **Autoriser** de l’Assistant de copie Data Factory ou de l’éditeur et entrez vos informations d’identification. La valeur de cette propriété sera alors générée automatiquement. |Oui (uniquement si vous utilisez l’authentification OAuth) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir d’une source OData locale. |Non |
@@ -4444,7 +4442,7 @@ Pour définir un service lié ODBC, définissez le **type** du service lié sur 
 | connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. |OUI |
 | credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Non |
 | authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont les suivantes : Anonymous et Basic. |OUI |
-| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
+| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. |OUI |
 
@@ -4596,7 +4594,7 @@ Pour définir un service lié Salesforce, définissez le **type** du service li�
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L'URL par défaut est « https:\//login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com  ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non |
-| userName |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
+| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur. |OUI |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |OUI |
 
@@ -4746,7 +4744,7 @@ Pour définir un jeu de données Web, définissez le **type** du jeu de données
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type |Type du jeu de données. Doit avoir la valeur **WebTable** |OUI |
-| chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour connaître la marche à suivre pour obtenir l'index d'une table sur une page HTML, consultez la section Obtenir l'index d'une table sur une page HTML. |OUI |
 
 #### <a name="example"></a>Exemples
@@ -4878,7 +4876,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **HDInsight**. |OUI |
 | clusterUri |L'URI du cluster HDInsight. |OUI |
-| userName |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |OUI |
+| username |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |OUI |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |OUI |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p>  |OUI |
 

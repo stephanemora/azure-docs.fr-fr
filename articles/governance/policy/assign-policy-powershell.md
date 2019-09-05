@@ -7,13 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 2ff34911dea19b83731b46077bd60c7b085763a4
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: bcdac2635c9d40bcd0f7605fad7479d5b8cdddba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979585"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239197"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
@@ -23,8 +22,6 @@ Le module Azure PowerShell est utilisé pour gérer des ressources Azure à part
 Ce guide explique comment utiliser un module Az pour créer une attribution de stratégie.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

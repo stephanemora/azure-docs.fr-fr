@@ -3,15 +3,15 @@ title: Prise en charge des étiquettes Azure Resource Manager pour les ressource
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848610"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194721"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
@@ -204,7 +204,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | agents | Non |Non |
 > | anonymousapiusers | Non |Non |
 > | configuration | Non |Non |
-> | journaux d’activité | Non |Non |
+> | logs | Non |Non |
 > | reports | Non |Non |
 > | servicehealthmetrics | Non |Non |
 > | services | Non |Non |

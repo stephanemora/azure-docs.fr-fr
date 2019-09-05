@@ -2,7 +2,7 @@
 title: Compétence de recherche cognitive Analyse d’image - Recherche Azure
 description: Extrayez le texte sémantique par analyse d’image à l’aide de la compétence cognitive Analyse d’image dans un pipeline d’enrichissement Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 07969a92286837f8f72b533173ac8d170378d0ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128187"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183382"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 

@@ -7,19 +7,16 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 7c6fdebad3cd84699e1ac7d06bb58a33d1522af1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 148d69b96291737088a1472a9affd8bb9e43ab1b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972307"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241122"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 
 Azure Resource Graph vous permet d’explorer et de détecter vos ressources Azure rapidement et à l’échelle. Conçu pour fournir des réponses rapides, il s’avère très efficace pour en apprendre davantage sur votre environnement, mais aussi sur les propriétés qui composent vos ressources Azure.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="explore-virtual-machines"></a>Explorer des machines virtuelles
 

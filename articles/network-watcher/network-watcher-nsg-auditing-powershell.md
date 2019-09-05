@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 016d68de90088314250fef1fcfdb57d7f155ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707163"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165139"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatiser l’audit NSG avec la vue de groupe de sécurité réseau Network Watcher
 
@@ -129,8 +129,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 L’étape suivante consiste à récupérer l’instance Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `AzNetworkWatcherSecurityGroupView`.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
 ## <a name="get-a-vm"></a>Obtenir une machine virtuelle

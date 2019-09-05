@@ -3,21 +3,20 @@ title: Exécution et déclencheurs du pipeline dans Azure Data Factory | Micro
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155218"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137033"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -279,11 +278,11 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 | Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | chaîne | OUI | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objet | OUI | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | OUI | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | OUI | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Non | 1 | 1 à 1000 | `"interval":10` |
-| **endTime** | chaîne | OUI | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objet | Non | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | string | OUI | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | object | Non | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :

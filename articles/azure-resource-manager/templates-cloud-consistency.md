@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388130"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164764"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -47,7 +47,7 @@ Le reste de ce guide décrit les domaines à prendre en compte lors de la planif
 * Vérifiez que les paramètres de modèle que vous utilisez fonctionnent dans les clouds cibles.
 * Vérifiez que les propriétés propres aux ressources sont disponibles pour les clouds cibles.
 
-Pour une présentation des modèles Azure Resource Manager, consultez [Déploiement de modèle](resource-group-overview.md#template-deployment).
+Pour une présentation des modèles Azure Resource Manager, consultez [Déploiement de modèle](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Assurer le fonctionnement des fonctions des modèles
 

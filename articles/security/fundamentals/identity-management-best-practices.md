@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934686"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195073"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 Dans cet article, nous étudions une collection de bonnes pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure. Ces meilleures pratiques sont issues de notre expérience avec [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), mais également de celle des clients, comme vous.
@@ -93,7 +93,7 @@ Les organisations qui n’intègrent pas leur identité locale avec leur identit
 > Vous devez choisir dans quels répertoires les comptes critiques résideront, et si la station de travail d’administrateur utilisée sera gérée par de nouveaux service cloud ou par des processus existants. L’utilisation de processus d’administration et d’approvisionnement d’identités existants peut réduire certains risques, mais également présenter un risque de compromission d’un compte local par un attaquant et de passage dans le cloud. Vous souhaiterez peut-être utiliser une stratégie différente pour différents rôles (par exemple, administrateur IT vs administrateur d’unité). Deux options s’offrent à vous. La première option consiste à créer des comptes Azure AD qui ne sont pas synchronisées avec votre instance Active Directory locale. Reliez votre station de travail d’administrateur à Azure AD. L’administration et l’application de correctifs sont possibles avec Microsoft Intune. La seconde option consiste à utiliser des comptes d’administrateur existants en synchronisant avec votre instance Active Directory locale. Utilisez des stations de travail existantes dans votre domaine Active Directory pour l’administration et la sécurité.
 
 ## <a name="manage-connected-tenants"></a>Gérer les locataires connectés
-Votre organisation de sécurité a besoin de visibilité pour évaluer les risques et déterminer si les stratégies de votre organisation et les exigences réglementaires sont respectées. Vous devez vous assurer que votre organisation de sécurité a une visibilité de tous les abonnements connectés à votre environnement de production et à votre réseau (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) ou [VPN site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [Administrateur général/Administrateur de société](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) dans Azure AD peuvent élever leurs privilèges d’accès au rôle d’[Administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) et voir tous les abonnements et groupes managés connectés à votre environnement.
+Votre organisation de sécurité a besoin de visibilité pour évaluer les risques et déterminer si les stratégies de votre organisation et les exigences réglementaires sont respectées. Vous devez vous assurer que votre organisation de sécurité a une visibilité de tous les abonnements connectés à votre environnement de production et à votre réseau (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) ou [VPN site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [Administrateur général/Administrateur de société](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) dans Azure AD peuvent élever leurs privilèges d’accès au rôle d’[Administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) et voir tous les abonnements et groupes managés connectés à votre environnement.
 
 Voir [Élever les privilèges d’accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md) pour vous assurer que vous et votre groupe de sécurité pouvez afficher tous les abonnements ou groupes d’administration connectés à votre environnement. Vous devez supprimer ces privilèges d’accès élevés une fois que vous avez évalué les risques.
 

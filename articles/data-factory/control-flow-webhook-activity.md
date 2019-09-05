@@ -3,21 +3,20 @@ title: Activité Webhook dans Azure Data Factory | Microsoft Docs
 description: L’activité Webhook interrompt l’exécution du pipeline jusqu’à ce qu’elle valide le jeu de données attaché avec certains critères spécifiés par l’utilisateur.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c11fb800dba06ab5566647489f020f727860a7ff
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764303"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142403"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 Vous pouvez utiliser une activité de webhook pour contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, les clients peuvent appeler un point de terminaison et passer une URL de rappel. L’exécution du pipeline attend que le rappel soit appelé avant de passer à l’activité suivante.

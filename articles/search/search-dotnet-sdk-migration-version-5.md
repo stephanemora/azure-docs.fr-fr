@@ -2,7 +2,7 @@
 title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 5 - Recherche Azure
 description: Migrez le code vers le SDK .NET Recherche Azure version 5 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c64d13e4bcad11ef729f34ee71b7c7461a507fc7
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147492"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183247"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Mise à niveau vers la version 5 du SDK .NET Recherche Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Modifier, effectuer l’apprentissage d’une application, Go - LUIS
+title: 'Démarrage rapide : Modifier, effectuer l’apprentissage d’une application, Go - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide sur le langage Go, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’entraînement de l’application.
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 690ea26cb5c6effda71ec1d8236c6dabd02f02ee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 84704e000688c6681773b14542d80a1046228c3f
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560549"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307620"
 ---
 # <a name="quickstart-change-model-using-go"></a>Démarrage rapide : Modifier un modèle à l'aide de Go
 

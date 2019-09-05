@@ -1,18 +1,18 @@
 ---
 title: Comptes professionnels d’entreprise et Espace partenaires
 description: Comment vérifier si votre entreprise possède un compte professionnel configuré avec Microsoft, créer un nouveau compte professionnel ou configurer plusieurs comptes professionnels à utiliser avec l’Espace partenaires.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: d9326cab6cb5ed4ca76c9a84654697f9f90bcfcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619549"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194279"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Comptes professionnels d’entreprise et Espace partenaires
 

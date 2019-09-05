@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: be37768a5cef38ae0dc49e12f1d83ba8005ab961
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295168"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194180"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD
 
@@ -81,7 +81,7 @@ Les autres rôles intégrés permettent de gérer des ressources Azure spécifiq
 
 Seuls le portail Azure et les API Azure Resource Manager prennent en charge RBAC. Les utilisateurs, les groupes et les applications qui se voient attribuer des rôles RBAC ne peuvent pas utiliser les [API du modèle de déploiement classique Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Dans le portail Azure, les attributions de rôles avec RBAC s’affichent dans le panneau **Contrôle d’accès (IAM)**. Ce panneau se trouve dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
+Dans le portail Azure, les attributions de rôles avec RBAC s’affichent dans le panneau **Contrôle d’accès (IAM)** . Ce panneau se trouve dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
 
 ![Panneau Contrôle d’accès IAM dans le portail Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -97,7 +97,7 @@ Les rôles d’administrateur Azure AD sont utilisés pour gérer les ressources
 
 | Rôle d’administrateur Azure AD | Autorisations | Notes |
 | --- | --- | --- |
-| [Administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Gestion de l’accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi que les services qui sont fédérés à Azure Active Directory</li><li>Attribution des rôles d’administrateur à d’autres personnes</li><li>Réinitialisation des mots de passe des utilisateurs et de tous les autres administrateurs</li></ul> | La personne qui s’inscrit au locataire Azure Active Directory devient administrateur général. |
+| [Administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gestion de l’accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi que les services qui sont fédérés à Azure Active Directory</li><li>Attribution des rôles d’administrateur à d’autres personnes</li><li>Réinitialisation des mots de passe des utilisateurs et de tous les autres administrateurs</li></ul> | La personne qui s’inscrit au locataire Azure Active Directory devient administrateur général. |
 | [Administrateur d’utilisateurs](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Création et gestion de tous les aspects liés aux utilisateurs et aux groupes</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li><li>Changement des mots de passe des utilisateurs, des administrateurs du support technique et autres administrateurs d’utilisateurs</li></ul> |  |
 | [Administrateur de facturation](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Achats</li><li>Gérer les abonnements</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li></ul> |  |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991890"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142992"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
@@ -39,10 +39,10 @@ Voici une liste d’outils que vous pouvez utiliser pour créer un conteneur pou
 
 |Outil | Assistance |
 |---|--|
-|Explorateur de stockage Azure | [Créer un conteneur à l’aide de l’Explorateur Stockage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Explorateur de stockage Azure | [Créer un conteneur à l’aide de l’Explorateur Stockage](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [Créer un conteneur d'objets blob ou un partage de fichiers à l'aide d'AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Interface de ligne de commande (CLI) d’un conteneur Hadoop (HDFS) avec HDInsight |[Créer un conteneur en utilisant HDFS avec HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Code dans un notebook Azure Databricks|[Créer un conteneur de compte de stockage (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Créer un conteneur et le monter (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Interface de ligne de commande (CLI) d’un conteneur Hadoop (HDFS) avec HDInsight |[Créer un conteneur en utilisant HDFS avec HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Code dans un notebook Azure Databricks|[Créer un conteneur de compte de stockage (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Créer un conteneur et le monter (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 Pour créer des systèmes de fichiers, le plus simple consiste à utiliser l'Explorateur Stockage ou AzCopy. La création de systèmes de fichiers à l'aide de HDInsight et Databricks nécessite un peu plus de travail. Si vous prévoyez malgré tout d'utiliser des clusters HDInsight ou Databricks pour traiter vos données, commencez par créer vos clusters, puis utilisez l'interface CLI de HDFS pour créer vos systèmes de fichiers.  
 

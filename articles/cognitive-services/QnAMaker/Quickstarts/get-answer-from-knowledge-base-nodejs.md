@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: e80f852a48d7da9480e6c0eddc675e6bcf524eb7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ce8d0d669af93d4886b4bca25f67e9261e5af20a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562974"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308120"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec Node.js
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Node.js
 
 Ce guide de démarrage rapide vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances QnA Maker publiée. La base de connaissances contient des questions et réponses de [sources de données](../Concepts/data-sources-supported.md) telles que des FAQ. La [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) est envoyée au service QnA Maker. La [réponse](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclut la réponse la plus prévisible. 
 

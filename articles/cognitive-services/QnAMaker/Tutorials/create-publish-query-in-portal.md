@@ -1,5 +1,5 @@
 ---
-title: Créer, publier et répondre dans QnA Maker
+title: 'Didacticiel : Créer, publier et répondre dans QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Créez une base de connaissances avec des questions et réponses à partir d’un forum aux questions web public. Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande cURL. Ensuite, créez un bot et testez-le avec la même question.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a13e0cb0e594571344b16d007ef13475b384b73d
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: 6cc509b9f9a9087fbe832dbd35b3dfd8d60a6577
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693000"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308062"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
 

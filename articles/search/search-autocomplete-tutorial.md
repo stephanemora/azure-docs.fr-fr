@@ -1,19 +1,19 @@
 ---
 title: Ajouter les suggestions et l’autocomplétion dans une zone de recherche - Recherche Azure
 description: Activez les actions de requête prédictives dans la Recherche Azure en créant des suggesteurs et en formulant des requêtes qui remplissent une zone de recherche avec des termes ou des expressions complets.
-manager: pablocas
+manager: nitinme
 author: mrcarter8
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
-ms.openlocfilehash: dc8bc43d6d7b17d1ecd4cf2a1dbe7b2890594e55
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ec343228e32c9dd6fb126560a7a17b54c5e36cb
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640464"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183294"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ajouter les suggestions ou l’autocomplétion à votre application Recherche Azure
 

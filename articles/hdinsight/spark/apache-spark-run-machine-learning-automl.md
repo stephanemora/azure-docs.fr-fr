@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141183"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé (AutoML) sur Apache Spark dans Azure HDInsight
 
@@ -34,7 +34,7 @@ Vous pouvez également utiliser des notebooks Zeppelin pour utiliser AutoML.
 
 ## <a name="authentication-for-workspace"></a>Authentification pour l’espace de travail
 
-La création d’espace de travail et la soumission d’expérience nécessitent un jeton d’authentification. Ce jeton peut être généré à l’aide d’une [application Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). Un [utilisateur Azure AD](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) peut également générer le jeton d’authentification requis, si l’authentification multifacteur n’est pas activée sur le compte.  
+La création d’espace de travail et la soumission d’expérience nécessitent un jeton d’authentification. Ce jeton peut être généré à l’aide d’une [application Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). Un [utilisateur Azure AD](/azure/python/python-sdk-azure-authenticate) peut également générer le jeton d’authentification requis, si l’authentification multifacteur n’est pas activée sur le compte.  
 
 L’extrait de code suivant crée un jeton d’authentification à l’aide d’une **application Azure AD**.
 

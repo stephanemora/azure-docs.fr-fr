@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002842"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140789"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Python dans Azure Databricks
 
@@ -64,7 +64,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |---|---|---|
-|Nom|Nom de l'activité dans le pipeline.|OUI|
+|name|Nom de l'activité dans le pipeline.|OUI|
 |description|Texte décrivant l’activité.|Non|
 |Type|Pour l’activité Databricks Python, le type d’activité est DatabricksSparkPython.|OUI|
 |linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Python. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|

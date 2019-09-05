@@ -1,27 +1,21 @@
 ---
-title: Outils d’ingestion de données de la machine virtuelle DSVM - Azure | Microsoft Docs
+title: Code d’ingestion de données
+titleSuffix: Azure Data Science Virtual Machine
 description: En savoir plus sur les outils et utilitaires d’ingestion des données préinstallés sur la Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: vijetaj
-ms.openlocfilehash: 58bfab43d39f050e19687c30a61e05892fffc3f2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 2d3d37bcb6ee4bae82d82cf676211e9e1546cfad
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060613"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191984"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 

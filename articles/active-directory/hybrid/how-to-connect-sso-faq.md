@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "60242225"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
@@ -39,7 +39,7 @@ L’authentification unique transparente est une fonctionnalité gratuite et il 
 
 Non. L’authentification unique transparente est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
+## <a name="what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
 
 Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente (par ex. les utilisateurs n’ont pas besoin d’entrer leur nom d’utilisateur ou mot de passe) :
 

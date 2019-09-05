@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: f6ae466d10d585b46c9c71614cfeff6b688e6e48
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019423"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231644"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Déployer l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -114,7 +114,7 @@ Vous venez de passer en revue la procédure de déploiement de l’exemple de bl
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

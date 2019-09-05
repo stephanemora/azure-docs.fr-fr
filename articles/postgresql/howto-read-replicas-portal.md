@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: d0f29e2c01d6295935ac56cb19c37e1ad6bbd21b
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/04/2019
+ms.openlocfilehash: bd1317242f84b4d8bd039da89d991a73f6cd3781
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907377"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309314"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Créer et gérer les réplicas en lecture dans Azure Database pour PostgreSQL (serveur unique) à partir du portail Azure
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir du portail Azure. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
 
 ## <a name="prerequisites"></a>Prérequis

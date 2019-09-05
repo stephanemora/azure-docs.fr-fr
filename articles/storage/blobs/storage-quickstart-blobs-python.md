@@ -3,16 +3,16 @@ title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objet
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 12/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0eb4558b7c9c08fc6df964a7e45328a83c60352b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 059e41b744ad92cdec9057e4a17f470b5b769c62
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721982"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142965"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Démarrage rapide : charger, télécharger et répertorier des objets blob avec Python
 
@@ -158,8 +158,8 @@ Téléchargez les objets blob sur votre disque local à l’aide de la méthode 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(
-    local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
+   '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)

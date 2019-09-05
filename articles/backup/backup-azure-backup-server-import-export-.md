@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/8/2018
+ms.date: 05/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: 0f60fbf22541e5fdd003d0ab663b5905cd31adcd
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c542abe0e778b9204a23ccea0f3617656ba101e1
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737232"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210441"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.

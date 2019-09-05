@@ -3,15 +3,15 @@ title: Suppression du mode complet Azure Resource Manager par type de ressource
 description: Montre comment les types de ressources gèrent la suppression du mode complet dans les modèles Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7f804e61f77b745aa654852f4c1413a8f4bf53b4
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779949"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194396"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -207,7 +207,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | agents | Non |
 > | anonymousapiusers | Non |
 > | configuration | Non |
-> | journaux d’activité | Non |
+> | logs | Non |
 > | reports | Non |
 > | servicehealthmetrics | Non |
 > | services | Non |
@@ -430,7 +430,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | blockchainMembers | OUI |
-> | observateurs | OUI |
+> | watchers | OUI |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -730,7 +730,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Departments | Non |
 > | Dimensions | Non |
 > | EnrollmentAccounts | Non |
-> | Exportations | Non |
+> | Exports | Non |
 > | ExternalBillingAccounts | Non |
 > | ExternalBillingAccounts/Alerts | Non |
 > | ExternalBillingAccounts/Dimensions | Non |
@@ -741,7 +741,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ExternalSubscriptions/Dimensions | Non |
 > | ExternalSubscriptions/Forecast | Non |
 > | ExternalSubscriptions/Query | Non |
-> | Prévision | Non |
+> | Forecast | Non |
 > | Requête | Non |
 > | inscription | Non |
 > | Reportconfigs | Non |
@@ -1692,7 +1692,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | agrégations | Non |
 > | alertRules | Non |
-> | signets | Non |
+> | bookmarks | Non |
 > | cas | Non |
 > | dataConnectors | Non |
 > | entities | Non |

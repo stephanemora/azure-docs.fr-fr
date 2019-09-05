@@ -3,23 +3,20 @@ title: 'Tutoriel Data Factory : Premier pipeline de données | Microsoft Docs'
 description: Ce didacticiel Azure Data Factory vous montre comment créer et planifier une fabrique de données qui traite les données à l’aide du script Hive sur un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2dd2edfabff51c749890fe20d47a29c1ec39947c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839436"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140378"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
 > [!div class="op_single_selector"]
