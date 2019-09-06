@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575888"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098954"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Créer et gérer des environnements pour l’entraînement et le déploiement
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>Créer automatiquement des environnements
 
-Créez automatiquement un environnement en soumettant une exécution d’entraînement avec la méthode [submit()](). Quand vous soumettez une exécution d’entraînement, la génération d’un nouvel environnement peut prendre quelques minutes en fonction de la taille des dépendances nécessaires. 
+Créez automatiquement un environnement en soumettant une exécution d’entraînement avec la méthode submit(). Quand vous soumettez une exécution d’entraînement, la génération d’un nouvel environnement peut prendre quelques minutes en fonction de la taille des dépendances nécessaires. 
 
 Si vous ne spécifiez pas d’environnement dans votre configuration d’exécution avant de soumettre l’exécution, un environnement par défaut est automatiquement créé.
 

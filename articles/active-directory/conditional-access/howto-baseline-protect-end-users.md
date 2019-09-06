@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0f1a2e0bad39b54edc153416e4120bbc6912578c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532926"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125451"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de base : Protection de l’utilisateur final (préversion)
 
@@ -24,7 +24,7 @@ Nous avons tendance à considérer que les comptes administrateur sont les seuls
 
 Pour trouver un équilibre raisonnable entre sécurité et convivialité, les utilisateurs ne doivent pas être invités à s’authentifier chaque fois qu’ils se connectent. Des demandes d’authentification correspondant à un comportement normal, telles qu’une connexion à l’aide d’un même appareil depuis un même emplacement, sont peu susceptibles de constituer une menace. Seules les connexions jugées risquées et présentant les caractéristiques d’un accès malveillant devraient justifier une demande d’authentification multifacteur.
 
-La protection de l’utilisateur final est une [stratégie de base](concept-baseline-protection.md) d’authentification multifacteur qui protège tous les utilisateurs au sein d’annuaire, incluant tous les rôles administrateur. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrivent pour l’authentification multifacteur via l’application d’authentification. Les utilisateurs peuvent ignorer l’invite d’inscription à l’authentification multifacteur pendant 14 jours à l’issue desquels il ne peuvent plus se connecter sans authentification multifacteur. Une fois inscrits à l’authentification multifacteur, les utilisateurs sont invités à s’identifier de cette manière uniquement lors de tentatives de connexion risquées. Les comptes d’utilisateurs compromis sont bloqués jusqu’à ce que leur mot de passe soit réinitialisé et que les risques aient été écartés.
+La protection de l’utilisateur final est une [stratégie de base](concept-baseline-protection.md) d’authentification multifacteur qui protège tous les utilisateurs au sein d’annuaire, incluant tous les rôles administrateur. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrivent pour l’authentification multifacteur via l’application d’authentification. Les utilisateurs peuvent ignorer l’invite d’inscription à l’authentification multifacteur pendant 14 jours à l’issue desquels il ne peuvent plus se connecter sans authentification multifacteur. Une fois inscrits à l’authentification multifacteur, les utilisateurs sont invités à s’identifier de cette manière uniquement lors de tentatives de connexion risquées. Les comptes d’utilisateurs compromis sont bloqués jusqu’à ce que leur mot de passe soit réinitialisé et que les détections de risques aient été écartées.
 
 > [!NOTE]
 > Cette stratégie vaut pour tous les utilisateurs, y compris les comptes invités, et est appliquée lors de la connexion à toutes les applications.
@@ -33,7 +33,7 @@ La protection de l’utilisateur final est une [stratégie de base](concept-base
 
 Pour protéger nos clients, le service de Microsoft en charge des informations d’identification ayant fuité recherche des paires nom d’utilisateur/mot de passe accessibles au public. Si elles correspondent à l’un de nos utilisateurs, nous contribuons immédiatement à sécuriser le compte correspondant. Les utilisateurs dont les informations d’identification ont fuité sont confirmés comme étant compromis. Leur connexion est bloquée jusqu’à ce que leur mot de passe soit réinitialisé.
 
-Les utilisateurs titulaires d’une licence Azure AD Premium peuvent restaurer l’accès via une réinitialisation de mot de passe en libre-service (SSPR) si cette fonctionnalité est activée dans leur annuaire. Les utilisateurs dépourvus d’une telle licence Premium qui se retrouvent bloqués doivent demander à un administrateur d’effectuer une réinitialisation manuelle du mot de passe et de supprimer l’indicateur de risque de l’utilisateur.
+Les utilisateurs titulaires d’une licence Azure AD Premium peuvent restaurer l’accès via une réinitialisation de mot de passe en libre-service (SSPR) si cette fonctionnalité est activée dans leur annuaire. Les utilisateurs dépourvus d’une licence Premium qui se retrouvent bloqués doivent demander à un administrateur d’effectuer une réinitialisation manuelle du mot de passe et de supprimer la détection de risques de l’utilisateur marqué d’un indicateur.
 
 ### <a name="steps-to-unblock-a-user"></a>Étapes pour débloquer un utilisateur
 

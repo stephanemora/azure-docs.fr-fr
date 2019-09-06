@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129174"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -69,13 +69,14 @@ Les limitations sont appliquées en fonction de la capacité et du type de réf�
 
 La figure suivante illustre un environnement Time Series Insights ayant une référence SKU S1 et une capacité de 3 unités. Cet environnement peut recevoir 3 millions d’événements par jour.
 
-![Capacité actuelle et référence de l’environnement](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Capacité actuelle et référence de l’environnement](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-Par exemple, supposons que cet environnement ingère les messages à partir d’un Event Hub. La figure suivante illustre le taux d’entrée :
+Par exemple, supposons qu’un environnement ingère les messages à partir d’un Event Hub. Le taux d’entrée quotidien est d’environ 67 000 messages. Cela représente environ 46 messages par minute. 
 
-[![Exemple de débit des entrées pour un hub d’événements](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+* Si chaque message de l’Event Hub est aplati dans un seul événement Time Series Insights, aucune limitation ne se produit. 
+* Si chaque message de l’Event Hub est aplati dans 100 événements Time Series Insights, 4 600 événements devraient être ingérés toutes les minutes. 
 
-Le taux d’entrée quotidien est d’environ 67 000 messages. Cela représente environ 46 messages par minute. Si chaque message de l’Event Hub est aplati dans un seul événement Time Series Insights, aucune limitation ne se produit. Si chaque message de l’Event Hub est aplati dans 100 événements Time Series Insights, 4 600 événements devraient être ingérés toutes les minutes. Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). Pour cette configuration, les limitations qui s’appliquent provoquent un décalage.
+Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). 
 
 Pour en savoir plus sur la logique de mise à plat, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
 

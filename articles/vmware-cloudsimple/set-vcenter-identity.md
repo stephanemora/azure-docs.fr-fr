@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6229e78958fdc4995153d99ad02a15804330f1b
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544004"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972647"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
@@ -63,7 +63,7 @@ Utilisez les informations du tableau suivant lors de la configuration de votre d
 Une fois que vous avez les informations du tableau précédent, vous pouvez ajouter votre domaine Active Directory local en tant que source d’identité d’authentification unique sur vCenter.
 
 > [!TIP]
-> Vous trouverez plus d’informations sur les sources d’identité d’authentification unique dans la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">page de documentation VMware</a>.
+> Vous trouverez plus d’informations sur les sources d’identité d’authentification unique dans la [page de documentation VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurer un nouveau domaine Active Directory sur un cloud privé
 

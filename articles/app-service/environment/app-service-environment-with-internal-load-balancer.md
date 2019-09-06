@@ -10,17 +10,16 @@ ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130600"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069897"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 
@@ -76,7 +75,7 @@ La création d’une application dans un ILB ASE est identique à la création d
 3. Sélectionnez votre abonnement.
 4. Sélectionnez ou créez un groupe de ressources.
 5. Sélectionnez ou créez un plan App Service. Si vous créez un plan App Service, sélectionnez votre environnement App Service comme emplacement, puis choisissez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, vous sélectionnez votre environnement App Service comme emplacement, ainsi que le pool de workers. Lorsque vous spécifiez le nom de l’application, vous voyez que le sous-domaine sous le nom de votre application est remplacé par le sous-domaine de votre environnement App Service. 
-6. Sélectionnez **Créer**. Cochez la case **Épingler au tableau de bord** si vous souhaitez que l’application s’affiche dans votre tableau de bord. 
+6. Sélectionnez **Create** (Créer). Cochez la case **Épingler au tableau de bord** si vous souhaitez que l’application s’affiche dans votre tableau de bord. 
 
 ![][2]
 

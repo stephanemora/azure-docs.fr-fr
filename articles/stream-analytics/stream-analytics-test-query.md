@@ -7,49 +7,103 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e0ca75bf3d3a8d9d1029d42f8609b3c4c627b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620828"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990998"
 ---
-# <a name="test-a-stream-analytics-query-with-sample-data"></a>Tester une requête Stream Analytics avec des exemples de données
+# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Tester une tâche Azure Stream Analytics avec des exemples de données
 
-À l’aide d’Azure Stream Analytics, vous pouvez échantillonner des données à partir d’entrées ou charger des exemples de données pour tester des requêtes dans le portail Azure sans démarrer ni arrêter une tâche.
+Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local.
 
-## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Charger ou échantillonner des données à partir d’une source live pour tester la requête
+## <a name="sample-incoming-data-from-input"></a>Exemple de données entrantes à partir d’une entrée
 
-1. Connectez-vous au portail Azure. 
+Azure Stream Analytics récupère automatiquement les événements à partir de votre entrée de streaming. Vous pouvez exécuter des requêtes sur l’exemple par défaut ou définir un délai d’exécution spécifique pour l’exemple.
+
+1. Connectez-vous au portail Azure.
 
 2. Localisez votre tâche Stream Analytics existante et sélectionnez-la.
 
 3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête. 
 
-4. Pour tester votre requête, vous pouvez soit échantillonner des données à partir d’une entrée live, soit les charger à partir d’un fichier. Les données doivent être sérialisées au format JSON, CSV ou AVRO. L’exemple d’entrée doit être encodé en UTF-8 et non compressé. Seul le séparateur virgule (,) est pris en charge pour le test d’entrée CSV sur le portail.
+4. Pour afficher un exemple de liste d’événements entrants, sélectionnez l’icône d’entrée avec un fichier et les exemples d’événements s’affichent automatiquement dans **l’aperçu d’entrée**. 
 
-    1. Avec des entrées live : cliquez avec le bouton droit sur l’une de vos entrées. Ensuite, sélectionnez **Échantillonner des données à partir de l’entrée**. Dans l’écran suivant, vous pouvez définir la durée de l’échantillonnage. L’échantillonnage d’événements à partir d’une source live permet de récupérer jusqu’à 1 000 événements (ou 1 Mo, selon ce qui survient le premier), donc les données échantillonnées peuvent ne pas représenter l’intégralité de l’intervalle de temps indiqué.
+   a. Le type de sérialisation de vos données est automatiquement détecté (JSON ou CSV). Vous pouvez le modifier manuellement en JSON, CSV, AVRO, en modifiant l’option dans le menu déroulant.
+    
+   b. Utilisez le sélecteur pour afficher vos données au format **Tableau** ou **Brut**.
+    
+   c. Si les données qui apparaissent ne sont pas à jour, sélectionnez **Actualiser** pour afficher les événements les plus récents.
 
-    1. Avec un fichier : cliquez avec le bouton droit sur l’une de vos entrées. Ensuite, sélectionnez **Charger un exemple de données du fichier**. 
+   Voici un exemple de données au **format tableau** :
 
-    ![Test des requêtes dans l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+   ![Exemple d’entrée Azure Stream Analytics au format tableau](./media/stream-analytics-test-query/asa-sample-table.png)
 
-5. Une fois l’échantillonnage ou le chargement terminé, cliquez sur **Tester** pour tester cette requête en la comparant avec l’exemple de données que vous avez fourni.
+   Voici un exemple de données au **format brut** :
 
-    ![Exemple de données de test des requêtes dans l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+   ![Exemple d’entrée Azure Stream Analytics au format brut](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-6. Si vous avez besoin de la sortie du test pour une utilisation ultérieure, la sortie de votre requête s’affiche dans le navigateur avec un lien de téléchargement des résultats. 
+5. Pour tester votre requête avec des données entrantes, sélectionnez **Tester la requête**. Les résultats s’affichent dans l’onglet **Résultats du test**. Vous pouvez également sélectionner **Télécharger les résultats** pour télécharger les résultats.
 
-7. Modifiez de manière itérative votre requête et testez-la à nouveau pour voir comment la sortie change.
+   ![Exemple de résultats de test de requête Azure Stream Analytics](./media/stream-analytics-test-query/asa-test-query.png)
 
-   ![Exemple de sortie de l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+6. Pour tester votre requête sur un intervalle de temps spécifique d’événements entrants, sélectionnez **Sélectionner un intervalle de temps**.
+   
+   ![Intervalle de temps Azure Stream Analytics pour un exemple d’événements entrants](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-   Quand vous utilisez plusieurs sorties dans une requête, les résultats sont affichés dans des onglets distincts pour vous permettre de basculer facilement entre eux.
+7. Définissez l’intervalle de temps des événements que vous souhaitez utiliser pour tester votre requête et sélectionnez **Exemple**. Dans cet intervalle de temps, vous pouvez récupérer jusqu’à 1 000 événements ou 1 Mo, selon ce qui se produit en premier.
 
-8. Après avoir vérifié les résultats affichés dans le navigateur, **enregistrez** votre requête. Ensuite, **démarrez** la tâche et laissez-la traiter les événements entrants.
+   ![Intervalle de temps Azure Stream Analytics défini pour un exemple d’événements entrants](./media/stream-analytics-test-query/asa-set-time-range.png)
+
+8. Une fois les événements échantillonnés pour l’intervalle de temps sélectionné, ils s’affichent dans l’onglet **Aperçu d’entrée**.
+
+   ![Afficher les résultats du test Azure Stream Analytics](./media/stream-analytics-test-query/asa-view-test-results.png)
+
+9. Sélectionnez **Réinitialiser** pour voir l’exemple de liste d’événements entrants. Si vous sélectionnez **Réinitialiser**, votre sélection d’intervalle de temps sera perdue. Sélectionnez **Tester la requête** pour tester votre requête et passez en revue les résultats dans l’onglet **Résultats du test**.
+
+10. Lorsque vous apportez des modifications à votre requête, sélectionnez **Enregistrer la requête** pour tester la nouvelle logique de requête. Cela vous permet de modifier de manière itérative votre requête et de la tester à nouveau pour voir comment la sortie change.
+
+11. Après avoir vérifié les résultats affichés dans le navigateur, vous êtes prêt à **Démarrer** le travail.
+
+## <a name="upload-sample-data-from-a-local-file"></a>Charger un exemple de données à partir d’un fichier local
+
+Au lieu d’utiliser des données actives, vous pouvez utiliser des exemples de données à partir d’un fichier local pour tester votre requête Azure Stream Analytics.
+
+1. Connectez-vous au portail Azure.
+   
+2. Localisez votre tâche Stream Analytics existante et sélectionnez-la.
+
+3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête.
+
+4. Pour tester votre requête avec un fichier local, sélectionnez **Charger un exemple d’entrée** dans l’onglet **Aperçu d’entrée**. 
+
+   ![Charger un exemple de fichier Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+
+5. Chargez votre fichier local pour tester la requête. Vous pouvez uniquement charger des fichiers au format JSON, CSV ou AVRO. Sélectionnez **OK**.
+
+   ![Charger un exemple de fichier Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+
+6. Dès que vous chargez le fichier, vous pouvez également voir le contenu du fichier sous la forme d’un tableau ou au format brut. Si vous sélectionnez **Réinitialiser**, les exemples de données retournent vers les données d’entrée entrantes expliquées dans la section précédente. Vous pouvez charger n’importe quel autre fichier pour tester la requête à tout moment.
+
+7. Sélectionnez **Tester la requête** pour tester votre requête par rapport à l’exemple de fichier chargé.
+
+8. Les résultats du test sont affichés en fonction de votre requête. Vous pouvez modifier votre requête et sélectionner **Enregistrer la requête** pour tester la nouvelle logique de requête. Cela vous permet de modifier de manière itérative votre requête et de la tester à nouveau pour voir comment la sortie change.
+
+9. Lorsque vous utilisez plusieurs sorties dans la requête, les résultats sont affichés en fonction de la sortie sélectionnée. 
+
+   ![Sortie sélectionnée Azure Stream Analytics](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
+
+10. Après avoir vérifié les résultats affichés dans le navigateur, vous pouvez **Démarrer** le travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
-> [!div class="nextstepaction"]
-> [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
+
+* [Comprendre les entrées d’Azure Stream Analytics](stream-analytics-add-inputs.md)
+
+* [Comprendre les sorties d’Azure Stream Analytics](stream-analytics-define-outputs.md)

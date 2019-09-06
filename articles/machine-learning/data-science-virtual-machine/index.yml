@@ -12,14 +12,14 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/03/2019
-  ms.openlocfilehash: 503737ab7dbc58d76ffe3c72d2aaff044c25ae5b
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70278584"
+  ms.locfileid: "70308795"
 landingContent:
-- title: À propos de Data Science Virtual Machine
+- title: Bien démarrer avec votre DSVM
   linkLists:
   - linkListType: overview
     links:
@@ -27,8 +27,6 @@ landingContent:
       url: overview.md
     - text: Qu’est-ce que Geo AI DSVM ?
       url: geo-ai-dsvm-overview.md
-- title: Bien démarrer avec votre DSVM
-  linkLists:
   - linkListType: get-started
     links:
     - text: Créer une DSVM Windows
@@ -55,3 +53,5 @@ landingContent:
     links:
     - text: Service Azure Machine Learning
       url: /azure/machine-learning/
+    - text: Comparer nos produits ML
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981461"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306148"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -85,7 +85,7 @@ L’article suivant décrit comment migrer le trafic vers de nouvelles passerell
 | Sud de l’Inde          | 104.211.224.146    |
 | Inde Ouest           | 104.211.160.80     |
 | Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
-| OuJapon Est           | 104.214.148.156, 40.74.100.192 | 191.238.68.11, 40.74.97.10 | 
+| OuJapon Est           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Centre de la Corée        | 52.231.32.42       |
 | Corée du Sud          | 52.231.200.86      |
 | Centre-Nord des États-Unis     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |

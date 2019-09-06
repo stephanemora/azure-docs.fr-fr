@@ -10,17 +10,16 @@ ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324022"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095726"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -115,7 +114,7 @@ En mode Abonnement utilisateur, un coffre de clés Azure appartenant au même gr
 
 Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le groupe de ressources pour le coffre de clés. Spécifiez **Abonnement utilisateur** en tant que mode d’allocation de pool, sélectionnez le coffre de clés, puis cochez la case pour accorder à Azure Batch l’accès au coffre de clés. 
 
-Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, puis sélectionnez **Microsoft Azure batch**. Configurez les **Autorisations du secret** à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**.
+Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, sélectionnez **Ajouter une stratégie d’accès**, puis recherchez **Microsoft Azure Batch**. Une fois les autorisations sélectionnées sous **Autorisations du secret**, vous devez les configurer à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**.
 
 ![Autorisations de secret pour Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 

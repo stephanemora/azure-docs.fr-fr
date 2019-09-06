@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853052"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032875"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -121,7 +121,7 @@ La correspondance approximative est utilisée sur le mot de passe normalisé pou
 
 Exemple : supposons que le mot de passe « abcdef » soit interdit et qu'un utilisateur tente de remplacer son mot de passe par l'un des suivants :
 
-« abcdeg »    * (« f » de fin remplacé par « g »)* « abcdefg »   * (« g » ajouté à la fin)* « abcde »     * (« f » de fin supprimé)*
+« abcdeg »    *(« f » de fin remplacé par « g »)* « abcdefg »   *(« g » ajouté à la fin)* « abcde »     *(« f » de fin supprimé)*
 
 Aucun des mots de passe ci-dessus ne correspond précisément au mot de passe interdit « abcdef ». Cependant, comme chaque exemple entre dans le cadre de la distance de modification de 1 par rapport au terme interdit « abcdef », ils sont tous considérés comme étant une correspondance de « abcdef ».
 

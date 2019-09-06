@@ -3,18 +3,18 @@ title: Étendre Azure IoT Central avec des notifications et des règles personna
 description: En tant que développeur de solutions, configurez une application IoT Central afin d’envoyer des notifications par e-mail lorsqu’un appareil cesse d’envoyer des données de télémétrie. Cette solution utilise Azure Stream Analytics et Azure Functions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d89e8f174c7006c1a0f771dd4dfaa816ded3698c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742416"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100984"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Étendre Azure IoT Central avec des règles personnalisées envoyant des notifications
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ### <a name="iot-central-application"></a>Application IoT Central
 
-Créez une application IoT Central à partir de la page [Azure IoT Central - Mes applications](https://aka.ms/iotcentral) avec les paramètres suivants :
+Créez une application IoT Central sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral) avec les paramètres suivants :
 
 | Paramètre | Valeur |
 | ------- | ----- |
@@ -50,7 +50,7 @@ Créez une application IoT Central à partir de la page [Azure IoT Central - Mes
 
 Les exemples et captures d’écran de cet article concernent la région **USA Est**. Choisissez un emplacement proche de vous et assurez-vous de créer toutes vos ressources dans la même région.
 
-### <a name="resource-group"></a>Groupe de ressources
+### <a name="resource-group"></a>Resource group
 
 Utilisez le [portail Azure pour créer un groupe de ressources](https://portal.azure.com/#create/Microsoft.ResourceGroup) appelé **DetectStoppedDevices** afin de contenir les autres ressources que vous créez. Créez vos ressources Azure dans le même emplacement que votre application IoT Central.
 
@@ -62,9 +62,9 @@ Utilisez le [portail Azure pour créer un espace de noms Event Hubs](https://por
 | ------- | ----- |
 | Nom    | Choisissez le nom de votre espace de noms |
 | Niveau tarifaire | De base |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | DetectStoppedDevices |
-| Lieu | USA Est |
+| Subscription | Votre abonnement |
+| Resource group | DetectStoppedDevices |
+| Location | USA Est |
 | Unités de débit | 1 |
 
 ### <a name="stream-analytics-job"></a>Travail Stream Analytics
@@ -74,9 +74,9 @@ Utilisez le [portail Azure pour créer un travail Stream Analytics](https://port
 | Paramètre | Valeur |
 | ------- | ----- |
 | Nom    | Choisissez le nom de votre travail |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | DetectStoppedDevices |
-| Lieu | USA Est |
+| Subscription | Votre abonnement |
+| Resource group | DetectStoppedDevices |
+| Location | USA Est |
 | Environnement d’hébergement | Cloud |
 | Unités de diffusion en continu | 3 |
 
@@ -87,11 +87,11 @@ Utilisez le [portail Azure pour créer une application de fonction](https://port
 | Paramètre | Valeur |
 | ------- | ----- |
 | Nom de l’application    | Choisissez le nom de votre application de fonction |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | DetectStoppedDevices |
-| SE | Windows |
+| Subscription | Votre abonnement |
+| Resource group | DetectStoppedDevices |
+| OS | Windows |
 | Plan d’hébergement | Plan de consommation |
-| Lieu | USA Est |
+| Location | USA Est |
 | Pile d’exécution | .NET |
 | Stockage | Création |
 
@@ -103,8 +103,8 @@ Utilisez le [portail Azure pour créer un compte SendGrid](https://portal.azure.
 | ------- | ----- |
 | Nom    | Choisissez le nom de votre compte SendGrid |
 | Mot de passe | Créez un mot de passe |
-| Abonnement | Votre abonnement |
-| Groupe de ressources | DetectStoppedDevices |
+| Subscription | Votre abonnement |
+| Resource group | DetectStoppedDevices |
 | Niveau tarifaire | F1 Gratuit |
 | Informations de contact | Remplissez les informations requises |
 
@@ -243,7 +243,7 @@ La solution utilise une requête Stream Analytics pour détecter le moment où u
     | Paramètre | Valeur |
     | ------- | ----- |
     | Alias d’entrée | centraltelemetry |
-    | Abonnement | Votre abonnement |
+    | Subscription | Votre abonnement |
     | Espace de noms Event Hub | Espace de noms de votre Event Hub |
     | Nom de l’Event Hub | Utiliser le nom existant : **centralexport** |
 
@@ -253,7 +253,7 @@ La solution utilise une requête Stream Analytics pour détecter le moment où u
     | Paramètre | Valeur |
     | ------- | ----- |
     | Alias de sortie | emailnotification |
-    | Abonnement | Votre abonnement |
+    | Subscription | Votre abonnement |
     | Conteneur de fonctions | Votre application de fonction |
     | Fonction  | HttpTrigger1 |
 
@@ -305,7 +305,7 @@ La solution utilise une requête Stream Analytics pour détecter le moment où u
 
 ## <a name="configure-export-in-iot-central"></a>Configurer l’exportation dans IoT Central
 
-Accédez à l’[application IoT Central](https://aka.ms/iotcentral) que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
+Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
 
 1. Accédez à la page **Exportation de données continue**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
 1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** :

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0be98a66e8f614ae0cc605f5a30a480752f46ab2
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: e6f781926e2a30ecf6d34274b20991b81f0bb96d
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544048"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972907"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés
 
@@ -31,7 +31,7 @@ Ouvrez l’onglet VLANs/Subnets (Réseaux locaux virtuels/sous-réseaux) dans la
 5. Entrez un ID de réseau local virtuel.
 6. Entrez le nom du sous-réseau.
 7. Pour activer le routage sur le réseau local virtuel (sous-réseau), spécifiez la plage CIDR du sous-réseau. Vérifiez que la plage CIDR ne chevauche aucun de vos sous-réseaux locaux, sous-réseaux Azure ou sous-réseaux de passerelle.
-8. Cliquez sur **Submit** (Envoyer).
+8. Cliquez sur **Envoyer**.
 
     ![Créer un réseau local virtuel/sous-réseau](media/create-new-vlan-subnet-details.png)
 

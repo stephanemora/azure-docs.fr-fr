@@ -9,12 +9,8 @@
   items:
     - name: Utilisation du kit de développement logiciel (SDK) client
       items:
-        - name: Détecter des visages dans une image
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: Kit de développement logiciel (SDK) .NET
+          href: Quickstarts/csharp-sdk.md
         - name: Kit de développement logiciel (SDK) Python
           href: QuickStarts/python-sdk.md
     - name: Utilisation de l’API REST

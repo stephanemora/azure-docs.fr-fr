@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 109cad9988645b4033d7d3da10c6da09540fa811
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879401"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972421"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé CloudSimple pour l’installation d’Oracle RAC
 
@@ -185,13 +185,13 @@ Pour créer une machine virtuelle pour Oracle, clonez une machine virtuelle exis
 
 ### <a name="create-vms"></a>Créer des machines virtuelles
 
-1. Dans vCenter, cliquez sur l'icône **Hosts and Clusters** (Hôtes et clusters). Sélectionnez le cluster que vous avez créé pour Oracle.
+1. Dans vCenter, cliquez sur l'icône **Hôtes et clusters**. Sélectionnez le cluster que vous avez créé pour Oracle.
 2. Cliquez avec le bouton droit de la souris sur le cluster et sélectionnez **New Virtual Machine** (Nouvelle machine virtuelle).
-3. Sélectionnez **Create new virtual machine** (Créer une machine virtuelle), puis cliquez sur **Next**.
+3. Sélectionnez **Créer une machine virtuelle**, puis cliquez sur **Suivant**.
 4. Nommez la machine, sélectionnez l’emplacement de la machine virtuelle Oracle, puis cliquez sur **Next**.
 5. Sélectionnez la ressource de cluster, puis cliquez sur **Next**.
 6. Sélectionnez la banque de données vSAN pour le cluster, puis cliquez sur **Next**.
-7. Conservez la sélection de compatibilité ESXi 6.5 par défaut, puis cliquez sur **Next**.
+7. Conservez la sélection de compatibilité ESXi 6.5 par défaut, puis cliquez sur **Suivant**.
 8. Sélectionnez le système d’exploitation invité du fichier ISO pour la machine virtuelle que vous créez, puis cliquez sur **Next**.
 9. Sélectionnez la taille de disque dur requise pour l’installation du système d’exploitation.
 10. Pour installer l’application sur un autre appareil, cliquez sur **Add new device** (Ajouter un nouvel appareil).

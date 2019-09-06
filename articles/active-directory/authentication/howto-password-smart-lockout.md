@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637590"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125018"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
@@ -45,7 +45,7 @@ Lorsque vous utilisez [l’authentification directe](../hybrid/how-to-connect-pt
 * Le seuil de verrouillage d’Azure AD est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte Active Directory soit au moins deux ou trois fois supérieur au seuil de verrouillage d’Azure AD. 
 * La durée de verrouillage d’Azure AD doit être plus longue que la durée après laquelle réinitialiser le compteur de verrouillage de compte Active Directory. N’oubliez pas que la durée d’Azure AD est définie en secondes, tandis que la durée d’AD est définie en minutes. 
 
-Par exemple, si vous souhaitez que votre compteur Azure AD soit supérieur à celui d’AD, Azure AD doit être de 120 secondes (2 minutes) tandis que votre AD local doit être défini sur 1 minute (60 secondes).
+Par exemple, si vous souhaitez que votre compteur Azure AD soit supérieur à celui d’AD, Azure AD doit être défini sur 120 secondes (2 minutes) tandis que votre AD local doit être défini sur 1 minute (60 secondes).
 
 > [!IMPORTANT]
 > Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs s’ils ont été verrouillés à l’aide de la fonctionnalité Verrouillage intelligent. L’administrateur doit attendre que la durée de verrouillage expire. En revanche, l’utilisateur peut procéder à un déverrouillage en utilisant la réinitialisation de mot de passe en libre-service (SSPR) à partir d’un appareil ou d’un emplacement de confiance.
@@ -67,7 +67,7 @@ En fonction des besoins de votre organisation, les valeurs de verrouillage intel
 
 Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre organisation, procédez aux étapes suivantes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), et cliquez sur **Azure Active Directory**, puis sur **Méthodes d’authentification**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** > **Méthodes d’authentification** > **Protection par mot de passe**.
 1. Définissez le **Seuil de verrouillage**, c’est-à-dire le nombre d’échecs de connexions autorisé avant qu’un compte ne soit verrouillé. La valeur par défaut est de 10.
 1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage. La valeur par défaut est 60 secondes (une minute).
 

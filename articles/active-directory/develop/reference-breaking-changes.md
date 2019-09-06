@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931786"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125412"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -41,7 +41,24 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-Août 2019 : Appliquer la sémantique POST en fonction des règles d’analyse d’URL : les paramètres en double déclenchent une erreur, les guillemets entre les paramètres ne sont plus ignorés et la [marque d'ordre d'octet](https://www.w3.org/International/questions/qa-byte-order-mark) est ignorée.
+Septembre 2019 : Application supplémentaire de la sémantique POST en fonction des règles d’analyse d’URL : les paramètres en double déclenchent une erreur et la [marque d'ordre d'octet](https://www.w3.org/International/questions/qa-byte-order-mark) est ignorée.
+
+## <a name="august-2019"></a>Août 2019
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>La sémantique de formulaire POST sera appliquée plus rigoureusement, les espaces et les guillemets seront ignorés
+
+**Date d’effet** : 2 septembre 2019
+
+**Points de terminaison impactés** : V1.0 et v2.0
+
+**Protocole impacté** : Partout où POST est utilisé ([informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [utilisation de code d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) et [utilisation de jeton d’actualisation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+À partir de la semaine du 2 septembre, les demandes d’authentification qui utilisent la méthode POST seront validées à l’aide de normes HTTP plus strictes.  Plus précisément, les espaces et les guillemets doubles (“) ne seront plus supprimés des valeurs du formulaire de demande. Ces modifications ne devraient pas bloquer les clients existants et permettront de s’assurer que les demandes envoyées à Azure AD sont gérées de manière fiable à chaque fois. À l’avenir (voir ci-dessus), nous prévoyons également de rejeter les paramètres dupliqués et d’ignorer la marque d’ordre d'octet dans les demandes. 
+
+Exemple :
+
+Aujourd’hui, `?e=    "f"&g=h` est analysé de la même façon que `?e=f&g=h`, donc `e` == `f`.  Avec ce changement, il est maintenant analysé comme `e` == `    "f"`. Il est peu probable que ce soit un argument valide, et la demande devrait maintenant échouer. 
+
 
 ## <a name="july-2019"></a>Juillet 2019
 

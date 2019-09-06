@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826295"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129356"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -160,7 +160,7 @@ En savoir plus :
 
 ## <a name="identity-protection"></a>Identity Protection
 
-Azure AD Identity Protection est un service de sécurité offrant une vue centralisée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. Identity Protection tire parti des fonctions de détection d’anomalie Azure AD existantes, disponibles via les rapports d’activités anormales Azure AD. Identity Protection inclut également de nouveaux types d’événements à risque capables de détecter les anomalies en temps réel.
+Azure AD Identity Protection est un service de sécurité offrant une vue centralisée des détections des risques et des vulnérabilités potentielles qui affectent les identités de votre organisation. Identity Protection tire parti des fonctions de détection d’anomalie Azure AD existantes, disponibles via les rapports d’activités anormales Azure AD. Identity Protection inclut également de nouveaux types de détection des risques capables de détecter les anomalies en temps réel.
 
 En savoir plus :
 
