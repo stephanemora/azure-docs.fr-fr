@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534661"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186211"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -113,6 +113,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>Scénario : Installation des mises à jour sans déploiement
+
+### <a name="issue"></a>Problème
+
+Lorsque vous inscrivez une machine Windows à Update Management, vous pouvez constater l’installation des mises à jour sans déploiement.
+
+### <a name="cause"></a>Cause :
+
+Sous Windows, les mises à jour sont installées automatiquement dès qu’elles sont disponibles. Cela peut provoquer une certaine confusion si vous n’avez pas planifié de déploiement de mise à jour sur la machine.
+
+### <a name="resolution"></a>Résolution :
+
+La clé de Registre Windows `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` est définie par défaut sur « 4 » - **téléchargement automatique et installation**.
+
+Nous recommandons aux clients Update Management de définir cette clé sur « 3 » - **téléchargement automatique, mais ne pas installer automatiquement**.
+
+Pour plus d’informations, consultez [Configuration des mises à jour automatiques](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ### <a name="nologs"></a>Scénario : Les machines ne s’affichent pas dans le portail sous Update Management
 
@@ -278,6 +296,7 @@ Double-cliquez sur l’exception affichée en rouge pour voir le message d’exc
 |`0x8024001E`| L’opération de mise à jour a échoué, car le service ou le système était en cours d’arrêt.|
 |`0x8024002E`| Le service Windows Update est désactivé.|
 |`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` utilisent le bon serveur WSUS.        |
+|`0x80072EE2`|Problème de connectivité réseau ou problème de communication avec un serveur WSUS configuré. Vérifiez les paramètres WSUS et assurez-vous qu’il est accessible à partir du client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assurez-vous que le service Windows Update (wuauserv) est en cours d’exécution et qu’il n’est pas désactivé.        |
 |Toute autre exception générique     | Faites une recherche sur Internet pour découvrir les solutions possibles et contactez votre support technique local.         |
 
@@ -339,7 +358,7 @@ Si vous ne pouvez pas résoudre un problème de mise à jour corrective, pour po
 ### <a name="machines-do-not-install-updates"></a>Les machines n’installent pas les mises à jour
 
 * Essayez d’exécuter les mises à jour directement sur la machine. Si la machine ne se met pas à jour, consultez la [liste des erreurs potentielles dans le guide de résolution des problèmes](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Si les mises à jour s’exécutent localement, essayez de supprimer et de réinstaller l’agent sur la machine en suivant les instructions dans [« Supprimer une machine virtuelle d’Update Management »](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management).
+* Si les mises à jour s’exécutent localement, essayez de supprimer et de réinstaller l’agent sur la machine en suivant les instructions dans [« Supprimer une machine virtuelle d’Update Management »](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Je sais que des mises à jour sont disponibles, mais elles n’apparaissent pas comme étant nécessaires sur mes machines
 

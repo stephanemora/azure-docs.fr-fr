@@ -6,21 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 10ddf4c42ac5aa2d1cffd7cbca6930896103d2c5
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.localizationpriority: high
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147777"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307694"
 ---
+::: zone target="docs"
+
 # <a name="azure-data-box-disk-system-requirements"></a>Configuration système requise pour Azure Data Box Disk
 
 Cet article décrit la configuration système importante qui est demandée pour la solution Microsoft Azure Data Box Disk et pour les clients accédant au disque Data Box. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre disque Data Box, puis d’y revenir si nécessaire pendant le déploiement, et après pour son fonctionnement.
 
 La configuration système demandée comprend les plateformes prises en charge pour les clients accédant aux disques, les comptes de stockage pris en charge et les types de stockage.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="review-prerequisites"></a>Vérifier les conditions préalables
+
+1. Vous devez avoir commandé Data Box Disk à l’aide du [Tutoriel : Commander Azure Data Box Disk](data-box-disk-deploy-ordered.md). Vous avez reçu vos disques et un câble de connexion par disque.
+2. Vous avez un ordinateur client disponible à partir duquel vous pouvez copier les données. Votre ordinateur client doit :
+
+    - Exécuter un système d’exploitation pris en charge.
+    - Avoir installé les autres logiciels requis.
+
+::: zone-end
 
 ## <a name="supported-operating-systems-for-clients"></a>Systèmes d’exploitation pris en charge pour les clients
 
@@ -79,8 +95,11 @@ Voici la liste des types de stockages pris en charge pour téléchargement sur A
 | Azure Files  | |
 | Disques managés | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Étape suivante
 
 * [Déployer votre disque Azure Data Box](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 
