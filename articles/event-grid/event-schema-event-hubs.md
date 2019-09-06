@@ -72,15 +72,15 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | chaîne | Chemin du fichier de capture. |
-| fileType | chaîne | Type du fichier de capture. |
-| partitionId | chaîne | ID de partition. |
+| fileUrl | string | Chemin du fichier de capture. |
+| fileType | string | Type du fichier de capture. |
+| partitionId | string | ID de partition. |
 | sizeInBytes | integer | Taille du fichier. |
 | eventCount | integer | Nombre d’événements dans le fichier. |
 | firstSequenceNumber | integer | Plus petit numéro de séquence de la file d’attente. |
 | lastSequenceNumber | integer | Dernier numéro de séquence de la file d’attente. |
-| firstEnqueueTime | chaîne | Première heure de la file d’attente. |
-| lastEnqueueTime | chaîne | Dernière heure de la file d’attente. |
+| firstEnqueueTime | string | Première heure de la file d’attente. |
+| lastEnqueueTime | string | Dernière heure de la file d’attente. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
