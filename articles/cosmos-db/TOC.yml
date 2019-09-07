@@ -455,6 +455,10 @@
           items:
             - name: 1 - Interroger les données
               href: tutorial-query-graph.md
+        - name: Informations de référence
+          items:
+            - name: En-têtes de réponse
+              href: gremlin-headers.md
         - name: Guides pratiques
           items:
             - name: Modélisation des données de graphe
