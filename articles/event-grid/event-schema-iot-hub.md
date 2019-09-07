@@ -150,13 +150,13 @@ Tous les événements contiennent les mêmes données de niveau supérieur :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| id | chaîne | Identificateur unique de l’événement. |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| données | objet | Données d’événement IoT Hub.  |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| id | string | Identificateur unique de l’événement. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| data | object | Données d’événement IoT Hub.  |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 Pour tous les événements IoT Hub, l’objet de données contient les propriétés suivantes :
