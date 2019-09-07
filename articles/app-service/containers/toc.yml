@@ -24,7 +24,7 @@
     - name: Créer une application Ruby
       href: quickstart-ruby.md
     - name: Exécuter un conteneur personnalisé
-      href: quickstart-docker-go.md
+      href: quickstart-docker.md
     - name: Créer une application pour plusieurs conteneurs
       href: quickstart-multi-container.md
 - name: Tutoriels

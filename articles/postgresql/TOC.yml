@@ -194,7 +194,7 @@
       items:
         - name: Portail Azure
           href: howto-auto-grow-storage-portal.md
-        - name: Portail Azure
+        - name: D’Azure CLI
           href: howto-auto-grow-storage-cli.md
     - name: Accéder aux journaux d’activité du serveur
       items:
