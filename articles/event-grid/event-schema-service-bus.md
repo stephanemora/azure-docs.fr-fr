@@ -82,13 +82,13 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | chaîne | Identificateur unique de l’événement. |
-| données | objet | Données d’événement de stockage Blob. |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | string | Identificateur unique de l’événement. |
+| data | string | Données d’événement de stockage Blob. |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
