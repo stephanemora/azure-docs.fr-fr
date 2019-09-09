@@ -450,8 +450,6 @@
           href: control-flow-webhook-activity.md
     - name: Transformations de flux de données
       items:
-        - name: Fichiers à largeur fixe
-          href: how-to-fixed-width.md
         - name: Agrégat
           href: data-flow-aggregate.md
         - name: Ligne Alter
@@ -610,6 +608,10 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: Migrer des données du serveur Netezza local vers Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Transformation à l’aide du mappage de flux de données
+      items:
+        - name: Traiter des fichiers texte à largeur fixe
+          href: how-to-fixed-width.md
 - name: Informations de référence
   items:
     - name: .NET

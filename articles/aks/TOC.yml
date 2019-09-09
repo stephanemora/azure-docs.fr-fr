@@ -159,7 +159,7 @@
               href: configure-azure-cni.md
         - name: Créer un équilibrage de charge interne
           href: internal-lb.md
-        - name: Utiliser un équilibreur de charge standard (préversion)
+        - name: Utiliser un équilibreur de charge standard
           href: load-balancer-standard.md
         - name: Utiliser une adresse IP statique
           href: static-ip.md

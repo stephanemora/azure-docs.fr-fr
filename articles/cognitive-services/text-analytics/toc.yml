@@ -12,7 +12,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Client
+    - name: Bibliothèque cliente
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -54,13 +54,13 @@
   items:
     - name: Appeler l’API Text Analytics
       href: How-tos/text-analytics-how-to-call-api.md
-    - name: Détecter la langue
+    - name: Détection de la langue
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Analyser les sentiments
+    - name: analyse de sentiments
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
-    - name: Extraire des expressions clés
+    - name: "Extraction d’expressions\_clés"
       href: How-tos/text-analytics-how-to-keyword-extraction.md
-    - name: Appeler la reconnaissance d’entité nommée
+    - name: Reconnaissance d’entité nommée
       href: How-tos/text-analytics-how-to-entity-linking.md
     - name: Utiliser des conteneurs
       items:
