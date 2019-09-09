@@ -89,18 +89,18 @@ Un événement contient les données générales suivantes :
 | id | string | Identificateur unique de l’événement. |
 | data | string | Données d’événement de stockage Blob. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| namespaceName | chaîne | Espace de noms Service Bus dans lequel figure la ressource. |
-| requestUri | chaîne | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |
-| entityType | chaîne | Type d’entité Service Bus générant des événements (file d’attente ou abonnement). |
-| queueName | chaîne | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |
-| topicName | chaîne | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
-| subscriptionName | chaîne | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
+| namespaceName | string | Espace de noms Service Bus dans lequel figure la ressource. |
+| requestUri | string | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |
+| entityType | string | Type d’entité Service Bus générant des événements (file d’attente ou abonnement). |
+| queueName | string | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |
+| topicName | string | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
+| subscriptionName | string | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
