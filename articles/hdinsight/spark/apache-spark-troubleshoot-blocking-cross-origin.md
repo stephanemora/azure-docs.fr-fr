@@ -1,6 +1,6 @@
 ---
-title: Erreur 404 « introuvable » du serveur Jupyter en raison d’un « blocage d’API Cross Origin » dans Azure HDInsight
-description: Erreur 404 « introuvable » du serveur Jupyter en raison d’un « blocage d’API Cross Origin » dans Azure HDInsight
+title: Erreur 404 " introuvable " du serveur Jupyter en raison d’un " blocage d’API Cross Origin " dans Azure HDInsight
+description: Erreur 404 " introuvable " du serveur Jupyter en raison d’un " blocage d’API Cross Origin " dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -13,7 +13,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 07/30/2019
 ms.locfileid: "68664872"
 ---
-# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scénario : Erreur 404 « introuvable » du serveur Jupyter en raison d’un « blocage d’API Cross Origin » dans Azure HDInsight
+# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scénario : Erreur 404 " introuvable " du serveur Jupyter en raison d’un " blocage d’API Cross Origin " dans Azure HDInsight
 
 Cet article décrit la procédure à suivre pour résoudre les problèmes rencontrés lors de l’utilisation de composants Apache Spark dans des clusters Azure HDInsight.
 
