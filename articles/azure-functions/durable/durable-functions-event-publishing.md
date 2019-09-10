@@ -252,7 +252,7 @@ La liste suivante explique le schéma des événements du cycle de vie :
 * **`id`** : identificateur unique de l’événement Event Grid.
 * **`subject`** : chemin d’accès de l’objet de l’événement. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` sera `Running`, `Completed`, `Failed` et `Terminated`.  
 * **`data`** : paramètres propres à Durable Functions.
-  * **`hubName`** : nom TaskHub](durable-functions-task-hubs.md).
+  * **`hubName`** : nom [TaskHub](durable-functions-task-hubs.md).
   * **`functionName`** : nom de la fonction d’orchestrateur.
   * **`instanceId`** : identificateur de l’instance Durable Functions.
   * **`reason`** : données supplémentaires associées à l’événement de suivi. Pour en savoir plus, consultez la section [Diagnostics dans Fonctions durables (Azure Functions)](durable-functions-diagnostics.md).
