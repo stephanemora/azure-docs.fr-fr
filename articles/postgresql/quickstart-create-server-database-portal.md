@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: 152e93fefecaeaab3502ad5d974ba923727f919b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9a729376baeb03656b7b54fcb8e10a865d1f364
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443110"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195140"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL dans le portail Azure
 
@@ -28,7 +28,7 @@ Ouvrez votre navigateur web et accédez au [portail](https://portal.azure.com/).
 Un serveur Azure Database pour PostgreSQL est créé. Il contient un ensemble configuré de [ressources de calcul et de stockage](./concepts-pricing-tiers.md). Ce serveur est créé dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
 
 Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
-1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
+1. Sélectionnez **Créer une ressource** (+) dans l’angle supérieur gauche du portail.
 
 2. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL**.
 
@@ -44,8 +44,8 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    Abonnement|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
-    Groupe de ressources|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
+    Subscription|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Resource group|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Nom du serveur |*mydemoserver*|Un nom unique qui identifie votre serveur Azure Database pour PostgreSQL. Le nom de domaine *postgres.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
     Source de données | *Aucun* | Sélectionnez *Aucun* pour créer un serveur en partant de zéro. (Vous sélectionneriez *Sauvegarde* si vous créiez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour PostgreSQL existant).
     Nom d’utilisateur administrateur |*myadmin*| Votre propre compte de connexion en tant que compte à utiliser lorsque vous vous connectez au serveur. Le nom de connexion de l’administrateur ne doit pas être **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Il ne peut pas commencer par **pg_** .
@@ -72,7 +72,7 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
 Azure Database pour PostgreSQL crée un pare-feu au niveau du serveur. Il empêche les applications et les outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si vous créez une règle de pare-feu pour ouvrir le pare-feu à des adresses IP spécifiques. 
 
-1. Après le déploiement, localisez votre serveur. Si nécessaire, vous pouvez le rechercher. Par exemple, dans le menu de gauche, sélectionnez **Toutes les ressources**. Tapez le nom de votre serveur, tel que l’exemple **mydemoserver**, pour rechercher le serveur que vous venez de créer. Sélectionnez le nom de votre serveur dans la liste des résultats. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
+1. Après le déploiement, localisez votre serveur. Si nécessaire, vous pouvez le rechercher. Par exemple, dans le menu de gauche, sélectionnez **Toutes les ressources**. Entrez le nom de votre serveur, par exemple **mydemoserver**, pour rechercher le serveur que vous venez de créer. Sélectionnez le nom de votre serveur dans la liste des résultats. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
  
     ![Recherche d’un nom de serveur](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -182,15 +182,15 @@ pgAdmin est un outil open source utilisé avec PostgreSQL. Vous pouvez installer
     
 5. Sélectionnez **Enregistrer**.
 
-6. Dans la partie gauche du volet **Navigateur**, développez le nœud **Serveurs**. Sélectionnez votre serveur, par exemple, **mydemoserver**. Cliquez pour vous connecter à celui-ci.
+6. Dans la partie gauche du volet **Navigateur**, développez le nœud **Serveurs**. Sélectionnez votre serveur, par exemple **mydemoserver**, pour vous y connecter.
 
 7. Développez le nœud serveur, puis **Bases de données** situé en-dessous. La liste doit inclure votre base de données *postgres* existante ainsi que les autres bases de données que vous avez créé. Vous pouvez créer plusieurs bases de données par serveur avec Azure Database pour PostgreSQL.
 
-8. Faites un clic droit sur **Bases de données**, choisissez le menu **Créer**, puis sélectionnez **Base de données**.
+8. Cliquez avec le bouton droit sur **Bases de données**, sélectionnez le menu **Créer**, puis sélectionnez **Base de données**.
 
-9. Tapez le nom de base de données de votre choix dans le champ **Base de données**, par exemple **mypgsqldb2**.
+9. Entrez un nom de base de données de votre choix dans le champ **Base de données**, par exemple **mypgsqldb2**.
 
-10. Sélectionnez le **Propriétaire** de la base de données dans la zone de liste. Choisissez le nom de connexion de l’administrateur du serveur, par exemple **myadmin**.
+10. Sélectionnez le **Propriétaire** de la base de données dans la zone de liste. Sélectionnez le nom de connexion de votre administrateur de serveur, par exemple **myadmin**.
 
     ![Créer une base de données dans pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
@@ -208,7 +208,7 @@ Vous disposez au choix de deux moyens de supprimer les ressources que vous avez 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur nouvellement créé :
 1. Localisez votre groupe de ressources dans le portail. Dans le menu de gauche, sélectionnez **Groupes de ressources**. Sélectionnez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple.
 
-2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Pour confirmer la suppression, dans la zone de texte, tapez le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple. Sélectionnez **Supprimer**.
+2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Pour confirmer la suppression, dans la zone de texte, entrez le nom de votre groupe de ressources (**myresourcegroup** dans l’exemple). Sélectionnez **Supprimer**.
 
 Pour ne supprimer que le serveur nouvellement créé :
 1. Localisez votre serveur dans le portail, s’il n’est pas ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
@@ -217,7 +217,7 @@ Pour ne supprimer que le serveur nouvellement créé :
 
     ![Le bouton Supprimer](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone de texte, par exemple **mydemoserver**. Sélectionnez **Supprimer**.
+3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Entrez votre nom de serveur dans la zone de texte, par exemple **mydemoserver**. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

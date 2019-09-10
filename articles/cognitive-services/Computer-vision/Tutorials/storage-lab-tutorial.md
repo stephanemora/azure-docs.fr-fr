@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597852"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137536"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
@@ -46,7 +46,8 @@ Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ;
 
 1. Accédez ensuite au menu de votre groupe de ressources et cliquez sur l’abonnement à l’API Vision par ordinateur que vous venez de créer. Copiez l’URL indiquée sous **Point de terminaison** à un endroit où vous pourrez facilement la récupérer un peu plus tard. Cliquez ensuite sur **Afficher les clés d’accès**.
 
-    ![Page du portail Azure avec l’URL du point de terminaison et le lien des clés d’accès entourés](../Images/copy-vision-endpoint.png)
+    ![Page du portail Azure avec l’URL du point de terminaison et le lien des clés d’accès entourés](../Images/copy-vision-endpoint.png) [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 
 1. Dans la fenêtre suivante, copiez la valeur de **KEY 1** dans le Presse-papiers.
 

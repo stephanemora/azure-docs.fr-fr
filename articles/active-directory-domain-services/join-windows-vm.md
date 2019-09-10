@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073887"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172040"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Didacticiel : Joindre une machine virtuelle Windows Server à un domaine géré
 
@@ -214,7 +214,7 @@ Après avoir essayé chacune de ces étapes de dépannage, réessayez de joindre
 * Vérifiez que le compte d’utilisateur que vous spécifiez appartient au groupe *Administrateurs AAD DC*.
 * Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `contosoadmin@contoso.onmicrosoft.com`. S’il existe de nombreux utilisateurs avec le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est très long, le *SAMAccountName* de votre compte peut être généré automatiquement. Dans ces cas-là, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendez ou de ce que vous utilisez dans votre domaine local.
 * Vérifiez que vous avez [activé la synchronisation de mot de passe][password-sync] avec votre domaine managé. Sans cette étape de configuration, les hachages de mot de passe nécessaires ne sont pas présents dans le domaine managé Azure AD DS pour authentifier correctement votre tentative de connexion.
-* Attendez la fin de la synchronisation du mot de passe. Quand le mot de passe d’un compte d’utilisateur est changé, 15 à 20 minutes peuvent être nécessaires pour que le mot de passe soit disponible pour une utilisation dans une jonction à un domaine.
+* Attendez la fin de la synchronisation du mot de passe. Quand le mot de passe d’un compte d’utilisateur est changé, une synchronisation automatique en arrière-plan à partir d’Azure AD met à jour le mot de passe dans Azure AD DS. Il faut un certain temps pour que le mot de passe soit disponible pour être utilisé dans une jonction de domaine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

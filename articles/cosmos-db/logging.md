@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615291"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232387"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
@@ -436,7 +436,7 @@ Pour en savoir plus sur la signification des données retournées par chaque rec
 * Pour rechercher les opérations durant plus de 3 millisecondes :
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Pour rechercher l’agent exécutant les opérations :
@@ -448,7 +448,7 @@ Pour en savoir plus sur la signification des données retournées par chaque rec
 * Pour recherche le moment d’exécution des opérations de longue durée :
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 Pour plus d’informations sur l’utilisation du nouveau langage de recherche dans les journaux, consultez [Présentation des recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md). 
@@ -474,7 +474,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | **clientIpAddress** | **clientIpAddress_s** | Adresse IP du client. |
 | **requestCharge** | **requestCharge_s** | Nombre d’unités de requête utilisées par l’opération. |
 | **collectionRid** | **collectionId_s** | ID unique de la collection.|
-| **duration** | **duration_s** | Durée de l’opération, en cycles. |
+| **duration** | **duration_s** | Durée de l’opération en millisecondes. |
 | **requestLength** | **requestLength_s** | Longueur de la demande, en octets. |
 | **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Cette valeur n’est pas vide lorsque des [jetons de ressource](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) sont utilisés pour l’authentification. La valeur pointe vers l’ID de ressource de l’utilisateur. |

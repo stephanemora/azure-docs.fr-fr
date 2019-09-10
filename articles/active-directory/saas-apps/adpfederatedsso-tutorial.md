@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ADP | Microsoft Docs'
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à ADP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1597a4ca9cac7ba3885e863502f156d4c83aeed1
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: b031ded2022078c31bd8570c6a6317c398715480
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516389"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162658"
 ---
-# <a name="tutorial-integrate-adp-with-azure-active-directory"></a>Didacticiel : Intégrer ADP dans Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ADP
 
 Dans ce tutoriel, vous allez apprendre à intégrer ADP dans Azure Active Directory (Azure AD). Quand vous intégrez ADP dans Azure AD, vous pouvez :
 
@@ -46,6 +46,9 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * ADP prend en charge l’authentification unique initiée par le **fournisseur d’identité**
 
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
 ## <a name="adding-adp-from-the-gallery"></a>Ajout d’ADP depuis la galerie
 
 Pour configurer l’intégration d’ADP à Azure AD, vous devez ajouter ADP disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -57,21 +60,20 @@ Pour configurer l’intégration d’ADP à Azure AD, vous devez ajouter ADP di
 1. Dans la section **Ajouter à partir de la galerie**, tapez **ADP** dans la zone de recherche.
 1. Sélectionnez **ADP** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-adp"></a>Configurer et tester l’authentification unique Azure AD pour ADP
 
 Configurez et testez l’authentification unique Azure AD avec ADP à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur ADP associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec ADP, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 2. **[Configurer l’authentification unique ADP](#configure-adp-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test ADP](#create-adp-test-user)** pour avoir un équivalent de B.Simon dans ADP, associé à sa représentation dans Azure AD.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test ADP](#create-adp-test-user)** pour avoir un équivalent de B.Simon dans ADP, associé à sa représentation dans Azure AD.
+3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -97,33 +99,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL : `https://fed.adp.com`
 
-5. L’application ADP s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur. Le nom de la revendication sera toujours **PersonImmutableID** et sa valeur mappée à **employeeid**.
-
-    Le mappage utilisateur d’Azure AD à ADP est effectué avec **employeeid**, mais vous pouvez le mapper à une valeur différente basée sur les paramètres de votre application. Ainsi, contactez d’abord [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx) pour utiliser le bon identificateur d’utilisateur et mapper cette valeur à la revendication **PersonImmutableID**.
-
-    ![image](common/edit-attribute.png)
-
-6. En plus de ce qui précède, l’application ADP s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue Attributs utilisateur, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous : 
-
-    | Nom | Attribut source|
-    | ---------------| --------- |
-    | PersonImmutableID  | user.employeeid |
-
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **Enregistrer**.
-
-    > [!NOTE] 
-    > Avant de pouvoir configurer votre assertion SAML, vous devez contacter l’[équipe du support technique ADP](https://www.adp.com/contact-us/overview.aspx) et lui demander d’affecter la valeur d’attribut d’identificateur d’utilisateur unique à votre locataire. Vous avez besoin de cette valeur pour configurer la revendication personnalisée pour votre application. 
-
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
@@ -132,7 +107,37 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="configure-adp-sso"></a>Configurer l’authentification unique ADP
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
+
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ADP.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **ADP**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
+
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-adp-sso"></a>Configurer l’authentification unique ADP
 
 Pour configurer l’authentification unique côté **ADP**, vous devez charger le **XML de métadonnées** téléchargé sur le [site web ADP](https://adpfedsso.adp.com/public/login/index.fcc).
 
@@ -205,41 +210,11 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
  
 11. Une fois confirmée la réussite d’un test, assignez le service ADP fédéré à des utilisateurs ou à des groupes d’utilisateurs, comme expliqué plus loin dans le didacticiel, et déployez-le pour vos employés.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
-
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ADP.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **ADP**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
 ### <a name="create-adp-test-user"></a>Créer un utilisateur de test ADP
 
 L’objectif de cette section est de créer un utilisateur appelé B. Simon dans ADP. Pour ajouter les utilisateurs au compte ADP, contactez l’[équipe du support ADP](https://www.adp.com/contact-us/overview.aspx). 
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -253,3 +228,4 @@ Le fait de cliquer sur la vignette ADP dans le panneau d’accès doit vous conn
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Essayer ADP avec Azure AD](https://aad.portal.azure.com)

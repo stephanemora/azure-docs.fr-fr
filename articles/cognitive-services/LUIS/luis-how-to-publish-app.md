@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 0ab6e4854a96b4434ebb6c0b3649a1955568ba45
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f92776072038c5684e9334d2dda1690ebb7bcaa8
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932792"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257810"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publier votre application active, formée sur un point de terminaison intermédiaire ou de production
 
@@ -26,39 +26,67 @@ Quand vous avez terminé la création et les tests de votre application LUIS act
 
 ## <a name="publishing"></a>Publication
 
-Pour publier sur le point de terminaison, sélectionnez **Publish** (Publier) dans le volet en haut à droite. 
+1. Pour publier sur le point de terminaison, sélectionnez **Publish** (Publier) dans le volet en haut à droite. 
 
-![Barre de navigation supérieure, à droite](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Bouton publier en haut, barre de navigation à droite](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-Sélectionnez l’emplacement correct quand la fenêtre contextuelle s’affiche : intermédiaire ou production. L’utilisation de deux emplacements de publication vous permet d’avoir deux versions différentes avec des points de terminaison publiés, ou la même version sur deux points de terminaison différents. 
+1. Sélectionnez vos paramètres pour le point de terminaison de prédiction publié, puis sélectionnez **Publier**.
 
-L’application est publiée dans toutes les régions associées aux ressources LUIS ajoutés dans le portail de LUIS. Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai), si vous créez une ressource LUIS dans **westus** et que vous l’ajoutez à l’application en tant que ressource, l’application est publiée dans cette région. Pour plus d’informations sur les régions LUIS, consultez [Régions](luis-reference-regions.md).
- 
-![Fenêtre contextuelle de publication](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Sélectionnez Paramètres de publication, puis le bouton Publier.](./media/luis-how-to-publish-app/publish-pop-up.png)
+
+### <a name="publishing-slots"></a>Emplacements de publication
+
+Sélectionnez l’emplacement correct quand la fenêtre contextuelle s’affiche : 
+
+* Mise en lots.
+* Production. 
+
+L’utilisation des deux emplacements de publication vous permet d’avoir deux versions différentes de votre application disponibles aux points de terminaison publiés, ou la même version sur deux points de terminaison différents. 
+
+### <a name="publishing-regions"></a>Régions de publication
+
+L’application est publiée dans toutes les régions associées aux ressources de point de terminaison de prédiction LUIS ajoutées dans le portail LUIS. 
+
+Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai), si vous créez une ressource LUIS dans deux régions **westus** et **eastus**, et ajoutez celles-ci à l’application en tant que ressources, l’application est publiée dans les deux régions. Pour plus d’informations sur les régions LUIS, consultez [Régions](luis-reference-regions.md).
+
+
+## <a name="configuring-publish-settings"></a>Configuration des paramètres de publication
+
+Après avoir sélectionné l’emplacement, configurez les paramètres de publication suivants :
+
+* Analyse de sentiments
+* Correction orthographique
+* Préparation vocale 
+
+Après publication, ces paramètres sont accessibles via la page **Paramètres de publication** de la section **Gérer**. Vous pouvez modifier les paramètres pour chaque publication. Si vous annulez une publication, les modifications que vous avez apportées lors de la publication sont également annulées. 
+
+### <a name="when-your-app-is-published"></a>Quand votre application est publiée
 
 Une fois votre application correctement publiée, une notification de réussite de couleur verte s’affiche en haut du navigateur. La barre de notification verte comprend également un lien vers les points de terminaison. 
 
 ![Fenêtre contextuelle de publication avec un lien au point de terminaison](./media/luis-how-to-publish-app/publish-success.png)
 
-Si vous avez besoin de l’URL de point de terminaison, sélectionnez le lien. Vous pouvez également accéder aux URL de point de terminaison en sélectionnant **Manage** (Gérer) dans le menu supérieur, puis **Keys and Endpoints** (Clés et points de terminaison) dans le menu gauche. 
+Si vous avez besoin de l’URL de point de terminaison, sélectionnez le lien. Vous pouvez également accéder aux URL de point de terminaison en sélectionnant **Gérer** dans le menu supérieur, puis **Ressources Azure** dans le menu gauche. 
 
-## <a name="configuring-publish-settings"></a>Configuration des paramètres de publication
-
-Configurez les paramètres de publication en sélectionnant **Manage** (Gérer) dans le menu de navigation en haut à droite, puis **Publish Settings** (Paramètres de publication). 
-
-![Paramètres de publication](./media/luis-how-to-publish-app/publish-settings.png)
-
-### <a name="publish-after-enabling-sentiment-analysis"></a>Publier après l’activation de l’analyse des sentiments
+## <a name="sentiment-analysis"></a>analyse de sentiments
 
 <a name="enable-sentiment-analysis"></a>
 
 L’analyse des sentiments permet à LUIS de s’intégrer avec l’[Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) pour fournir une analyse des sentiments et des expressions clés. 
 
-Vous ne devez pas nécessairement fournir une clé d’Analyse de texte, et votre compte Azure ne sera pas facturé pour ce service. Lorsque vous activez ce paramètre, il est persistant. 
+Vous ne devez pas nécessairement fournir une clé d’Analyse de texte, et votre compte Azure ne sera pas facturé pour ce service. 
 
 Les données de sentiment correspondent à un score compris entre 1 et 0 indiquant le sentiment, positif (plus proche de 1) ou négatif (plus proche de 0), des données. L’étiquette de sentiment de `positive`, `neutral` et `negative` est fonction de la culture prise en charge. Actuellement, seul l’anglais prend en charge les étiquettes de sentiment. 
 
 Pour plus d’informations sur la réponse du point de terminaison JSON avec l’analyse des sentiments, voir [Analyse des sentiments](luis-concept-data-extraction.md#sentiment-analysis).
+
+## <a name="spelling-correction"></a>Correction orthographique
+
+Les corrections orthographiques sont effectuées avant la prédiction d’énoncé utilisateur LUIS. Vous pouvez voir toutes les modifications apportées à l’énoncé d’origine, y compris en lien avec l’orthographe, dans la réponse.
+
+## <a name="speech-priming"></a>Préparation vocale
+
+La préparation vocale est le processus d’envoi du modèle LUIS aux services Speech avant la synthèse vocale. Cela permet au service de fournir une conversion vocale plus précise pour votre modèle. Cela permet de faire passer les demandes du service Speech et les réponses du service LUIS dans un seul appel. La latence globale est ainsi réduite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051631"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241296"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Didacticiel : Entraîner votre premier modèle ML
 
@@ -35,14 +35,33 @@ Le seul prérequis est d’avoir suivi la première partie de ce tutoriel, [Conf
 
 Dans cette partie du tutoriel, vous exécutez le code dans l’exemple de notebook Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, ouvert à la fin de la première partie. Cet article vous guide tout au long du code qui se trouve dans le notebook.
 
+## <a name="launch-jupyter-web-interface"></a>Lancer l’interface web Jupyter
+
+1. Dans la page de votre espace de travail sur le portail Azure, sélectionnez **Machines virtuelles Notebook** à gauche.
+
+1. Sélectionnez **Jupyter** dans la colonne **URI** pour la machine virtuelle que vous avez créée dans la première partie de ce tutoriel.
+
+    ![Démarrer le serveur de notebooks Jupyter](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   Le lien démarre votre serveur de notebooks et ouvre la page web de notebook Jupyter dans un nouvel onglet du navigateur.  Ce lien fonctionne uniquement pour la personne qui crée la machine virtuelle. Chaque utilisateur de l’espace de travail doit créer sa propre machine virtuelle.
+
+1. Dans la page web du notebook Jupyter, sélectionnez le nom de dossier en haut, qui porte votre nom d’utilisateur.  
+
+   Ce dossier existe dans le [compte de stockage](concept-workspace.md#resources) de l’espace de travail, et non pas sur la machine virtuelle du notebook proprement dit.  Si vous supprimez la machine virtuelle du notebook, vous conservez néanmoins tous vos travaux.  Lorsque vous créez une nouvelle machine virtuelle notebook, elle chargera ce même dossier. Si vous partagez votre espace de travail avec d’autres utilisateurs, ils verront votre dossier et vous verrez le leur.
+
+1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez le notebook Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, et **pas** le fichier `.yml` du même nom. 
+
 ## <a name="connect-workspace-and-create-experiment"></a>Connecter un espace de travail et créer une expérience
+
+> [!Important]
+> Le reste de cet article contient le même contenu que ce que vous voyez dans le notebook.  
+>
+> Basculez maintenant vers le notebook Jupyter si vous voulez lire le code à mesure que vous l’exécutez. 
+> Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Cellule > Tout exécuter** dans le menu supérieur.
 
 Importez la classe `Workspace` et chargez les informations de votre abonnement à partir du fichier `config.json` à l’aide de la fonction `from_config().`. Par défaut, celle-ci recherche le fichier JSON dans le répertoire actif, mais vous pouvez également spécifier un paramètre de chemin d’accès pour pointer vers le fichier en utilisant `from_config(path="your/file/path")`. Sur un serveur de notebook cloud, le fichier est automatiquement dans le répertoire racine.
 
 Si le code suivant demande une authentification supplémentaire, collez simplement le lien dans un navigateur, puis entrez le jeton d’authentification.
-
-> [!TIP]
-> Si vous débutez avec des notebooks Jupyter, exécutez le code en cliquant sur une cellule de code et en appuyant sur **Maj+Entrée** pour exécuter les cellules l’une après l’autre. Sinon, pour exécuter l’intégralité du notebook en même temps, cliquez sur **Cellule** dans la barre de menus supérieure, puis cliquez sur **Exécuter tout**.
 
 ```python
 from azureml.core import Workspace

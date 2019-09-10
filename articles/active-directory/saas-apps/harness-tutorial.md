@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013844"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness
 
@@ -131,17 +131,25 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-harness-sso"></a>Configurer l’authentification unique (SSO) Harness
 
-1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise Harness en tant qu’administrateur.
+1. Pour automatiser la configuration dans BetterWorks, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-1. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Paramètres d’authentification**.
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer BetterWorks** pour être redirigé vers l’application BetterWorks. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à BetterWorks. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement BetterWorks, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise BetterWorks en tant qu’administrateur, puis effectuez les étapes suivantes :
+
+4. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Paramètres d’authentification**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure01.png)
 
-1. Dans la section **Fournisseurs SSO**, cliquez sur  **+ Ajouter des fournisseurs SSO** > **SAML**.
+5. Dans la section **Fournisseurs SSO**, cliquez sur  **+ Ajouter des fournisseurs SSO** > **SAML**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure03.png)
 
-1. Dans la fenêtre contextuelle **Fournisseur SAML**, effectuez les étapes suivantes :
+6. Dans la fenêtre contextuelle **Fournisseur SAML**, effectuez les étapes suivantes :
 
     ![Configuration de Harness](./media/harness-tutorial/configure02.png)
 

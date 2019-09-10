@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650535"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256601"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Capture d’écran du Portail Azure avec deux clés LUIS dans le groupe de ressources luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Sur le site web [LUIS][LUIS], dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison), affectez des clés à l’application, puis republiez l’application en sélectionnant le bouton **Publish** (Publier) dans le menu en haut à droite. 
+2. Sur le site web [LUIS][LUIS], dans la section **Manage**, dans la page **Ressources Azure**, attribuez des clés à l’application, puis republiez l’application en sélectionnant le bouton **Publier** dans le menu en haut à droite. 
 
     L’exemple d’URL dans la colonne **Point de terminaison** utilise une demande GET avec la clé de point de terminaison comme paramètre de requête. Copiez l’URL de point de terminaison des deux nouvelles clés. Elles seront utilisées pour la configuration de Traffic Manager dans la suite de cet article.
 

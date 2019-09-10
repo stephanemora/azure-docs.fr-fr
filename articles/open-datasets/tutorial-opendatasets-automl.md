@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0218221426351b0b508021fc74693557f200b4e8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845816"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309257"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Didacticiel : Créer un modèle de régression avec Machine Learning automatisé et Open Datasets
 
@@ -1246,7 +1246,7 @@ weather_df.head(10)
 
 Là encore, appelez `pandas.Series.dt.normalize` dans le champ `datetime` des données météorologiques à des fins de correspondance avec la clé de l'heure de `taxi_holidays_df`. Supprimez les colonnes inutiles et excluez les enregistrements où la température correspond à `NaN`.
 
-Regroupez ensuite les données météorologiques de manière à disposer de valeurs météorologiques quotidiennes agrégées. Définissez un objet dictionnaire `aggregations` pour définir comment agréger chaque champ à un niveau quotidien. Pour `snowDepth` et `temperature`, prenez une moyenne, et pour `precipTime` et `precipDepth`, prenez le maximum quotidien. Utilisez la fonction `groupby()` avec les agrégations pour regrouper les données. Prévisualisez les données pour vous assurer de la présence d'un enregistrement par jour.
+Regroupez ensuite les données météorologiques de manière à disposer de valeurs météorologiques quotidiennes agrégées. Définissez un objet dictionnaire nommé `aggregations` pour définir comment agréger chaque champ à un niveau quotidien. Pour `snowDepth` et `temperature`, prenez une moyenne, et pour `precipTime` et `precipDepth`, prenez le maximum quotidien. Utilisez la fonction `groupby()` avec les agrégations pour regrouper les données. Prévisualisez les données pour vous assurer de la présence d'un enregistrement par jour.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()

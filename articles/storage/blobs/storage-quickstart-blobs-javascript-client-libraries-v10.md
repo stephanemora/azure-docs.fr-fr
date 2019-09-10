@@ -1,22 +1,20 @@
 ---
 title: Démarrage rapide - Créer un objet blob dans Stockage Azure à l’aide de JavaScript et de HTML dans le navigateur
-description: Apprenez à utiliser une instance de BlobService pour télécharger, répertorier et supprimer des objets BLOB à l’aide de JavaScript dans une page HTML.
+description: Apprenez à télécharger, lister et supprimer des objets blob à l’aide de JavaScript dans une page HTML.
 services: storage
-keywords: stockage, javascript, html
 author: KarlErickson
 ms.custom: mvc
 ms.service: storage
 ms.author: karler
-ms.reviewer: seguler
-ms.date: 05/20/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986877"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172836"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,7 +36,7 @@ Avant que votre application web puisse accéder à un stockage Blob à partir du
 
 Revenez au portail Azure et sélectionnez votre compte de stockage. Pour définir une nouvelle règle CORS, accédez à la section **Paramètres**, puis cliquez sur le lien **CORS**. Ensuite, cliquez sur le bouton **Ajouter** pour ouvrir la fenêtre **Ajouter une règle CORS**. Pour ce démarrage rapide, vous créez une règle CORS ouverte :
 
-![Paramètres CORS du compte de stockage Blob Azure](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![Paramètres CORS du compte de stockage Blob Azure](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 Le tableau suivant décrit chaque paramètre CORS et explique les valeurs utilisées pour définir la règle.
 

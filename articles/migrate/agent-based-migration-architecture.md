@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 21c779587842c976ba93d7fa592a91ee714bc55c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810020"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232584"
 ---
 # <a name="agent-based-migration-architecture"></a>Architecture de la migration basée sur agent
 
@@ -115,22 +115,16 @@ Si vous avez besoin de déployer un serveur de processus avec montée en charge,
 
 ## <a name="control-upload-throughput"></a>Contrôle du débit de chargement
 
-Vous pouvez limiter la quantité de bande passante utilisée pour télécharger des données vers Azure sur chaque hôte Hyper-V. Soyez prudent ! Si vous définissez une valeur trop faible, elle risque d’avoir un impact négatif sur la réplication et de retarder la migration.
 
+ le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter le débit de chargement en limitant la bande passante sur les machines qui opèrent en tant que serveurs de processus. Vous pouvez influencer la bande passante à l’aide de cette clé de Registre :
 
-1. Connectez-vous à l’hôte Hyper-V ou au nœud de cluster.
-2. Exécutez **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**pour ouvrir le composant logiciel enfichable MMC de Windows Sauvegarde Azure.
-3. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
-4. Dans**Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
-I
+- La valeur de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM détermine le nombre de threads utilisés pour le transfert des données (réplication initiale ou différentielle) sur un disque. Une valeur plus élevée augmenter la bande passante réseau utilisée pour la réplication. La valeur par défaut est quatre. La valeur maximale est 32. Surveillez le trafic pour optimiser la valeur.
+- En outre, vous pouvez limiter la bande passante sur l’ordinateur serveur de processus comme suit :
 
-### <a name="influence-upload-efficiency"></a>Améliorer l’efficacité du chargement
+    1. Sur l’ordinateur serveur de processus, ouvrez le composant logiciel enfichable MMC Sauvegarde Azure. Il y a un raccourci sur le bureau ou dans le dossier C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
+    2. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
+    3. Dans**Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
 
-Si vous disposez d’une bande passante de rechange pour la réplication et que vous souhaitez augmenter les chargements, vous pouvez augmenter le nombre de threads alloués pour la tâche de chargement, comme suit :
-
-1. Ouvrez le registre avec Regedit.
-2. Accédez à la clé HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
-3. Augmentez la valeur du nombre de threads utilisés pour le téléchargement de données pour chaque machine virtuelle de réplication. La valeur par défaut est 4 et la valeur maximale est 32. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

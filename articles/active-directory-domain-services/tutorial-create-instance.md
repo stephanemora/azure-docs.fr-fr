@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125215"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172048"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -202,7 +202,7 @@ Pour changer le mot de passe d’un utilisateur cloud uniquement, l’utilisateu
 1. Dans la page **Changer le mot de passe**, entrez votre mot de passe existant (l’ancien), puis entrez un nouveau mot de passe et confirmez-le.
 1. Sélectionnez **Envoyer**.
 
-Une fois que vous avez changé votre mot de passe, quelques minutes sont nécessaires pour que le nouveau mot de passe soit utilisable dans Azure AD DS. Au bout de 20 minutes environ, vous pouvez utiliser le nouveau mot de passe pour vous connecter aux ordinateurs joints au domaine managé.
+Une fois que vous avez changé votre mot de passe, quelques minutes sont nécessaires pour que le nouveau mot de passe soit utilisable dans Azure AD DS et que vous puissiez vous connecter aux ordinateurs joints au domaine managé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

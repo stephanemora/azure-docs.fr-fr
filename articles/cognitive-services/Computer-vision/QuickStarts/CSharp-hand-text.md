@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7646a079d9cbc2f6362a38c5ac12371d3f32d4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 7340105e6d64900b769e2601032b04eb7a91e6e1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312022"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138106"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de C#
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer de [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou version ultérieure.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommés respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Créer et exécuter l’exemple d’application
 
@@ -41,9 +41,6 @@ Pour créer l’exemple dans Visual Studio, effectuez les étapes suivantes :
     1. Dans le menu, cliquez sur **Outils**, sélectionnez **Gestionnaire de packages NuGet**, puis **Gérer les packages NuGet de la solution**.
     1. Cliquez sur l’onglet **Parcourir**, puis, dans la zone de **recherche**, tapez « Newtonsoft.Json ».
     1. Lorsqu’elle apparaît, sélectionnez l’option **Newtonsoft.Json**, puis cliquez sur la case à cocher en regard du nom de votre projet, puis sur **Installer**.
-1. Remplacez le code dans `Program.cs` par le code suivant et, au besoin, effectuez les modifications suivantes dans le code :
-    1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
-    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) dans la région Azure où vous avez obtenu vos clés d’abonnement.
 1. Exécutez le programme.
 1. À l’invite, entrez le chemin d’accès à une image locale.
 
@@ -60,19 +57,13 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westcentralus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        
+        // the Batch Read method endpoint
+        const string uriBase = endpoint + "vision/v2.0/read/core/asyncBatchAnalyze";
 
         static void Main()
         {

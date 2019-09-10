@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à BetterWorks | Microsoft Docs'
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à BetterWorks | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BetterWorks.
 services: active-directory
 documentationCenter: na
@@ -13,213 +13,134 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80eb3d60eb4c40e726d53d5fb876a6a118d119cb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5b9d3ef2c9b72d261fcae25e9a8f1f906206bb7b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944947"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162519"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Didacticiel : Intégration d’Azure Active Directory à BetterWorks
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-betterworks"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à BetterWorks
 
-Dans ce didacticiel, vous allez apprendre à intégrer BetterWorks à Azure Active Directory (Azure AD).
-L’intégration de BetterWorks dans Azure AD offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer BetterWorks à Azure Active Directory (Azure AD). Quand vous intégrez BetterWorks à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à BetterWorks.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à BetterWorks (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à BetterWorks.
+* Permettre à vos utilisateurs de se connecter automatiquement à BetterWorks avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD avec BetterWorks, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
-* Abonnement BetterWorks pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement BetterWorks pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * BetterWorks prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-betterworks-from-the-gallery"></a>Ajout de BetterWorks à partir de la galerie
 
 Pour configurer l’intégration de BetterWorks avec Azure AD, vous devez ajouter BetterWorks à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter BetterWorks à partir de la galerie, procédez comme suit :**
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **BetterWorks** dans la zone de recherche.
+1. Sélectionnez **BetterWorks** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-betterworks"></a>Configurer et tester l’authentification unique Azure AD pour BetterWorks
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+Configurez et testez l’authentification unique Azure AD avec BetterWorks pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur BetterWorks associé.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+Pour configurer et tester l’authentification unique Azure AD avec BetterWorks, suivez les indications des sections ci-après :
 
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique BetterWorks](#configure-betterworks-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test BetterWorks](#create-betterworks-test-user)** pour avoir un équivalent de B.Simon dans BetterWorks lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-4. Dans la zone de recherche, tapez **BetterWorks**, sélectionnez **BetterWorks** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-    ![BetterWorks dans la liste des résultats](common/search-new-app.png)
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **BetterWorks**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec BetterWorks à l’aide d’un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur BetterWorks associé doit être établie.
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-Pour configurer et tester l’authentification unique Azure AD avec BetterWorks, vous devez suivre les indications des sections suivantes :
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://app.betterworks.com/saml2/metadata/`
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique BetterWorks](#configure-betterworks-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test BetterWorks](#create-betterworks-test-user)** pour avoir un équivalent de Britta Simon dans BetterWorks lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+    b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://app.betterworks.com/saml2/acs/`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.betterworks.com`
 
-Pour configurer l’authentification unique Azure AD avec BetterWorks, effectuez les étapes suivantes :
-
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **BetterWorks**, sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL BetterWorks](common/idp-intiated.png)
-
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.betterworks.com/saml2/metadata/`
-
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.betterworks.com/saml2/acs/`
-
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL BetterWorks](common/metadata-upload-additional-signon.png)
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.betterworks.com`
-
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe du support client BetterWorks](mailto:support@betterworks.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-
-6. Votre application BetterWorks attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
-
-    ![image](common/edit-attribute.png)
-
-7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
-
-    | Nom | Attribut source|
-    | ----- |  ------------ |
-    | saml_token | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
-
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **OK**.
-
-    g. Cliquez sur **Enregistrer**.
-
-8. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-9. Dans la section **Configurer BetterWorks**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer BetterWorks**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
-
-### <a name="configure-betterworks-single-sign-on"></a>Configurer l’authentification unique BetterWorks
-
-Pour configurer l’authentification unique côté **BetterWorks**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support BetterWorks](mailto:support@betterworks.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à BetterWorks.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en accordant l’accès à BetterWorks.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **BetterWorks**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **BetterWorks**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-2. Dans la liste des applications, sélectionnez **BetterWorks**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien BetterWorks dans la liste des applications](common/all-applications.png)
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+## <a name="configure-betterworks-sso"></a>Configurer l’authentification unique BetterWorks
 
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+Pour configurer l’authentification unique côté **BetterWorks**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support BetterWorks](mailto:support@betterworks.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-betterworks-test-user"></a>Créer un utilisateur de test BetterWorks
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans BetterWorks. Veuillez contacter l’[équipe de support BetterWorks](mailto:support@betterworks.com) pour ajouter les utilisateurs sur la plateforme BetterWorks. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -227,8 +148,10 @@ Le fait de cliquer sur la vignette BetterWorks dans le panneau d’accès doit v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Essayer BetterWorks avec Azure AD](https://aad.portal.azure.com/)

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854190"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309442"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -133,6 +133,9 @@ Installez le fichier de configuration téléchargé (AzureSiteRecoveryProvider.e
 
 Une fois la découverte terminée, vous pouvez commencer la réplication des machines virtuelles Hyper-V vers Azure.
 
+> [!NOTE]
+> Vous pouvez répliquer ensemble jusqu’à 10 machines. Si vous avez besoin d’en répliquer davantage, répliquez-les simultanément par lots de 10.
+
 1. Dans le projet Azure Migrate > **Serveurs**, **Azure Migrate : Server Migration**, cliquez sur **Répliquer**.
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec Hyper-V**. Cliquez ensuite sur **Suivant : Machines virtuelles**.
 3. Dans **Machines virtuelles**, sélectionnez les machines à répliquer.
@@ -202,7 +205,7 @@ Vous pouvez superviser l’état de la réplication en cliquant sur **Réplicati
 ## <a name="run-a-test-migration"></a>Exécuter un test de migration
 
 
-Quand la réplication différentielle commence, vous pouvez exécuter une migration de test avec les machines virtuelles avant d’exécuter une migration complète vers Azure. Nous vous recommandons vivement d’effectuer cette opération au moins une fois pour chaque machine avant de la migrer.
+Quand la réplication différentielle commence, vous pouvez exécuter une migration de test avec les machines virtuelles avant d’exécuter une migration complète vers Azure. Avant la migration, nous vous recommandons vivement d’effectuer cette opération au moins une fois pour chaque machine.
 
 - L’exécution d’une migration de test permet de vérifier que la migration fonctionne comme prévu, sans impact sur les machines locales qui restent opérationnelles et poursuivent la réplication. 
 - Une migration de test simule la migration en créant une machine virtuelle Azure à l’aide de données répliquées (il s’agit en général d’une migration vers un réseau virtuel hors production dans votre abonnement Azure).
@@ -229,7 +232,7 @@ Effectuez une migration de test de la façon suivante :
 
 ## <a name="migrate-vms"></a>Migrer des machines virtuelles
 
-Après avoir vérifié que la migration de test fonctionne comme prévu, vous pouvez migrer les machines locales.
+Après avoir vérifié que la migration de test fonctionne comme prévu, vous pouvez migrer des machines locales.
 
 1. Dans le projet Azure Migrate > **Serveurs** > **Azure Migrate : Server Migration**, cliquez sur **Réplication de serveurs**.
 

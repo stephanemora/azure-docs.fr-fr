@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594691"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195222"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Qu’est-ce que l’API Recherche visuelle Bing ?
 
-L’API Recherche visuelle Bing retourne des insights pour une image. Vous pouvez charger une image ou fournir une URL vers une image. Les insights sont des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, etc. Les insights retournés par l’API Recherche visuelle Bing sont similaires à ceux qui apparaissent sur Bing.com/images.
+L’API Recherche visuelle Bing retourne des insights pour une image. Vous pouvez charger une image ou fournir une URL vers une image. Les insights sont des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, etc. Les insights retournés par l’API Recherche visuelle Bing sont similaires à ceux qui apparaissent sur Bing.com/images. 
 
 Si vous utilisez l’[API Recherche d’images Bing](../bing-image-search/overview.md), vous pouvez utiliser des jetons d’insight provenant des résultats de recherche de l’API pour votre recherche d’images Bing au lieu de charger une image.
 
@@ -38,6 +38,7 @@ Vous pouvez découvrir les insights suivants avec Recherche visuelle Bing :
 | Recherches associées                     | Recherches associées effectuées par d’autres personnes ou basées sur le contenu de l’image.            |
 | Pages web incluant l’image     | Pages Web contenant l’image d’entrée.            |
 | Recettes                              | Pages web comportant des recettes pour préparer le plat montré dans l’image d’entrée.            |
+| Entités                             | Personnes, lieux et objets connus. |
 
 En plus de ces insights, Recherche visuelle Bing retourne également différents termes (c’est-à-dire des étiquettes) dérivés de l’image d’entrée. Ces étiquettes permettent aux utilisateurs d’explorer les concepts trouvés dans l’image. Par exemple, si l’image d’entrée représente un sportif célèbre, une des étiquettes peut être le nom du sportif et une autre peut être « Sport ». Si l’image d’entrée représente une tarte aux pommes, les étiquettes peuvent être Tarte aux pommes, Tarte et Desserts.
 

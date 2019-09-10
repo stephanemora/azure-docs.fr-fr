@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143921"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
@@ -273,7 +273,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     > [!NOTE]
     > Veuillez noter que le fournisseur de revendications Azure n’est pas un produit Microsoft ou pris en charge par le Support technique Microsoft. Téléchargez, installez et configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) en procédant de la manière décrite dans https://yvand.github.io/AzureCP/. 
 
-11. **Accordez l’accès au groupe de sécurité Azure Active Directory dans le SharePoint local** : les groupes doivent avoir accès à l’application dans le SharePoint local.  Procédez comme suit pour définir les autorisations d’accès à l’application web.
+11. **Accordez l’accès au groupe de sécurité Azure Active Directory dans SharePoint (local)**  : les groupes doivent avoir accès à l’application dans SharePoint (local).  Procédez comme suit pour définir les autorisations d’accès à l’application web.
 
 12. Dans Administration centrale, cliquez sur Gestion d’applications, Gérer les applications web, sélectionnez l’application web pour activer le ruban, puis cliquez sur Stratégie d’utilisateur.
 

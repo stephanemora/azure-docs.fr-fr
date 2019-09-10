@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707348"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306514"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Visage pour Python
 
@@ -109,6 +109,14 @@ Le code suivant détecte un visage dans une image distante. Il affiche l’ID du
 
 Pour consulter d’autres scénarios de détection, reportez-vous à l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
 
+### <a name="display-and-frame-faces"></a>Afficher et encadrer des visages
+
+Le code suivant génère l’image donnée à l’écran et trace des rectangles autour des visages, à l’aide de la propriété DetectedFace.faceRectangle.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![Jeune femme dont le visage est indiqué par un rectangle rouge](../images/face-rectangle-result.png)
+
 ## <a name="find-similar-faces"></a>Rechercher des visages semblables
 
 Le code suivant recherche un ensemble de visages correspondant à un unique visage détecté. Quand il trouve une correspondance, il affiche les coordonnées du rectangle du visage sur la console. 
@@ -161,7 +169,7 @@ Une fois que vous avez attribué des visages, vous devez entraîner le **PersonG
 
 ## <a name="identify-a-face"></a>Identifier un visage
 
-Le code suivant recherche l’identité de chaque personne dans une image contenant plusieurs visages. Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** auxquels sont associés plusieurs visages. 
+Le code suivant recherche l’identité de chaque personne dans une image contenant plusieurs visages. Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
 > [!IMPORTANT]
 > Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni à la section [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group).
@@ -188,7 +196,7 @@ Dans cet exemple, vous allez migrer le **PersonGroup** que vous avez créé à l
 
 Tout d’abord, vous devez disposer d’un deuxième abonnement Azure avec une ressource Visage. Pour ce faire, procédez comme indiqué dans la section [Configuration](#setting-up). 
 
-Ensuite, créez les variables suivantes dans la partie supérieure de votre script. Vous devez également créer des variables d’environnement pour l’ID d’abonnement de votre compte Azure ainsi que la clé et l’ID d’abonnement de votre nouveau compte (cible). 
+Ensuite, créez les variables suivantes dans la partie supérieure de votre script. Vous devez également créer des variables d’environnement pour l’ID d’abonnement de votre compte Azure ainsi que la clé, le point de terminaison et l’ID d’abonnement de votre nouveau compte (cible). 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

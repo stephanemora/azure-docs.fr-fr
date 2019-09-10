@@ -1,5 +1,5 @@
 ---
-title: Écrire une fonction C# définie par l’utilisateur pour un travail de périphérie Azure Stream Analytics dans Visual Studio (préversion)
+title: Écrire des fonctions C# définies par l’utilisateur pour des travaux de périphérie Azure Stream Analytics dans Visual Studio (Préversion)
 description: Apprenez à écrire des fonctions C# définies par l’utilisateur pour des travaux de périphérie Stream Analytics dans Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086899"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173307"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Didacticiel : Écrire une fonction C# définie par l’utilisateur pour un travail Edge Azure Stream Analytics (préversion)
 
@@ -63,7 +63,7 @@ Le conteneur que vous créez servira à stocker le package C# compilé et à dé
     |---------|---------|
     |Source de l’assembly  |  Référence de projet local ou code-behind   |
     |Ressource  |  Choisissez des données du compte actuel   |
-    |Abonnement  |  Choisissez votre abonnement.   |
+    |Subscription  |  Choisissez votre abonnement.   |
     |Compte de stockage  |  Choisissez votre compte de stockage.   |
     |Conteneur  |  Choisissez le conteneur que vous avez créé dans votre compte de stockage.   |
 

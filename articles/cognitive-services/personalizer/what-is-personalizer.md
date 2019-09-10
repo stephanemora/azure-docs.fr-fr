@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663660"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306960"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -65,4 +65,8 @@ Le service Personalizer a deux API :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Démarrage rapide : Créer une boucle de rétroaction dans Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [Démarrage rapide : Créer une boucle de rétroaction dans Python](python-quickstart-commandline-feedback-loop.md)
+* [En savoir plus sur les fonctionnalités et les actions de la demande de classement](concepts-features.md)
+* [En savoir plus sur le calcul du score de la demande de récompense](concept-rewards.md)
 * [Utiliser la démonstration interactive](https://personalizationdemo.azurewebsites.net/)

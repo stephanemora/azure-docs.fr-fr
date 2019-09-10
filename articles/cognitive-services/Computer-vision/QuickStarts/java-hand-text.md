@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 545bd3acbd212a26b3e35020559ab62788ab7257
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 7db73d9872badb8ed6c2af52c7cf0a2aa48b9fc8
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312012"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137907"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de Java
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez utiliser la plateforme [Java&trade;, avec le kit Standard Edition Development 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) installé.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommés respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Créer et exécuter l’exemple d’application
 
@@ -58,10 +58,8 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
    import org.json.JSONObject;
    ```
 
-1. Remplacez la classe publique `Main` par le code suivant et, au besoin, effectuez les modifications suivantes dans le code :
-   1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
-   1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) dans la région Azure où vous avez obtenu vos clés d’abonnement.
-   1. Remplacez éventuellement la valeur de `imageToAnalyze` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
+1. Remplacez la classe publique `Main` par le code suivant.
+1. Remplacez éventuellement la valeur de `imageToAnalyze` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
 1. Enregistrez les modifications, puis générez le projet Java.
 1. Si vous utilisez un IDE, exécutez `Main`. Sinon, ouvrez une fenêtre d’invite de commandes et utilisez la commande `java` pour exécuter la classe compilée. Par exemple : `java Main`.
 
@@ -71,19 +69,13 @@ public class Main {
     // *** Update or verify the following values. ***
     // **********************************************
 
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // After setting, close and then re-open your command shell or project for the changes to take effect.
+    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    String endpoint = ("COMPUTER_VISION_ENDPOINT");
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westcentralus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+    private static final String uriBase = endpoint + 
+            "vision/v2.0/read/core/asyncBatchAnalyze";
 
     private static final String imageToAnalyze =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +

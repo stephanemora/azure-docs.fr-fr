@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ea736b560e2e910ede203e8ce8c0b157ebbce71
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640875"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309404"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -304,6 +304,11 @@ Une fois l’appliance de réplication inscrite, Azure Migrate Server Assessment
 
 
 ## <a name="replicate-vms"></a>Répliquer des machines virtuelles
+
+À présent, sélectionnez les machines virtuelles pour la migration.
+
+> [!NOTE]
+> Vous pouvez répliquer ensemble jusqu’à 10 machines. Si vous avez besoin d’en répliquer davantage, répliquez-les simultanément par lots de 10.
 
 1. Dans le projet Azure Migrate > **Serveurs**, **Azure Migrate : Server Migration**, cliquez sur **Répliquer**.
 

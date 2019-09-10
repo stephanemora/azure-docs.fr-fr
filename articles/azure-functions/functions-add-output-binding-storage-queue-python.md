@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639109"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171083"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
@@ -194,7 +194,7 @@ Vous pouvez [examiner le message de file d’attente de stockage](#query-the-sto
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure Functions avec Python, voir le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure Functions avec Python, voir le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Pour obtenir des exemples de projets Functions complets en Python, consultez les [exemples Functions en Python](/samples/browse/?products=azure-functions&languages=python). 
 
 Ensuite, vous devez activer la supervision Application Insights pour votre application de fonction :
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840523"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163591"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Didacticiel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -25,7 +25,11 @@ Vous pouvez déboguer les problèmes dans le pool d’hôtes de validation à l'
 >[!NOTE]
 > Nous vous recommandons d'utiliser le pool d’hôtes de validation pour tester toutes les mises à jour à venir.
 
-Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview). Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="create-your-host-pool"></a>Créer votre pool d'hôtes
 

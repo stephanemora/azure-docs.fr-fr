@@ -10,18 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3f51ad3d0a75ab1f0662ea0b747852fcb98e5026
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967412"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259044"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de SAP ECC (SAP Enterprise Central Component). Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
+
+>[!TIP]
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, voir le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

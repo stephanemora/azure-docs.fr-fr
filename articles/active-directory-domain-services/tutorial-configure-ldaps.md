@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011342"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193332"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -63,7 +63,7 @@ Le certificat que vous demandez ou que vous créez doit répondre aux exigences 
 
 * **Émetteur approuvé** : le certificat doit être émis par une autorité approuvée par les ordinateurs qui se connectent au domaine managé à l’aide du protocole LDAP sécurisé. Cette autorité peut être une autorité de certification publique ou une autorité de certification d’entreprise approuvée par ces ordinateurs.
 * **Durée de vie** : le certificat doit être valide pour les 3 à 6 mois à venir. L’accès du protocole LDAP sécurisé à votre domaine géré est interrompu lorsque le certificat expire.
-* **Nom du sujet** : le nom du sujet du certificat doit correspondre à votre domaine managé. Par exemple, si le nom de votre domaine est *contoso.com*, le nom du sujet du certificat doit être *contoso.com*.
+* **Nom du sujet** : le nom du sujet du certificat doit correspondre à votre domaine managé. Par exemple, si le nom de votre domaine est *contoso.com*, le nom du sujet du certificat doit être * *.contoso.com*.
     * Le nom DNS ou le nom alternatif du sujet du certificat doit être un certificat générique pour garantir le bon fonctionnement du protocole LDAP sécurisé avec Azure AD Domain Services. Les contrôleurs de domaine utilisent des noms aléatoires, et peuvent être supprimés ou ajoutés pour garantir que le service reste disponible.
 * **Utilisation de la clé** : Le certificat doit être configuré pour les *signatures numériques* et le *chiffrage des clés*.
 * **Rôle du certificat** : le certificat doit être valide pour l’authentification de serveur SSL.
@@ -78,7 +78,7 @@ $dnsName="contoso.com"
 $lifetime=Get-Date
 
 # Create a self-signed certificate for use with Azure AD DS
-New-SelfSignedCertificate -Subject $dnsName `
+New-SelfSignedCertificate -Subject *.$dnsName `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName
 ```
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject $dnsName `
 L’exemple de sortie suivant montre que le certificat a été généré avec succès et qu’il est stocké dans le magasin de certificats local (*LocalMachine\MY*) :
 
 ```output
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject $dnsName `
+PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 >>   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 >>   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName.com
 

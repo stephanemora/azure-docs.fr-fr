@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3158ebddf6ffe5594c9daf0fd9f3e3fe980c0b24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845672"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230963"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -151,7 +151,7 @@ Les machines virtuelles locales que vous répliquez vers Azure doivent respecter
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | ---
 Système d’exploitation invité | Site Recovery fonctionne sur tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-Architecture du système d’exploitation invité | 64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Architecture du système d’exploitation invité | 32 bits (Windows Server 2008)/64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go pour les machines virtuelles de 1ère génération.<br/><br/> Jusqu’à 300 Go pour les machines virtuelles de 2e génération.  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Nombre de disques de données | 16 ou moins  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
@@ -166,13 +166,13 @@ Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | L
 
 ## <a name="recovery-services-vault-actions"></a>Actions de coffre Recovery Services
 
-**Action** |  **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
+**Action** |  **Hyper-V avec VMM** | **Hyper-V sans VMM**
 --- | --- | ---
 Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
 Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
 
 > [!NOTE]
-> Dans le cadre de la réplication de machines virtuelles Hyper-V (gérées avec ou sans SCVMM) du niveau local vers Azure, vous ne pouvez répliquer que sur un seul locataire AD à partir d’un environnement spécifique (site Hyper-V ou SCVMM selon le cas).
+> Dans le cadre de la réplication de machines virtuelles Hyper-V locales sur Azure, vous ne pouvez répliquer que sur un seul locataire AD à partir d’un environnement spécifique (site Hyper-V ou Hyper-V avec VMM selon le cas).
 
 
 ## <a name="provider-and-agent"></a>Fournisseur et agent

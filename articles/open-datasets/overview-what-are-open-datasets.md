@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598978"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213578"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Que sont les jeux de données Azure Open Datasets (préversion) et comment pouvez-vous les utiliser ?
 
@@ -49,7 +49,7 @@ Grâce à un compte Azure, vous pouvez accéder aux jeux de données ouverts à 
 
 Open Datasets fournit des notebooks Azure Notebooks et Azure Databricks que vous pouvez utiliser pour connecter les données au service Azure Machine Learning et à Azure Databricks. Les jeux de données sont également accessibles via un kit de développement logiciel (SDK) Python. 
 
-Toutefois, aucun compte Azure n'est nécessaire pour accéder aux jeux de données ouverts. Vous pouvez y accéder dans n'importe quel environnement Python, avec ou sans Spark.
+Toutefois, aucun compte Azure n’est nécessaire pour accéder à Open Datasets. Vous pouvez y accéder dans n’importe quel environnement Python, avec ou sans Spark.
 
 ## <a name="request-or-contribute-datasets"></a>Demander ou contribuer à la création des jeux de données
 

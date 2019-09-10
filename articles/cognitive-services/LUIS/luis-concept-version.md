@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c519b030aaee58397766ecb8658e7af08b5986e1
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619706"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256875"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendre comment et quand utiliser une version de LUIS
 
@@ -48,7 +48,7 @@ Vous pouvez importer une version au niveau de l’application. Cette version dev
 
 Vous pouvez exporter une version au niveau de l’application ou vous pouvez exporter une version au niveau de la version. La seule différence est que la version exportée au niveau de l’application est la version active, alors qu’au niveau de la version, vous pouvez choisir n’importe quelle version à exporter dans la page **[Paramètres](luis-how-to-manage-versions.md)** . 
 
-Le fichier exporté ne contient pas d’informations issues de l’apprentissage automatique, car l’application est reformée après son importation. Le fichier exporté ne contient pas de collaborateurs : vous devez en ajouter une fois que la version est importée dans la nouvelle application.
+Le fichier exporté ne contient pas d’informations issues de l’apprentissage automatique, car l’application est reformée après son importation. Le fichier exporté ne contient pas d’informations de contributeur.
 
 ## <a name="export-each-version-as-app-backup"></a>Exporter chaque version en tant que sauvegarde de l’application
 Pour sauvegarder votre application LUIS, exportez chaque version dans la page **[Paramètres](luis-how-to-manage-versions.md)** .
@@ -59,8 +59,23 @@ Vous pouvez supprimer toutes les versions à l’exception de la version active 
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilité de la version sur le point de terminaison
 Les versions formées ne sont pas automatiquement disponibles sur le [point de terminaison](luis-glossary.md#endpoint) de votre application. Vous devez [publier](luis-how-to-publish-app.md) ou republier une version afin qu’elle soit disponible sur le point de terminaison de votre application. Vous pouvez publier dans **Intermédiaire** et **Production**, ce qui vous donne deux versions de l’application disponibles sur le point de terminaison. Si vous avez besoin de davantage de versions de l’application disponibles sur un point de terminaison, vous devez exporter la version et la réimporter dans une nouvelle application. La nouvelle application a un ID d’application différent.
 
-## <a name="collaborators"></a>Collaborateurs
-Le propriétaire et tous les [collaborateurs](luis-how-to-collaborate.md) ont un accès complet à toutes les versions de l’application.
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
+Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version), à partir d’une version de base, pour chaque auteur. 
+
+Chaque auteur apporte des modifications à sa propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
+
+Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine. 
+
+Cette méthode vous permet d’avoir une version active, une version intermédiaire et une version publiée. Vous pouvez comparer les résultats de la version active avec une version publiée (de phase ou de production) dans le [volet de test interactif](luis-interactive-test.md).
+
+## <a name="manage-multiple-versions-as-apps"></a>Gérer plusieurs versions en tant qu’applications
+[Exportez](luis-how-to-manage-versions.md#export-version) la version de base. Chaque auteur importe la version. La personne qui importe l’application est le propriétaire de la version. Une fois la modification de l’application terminée, exportez la version. 
+
+Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications avec l’exportation de base. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.
+
+## <a name="contributions-from-collaborators"></a>Contributions de collaborateurs
+
+Apprenez-en davantage sur la création de contributions de [collaborateurs](luis-how-to-collaborate.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

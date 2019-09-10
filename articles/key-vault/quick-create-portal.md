@@ -2,20 +2,20 @@
 title: Démarrage rapide Azure - Définir et récupérer un secret depuis Key Vault à l’aide du portail Azure | Microsoft Docs
 description: Ce guide de démarrage rapide vous montre comment définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: barclayn
-ms.openlocfilehash: e9b86a5fb0d9e24618cafffb5ca12e22d5394294
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730188"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259218"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -57,8 +57,8 @@ Notez les deux propriétés ci-dessous :
 Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. Dans ce cas, nous ajoutons un mot de passe qu’une application est susceptible d’utiliser. Le mot de passe est appelé **ExamplePassword** et nous y stockons la valeur **hVFkk965BuUv**.
 
 1. Dans les pages des propriétés du coffre de clés, sélectionnez **Secrets**.
-2. Cliquez sur **Generate/Import (Générer/Importer)**.
-3. Dans l’écran **Create a secret (Créer un secret)**, choisissez les valeurs suivantes :
+2. Cliquez sur **Generate/Import (Générer/Importer)** .
+3. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
     - **Options de chargement** : Manuel.
     - **Nom** : ExamplePassword.
     - **Valeur** : hVFkk965BuUv
@@ -79,12 +79,14 @@ Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, 
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
+3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez créé un coffre de clés et y avez stocké un secret. Pour en savoir plus sur Key Vault et sur son utilisation avec vos applications, passez au didacticiel sur les applications web qui utilisent Key Vault.
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault, et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
-> [!div class="nextstepaction"]
-> Pour apprendre à lire un secret dans un coffre de clés à partir d’une application web en utilisant des identités managées pour les ressources Azure, passez au tutoriel suivant, [Configurer une application web Azure pour lire un secret dans le coffre de clés](quick-create-net.md).
+- Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
+- Consulter le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
+- En savoir plus sur les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

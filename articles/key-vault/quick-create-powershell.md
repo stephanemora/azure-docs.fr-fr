@@ -2,20 +2,20 @@
 title: Démarrage rapide Azure - Définir et récupérer un secret depuis Key Vault à l’aide de PowerShell | Microsoft Docs
 description: ''
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 8d6260d462b4c244dfb41630e06710a1ce8baf6c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 5753384d12d31016dff7a33175899835c8bd1fec
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726776"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259254"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell
 
@@ -100,9 +100,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez créé un coffre de clés et vous y avez stocké une clé logicielle. Pour en savoir plus sur Key Vault et sur son utilisation avec vos applications, passez au didacticiel sur les applications web qui utilisent Key Vault.
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault, et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
-Pour savoir comment lire un secret dans un coffre de clés Key Vault à partir d’une application web en utilisant des identités managées pour les ressources Azure, passez au tutoriel suivant,
-
-> [!div class="nextstepaction"]
-> [Configurer une application web Azure pour lire un secret dans un coffre de clés Key Vault](quick-create-net.md).
+- Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
+- Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- En savoir plus sur les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

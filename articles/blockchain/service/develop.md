@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 388a5d8c80c3e2462602959e9d5cbc1452974d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f27dd199cc054d128a4f46b222c7207d5975efb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027899"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241001"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Vue d’ensemble du développement d’Azure Blockchain Service
 
-Avec Azure Blockchain Service, vous pouvez créer des réseaux blockchain de consortium permettant l’exécution de scénarios d’entreprise comme le suivi des biens, les jetons numériques, la fidélité et les récompenses, finances de la chaîne d’approvisionnement et la provenance. Cet article est une introduction à la vue d’ensemble du développement d’Azure Blockchain Service et aux principaux sujets pour implémenter la fonctionnalité « blockchain » pour l’entreprise.
+Avec Azure Blockchain Service, vous pouvez créer des réseaux blockchain de consortium permettant l’exécution de scénarios d’entreprise comme le suivi des biens, les jetons numériques, la fidélité et les récompenses, finances de la chaîne d’approvisionnement et la provenance. Cet article est une introduction au développement d’Azure Blockchain Service et aux principaux sujets pour implémenter une blockchain pour une entreprise.
 
 ## <a name="client-connection-to-azure-blockchain-service"></a>Connexion client à Azure Blockchain Service
 

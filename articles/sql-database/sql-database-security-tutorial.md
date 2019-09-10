@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640132"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231189"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
 
@@ -58,7 +58,7 @@ Pour connaître toutes les étapes du tutoriel, connectez-vous au [portail Azure
 
 ## <a name="create-firewall-rules"></a>Créer des règles de pare-feu
 
-Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées, sauf celles provenant d’autres services Azure. Pour plus d’informations, consultez [Règles de pare-feu au niveau de la base de données et au niveau du serveur Azure SQL Database](sql-database-firewall-configure.md).
+Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées. Pour plus d’informations, consultez [Règles de pare-feu au niveau de la base de données et au niveau du serveur Azure SQL Database](sql-database-firewall-configure.md).
 
 Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **DÉSACTIVER** pour définir la configuration la plus sécurisée. Ensuite, créez une [adresse IP réservée (déploiement classique)](../virtual-network/virtual-networks-reserved-public-ip.md) pour la ressource à connecter, par exemple une machine virtuelle Azure ou un service cloud, puis autorisez uniquement l’accès de cette adresse IP à travers le pare-feu. Si vous utilisez le modèle de déploiement [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), une adresse IP publique dédiée est nécessaire pour chaque ressource.
 
@@ -87,9 +87,6 @@ Pour configurer une règle de pare-feu au niveau du serveur :
    1. Sélectionnez **OK** pour fermer la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter à n’importe quelle base de données du serveur avec l’adresse IP ou la plage d’adresses IP spécifiée.
-
-> [!IMPORTANT]
-> Par défaut, l’accès à travers le pare-feu Azure SQL Database est activé pour tous les services Azure, sous **Autoriser l’accès aux services Azure**. Choisissez **DÉSACTIVER** pour désactiver l’accès pour tous les services Azure.
 
 ### <a name="setup-database-firewall-rules"></a>Configurer des règles de pare-feu de base de données
 

@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945837"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258787"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -78,7 +78,7 @@ Voir les [erreurs d’importation de version](luis-how-to-manage-versions.md#imp
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Collaboration
+## <a name="collaborating-and-contributing"></a>Collaboration et contribution
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Comment permettre aux collaborateurs d'accéder à LUIS avec Azure Active Directory (Azure AD) ou le contrôle d'accès en fonction du rôle (RBAC) ?
 
@@ -87,6 +87,31 @@ Pour savoir comment octroyer l'accès aux collaborateurs, consultez [Ressources 
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>Point de terminaison
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>J’ai reçu un code d’état d’erreur HTTP 403. Comment la corriger ?
+
+Vous obtenez des codes d’état d’erreur 403 et 429 lorsque vous dépassez le nombre de transactions par seconde ou le nombre de transactions par mois pour votre niveau tarifaire. Augmentez votre niveau tarifaire ou utilisez des conteneurs [Language Understanding](luis-container-howto.md).
+
+Lorsque vous utilisez l’ensemble des 1 000 requêtes de point de terminaison gratuites ou quand vous dépassez le quota de transactions mensuel de votre niveau tarifaire, vous recevez un code d’état d’erreur HTTP 403. 
+
+Pour corriger cette erreur, vous devez [modifier votre niveau tarifaire](luis-how-to-azure-subscription.md#change-pricing-tier) pour en choisir un de niveau supérieur ou [créer une ressource](get-started-portal-deploy-app.md#create-the-endpoint-resource) et [l’attribuer à votre application](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Les solutions pour corriger cette erreur incluent :
+
+* Dans le [portail Microsoft Azure](https://portal.azure.com), sur votre ressource Language Understanding, dans **Gestion des ressources -> Niveau tarifaire**, remplacez votre niveau tarifaire par un niveau TPS supérieur. Vous n’avez aucune action à effectuer dans le portail Language Understanding si votre ressource est déjà attribuée à votre application Language Understanding.
+*  Si votre utilisation dépasse le niveau tarifaire le plus élevé, ajoutez plus de ressources Language Understanding avec un équilibreur de charge placé devant celles-ci. Le [conteneur Language Understanding](luis-container-howto.md) avec Kubernetes ou Docker Compose peut vous y aider.
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>J’ai reçu un code d’état d’erreur HTTP 429. Comment la corriger ?
+
+Vous obtenez des codes d’état d’erreur 403 et 429 lorsque vous dépassez le nombre de transactions par seconde ou le nombre de transactions par mois pour votre niveau tarifaire. Augmentez votre niveau tarifaire ou utilisez des conteneurs [Language Understanding](luis-container-howto.md).
+
+Ce code d’état est renvoyé lorsque le nombre de transactions par seconde dépasse votre niveau tarifaire.  
+
+Les solutions pour corriger le problème incluent :
+
+* Vous pouvez [augmenter votre niveau tarifaire](luis-how-to-azure-subscription.md#change-pricing-tier), si vous n’êtes pas au niveau le plus élevé.
+* Si votre utilisation dépasse le niveau tarifaire le plus élevé, ajoutez plus de ressources Language Understanding avec un équilibreur de charge placé devant celles-ci. Le [conteneur Language Understanding](luis-container-howto.md) avec Kubernetes ou Docker Compose peut vous y aider.
+* Vous pouvez réguler vos requêtes d’application cliente avec une [stratégie de nouvelles tentatives](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que vous implémentez lorsque vous recevez ce code d’état. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Ma requête de point de terminaison a retourné des résultats inattendus. Que dois-je faire ?
 
@@ -102,7 +127,7 @@ Pour obtenir d’autres conseils, passez en revue les [bonnes pratiques](luis-co
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-language-support.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Comment faire pour créer et affecter une clé de point de terminaison LUIS ?
-[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-azure-subscription.md) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** . Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
+[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Attribuez la clé](luis-how-to-azure-subscription.md) dans la page **[Ressources Azure](luis-how-to-azure-subscription.md)** . Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ?
 Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’entraînement supplémentaires peut aider à augmenter le [score](luis-concept-prediction-score.md) de l’intention la plus probable.
@@ -123,10 +148,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ?
-Suivez ces [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP de l’application cliente adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query). Si vous avez créé une nouvelle ressource dans une autre région, modifiez également la région de la requête du client HTTP.
+Suivez ces [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP de l’application cliente adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md). Si vous avez créé une nouvelle ressource dans une autre région, modifiez également la région de la requête du client HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Comment faire pour sécuriser mon point de terminaison LUIS ?
-Voir [Sécurisation du point de terminaison](luis-concept-security.md#securing-the-endpoint).
+Voir [Sécurisation du point de terminaison](luis-concept-keys.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Respect des limites de LUIS
 
@@ -185,17 +210,15 @@ Si votre application existait avant la disponibilité générale de LUIS, les cl
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Comment savoir de quelle clé j'ai besoin, où l'obtenir et ce que je dois en faire ? 
 
-Pour en savoir plus sur les différences entre la [clé de création](luis-how-to-account-settings.md) et la [clé de prédiction de point de terminaison](luis-how-to-azure-subscription.md), consultez [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md). 
+Pour en savoir plus sur les différences entre la clé de création et la clé de runtime de prédiction, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md). 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>J'ai rencontré une erreur de dépassement de quota. Comment la corriger ? 
 
-Voir [Corriger les codes d’état HTTP 403 et 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) pour en savoir plus.
+Pour en savoir plus, voir Corriger les codes d’état HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) et [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>J'ai besoin de gérer davantage de requêtes de point de terminaison. Que dois-je faire ? 
 
-Voir [Corriger les codes d’état HTTP 403 et 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) pour en savoir plus.
-
-
+Pour en savoir plus, voir Corriger les codes d’état HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) et [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
 ## <a name="app-management"></a>Gestion des applications
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel REST : Créer un pipeline d’enrichissement d’IA à l’aide d’une recherche cognitive - Recherche Azure'
 description: Parcourez un exemple d’extraction de texte et de traitement de langage naturel sur du contenu d’objets blob JSON à l’aide de Postman et des API REST Recherche Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: e647d3c66d339a60278fa7d0f078497157b3fff1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102784"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274125"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Didacticiel : Ajouter une structure à du « contenu non structuré » avec la recherche cognitive
 
@@ -22,10 +22,10 @@ Si vous avez un contenu de texte ou d’image non structuré, la fonctionnalité
 
 > [!div class="checklist"]
 > * Commencez avec des documents entiers (texte non structuré) tels que des documents PDF, MD, DOCX et PPTX dans le stockage Blob Azure.
-> * Créez un pipeline qui extrait du texte, détecte la langue, reconnaît les entités et détecte les expressions clés.
+> * Définissez un pipeline qui extrait du texte, détecte la langue, reconnaît les entités et détecte les expressions clés.
 > * Définissez un index pour stocker la sortie (contenu brut et paires nom-valeur générées par le pipeline).
-> * Exécutez le pipeline pour créer et charger l’index.
-> * Explorez le contenu à l’aide de la recherche en texte intégral et d’une syntaxe de requête riche.
+> * Exécutez le pipeline pour démarrer des transformations et une analyse, ainsi que pour créer et charger l’index.
+> * Explorez les résultats à l’aide de la recherche en texte intégral et d’une syntaxe de requête enrichie.
 
 Vous avez besoin de plusieurs services pour effectuer cette procédure pas à pas, ainsi que de l’[application de bureau Postman](https://www.getpostman.com/) ou d’un autre outil de test web pour effectuer les appels d’API REST. 
 

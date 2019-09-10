@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347404"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213609"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Didacticiel : Intégrer The Cloud Security Fabric à Azure Active Directory
 
@@ -104,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-5. Pour modifier les options de **Signature** selon vos besoins, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue  **Certificat de signature SAML**.
+5. Pour modifier les options **Signature** en fonction de vos besoins, cliquez sur le bouton **Modifier** afin d’ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
     ![Réponse SAML](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Créer un utilisateur de test The Cloud Security Fabric
 
-Dans cette section, vous allez créer un utilisateur nommé B.Simon dans The Cloud Security Fabric. Travaillez en collaboration avec  [l’équipe de support de The Cloud Security Fabric](mailto:support@cloudlock.com) pour ajouter des utilisateurs à la plateforme The Cloud Security Fabric. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé B.Simon dans The Cloud Security Fabric. Travaillez en collaboration avec [l’équipe de support de The Cloud Security Fabric](mailto:support@cloudlock.com) pour ajouter des utilisateurs à la plateforme The Cloud Security Fabric. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

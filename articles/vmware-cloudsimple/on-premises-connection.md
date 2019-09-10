@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972683"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240708"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Connecter un réseau local à CloudSimple à l’aide d’ExpressRoute
 
 Si vous disposez déjà d’une connexion Azure ExpressRoute à partir d’un emplacement externe (comme un emplacement local) vers Azure, vous pouvez la connecter à votre environnement CloudSimple. Vous pouvez le faire via une fonctionnalité d’Azure qui permet à deux circuits ExpressRoute de se connecter entre eux. Cette méthode établit une connexion sécurisée, privée, à bande passante élevée et à faible latence entre les deux environnements.
 
 [![Connexion ExpressRoute locale - Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Un bloc d’ adresses réseau **/29** est requis pour établir une connexion Global Reach à partir d’un emplacement local.  L’espace d’adressage /29 est utilisé pour le réseau de transit entre les circuits ExpressRoute.  Le réseau de transit ne doit pas chevaucher vos réseaux virtuels Azure, réseaux locaux ou réseaux de cloud privé CloudSimple.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,3 +69,8 @@ Pour établir la connexion ExpressRoute, vous devez créer une autorisation sur 
     * Type de problème : **Demande de service**
     * Sous-type de problème : **Créer une connexion ExpressRoute au réseau local**
     * Indiquez l’ID de ressource et la clé d’autorisation que vous avez copiés et enregistrés dans le volet d’informations.
+    * Fournissez un espace d’adressage réseau /29 pour le réseau de transit.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Apprenez-en davantage sur les connexions réseau Azure](cloudsimple-azure-network-connection.md)  

@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
+ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1104c017541b8124366a6121763318f199f3aad5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126082"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240210"
 ---
 ::: zone target="chromeless"
 
@@ -49,18 +50,7 @@ Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des don
     - Nous vous recommandons d’emballer les disques avec du papier bulle pour les protéger.
     - Vérifiez qu’ils sont suffisamment serrés dans la boîte pour éviter qu’ils ne bougent.
 
-Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil. Les instructions sont différentes pour les États-Unis/le Canada, l’Australie et les pays d’Asie.
-
-- [Planifiez une date d’enlèvement avec UPS en cas de renvoi aux États-Unis et au Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [Planifiez une date d’enlèvement auprès de DHL pour l’Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) en visitant son site web et en spécifiant le numéro de facture de transport aérien.
-- [Planifier un enlèvement en Australie](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia).
-- [Planifier un enlèvement dans un pays d’Asie](data-box-disk-deploy-picked-up.md#pick-up-in-asia) comme le Japon, la Corée ou Singapour.
-
-::: zone target="chromeless"
-
-Une fois que les disques ont été récupérés par le transporteur, l’état de la commande dans le portail est mis à jour et l’ID de suivi est affiché.
-
-::: zone-end
+Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil. Les instructions sont différentes pour les États-Unis/le Canada, l’Union européenne (UE), l’Australie et les pays d’Asie.
 
 ### <a name="pick-up-in-us-canada"></a>Enlèvement aux États-Unis et au Canada
 
@@ -151,9 +141,6 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 1. Imprimez l’étiquette d’expédition et apposez-la sur la boîte. Si l’étiquette est endommagée ou perdue :
     - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** et récupérez une étiquette d’expédition de retour.
-
-        ![Télécharger une étiquette d’expédition](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Collez l’étiquette sur l’appareil. Vérifiez que l’étiquette est visible.
 
 2. Pour demander un enlèvement :

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 438a1290b5807d69b5b867c4afc3c1ca0e3a7203
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e875c74884fcea824ac29001aa5bcca9009e3dcb
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128168"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142759"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Démarrage rapide : Utiliser Java pour appeler le service cognitif Analyse de texte d’Azure
 <a name="HOLTop"></a>
@@ -37,10 +37,9 @@ Vous devez également avoir le [point de terminaison et la clé d’accès](../.
 
 L’API Détection de langue détecte la langue d’un document texte à l’aide de la  [méthode Détecter la langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Java dans votre IDE favori (ou dans un nouveau dossier sur votre poste de travail). Créez une classe nommée `DetectLanguage.java`.
 1. Ajoutez le code fourni ci-dessous à votre classe.
-1. Remplacez la valeur de `accessKey` par la clé de votre abonnement Analyse de texte dans [Azure](https://ms.portal.azure.com).
-1. Remplacez l’emplacement dans `host` (actuellement `westus`) par la région sur laquelle porte votre inscription.
 1. Vérifiez que la bibliothèque [Gson](https://github.com/google/gson) est installée.
 1. Exécutez le programme dans votre IDE ou utilisez la ligne de commande pour l’exécuter (il y a des instructions dans les commentaires du code).
 
@@ -91,23 +90,24 @@ class Documents {
 }
 
 public class DetectLanguage {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-    static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-    static String host = "https://westus.api.cognitive.microsoft.com";
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
+    }
 
     static String path = "/text/analytics/v2.1/languages";
     
@@ -115,11 +115,11 @@ public class DetectLanguage {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
-        URL url = new URL(host+path);
+        URL url = new URL(endpoint+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "text/json");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
         connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -148,6 +148,8 @@ public class DetectLanguage {
 
     public static void main (String[] args) {
         try {
+            Initialize();
+
             Documents documents = new Documents ();
             documents.add ("1", "This is a document written in English.");
             documents.add ("2", "Este es un document escrito en Español.");
@@ -213,10 +215,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Analyse des sentiments détecte les sentiments d’un ensemble d’enregistrements de texte à l’aide de la [méthode Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). L’exemple suivant évalue deux documents, l’un en anglais, l’autre en espagnol.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Java dans votre IDE favori (ou dans un nouveau dossier sur votre poste de travail). Créez-y une classe nommée `GetSentiment.java`.
 1. Ajoutez le code fourni ci-dessous à votre classe.
-1. Remplacez la valeur de `accessKey` par la clé de votre abonnement Analyse de texte dans [Azure](https://ms.portal.azure.com).
-1. Remplacez l’emplacement dans `host` (actuellement `westus`) par la région sur laquelle porte votre inscription.
 1. Vérifiez que la bibliothèque [Gson](https://github.com/google/gson) est installée.
 1. Exécutez le programme dans votre IDE ou utilisez la ligne de commande pour l’exécuter (il y a des instructions dans les commentaires du code).
 
@@ -268,23 +269,24 @@ class Documents {
 }
 
 public class GetSentiment {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-    static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-    static String host = "https://westus.api.cognitive.microsoft.com";
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
+    }
 
     static String path = "/text/analytics/v2.1/sentiment";
     
@@ -292,11 +294,11 @@ public class GetSentiment {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
-        URL url = new URL(host+path);
+        URL url = new URL(endpoint+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "text/json");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
         connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -325,6 +327,8 @@ public class GetSentiment {
 
     public static void main (String[] args) {
         try {
+            Initialize();
+
             Documents documents = new Documents ();
             documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
             documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
@@ -366,10 +370,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Extraction de phrases clés extrait des phrases clés d’un document texte à l’aide de la [méthode Phrases clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). L’exemple suivant extrait les phrases clés des documents en anglais et en espagnol.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Java dans votre IDE favori (ou dans un nouveau dossier sur votre poste de travail). Créez-y une classe nommée `GetKeyPhrases.java`.
 1. Ajoutez le code fourni ci-dessous à votre classe.
-1. Remplacez la valeur de `accessKey` par la clé de votre abonnement Analyse de texte dans [Azure](https://ms.portal.azure.com).
-1. Remplacez l’emplacement dans `host` (actuellement `westus`) par la région sur laquelle porte votre inscription.
 1. Vérifiez que la bibliothèque [Gson](https://github.com/google/gson) est installée.
 1. Exécutez le programme dans votre IDE ou utilisez la ligne de commande pour l’exécuter (il y a des instructions dans les commentaires du code).
 
@@ -421,23 +424,24 @@ class Documents {
 }
 
 public class GetKeyPhrases {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-    static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-    static String host = "https://westus.api.cognitive.microsoft.com";
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
+    }
 
     static String path = "/text/analytics/v2.1/keyPhrases";
     
@@ -445,11 +449,11 @@ public class GetKeyPhrases {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
-        URL url = new URL(host+path);
+        URL url = new URL(endpoint+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "text/json");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
         connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -478,6 +482,8 @@ public class GetKeyPhrases {
 
     public static void main (String[] args) {
         try {
+            Initialize();
+
             Documents documents = new Documents ();
             documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
             documents.add ("2", "es", "Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.");
@@ -538,10 +544,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Les [entités](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraient les mots du texte, comme « United States », puis vous donnent le type et/ou un lien Wikipédia pour ce ou ces mots. Le type pour « United States » est `location`, alors que le lien Wikipédia est `https://en.wikipedia.org/wiki/United_States`.  L’exemple suivant identifie les entités dans les documents en anglais.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Java dans votre IDE favori (ou dans un nouveau dossier sur votre poste de travail). Créez-y une classe nommée `GetEntities.java`.
 1. Ajoutez le code fourni ci-dessous à votre classe.
-1. Remplacez la valeur de `accessKey` par la clé de votre abonnement Analyse de texte dans [Azure](https://ms.portal.azure.com).
-1. Remplacez l’emplacement dans `host` (actuellement `westus`) par la région sur laquelle porte votre inscription.
 1. Vérifiez que la bibliothèque [Gson](https://github.com/google/gson) est installée.
 1. Exécutez le programme dans votre IDE ou utilisez la ligne de commande pour l’exécuter (il y a des instructions dans les commentaires du code).
 
@@ -593,23 +598,24 @@ class Documents {
 }
 
 public class GetEntities {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-    static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-    static String host = "https://westus.api.cognitive.microsoft.com";
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
+    }
 
     static String path = "/text/analytics/v2.1/entities";
     
@@ -617,11 +623,11 @@ public class GetEntities {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
-        URL url = new URL(host+path);
+        URL url = new URL(endpoint+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "text/json");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
         connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -650,6 +656,8 @@ public class GetEntities {
 
     public static void main (String[] args) {
         try {
+            Initialize();
+
             Documents documents = new Documents ();
             documents.add ("1", "en", "Microsoft is an It company.");
 

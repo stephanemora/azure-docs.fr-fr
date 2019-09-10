@@ -1,5 +1,5 @@
 ---
-title: Accès multiprotocole sur Azure Data Lake Storage | Microsoft Docs
+title: Accès multi-protocole sur Azure Data Lake Storage (préversion) | Microsoft Docs
 description: Utilisez des API d’objets BLOB et des applications qui utilisent des API d’objets BLOB avec Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855536"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259374"
 ---
-# <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accès multi-protocole pour Azure Data Lake Storage
+# <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Accès multi-protocole sur Azure Data Lake Storage (préversion)
 
 Les API d’objets BLOB fonctionnent désormais avec les comptes qui ont un espace de noms hiérarchique. Cela déverrouille l’intégralité de l’écosystème des outils, des applications et des services, ainsi que toutes les fonctionnalités de stockage d’objets BLOB pour les comptes qui ont un espace de noms hiérarchique.
 
 Jusqu’à récemment, vous avez peut-être dû maintenir des solutions de stockage distinctes pour le stockage des objets et l’analyse du stockage. Cela est dû au fait que Azure Data Lake Storage Gen2 avait une prise en charge limitée de l’écosystème. Il avait également un accès limité aux fonctionnalités du service BLOB, telles que la journalisation des diagnostics. Une solution de stockage fragmenté est difficile à maintenir, car vous devez déplacer les données entre les comptes pour effectuer différents scénarios. Vous n’avez plus à le faire.
 
 > [!NOTE]
-> L’accès multi-protocole sur Data Lake Storage est en préversion publique et est disponible uniquement dans les régions **USA Ouest 2** et **USA Centre-Ouest**. Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire dans la préversion, consultez [cette page](https://aka.ms/blobinteropsignup).
+> L’accès multi-protocole sur Data Lake Storage est disponible en préversion publique uniquement dans les [régions suivantes](#region-availability). Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire dans la préversion, consultez [cette page](https://aka.ms/blobinteropsignup).
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Utiliser l’intégralité de l’écosystème d’applications, d’outils et de services
 
@@ -46,7 +46,21 @@ Les API d’objets BLOB et les API Data Lake Storage Gen2 peuvent fonctionner su
 
 ![Accès multi-protocole sur Data Lake Storage conceptuelle](./media/data-lake-storage-interop/interop-concept.png) 
 
-Les outils et les applications existants qui utilisent l’API BLOB bénéficient automatiquement de ces avantages. Les développeurs ne sont pas obligés de les modifier. Data Lake Storage Gen2 applique de manière cohérente les listes de contrôle d’accès au niveau des répertoires et des fichiers, quel que soit le protocole utilisé par les outils et les applications pour accéder aux données.   
+Les outils et les applications existants qui utilisent l’API BLOB bénéficient automatiquement de ces avantages. Les développeurs ne sont pas obligés de les modifier. Data Lake Storage Gen2 applique de manière cohérente les listes de contrôle d’accès au niveau des répertoires et des fichiers, quel que soit le protocole utilisé par les outils et les applications pour accéder aux données. 
+
+<a id="region-availability" />
+
+## <a name="region-availability"></a>Disponibilité des régions
+
+L’accès multi-protocole sur Azure Data Lake Storage (préversion) est disponible dans les régions suivantes :
+
+|||||
+|-|-|-|-|
+|USA Centre|Centre-USA Ouest|Centre du Canada|
+|USA Est|Asie Est|Europe Nord|
+|USA Est 2|Asie Sud-Est|Europe Ouest|
+|USA Ouest|Australie Est|Japon Est|
+|USA Ouest 2|Brésil Sud||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

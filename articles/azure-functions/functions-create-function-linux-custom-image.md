@@ -1,22 +1,19 @@
 ---
 title: Créer une fonction Azure Functions sur Linux avec une image personnalisée
 description: Découvrez comment créer une exécution d’Azure Functions sur une image Linux personnalisée.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562919"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210181"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Créer une fonction sur Linux avec une image personnalisée
 
@@ -56,7 +53,7 @@ Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com/bash
 
 ## <a name="create-the-local-function-app-project"></a>Créer le projet d’application de fonction local
 
-Exécutez la commande suivante à partir de la ligne de commande pour créer un projet d’application de fonction dans le dossier `MyFunctionProj` du répertoire local actif.
+Exécutez la commande suivante à partir de la ligne de commande pour créer un projet d’application de fonction dans le dossier `MyFunctionProj` du répertoire local actif. Pour un projet Python, vous [devez effectuer l’exécution dans un environnement virtuel](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ Lorsque vous y êtes invités, choisissez un worker runtime parmi les langages s
 
 * `dotnet` : crée un projet de bibliothèque de classes .NET Core (.csproj).
 * `node` : créer un projet JavaScript.
-* `python` : crée un projet Python.
+* `python` : crée un projet Python.  
 
 Lorsque la commande s’exécute, une sortie similaire à la suivante s’affiche :
 

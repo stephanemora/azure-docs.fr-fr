@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494804"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258897"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 
@@ -43,13 +43,13 @@ Lorsqu’il est utilisé avec une variable ou une propriété, l’objet de la c
 
 Les deux formats sont décrits de façon plus détaillée dans cet article. Pour un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
-Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-group-authoring-templates.md#condition).
+Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](conditional-resource-deployment.md).
 
 ## <a name="copy-limits"></a>Limites de copie
 
 Pour spécifier le nombre d’itérations, vous devez fournir une valeur pour la propriété count. Le nombre ne peut pas dépasser 800.
 
-Le nombre ne peut pas être négatif. Si vous déployez un modèle avec la version **2019-05-10** ou une version ultérieure de l’API REST, vous pouvez définir le nombre à zéro. Les versions antérieures de l’API REST ne prennent pas en charge le nombre zéro. Actuellement, Azure CLI et PowerShell ne prennent pas en charge le nombre zéro, mais cette option sera ajoutée dans une version ultérieure.
+Le nombre ne peut pas être négatif. Si vous déployez un modèle avec Azure PowerShell 2.6 ou version ultérieure, ou l’API REST version **2019-05-10** ou ultérieure, vous pouvez définir le nombre sur zéro. Les versions antérieures de PowerShell et de l’API REST ne prennent pas en charge le nombre zéro. Actuellement, Azure CLI ne prend pas en charge le nombre zéro, mais cette option sera ajoutée dans une version ultérieure.
 
 Soyez prudent lorsque vous utilisez le [déploiement en mode Complet](deployment-modes.md) avec des copies. Si vous redéployez dans un groupe de ressources en mode Complet, toutes les ressources qui ne sont pas spécifiées dans le modèle après la résolution de la boucle de copie sont supprimées.
 

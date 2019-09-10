@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 729228b224bdf708fbcf9caf4742f9bb7ad5cff3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 0bd30abc78caea369f2d0a330eac457ad78e9e84
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311977"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141274"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de Python
 
@@ -34,17 +34,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommés respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
 1. Copiez le code ci-après dans un éditeur de texte.
-1. Modifiez le code comme ci-dessous :
-    1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
-    1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur à partir de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
-    1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
+1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
 1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-text.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-text.py`.
@@ -59,20 +56,17 @@ from matplotlib.patches import Polygon
 from PIL import Image
 from io import BytesIO
 
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
+# Add your Computer Vision subscription key and endpoint to your environment variables.
+if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
+    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+else:
+    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
+    sys.exit()
 
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the "westcentralus" region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+if 'COMPUTER_VISION_ENDPOINT' in os.environ:
+    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
+text_recognition_url = endpoint + "vision/v2.0/read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"

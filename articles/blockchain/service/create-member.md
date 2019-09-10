@@ -1,31 +1,31 @@
 ---
-title: Créer une instance Azure Blockchain Service à l’aide du portail Azure
-description: Utilisez Azure Blockchain Service pour créer un membre de consortium.
+title: Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
+description: Utilisez Azure Blockchain Service pour créer un membre de blockchain.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417499"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241036"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Démarrage rapide : Créer une instance Azure Blockchain Service à l’aide du portail Azure
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Démarrage rapide : Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
 
-Azure Blockchain Service est une plateforme blockchain que vous pouvez utiliser pour exécuter votre logique métier au sein d’un contrat intelligent. Ce guide de démarrage rapide vous montre comment créer un registre managé à l’aide du portail Azure.
+Azure Blockchain Service est une plateforme blockchain que vous pouvez utiliser pour exécuter votre logique métier au sein d’un contrat intelligent. Ce guide de démarrage rapide vous montre comment démarrer en créant un membre de blockchain à l’aide du portail Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-managed-ledger"></a>Créer un registre managé
+## <a name="create-a-blockchain-member"></a>Créer un membre blockchain
 
-Azure Blockchain Service est créé avec un ensemble défini de ressources de calcul et de stockage.
+Créez un membre de blockchain qui exécute le protocole de registre Quorum dans un nouveau consortium ou un consortium existant.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
@@ -36,9 +36,9 @@ Azure Blockchain Service est créé avec un ensemble défini de ressources de ca
 
     Paramètre | Description
     --------|------------
-    Membre blockchain | Choisissez un nom unique qui identifie le membre Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.
-    Abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
-    Groupe de ressources | Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
+    Membre blockchain | Choisissez un nom unique qui identifie votre membre de blockchain Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.
+    Subscription | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Resource group | Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Région | L’emplacement doit être le même pour tous les membres du consortium.
     Mot de passe du compte du membre | Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
     Nom du consortium | Pour un nouveau consortium, entrez un nom unique. Si vous rejoignez un consortium par le biais d’une invitation, la valeur correspond au consortium que vous rejoignez.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 10cab0a1b5bfea603de56a366473a68ca2fcb009
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6862c48493c2fdf3cbc4e4a9da70d6da70c723de
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604405"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141454"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST Vision par ordinateur et de cURL
 
@@ -36,7 +36,8 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 1. Copiez la commande ci-après dans un éditeur de texte.
 1. Modifiez la commande comme ci-dessous :
     1. Remplacez la valeur de `<subscriptionKey>` par votre clé d’abonnement.
-    1. Si nécessaire, remplacez l’URL de requête (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr`) par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez la première partie de l’URL de la demande (`westcentralus`) par le texte de votre propre URL de point de terminaison.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Éventuellement, changez l’URL d’image dans le corps de la requête (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) par l’URL d’une autre image à analyser.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. Collez la commande à partir de l’éditeur de texte dans la fenêtre d’invite de commandes, puis exécutez la commande.

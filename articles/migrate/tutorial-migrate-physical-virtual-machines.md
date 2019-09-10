@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311788"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309465"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrer des serveurs physiques ou virtualisés vers Azure 
 
@@ -255,6 +255,11 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
     ```
 
 ## <a name="replicate-machines"></a>Répliquer les machines
+
+À présent, sélectionnez les machines pour la migration. 
+
+> [!NOTE]
+> Vous pouvez répliquer ensemble jusqu’à 10 machines. Si vous avez besoin d’en répliquer davantage, répliquez-les simultanément par lots de 10.
 
 1. Dans le projet Azure Migrate > **Serveurs**, **Azure Migrate : Server Migration**, cliquez sur **Répliquer**.
 

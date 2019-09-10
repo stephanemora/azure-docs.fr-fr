@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e635064af21996b7bd87b9da0f6b1ec9aa29378
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563921"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307789"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -26,10 +26,10 @@ Dans ce guide de démarrage rapide, vous allez créer une application LUIS qui u
 
 Pour cet article, vous devez disposer d’un compte LUIS gratuit que vous pouvez créer depuis le portail LUIS à l’adresse [https://www.luis.ai](https://www.luis.ai). 
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## <a name="create-a-new-app"></a>Créer une application
 Vous pouvez créer et gérer vos applications sur la page **Mes applications**. 
-
-1. Connectez-vous au portail LUIS.
 
 2. Sélectionnez **Créer une application**.
 
@@ -65,7 +65,7 @@ Sélectionnez **Intentions** dans le volet de navigation de gauche pour afficher
 
 Sélectionnez l’intention **HomeAutomation.TurnOff**. Vous pouvez voir que l’intention contient une liste d’énoncés qui sont associés à des entités.
 
-[![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnon.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
@@ -85,6 +85,10 @@ Dans cet exemple, « Éteindre les lumières » doit apparaître comme l’inten
 [![Capture d’écran du panneau Tester avec énoncé mis en surbrillance](media/luis-quickstart-new-app/test.png "Capture d’écran du panneau Tester avec énoncé mis en surbrillance")](media/luis-quickstart-new-app/test.png)
 
 
+Sélectionnez **Inspecter** pour passer en revue des informations supplémentaires sur la prédiction.
+
+![Capture d’écran du panneau Test avec l’énoncé mis en surbrillance](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+
 Sélectionnez à nouveau **Tester** pour réduire le volet de test. 
 
 <a name="publish-your-app"></a>
@@ -97,9 +101,78 @@ Sélectionnez à nouveau **Tester** pour réduire le volet de test.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, entrez `turn off the living room light`, puis appuyez sur Entrée. Le navigateur affiche la réponse JSON de votre point de terminaison HTTP.
+2. Accédez à la fin de l’URL dans la barre d’adresses, entrez `turn off the living room light`, puis appuyez sur Entrée. Le navigateur affiche la version d’API V2 de la réponse JSON de votre point de terminaison HTTP.
 
-    [![Capture d’écran de navigateur avec résultat JSON indiquant la détection de l’intention TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Capture d’écran de navigateur avec résultat JSON indiquant la détection de l’intention TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+```json
+{
+  "query": "turn off the living room light",
+  "topScoringIntent": {
+    "intent": "HomeAutomation.TurnOff",
+    "score": 0.9753089
+  },
+  "intents": [
+    {
+      "intent": "HomeAutomation.TurnOff",
+      "score": 0.9753089
+    },
+    {
+      "intent": "HomeAutomation.QueryState",
+      "score": 0.01027893
+    },
+    {
+      "intent": "HomeAutomation.TurnUp",
+      "score": 0.006881481
+    },
+    {
+      "intent": "HomeAutomation.SetDevice",
+      "score": 0.006786365
+    },
+    {
+      "intent": "HomeAutomation.TurnDown",
+      "score": 0.005145787
+    },
+    {
+      "intent": "HomeAutomation.TurnOn",
+      "score": 0.004114749
+    },
+    {
+      "intent": "None",
+      "score": 0.000598924
+    }
+  ],
+  "entities": [
+    {
+      "entity": "living room",
+      "type": "HomeAutomation.Location",
+      "startIndex": 13,
+      "endIndex": 23,
+      "score": 0.94558233
+    },
+    {
+      "entity": "living room light",
+      "type": "HomeAutomation.DeviceName",
+      "startIndex": 13,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "living room light"
+        ]
+      }
+    },
+    {
+      "entity": "light",
+      "type": "HomeAutomation.DeviceType",
+      "startIndex": 25,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "light"
+        ]
+      }
+    }
+  ]
+}
+```
     
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

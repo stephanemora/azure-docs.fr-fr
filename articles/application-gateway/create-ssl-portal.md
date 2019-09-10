@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: bc5216fccd5beab0e655776c0ccda3c53332da6f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478609"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194566"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Didacticiel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
@@ -58,6 +58,9 @@ E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
 Utilisez [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat :
 
+> [!NOTE]
+> N’utilisez pas de caractères spéciaux dans le mot de passe de votre fichier .pfx. Seuls les caractères alphanumériques sont pris en charge.
+
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
 Export-PfxCertificate `
@@ -97,7 +100,7 @@ Export-PfxCertificate `
 
      ![Créer une passerelle d’application : réseau virtuel](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Front-ends**.
+3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Serveurs frontaux**.
 
 ### <a name="frontends-tab"></a>Onglet Front-ends
 

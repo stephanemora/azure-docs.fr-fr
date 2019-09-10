@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001997"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138341"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,12 +175,12 @@ Suivez le didacticiel pour créer une image Ubuntu déprovisionnée avec NGINX i
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Modifier l’infrastructure pour ajouter le groupe de machines virtuelles identiques
 
 Cette étape vous permet de créer les ressources suivantes sur le réseau qui a déjà été déployé :
-- Un équilibrage de charge Azure pour prendre en charge l’application et l’attacher à l’adresse IP publique déployée à l’étape 4
+- Un équilibreur de charge Azure pour traiter l’application et l’attacher à l’adresse IP publique déployée précédemment.
 - Un équilibrage de charge Azure et des règles pour prendre en charge l’application et l’attacher à l’adresse IP publique configurée précédemment
-- Un pool d’adresses principales Azure qui est ensuite affecté à l’équilibrage de charge 
-- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibrage de charge 
-- Un groupe de machines virtuelles identiques derrière l’équilibrage de charge, exécuté sur le réseau virtuel déployé précédemment
-- [Nginx](https://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir de l’image personnalisée.
+- Un pool d’adresses back-end Azure qui est ensuite affecté à l’équilibrage de charge.
+- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibreur de charge.
+- Un groupe de machines virtuelles identiques situé derrière l’équilibreur de charge et s’exécutant sur le réseau virtuel déployé précédemment.
+- [Nginx](https://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir d’une image personnalisée.
 
 
 Ajoutez le code suivant à la fin du fichier `vmss.tf`.
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

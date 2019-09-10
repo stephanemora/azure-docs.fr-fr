@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/12/2019
-ms.openlocfilehash: 41670b74cdc6205ed7e02431dd10de8bea2d2858
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.date: 09/01/2019
+ms.openlocfilehash: e0a9f4fa6ca5ff7447d2ffaef3eab2f3c54fdeae
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68014920"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241257"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>Démarrage rapide : Créer un compte, un conteneur et des éléments Azure Cosmos avec le portail Azure
 
@@ -28,9 +28,9 @@ ms.locfileid: "68014920"
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez utiliser Azure Cosmos DB pour créer et interroger rapidement des bases de données de paires clé/valeur, des bases de données de documents et des bases de données de graphes, qui bénéficient toutes des fonctionnalités de distribution mondiale et de mise à l’échelle horizontale au cœur même d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB, comment créer une base de données de documents et une collection, et comment ajouter des données à la collection. 
+Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB, comment créer une base de données de documents et un conteneur, et comment ajouter des données au conteneur. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -42,16 +42,16 @@ Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection-database"></a>
-## <a name="add-a-database-and-a-collection"></a>Ajouter une base de données et une collection 
+<a id="create-container-database"></a>
+## <a name="add-a-database-and-a-container"></a>Ajouter une base de données et un conteneur 
 
-Vous pouvez utiliser l’Explorateur de données dans le portail Azure pour créer une base de données et une collection. 
+Vous pouvez utiliser l’Explorateur de données du portail Azure pour créer une base de données et un conteneur. 
 
 1.  Dans la page de votre compte Azure Cosmos DB, sur la gauche, sélectionnez **Explorateur de données**, puis **Nouveau conteneur**. 
     
     Vous devrez peut-être faire défiler vers la droite pour voir la fenêtre **Ajouter un conteneur**.
     
-    ![Explorateur de données du portail Azure, volet Ajouter une collection](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    ![Explorateur de données du portail Azure, volet Ajouter un conteneur](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
 1.  Dans le volet **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
     
@@ -59,7 +59,7 @@ Vous pouvez utiliser l’Explorateur de données dans le portail Azure pour cré
     |---|---|---|
     |**ID de base de données**|ToDoList|Entrez *ToDoList* pour le nom de la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
     |**Débit**|400|Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.| 
-    |**ID de conteneur**|Éléments|Entrez *Items* comme nom pour votre nouvelle collection. Les ID de collection sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.|
+    |**ID de conteneur**|Éléments|Entrez *Éléments* comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.|
     |**Clé de partition**| /category| L’exemple décrit dans cet article utilise */category* comme clé de partition.|
 
     

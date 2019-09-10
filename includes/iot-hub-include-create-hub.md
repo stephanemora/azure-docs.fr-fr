@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048560"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161958"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
     - **Paramètres avancés** > **Partitions appareil-à-cloud** : cette propriété associe les messages appareil-à-cloud au nombre de lecteurs simultanés des messages. La plupart des hubs n’ont besoin que de 4 partitions.
 
-1. Pour ce didacticiel, acceptez les options par défaut, puis sélectionnez **Vérifier + créer** pour valider vos choix. Vous voyez quelque chose de similaire à cet écran.
+1. Pour cet article, acceptez les options par défaut, puis sélectionnez **Vérifier + créer** pour passer en revue vos choix. Vous voyez quelque chose de similaire à cet écran.
 
    ![Vérifier les informations pour la création du hub](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

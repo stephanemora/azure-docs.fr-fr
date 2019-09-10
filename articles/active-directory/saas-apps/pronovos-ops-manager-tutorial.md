@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e22b616e50929d4ac099c3412e89db426b09307
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 95c898dd36387d4474f5129943c6bd76f754ffe2
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489487"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213535"
 ---
 # <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Didacticiel : Intégrer ProNovos Ops Manager à Azure Active Directory
 
@@ -81,7 +81,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section  **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le  **fournisseur d’identité**  et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton  **Enregistrer** .
+1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-pronovos-ops-manager-test-user"></a>Créer un utilisateur de test ProNovos Ops Manager
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans ProNovos Ops Manager. Collaborez avec l’ [équipe du support technique de ProNovos Ops Manager](mailto:support@pronovos.com) pour ajouter des utilisateurs sur la plateforme ProNovos Ops Manager. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans ProNovos Ops Manager. Collaborez avec l’[équipe du support technique de ProNovos Ops Manager](mailto:support@pronovos.com) pour ajouter des utilisateurs à la plateforme ProNovos Ops Manager. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

@@ -6,18 +6,18 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899686"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274049"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 
-Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion de données (indexation) pour créer et charger un index. De l’autre côté, votre code d’application émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre client via la fonctionnalité de Recherche Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez sur Recherche Azure.
+Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion de données (indexation) pour créer et charger un index. De l’autre côté, votre code d’application émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre client via la fonctionnalité de Recherche Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez dans votre service.
 
 ![Architecture Recherche Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architecture Recherche Azure")
 

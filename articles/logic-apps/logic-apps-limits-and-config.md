@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099426"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242369"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -260,11 +260,9 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 
 Toutes les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez vos pare-feu avec *toutes* les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région. 
 
-Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
+Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région. Pour les applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), assurez-vous que vous [ouvrez ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-Pour les applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), assurez-vous que vous [ouvrez ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
-
-Pour [Azure Government](../azure-government/documentation-government-overview.md) et [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), les adresses IP réservées pour les connecteurs ne sont pas disponibles.
+Pour les connecteurs personnalisés, [Azure Government](../azure-government/documentation-government-overview.md) et [21Vianet - Azure Chine](https://docs.microsoft.com/azure/china/), il n’y a pas d’adresses IP fixes ou réservées disponibles.
 
 > [!IMPORTANT]
 >

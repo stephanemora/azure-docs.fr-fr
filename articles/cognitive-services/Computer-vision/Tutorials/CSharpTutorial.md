@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004021"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141283"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
 
@@ -33,7 +33,7 @@ Explorez une application Windows de base qui utilise l’API Vision par ordinate
 Avant d’explorer l’exemple d’application, assurez-vous que vous avez rempli les conditions préalables suivantes :
 
 * Vous devez avoir [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou une version ultérieure.
-* Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+* Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Notez également l’URL du point de terminaison du service.
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
@@ -79,8 +79,9 @@ Vous pouvez exécuter l’exemple d’application pour vérifier son interaction
 1. Lorsque l’exemple d’application s’affiche, choisissez **Subscription Key Management** (Gestion des clés d’abonnement) dans le volet de navigation pour afficher la page de gestion des clés d’abonnement.
    ![Page Subscription Key Management (Gestion des clés d’abonnement)](../Images/Vision_UI_Subscription.PNG)  
 1. Entrez votre clé d’abonnement dans **Clé de l’abonnement**.
-1. Entrez l’URL de point de terminaison, sans `/vision/v1.0`, de la ressource Vision par ordinateur pour votre clé d’abonnement dans **Point de terminaison**.  
-   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante pour la région USA Centre-Ouest Azure : `https://westcentralus.api.cognitive.microsoft.com`
+1. Entrez l’URL du point de terminaison dans **Point de terminaison**.  
+   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante : `https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Si vous ne souhaitez pas entrer votre clé d’abonnement ni l’URL du point de terminaison lors de la prochaine exécution de l’exemple d’application, sélectionnez **Enregistrer le paramètre** pour enregistrer l’URL du point de terminaison et la clé d’abonnement sur votre ordinateur. Si vous souhaitez supprimer l’URL du point de terminaison et la clé d’abonnement précédemment enregistrées, sélectionnez **Supprimer le paramètre**.
 
    > [!NOTE]

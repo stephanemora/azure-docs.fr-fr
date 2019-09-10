@@ -1,26 +1,20 @@
 ---
-title: Introduction à Azure Data Science Virtual Machine pour Linux et Windows | Microsoft Docs
+title: Qu’est-ce que la machine virtuelle Science des données Azure ?
 description: Scénarios et composants d’analytique clés pour Azure Data Science Virtual Machine Windows et Linux.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 22192d67a946f9f466848b65b9cd763b16e6c5f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3295a59ee4496d332f0d886c89ca900ab6b4bcd1
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099383"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191897"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Qu’est-ce qu’Azure Data Science Virtual Machine pour Linux et Windows ?
 
@@ -69,12 +63,12 @@ Vous pouvez utiliser la DSVM pour évaluer ou découvrir des outils comme ceux-c
 
 Étant donné que vous pouvez configurer rapidement la DSVM, vous pouvez l’appliquer dans d’autres scénarios d’utilisation à court terme. Ces scénarios incluent la réplication d’expériences publiées, l’exécution de démonstrations et le suivi de procédures pas-à-pas dans des sessions en ligne et des tutoriels de conférence.
 
-### <a name="deep-learning"></a>Deep learning
+### <a name="deep-learning"></a>Apprentissage approfondi
 Dans la DSVM, vos modèles d’entraînement peuvent utiliser des algorithmes de deep learning sur du matériel basé sur des unités de traitement graphique (GPU). En tirant parti des fonctionnalités de mise à l’échelle des machines virtuelles de la plateforme Azure, la DSVM vous aide à utiliser le matériel basé sur GPU dans le cloud en fonction de vos besoins. Vous pouvez basculer vers une machine virtuelle basée sur GPU quand vous entraînez de grands modèles ou que vous avez besoin d’une grande rapidité de calcul, mais souhaitez garder le même disque de système d’exploitation.  
 
 L’édition Windows Server 2016 de la DSVM est préinstallée avec les pilotes GPU, les frameworks et les versions GPU des frameworks de deep learning. Sur l’édition Linux, le deep learning sur GPU est activé sur les DSVM CentOS et Ubuntu. 
 
-Vous pouvez également déployer l’édition Ubuntu, CentOS ou Windows 2016 de la DSVM sur une machine virtuelle Azure qui n’est pas basée sur des unités GPU. Dans ce cas, toutes les infrastructures de deep learning repassent en mode processeur.
+Vous pouvez également déployer l’édition Ubuntu, CentOS ou Windows 2016 de la DSVM sur une machine virtuelle Azure qui n’est pas basée sur des unités GPU. Dans ce cas, toutes les infrastructures d’apprentissage profond repasseront en mode UC.
  
 [Découvrez-en plus sur les frameworks de deep learning et d’intelligence artificielle disponibles](dsvm-deep-learning-ai-frameworks.md).
 

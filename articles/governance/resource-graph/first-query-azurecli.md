@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: afe32c197b5eab24ba298395bb2c9e83f847d6c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6fffd9e0bbaea47bfeac56a7972a38df0cbef351
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562576"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164691"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 
@@ -35,7 +35,7 @@ Pour permettre à Azure CLI d’interroger Azure Resource Graph, vous devez ajou
    az extension add --name resource-graph
    ```
 
-1. Vérifiez que l’extension a été installée et qu’il s’agit de la version attendue (**0.1.11** minimum) :
+1. Vérifiez que l’extension a été installée et qu’il s’agit de la version attendue (au moins **1.0.0**) :
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)

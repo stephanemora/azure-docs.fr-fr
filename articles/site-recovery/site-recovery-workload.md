@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491738"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232194"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -41,7 +41,7 @@ Site Recovery contribue à la protection des applications et à la récupératio
 * Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec des plans de récupération.
 
 ## <a name="workload-summary"></a>Synthèse relative aux charges de travail
-Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit pour effectuer des tests supplémentaires propres à l’application.
+Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit afin d’effectuer des tests supplémentaires pour les applications spécifiées dans le tableau.
 
 | **Charge de travail** |**Réplication de machines virtuelles Azure dans Azure** |**Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** |
 | --- | --- | --- | --- | --- |---|

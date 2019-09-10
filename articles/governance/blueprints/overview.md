@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848440"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146096"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Vue d’ensemble du service Azure Blueprints
 
@@ -106,14 +106,23 @@ Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avo
 > [!NOTE]
 > Comme les affectations de blueprint sont créées sur un abonnement, les autorisations d’affectation de blueprint et d’annulation d’affectation de blueprint doivent être accordées sur une étendue d’abonnement ou être héritées dans une étendue d’abonnement.
 
-Toutes les autorisations ci-dessus sont incluses dans le rôle **Propriétaire**. Le rôle **Contributeur** est autorisé à créer et supprimer des blueprints, mais pas à en affecter. Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
+Les rôles intégrés suivants sont disponibles :
+
+|Rôle RBAC | Description |
+|-|-|
+|[Propriétaire](../../role-based-access-control/built-in-roles.md#owner) | En plus d’autres autorisations, inclut toutes les autorisations relatives à Azure Blueprint. |
+|[Contributeur](../../role-based-access-control/built-in-roles.md#contributor) | En plus d’autres autorisations, permet de créer et supprimer des définitions de blueprint, mais ne dispose pas des autorisations d’affectation de blueprint. |
+|[Contributeur blueprint](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Peut gérer les définitions blueprint, mais ne peut pas les affecter. |
+|[Opérateur blueprint](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Peut affecter des blueprints publiés existants, mais ne peut pas créer de définitions de blueprints. L’affectation de blueprints ne fonctionne que si elle est effectuée avec une identité managée attribuée par l’utilisateur. |
+
+Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Si vous utilisez une identité managée affectée par le système, le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé. Si vous utilisez une identité managée affectée par l’utilisateur, seul l’utilisateur qui crée l’attribution de blueprint nécessite les autorisations de **Propriétaire**.
 
 ## <a name="naming-limits"></a>Limites de nommage
 
-La liste suivante répertorie les limitations qui existent pour certains champs :
+Les limitations suivantes existent pour certains champs :
 
 |Object|Champ|Caractères autorisés|Bande passante Longueur|
 |-|-|-|-|

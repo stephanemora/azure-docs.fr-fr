@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: f65b1d62a9c0e6835421c2ae796f9ea390407c9a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971603"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241177"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -93,6 +93,12 @@ Cela donne accès aux scénarios suivants :
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
 Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor.
+
+## <a name="pci-soc-and-iso-compliant"></a>Conformité PCI, SOC et ISO
+
+Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), SOC (Service Organization Controls) et ISO (Organisation internationale de normalisation). Il prend en charge SOC 1 Type 2, SOC 2 Type 2, SOC 3, PCI DSS et ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+
+Pour plus d’informations, consultez le [Guide de conformité Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problèmes connus
 

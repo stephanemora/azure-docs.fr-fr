@@ -6,15 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.localizationpriority: high
+ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446732"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241374"
 ---
+::: zone target = "docs"
+
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box Heavy à l’aide du portail Azure
 
 Ce démarrage rapide explique comment déployer Azure Data Box Heavy à l’aide du portail Azure. Ces étapes précisent comment brancher les câbles, puis configurer et copier des données vers Data Box Heavy afin de les charger dans Azure. Le démarrage rapide est effectué dans le portail Azure et sur l’interface utilisateur web locale de l’appareil.
@@ -55,6 +58,7 @@ Avant de commencer, assurez-vous que :
     - Concernant le câble à 10 Gbits/s, vous devez disposer d’un câble SFP+ dont une extrémité est branchée à un commutateur 10 G, avec un adaptateur QSFP+ en SFP+ (ou un adaptateur QSA) pour l’extrémité qui est branchée sur l’appareil.
 - Les câbles d’alimentation sont inclus et rangés dans un tiroir à l’arrière de l’appareil.
 
+
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -69,6 +73,16 @@ Cette étape prend environ 5 minutes.
 4. Entrez les détails de la commande et les informations d’expédition. Si le service est disponible dans votre région, fournissez les adresses e-mail de notification, vérifiez le résumé, puis créez la commande.
 
 Une fois la commande créée, l’appareil est préparé pour l’expédition.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>Brancher votre appareil et vous y connecter
+
+Une fois que vous avez passé en revue les prérequis, vous allez brancher votre appareil et vous y connecter.
+
+::: zone-end
 
 ## <a name="cable-for-power"></a>Branchement des câbles d’alimentation
 
@@ -105,6 +119,9 @@ Cette étape prend environ 5 à 7 minutes.
 Cette étape prend environ 15 à 20 minutes.
 
 Effectuez les étapes du premier nœud pour brancher et configurer le deuxième nœud sur l’appareil.  
+
+
+::: zone target = "docs"
 
 ## <a name="copy-data"></a>Copier des données
 
@@ -157,3 +174,5 @@ Dans ce démarrage rapide, vous avez déployé un appareil Data Box Heavy pour f
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Disk](data-box-portal-admin.md) (Utiliser le portail Azure pour administrer le Data Box Heavy)
+
+::: zone-end

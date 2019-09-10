@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f5756c479d47e905e0110c9919cf4b5be4e75099
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932126"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258763"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour Python
 
@@ -37,9 +37,9 @@ Utilisez la bibliothèque de client de création Language Understanding (LUIS) p
 
 ## <a name="setting-up"></a>Configuration
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Obtenir votre clé de création Language Understanding (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Obtenir votre clé de création LUIS (Language Understanding)
 
-Obtenez votre [clé de création](luis-how-to-account-settings.md), puis [créez une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour cette clé, nommée `LUIS_AUTHORING_KEY`, et une variable d’environnement pour la région de la clé, `LUIS_REGION`.
+Obtenez votre [clé de création](luis-how-to-azure-subscription.md#starter-key), puis [créez une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour cette clé, nommée `LUIS_AUTHORING_KEY`. Créez également une variable d’environnement pour la région de la clé, `LUIS_REGION`.
 
 ### <a name="install-the-python-library-for-luis"></a>Installer la bibliothèque Python pour LUIS
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zoom | Microsoft Docs'
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zoom | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoom.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e36d1bb91e70e21ee1940e189bfedaebafa4412
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975950"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171390"
 ---
-# <a name="tutorial-integrate-zoom-with-azure-active-directory"></a>Didacticiel : Intégrer Zoom à Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zoom
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Zoom dans Azure Active Directory (Azure AD). Quand vous intégrez Zoom à Azure AD, vous pouvez :
 
@@ -89,50 +89,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Zoom](https://support.zoom.us/hc/en-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. L’application Zoom s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de votre jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
-
-    ![image](common/edit-attribute.png)
-
-6. En plus de ce qui précède, l’application Zoom s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous : 
-
-    | Nom | Espace de noms  |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | Adresse de messagerie  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
-    | Prénom  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-    | Nom  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | Numéro de téléphone  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
-
-    > [!NOTE]
-    > Cliquez [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) pour savoir comment configurer un rôle dans Azure AD.
-
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Sélectionnez Source comme **Attribut**.
-
-    d. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    e. Cliquez sur **OK**.
-
-    f. Cliquez sur **Enregistrer**.
-
-    > [!NOTE]
-    > &frankly peut attendre une revendication de groupe dans la charge utile SAML. Par conséquent, si vous avez créé un groupe, contactez l’[équipe de support client Zoom](https://support.zoom.us/hc/en-us) et communiquez-lui les informations de groupe pour qu’elle puisse également les configurer de son côté. Vous devez également fournir l’ID d’objet à l’[équipe de support client Zoom](https://support.zoom.us/hc/en-us) afin qu’elle le configure de son côté. Pour obtenir l’ID d’objet, veuillez suivre le [document](https://support.zoom.us/hc/en-us/articles/115005887566).
-
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Zoom**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Zoom**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Pour découvrir comment configurer un rôle dans Azure AD, consultez [Configurer les revendications de rôle émises dans le jeton SAML pour les applications d’entreprise](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+
+> [!NOTE]
+> Zoom peut s’attendre à une revendication de groupe dans la charge utile SAML. Si vous avez créé des groupes, contactez l’[équipe de support client de Zoom](https://support.zoom.us/hc/en-us) et donnez-lui les informations des groupes afin qu’elle puisse configurer les informations de groupe de son côté. Vous devez également fournir l’ID d’objet à l’[équipe de support client de Zoom](https://support.zoom.us/hc/en-us) afin qu’elle le configure de son côté. Pour obtenir l’ID d’objet, consultez [Configuration de Zoom avec Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -242,3 +211,4 @@ Le fait de cliquer sur la vignette Zoom dans le panneau d’accès doit vous con
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Essayer Zoom avec Azure AD](https://aad.portal.azure.com/)

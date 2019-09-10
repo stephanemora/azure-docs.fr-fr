@@ -10,16 +10,16 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 193aec8de2a6ee34da666a013dcb0d49d85c08b0
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574843"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306232"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec Azure PowerShell
 
-Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
+Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec Azure PowerShell. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

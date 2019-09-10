@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204732"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208384"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes en utilisant la Place de marché Azure
 
@@ -26,7 +26,11 @@ Ce tutoriel explique comment créer un pool d’hôtes avec un locataire Windows
 > * Joignez les machines virtuelles au domaine Active Directory.
 > * Inscrivez les machines virtuelles avec Windows Virtual Desktop.
 
-Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
+Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -40,7 +44,7 @@ Pour exécuter l’offre de la Place de marché Azure pour provisionner un nouve
 2. Entrez **Windows Virtual Desktop** dans la fenêtre de recherche de la Place de marché.
 3. Sélectionnez **Windows Virtual Desktop - Provisionner un pool d’hôtes**, puis **Créer**.
 
-Suivez les instructions permettant d’entrer les informations des panneaux appropriés.
+Après cela, suivez les instructions indiquées de la section suivante pour entrer les informations relatives aux panneaux appropriés.
 
 ### <a name="basics"></a>Concepts de base
 
@@ -52,6 +56,9 @@ Voici la procédure à suivre pour le panneau **Informations de base** :
 4. Sélectionnez **Créer**, puis indiquez un nom pour le nouveau groupe de ressources.
 5. Pour **Emplacement**, sélectionnez le même emplacement que le réseau virtuel qui dispose d’une connectivité au serveur Active Directory.
 6. Sélectionnez **OK**.
+
+>[!IMPORTANT]
+>Si vous utilisez une solution Azure Active Directory Domain Services et Azure Active Directory pure, veillez à déployer votre pool hôte dans la même région que votre instance Azure Active Directory Domain Services pour éviter les erreurs de jonction de domaine et d’informations d’identification.
 
 ### <a name="configure-virtual-machines"></a>Configurer des machines virtuelles
 
@@ -66,7 +73,7 @@ Pour le panneau **Configurer des machines virtuelles** :
 Pour le panneau **Paramètres de la machine virtuelle** :
 
 >[!NOTE]
-> Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+> Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 1. Pour **Source de l’image**, sélectionnez la source, puis entrez les informations appropriées concernant la façon de la rechercher et de la stocker. Si vous choisissez de ne pas utiliser de disques managés, sélectionnez le compte de stockage qui contient le fichier .vhd.
 2. Entrez le nom d’utilisateur principal et le mot de passe pour le compte de domaine qui va joindre les machines virtuelles au domaine Active Directory. Ces mêmes nom d’utilisateur et mot de passe sont créés sur les machines virtuelles sous la forme d’un compte local. Vous pouvez réinitialiser ces comptes locaux ultérieurement.

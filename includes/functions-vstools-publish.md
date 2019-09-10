@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593838"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197130"
 ---
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
@@ -25,12 +25,12 @@ ms.locfileid: "68593838"
     | ------------ |  -------------------------------------------------- |
     | **Plan Consommation Azure Functions** |   Quand vous publiez votre projet dans une application de fonction qui s'exécute dans un [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan), vous payez uniquement pour les exécutions de votre application. D’autres plans d’hébergement occasionnent des coûts plus élevés. Pour en savoir plus, voir [Mise à l’échelle et hébergement d’Azure Functions](../articles/azure-functions/functions-scale.md). | 
     | **Créer** | Une nouvelle application de fonction, avec les ressources associées, est créée dans Azure. Lorsque vous choisissez **Sélectionner existant**, tous les fichiers de l’application de fonction existante dans Azure sont remplacés par les fichiers du projet local. N’utilisez cette option que lorsque vous réappliquez des mises à jour à une application de fonction existante. |
-    | **Exécuter à partir d’un fichier de package** | Votre application de fonction est déployée en utilisant [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) avec le mode [Exécuter à partir du fichier de package](../articles/azure-functions/run-functions-from-deployment-package.md) activé. Il s’agit de la méthode recommandée pour exécuter vos fonctions, car elle produit de meilleures performances. |
+    | **Exécuter à partir d’un fichier de package** | Votre application de fonction est déployée en utilisant [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) avec le mode [Exécuter à partir du fichier de package](../articles/azure-functions/run-functions-from-deployment-package.md) activé. Il s’agit de la méthode recommandée pour exécuter vos fonctions, car elle produit de meilleures performances. Quand vous n’utilisez pas cette option, veillez à ce que votre projet d’application de fonction ne s’exécute pas localement avant de publier sur Azure. |
 
 
 3. Sélectionnez **Publier**. Si vous ne vous êtes pas encore connecté à votre compte Azure à partir de Visual Studio, sélectionnez **Connexion**. Vous pouvez également créer un compte Azure gratuit.
 
-4. Dans la boîte de dialogue **App Service : Créer nouveau**, utilisez les paramètres **Hébergement** comme spécifié dans le tableau sous l’image :
+4. Dans la boîte de dialogue **App Service : Créer nouveau**, utilisez les paramètres **Hébergement** comme indiqué dans le tableau situé sous l’image :
 
     ![Boîte de dialogue Créer App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 

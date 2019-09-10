@@ -6,22 +6,25 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325882"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258472"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
-Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge de l’envoi de données vers des journaux d’activité Azure Monitor.
+Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge intégrée de l’envoi des journaux et des données d’événements aux journaux Azure Monitor.
 
-Pour envoyer des données d’instance de conteneur vers les journaux Azure Monitor, vous devez spécifier une clé d’espace de travail et un ID d’espace de travail Log Analytics lors de la création d’un groupe de conteneurs. Les sections suivantes décrivent la création d’un groupe de conteneurs dans lequel la journalisation et l’interrogation des journaux d’activité sont activées.
+Pour envoyer des données de journal et des données d’événements d’un groupe de conteneurs aux journaux Azure Monitor, vous devez spécifier une clé d’espace de travail et un ID d’espace de travail Log Analytics au moment de la création du groupe de conteneurs. Les sections suivantes décrivent la création d’un groupe de conteneurs dans lequel la journalisation et l’interrogation des journaux d’activité sont activées.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> Pour le moment, vous pouvez uniquement envoyer des données d’événements d’instances de conteneur Linux à Log Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Vous devriez recevoir une réponse à partir des détails du déploiement de conteneur Azure peu de temps après l’émission de la commande.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Voir les journaux d’activité Azure Monitor
+## <a name="view-logs"></a>Afficher les journaux d’activité
 
-Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour voir les journaux du groupe de conteneurs :
+Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour voir les journaux du groupe de conteneurs dans la table `ContainerInstanceLog_CL` :
 
 1. Accédez à votre espace de travail Log Analytics dans le portail Azure
 1. Sous **Général**, sélectionnez **Journaux**.  
-1. Tapez la requête suivante : `search *`
+1. Tapez la requête suivante : `ContainerInstanceLog_CL | limit 50`
 1. Sélectionnez **Exécuter**.
 
-Vous devez voir plusieurs résultats affichés par la requête `search *`. Si vous ne voyez aucun résultat dans un premier temps, patientez quelques minutes, puis sélectionnez le bouton **Exécuter** pour réexécuter la requête. Par défaut, les entrées de journal sont affichées au format **Tableau**. Vous pouvez ensuite développer une ligne pour afficher le contenu d’une entrée de journal.
+Vous devez voir plusieurs résultats affichés par la requête. Si vous ne voyez aucun résultat dans un premier temps, patientez quelques minutes, puis sélectionnez le bouton **Exécuter** pour réexécuter la requête. Par défaut, les entrées de journal sont affichées au format **Tableau**. Vous pouvez ensuite développer une ligne pour afficher le contenu d’une entrée de journal.
 
 ![Résultats de recherche dans les journaux dans le portail Azure][log-search-01]
+
+## <a name="view-events"></a>Visualiser les événements
+
+Vous pouvez également voir les événements des instances de conteneur dans le portail Azure. Les événements incluent le moment où l’instance est créée et où elle démarre. Pour voir les données d’événements dans la table `ContainerEvent_CL` :
+
+1. Accédez à votre espace de travail Log Analytics dans le portail Azure
+1. Sous **Général**, sélectionnez **Journaux**.  
+1. Tapez la requête suivante : `ContainerEvent_CL | limit 50`
+1. Sélectionnez **Exécuter**.
+
+Vous devez voir plusieurs résultats affichés par la requête. Si vous ne voyez aucun résultat dans un premier temps, patientez quelques minutes, puis sélectionnez le bouton **Exécuter** pour réexécuter la requête. Par défaut, les entrées sont affichées au format **Tableau**. Vous pouvez ensuite développer une ligne pour voir le contenu d’une entrée individuelle.
+
+![Résultats de la recherche d’événements dans le portail Azure][log-search-02]
 
 ## <a name="query-container-logs"></a>Interroger les journaux d’activité d’un conteneur
 
 Les journaux Azure Monitor incluent un [langage de requête][query_lang] étendu permettant de tirer (pull) les informations des milliers de lignes que peuvent contenir les journaux.
 
-L’agent de journalisation d’Azure Container Instances envoie des entrées vers la table `ContainerInstanceLog_CL` dans votre espace de travail Log Analytics. La structure de base d’une requête est la table source (`ContainerInstanceLog_CL`) suivie d’une série d’opérateurs séparés par une barre verticale (`|`). Vous pouvez chaîner plusieurs opérateurs pour affiner les résultats et effectuer des fonctions avancées.
+La structure de base d’une requête est la table source (dans cet article, `ContainerInstanceLog_CL` ou `ContainerEvent_CL`) suivie d’une série d’opérateurs séparés par une barre verticale (`|`). Vous pouvez chaîner plusieurs opérateurs pour affiner les résultats et effectuer des fonctions avancées.
 
-Pour afficher un exemple de résultats de requête, collez la requête suivante dans la zone de texte de requête (sous « Show legacy language converter » [Afficher le convertisseur de langue hérité], puis sélectionnez le bouton **Exécuter** pour exécuter la requête. Cette requête affiche toutes les entrées de journal dont le champ « Message » contient le mot « Avertissement » :
+Pour voir des exemples de résultats de requête, collez la requête suivante dans la zone de texte de requête, puis sélectionnez le bouton **Exécuter** pour exécuter la requête. Cette requête affiche toutes les entrées de journal dont le champ « Message » contient le mot « Avertissement » :
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 Des requêtes plus complexes sont également prises en charge. Par exemple, cette requête n’affiche que les entrées de journal pour le groupe de conteneurs « mycontainergroup001 » générées au cours de la dernière heure :
@@ -151,6 +167,7 @@ Pour plus d’informations sur la surveillance des ressources processeur et mém
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

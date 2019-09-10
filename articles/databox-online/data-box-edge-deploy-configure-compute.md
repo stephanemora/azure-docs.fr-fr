@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 7b3d725eb05c811d3fdd44516c1bde9a8dfbaaac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924338"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277335"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Didacticiel : Transformer des données avec Azure Data Box Edge
 
@@ -57,10 +57,13 @@ Pour configurer le calcul sur votre appareil Data Box Edge, vous allez créer un
 
     ![Bien démarrer avec le calcul](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
-4. Sélectionnez **Créer**. La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le calcul** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Voir le computing** sur la vignette **Configurer le calcul**.
+4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le calcul** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Voir le computing** sur la vignette **Configurer le calcul**.
     
     ![Bien démarrer avec le calcul](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
 
+    > [!NOTE]
+    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que le hub IOT soit associé à l’appareil Data Box Edge, le hub IOT est créé mais n’est pas affiché dans la configuration de calcul. 
+    
     Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
 
 

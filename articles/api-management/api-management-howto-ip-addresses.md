@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072410"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242482"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Adresses IP du service Gestion des API Azure
 
@@ -27,7 +27,9 @@ Vous pouvez utiliser des adresses IP pour créer des règles de pare-feu, filtre
 
 ## <a name="ip-addresses-of-api-management-service"></a>Adresses IP du service Gestion des API
 
-Si votre service Gestion des API est un service de niveau Développeur, De base, Standard ou Premium, vous pouvez récupérer les adresses IP à partir du tableau de bord de présentation de votre ressource sur le portail Azure.
+Chaque instance du service Gestion des API dans les niveaux Développeur, De base, Standard ou Premium a des adresses IP publiques propres cette instance de service (elles ne sont pas partagées avec d’autres ressources). 
+
+Vous pouvez récupérer les adresses IP à partir du tableau de bord de vue d’ensemble de votre ressource dans le portail Azure.
 
 ![Adresse IP du service Gestion des API](media/api-management-howto-ip-addresses/public-ip.png)
 

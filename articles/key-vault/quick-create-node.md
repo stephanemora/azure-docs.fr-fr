@@ -3,18 +3,18 @@ title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key 
 description: Dans ce guide de démarrage rapide, vous définissez et récupérez un secret depuis Azure Key Vault à l’aide d’une application web Node
 services: key-vault
 author: msmbaldwin
-manager: sumedhb
+manager: rkarlin
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934455"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259242"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’une application web Node 
 
@@ -196,5 +196,9 @@ Ensuite, quand vous accédez à `https://<app_name>.azurewebsites.net`, vous pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [SDK Azure pour Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
+
+- Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
+- Consulter le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
+- Découvrir les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

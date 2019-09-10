@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668689"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242411"
 ---
 # <a name="feature-evaluation"></a>Évaluation des fonctionnalités
 
@@ -32,9 +32,9 @@ Les fonctionnalités les plus importantes ont plus de poids dans le modèle. Ces
 
 ## <a name="getting-feature-importance-evaluation"></a>Obtenir une évaluation des fonctionnalités en termes d'importance
 
-Pour afficher les résultats des fonctionnalités en termes d'importance, vous devez exécuter une évaluation. Les informations qui en résultent sur l’importance des fonctionnalités représentent le modèle en ligne Personalizer actuel. L’évaluation analyse l’importance des fonctionnalités du modèle enregistré au terme de la période d’évaluation. 
+Pour afficher les résultats des fonctionnalités en termes d'importance, vous devez exécuter une évaluation. L’évaluation crée des étiquettes de fonctionnalités lisibles en fonction basées sur les noms des fonctionnalités observées lors de la période d’évaluation.
 
-L’évaluation crée des étiquettes de fonctionnalités lisibles en fonction basées sur les noms des fonctionnalités observées lors de la période d’évaluation.
+Les informations qui en résultent sur l’importance des fonctionnalités représentent le modèle en ligne Personalizer actuel. L’évaluation analyse l’importance de la fonctionnalité du modèle enregistré à la date de fin de la période d’évaluation, après l’apprentissage effectué pendant l’évaluation, avec la stratégie d’apprentissage en ligne actuelle. 
 
 Les résultats liés à l'importance des fonctionnalités ne représentent pas les autres stratégies et modèles testés ou créés lors de l’évaluation.  L’évaluation n’inclut pas les fonctionnalités envoyées à Personalizer au terme de la période d’évaluation.
 

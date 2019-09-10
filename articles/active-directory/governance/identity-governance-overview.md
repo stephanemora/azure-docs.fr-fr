@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033319"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241446"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -69,6 +69,18 @@ Les autres fournisseurs ont toujours décrit l’accès privilégié comme une f
 ![Cycle de vie des accès privilégiés](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) offre des contrôles supplémentaires conçus pour sécuriser les droits d’accès aux ressources dans Azure AD, Azure et d’autres services en ligne Microsoft.  L’accès juste-à-temps et les fonctionnalités d’alerte de changement de rôle fournis par Azure AD PIM, en plus de l’authentification multifacteur et de l’accès conditionnel, offrent un ensemble complet de contrôles de gouvernance contribuant à sécuriser les ressources de votre société (annuaire, Office 365 et rôles de ressources Azure). Comme avec d’autres formes d’accès, les organisations peuvent utiliser les révisions d’accès pour configurer une recertification récurrente des accès pour tous les utilisateurs bénéficiant de rôles d’administrateur.
+
+## <a name="least-privileged-roles"></a>Rôles les moins privilégiés
+
+Il est recommandé d’utiliser le rôle le moins privilégié pour effectuer des tâches d’administration dans Identity Governance. Nous vous recommandons d’utiliser Azure AD PIM pour activer un rôle en fonction des besoins afin d’effectuer ces tâches. Voici les rôles d’annuaire les moins privilégiés pour configurer les fonctionnalités d’Identity Governance : 
+
+| Fonctionnalité | Rôle moins privilégié |
+| ------- | --------------------- |
+| Gestion des droits d’utilisation | Administrateur d’utilisateurs (à l’exception de l’ajout de sites SharePoint Online aux catalogues, qui nécessite un administrateur général) |
+| Conditions d’utilisation | Administrateur de la sécurité ou administrateur de l’accès conditionnel |
+| Révisions d’accès | Administrateur d’utilisateurs (à l’exception des révisions d’accès des rôles Azure ou Azure AD, qui requièrent un administrateur de rôle privilégié) |
+|Privileged Identity Management | Administrateur de rôle privilégié |
+
 
 ## <a name="getting-started"></a>Prise en main
 

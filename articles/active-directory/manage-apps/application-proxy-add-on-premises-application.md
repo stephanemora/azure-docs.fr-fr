@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125621"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231262"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -69,7 +69,7 @@ Pour activer TLS 1.2 :
 1. Redémarrez le serveur.
 
 > [!IMPORTANT]
-> Pour fournir un chiffrement de qualité à nos clients, nous avons apporté des mises à jour au service Proxy d’application afin d’autoriser l’accès uniquement aux protocoles TLS 1.2. En fonction du niveau de préparation des clients, les modifications seront progressivement déployées pour les clients utilisant uniquement les protocoles TLS 1.2 (cette modification n’aura aucun impact visible pour eux). La dépréciation de TLS 1.0 et 1.1 est prévue le 31 août 2019. Les clients recevront un avis préalable afin de se préparer à ce changement. Pour vous préparer, vérifiez que toutes les combinaisons client-serveur et serveur-navigateur sont mises à jour pour utiliser TLS 1.2, afin de maintenir la connexion au service Proxy d’application. Cela comprend notamment les clients que vos utilisateurs utilisent pour accéder aux applications publiées par le biais du Proxy d’application. Pour accéder à des ressources et des références utiles, consultez [Préparation à l’utilisation de TLS 1.2 dans Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365).
+> Pour offrir le meilleur chiffrement à nos clients, le service Proxy d’application limite l’accès aux seuls protocoles TLS 1.2. Ces changements ont été progressivement déployés et sont en vigueur depuis le 31 août 2019. Vérifiez que toutes vos combinaisons client-serveur et navigateur-serveur sont mises à jour pour utiliser TLS 1.2 afin de maintenir la connexion au service Proxy d’application. Cela comprend notamment les clients que vos utilisateurs utilisent pour accéder aux applications publiées par le biais du Proxy d’application. Pour accéder à des ressources et des références utiles, consultez [Préparation à l’utilisation de TLS 1.2 dans Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365).
 
 ## <a name="prepare-your-on-premises-environment"></a>Préparer votre environnement local
 
@@ -94,7 +94,7 @@ Autorisez l'accès aux URL suivantes :
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication entre le connecteur et le service cloud Proxy d'application |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utilise ces URL pour vérifier les certificats. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | Le connecteur utilise ces URL lors du processus d'inscription. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Le connecteur utilise ces URL lors du processus d'inscription. |
 
 Vous pouvez autoriser les connexions à \*.msappproxy.net et \*.servicebus.windows.net si votre pare-feu ou proxy vous permet de configurer la mise en liste verte de DNS. Si ce n’est pas le cas, vous devez autoriser l’accès aux [Plages d’adresses IP et étiquettes des services Azure – Cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Ces dernières sont mises à jour chaque semaine.
 

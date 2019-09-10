@@ -10,14 +10,14 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575410"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306085"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec Azure PowerShell
 
 Utilisez PowerShell pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
 

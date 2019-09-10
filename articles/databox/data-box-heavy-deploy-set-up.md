@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592372"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241410"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Didacticiel : Brancher votre Azure Data Box Heavy et s’y connecter
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Bien démarrer avec Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 Ce tutoriel explique comment brancher votre Azure Data Box Heavy, vous y connecter et l’activer.
 
@@ -25,6 +37,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Brancher votre Data Box Heavy
 > * Connexion à votre Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+Ce guide fournit des instructions sur la façon de passer en revue les prérequis, de raccorder et de connecter votre appareil, de copier des données, d’effectuer un chargement vers Azure, puis de vérifier les données chargées.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,6 +62,8 @@ Avant de commencer, assurez-vous que :
     - Choisissez des câbles compatibles avec l’interface réseau [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html).
     - Concernant le câble 40 Gbits/s, l’extrémité du câble côté appareil doit être QSFP+.
     - Concernant le câble 10 Gbits/s, vous devez disposer d’un câble SFP+ dont une extrémité est branchée à un commutateur 10 Gbits/s, avec une carte QSFP+ à SFP+ (ou une carte QSA) pour l’extrémité qui est branchée sur l’appareil.
+
+::: zone target = "docs"
 
 ## <a name="cable-your-device-for-power"></a>Raccorder votre appareil à l’alimentation électrique
 
@@ -138,3 +160,5 @@ Passez au tutoriel suivant pour découvrir comment copier des données sur votre
 
 > [!div class="nextstepaction"]
 > [Copier des données sur une Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

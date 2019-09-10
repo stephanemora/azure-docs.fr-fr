@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723470"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231446"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurer et gérer des stratégies de réplication pour la récupération d’urgence VMware sur Azure
 Cet article explique comment configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
@@ -42,11 +42,19 @@ Associez la stratégie de réplication à votre serveur de configuration local.
 
 ## <a name="edit-a-policy"></a>Modifier une stratégie
 
+Vous pouvez modifier une stratégie de réplication après l’avoir créée.
+
+- Les modifications apportées à la stratégie sont appliquées à toutes les machines utilisant la stratégie.
+- Si vous souhaitez associer des machines répliquées à une stratégie de réplication différente, vous devez désactiver et réactiver la protection pour les machines concernées.
+
+Modifiez une stratégie comme suit :
 1. Sélectionnez **Gérer** > **Infrastructure Site Recovery** > **Stratégies de réplication**.
 2. Sélectionnez la stratégie de réplication à modifier.
 3. Cliquez sur **Modifier les paramètres** et mettez à jour les champs Seuil d’objectif de point de récupération/Délai de rétention des points de récupération en heures/Fréquence des captures instantanées de cohérence d’application selon vos besoins.
 4. Si vous souhaitez désactiver la génération de points de cohérence d’application, choisissez la valeur « Désactivé » dans la liste déroulante du champ **Fréquence des captures instantanées de cohérence d’application**.
 5. Cliquez sur **Enregistrer**. La mise à jour de la stratégie devrait prendre entre 30 et 60 secondes.
+
+
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Dissocier ou supprimer une stratégie de réplication
 

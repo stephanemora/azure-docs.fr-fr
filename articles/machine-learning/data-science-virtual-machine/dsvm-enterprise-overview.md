@@ -1,27 +1,21 @@
 ---
-title: Introduction aux environnements en équipe basés sur Data Science Virtual Machine – Azure | Microsoft Docs
+title: Environnement d’intelligence artificielle et d’analyse d’équipe
+titleSuffix: Azure Data Science Virtual Machine
 description: Modèles de déploiement de la machine virtuelle Data Science dans un environnement en équipes d’entreprise.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 5f34498fbdacf7fc6e62788913c795ab70ceef23
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: overview
+ms.date: 05/08/2018
+ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991629"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195650"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Environnement analytique d’équipe et d’intelligence artificielle basé sur Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) fournit un environnement enrichi sur la plateforme Azure avec des logiciels prédéfinis pour l’intelligence artificielle (IA) et l’analytique des données.

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e15f704fc9604bd18a1f4848e84065fc507314
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563118"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70171442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Slack
 
@@ -47,6 +47,9 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Slack prend en charge l’authentification unique initiée par le **fournisseur de services**
 * Slack prend en charge l’attribution d’utilisateurs **Juste-à-temps**
 * Slack prend en charge [l’attribution d’utilisateurs **automatique**](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-slack-from-the-gallery"></a>Ajout de Slack à partir de la galerie
 
@@ -91,37 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client Allbound SSO](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application Slack attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > Si vous avez des utilisateurs pour lesquels l’**adresse e-mail** assignée n’est pas une licence Office 365, la revendication **User.Email** n’apparaît pas dans le jeton SAML. Dans ce cas, nous suggérons d’utiliser **user.userprincipalname** comme valeur d’attribut **User.Email** à mapper en tant que **Identificateur Unique** à la place.
-
-1. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
-
-    | Nom | Attribut source |
-    | --- | --- |
-    | first_name | user.givenname |
-    | last_name | user.surname |
-    | User.Email | user.mail |
-    | User.Username | user.userprincipalname |
-
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **OK**.
-
-    g. Cliquez sur **Enregistrer**.
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -187,7 +160,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-slack-test-user"></a>Créer un utilisateur de test Slack
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Slack. Slack prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Slack s’il n’existe pas déjà. Slack prend également en charge l’attribution automatique d’utilisateurs, vous trouverez plus d’informations [ici](slack-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
+L’objectif de cette section est de créer un utilisateur appelé B. Simon dans Slack. Slack prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Slack s’il n’existe pas déjà. Slack prend également en charge l’attribution automatique d’utilisateurs, vous trouverez plus d’informations [ici](slack-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique Slack](https://slack.com/help/contact).
@@ -209,4 +182,4 @@ Lorsque vous cliquez sur la vignette Slack dans le volet d’accès, vous devez 
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Essayer Slack avec Azure AD](https://aad.portal.azure.com/)
+- [Essayer Slack avec Azure AD](https://aad.portal.azure.com/)

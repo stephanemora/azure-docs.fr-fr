@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.localizationpriority: high
+ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098779"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241363"
 ---
 ::: zone target="docs"
 
@@ -23,7 +24,7 @@ ms.locfileid: "70098779"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Prise en main d’Azure Data Box Disk à l’aide du portail Azure
+# <a name="get-started-with-azure-data-box"></a>Bien démarrer avec Azure Data Box 
 
 ::: zone-end
 
