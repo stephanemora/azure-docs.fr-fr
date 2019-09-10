@@ -469,6 +469,8 @@
               href: bulk-executor-graph-dotnet.md
             - name: Optimiser des requêtes Gremlin
               href: graph-execution-profile.md
+            - name: Utiliser des jetons de ressource
+              href: how-to-use-resource-tokens-gremlin.md
             - name: Visualiser les données de graphe
               href: graph-visualization.md
             - name: Stocker et gérer Spring Data

@@ -228,10 +228,14 @@
               href: Customize-application-attributes.md
             - name: Filtres d’étendue
               href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: Ignorer la suppression pour les utilisateurs hors limites
+              href: skip-out-of-scope-deletions.md
             - name: Vérifier l’état du provisionnement
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Créer des rapports sur le provisionnement automatique d’utilisateurs
               href: check-status-user-account-provisioning.md
+            - name: Exporter et importer votre configuration
+              href: export-import-provisioning-configuration.md
         - name: Résoudre les problèmes de provisionnement d’utilisateurs
           items:
             - name: Résoudre les problèmes de provisionnement d’utilisateurs

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: c2c9e3d29ced5f75873656e253ecdbab5efe7df8
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114406"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233131"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -26,42 +26,13 @@ Cet article présente certaines des limitations et certains concepts de système
 > * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
 
-## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitations pour Windows Server dans Kubernetes
+## <a name="which-windows-operating-systems-are-supported"></a>Quels sont les systèmes d’exploitation Windows pris en charge ?
 
-Les conteneurs Windows Server doivent s’exécuter sur un hôte conteneur basé sur Windows. Pour exécuter des conteneurs Windows Server dans AKS, vous pouvez [créer un pool de nœuds qui exécute Windows Server][windows-node-cli] en tant que système d’exploitation invité. La prise en charge des pools de nœuds Windows Server comprend certaines limitations qui font partie du projet Windows Server dans Kubernetes en amont. Ces limitations ne sont pas spécifiques à AKS. Pour plus d’informations sur cette prise en charge en amont de Windows Server dans Kubernetes, consultez [Limitations des conteneurs Windows Server dans Kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations).
+AKS utilise Windows Server 2019 comme version de système d’exploitation hôte et prend en charge uniquement l’isolation des processus. Les images de conteneur générées à l’aide d’autres versions de Windows Server ne sont pas prises en charge. [Compatibilité des versions avec les conteneurs Windows][windows-container-compat]
 
-Les limitations suivantes en amont pour les conteneurs Windows Server dans Kubernetes sont pertinentes pour AKS :
+## <a name="is-kubernetes-different-on-windows-and-linux"></a>Kubernetes est-il différent sur Windows et Linux ?
 
-- Les conteneurs Windows Server peuvent utiliser uniquement Windows Server 2019, qui correspond au nœud système d’exploitation du nœud Windows Server sous-jacent.
-    - Les images de conteneur créées à l’aide de Windows Server 2016 comme système d’exploitation de base ne sont pas prises en charge.
-- Les conteneurs privilégiés ne peuvent pas être utilisés.
-- Les fonctionnalités spécifiques à Linux telles que RunAsUser, SELinux, AppArmor ou POSIX ne sont pas disponibles dans les conteneurs Windows Server.
-    - Les limitations de système de fichiers qui sont spécifiques à Linux, telles que les autorisations par utilisateur et UUI/GUID ne sont également pas disponibles dans les conteneurs Windows Server.
-- Les disques Azure et Azure Files sont les types de volumes pris en charge, accédés en tant que volumes NTFS dans le conteneur Windows Server.
-    - Le stockage/les volumes basés sur NFS ne sont pas pris en charge.
-
-## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitations d’AKS pour les pools de nœuds Windows Server
-
-Les limitations supplémentaires suivantes s’appliquent à la prise en charge du pool de nœuds Windows Server dans AKS :
-
-- Un cluster AKS contient toujours un pool de nœuds Linux en tant que premier pool de nœuds. Il est impossible de supprimer ce premier pool de nœuds Linux, sauf si le cluster AKS lui-même est supprimé.
-- Les clusters AKS doivent utiliser le modèle de mise en réseau Azure CNI (avancée).
-    - La mise en réseau Kubenet (de base) n’est pas prise en charge. Il est impossible de créer un cluster AKS qui utilise kubenet. Pour plus d’informations sur les différences dans les modèles de réseau, consultez [Concepts réseau pour les applications dans AKS][azure-network-models].
-    - Le modèle de réseau Azure CNI nécessite une planification supplémentaire et considérations relatives à la gestion des adresses IP. Pour plus d’informations sur la façon de planifier et implémenter Azure CNI, consultez [Configurer le réseau Azure CNI dans AKS][configure-azure-cni].
-- Les nœuds Windows Server dans AKS doivent être *mis à niveau* vers la dernière version de Windows Server 2019 pour maintenir les dernières versions des correctifs et mises à jour. Les mises à jour de Windows ne sont pas activées dans l’image de nœud de base dans AKS. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le ou les pools de nœuds Windows Server dans votre cluster AKS. Pour plus d’informations sur la mise à niveau d’un pool de nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
-    - Ces mises à niveau de nœuds Windows Server consomment temporairement des adresses IP supplémentaires dans le sous-réseau virtuel lorsqu’un nouveau nœud est déployé, avant que l’ancien nœud soit supprimé.
-    - Les quotas de processeurs virtuels sont également temporairement consommés dans l’abonnement lorsqu’un nouveau nœud est déployé, et avant que l’ancien nœud soit supprimé.
-    - Vous ne pouvez pas mettre à jour et gérer automatiquement les redémarrages à l’aide de `kured` comme avec les nœuds Linux dans AKS.
-- Le cluster AKS peut avoir un maximum de huit pools de nœuds.
-    - Vous pouvez avoir un maximum de 400 nœuds dans ces huit pools de nœuds.
-- Le nom de pool de nœud Windows Server a une limite de 6 caractères.
-- Les fonctionnalités en préversion dans AKS, telles que la stratégie réseau et l’autoscaler de cluster ne sont pas conseillées pour les nœuds Windows Server.
-- Les contrôleurs d’entrée doivent être planifiés uniquement sur les nœuds Linux à l’aide d’un NodeSelector.
-- Azure Dev Spaces est actuellement uniquement disponible pour les pools de nœuds Linux.
-- La prise en charge des comptes de service administré de groupe (gMSA) lorsque les nœuds Windows Server ne sont pas joints à un domaine Active Directory n’est pas disponible actuellement dans AKS.
-    - Le projet [aks-engine][aks-engine] open source en amont fournit actuellement la prise en charge de gMSA si vous avez besoin d’utiliser cette fonctionnalité.
-
-## <a name="os-concepts-that-are-different"></a>Différences de concept entre les systèmes d’exploitation
+La prise en charge des pools de nœuds Windows Server comprend certaines limitations qui font partie du projet Windows Server dans Kubernetes en amont. Ces limitations ne sont pas spécifiques à AKS. Pour plus d’informations sur cette prise en charge en amont de Windows Server dans Kubernetes, voir la section [Fonctionnalités et limitations prises en charge][upstream-limitations] du document [Introduction au support Windows dans Kubernetes][intro-windows], dans le projet Kubernetes.
 
 Kubernetes est historiquement axé sur Linux. De nombreux exemples utilisés sur le site web [Kubernetes.io][kubernetes] en amont sont destinés à être utilisés sur des nœuds Linux. Lorsque vous créez des déploiements qui utilisent des conteneurs Windows Server, les considérations suivantes au niveau du système d’exploitation s’appliquent :
 
@@ -71,14 +42,68 @@ Kubernetes est historiquement axé sur Linux. De nombreux exemples utilisés sur
 - **Chemins de fichiers** - La convention sur Windows Server consiste à utiliser \ au lieu de /.
     - Dans les spécifications de pod qui montent des volumes, spécifiez le chemin d’accès correctement pour les conteneurs Windows Server. Par exemple, au lieu d’un point de montage de */mnt/volume* dans un conteneur Linux, spécifiez une lettre de lecteur et un emplacement comme */K/Volume* à monter en tant que lecteur *K:* .
 
+## <a name="what-kind-of-disks-are-supported-for-windows"></a>Quels sont les types de disques pris en charge pour Windows ?
+
+Les disques Azure et Azure Files sont les types de volumes pris en charge, accédés en tant que volumes NTFS dans le conteneur Windows Server.
+
+## <a name="can-i-run-windows-only-clusters-in-aks"></a>Puis-je exécuter des clusters exclusivement Windows dans AKS ?
+
+Les nœuds principaux (plan de contrôle) dans un cluster AKS étant hébergés par le service AKS, vous ne serez pas exposé au système d’exploitation des nœuds hébergeant les composants principaux. Tous les clusters AKS sont créés avec un premier pool de nœuds par défaut qui est basé sur Linux. Ce pool de nœuds contient les services système nécessaires au fonctionnement du cluster. Il est recommandé d’exécuter au moins deux nœuds dans le premier pool pour garantir la fiabilité de votre cluster et la possibilité d’effectuer des opérations de cluster. Il est impossible de supprimer le premier pool de nœuds Linux, sauf en cas de suppression du cluster AKS.
+
+## <a name="what-network-plug-ins-are-supported"></a>Quels sont les plug-ins réseau pris en charge ?
+
+Les clusters AKS comportant des pools de nœuds doivent utiliser le modèle de mise en réseau (avancé) d’Azure CNI. La mise en réseau Kubenet (de base) n’est pas prise en charge. Pour plus d’informations sur les différences dans les modèles de réseau, consultez [Concepts réseau pour les applications dans AKS][azure-network-models]. - Le modèle de réseau Azure CNI nécessite une planification supplémentaire et considérations relatives à la gestion des adresses IP. Pour plus d’informations sur la façon de planifier et implémenter Azure CNI, consultez [Configurer le réseau Azure CNI dans AKS][configure-azure-cni].
+
+## <a name="can-i-change-the-min--of-pods-per-node"></a>Puis-je modifier le nombre minimal de pods par nœud ?
+
+Il est actuellement nécessaire de définir au minimum 30 pods pour garantir la fiabilité de vos clusters.
+
+## <a name="how-do-patch-my-windows-nodes"></a>Comment corriger mes nœuds Windows ?
+
+Les nœuds Windows Server dans AKS doivent être *mis à niveau* pour obtenir les correctifs et mises à jour les plus récents. Les mises à jour Windows ne sont pas activées sur les nœuds dans AKS. AKS met en production de nouvelles images de pool de nœuds dès que des correctifs sont disponibles. Il incombe aux clients de mettre à niveau les pools de nœuds pour rester à jour en matière de correctifs. Cela est également vrai pour la version de Kubernetes utilisée. Les notes de publication d’AKS indiquent quand de nouvelles versions sont disponibles. Pour plus d’informations sur la mise à niveau d’un pool de nœuds Windows Server, consultez [Upgrade a node pool][nodepool-upgrade] (Mettre à niveau un pool de nœuds).
+
+> [!NOTE]
+> L’image Windows Server mise à jour n’est utilisée que si une mise à niveau de cluster (mise à niveau de plan de contrôle) a été effectuée avant la mise à niveau du pool de nœuds.
+>
+
+## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
+
+Le cluster AKS peut comprendre au maximum huit (8) pools de nœuds. Vous pouvez avoir au maximum 400 nœuds dans ces pools de nœuds. [Limitations de pool de nœuds][nodepool-limitations].
+
+## <a name="what-can-i-name-my-windows-node-pools"></a>Comment puis-je nommer mes pools de nœuds Windows ?
+
+Le nom ne peut pas compter plus de 6 (six) caractères. Il s’agit d’une limitation actuelle d’AKS.
+
+## <a name="are-all-features-supported-with-windows-nodes"></a>Toutes les fonctionnalités sont-elles prises en charge avec les nœuds Windows ?
+
+Les stratégies réseau et Kubenet ne sont actuellement pas pris en charge avec des nœuds Windows. 
+
+## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Puis-je exécuter des contrôleurs d’entrée sur des nœuds Windows ?
+
+Oui, un contrôleur d’entrée prenant en charge les conteneurs Windows Server peut s’exécuter sur des nœuds Windows dans AKS.
+
+## <a name="can-i-use-azure-dev-spaces-with-windows-nodes"></a>Puis-je utiliser Azure Dev Spaces avec des nœuds Windows ?
+
+Azure Dev Spaces est actuellement uniquement disponible pour les pools de nœuds Linux.
+
+## <a name="can-my-windows-server-containers-use-gmsa"></a>Mes conteneurs Windows Server peuvent-ils utiliser gMSA ?
+
+Les comptes de service gérés de groupe (gMSA) ne sont actuellement pas pris en charge dans AKS.
+
+## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Que se passe-t-il si j’ai besoin d’une fonctionnalité qui n’est pas prise en charge ?
+
+Nous nous efforçons d’introduire toutes les fonctionnalités dont vous avez besoin pour Windows dans AKS mais, si vous rencontrez des lacunes, le projet open source [aks-engine][aks-engine] en amont offre un moyen simple et entièrement personnalisable d’exécuter Kubernetes dans Azure, et inclut le support pour Windows. Ne manquez pas de consulter notre [Feuille de route AKS][aks-roadmap] qui présente les fonctionnalités à venir.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de nœuds qui exécutent Windows Server dans AKS][windows-node-cli].
 
 <!-- LINKS - external -->
-[upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
 [kubernetes]: https://kubernetes.io
 [aks-engine]: https://github.com/azure/aks-engine
+[upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
+[intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
+[aks-roadmap]: https://github.com/Azure/AKS/projects/1
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
@@ -88,3 +113,6 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
+[nodepool-limitations]: use-multiple-node-pools.md#limitations
+[preview-support]: support-policies.md#preview-features-or-feature-flags
+[windows-container-compat]: https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility

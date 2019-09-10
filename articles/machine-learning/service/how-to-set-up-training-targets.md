@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011577"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231091"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 
 Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
@@ -47,33 +47,9 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 
 Lors de l’apprentissage, il est courant de commencer par exécuter le script d’apprentissage sur l’ordinateur local, avant de l’exécuter sur une autre cible de calcul. Avec Azure Machine Learning service, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à le modifier. 
 
-Il vous suffit de définir l’environnement pour chaque cible de calcul avec une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci.
+Il vous suffit de définir l’environnement pour chaque cible de calcul dans une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci. Pour plus d’informations sur la spécification d’un environnement et la liaison de celui-ci à une configuration de série de tests, voir [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md).
 
 Pour en savoir plus, voir [Envoi d’expériences](#submit) à la fin de cet article.
-
-### <a name="manage-environment-and-dependencies"></a>Gérer l’environnement et les dépendances
-
-Lorsque vous créez une configuration de série de tests, vous devez choisir la manière de gérer l’environnement et les dépendances sur la cible de calcul. 
-
-#### <a name="system-managed-environment"></a>Environnement géré par le système
-
-Utilisez un environnement géré par le système lorsque vous souhaitez que [Conda](https://conda.io/docs/) gère l’environnement Python et les dépendances de script pour vous. Un environnement géré par le système est supposé par défaut et constitue le choix le plus courant. Il est utile sur des cibles de calcul distantes, en particulier lorsque vous ne pouvez pas les configurer. 
-
-Il vous suffit de spécifier chaque dépendance de package à l’aide de la [classe CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Conda crée ensuite un fichier nommé **conda_dependencies.yml** dans le répertoire **aml_config** au sein de votre espace de travail avec votre liste de dépendances de package, et configure votre environnement Python lorsque vous soumettez votre expérience de formation. 
-
-La configuration initiale d'un nouvel environnement peut prendre quelques minutes en fonction de la taille des dépendances requises. Tant que la liste des packages reste inchangée, le temps de configuration ne change pas.
-  
-Le code suivant présente un exemple d’environnement géré par le système nécessitant scikit-learn :
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>Environnement géré par l’utilisateur
-
-Pour un environnement géré par l'utilisateur, vous êtes responsable de la configuration de votre environnement et de l'installation de chaque package requis par votre script de formation sur la cible de calcul. Si votre environnement de formation est déjà configuré (par exemple, sur votre ordinateur local), vous pouvez ignorer l'étape de configuration en définissant `user_managed_dependencies` sur True. Conda ne vérifie pas votre environnement et n’installe rien à votre place.
-
-Le code suivant présente un exemple de configuration d’exécutions d’apprentissage pour un environnement géré par l’utilisateur :
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>Est-ce qu’un estimateur ?
 
@@ -390,7 +366,7 @@ Pour plus d’informations, voir [Gestion des ressources](reference-azure-machin
 
 Vous pouvez accéder aux cibles de calcul associées à votre espace de travail, et les créer et les gérer à l’aide de l’[extension VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) pour Azure Machine Learning service.
 
-## <a id="submit"></a>Soumettre une série de tests d’apprentissage
+## <a id="submit"></a>Envoyer une série de tests d’apprentissage à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning
 
 Après avoir créé une configuration de série de tests, vous l’utilisez pour exécuter votre expérience.  Le modèle de code pour soumettre une série de tests d’apprentissage est le même pour tous les types de cibles de calcul :
 
@@ -430,8 +406,83 @@ Basculez la même expérience pour qu’elle s’exécute sur une autre cible de
 Vous pouvez également :
 
 * Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
-* Soumettre une expérience [à l’aide de l’extension CLI](reference-azure-machine-learning-cli.md#experiments).
+* Soumettre une série de tests HyperDrive pour un [réglage d’hyperparamètre](how-to-tune-hyperparameters.md).
 * Soumettre une expérience via l’[extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Créer une configuration de série de tests et soumettre une série de tests à l’aide de l’interface de ligne de commande d’Azure Machine Learning
+
+Vous pouvez utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et l’[extension d’interface de ligne de commande Machine Learning](reference-azure-machine-learning-cli.md) pour créer des configurations de série de tests et soumettre des séries de tests sur différentes cibles de calcul. Les exemples suivants partent du principe que vous disposez déjà d’un espace de travail Azure Machine Learning et que vous vous êtes connecté à Azure à l’aide de la commande `az login`. 
+
+### <a name="create-run-configuration"></a>Créer une configuration d’exécution
+
+La façon la plus simple de créer une configuration de série de tests consiste à parcourir le dossier qui contient vos scripts Python de Machine Learning et à utiliser la commande de l’interface de ligne de commande.
+
+```azurecli
+az ml folder attach
+```
+
+Cette commande crée un sous-dossier `.azureml` qui contient des fichiers de configuration de série de tests modèles pour différentes cibles de calcul. Vous pouvez copier et modifier ces fichiers pour personnaliser votre configuration, par exemple, pour ajouter des packages Python ou modifier des paramètres Docker.  
+
+### <a name="structure-of-run-configuration-file"></a>Structure d’un fichier de configuration de série de tests
+
+Le fichier de configuration de série de tests au format YAML comprend les sections suivantes
+ * Script à exécuter et ses arguments
+ * Nom de la cible de calcul, soit « local », soit le nom d’un calcul sous l’espace de travail.
+ * Paramètres pour l’exécution de la série de tests : infrastructure, communicateur pour les séries de tests distribuées, durée maximale et nombre de nœuds de calcul.
+ * Section Environnement. Pour plus d’informations sur les champs de cette section, voir [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md).
+   * Pour spécifier les packages Python à installer pour la série de tests, créez un [fichier d’environnement conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) et définissez le champ __condaDependenciesFile__.
+ * Détails de l’historique d’exécution pour spécifier le dossier du fichier journal, pour activer ou désactiver la collecte de sortie et exécuter des instantanés d’historique.
+ * Détails de configuration spécifiques de l’infrastructure sélectionnée.
+ * Référence de données et détails du magasin de données.
+ * Détails de configuration spécifiques de Capacité de calcul Machine Learning pour la création d’un cluster.
+
+### <a name="create-an-experiment"></a>Créer une expérience
+
+Commencez par créer une expérience pour vos séries de tests
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>Série de tests de script
+
+Pour soumettre une série de tests de script, exécutez une commande.
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>Série de tests HyperDrive
+
+Vous pouvez utiliser HyperDrive avec Azure CLI pour effectuer des séries de tests pour le réglage des paramètres. Commencez par créer un fichier de configuration HyperDrive au format suivant. Pour plus d’informations sur les paramètres de réglage des hyperparamètres, voir l’article [Optimiser les hyperparamètres pour votre modèle](how-to-tune-hyperparameters.md).
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Ajoutez ce fichier aux fichiers de configuration de série de tests. Ensuite, soumettez une série de tests HyperDrive en utilisant :
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Notez la section *arguments* dans le fichier runconfig et la section *parameter space* dans le fichier config HyperDrive. Elles contiennent les arguments de ligne de commande à passer au script d’apprentissage. La valeur dans le fichier runconfig reste la même pour chaque itération, tandis que la plage dans le fichier config HyperDrive fait l’objet d’une itération. Ne spécifiez pas le même argument dans les deux fichiers.
+
+Pour plus d’informations sur ces commandes d’interface de ligne de commande ```az ml``` et l’ensemble complet des arguments, voir la [documentation de référence](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 
