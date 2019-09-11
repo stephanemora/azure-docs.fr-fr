@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127143"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306007"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -408,6 +408,14 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion de répertoires|Obtenir des IDP pour un flux administrateur spécifique|
 |Gestion de répertoires|Obtenir une liste de tous les flux d’administration|
 |Gestion de répertoires|Obtenir une liste des balises de tous les flux d’administration pour l’ensemble des utilisateurs|
+|Gestion des groupes|Téléchargement en bloc des membres du groupe - démarré|
+|Gestion des groupes|Téléchargement en bloc des membres du groupe - terminé|
+|Gestion des groupes|Importation en bloc des membres du groupe - démarré|
+|Gestion des groupes|Importation en bloc des membres du groupe - terminé|
+|Gestion des groupes|Suppression en bloc des membres du groupe - démarré|
+|Gestion des groupes|Suppression en bloc des membres du groupe - terminé|
+|Gestion des groupes|Téléchargement en bloc des groupes - démarré|
+|Gestion des groupes|Téléchargement en bloc des groupes - terminé|
 |Gestion des groupes|Obtenir une liste des locataires pour un utilisateur|
 |Gestion des groupes|Obtenir des revendications déclarées automatiquement des comptes locaux|
 |Gestion des groupes|Obtenir une ressource json localisée|
@@ -454,28 +462,42 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des rôles|Supprimer la configuration de l’appareil|
 |Gestion des rôles|Un appareil n’est plus conforme|
 |Gestion des rôles|Un appareil n’est plus géré|
-|User Management|Supprimer un propriétaire enregistré d’un appareil|
-|User Management|Supprimer des utilisateurs enregistrés d’un appareil|
-|User Management|Mettre à jour un appareil|
-|User Management|Mettre à jour une configuration d’appareil|
-|User Management|Ajouter un membre éligible au rôle|
-|User Management|Ajouter un membre à un rôle|
-|User Management|Ajouter une attribution de rôle à une définition de rôle|
-|User Management|Ajouter un rôle à partir d’un modèle|
-|User Management|Ajouter un membre inclus dans une étendue à un rôle|
-|User Management|Supprimer un membre éligible d’un rôle|
-|User Management|Supprimer un membre d’un rôle|
-|User Management|Supprimer une attribution de rôle d’une définition de rôle|
-|User Management|Supprimer un membre inclus dans une étendue d’un rôle|
-|User Management|Mettre à jour un rôle|
 |User Management|AccessReview_Review|
 |User Management|AccessReview_Update|
 |User Management|ActivationAborted|
 |User Management|ActivationApproved|
 |User Management|ActivationCanceled|
 |User Management|ActivationRequested|
+|User Management|Ajouter un membre éligible au rôle|
+|User Management|Ajouter un membre à un rôle|
+|User Management|Ajouter une attribution de rôle à une définition de rôle|
+|User Management|Ajouter un rôle à partir d’un modèle|
+|User Management|Ajouter un membre inclus dans une étendue à un rôle|
 |User Management|Ajouté|
 |User Management|Assigner|
+|User Management|Création d’utilisateurs en bloc - démarré|
+|User Management|Création d’utilisateurs en bloc - terminé|
+|User Management|Suppression d’utilisateurs en bloc - démarré|
+|User Management|Suppression d’utilisateurs en bloc - terminé|
+|User Management|Téléchargement en bloc des utilisateurs - démarré|
+|User Management|Téléchargement en bloc des utilisateurs - terminé|
+|User Management|Restauration d’utilisateurs supprimés en bloc - démarré|
+|User Management|Restauration d’utilisateurs supprimés en bloc - terminé|
+|User Management|Invitation en bloc d’utilisateurs - démarré|
+|User Management|Invitation en bloc des utilisateurs - terminé|
+|User Management|Supprimer un propriétaire enregistré d’un appareil|
+|User Management|Supprimer des utilisateurs enregistrés d’un appareil|
+|User Management|Supprimer un membre éligible d’un rôle|
+|User Management|Supprimer un membre d’un rôle|
+|User Management|Supprimer une attribution de rôle d’une définition de rôle|
+|User Management|Supprimer un membre inclus dans une étendue d’un rôle|
+|User Management|Mettre à jour un appareil|
+|User Management|Mettre à jour une configuration d’appareil|
+|User Management|Mettre à jour un rôle|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Identity Protection

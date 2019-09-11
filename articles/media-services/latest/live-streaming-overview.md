@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 5883c1aa20af106dd39bffc95036ee90f312ffea
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051595"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231018"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -96,7 +96,7 @@ Pour comprendre le flux de travail de streaming en direct dans Media Services v3
     * Arrêtez l’événement en direct. Une fois l’événement en direct arrêté, aucuns frais ne sont encourus. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
     * Vous pouvez arrêter votre point de terminaison de diffusion en continu, sauf si vous souhaitez continuer à fournir l’archive de votre événement en direct en tant que flux à la demande. Si l’événement en direct est dans l’état Arrêté, aucuns frais ne sont encourus.
 
-Une fois arrêté, l’événement en direct est automatiquement converti en contenu à la demande. Même après l’arrêt et la suppression de l’événement, les utilisateurs pourront lire votre contenu archivé en tant que vidéo à la demande tant que vous n’aurez pas supprimé l’élément multimédia. Un élément multimédia ne peut pas être supprimé s’il est utilisé par un événement ; vous devez d’abord supprimer l’événement.
+La ressource sur laquelle la sortie dynamique est archivée devient automatiquement une ressource à la demande lorsque la sortie dynamique est supprimée. Vous devez supprimer toutes les sorties dynamiques avant de pouvoir arrêter un événement en direct. Vous pouvez éventuellement utiliser un indicateur [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) pour supprimer automatiquement les sorties dynamiques à l’arrêt. 
 
 > [!TIP]
 > Consultez le [tutoriel sur le streaming en direct](stream-live-tutorial-with-api.md), l’article examine le code qui implémente les étapes décrites ci-dessus.

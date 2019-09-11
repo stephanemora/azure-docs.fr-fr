@@ -1,22 +1,22 @@
 ---
-title: Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Blob (préversion)
-description: L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Blob Azure.
+title: Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
+description: L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/12/2019
+ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721697"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309529"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Blob (préversion)
+# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
 
-L’émulateur open source Azurite version 3 (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Blob Azure. Une fois que vous êtes satisfait de la manière dont votre application fonctionne localement, passez à l’utilisation d’un compte de stockage Azure dans le cloud. L’émulateur offre une prise en charge multiplateforme, qui inclut Windows, Linux et macOS. Azurite v3 prend en charge les API implémentées par le service Blob Azure.
+L’émulateur open source Azurite version 3.2 (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage de file d'attente et Blob Azure. Une fois que vous êtes satisfait de la manière dont votre application fonctionne localement, passez à l’utilisation d’un compte de stockage Azure dans le cloud. L’émulateur offre une prise en charge multiplateforme, qui inclut Windows, Linux et macOS. Azurite v3 prend en charge les API implémentées par le service Blob Azure.
 
 Azurite est la future plateforme d’émulateur de stockage. Azurite remplace l’[Émulateur de stockage Azure](storage-use-emulator.md). Azurite continuera d’être mis à jour pour prendre en charge les dernières versions des API de stockage Azure.
 
@@ -35,18 +35,21 @@ Dans Visual Studio Code, sélectionnez le volet **EXTENSIONS**, puis recherchez 
 
 Vous pouvez également accéder au [marché des extensions VS Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) dans votre navigateur. Sélectionnez le bouton **Installer** pour ouvrir Visual Studio Code et accéder directement à la page de l’extension Azurite.
 
-Vous pouvez rapidement démarrer ou fermer Azurite en cliquant dans la barre d’état de VS Code sur **Service Blob Azurite**, ou en émettant les commandes suivantes dans la palette de commandes de VS Code. Pour ouvrir la palette de commandes, appuyez sur **F1** dans VS Code.
+Vous pouvez rapidement démarrer ou fermer Azurite en cliquant dans la barre d’état de VS Code sur **Service Blob Azurite** ou **Service de file d'attente Azurite**, ou en émettant les commandes suivantes dans la palette de commandes de VS Code. Pour ouvrir la palette de commandes, appuyez sur **F1** dans VS Code.
 
 L’extension prend en charge les commandes Visual Studio Code suivantes :
 
    * **Azurite : Démarrer** - Démarrer tous les services Azurite
    * **Azurite : Fermer** - Fermer tous les services Azurite
    * **Azurite : Nettoyer** - Réinitialiser toutes les données de persistance des services Azurite
-   * **Azurite : Démarrer** - Démarrer le service Blob
-   * **Azurite : Fermer** - Fermer le service Blob
-   * **Azurite : Nettoyer** - Nettoyer le service Blob
+   * **Azurite : Démarrer le service Blob** - Démarrer le service Blob
+   * **Azurite : Fermer le service blob** - Fermer le service BLOB
+   * **Azurite : Nettoyer le service blob** - Nettoyer le service blob
+   * **Azurite : Démarrer le service de file d’attente** - Démarrer le service de file d’attente
+   * **Azurite : Fermer le service de file d’attente** - Fermer le service de file d’attente
+   * **Azurite : Nettoyer le service de file d'attente** - Nettoyer le service de file d'attente
 
-Pour configurer Azurite dans Visual Studio Code, sélectionnez le volet Extensions, puis cliquez avec le bouton droit sur **Azurite**. Sélectionnez **Configure Extension Settings** (Configurer les paramètres de l’extension).
+Pour configurer Azurite dans Visual Studio Code, sélectionnez le volet Extensions. Sélectionnez l'icône **Gérer** (engrenage) pour **Azurite**. Sélectionnez **Configure Extension Settings** (Configurer les paramètres de l’extension).
 
 ![Configuration des paramètres de l’extension Azurite](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -56,6 +59,8 @@ Les paramètres suivants sont pris en charge :
    * **Azurite : Blob Port** (Port Blob) - Port d’écoute du service Blob. Le port par défaut est 10000.
    * **Azurite : Debug** (Débogage) - Sortie du journal de débogage sur le canal Azurite. La valeur par défaut est **false**.
    * **Azurite : Location** (Emplacement) - Chemin de l’emplacement de l’espace de travail. Par défaut, il s’agit du dossier de travail de Visual Studio Code.
+   * **Azurite : Hôte de file d'attente** - Point de terminaison d’écoute du service de file d'attente. Le paramètre par défaut est 127.0.0.1.
+   * **Azurite : Port de la file d’attente** - Le port d’écoute du service de file d’attente. Le port par défaut est 10001.
    * **Azurite : Silent** (Sans assistance) - Ce mode entraîne la désactivation du journal des accès. La valeur par défaut est **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installer et exécuter Azurite à l’aide de NPM
@@ -81,15 +86,22 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 La commande suivante exécute l’image Docker Azurite. Le paramètre `-p 10000:10000` redirige les requêtes du port 10000 de la machine hôte vers l’instance de Docker.
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Spécifier l’emplacement de l’espace de travail** :
 
-Dans l’exemple suivant, le paramètre `-v c:/azurite:/data` spécifie `c:/azurite` en tant qu’emplacement des données persistantes d’Azurite.
+Dans l’exemple suivant, le paramètre `-v c:/azurite:/data` spécifie *c:/azurite* en tant qu’emplacement des données persistantes d’Azurite. Le répertoire *c:/azurite* doit être créé avant l’exécution de la commande Docker.
 
 ```console
-docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
+
+**Exécuter uniquement le service blob**
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
 ```
 
 **Définir tous les paramètres Azurite** :
@@ -98,11 +110,14 @@ Cet exemple montre comment définir tous les paramètres de ligne de commande. T
 
 ```console
 docker run -p 8888:8888
+           -p 9999:9999
            -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
            -l /workspace
            -d /workspace/debug.log
            --blobPort 8888
            --blobHost 0.0.0.0
+           --queuePort 9999
+           --queueHost 0.0.0.0
 ```
 
 Pour plus d’informations sur la configuration d’Azurite au démarrage, consultez [Options de ligne de commande](#command-line-options).
@@ -143,13 +158,15 @@ Cette commande indique à Azurite de stocker toutes les données dans un répert
 Cette section détaille les commutateurs de ligne de commande disponibles quand vous lancez Azurite. Tous les commutateurs de ligne de commande sont facultatifs.
 
 ```console
-C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>]
-    [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
+C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
+    [-d | --debug <log file path>] [-l | --location <workspace path>]
+    [--queueHost <IP address>] [--queuePort <port address>]
+    [-s | --silent] [-h | --help]
 ```
 
-Le commutateur **-l** est un raccourci pour **--location**, **-s** est un raccourci pour **--silent**, et **-d** est un raccourci pour **--debug**.
+**-d** est un raccourci pour **--debug**, le commutateur **-l** est un raccourci pour **--location**, **-s** est un raccourci pour **--silent**, et **-h** est un raccourci pour **--help**.
 
-### <a name="listening-host"></a>Hôte d’écoute
+### <a name="blob-listening-host"></a>Hôte d’écoute Blob
 
 **Facultatif** Par défaut, Azurite écoute le serveur local à l’adresse 127.0.0.1. Utilisez le commutateur **--blobHost** pour définir l’adresse en fonction de vos exigences.
 
@@ -168,7 +185,7 @@ azurite --blobHost 0.0.0.0
 > [!CAUTION]
 > L’autorisation des requêtes distantes peut rendre votre système vulnérable aux attaques externes.
 
-### <a name="listening-port-configuration"></a>Configuration du port d’écoute
+### <a name="blob-listening-port-configuration"></a>Configuration du port d’écoute Blob
 
 **Facultatif** Par défaut, Azurite écoute le service Blob sur le port 10000. Utilisez le commutateur **--blobPort** pour spécifier le port d’écoute nécessaire.
 
@@ -185,6 +202,46 @@ Laisser le système sélectionner automatiquement un port disponible :
 
 ```console
 azurite --blobPort 0
+```
+
+Le port utilisé s’affiche au démarrage d’Azurite.
+
+### <a name="queue-listening-host"></a>Hôte d’écoute de file d'attente
+
+**Facultatif** Par défaut, Azurite écoute le serveur local à l’adresse 127.0.0.1. Utilisez le commutateur **--queueHost** pour définir l’adresse en fonction de vos exigences.
+
+Accepter les requêtes sur la machine locale uniquement :
+
+```console
+azurite --queueHost 127.0.0.1
+```
+
+Autoriser les requêtes distantes :
+
+```console
+azurite --queueHost 0.0.0.0
+```
+
+> [!CAUTION]
+> L’autorisation des requêtes distantes peut rendre votre système vulnérable aux attaques externes.
+
+### <a name="queue-listening-port-configuration"></a>Configuration du port d’écoute de file d'attente
+
+**Facultatif** Par défaut, Azurite écoute le service de file d’attente sur le port 10001. Utilisez le commutateur **--queuePort** pour spécifier le port d’écoute nécessaire.
+
+> [!NOTE]
+> Après avoir utilisé un port personnalisé, vous devez mettre à jour la chaîne de connexion ou la configuration correspondante dans vos outils du service Stockage Azure ou vos kits SDK.
+
+Personnaliser le port d’écoute du service de file d'attente :
+
+```console
+azurite --queuePort 8888
+```
+
+Laisser le système sélectionner automatiquement un port disponible :
+
+```console
+azurite --queuePort 0
 ```
 
 Le port utilisé s’affiche au démarrage d’Azurite.

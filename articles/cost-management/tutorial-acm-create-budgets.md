@@ -1,36 +1,36 @@
 ---
-title: Didacticiel - Créer et gérer des budgets Azure | Microsoft Docs
-description: Ce didacticiel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
+title: Tutoriel - Créer et gérer des budgets Azure | Microsoft Docs
+description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 7fd98c7bb2cd049da8f5f68a5d2401081822eb22
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 183030a063faa212d7d5788792aa525f530d18ef
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779178"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308395"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Didacticiel : Créer et gérer des budgets Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
 Les budgets dans Cost Management vous aident à planifier et à suivre la comptabilité de l’organisation. Avec les budgets, vous pouvez prendre en compte les services Azure que vous consommez ou auxquels vous vous abonnez pendant une période spécifique. Ils vous permettent d’informer les autres utilisateurs de leurs dépenses pour gérer les coûts de manière proactive, ainsi que pour superviser la progression des dépenses. En cas de dépassement des seuils budgétaires que vous avez créés, seules des notifications sont déclenchées. Aucune de vos ressources n’est affectée et votre consommation n’est pas arrêtée. Vous pouvez utiliser des budgets pour comparer et suivre les dépenses lors de l’analyse des coûts.
 
-Les budgets mensuels sont évalués par rapport aux dépenses effectuées toutes les quatre heures. Toutefois, les données et les notifications associées aux ressources consommées sont mises à disposition dans un délai de huit heures.  
+Les budgets mensuels sont évalués par rapport aux dépenses effectuées toutes les quatre heures. Toutefois, les données associées aux ressources consommées sont mises à disposition dans un délai de huit heures. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. 
 
 Les budgets sont automatiquement réinitialisés à la fin d’une période (mensuelle, trimestrielle ou annuelle) pour le même montant lorsque vous sélectionnez une date d’expiration ultérieure. Étant donné qu’ils sont réinitialisés avec le même montant de budget, vous devez créer des budgets distincts quand les montants budgétisés diffèrent pour des périodes ultérieures.
 
-Les exemples de ce didacticiel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
+Les exemples de ce tutoriel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
 
 Regardez la vidéo de [création d’un budget pour surveiller vos dépenses avec Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) pour voir comment vous pouvez créer des budgets dans Azure pour surveiller les dépenses.
 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
@@ -114,13 +114,13 @@ L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 10
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
 > * Modifier un budget
 
-Passez au didacticiel suivant pour créer une exportation récurrente de vos données de gestion des coûts.
+Passez au tutoriel suivant pour créer une exportation récurrente de vos données de gestion des coûts.
 
 > [!div class="nextstepaction"]
 > [Créer et gérer des données exportées](tutorial-export-acm-data.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ee9048202a5953ff27ea83cfb39cb1af0739e7a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309111"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277501"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -25,6 +25,9 @@ ms.locfileid: "60309111"
 > * [Version actuelle](connector-sap-business-warehouse.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’un SAP Business Warehouse (BW). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+
+>[!TIP]
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) avec la présentation détaillée, la comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -95,9 +98,9 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données SAP BW.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données SAP BW.
 
-Pour copier des données de SAP BW, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Tandis qu’aucune propriété spécifique d’un type n’est prise en charge pour le jeu de données SAP BW du type RelationalTable.
+Pour copier des données de SAP BW, affectez la valeur **SapBwCube** à la propriété type du jeu de données. Tandis qu’aucune propriété spécifique d’un type n’est prise en charge pour le jeu de données SAP BW du type RelationalTable.
 
 **Exemple :**
 
@@ -105,15 +108,18 @@ Pour copier des données de SAP BW, affectez la valeur **RelationalTable** à la
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Si vous utilisiez un dataset typé `RelationalTable`, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser désormais le nouveau dataset.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -121,11 +127,11 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sap-bw-as-source"></a>SAP BW en tant que source
 
-Pour copier des données de SAP BW, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Pour copier des données à partir de SAP BW, les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SapBwSource** | OUI |
 | query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | OUI |
 
 **Exemple :**
@@ -149,7 +155,7 @@ Pour copier des données de SAP BW, définissez **RelationalSource** comme type 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -159,6 +165,8 @@ Pour copier des données de SAP BW, définissez **RelationalSource** comme type 
     }
 ]
 ```
+
+Si vous utilisiez une source de données typée `RelationalSource`, elle reste prise en charge telle quelle, mais nous vous suggérons d’utiliser désormais la nouvelle source.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Mappage de type de données pour SAP BW
 

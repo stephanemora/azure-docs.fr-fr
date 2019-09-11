@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 40eaabb149e2e897ecd4e1109e0db7c42b990925
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101543"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309605"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique comment utiliser l’interface CLI Azure pour déployer une base de données Oracle 12c depuis une image de la galerie de la Place de marché Azure. 
 
-Ce document vous explique pas à pas comment créer, installer et configurer Oracle Golden Gate sur une machine virtuelle Azure.
+Ce document vous explique pas à pas comment créer, installer et configurer Oracle Golden Gate sur une machine virtuelle Azure. Dans ce didacticiel, deux machines virtuelles sont configurées dans un groupe à haute disponibilité dans une seule région. Le même didacticiel peut être utilisé pour configurer OracleGolden Gate pour des machines virtuelles dans différentes zones de disponibilité dans une même région Azure ou pour la configuration de machines virtuelles dans deux régions différentes.
 
 Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: a5d70b9aa611b4f939cb46b5d25655edd818cb35
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807538"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307355"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Rôles et exigences pour Azure Data Share en préversion
 
@@ -19,26 +19,64 @@ Cet article décrit les rôles requis pour partager des données à l’aide de 
 
 ## <a name="roles-and-requirements"></a>Rôles et conditions requises
 
-Pour partager ou recevoir des données à l’aide d’Azure Data Share, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être en mesure d’accorder des autorisations du partage de données au compte de stockage dont vous partagez les données à ou sur lequel vous recevez des données. Il s’agit en général d’une autorisation qui existe dans le rôle **propriétaire** ou dans un rôle personnalisé avec l’autorisation Microsoft.Authorization/role assignments/write affectée. 
+Azure Data Share utilise des identités gérées pour les services Azure (anciennement appelés fichiers MSI) pour s’authentifier auprès des comptes de stockage sous-jacents afin de pouvoir lire les données devant être partagées par un fournisseur de données et recevoir des données partagées en tant que consommateur de données. Ainsi, il n’y a pas d’échange d’informations d’identification entre un fournisseur de données et un consommateur de données. 
 
-Pour partager ou recevoir des données sur un compte de stockage Azure, vous devez être propriétaire du compte de stockage. Même si vous avez créé le compte de stockage, cela ne vous accorde pas automatiquement la propriété du compte de stockage. Pour vous ajouter vous-même au rôle de propriétaire de votre compte de stockage Azure, procédez comme suit.
+Managed Service Identity doit être autorisé à accéder aux comptes de stockage sous-jacents. Le service Azure Data Share utilise la Managed Service Identity de la ressource Azure Data Share pour lire et écrire des données. L’utilisateur d’Azure Data Share a besoin de pouvoir créer une attribution de rôle pour Managed Service Identity pour le compte de stockage à partir duquel il partage des données. L’autorisation de créer des attributions de rôles existe dans le rôle **propriétaire**, le rôle Administrateur des accès utilisateur ou un rôle personnalisé avec l’autorisation Microsoft.Authorization/role assignments/write affectée. 
 
-1. Accéder à un compte de stockage dans le portail Azure
-1. Sélectionnez **Contrôle d’accès (IAM)**
-1. Cliquez sur **Ajouter**.
-1. Ajoutez-vous en tant que propriétaire.
+Si vous n’êtes pas propriétaire du compte de stockage en question et que vous ne parvenez pas à créer vous-même une attribution de rôle pour l’identité gérée de la ressource Azure Data Share, vous pouvez demander à un administrateur Azure de créer une attribution de rôle pour votre compte. 
 
-Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
+Voici un résumé des rôles attribués à l’identité gérée de la ressource Data Share :
+
+| |  |  |
+|---|---|---|
+|**Type de stockage**|**Compte de stockage du fournisseur de données source**|**Compte de stockage du consommateur de données cible**|
+|un stockage Azure Blob| Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
+|Azure Data Lake Gen1 | Propriétaire | Non pris en charge
+|Azure Data Lake Gen2 | Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
+|
+### <a name="data-providers"></a>Fournisseurs de données 
+Pour ajouter un jeu de données à Azure Data Share, l’identité managée de la ressource du partage de données des fournisseurs de données doit être ajoutée au rôle de lecteur de données de blob de stockage. Cette opération s’effectue automatiquement avec le service Azure Data Share si l’utilisateur ajoute les jeux de données par le biais d’Azure et est propriétaire du compte de stockage, ou s’il est membre d’un rôle personnalisé avec l’autorisation Microsoft.Authorization/role assignments/write affectée. 
+
+L’utilisateur peut également demander à un administrateur Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au rôle de lecteur de données de blob de stockage. La création manuelle de cette attribution de rôle par l’administrateur annule le besoin d’être un propriétaire du compte de stockage ou d’avoir une attribution de rôle personnalisée. Cela s’applique aux données partagées à partir du stockage Azure ou d’Azure Data Lake Gen2. 
+
+Si vous partagez des données à partir d’Azure Data Lake Gen1, l’attribution de rôle doit être effectuée pour le rôle de propriétaire. 
+
+Pour créer une attribution de rôle pour l’identité managée de la ressource Data Share, suivez les étapes ci-dessous :
+
+1. Accédez au compte de stockage.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter une attribution de rôle**.
+1. Sous *Rôle*, sélectionnez *Lecteur de données du blob de stockage*.
+1. Sous *Sélectionner*, tapez le nom de votre compte Azure Data Share.
+1. Cliquez sur *Enregistrer*.
+
+### <a name="data-consumers"></a>Consommateurs de données
+Pour recevoir des données, vous devez ajouter l’identité managée du partage de données des consommateurs de données au rôle de contributeur de données du blob de stockage. Ce rôle est requis pour permettre au service Azure Data Share d’écrire dans le compte de stockage. Cette opération s’effectue automatiquement avec le service Azure Data Share si l’utilisateur ajoute les jeux de données par le biais d’Azure et est propriétaire du compte de stockage, ou s’il est membre d’un rôle personnalisé avec l’autorisation Microsoft.Authorization/role assignments/write affectée. 
+
+L’utilisateur peut également demander à un administrateur Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au rôle de contributeur de données de blob de stockage. La création manuelle de cette attribution de rôle par l’administrateur annule le besoin d’être un propriétaire du compte de stockage ou d’avoir une attribution de rôle personnalisée. Notez que cela s’applique aux données partagées vers le stockage Azure ou Azure Data Lake Gen2. La réception de données sur Azure Data Lake Gen1 n’est pas prise en charge. 
+
+Pour créer une attribution de rôle pour l’identité managée de la ressource Data Share manuellement, suivez les étapes ci-dessous :
+
+1. Accédez au compte de stockage.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter une attribution de rôle**.
+1. Sous *Rôle*, sélectionnez *Contributeur de données du blob de stockage*. 
+1. Sous *Sélectionner*, tapez le nom de votre compte Azure Data Share.
+1. Cliquez sur *Enregistrer*.
+
+Si vous partagez des données à l’aide de nos API REST, vous devrez créer manuellement ces attributions de rôle en ajoutant le compte de partage de données aux rôles appropriés. 
+
+Pour en savoir plus sur l’ajout d’une attribution de rôle, reportez-vous à [cette documentation](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment), qui décrit comment ajouter une attribution de rôle à une ressource Azure. 
 
 ## <a name="resource-provider-registration"></a>Inscription du fournisseur de ressources 
 
 Lorsque vous acceptez une invitation Azure Data Share, vous devez inscrire manuellement le fournisseur de ressources Microsoft.DataShare dans votre abonnement. Suivez ces étapes pour inscrire le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. 
 
-1. Dans le portail Azure, accédez aux **Abonnements**
-1. Sélectionnez l’abonnement que vous utilisez pour Azure Data Share
-1. Cliquez sur **Fournisseurs de ressources**
-1. Recherchez Microsoft.DataShare
-1. Cliquez sur **S’inscrire**
+1. Dans le portail Azure, accédez à **Abonnements**.
+1. Sélectionnez l’abonnement que vous utilisez pour Azure Data Share.
+1. Cliquez sur **Fournisseurs de ressources**.
+1. Recherchez Microsoft.DataShare.
+1. Cliquez sur **S'inscrire**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

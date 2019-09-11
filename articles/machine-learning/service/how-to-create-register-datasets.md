@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992111"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259289"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Créer des jeux de données et y accéder (préversion) dans Azure Machine Learning
 
@@ -45,9 +45,11 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
 ## <a name="dataset-types"></a>Types de jeux de données
 
-Les jeux de données sont classés en différents types, en fonction de la façon dont les utilisateurs les consomment lors de l’entraînement. Actuellement, nous prenons en charge les [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) qui représentent les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas. Vous pouvez créer un objet `TabularDataset` à partir de fichiers CSV, TSV, Parquet, de résultats de requête SQL, et ainsi de suite. Pour obtenir la liste complète, consultez notre documentation.
+Les jeux de données sont classés en différents types, en fonction de la façon dont les utilisateurs les consomment lors de l’entraînement. Liste des types de jeux de données :
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas. Vous pouvez créer un objet `TabularDataset` à partir de fichiers CSV, TSV, Parquet, de résultats de requête SQL, et ainsi de suite. Pour obtenir la liste complète, consultez notre [documentation](https://aka.ms/tabulardataset-api-reference).
+* [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de fichiers ou vos URL publiques. Cela vous offre la possibilité de télécharger ou de monter les fichiers dans votre calcul. Les fichiers peuvent être de n’importe quel format, ce qui permet un éventail plus large de scénarios de Machine Learning, y compris le Deep Learning.
 
-Pour en savoir plus sur les changements d’API à venir, consultez [Qu'est-ce que le service Azure Machine Learning ?](https://aka.ms/tabular-dataset) 
+Pour en savoir plus sur les futures modifications de l’API, consultez [ceci](https://aka.ms/tabular-dataset).
 
 ## <a name="create-datasets"></a>Créez les jeux de données 
 
@@ -101,6 +103,25 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7.9250||S
 
+### <a name="create-filedatasets"></a>Créer des FileDatasets
+Utilisez la méthode `from_files()` sur la classe `FileDatasetFactory` pour charger des fichiers de tout format, puis créez un FileDataset non inscrit.
+
+```Python
+# create a FileDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'animals/dog/1.jpg'),
+                  (datastore, 'animals/dog/2.jpg'),
+                  (datastore, 'animals/dog/*.jpg')
+                 ]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = [
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
+           ]          
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 ## <a name="register-datasets"></a>Inscrire des jeux de données
 
 Pour terminer le processus de création, inscrivez vos jeux de données dans l’espace de travail :

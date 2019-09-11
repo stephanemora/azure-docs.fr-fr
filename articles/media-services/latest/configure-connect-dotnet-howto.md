@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a256eb787d7e3dbd800ec2e630cac591b07ca0fc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3ddf5a1ab37ac0af25379394b4513627139fcbd5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444164"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307948"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API Media Services v3 - .NET
 
@@ -28,6 +28,9 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 - Installez un outil que vous souhaitez utiliser pour le développement .NET. Les étapes décrites dans cet article montrent comment utiliser [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Vous pouvez utiliser Visual Studio Code. Pour cela, consultez [Working with C#](https://code.visualstudio.com/docs/languages/csharp) (Utilisation de C#). Vous pouvez également utiliser un autre éditeur de code.
+
+> [!IMPORTANT]
+> Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-console-application"></a>Création d’une application console
 

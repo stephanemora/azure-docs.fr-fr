@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850983"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306190"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
 À l’aide de la passerelle Azure Application Gateway, vous pouvez surveiller les ressources des manières suivantes :
 
@@ -22,7 +22,7 @@ ms.locfileid: "68850983"
 
 * [Journaux d’activité](#diagnostic-logging) : les journaux d’activité permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de supervision.
 
-* [Métriques](#metrics) : Application Gateway a actuellement sept métriques pour afficher les compteurs de performances.
+* [Métriques](application-gateway-metrics.md) : Application Gateway a plusieurs métriques qui vous permettent de vérifier que votre système fonctionne comme prévu.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -105,7 +105,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 Pour stocker vos journaux d’activité, vous disposez de trois options :
 
 * **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux d’activité quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
-* **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
+* **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SIEM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
 * **Journaux d’activité Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ### <a name="enable-logging-through-powershell"></a>Activation de la journalisation avec PowerShell
@@ -172,7 +172,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |sentBytes| Taille du paquet envoyé, en octets.|
 |timeTaken| Durée (en millisecondes) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
 |sslEnabled| Détermine si la communication avec les pools principaux utilisait SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
-|host| Nom d’hôte avec lequel la requête a été envoyée au serveur back-end. Si le nom d’hôte du serveur back-end est remplacé, ce nom le reflète.|
+|host| Nom d’hôte avec lequel la requête a été envoyée au serveur back-end. Si le nom d’hôte du serveur principal est remplacé, ce nom le reflète.|
 |originalHost| Nom d’hôte avec lequel la requête a été reçue par Application Gateway à partir du client.|
 ```json
 {
@@ -359,67 +359,6 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analyse des journaux d’activité d’accès via GoAccess
 
 Nous avons publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal d’activité [GoAccess](https://goaccess.io/) pour les journaux d’activité d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
-
-## <a name="metrics"></a>Mesures
-
-Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour Application Gateway, les métriques suivantes sont disponibles :
-
-- **Connexions courantes**
-- **Requêtes ayant échoué**
-- **Nombre d’hôtes intègres**
-
-   Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
-
-
-- **État de la réponse**
-
-   La distribution du code d’état de la réponse peut être ultérieurement classée par catégorie afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx.
-
-- **Débit**
-- **Total de requêtes**
-- **Nombre d’hôtes défectueux**
-
-   Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
-
-Accédez à une passerelle d’application, sous **Supervision**, sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
-
-Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
-
-[![](media/application-gateway-diagnostics/figure5.png "Affichage des métriques")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-Pour afficher une liste actuelle des métriques, consultez [Mesures prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md).
-
-### <a name="alert-rules"></a>Règles d'alerte
-
-Vous pouvez démarrer des règles d’alerte en fonction des métriques d’une ressource. Par exemple, une alerte peut appeler un webhook ou envoyer un e-mail à un administrateur si le débit de la passerelle Application Gateway est au-dessus ou en dessous d’un seuil pour une période spécifiée.
-
-L’exemple suivant vous guide dans la création d’une règle d’alerte qui envoie un e-mail à un administrateur lorsqu’un seuil de débit est dépassé :
-
-1. Sélectionnez **Ajouter une alerte Métrique** pour ouvrir la page **Ajouter une règle**. Cette page est aussi accessible à partir de la page Métriques.
-
-   ![Bouton Ajouter une alerte Métrique][6]
-
-2. Dans la page **Ajouter une règle**, remplissez les sections Nom, Condition et Notifier, puis sélectionnez **OK**.
-
-   * Dans le sélecteur **Condition**, sélectionnez une des quatre valeurs : **Supérieur à**, **Supérieur ou égal à**, **Inférieur à** ou **Inférieur ou égal à**.
-
-   * Dans le sélecteur **Période**, sélectionnez une période allant de 5 minutes à 6 heures.
-
-   * Si vous sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** , l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, vous pouvez fournir une liste d’utilisateurs séparée par des virgules dans la zone **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** .
-
-   ![Page Ajouter une règle][7]
-
-Si le seuil est dépassé, un e-mail similaire à celui de l’image suivante vous est envoyé :
-
-![E-mail en cas de dépassement de seuil][8]
-
-Une liste d’alertes apparaît une fois que vous avez créé une alerte Métrique. Elle fournit une vue d’ensemble de toutes les règles d’alerte.
-
-![Liste d’alertes et de règles][9]
-
-Pour en savoir plus sur les notifications d’alerte, consultez [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des alertes, consultez [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

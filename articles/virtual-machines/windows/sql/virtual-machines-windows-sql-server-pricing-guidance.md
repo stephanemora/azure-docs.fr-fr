@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101915"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280168"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -113,7 +113,7 @@ Pour utiliser la méthode BYOL avec une machine virtuelle SQL Server, vous devez
 
 | Avantages de la méthode BYOL | Description |
 |-----|-----|
-| **Réduction des coûts** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) permet d'économiser jusqu'à 55 %. Pour plus d'informations, consultez [Changer de modèle de licence] (virtual-machines-windows-sql-ahb.md |
+| **Réduction des coûts** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) permet d'économiser jusqu'à 55 %. Pour plus d’informations, consultez [Changer de modèle de licence](virtual-machines-windows-sql-ahb.md) |
 | **Réplica secondaire passif gratuit** | Autre avantage de l’apport de votre propre licence : la [licence gratuite pour un réplica secondaire passif](https://azure.microsoft.com/pricing/licensing-faq/) par SQL Server à des fins de haute disponibilité. Cela réduit de moitié le coût de licence d’un déploiement SQL Server à haute disponibilité (par exemple, à l’aide de groupes de disponibilité AlwaysOn). Les droits d’exécution du réplica secondaire passif sont fournis au travers des avantages procurés par Software Assurance pour les serveurs de basculement. |
 
 Pour créer une machine virtuelle SQL Server 2017 Azure avec l’une de ces images BYOL, reportez-vous aux machines virtuelles contenant le préfixe « {BYOL} » :

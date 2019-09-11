@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966764"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307022"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modifier une base de connaissances dans QnA Maker
 
@@ -54,7 +54,7 @@ QnA Maker vous permet de gérer le contenu de votre base de connaissances en fou
 
 ## <a name="add-a-qna-pair"></a>Ajouter une paire QnA
 
-Sur la page **Paramètres**, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne à la table de base de connaissances.
+Sur la page **MODIFIER**, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne à la table de base de connaissances.
 
 ![Ajouter une paire QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 30bad3dd519d622d7e224da7bd53e7c6625014f6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966473"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277666"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 
@@ -64,7 +64,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
 | servicePrincipalEmbeddedCertPassword | Spécifiez le mot de passe de votre certificat si votre certificat est sécurisé par un mot de passe. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).  | Non|
 | locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Non |
 | aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation.| Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 **Exemple 1 : Utilisation de l’authentification anonyme**
 
@@ -212,6 +212,7 @@ Pour copier des données à partir d’OData, définissez la propriété **type*
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -232,11 +233,11 @@ Pour obtenir la liste complète des sections et des propriétés permettant de d
 
 ### <a name="odata-as-source"></a>OData en tant que source
 
-Pour copier des données à partir d’OData, définissez le type **source** de l’activité de copie sur **RelationalSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Pour copier des données à partir d’OData, les propriétés prises en charge dans la section **source** de l'activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** de la source d’activité de copie doit être définie sur **RelationalSource**. | OUI |
+| Type | La propriété de **type** de la source d’activité de copie doit être définie sur **ODataSource**. | OUI |
 | query | Options de requête OData pour filtrer les données. Exemple : `"$select=Name,Description&$top=5"`.<br/><br/>**Remarque**: Le connecteur OData copie des données à partir de l’URL combinée `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
 
 **Exemple**
@@ -260,7 +261,7 @@ Pour copier des données à partir d’OData, définissez le type **source** de 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -270,6 +271,8 @@ Pour copier des données à partir d’OData, définissez le type **source** de 
     }
 ]
 ```
+
+Si vous utilisiez une source de données typée `RelationalSource`, elle reste prise en charge telle quelle, mais nous vous suggérons d’utiliser désormais la nouvelle source.
 
 ## <a name="data-type-mapping-for-odata"></a>Mappage de type de données pour OData
 

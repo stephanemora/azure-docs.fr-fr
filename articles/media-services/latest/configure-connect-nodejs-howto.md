@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab620ec456610029d699952bb9625abfe4c21dc
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733128"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307881"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
@@ -27,7 +27,10 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 ## <a name="prerequisites"></a>Prérequis
 
 - Installez [Node.js](https://nodejs.org/en/download/).
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et celui du compte Media Services.
+- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+
+> [!IMPORTANT]
+> Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-packagejson"></a>Créer un fichier package.json
 

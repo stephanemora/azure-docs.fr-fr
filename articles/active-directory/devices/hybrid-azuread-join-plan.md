@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ff24acd58d00f737a4342a7f45ddd22261a55be
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562102"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231274"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -35,7 +35,7 @@ Si vous disposez d’un environnement Active Directory (AD) local et que vous so
 Cet article suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Les niveaux fonctionnels de domaine et de forêt minimaux requis pour une jonction Azure AD Hybride Windows 10 correspondent à Windows Server 2008 R2.
+> La version de contrôleur de domaine minimale requise pour une jonction Azure AD Hybride Windows 10 est Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -64,10 +64,10 @@ Pour les appareils exécutant le système d’exploitation Windows, les versions
 ### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
 
 - Windows 8.1
-- Windows 7 Pour des informations relatives à la prise en charge de Windows 7, consultez l'article [Fin de la prise en charge de Windows 7](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support)
+- Windows 7 Pour des informations relatives à la prise en charge de Windows 7, consultez [Fin de la prise en charge de Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. Pour obtenir des informations de support sur Windows Server 2008 et 2008 R2, consultez [Préparez-vous à la fin du support de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 La première étape de la planification consiste à examiner l’environnement et à déterminer s’il est nécessaire de prendre en charge les appareils Windows de bas niveau.
 
@@ -87,11 +87,13 @@ Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une
 
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](overview.md#getting-devices-in-azure-ad) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état :
+Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
 
-- Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride.
+- Tout état existant inscrit sur Azure AD est automatiquement supprimé <i>dès lors que l’appareil est joint à Azure AD Hybride</i>.
 - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
-- Cette modification est désormais disponible pour Windows 10 version 1803 avec application de KB4489894. Toutefois, si vous avez configuré Windows Hello Entreprise, l’utilisateur doit reconfigurer Windows Hello Entreprise après le nettoyage de double état.
+- Dans Windows 10 1803, si vous avez configuré Windows Hello Entreprise, l’utilisateur doit reconfigurer Windows Hello Entreprise après le nettoyage de double état. Ce problème a été résolu avec KB4512509
+
+
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Vérifier la validation contrôlée de la jonction Azure AD Hybride
 

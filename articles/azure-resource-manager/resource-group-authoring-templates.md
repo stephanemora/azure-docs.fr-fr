@@ -4,20 +4,20 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774901"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306836"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
-Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
+Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure et la syntaxe du modèle. Pour une introduction à la création d’un modèle, voir [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour une introduction à la création d’un modèle, voir [Modèles Azure Resource Manager](template-deployment-overview.md).
 
 ## <a name="template-format"></a>Format de modèle
 
@@ -49,64 +49,9 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 Chaque élément a des propriétés que vous pouvez définir. Cet article décrit les sections du modèle de manière plus approfondie.
 
-## <a name="syntax"></a>Syntaxe
-
-La syntaxe de base du modèle est JSON. Toutefois, vous pouvez utiliser des expressions et fonctions pour étendre les valeurs JSON disponibles dans le modèle.  Les expressions commencent et se terminent avec des crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé. Une expression peut retourner une chaîne, un entier, un booléen, un tableau ou un objet. L’exemple suivant montre une expression dans la valeur par défaut d’un paramètre :
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-},
-```
-
-Dans l’expression, la syntaxe `resourceGroup()` appelle une des fonctions fournies par Resource Manager pour une utilisation dans un modèle. Comme en JavaScript, les appels de fonction sont formatés comme suit : `functionName(arg1,arg2,arg3)`. La syntaxe `.location` récupère une propriété de l’objet retourné par cette fonction.
-
-Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, Resource Manager résout **variables('var1')** et **VARIABLES('VAR1')** de la même manière. Lors de l’évaluation, la fonction préserve la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les fonctions sont évaluées.
-
-Pour avoir une chaîne littérale qui commence par un crochet gauche `[` et se termine par un crochet droit `]`, sans qu’elle soit interprétée comme une expression, ajoutez un crochet supplémentaire. La chaîne commence alors par `[[`. Par exemple, la variable :
-
-```json
-"demoVar1": "[[test value]"
-```
-
-Est résolu en `[test value]`.
-
-Toutefois, si la chaîne littérale ne se termine par un crochet, n’utilisez pas le caractère d’échappement pour le premier crochet. Par exemple, la variable :
-
-```json
-"demoVar2": "[test] value"
-```
-
-Est résolu en `[test] value`.
-
-Pour passer une valeur de chaîne en tant que paramètre à une fonction, utilisez des guillemets simples.
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]"
-```
-
-Pour échapper les guillemets doubles dans une expression, comme l’ajout d’un objet JSON dans le modèle, utilisez la barre oblique inverse.
-
-```json
-"tags": {
-    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-},
-```
-
-Une expression de modèle ne peut pas dépasser 24 576 caractères.
-
-Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md). 
-
 ## <a name="parameters"></a>parameters
 
-C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Vous n’êtes pas obligé de fournir des paramètres dans votre modèle, mais sans paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
-
-Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés, comme indiqué dans cet article.
-
-### <a name="available-properties"></a>Propriétés disponibles
+C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés.
 
 Les propriétés disponibles pour un paramètre sont :
 
@@ -129,7 +74,7 @@ Les propriétés disponibles pour un paramètre sont :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| parameterName |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
+| parameter-name |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
 | Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
@@ -139,150 +84,9 @@ Les propriétés disponibles pour un paramètre sont :
 | maxLength |Non |Valeur maximale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
 | description |Non |Description du paramètre qui apparaît aux utilisateurs dans le portail. Pour plus d’informations, consultez [Commentaires dans les modèles](#comments). |
 
-### <a name="define-and-use-a-parameter"></a>Définir et utiliser un paramètre
-
-L’exemple suivant illustre une définition de paramètre simple. Il définit le nom du paramètre et indique qu’il nécessite une valeur de chaîne. Le paramètre accepte uniquement des valeurs qui ont un sens pour son usage prévu. Il indique une valeur par défaut quand aucune valeur n’est fournie au cours du déploiement. Enfin, le paramètre inclut une description de son utilisation.
-
-```json
-"parameters": {
-  "storageSKU": {
-    "type": "string",
-    "allowedValues": [
-      "Standard_LRS",
-      "Standard_ZRS",
-      "Standard_GRS",
-      "Standard_RAGRS",
-      "Premium_LRS"
-    ],
-    "defaultValue": "Standard_LRS",
-    "metadata": {
-      "description": "The type of replication to use for the storage account."
-    }
-  }   
-}
-```
-
-Dans le modèle, vous référencez la valeur du paramètre à l’aide de la syntaxe suivante :
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "sku": {
-      "name": "[parameters('storageSKU')]"
-    },
-    ...
-  }
-]
-```
-
-### <a name="template-functions-with-parameters"></a>Fonctions de modèle avec des paramètres
-
-Quand vous spécifiez la valeur par défaut d’un paramètre, vous pouvez utiliser la plupart des fonctions de modèle. Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur par défaut. Le modèle suivant illustre l’utilisation de fonctions avec les valeurs par défaut :
-
-```json
-"parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
-    "metadata": {
-      "description": "The site name. To use the default value, do not specify a new value."
-    }
-  },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
-    "metadata": {
-      "description": "The host name. To use the default value, do not specify a new value."
-    }
-  }
-}
-```
-
-Vous ne pouvez pas utiliser la fonction `reference` dans la section des paramètres. Les paramètres étant évalués avant le déploiement, la fonction `reference` ne peut pas obtenir l’état d’exécution d’une ressource. 
-
-### <a name="objects-as-parameters"></a>Objets en tant que paramètres
-
-Il peut s’avérer plus facile d’organiser des valeurs connexes en les transmettant en tant qu’objets. Cette approche réduit également le nombre de paramètres dans le modèle.
-
-Définissez le paramètre dans votre modèle, puis spécifiez un objet JSON au lieu d’une valeur unique au cours du déploiement. 
-
-```json
-"parameters": {
-  "VNetSettings": {
-    "type": "object",
-    "defaultValue": {
-      "name": "VNet1",
-      "location": "eastus",
-      "addressPrefixes": [
-        {
-          "name": "firstPrefix",
-          "addressPrefix": "10.0.0.0/22"
-        }
-      ],
-      "subnets": [
-        {
-          "name": "firstSubnet",
-          "addressPrefix": "10.0.0.0/24"
-        },
-        {
-          "name": "secondSubnet",
-          "addressPrefix": "10.0.1.0/24"
-        }
-      ]
-    }
-  }
-},
-```
-
-Référencez ensuite les sous-propriétés du paramètre en utilisant l’opérateur point.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[parameters('VNetSettings').name]",
-    "location": "[parameters('VNetSettings').location]",
-    "properties": {
-      "addressSpace":{
-        "addressPrefixes": [
-          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
-        ]
-      },
-      "subnets":[
-        {
-          "name":"[parameters('VNetSettings').subnets[0].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-          }
-        },
-        {
-          "name":"[parameters('VNetSettings').subnets[1].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
-          }
-        }
-      ]
-    }
-  }
-]
-```
-
-### <a name="parameter-example-templates"></a>Exemples de modèles de paramètre
-
-Ces exemples de modèles montrent quelques scénarios d’utilisation de paramètres. Déployez-les pour tester la façon dont les paramètres sont gérés dans différents cas de figure.
-
-|Modèle  |Description  |
-|---------|---------|
-|[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Montre comment utiliser les fonctions de modèle durant la définition des valeurs par défaut des paramètres. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
-|[Objet de paramètre](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Montre comment utiliser un objet pour un paramètre. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
-
 ## <a name="variables"></a>variables
 
 Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
-
-### <a name="available-definitions"></a>Définitions disponibles
 
 L’exemple suivant montre les options disponibles pour la définition d’une variable :
 
@@ -313,76 +117,6 @@ L’exemple suivant montre les options disponibles pour la définition d’une v
 
 Pour plus d’informations sur l’utilisation de `copy` pour créer plusieurs valeurs pour une variable, consultez [Itération de variable](resource-group-create-multiple.md#variable-iteration).
 
-### <a name="define-and-use-a-variable"></a>Définir et utiliser une variable
-
-L’exemple suivant montre une définition de variable. Il crée une valeur de chaîne pour le nom d’un compte de stockage. Il utilise plusieurs fonctions de modèle pour obtenir une valeur de paramètre, et la concatène en une chaîne unique.
-
-```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-},
-```
-
-La variable est utilisée lors de la définition de la ressource.
-
-```json
-"resources": [
-  {
-    "name": "[variables('storageName')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    ...
-```
-
-### <a name="configuration-variables"></a>Variables de configuration
-
-Vous pouvez utiliser les types JSON complexes pour définir les valeurs associées d’un environnement.
-
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-Dans Paramètres, créez une valeur qui indique les valeurs de configuration à utiliser.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-Récupérez les paramètres actuels ainsi :
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-### <a name="variable-example-templates"></a>Exemples de modèles de variable
-
-Ces exemples de modèles montrent quelques scénarios d’utilisation de variables. Déployez-les pour tester la façon dont les variables sont gérées dans différents cas de figure. 
-
-|Modèle  |Description  |
-|---------|---------|
-| [définitions de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Montre les différents types de variables. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de variables. |
-| [variable de configuration](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Illustre l’utilisation d’une variable qui définit des valeurs de configuration. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de variables. |
-| [règles de sécurité réseau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) et [fichier de paramètres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Crée un tableau au bon format pour attribuer des règles de sécurité à un groupe de sécurité réseau. |
-
-
 ## <a name="functions"></a>Fonctions
 
 Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuvent être utilisées dans votre modèle. En règle générale, vous définissez une expression complexe que vous ne voulez pas répéter tout au long de votre modèle. Vous créez les fonctions définies par l’utilisateur à partir d’expressions et de [fonctions](resource-group-template-functions.md) prises en charge dans les modèles.
@@ -395,23 +129,21 @@ La définition d’une fonction utilisateur est soumise à certaines restriction
 * La fonction ne peut pas utiliser la [fonction de référence](resource-group-template-functions-resource.md#reference).
 * Les paramètres de la fonction ne peuvent pas avoir de valeur par défaut.
 
-Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter tout conflit avec les fonctions de modèle. L’exemple suivant illustre une fonction qui renvoie un nom de compte de stockage :
-
 ```json
 "functions": [
   {
-    "namespace": "contoso",
+    "namespace": "<namespace-for-functions>",
     "members": {
-      "uniqueName": {
+      "<function-name>": {
         "parameters": [
           {
-            "name": "namePrefix",
-            "type": "string"
+            "name": "<parameter-name>",
+            "type": "<type-of-parameter-value>"
           }
         ],
         "output": {
-          "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+          "type": "<type-of-output-value>",
+          "value": "<function-return-value>"
         }
       }
     }
@@ -419,29 +151,18 @@ Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter to
 ],
 ```
 
-Vous appelez la fonction avec :
-
-```json
-"resources": [
-  {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
-    "properties": {}
-  }
-]
-```
+| Nom de l'élément | Obligatoire | Description |
+|:--- |:--- |:--- |
+| namespace |OUI |Espace de noms pour les fonctions personnalisées. Utilisez pour éviter les conflits de noms avec les fonctions de modèle. |
+| function-name |OUI |Nom de la fonction personnalisée. Lors de l’appel de la fonction, associez le nom de la fonction à l’espace de noms. Par exemple, pour appeler une fonction nommée uniqueName dans l’espace de noms contoso, utilisez `"[contoso.uniqueName()]"`. |
+| parameter-name |Non |Nom du paramètre à utiliser dans la fonction personnalisée. |
+| parameter-value |Non |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| output-type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée de la fonction. |
+| output-value |OUI |Expression du langage du modèle évaluée et retournée à partir de la fonction. |
 
 ## <a name="resources"></a>Ressources
-Dans la section des ressources, vous définissez les ressources déployées ou mises à jour.
 
-### <a name="available-properties"></a>Propriétés disponibles
+Dans la section des ressources, vous définissez les ressources déployées ou mises à jour.
 
 Vous définissez des ressources avec la structure suivante :
 
@@ -501,11 +222,11 @@ Vous définissez des ressources avec la structure suivante :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| condition | Non | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Voir [condition](#condition). |
+| condition | Non | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Voir [condition](conditional-resource-deployment.md). |
 | apiVersion |OUI |La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
 | Type |OUI |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
-| Nom |OUI |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
-| location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. |
+| Nom |OUI |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
+| location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. Voir [Définir l’emplacement des ressources](resource-location.md). |
 | tags |Non |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
 | commentaires |Non |Vos commentaires pour documenter les ressources dans votre modèle. Pour plus d’informations, consultez [Commentaires dans les modèles](resource-group-authoring-templates.md#comments). |
 | copy |Non |Si plusieurs instances sont nécessaires, le nombre de ressources à créer. Le mode par défaut est parallèle. Spécifiez le mode série si vous ne voulez pas que toutes les ressources soient déployées en même temps. Pour plus d’informations, consultez [Créer plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md). |
@@ -516,155 +237,15 @@ Vous définissez des ressources avec la structure suivante :
 | Plan | Non | Certaines ressources autorisent les valeurs qui définissent le plan à déployer. Par exemple, vous pouvez spécifier l’image de marketplace pour une machine virtuelle. | 
 | les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 
-### <a name="condition"></a>Condition
-
-Quand vous devez décider pendant le déploiement s’il faut créer une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
-
-En règle générale, vous utilisez cette valeur quand vous voulez créer une ressource ou utiliser une ressource existante. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-Pour un exemple de modèle complet qui utilise l’élément `condition`, consultez [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Machine virtuelle avec un réseau virtuel, un stockage et une adresse IP publique nouveaux ou existants).
-
-Si vous utilisez une fonction de [référence](resource-group-template-functions-resource.md#reference) ou de [liste](resource-group-template-functions-resource.md#list) avec une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si la fonction fait référence à une ressource qui n’existe pas. Utilisez la fonction [if](resource-group-template-functions-logical.md#if) pour vous assurer que la fonction est évaluée uniquement pour les conditions lorsque la ressource est déployée. Consultez la [fonction if](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise if et une référence avec une ressource déployée de manière conditionnelle.
-
-### <a name="resource-names"></a>Noms de ressource
-
-Il existe généralement trois types de noms de ressource avec lesquels vous travaillez dans Resource Manager :
-
-* des noms de ressource qui doivent être uniques ;
-* Des noms de ressources qui ne doivent pas obligatoirement être uniques, mais pour lesquels vous choisissez un nom qui vous permet d’identifier la ressource.
-* des noms de ressources qui peuvent être génériques.
-
-Fournissez un **nom de ressource unique** pour tout type de ressource ayant un point de terminaison d’accès aux données. Certains types de ressource courants nécessitent un nom unique, notamment :
-
-* Azure Storage<sup>1</sup> 
-* Fonctionnalité Web Apps d’Azure App Service
-* SQL Server
-* Azure Key Vault
-* Cache Azure pour Redis
-* Azure Batch
-* Azure Traffic Manager
-* Recherche Azure
-* Azure HDInsight
-
-<sup>1</sup> Les noms de compte de stockage doivent être en minuscules, comporter 24 caractères au maximum et ne pas comprendre de traits d’union.
-
-Quand vous définissez le nom, vous pouvez soit créer manuellement un nom unique, soit utiliser la fonction [uniqueString()](resource-group-template-functions-string.md#uniquestring) pour générer un nom. Vous pouvez également ajouter un préfixe ou un suffixe au résultat.**uniqueString**. La modification du nom unique peut vous aider à identifier plus facilement le type de ressource à partir du nom. Par exemple, vous pouvez générer un nom unique pour un compte de stockage avec la variable suivante :
-
-```json
-"variables": {
-  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
-}
-```
-
-Pour certains types de ressources, vous souhaiterez peut-être fournir un **nom pour l’identification**, mais le nom n’a pas à être unique. Pour ces types de ressources, fournissez un nom qui décrit l’utilisation ou les caractéristiques.
-
-```json
-"parameters": {
-  "vmName": { 
-    "type": "string",
-    "defaultValue": "demoLinuxVM",
-    "metadata": {
-      "description": "The name of the VM to create."
-    }
-  }
-}
-```
-
-Pour les types de ressources qui sont accessibles en grande partie par le biais d’une autre ressource, vous pouvez utiliser un **nom générique** codé en dur dans le modèle. Par exemple, vous pouvez définir un nom générique standard pour les règles de pare-feu sur un serveur SQL :
-
-```json
-{
-  "type": "firewallrules",
-  "name": "AllowAllWindowsAzureIps",
-  ...
-}
-```
-
-### <a name="resource-location"></a>Emplacement des ressources
-
-Lorsque vous déployez un modèle, vous devez fournir un emplacement pour chaque ressource. Différents types de ressources sont pris en charge à différents emplacements. Pour obtenir les emplacements pris en charge pour un type de ressource, consultez [Fournisseurs et types de ressources Azure](resource-manager-supported-services.md).
-
-Utilisez un paramètre pour spécifier l’emplacement des ressources, et définissez la valeur par défaut sur `resourceGroup().location`.
-
-L’exemple suivant illustre le déploiement d’un compte de stockage dans un emplacement spécifié en tant que paramètre :
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
-}
-```
-
 ## <a name="outputs"></a>Outputs
 
 Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. En règle générale, vous retournez des valeurs de ressources qui ont été déployées.
-
-### <a name="available-properties"></a>Propriétés disponibles
 
 L'exemple suivant illustre la structure de la définition d'une sortie :
 
 ```json
 "outputs": {
-  "<outputName>" : {
+  "<output-name>" : {
     "condition": "<boolean-value-whether-to-output-value>",
     "type" : "<type-of-output-value>",
     "value": "<output-value-expression>"
@@ -674,72 +255,10 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| outputName |OUI |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
+| output-name |OUI |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
 | condition |Non | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
 | Type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stockez la clé secrète dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](resource-manager-keyvault-parameter.md). |
 | value |OUI |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
-
-### <a name="define-and-use-output-values"></a>Définir et utiliser des valeurs de sortie
-
-L’exemple suivant montre comment retourner l’ID de ressource d’une adresse IP publique :
-
-```json
-"outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-L’exemple suivant montre comment retourner conditionnellement l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
-
-```json
-"outputs": {
-  "resourceID": {
-    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-Pour obtenir un exemple simple de sortie conditionnelle, consultez [Modèle de sortie conditionnelle](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
-
-Après le déploiement, vous pouvez récupérer la valeur à l’aide d’un script. Pour PowerShell, utilisez la commande suivante :
-
-```powershell
-(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
-```
-
-Pour l’interface de ligne de commande Azure, consultez :
-
-```azurecli-interactive
-az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
-```
-
-Vous pouvez récupérer la valeur de sortie à partir d’un modèle lié à l’aide de la fonction [reference](resource-group-template-functions-resource.md#reference). Pour obtenir une valeur de sortie d’un modèle lié, récupérez la valeur de propriété à l’aide d’une syntaxe comme : `"[reference('deploymentName').outputs.propertyName.value]"`.
-
-Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne peut pas inclure de tiret.
-
-L’exemple suivant montre comment définir l’adresse IP sur un équilibreur de charge en récupérant une valeur à partir d’un modèle lié.
-
-```json
-"publicIPAddress": {
-  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-}
-```
-
-Vous ne pouvez pas utiliser la fonction `reference` dans la section de sortie d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
-
-### <a name="output-example-templates"></a>Exemples de modèles de sortie
-
-|Modèle  |Description  |
-|---------|---------|
-|[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crée des variables complexes et génère ces valeurs. Ne déploie aucune ressource. |
-|[Adresse IP publique](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crée une adresse IP publique et génère l’ID de ressource. |
-|[Équilibreur de charge](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Est lié au modèle précédent. Utilise l’ID de ressource dans la sortie durant la création de l’équilibreur de charge. |
-
 
 <a id="comments" />
 
@@ -838,9 +357,8 @@ Dans VS Code, vous pouvez définir le mode de langage sur JSON avec des commenta
 
    ![Sélectionner un mode de langage](./media/resource-group-authoring-templates/select-json-comments.png)
 
-[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 * Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
 * Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).

@@ -7,16 +7,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 95704f2694892b349d0967fca2160dabd990b472
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810140"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279436"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles Hyper-V pour les migrer vers Azure
 
-Cet article explique comment évaluer de grands nombres (> 1 000) de machines virtuelles Hyper-V locales pour les migrer vers Azure à l’aide de l’outil Évaluation de serveur Azure Migrate.
+Cet article explique comment évaluer de grands nombres de machines virtuelles Hyper-V locales pour les migrer vers Azure à l’aide de l’outil Évaluation de serveur Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
@@ -46,9 +46,10 @@ Utilisez les limites résumées dans ce tableau pour la planification.
 
 **Planification** | **Limites**
 --- | --- 
-**Projets Azure Migrate** | Évaluez jusqu’à 10 000 machines virtuelles par projet.
-**Appliance Azure Migrate** | Une appliance peut découvrir jusqu’à 5 000 machines virtuelles.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.<br/> Une appliance ne peut être associée qu’à un seul projet Azure Migrate.<br/><br/> 
-**Évaluation d’Azure Migrate** | Vous pouvez évaluer jusqu’à 10 000 machines virtuelles par évaluation.
+**Projets Azure Migrate** | Évaluez jusqu'à 35 000 machines virtuelles par projet.
+**Appliance Azure Migrate** | Une appliance peut découvrir jusqu’à 5 000 machines virtuelles.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.<br/> Une appliance ne peut être associée qu’à un seul projet Azure Migrate.<br/> Un nombre quelconque d’appliances peut être associé à un même projet Azure Migrate. <br/><br/> 
+**Groupe** | Vous pouvez ajouter jusqu’à 35 000 machines virtuelles dans un groupe unique.
+**Évaluation d’Azure Migrate** | Vous pouvez évaluer jusqu’à 35,000 machines virtuelles par évaluation.
 
 
 

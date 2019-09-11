@@ -7,36 +7,36 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868683"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279422"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure
 
 
 Cet article explique comment évaluer de grands nombres (1 000 à 35 000) de machines virtuelles VMware locales pour les migrer vers Azure à l’aide de l’outil Évaluation de serveur Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers. 
+[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
 > * Planifier l'évaluation à grande échelle.
 > * Configurer les autorisations Azure et préparer VMware pour l'évaluation.
 > * Créer un projet Azure Migrate et une évaluation.
-> * Passer en revue l'évaluation au fur et à mesure que vous planifiez la migration.
+> * Examiner l’évaluation au fur et à mesure que vous planifiez la migration.
 
 
 > [!NOTE]
-> Si vous voulez tester une preuve de concept afin d’évaluer quelques machines virtuelles avant d'effectuer une évaluation à grande échelle, suivez notre [série de tutoriels](tutorial-prepare-vmware.md)
+> Si vous voulez tester une preuve de concept afin d’évaluer quelques machines virtuelles avant d’effectuer une évaluation à grande échelle, suivez notre [série de tutoriels](tutorial-prepare-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planifier l’évaluation
 
 Lorsque vous planifiez l'évaluation d'un grand nombre de machines virtuelles VMware, quelques points sont à prendre en compte :
 
-- **Planification de projets Azure Migrate** : Découvrez comment déployer les projets Azure Migrate. Par exemple, si vos centres de données sont situés dans des zones géographiques différentes, ou si vous avez besoin de stocker des métadonnées de découverte, d'évaluation ou de migration dans une autre zone géographique, vous pouvez avoir besoin de plusieurs projets. 
+- **Planification de projets Azure Migrate** : Découvrez comment déployer les projets Azure Migrate. Par exemple, si vos centres de données sont situés dans des zones géographiques différentes, ou si vous avez besoin de stocker des métadonnées de découverte, d’évaluation ou de migration dans une autre zone géographique, vous pouvez avoir besoin de plusieurs projets. 
 - **Planifier des appliances** : Azure Migrate utilise une appliance Azure Migrate locale, déployée en tant que machine virtuelle VMware, pour découvrir en permanence les machines virtuelles. L’appliance surveille les changements d'environnement tels que l'ajout de machines virtuelles, de disques ou d'adaptateurs réseau. Elle envoie également à Azure les métadonnées et les données de performance concernant ces opérations. Vous devez déterminer le nombre d'appliances à déployer.
 - **Planifier des comptes pour la découverte** : L'appliance Azure Migrate utilise un compte avec accès à vCenter Server afin de découvrir les machines virtuelles pour l'évaluation et la migration. Si vous découvrez plus de 10 000 machines virtuelles, configurez plusieurs comptes.
 
@@ -48,7 +48,8 @@ Utilisez les limites résumées dans ce tableau pour la planification.
 **Planification** | **Limites**
 --- | --- 
 **Projets Azure Migrate** | Évaluez jusqu'à 35 000 machines virtuelles par projet.
-**Appliance Azure Migrate** | Une appliance ne peut se connecter qu'à un seul vCenter Server.<br/><br/> Une appliance ne peut être associée qu'à un seul projet Azure Migrate.<br/> Une appliance peut découvrir jusqu'à 10 000 machines virtuelles sur un vCenter Server.
+**Appliance Azure Migrate** | Une appliance peut découvrir jusqu'à 10 000 machines virtuelles sur un vCenter Server.<br/> Une appliance ne peut se connecter qu'à un seul vCenter Server.<br/> Une appliance ne peut être associée qu’à un seul projet Azure Migrate.<br/>  Un nombre quelconque d’appliances peut être associé à un même projet Azure Migrate. <br/><br/> 
+**Groupe** | Vous pouvez ajouter jusqu’à 35 000 machines virtuelles dans un groupe unique.
 **Évaluation d’Azure Migrate** | Vous pouvez évaluer jusqu’à 35,000 machines virtuelles par évaluation.
 
 En tenant compte de ces limites, voici quelques exemples de déploiements :
@@ -83,7 +84,7 @@ Suivez les instructions de [ce tutoriel](tutorial-prepare-vmware.md) pour config
 
 ## <a name="create-a-project"></a>Création d’un projet
 
-Conformément à vos exigences de planification, procédez comme suit :
+Conformément à vos exigences de planification, procédez comme suit :
 
 1. Créez un projet Azure Migrate.
 2. Ajoutez l’outil Évaluation de serveur Azure Migrate aux projets.

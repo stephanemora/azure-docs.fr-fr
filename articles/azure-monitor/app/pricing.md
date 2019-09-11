@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/19/2019
+ms.date: 09/04/2019
 ms.author: dalek
-ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624400"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277007"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -65,30 +65,43 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
 ![Dans le menu de gauche, sélectionnez Facturation.](./media/pricing/02-billing.png)
 
-## <a name="data-rate"></a>Débit de données
-Le volume de données que vous envoyez est limité de trois façons :
+## <a name="managing-your-data-volume"></a>Gestion de votre volume de données 
 
-* **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](../../azure-monitor/app/sampling.md). 
-* **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
-
-    La limite maximale est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic. 
-
-    Soyez prudent quand vous définissez la limite quotidienne. Votre objectif doit être de *ne jamais atteindre la limite quotidienne*. Si vous atteignez la limite quotidienne, vous perdez des données pour le reste de la journée, ce qui vous empêche de surveiller votre application. Pour changer la limite quotidienne, utilisez l’option **Limite quotidienne de volume**. Vous pouvez accéder à cette option dans le volet **Utilisation et estimation des coûts** (comme décrit plus loin dans l’article).
-    Nous avons supprimé la restriction sur certains types d’abonnements qui disposent d’un crédit qui n’a pas pu être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, la boîte de dialogue Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.
-* **Limitation** : ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute et par clé d’instrumentation.
-
-*Que se passe-t-il si mon application dépasse le taux limite ?*
-
-* Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Le SDK met les données en mémoire tampon, puis tente de les renvoyer. Il répartit un volume excessif sur plusieurs minutes. Si votre application envoie régulièrement des données au-dessus du taux limite, certaines données sont supprimées. (Les SDK ASP.NET, Java et JavaScript essaient de renvoyer les données de cette manière ; les autres SDK suppriment parfois simplement les données limitées.) En cas de limitation, vous en êtes informé par un avertissement.
-
-*Comment déterminer la quantité de données envoyées par mon application ?*
-
-Vous pouvez utiliser une des options suivantes pour voir la quantité de données qu’envoie votre application :
+Pour déterminer la quantité de données envoyées par votre application, vous pouvez effectuer les opérations suivantes :
 
 * Accédez au volet **Utilisation et estimation des coûts** pour voir le graphique du volume quotidien de données. 
 * Dans Metrics Explorer, ajoutez un nouveau graphique. Pour la métrique du graphique, sélectionnez **Volume de point de données**. Activez **Regroupement**, puis regroupez par **Type de données**.
+* Utilisez le type de données `systemEvents`. Par exemple, pour voir le volume de données ingéré au cours du dernier jour, la requête serait la suivante :
 
-## <a name="reduce-your-data-rate"></a>Réduire le débit de données
+```kusto
+systemEvents 
+| where timestamp >= ago(1d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+Cette requête peut être utilisée dans une [alerte de journal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) pour configurer des alertes sur des volumes de données. 
+
+Le volume de données que vous envoyez peut être géré de trois façons :
+
+* **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](../../azure-monitor/app/sampling.md).
+ 
+* **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
+
+    La limite maximale est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic. 
+    
+    Les e-mails d’avertissement relatifs à la limite quotidienne sont envoyés aux comptes qui sont membres de ces rôles pour votre ressource Application Insights : « ServiceAdmin », « AccountAdmin », « CoAdmin », « Owner ».
+
+    Soyez prudent quand vous définissez la limite quotidienne. Votre objectif doit être de *ne jamais atteindre la limite quotidienne*. Si vous atteignez la limite quotidienne, vous perdez des données pour le reste de la journée, ce qui vous empêche de surveiller votre application. Pour changer la limite quotidienne, utilisez l’option **Limite quotidienne de volume**. Vous pouvez accéder à cette option dans le volet **Utilisation et estimation des coûts** (comme décrit plus loin dans l’article).
+    
+    Nous avons supprimé la restriction sur certains types d’abonnements qui disposent d’un crédit qui n’a pas pu être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, la boîte de dialogue Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.
+    
+* **Limitation** : ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute et par clé d’instrumentation. Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Le SDK met les données en mémoire tampon, puis tente de les renvoyer. Il répartit un volume excessif sur plusieurs minutes. Si votre application envoie régulièrement des données au-dessus du taux limite, certaines données sont supprimées. (Les SDK ASP.NET, Java et JavaScript essaient de renvoyer les données de cette manière ; les autres SDK suppriment parfois simplement les données limitées.) En cas de limitation, vous en êtes informé par un avertissement.
+
+## <a name="reduce-your-data-volume"></a>Réduire le volume de données
+
 Voici quelques opérations possibles pour réduire le volume de données :
 
 * Utilisez l’ [échantillonnage](../../azure-monitor/app/sampling.md). Cette technologie permet de réduire votre débit de données sans entraîner de distorsion de vos métriques. Vous gardez la possibilité de naviguer entre les éléments associés dans la recherche. Dans les applications serveurs, l’échantillonnage s’applique automatiquement.
@@ -106,6 +119,8 @@ Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillon
 Pour changer la limite quotidienne, accédez à la section **Configurer** de votre ressource Application Insights, dans la page **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**.
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-003.png)
+
+Pour [modifier la limite quotidienne via Azure Resource Manager](../../azure-monitor/app/powershell.md), la propriété à modifier est `dailyQuota`.  Avec Azure Resource Manager, vous pouvez également définir `dailyQuotaResetTime` et `warningThreshold` pour le plafond quotidien. 
 
 ## <a name="sampling"></a>échantillonnage
 [L’échantillonnage](../../azure-monitor/app/sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes pendant les recherches de diagnostic. Vous conservez également le décompte des événements corrects.
@@ -135,13 +150,16 @@ Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregist
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
+> [!NOTE]
+> Nous avons temporairement supprimé cette fonctionnalité pendant que nous répondons à un problème potentiel.  Nous la rétablirons d’ici la mi-septembre 2019.
+
 La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de conservation disponibles est 30, 60, 90, 120, 180, 270, 365, 550 et 730 jours. 
 
 Pour changer le délai de conservation, dans votre ressource Application Insights, accédez à la page **Utilisation et coûts estimés**, puis sélectionnez l’option **Conservation des données** :
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
 
-Quand la facturation est activée pour une conservation plus longue, les données conservées pendant plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+Quand la facturation est activée pour une rétention plus longue, les données conservées pendant plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Synthèse des limites
 

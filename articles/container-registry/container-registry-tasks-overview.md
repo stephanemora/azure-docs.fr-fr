@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2d7237c1d142e9f7bb5a47294d1375040be43ac3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114798"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308037"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -36,19 +36,9 @@ Le cycle de développement « en boucle interne », c’est-à-dire le process
 
 Avant de valider votre première ligne de code, les fonctionnalité [tâche rapide](container-registry-tutorial-quick-task.md) d’ACR Tasks peut fournir un environnement de développement intégré en déchargeant vos builds d’image de conteneur dans Azure. Avec les tâches rapides, vous pouvez vérifier vos définitions de build automatisées et identifier les problèmes potentiels avant de valider votre code.
 
-En utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un *contexte* (ensemble de fichiers à générer), l’envoie à ACR Tasks et, par défaut, envoie (push) l’image générée à son registre lors de son achèvement.
+En utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un [contexte](#context-locations) (ensemble de fichiers à générer), l’envoie à ACR Tasks et, par défaut, envoie (push) l’image générée à son registre lors de son achèvement.
 
 Pour une introduction, consultez le démarrage rapide pour [générer et exécuter une image conteneur](container-registry-quickstart-task-cli.md) dans Azure Container Registry.  
-
-Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
-
-| Emplacement du contexte | Description | Exemples |
-| ---------------- | ----------- | ------- |
-| Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
-| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
 
 ACR Tasks est conçu comme un précurseur du cycle de vie de conteneurs. Par exemple, intégrez ACR Tasks dans votre solution CI/CD. En exécutant [az login][az-login] avec un [principal de service][az-login-service-principal], votre solution CI/CD pourra alors émettre des commandes [az acr build][az-acr-build] pour lancer des générations d’image.
 
@@ -99,9 +89,30 @@ Les tâches à plusieurs étapes vous permettent de fractionner la génération,
 
 Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-step build, test, and patch tasks in ACR Tasks (Exécuter des tâches à plusieurs étapes de génération, de test et de correction dans ACR Tasks)](container-registry-tasks-multi-step.md).
 
+## <a name="context-locations"></a>Emplacements de contexte
+
+Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
+
+| Emplacement du contexte | Description | Exemples |
+| ---------------- | ----------- | ------- |
+| Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
+| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+
+## <a name="image-platforms"></a>Plateformes d’images
+
+Par défaut, ACR Tasks génère des images pour le système d’exploitation Linux et l’architecture amd64. Spécifiez l’étiquette `--platform` pour créer des images Windows ou des images Linux pour d’autres architectures. Spécifiez le système d’exploitation et éventuellement une architecture prise en charge au format système d’exploitation/architecture (par exemple, `--platform Linux/arm`). Pour les architectures ARM, spécifiez éventuellement une variante au format système d’exploitation/architecture/variante (par exemple, `--platform Linux/arm64/v8`) :
+
+| OS | Architecture|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
+
 ## <a name="view-task-logs"></a>Afficher les journaux d’activité de tâches
 
-Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Si vous utilisez la commande [az acr build](/cli/azure/acr#az-acr-build), [acr az run](/cli/azure/acr#az-acr-run), ou [az acr task run](/cli/azure/acr/task#az-acr-task-run) pour déclencher la tâche, la sortie de journal pour l’exécution de la tâche est diffusée vers la console et également stockée pour une utilisation ultérieure. Affichez les journaux pour une tâche exécutée dans le portail Azure, ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Si vous utilisez la commande [az acr build](/cli/azure/acr#az-acr-build), [acr az run](/cli/azure/acr#az-acr-run), ou [az acr task run](/cli/azure/acr/task#az-acr-task-run) pour déclencher la tâche, la sortie de journal pour l’exécution de la tâche est diffusée vers la console et également stockée pour une utilisation ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux pour une tâche exécutée dans le portail Azure, ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
 
 À compter de juillet 2019, les données et journaux pour les exécutions de tâches dans un registre seront conservées pendant 30 jours par défaut puis vidées automatiquement. Si vous souhaitez archiver les données pour une exécution de tâche, activez l’archivage à l’aide de la commande [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run). L’exemple suivant active l’archivage pour l’exécution de la tâche *cf11* dans le registre *myregistry*.
 

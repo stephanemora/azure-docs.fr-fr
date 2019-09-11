@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742039"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306732"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell conserve les fichiers à l’aide des deux méthodes suivantes :
 > [!NOTE]
 > Tous les fichiers figurant dans votre répertoire `$Home`, tels que les clés SSH, sont conservés dans l’image disque utilisateur qui est stockée dans votre partage de fichiers monté. Appliquez les bonnes pratiques lors de la conservation d’informations dans votre répertoire `$Home` et votre partage de fichiers monté.
 
-## <a name="bash-specific-commands"></a>Commandes Bash spécifiques
+## <a name="clouddrive-commands"></a>Commandes CloudDrive
 
 ### <a name="use-the-clouddrive-command"></a>Utiliser la commande `clouddrive`
-Avec Bash dans Cloud Shell, vous pouvez exécuter une commande appelée `clouddrive`, qui vous permet de mettre à jour manuellement le partage de fichiers qui est monté dans Cloud Shell.
+Dans Cloud Shell, vous pouvez exécuter une commande appelée `clouddrive`, qui vous permet de mettre à jour manuellement le partage de fichiers qui est monté dans Cloud Shell.
 ![Utilisation de la commande clouddrive](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>Liste `clouddrive`
+Pour détecter le partage de fichiers monté comme `clouddrive`, exécutez la commande `df`. 
+
+Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>Monter un nouveau clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Prérequis pour le montage manuel
 Vous pouvez mettre à jour le partage de fichiers qui est associé à Cloud Shell à l’aide de la commande `clouddrive mount`.
 
-Si vous montez un partage de fichiers existant, les comptes de stockage doivent se trouver dans la région Cloud Shell de votre choix. Récupérez l’emplacement en exécutant la commande `env` à partir de Bash et en vérifiant `ACC_LOCATION`.
+Si vous montez un partage de fichiers existant, les comptes de stockage doivent se trouver dans la région Cloud Shell de votre choix. Récupérez l’emplacement en exécutant la commande `env` et en vérifiant `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>La commande `clouddrive mount`
 
@@ -71,23 +88,6 @@ Votre partage de fichiers continue d’exister, tant que vous ne le supprimez pa
 
 > [!WARNING]
 > L’exécution de cette commande ne va pas supprimer de ressources. Toutefois, la suppression manuelle d’un groupe de ressources, d’un compte de stockage ou d’un partage de fichiers mappé à Cloud Shell efface votre image disque du répertoire `$Home`, ainsi que tous les autres fichiers présents dans votre partage de fichiers. Il est impossible d’annuler cette opération.
-
-### <a name="list-clouddrive"></a>Liste `clouddrive`
-Pour détecter le partage de fichiers monté comme `clouddrive`, exécutez la commande `df`. 
-
-Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
 ## <a name="powershell-specific-commands"></a>Commandes PowerShell spécifiques
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Répertorier les partages de fichiers Azure `clouddrive`
@@ -105,7 +105,6 @@ La cmdlet `Dismount-CloudDrive` démonte un partage de fichiers Azure à partir 
 Remarque : Si vous devez définir une fonction dans un fichier et l'appeler à partir des cmdlets PowerShell, l’opérateur point doit être inclus. Par exemple : . .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
-[Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md) <br>
+[Démarrage rapide de Cloud Shell](quickstart.md) <br>
 [En savoir plus sur le stockage de fichiers Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [En savoir plus sur les balises de stockage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 1c4fae5c41f4f23c4a7fe3135b602133aa69aacd
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873728"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279894"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
@@ -31,7 +31,7 @@ Azure SQL Database fournit les options de déploiement suivantes pour une base d
 
 ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
-- [Base de données unique](sql-database-single-database.md) représente une base de données isolée entièrement gérée qui constitue le choix parfait pour les applications de cloud modernes et les microservices nécessitant une source de données unique et fiable. Une base de données unique est similaire à des [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) dans le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Base de données unique](sql-database-single-database.md) représente une base de données isolée entièrement gérée qui constitue le choix parfait pour les applications de cloud modernes et les microservices nécessitant une source de données unique et fiable. Une base de données unique est similaire à une [base de données autonome](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) dans le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Instance gérée](sql-database-managed-instance.md) représente une instance entièrement gérée du [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) contenant un ensemble de bases de données pouvant être utilisées ensemble. C'est le choix idéal pour une migration facile de bases de données SQL Server locales vers le cloud Azure et pour les applications qui doivent exploiter les puissantes fonctionnalités de bases de données fournies par le moteur de base de données SQL Server.
 - [Pool élastique](sql-database-elastic-pool.md) représente une collection de [bases de données uniques](sql-database-single-database.md) avec un ensemble partagé de ressources telles que le processeur ou la mémoire. Les bases de données uniques peuvent être déplacées dans et hors d’un pool élastique.
 
@@ -84,8 +84,8 @@ La fonction de surveillance du moteur de base de données intégrée la plus imp
 
 La plate-forme Azure fournit les [outils intégrés de surveillance](sql-database-performance.md) et d'[alerte](sql-database-insights-alerts-portal.md), combinés avec les évaluations de performance, qui vous permettent de surveiller facilement le statut de milliers de bases de données. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. En outre, SQL Database peut [émettre des métriques et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la supervision. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
-- **Stockage Azure** : pour archiver à petit prix de gros volumes de données de télémétrie.
-- **Azure Event Hub** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
+- **Stockage Azure** : Pour archiver à petit prix de gros volumes de données de télémétrie.
+- **Azure Event Hub** : Pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
 - **Journaux d’activité Azure Monitor** : pour une solution de supervision intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -127,7 +127,7 @@ Avec SQL Database, vous obtenez une intelligence intégrée qui permet de rédui
 
 SQL Database fournit des informations détaillées sur les requêtes que vous devez surveiller. SQL Database en apprend plus sur les modèles de votre base de données et vous permet d’adapter le schéma de base de données à votre charge de travail. SQL Database propose des [recommandations pour le réglage des performances](sql-database-advisor.md), où vous pouvez passer en revue les actions de réglage et les appliquer.
 
-Toutefois, la surveillance permanente de la base de données est une tâche difficile et fastidieuse, en particulier lors du traitement de plusieurs bases de données. [Intelligent Insights](sql-database-intelligent-insights.md) effectue cette tâche pour vous en surveillant automatiquement les performances de SQL Database à l’échelle et vous informe des problèmes de dégradation des performances, identifie la cause du problème et fournit des recommandations pour l’amélioration des performances lorsque cela est possible.
+Toutefois, la surveillance permanente d’une base de données est une tâche difficile et fastidieuse, en particulier lors du traitement de plusieurs bases de données. [Intelligent Insights](sql-database-intelligent-insights.md) effectue cette tâche pour vous en surveillant automatiquement les performances de SQL Database à l’échelle et vous informe des problèmes de dégradation des performances, identifie la cause du problème et fournit des recommandations pour l’amélioration des performances lorsque cela est possible.
 
 La gestion efficace d’un très grand nombre de bases de données peut s’avérer impossible même avec tous les rapports et outils disponibles avec SQL Database et Azure. Au lieu de surveiller et de régler votre base de données manuellement, vous pouvez envisager de déléguer certaines actions de surveillance et de réglage à SQL Database grâce au [réglage automatique](sql-database-automatic-tuning.md). SQL Database applique automatiquement les recommandations, puis teste et vérifie chacune de ses actions de réglage afin de garantir l’amélioration continue des performances. De cette manière, SQL Database s’adapte automatiquement à votre charge de travail de façon contrôlée et sécurisée. Le réglage automatique signifie que les performances de votre base de données sont soigneusement surveillées et comparées avant et après chaque action de réglage et, si les performances ne s’améliorent pas, l’action de réglage est annulée.
 

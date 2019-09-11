@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733094"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307870"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Se connecter à l’API Media Services v3 - Python
 
@@ -30,6 +30,9 @@ Cet article vous montre comment vous connecter à l’API Azure Media Services v
 - Définir la variable d’environnement `PATH`
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 - Suivez les étapes de l’article [Accéder aux API](access-api-cli-how-to.md). Enregistrez l’ID d’abonnement, l’ID d’application (ID client), la clé d’authentification (secret), et l’ID locataire dont vous aurez besoin dans une prochaine étape.
+
+> [!IMPORTANT]
+> Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Installer les modules
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: f303e6ba30b8b68f1bed4c5bcacd746932cbe156
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873826"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279933"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Choisir l’option de déploiement appropriée dans Azure SQL
 
@@ -33,7 +33,7 @@ L'une des premières choses à comprendre dans toute discussion comparant les ba
 
 Comme indiqué sur le diagramme, chaque offre peut être caractérisée par le niveau d’administration dont vous disposez sur l’infrastructure, ainsi que par le degré de rentabilité.
 
-Dans Azure, vos charges de travail SQL Server peuvent s’exécuter en tant que service hébergé ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) ou infrastructure hébergée ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). Dans PaaS, vous avez plusieurs options de déploiement et niveaux de service au sein de chaque option de déploiement. La question clé que vous devez poser quand vous choisissez entre PaaS ou IaaS est si vous voulez gérer votre base de données, appliquer des correctifs, effectuer des sauvegardes, ou plutôt déléguer ces opérations à Azure ?
+Dans Azure, vos charges de travail SQL Server peuvent s’exécuter en tant que service hébergé ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) ou infrastructure hébergée ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). Dans PaaS, vous avez plusieurs options de déploiement et niveaux de service au sein de chaque option de déploiement. La question clé que vous devez poser quand vous choisissez entre PaaS ou IaaS est si vous voulez gérer votre base de données, appliquer des correctifs et effectuer des sauvegardes, ou plutôt déléguer ces opérations à Azure ?
 
 En fonction de la réponse, vous avez les options suivantes :
 

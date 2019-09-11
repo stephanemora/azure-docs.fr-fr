@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307709"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Mettre à jour les conteneurs dans Azure Container Instances
 
-Lors d’une utilisation normale de vos instances de conteneurs, vous pouvez avoir besoin de mettre à jour les conteneurs d’un groupe de conteneurs. Par exemple, vous pouvez mettre à jour la version de l’image, modifier un nom DNS, mettre à jour les variables d’environnement ou actualiser l’état d’un conteneur dont l’application a planté.
+Lors d’une utilisation normale de vos instances de conteneurs, vous pouvez avoir besoin de mettre à jour les conteneurs en cours d’exécution d’un [groupe de conteneurs](container-instances-container-groups.md). Par exemple, vous pouvez mettre à jour la version de l’image, modifier un nom DNS, mettre à jour les variables d’environnement ou actualiser l’état d’un conteneur dont l’application a planté.
+
+> [!NOTE]
+> Les groupes de conteneurs terminés ou supprimés ne peuvent pas être mis à jour. Une fois qu’un groupe de conteneurs s’est arrêté (dans un état de réussite ou d’échec) ou a été supprimé, le groupe doit être déployé en tant que nouveau groupe.
 
 ## <a name="update-a-container-group"></a>Mettre à jour un groupe de conteneurs
 
-Pour mettre à jour les conteneurs d’un groupe de conteneurs, redéployez un groupe existant en ayant modifié au moins une propriété. Lorsque vous mettez à jour un groupe de conteneurs, tous les conteneurs en cours d’exécution sont redémarrés sur place.
+Pour mettre à jour les conteneurs d’un groupe de conteneurs en cours d’exécution, redéployez un groupe existant en ayant modifié au moins une propriété. Lorsque vous mettez à jour un groupe de conteneurs, tous les conteneurs en cours d’exécution sont redémarrés sur place, en général sur le même hôte conteneur sous-jacent.
 
-Redéployez un groupe de conteneurs existant à l’aide de la commande create (ou du portail Azure), puis spécifiez le nom d’un groupe existant. Modifiez au moins une propriété valide du groupe lorsque vous utilisez la commande create pour déclencher le redéploiement. Certaines propriétés de groupe de conteneurs ne sont pas valides pour le redéploiement. Pour obtenir la liste des propriétés non prises en charge, consultez [Propriétés qui nécessitent la suppression du conteneur](#properties-that-require-container-delete).
+Redéployez un groupe de conteneurs existant à l’aide de la commande create (ou du portail Azure), puis spécifiez le nom d’un groupe existant. Modifiez au moins une propriété valide du groupe lorsque vous émettez la commande Create pour déclencher le redéploiement, et laissez les propriétés restantes inchangées (ou continuez à utiliser les valeurs par défaut). Certaines propriétés de groupe de conteneurs ne sont pas valides pour le redéploiement. Pour obtenir la liste des propriétés non prises en charge, consultez [Propriétés qui nécessitent la suppression du conteneur](#properties-that-require-container-delete).
 
-L’exemple Azure CLI suivant met à jour un groupe de conteneurs avec une nouvelle étiquette de nom DNS. Étant donné que la propriété d’étiquette de nom DNS du groupe est modifiée, le groupe de conteneurs est redéployé et ses conteneurs sont redémarrés.
+L’exemple Azure CLI suivant met à jour un groupe de conteneurs avec une nouvelle étiquette de nom DNS. Étant donné que la propriété d’étiquette de nom DNS du groupe est celui qui peut être mis à jour, le groupe de conteneurs est redéployé et ses conteneurs sont redémarrés.
 
 Déploiement initial avec l’étiquette de nom DNS *myapplication-staging* :
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Attribuez au groupe de conteneurs la nouvelle étiquette de nom DNS *myapplication* :
+Mettez à jour le groupe de conteneurs avec une nouvelle étiquette de nom DNS, *myapplication*, et laissez les propriétés restantes inchangées :
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -81,10 +84,10 @@ Le **groupe de conteneurs** est mentionné plusieurs fois dans cet article. Chaq
 
 [Déployer un groupe multiconteneur](container-instances-multi-container-group.md)
 
+[Arrêter ou démarrer manuellement des conteneurs dans Azure Container Instances](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

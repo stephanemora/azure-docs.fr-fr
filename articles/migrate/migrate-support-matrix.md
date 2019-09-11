@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019186"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279469"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -31,10 +31,10 @@ Il existe deux versions du service Azure Migrate :
 
 Le tableau récapitule les scénarios de migration pris en charge.
 
-**Déploiement** | **Détails*** 
+**Déploiement** | **Détails** 
 --- | --- 
 **Évaluation locale** | Évaluez les charges de travail et les données locales exécutées sur des machines virtuelles VMware et des machines virtuelles Hyper-V. Évaluez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et de l’Assistant Migration de données Microsoft, ainsi que d’outils tiers, notamment Cloudamize, Corent Tech et Turbonomic Server.
-**Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V et des instances AWS/GCP. Migrez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et d’Azure Database Migration Service (DMS) ainsi que d’outils tiers, notamment Carbonite et CorentTech.
+**Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et d’Azure Database Migration Service (DMS) ainsi que d’outils tiers, notamment Carbonite et CorentTech.
 
 La prise en charge d’outils spécifiques est résumée ci-dessous.
 
@@ -53,12 +53,12 @@ CorentTech | Migration | [Plus d’informations](https://www.corenttech.com/)
 
 **Support** | **Détails**
 --- | ---
-Subscription | Vous pouvez avoir un seul projet Azure Migrate par abonnement.
+Subscription | Vous pouvez avoir plusieurs projets Azure Migrate par abonnement.
 Autorisations Azure | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
 Machines virtuelles VMware  | Évaluez jusqu’à 35 000 machines virtuelles VMware dans un même projet.
-Machines virtuelles Hyper-V | Évaluez jusqu’à 10 000 machines virtuelles Hyper-V au sein d’un même projet.
+Machines virtuelles Hyper-V | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet.
 
-Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites de l’évaluation.
+Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
 
 
 ## <a name="vmware-assessment-and-migration"></a>Évaluation et migration VMware

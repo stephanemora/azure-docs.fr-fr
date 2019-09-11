@@ -1,76 +1,112 @@
 ---
-title: Services Go-To-Market - Vos avantages sur la place de marché | Azure
+title: Services Go-To-Market - Vos avantages commerciaux sur la place de marché | Azure
 description: 'Services Go-To-Market : les ressources Microsoft que les éditeurs peuvent utiliser sont décrites dans cette section.'
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 01/12/2019
-ms.author: ellacroi
-ms.openlocfilehash: 02fcda2d851ddefa1c592bf0b5b09d5e5d59828f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 09/04/2019
+ms.author: v-qiwe
+ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128224"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309042"
 ---
-# <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
+# <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
-Dans le cadre de votre parcours de publication, vous devez créer des ressources marketing et techniques pour votre offre. Ainsi, il existe des avantages techniques et marketing que les éditeurs sur la Place de marché Microsoft Azure et AppSource peuvent utiliser pour améliorer l’engagement des clients vis-à-vis de votre offre. Vous trouverez peut-être les ressources techniques ci-après utiles.
+Vous avez publié sur la place de marché, et vous souhaitez maintenant que votre offre se vende bien. Nous vous proposons les avantages (en matière de vente, de soutien technique et de marketing) pour accélérer la croissance de votre offre.
 
-## <a name="technical-resources-provided-by-microsoft"></a>Ressources techniques fournies par Microsoft
+Lorsque vous publiez votre offre, l’équipe de récompenses de la place de marché vous contactera pour vous permettre de travailler avec vous sur les avantages auxquels vous êtes éligible. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
 
-Quand vous créez votre offre, vous pouvez tirer parti de nombreuses ressources Microsoft, telles que la consultation d’un expert technique ou une assistance pour tester une solution propre à une place de marché.
+## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
-Les ressources techniques peuvent être utilisées à tout moment.  Le tableau ci-dessous liste les avantages :
+Les récompenses de la place de marché sont conçues pour vous aider à votre phase de croissance spécifique, en commençant par des activités de sensibilisation pour vous aider à décrocher vos premiers clients. À mesure que vous grandissez sur la place de marché, vous déverrouillez de nouveaux avantages conçus pour vous aider à convertir vos clients et conclure des affaires. 
 
-![](./media/marketplace-publishers-guide/technical-benefit-table.png)
+Le programme crée une boucle de retour positive : les avantages à chaque étape de la croissance sont conçus pour vous aider à passer à l’étape suivante, ce qui vous permet de développer votre activité pour les clients Microsoft, sur le terrain de Microsoft et via le canal de Microsoft en tirant parti de la place de marché commerciale en tant que plateforme. 
 
-## <a name="how-to-access-microsoft-resources"></a>Comment accéder aux ressources Microsoft
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
-Les avantages Go-to-Market sont accessibles aux partenaires qui ont récemment publié une offre. 
+Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité. 
 
-1. Intégration : [inscrivez-vous](https://azuremarketplace.microsoft.com/sell) pour accéder au Portail Microsoft Cloud Partner et aux ressources de prise en charge de l’intégration.
-2. Consultation des Places de marché Microsoft : tirez parti de cette [consultation gratuite](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) pour vous aider à planifier l’architecture de votre application dans la place de marché.
-3. Forums de la Place de marché : posez vos questions directement à des employés de Microsoft et à d’autres partenaires de la place de marché dans le [forum de la Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Support technique : utilisez le menu Aide dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) pour obtenir de l’aide sur vos questions de support liées à la Place de marché. 
-5. Intégration et développement AAD et parrainage des tests : vous serez choisi lorsque vous publierez une offre avec transaction (offre déployable et facturable). Consultez la section suivante pour savoir comment optimiser les avantages de la commercialisation.
+Pour les partenaires Transact, lorsque vous augmentez vos ventes facturées par le biais de la plateforme Place de marché, vous déverrouillez les avantages par niveau. 
 
-## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Avantages GTM (Go-To-Market) sur la Place de marché
+La configuration minimale requise pour publier en vitrine est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur la place de marché en tant que plateforme. 
 
-Les nouvelles annonces dans la Place de marché et AppSource sont habilitées à bénéficier d’avantages GTM gratuits par le biais de notre équipe en charge des services GTM Microsoft. Cette équipe vous aide à optimiser vos annonces et à accroître la visibilité de vos solutions sur la place de marché Microsoft.
+Vous bénéficierez d’un support technique pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [évaluer vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
-| Vitrine | Avantages supplémentaires disponibles |
-|:--- |:--- |
-| AppSource |  Partenaires Microsoft Gold <br> Offres Transaction : récompenses de la Place de marché <br> Applications d’évaluation |
-| Place de marché Azure | Offres Transaction : récompenses de la Place de marché <br> Offres d’évaluation |
+Vous trouverez une description détaillée de tous les avantages du programme dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
-Votre support commercial GTM inclut des modèles, du contenu web, des formations et des outils pour promouvoir votre entreprise.
+Les étapes à suivre pour démarrer sont simples :
 
-Pour accéder à ces avantages, vous devez :
+1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
+2. L’équipe contacte le « propriétaire » ou « contact principal » de l’offre de la place de marché. Il est recommandé d’entrer une personne ou un alias que vous vérifiez régulièrement : les messages envoyés à des alias tels que info@company.com sont souvent perdus.
 
-1. Publier une offre sur la Place de marché ou AppSource.
-2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support\@ », « info\@ », « marketing\@ », etc.)
+>[!Note]
+>Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question, en consultant le portail Cloud Partner ou l’espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes. <br> <br> Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, vous pouvez envoyer un ticket de support sur https://aka.ms/marketplacepublishersupport.
 
-Selon l’état de votre solution (offre Liste, Version d’essai ou Transaction - récompense de la Place de marché), vous recevez un e-mail avec des ressources d’auto-assistance, ou une invitation à un appel de consultation avec un responsable de l’engagement client dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
+La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.
 
-La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces annonces peuvent également bénéficier d’avantages marketing supplémentaires selon l’état de la solution (offre Liste, Version d’essai ou Transaction - récompense de la place de marché), la place de marché choisie et le niveau de compétence du partenaire Microsoft.
+## <a name="list-trial-and-consulting-benefits"></a>Avantages des listes, des versions d’évaluation et du conseil
+
+Si vous publiez une version d’évaluation ou une preuve de concept, une implémentation ou un atelier, vous aurez un responsable d’engagement attitré pendant trois mois, qui vous guidera dans la réussite de votre plan de mise sur le marché. Vous pouvez répéter cet engagement de trois mois chaque fois que vous publiez une nouvelle offre, afin de vous assurer que chacune de vos nouvelles offres démarre avec succès.
 
 Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offres Liste et Version d’essai :
 
-![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Avantages de la mise sur le marché](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-\* Nécessite une compétence de niveau Silver ou Gold. <br>
-\*\* Nécessite une compétence de niveau Gold. <br>
-\*\*\* Nécessite une compétence de niveau Gold et un référencement Co-Sell Ready dans la liste des partenaires. <br>
-^ Transaction uniquement, applicable à la Place de marché Microsoft Azure.
+Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
-La liste complète des avantages pour les récompenses de la place de marché apparaît sur les [diapositives de résumé du programme](https://aka.ms/marketplacerewards).
+Lorsque vous oubliez votre offre sur la place de marché Azure ou dans Microsoft AppSource, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez vos transactions de ventes facturées sur la place de marché commerciale. 
+
+Ces avantages sont conçus pour vous aider dans vos activités de marketing, de ventes et techniques. Ils vous aident donc à obtenir davantage de visiteurs, à recevoir plus de prospects et à convertir davantage d’entreprises.
+
+Tous les partenaires qui disposent d’une offre publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités les plus importantes pour votre portefeuille d’offres sur la place de marché. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise. 
+
+![Avantages marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+![Avantages commerciaux](./media/marketplace-publishers-guide/sales-benefit.png)
+
+![Avantages techniques](./media/marketplace-publishers-guide/technical-benefit.png)
+
+Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
+
+En plus des avantages en matière de récompenses, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
+
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>Exigences et restrictions relatives aux récompenses de la place de marché
+
+### <a name="publisher-agreement"></a>Contrat de l’éditeur
+
+Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur de la place de marché](https://docs.microsoft.com/legal/marketplace/terms) et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
+
+### <a name="cancellation-policy"></a>Politique d’annulation
+
+Les éditeurs de type [Liste et Version d'évaluation](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) peuvent accepter ou refuser les activités par publication d’offre. Les partenaires peuvent refuser un engagement à tout moment. 
+
+Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui : 
+
+* participent à une activité illégale à l’aide de leur publication sur la place de marché.
+* sont déclassés de la place de marché commerciale. 
+* utilisent leur offre pour afficher du contenu marketing ou autre qui ne respecte pas les lois relatives au droit d’auteur et aux marques.
+* enfreignent les politiques du [programme de parrainage Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), y compris, mais sans s’y limiter, en utilisant le financement du parrainage Azure pour leurs propres opérations internes ou le minage de Bitcoins. 
+
+### <a name="offer-availability"></a>Disponibilité de l'offre
+
+Cette offre est proposée en anglais pour tous les partenaires disposant d’une offre publiée sur la place de marché Azure ou Microsoft AppSource.
+
+Les transactions qui sont reconnues comme frauduleuses ne seront pas comptabilisées dans le [niveau de programme de vente facturé](https://aka.ms/marketplacepublisherrewards) d’un éditeur, comme indiqué dans la section [Liste, Version d'évaluation et Conseil](#list-trial-and-consulting-benefits), la section [Avantages des partenaires Transact](#marketplace-rewards-for-transact-partners) et le [Jeu de programme détaillé](https://aka.ms/marketplacepublisherrewards). Microsoft affectera les partenaires aux niveaux d’éligibilité en fonction de leurs ventes réelles, après la suppression de la fraude. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/) pour créer et configurer votre offre.
+Si vous avez créé votre offre dans portail Cloud Partner, connectez-vous pour créer ou configurer votre offre.
+
+Si vous avez créé votre offre dans l’espace partenaires, connectez-vous pour créer ou configurer votre offre.
+
+Passez en revue les [ressources libre-service disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+
+Inscrivez-vous au [Forum de la communauté Microsoft AppSource et de la place de marché Azure](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) et découvrez des sujets pertinents ou participez à la discussion.
 
 ---

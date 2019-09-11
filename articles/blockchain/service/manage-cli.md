@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154452"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307040"
 ---
-# <a name="manage-azure-blockchain-service-with-azure-cli"></a>Gérer une instance Azure Blockchain Service avec Azure CLI
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gérer une instance Azure Blockchain Service à l’aide d’Azure CLI
 
-En plus du portail Azure, vous pouvez utiliser Azure CLI pour créer et gérer rapidement les membres blockchain et les nœuds de transaction pour votre service Azure Blockchain.
+En plus du portail Azure, vous pouvez utiliser Azure CLI pour gérer les membres blockchain et les nœuds de transaction pour votre service Azure Blockchain.
 
 Vérifiez que vous avez installé la dernière version [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et que vous êtes connecté à un compte Azure avec `az login`.
 
@@ -59,7 +59,6 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service sont créées. |
 | **name** | Nom qui identifie votre membre Azure Blockchain Service. |
 | **mot de passe** | Mot de passe du compte du membre. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;). |
-
 
 ## <a name="create-transaction-node"></a>Créer un nœud de transaction
 

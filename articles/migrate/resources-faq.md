@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102868"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279499"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate : Forum Aux Questions (FAQ)
 
@@ -27,7 +27,7 @@ Consultez les listes pour [VMware](https://docs.microsoft.com/azure/migrate/migr
 
 Azure Migrate offre un hub centralisé pour démarrer votre migration, exécuter et suivre la découverte, l’évaluation de machines et de charges de travail, et exécuter et suivre la migration de machines et de charges de travail vers Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) est une solution de reprise d’activité. Azure Migrate Server Migration utilise Azure Site Recovery sur le serveur principal pour permettre des scénarios de migration dans le cas de migrations lift-and-shift de machines locales.
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Appliance Azure Migrate (serveurs VMware/physiques)
+## <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Comment l’appliance Azure Migrate se connecte à Azure ?
 
@@ -87,6 +87,9 @@ Pour Hyper-V, la détection utilise les informations d’identification de l’h
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>Combien de machines virtuelles peuvent-elles être découvertes avec une seule appliance de migration ?
 
 Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware et jusqu’à 5 000 machines virtuelles Hyper-V avec une seule appliance de migration. Si vous avez plus de machines dans votre environnement local, découvrez comment mettre à l’échelle l’évaluation [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md).
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>Puis-je supprimer l’appliance Azure Migrate du projet ?
+La suppression de l’appliance du projet n’est actuellement pas prise en charge. La seule façon de supprimer l’appliance consiste à supprimer le groupe de ressources qui contient le projet Azure Migrate associé à l’appliance, mais cela supprimera également les autres appliances inscrites, l’inventaire détecté, les évaluations et tous les autres artefacts Azure associés au projet dans le groupe de ressources.
 
 ## <a name="azure-migrate-server-assessment"></a>Évaluation de serveur Azure Migrate
 
@@ -172,7 +175,7 @@ Non, la visualisation des dépendances ne peut pas être exportée. Étant donn�
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>Comment puis-je automatiser l’installation de Microsoft Monitoring Agent (MMA) et de l’agent de dépendances ?
 
-Utilisez ce [script pour installer les agents](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples). Suivez ces [instructions pour installer MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) en utilisant la ligne de commande ou l’automation. Pour MMA, utilisez [ce script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+Utilisez ce [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Suivez ces [instructions pour installer MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) en utilisant la ligne de commande ou l’automation. Pour MMA, utilisez [ce script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
 En plus des scripts, vous pouvez également utiliser des outils de déploiement tels que System Center Configuration Manager et [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) pour déployer les agents.
 
@@ -183,8 +186,7 @@ En plus des scripts, vous pouvez également utiliser des outils de déploiement 
 
 ### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>Quels sont les systèmes d’exploitation pris en charge par l'agent des dépendances ?
 
-- Affichez la liste des [systèmes d’exploitation Windows pris en charge par l'agent des dépendances](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-- Affichez la liste des [systèmes d’exploitation Linux pris en charge par l'agent des dépendances](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+Affichez la liste des [systèmes d’exploitation Windows et Linux qu’Azure Monitor pour machines virtuelles prend en charge](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>Puis-je visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
 Non. Vous pouvez visualiser les dépendances jusqu’à une heure. Vous pouvez revenir à une date donnée de l’historique, jusqu’à un mois, mais la durée maximale de visualisation est d’une heure. Par exemple, vous pouvez utiliser la durée dans la carte des dépendances pour voir les dépendances d’hier, mais seulement pour une fenêtre d’une heure. Vous pouvez cependant utiliser les journaux Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) sur une durée plus longue.

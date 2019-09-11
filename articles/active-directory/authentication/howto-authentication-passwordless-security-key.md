@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828789"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305071"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Activer la connexion par clé de sécurité sans mot de passe pour Azure AD (préversion)
 
@@ -54,11 +54,11 @@ Pour cibler des groupes d’appareils spécifiques pour activer le fournisseur d
    1. Nom : Clés de sécurité pour la connexion Windows
    1. Description : Permet d’utiliser des clés de sécurité FIDO lors de la connexion à Windows
    1. Plateforme : Windows 10 et versions ultérieures
-   1. Type de plateforme : Personnalisée
+   1. Type de profil : Personnalisée
    1. Paramètres OMA-URI personnalisés :
       1. Nom : Activer les clés de sécurité FIDO pour la connexion à Windows
       1. OMA-URI : ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Type de données : Entier
+      1. Type de données : Integer
       1. Valeur : 1 
 1. Cette stratégie peut être attribuée à des utilisateurs, appareils ou groupes spécifiques. Vous trouverez plus d’informations dans l’article [Attribuer des profils d’utilisateur et d’appareil dans Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 

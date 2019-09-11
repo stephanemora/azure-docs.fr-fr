@@ -1,29 +1,23 @@
 ---
-title: Stocker des informations d’identification d’accès en toute sécurité sur les machines virtuelles de science des données - Azure | Microsoft Docs
+title: Stocker en toute sécurité les informations d’identification d’accès
+titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez comment stocker des informations d'identification d’accès en toute sécurité sur les machines virtuelles de science des données (DSVM). Vous allez apprendre à utiliser les identités de service géré et Azure Key Vault pour stocker les informations d’identification d’accès.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051619"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195599"
 ---
-# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>Stocker des informations d’identification d’accès en toute sécurité sur une machine virtuelle de science des données
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Stocker des informations d’identification d’accès en toute sécurité sur une machine virtuelle de science des données (DSVM) Azure
 
 Il est courant que le code des applications cloud contienne des informations d’identification pour l’authentification auprès des services cloud. La gestion et la sécurisation de ces informations d’identification est un défi bien connu dans la création d’applications cloud. Dans l’idéal, les informations d’identification ne doivent jamais s’afficher sur les stations de travail de développement ou ne sont jamais archivées dans le contrôle de code source.
 

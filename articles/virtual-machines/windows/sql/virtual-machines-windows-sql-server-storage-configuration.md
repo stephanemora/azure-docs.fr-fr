@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123835"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309243"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 
@@ -110,8 +110,7 @@ L’autre option pour augmenter le stockage est d’étendre le lecteur existant
 
 Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL dans le portail Azure.
 
-* Si vous avez sélectionné moins de deux téraoctets de stockage pour votre machine virtuelle, Azure ne crée pas de pool de stockage.
-* Si vous avez sélectionné au moins deux téraoctets de stockage pour votre machine virtuelle, Azure configure un pool de stockage. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
+* Azure configure un pool de stockage à partir du stockage sélectionné à partir de votre machine virtuelle. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
 * La configuration automatique du stockage utilise toujours des [disques de données P30 premium](../disks-types.md). Par conséquent, il existe un mappage 1:1 entre le nombre de téraoctets sélectionné et le nombre de disques de données attachés à votre machine virtuelle.
 
 Pour plus d’informations sur les tarifs, consultez la page [Tarifs de Storage](https://azure.microsoft.com/pricing/details/storage) dans l’onglet **Stockage sur disque** .

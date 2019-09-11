@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991973"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278063"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 
@@ -78,7 +78,7 @@ Ressources disponibles :
 ### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
 Pour les pipelines Azure Machine Learning, il existe une limite de quota sur le nombre d’étapes d’un pipeline, ainsi que sur le nombre d’exécutions planifiées de pipelines publiés pour chaque région d’un abonnement.
 - Un pipeline peut contenir au maximum 30 000 étapes.
-- Le nombre maximal d’exécutions planifiées de pipelines publiés est limité à 100 000 par abonnement et par mois.
+- Le nombre maximal d’exécutions basées sur une planification et d’extractions d’objets blob pour les planifications déclenchées par blob sur les pipelines publiés par abonnement et par mois est de 100 000
 
 > [!NOTE]
 > Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).

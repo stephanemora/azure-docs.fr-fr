@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125024"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162384"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -172,6 +172,8 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Remplacer l’authentification multifacteur en fonction de l’utilisateur par l’authentification multifacteur en fonction de l’accès conditionnel
 
 Si vos utilisateurs ont été activées l’authentification multifacteur appliquée par Azure ou reposant sur l’utilisateur, la commande PowerShell suivante peut vous aider à passer à une authentification multifacteur Azure en fonction de l’accès conditionnel.
+
+Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier .PS1 à exécuter localement.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact

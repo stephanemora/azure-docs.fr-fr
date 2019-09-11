@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b17b6d12dc60546a29d37cfa12fe1f11186579e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d76b51aa5117e662e9ff17bb91516c758de3071c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967469"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277704"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -25,6 +25,9 @@ ms.locfileid: "68967469"
 > * [Version actuelle](connector-mysql.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MySQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+
+>[!NOTE]
+>Pour copier des données depuis ou vers le service [Azure Database pour MySQL](../mysql/overview.md), utilisez le [connecteur spécialisé Azure Database pour MySQL](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -141,13 +144,13 @@ Si vous utilisiez le service lié MySQL avec la charge utile suivante, il reste 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données MySQL.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données MySQL.
 
-Pour copier des données de MySQL, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+Pour copier des données à partir de MySQL, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MySqlTable** | OUI |
 | tableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -157,15 +160,18 @@ Pour copier des données de MySQL, affectez la valeur **RelationalTable** à la 
     "name": "MySQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "MySqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MySQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Si vous utilisiez un dataset typé `RelationalTable`, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser désormais le nouveau dataset.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -173,11 +179,11 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="mysql-as-source"></a>MySQL en tant que source
 
-Pour copier des données de MySQL, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Pour copier des données à partir de MySQL, les propriétés prises en charge dans la section **source** de l'activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MySqlSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -201,7 +207,7 @@ Pour copier des données de MySQL, définissez **RelationalSource** comme type d
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MySqlSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -211,6 +217,8 @@ Pour copier des données de MySQL, définissez **RelationalSource** comme type d
     }
 ]
 ```
+
+Si vous utilisiez une source de données typée `RelationalSource`, elle reste prise en charge telle quelle, mais nous vous suggérons d’utiliser désormais la nouvelle source.
 
 ## <a name="data-type-mapping-for-mysql"></a>Mappage de type de données pour MySQL
 

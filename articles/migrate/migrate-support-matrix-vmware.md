@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018130"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279602"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -35,8 +35,7 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 **Support** | **Détails**
 --- | ---
 **Autorisations Azure** | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
-**Limitations VMware**  | Évaluez jusqu’à 35 000 machines virtuelles VMware dans un même projet. Vous pouvez créer plusieurs projets dans un abonnement Azure.
-**Limites de projet** | Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
+**Limitations VMware**  | Évaluez jusqu’à 35 000 machines virtuelles VMware dans un même projet. Vous pouvez créer plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
 **Zone géographique** | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
@@ -70,14 +69,15 @@ Pour l’évaluation, vous avez besoin d’un compte en lecture seule pour vCent
 
 ## <a name="assessment-appliance-requirements"></a>Évaluation - Exigences relatives à l’appliance
 
-L’appliance Azure Migrate pour VMware est déployée à l’aide d’un modèle OVA importé dans vCenter Server.
+Azure Migrate exécute une appliance légère pour découvrir les machines virtuelles VMware et envoyer les métadonnées et les données de performances de la machine virtuelle à Azure Migrate. L’appliance pour VMware est déployée à l’aide d’un modèle OVA importé dans vCenter Server. Le tableau suivant récapitule les exigences de l’appliance.
 
 **Support** | **Détails**
 --- | ---
-**vCenter Server** | Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.
-**ESXi** | La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure.
-**Projet Azure Migrate** | Une appliance peut être associée à un seul projet.
-**vCenter Server** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu’à un seul serveur vCenter.
+**Étapes de déploiement d’appliance** | Vous déployez l’appliance en tant que machine virtuelle VMware. Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.<br/> La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure. 
+**Projet Azure Migrate** | Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines virtuelles par projet.
+**Découverte** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu'à un seul vCenter Server.
+**Groupe d’évaluation** | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.
+**Évaluation** | Vous pouvez évaluer jusqu’à 35,000 machines virtuelles par évaluation.
 
 
 ## <a name="assessment-url-access-requirements"></a>Évaluation - Exigences relatives à l’accès aux URL
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Appliance | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connexions sortantes sur les ports 443, 5671 et 5672 pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
 Serveur vCenter | Connexions entrantes sur le port TCP 443 pour permettre à l’appliance de collecter les métadonnées de configuration et de performances pour les évaluations. <br/><br/> L’appliance se connecte à vCenter sur le port 443 par défaut. Si le serveur vCenter écoute sur un autre port, vous pouvez modifier le port lors de la configuration de la découverte.
 
+## <a name="migration---limitations"></a>Migration - Limitations
+Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la réplication. Si vous souhaitez migrer davantage de machines, répliquez-les dans des groupes de 10. Pour la migration sans agent VMware, vous pouvez exécuter jusqu’à 100 réplications simultanément.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migration sans agent - Exigences relatives au serveur VMware
 
