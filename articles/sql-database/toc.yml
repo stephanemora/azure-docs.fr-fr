@@ -333,7 +333,7 @@
             - name: TDE avec Service Bring Your Own Key (BYOK)
               href: transparent-data-encryption-byok-azure-sql.md
         - name: Attributs de sécurité
-          href: sql-database-security-attributes.md
+          href: sql-database-security-controls.md
         - name: Restrictions des fonctionnalités
           href: sql-database-feature-restrictions.md
     - name: Extensibilité
@@ -512,6 +512,8 @@
           href: sql-database-managed-instance-migrate.md
         - name: Migrer un certificat TDE vers une instance gérée
           href: sql-database-managed-instance-migrate-tde-certificate.md
+        - name: Restaurer un point dans le temps
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Déterminer la taille du sous-réseau d’instances managées
           href: sql-database-managed-instance-determine-size-vnet-subnet.md
         - name: Créer un réseau virtuel et un sous-réseau pour une instance managée
@@ -534,8 +536,6 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Charger et déplacer des données
       items:
-        - name: Restaurer un point dans le temps
-          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Déplacer la ressource vers une nouvelle région
           href: sql-database-move-resources-across-regions.md
         - name: Copier une base de données dans Azure

@@ -62,8 +62,8 @@
       items:
         - name: Présentation de la sécurité
           href: overview-security.md
-        - name: Attributs de sécurité courants
-          href: key-vault-security-attributes.md
+        - name: Contrôles de sécurité intégrés
+          href: key-vault-security-controls.md
         - name: Mondes de sécurité
           href: key-vault-ovw-security-worlds.md
         - name: Sécuriser votre coffre de clés
@@ -90,8 +90,6 @@
           href: create-certificate.md
         - name: Surveiller et gérer la création de certificats
           href: create-certificate-scenarios.md
-    - name: Attributs de sécurité courants Azure
-      href: key-vault-security-attributes.md
 - name: Guides pratiques
   items:
     - name: Journalisation d’Azure Key Vault

@@ -40,7 +40,7 @@
       href: expressroute-qos.md
     - name: À propos de la migration des circuits d’un déploiement classique vers Resource Manager
       href: expressroute-move.md
-    - name: À propos d’ExpressRoute Direct
+    - name: À propose de ExpressRoute Direct
       href: expressroute-erdirect-about.md
     - name: À propos d’ExpressRoute Global Reach
       href: expressroute-global-reach.md
@@ -58,8 +58,8 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Connectivité interréseau
       href: cross-network-connectivity.md
-    - name: Attributs de sécurité courants Azure
-      href: expressroute-security-attributes.md
+    - name: Contrôles de sécurité intégrés
+      href: expressroute-security-controls.md
     - name: Conception pour une haute disponibilité
       href: designing-for-high-availability-with-expressroute.md
     - name: Conception pour une reprise d’activité après sinistre
