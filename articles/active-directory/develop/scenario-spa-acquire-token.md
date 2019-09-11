@@ -3,7 +3,7 @@ title: Application à page unique (acquérir un jeton pour appeler une API) - pl
 description: Découvrez comment créer une application à page unique (acquérir un jeton pour appeler une API)
 services: active-directory
 documentationcenter: dev-center-name
-author: navyasric
+author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 08/20/2019
+ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c842db8a0874d3619e0dc59b90aa12226cb984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f49a6093194ef76a895f2a54f8a78a55da73e7e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138815"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135706"
 ---
 # <a name="single-page-application---acquire-a-token-to-call-an-api"></a>Application à page unique - acquérir un jeton pour appeler une API
 
@@ -33,11 +33,11 @@ Les demandes de jeton en mode silencieux à Azure AD peuvent échouer pour certa
 
 **Choix entre une expérience avec fenêtre indépendante ou avec redirection**
 
- Vous ne pouvez pas utiliser la combinaison de ces méthodes de fenêtre indépendante et de redirection dans votre application. Le choix entre la fenêtre indépendante et la redirection dépend du déroulement de votre application.
+ Vous ne pouvez pas utiliser la combinaison de ces méthodes de fenêtre indépendante et de redirection dans votre application. Le choix entre la fenêtre indépendante et la redirection dépend du flux d'application.
 
-* Si vous ne souhaitez pas que l’utilisateur quitte la page principale de votre application lors de l’authentification, il est recommandé d’utiliser la méthode avec fenêtre indépendante. Étant donné que la redirection de l’authentification se produit dans une fenêtre indépendante, l’état de l’application principale est conservé.
+* Si vous ne souhaitez pas que l’utilisateur quitte la page principale de votre application lors de l’authentification, il est recommandé d’utiliser la méthode avec fenêtre indépendante. La redirection de l’authentification se produisant dans une fenêtre indépendante, l’état de l’application principale est conservé.
 
-* Il existe certains cas où vous devrez peut-être utiliser les méthodes avec redirection. Si les utilisateurs de votre application ont des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres indépendantes, vous pouvez utiliser les méthodes avec redirection. Il est également recommandé d’utiliser les méthodes avec redirection avec Internet Explorer, dans la mesure où il existe certains [problèmes connus avec Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) lors de la gestion des fenêtres indépendantes.
+* Dans certains cas, vous pouvez être amené à utiliser les méthodes avec redirection. Si les utilisateurs de votre application ont des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres indépendantes, vous pouvez utiliser les méthodes avec redirection. Il est également recommandé d’utiliser les méthodes avec redirection avec Internet Explorer, dans la mesure où il existe certains [problèmes connus avec Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) lors de la gestion des fenêtres indépendantes.
 
 Vous pouvez définir les étendues d’API que vous souhaitez que le jeton d’accès inclue lors de la création de la demande de jeton d’accès. Notez que toutes les étendues demandées peuvent ne pas être accordées dans le jeton d’accès et varient en fonction du consentement de l’utilisateur.
 
@@ -72,7 +72,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 ### <a name="angular"></a>Angular
 
-Le wrapper MSAL Angular permet d’ajouter l’intercepteur HTTP `MsalInterceptor` qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP aux API.
+Le wrapper MSAL Angular permet d’ajouter l’intercepteur HTTP qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP aux API.
 
 Vous pouvez spécifier les étendues des API dans l’option de configuration `protectedResourceMap` que demande MsalInterceptor lors de l’acquisition de jetons en mode automatique.
 
@@ -116,7 +116,7 @@ Sinon, vous pouvez également explicitement acquérir des jetons à l’aide des
 
 ### <a name="javascript"></a>JavaScript
 
-Le modèle est tel que décrit ci-dessus, mais il est présenté avec une méthode de redirection permettant d’acquérir le jeton de manière interactive. Notez que vous devez enregistrer le rappel de redirection comme indiqué ci-dessus.
+Le modèle est tel que décrit ci-dessus, mais il est présenté avec une méthode de redirection permettant d’acquérir le jeton de manière interactive. Vous devez inscrire le rappel de redirection comme indiqué ci-dessus.
 
 ```javascript
 function authCallback(error, response) {
@@ -141,6 +141,37 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
     }
 });
 ```
+
+## <a name="request-for-optional-claims"></a>Demande de revendications facultatives
+Vous pouvez demander des revendications facultatives dans votre application pour spécifier les revendications supplémentaires à inclure dans les jetons de votre application. Pour demander des revendications facultatives dans id_token, vous pouvez envoyer un objet de revendications converti en chaînes au champ claimsRequest de la classe AuthenticationParameters.ts.
+
+Vous pouvez utiliser des revendications facultatives aux fins suivantes :
+
+- Inclure des revendications supplémentaires dans les jetons pour votre application.
+- Modifier le comportement de certaines revendications retournées par Azure AD dans les jetons.
+- Ajouter et accéder à des revendications personnalisées pour votre application.
+
+
+### <a name="javascript"></a>JavaScript
+```javascript
+"optionalClaims":  
+   {
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": true
+             }
+      ],
+
+var request = {
+    scopes: ["user.read"],
+    claimsRequest: JSON.stringify(claims)
+};
+
+myMSALObj.acquireTokenPopup(request);
+```
+Pour en savoir plus sur les revendications facultatives, consultez [Revendications facultatives](active-directory-optional-claims.md)
+
 
 ### <a name="angular"></a>Angular
 

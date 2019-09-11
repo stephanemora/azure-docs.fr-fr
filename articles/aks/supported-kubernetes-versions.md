@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982708"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147222"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -49,13 +49,13 @@ AKS prend en charge quatre versions mineures de Kubernetes :
 
 C’est ce qu’on appelle « N-3 » - (N (dernière publication) - 3 (versions mineures)).
 
-Par exemple, si AKS introduit *1.13.x* aujourd’hui, le support est fourni pour les versions suivantes :
+Par exemple, si AKS introduit *1.13.a* aujourd’hui, la prise en charge est assurée pour les versions suivantes :
 
 Nouvelle version mineure    |    Liste des versions prises en charge
 -----------------    |    ----------------------
-1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+1.13.a               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
-Où "x" et ".a" et ".b" sont des versions de correctif représentatives.
+« .a » et « .b » sont des versions de correctif représentatives : « .a » de la version 1.13.a peut être différent de 1.12.a. Par exemple, 1.13.9 et 1.12.8.
 
 Pour plus de détails sur les communications concernant les changements de version et les attentes, voir « Communications » ci-dessous.
 
@@ -72,7 +72,7 @@ Quand une nouvelle version mineure est introduite, la version mineure et les pub
 1.9.b
 ```
 
-Et qu’AKS publie la 1.13.x, cela signifie que les versions 1.9.x (toutes les versions 1.9) seront mises hors service et ne seront plus prises en charge.
+Si AKS publie la version 1.13. *, cela signifie que les versions 1.9.* (toutes les versions 1.9) seront mises hors service et ne seront plus prises en charge.
 
 > [!NOTE]
 > Veuillez noter que si les clients utilisent une version de Kubernetes non supportée, il leur sera demandé de mettre à jour lors de leur demande de support pour le cluster. Les clusters exécutant des versions de Kubernetes non supportées ne sont pas couverts par les politiques de support [AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -126,7 +126,7 @@ Certaines versions de correctifs spécifiques peuvent être ignorées, ou le dé
 
 ### <a name="azure-portal-and-cli-default-versions"></a>Versions par défaut du Portail Microsoft Azure et de l’interface de ligne de commande
 
-Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.13.x*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*, la version par défaut pour les nouveaux clusters est *1.12.b*.
+Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.13.a*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*, la version par défaut pour les nouveaux clusters est *1.12.b*.
 
 AKS utilise par défaut N-1 (minor.latestPatch, par exemple 1.12.b) pour fournir aux clients une version connue, stable et patchée par défaut.
 
@@ -161,8 +161,8 @@ KubernetesVersion    Upgrades
 
 Si vous êtes sur la version *n-4*, vous êtes en dehors du support et serez invité à mettre à jour. Si votre mise à niveau de la version n-4 à la version n-3 réussit, vous bénéficiez maintenant de notre politique de support. Par exemple :
 
-- Si les versions d’AKS prises en charge sont *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, et *1.10.e* + *1.10F* et que vous utilisez *1.9.g* ou *1.9.h*, vous ne bénéficiez plus du support.
-- Si la mise à niveau de *1.9.g* ou *1.9.h* vers *1.10.e* ou *1.10.f* réussit, vous bénéficiez de nouveau de notre politique de support.
+- Si les versions AKS prises en charge sont *1.13.a*, *1.12.b* + *1.12.c*, *1.11.d* + *1.11.e* et *1.10.f* + *1.10.g*, et que vous utilisez *1.9.h* ou *1.9.i*, vous ne bénéficiez plus de la prise en charge.
+- Si la mise à niveau depuis *1.9.h* ou *1.9.i* vers *1.10.f* ou *1.10.g* réussit, vous bénéficiez de nouveau de notre politique de support.
 
 Les mises à niveau vers des versions antérieures à *n-4* ne sont pas prises en charge. Dans ce cas, nous recommandons aux clients de créer de nouveaux clusters AKS et de redéployer leurs charges de travail.
 

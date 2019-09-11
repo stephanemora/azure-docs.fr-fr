@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383387"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135795"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
@@ -57,6 +57,8 @@ Si l'événement n'était pas prévu, examinez la situation et corrigez-la si n�
 5. Dans la fenêtre contextuelle, sous **Étendue**, sélectionnez **Déconnecté depuis**, puis choisissez une heure dans le passé. Cliquez sur **Rechercher**. Cette page affiche tous les objets sur le point d’être supprimés. En cliquant sur chaque élément, vous pouvez obtenir des informations supplémentaires sur l’objet. Vous pouvez également cliquer sur **Paramètre de colonne** pour ajouter des attributs supplémentaires dans la grille.
 
 ![Espace de connecteur de recherche](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
+
+[!NOTE] Si vous ne savez pas si toutes les suppressions sont souhaitées et que vous voulez jouer la sécurité, vous pouvez utiliser l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold` pour définir un nouveau seuil au lieu de désactiver le seuil qui pourrait permettre des suppressions indésirables. 
 
 Si vous souhaitez que tous les éléments soient supprimés, procédez comme suit :
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896960"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164323"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion)
 
@@ -61,7 +61,7 @@ Lors de la création d’une SAP de délégation d’utilisateur, `--auth-mode l
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Créer une SAP de délégation d’utilisateur pour un conteneur
 
-Pour créer une SAP de délégation d’utilisateur pour un conteneur avec l’interface de ligne de commande Azure, appelez la commande [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas).
+Si vous souhaitez créer une SAP de délégation utilisateur pour un conteneur avec Azure CLI, appelez la commande [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas).
 
 Les autorisations prises en charge pour une SAP sur un conteneur incluent Ajouter, Créer, Supprimer, Répertorier, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -85,7 +85,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 ### <a name="create-a-user-delegation-sas-for-a-blob"></a>Créer une SAP de délégation d’utilisateur pour un objet blob
 
-Pour créer une SAP de délégation d’utilisateur pour un objet bloc avec l’interface de ligne de commande Azure, appelez la commande [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas).
+Si vous souhaitez créer une SAP de délégation utilisateur pour un objet blob avec Azure CLI, appelez la commande [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas).
 
 Les autorisations prises en charge pour une SAP sur un objet blob incluent Ajouter, Créer, Supprimer, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > Une SAP de délégation d’utilisateur ne prend pas en charge la définition d’autorisations avec une stratégie d’accès stockée.
+
+## <a name="revoke-a-user-delegation-sas"></a>Révoquer une SAP de délégation d’utilisateur
+
+Pour révoquer une SAP de délégation utilisateur dans Azure CLI, appelez la commande [az storage account revoke-delegation-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys). Cette commande révoque toutes les clés de délégation d’utilisateur associées au compte de stockage spécifié. Toutes les signatures d’accès partagé associées à ces clés sont invalidées.
+
+N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> Les attributions de rôles RBAC et de clés de délégation utilisateur sont mises en cache par le stockage Azure. Il peut donc y avoir un certain délai entre le moment où vous lancez le processus de révocation et celui où la SAP de délégation utilisateur devient non valide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

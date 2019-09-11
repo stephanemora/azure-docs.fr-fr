@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b3e74f337cf8f57321c3a8d94f8191fc3ebb530
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78b04a06b71590a79180d1ae367e7d059e1b84a3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093895"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195227"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Qu’est-ce qu’une base de connaissances QnA Maker ?
 
@@ -43,6 +43,8 @@ Les champs de métadonnées sont composés de paires clé-valeur séparées par 
 Le base de connaissances QnA Maker entraînée et [publiée](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
 
 ![Processus de classement par ordre de priorité pour une requête de l’utilisateur](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+
+### <a name="ranker-process"></a>Processus de classement
 
 Le processus est expliqué dans le tableau suivant :
 

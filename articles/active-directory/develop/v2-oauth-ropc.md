@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482382"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193203"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>La plateforme d’identité Microsoft et les informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0
 
@@ -51,7 +51,7 @@ Le flux ROPC est une demande unique : il envoie l’identification du client et
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,10 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Locataire de l’annuaire auquel vous voulez connecter l’utilisateur. Peut être au format GUID ou sous forme de nom convivial. Ce paramètre ne peut pas être défini sur `common` ou `consumers`, mais peut être défini sur `organizations`. |
+| `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). | 
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `password`. |
 | `username` | Obligatoire | Adresse e-mail de l’utilisateur. |
 | `password` | Obligatoire | Mot de passe de l’utilisateur. |
 | `scope` | Recommandé | Une liste (séparée par des espaces) d’[étendues](v2-permissions-and-consent.md), ou d’autorisations, exigées par l’application. Dans un flux interactif, l’administrateur ou l’utilisateur doit accepter ces étendues au préalable. |
+| `client_secret`| Parfois obligatoire | Si votre application est un client public, `client_secret` ou `client_assertion` ne peut pas être inclus.  Si l’application est un client confidentiel, le paramètre doit être inclus. | 
+| `client_assertion` | Parfois obligatoire | Forme différente de `client_secret`, générée à l’aide d’un certificat.  Pour plus d’informations, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). | 
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 
@@ -105,8 +108,7 @@ Si l’utilisateur n’a pas fourni le nom d’utilisateur ou le mot de passe co
 | Error | Description | Action du client |
 |------ | ----------- | -------------|
 | `invalid_grant` | Échec de l’authentification | Les informations d’identification étaient incorrectes ou le client n’a pas le consentement pour les étendues demandées. Si les étendues ne sont pas accordées, une erreur `consent_required` est retournée. Si cela se produit, le client doit envoyer l’utilisateur sur une invite interactive avec une vue web ou un navigateur. |
-| `invalid_request` | La demande a été incorrectement construite | Le type d’octroi n’est pas pris en charge sur les contextes d’authentification `/common` ou `/consumers`.  Utilisez `/organizations` à la place. |
-| `invalid_client` | L’application est incorrectement configurée | Ceci peut se produire si la propriété `allowPublicClient` n’est pas définie sur true dans le [manifeste de l’application](reference-app-manifest.md). La propriété `allowPublicClient` est nécessaire, car l’octroi ROPC n’a pas d’URI de redirection. Azure AD ne peut pas déterminer si l’application est une application cliente publique ou une application cliente confidentielle, sauf si la propriété est définie. ROPC est pris en charge seulement pour les applications clientes publiques. |
+| `invalid_request` | La demande a été incorrectement construite | Le type d’octroi n’est pas pris en charge sur les contextes d’authentification `/common` ou `/consumers`.  Utilisez `/organizations` ou un ID de locataire à la place. |
 
 ## <a name="learn-more"></a>En savoir plus
 

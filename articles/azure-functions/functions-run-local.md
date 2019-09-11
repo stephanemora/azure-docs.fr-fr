@@ -1,22 +1,20 @@
 ---
 title: Utilisation d’Azure Functions Core Tools | Microsoft Docs
 description: Apprenez à coder et à tester des fonctions Azure à partir de l’invite de commandes ou du terminal sur votre ordinateur local avant de les exécuter dans Azure Functions.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096155"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207281"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -414,6 +412,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publication dans Azure
 
 Azure Functions Core Tools prend en charge deux types de déploiement : le déploiement des fichiers projet de fonction directement dans votre application de fonction via [Zip Deploy](functions-deployment-technologies.md#zip-deploy), et le [déploiement d’un conteneur Docker personnalisé](functions-deployment-technologies.md#docker-container). Vous devez avoir déjà [créé une application de fonction dans votre abonnement Azure](functions-cli-samples.md#create) où vous prévoyez de déployer votre code. Les projets qui nécessitent une compilation doivent être générés pour favoriser le déploiements des fichiers binaires.
+
+Un dossier de projet peut contenir des fichiers et des répertoires spécifiques à une langue qui ne doivent pas être publiés. Les éléments exclus sont listés dans un fichier .funcignore situé dans le dossier racine du projet.     
 
 ### <a name="project-file-deployment"></a>Déploiement (fichiers projet)
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840269"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277089"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -35,7 +35,7 @@ Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fic
 ## <a name="text-format"></a>Format Texte
 
 >[!NOTE]
->Data Factory a introduit un nouveau jeu de données au format de texte délimité. Pour plus d'informations, consultez [Format de texte délimité](format-delimited-text.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
+>Data Factory a introduit un nouveau jeu de données au format de texte délimité. Pour plus d’informations, consultez [Format de texte délimité](format-delimited-text.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 Si vous souhaitez lire ou écrire des données dans un fichier texte, définissez la propriété `type` dans la section `format` du jeu de données sur **TextFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour TextFormat](#textformat-example) pour en savoir plus sur la méthode de configuration à suivre.
 
@@ -413,7 +413,7 @@ Le jeu de données de sortie présentant le type **JsonFormat** est défini comm
 ## <a name="parquet-format"></a>Format Parquet
 
 >[!NOTE]
->Data Factory introduit un nouveau jeu de données au format Parquet. Pour plus d'informations, consultez [Format Parquet](format-parquet.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
+>Data Factory a introduit un nouveau jeu de données au format Parquet. Pour plus d’informations, consultez [Format Parquet](format-parquet.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 Si vous souhaitez analyser des fichiers Parquet ou écrire des données au format Parquet, définissez la propriété `format` `type` sur **ParquetFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
 
@@ -520,6 +520,9 @@ Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisati
 | Char | Char (1) |
 
 ## <a name="avro-format"></a>Format AVRO
+
+>[!NOTE]
+>Data Factory a introduit un nouveau jeu de données au format Avro. Pour plus d’informations, consultez [Format Avro](format-avro.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 Si vous souhaitez analyser des fichiers Avro ou écrire des données au format Avro, définissez la propriété `format` `type` sur **AvroFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644891"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209634"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec Managed Instance
 
@@ -338,6 +338,10 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 - `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
+ - `sp_send_dbmail` ne peut pas envoyer de pièces jointes à l’aide du paramètre @file_attachments. Le système de fichiers local, les partages d’étendues et le stockage Blob Azure ne sont pas accessibles dans cette procédure.
+ - Consultez les problèmes connus liés au paramètre `@query` et à l’authentification.
+ 
 ### <a name="dbcc"></a>DBCC
 
 Les instructions DBCC non documentées qui sont activées dans SQL Server ne sont pas prises en charge dans les instances managées.
@@ -536,6 +540,14 @@ La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 G
 Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont consignés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Problèmes connus
+
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossible de s’authentifier auprès des serveurs de messagerie externes à l’aide d’une connexion sécurisée (SSL)
+
+**Date :** août 2019
+
+L’instance de Database Mail qui est [configurée à l’aide d’une connexion sécurisée (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) ne peut pas s’authentifier auprès de certains serveurs de messagerie en dehors d’Azure. Il s’agit d’un problème de configuration de la sécurité qui sera bientôt résolu.
+
+**Solution de contournement :** Supprimez temporairement la connexion sécurisée (SSL) dans la configuration de Database Mail jusqu’à ce que le problème soit résolu. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 

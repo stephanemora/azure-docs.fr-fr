@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fc30c3273528b8cbc08681950e0bd5f03ec7890
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 55e3f073c1d22ef09784f699dc2decb0492d9edf
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561276"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162296"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer l’inscription d’informations de sécurité combinée (préversion)
 
@@ -88,6 +88,8 @@ La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui
 1. Puis, cliquez sur **Créer**
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+[Obliger les utilisateurs à réinscrire les méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
 [Méthodes disponibles pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
 

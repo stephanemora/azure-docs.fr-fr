@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091fb7cb9e74166b1e01c00834c2346dd2f0fd8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835536"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207193"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -59,7 +59,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
     ![Page Propriétés](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Ouvrez l’[Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre et procédez comme suit :
+6. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre et procédez comme suit :
 
     a. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 
@@ -186,7 +186,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 Pour mettre à jour un rôle existant, procédez comme suit :
 
-1. Ouvrez [Afficheur de Graph Azure AD](https://developer.microsoft.com/graph/graph-explorer).
+1. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 
@@ -224,7 +224,7 @@ Pour mettre à jour un rôle existant, procédez comme suit :
 
 Pour supprimer un rôle existant, procédez comme suit :
 
-1. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
+1. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
 2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 

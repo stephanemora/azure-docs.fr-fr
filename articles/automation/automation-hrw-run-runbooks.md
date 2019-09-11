@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087573"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186755"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -61,7 +61,7 @@ Vous pouvez également utiliser [InlineScript](automation-powershell-workflow.md
 
 ### <a name="runas-account"></a>Compte RunAs
 
-Par défaut, le runbook worker hybride utilise le système local pour Windows et un compte utilisateur spécial `nxautomation` pour Linux afin d’exécuter des runbooks. Plutôt que de laisser les Runbooks fournir leur propre authentification aux ressources locales, vous pouvez spécifier un compte **RunAs** pour un groupe de Workers hybrides. Vous spécifiez une [ressource d’information d’identification](automation-credentials.md) ayant accès aux ressources locales, après quoi tous les Runbooks utilisent ces informations d’identification au moment de leur exécution sur un Runbook Worker hybride du groupe.
+Par défaut, le runbook worker hybride utilise le système local pour Windows et un compte utilisateur spécial `nxautomation` pour Linux afin d’exécuter des runbooks. Plutôt que de laisser les Runbooks fournir leur propre authentification aux ressources locales, vous pouvez spécifier un compte **RunAs** pour un groupe de Workers hybrides. Vous spécifiez une [ressource d’informations d’identification](automation-credentials.md) ayant accès aux ressources locales, dont des magasins de certificats, après quoi tous les runbooks utilisent ces informations d’identification au moment de leur exécution sur un runbook Worker hybride du groupe.
 
 Le nom d’utilisateur doit utiliser l’un des formats suivants :
 

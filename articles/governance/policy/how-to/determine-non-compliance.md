@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298921"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194680"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -111,34 +111,19 @@ La matrice suivante mappe chaque _motif_ possible à la [condition](../concepts/
 
 ## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour Guest Configuration
 
-Pour _auditer_ les stratégies de la catégorie _Guest Configuration_, plusieurs paramètres peuvent être évalués dans la machine virtuelle et vous devez revoir les détails par paramètre. Par exemple, si vous auditez une liste d'applications installées et que l'état d'attribution indique _Non conforme_, vous devez déterminer les applications spécifiques manquantes.
+Pour les stratégies _auditIfNotExists_ de la catégorie _Guest Configuration_, plusieurs paramètres peuvent être évalués dans la machine virtuelle et vous devez examiner les détails par paramètre. Par exemple, si vous effectuez un audit pour obtenir la liste des stratégies de mot de passe et qu’une seule d’entre-elles a l’état _Non conforme_, vous devez connaître les stratégies de mot de passe spécifiques qui ne sont pas conformes et pourquoi.
 
-Vous ne serez peut-être pas autorisé à vous connecter directement à la machine virtuelle, mais devrez indiquer pourquoi la machine virtuelle est _Non conforme_. Par exemple, vous pourriez auditer les machines virtuelles jointes au domaine qui convient et inclure l'appartenance au domaine actuel dans les détails correspondants.
+Vous ne serez peut-être pas autorisé à vous connecter directement à la machine virtuelle, mais devrez indiquer pourquoi la machine virtuelle est _Non conforme_.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+Commencez par suivre les étapes de la section ci-dessus pour afficher les détails de conformité à la stratégie.
 
-1. Sur la page **Vue d’ensemble** ou **Conformité**, sélectionnez une attribution de stratégie contenant une définition de stratégie Guest Configuration _Non conforme_.
+Dans le volet **Détails de conformité**, cliquez sur le lien **Dernière ressource évaluée**.
 
-1. Sélectionnez un stratégie d'_audit_ dans l'initiative _Non conforme_.
+   ![Afficher les détails de la définition auditIfNotExists](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
 
-   ![Afficher les détails de définition d'audit](../media/determine-non-compliance/guestconfig-audit-compliance.png)
-
-1. Dans l'onglet **Conformité des ressources**, les informations suivantes sont fournies :
-
-   - **Nom** - Nom des attributions de Guest Configuration.
-   - **Ressource parente** - Machine virtuelle affichant un état _Non conforme_ pour l’attribution de Guest Configuration sélectionnée.
-   - **Type de ressource** - Nom complet _guestConfigurationAssignments_.
-   - **Dernière évaluation** - Dernière fois que Guest Configuration a rendu compte à Azure Policy de l'état de la machine virtuelle cible.
-
-   ![Afficher les détails de conformité](../media/determine-non-compliance/guestconfig-assignment-view.png)
-
-1. Sélectionnez le nom de l'attribution de Guest Configuration dans la colonne **Nom** pour ouvrir la page **Conformité des ressources**.
-
-1. Sélectionnez le bouton **Afficher une ressource** situé en haut de la page pour ouvrir la page **Affectation d'invité**.
-
-La page **Affectation d'invité** affiche les détails de conformité disponibles. Chaque ligne représente une évaluation effectuée dans la machine virtuelle. Dans la colonne **Raison**, une phrase décrivant pourquoi l'attribution d'invité est _Non conforme_ s’affiche. Par exemple, si vous constatez que des machines virtuelles doivent être jointes à un domaine, la colonne **Raison** affiche un texte incluant l’appartenance au domaine actuel.
+La page **Affectation d'invité** affiche les détails de conformité disponibles. Chaque ligne de la vue représente une évaluation effectuée au sein de la machine. Dans la colonne **Raison**, une phrase décrivant pourquoi l'attribution d'invité est _Non conforme_ s’affiche. Par exemple, si vous auditez les stratégies de mot de passe, la colonne **Raison** affiche du texte, dont la valeur actuelle de chaque paramètre.
 
 ![Afficher les détails de conformité](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
@@ -173,7 +158,7 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-Vous pouvez également générer un historique de conformité des attributions d’invités dans l’étendue de la machine virtuelle. La sortie de cette commande inclut les détails de chaque rapport portant sur la machine virtuelle.
+Vous pouvez également générer un historique de conformité des attributions d’invités dans l’étendue de la machine. La sortie de cette commande inclut les détails de chaque rapport portant sur la machine virtuelle.
 
 > [!NOTE]
 > La sortie peut renvoyer un important volume de données. Il est recommandé de stocker la sortie dans une variable.
@@ -231,7 +216,7 @@ Les données de l'historique des modifications sont fournies par [Azure Resource
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les exemples de la page [Exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
 - Découvrez comment [créer des stratégies par programmation](programmatically-create.md).

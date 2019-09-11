@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d332ca00cbd47448b7e3fb8d3ab2d141380b70
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c845c4bcc8dc57371304b5917ee09191b5256c51
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061528"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276349"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -315,12 +315,12 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Avro, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité ou Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
+### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Avro, Texte délimité ou Binaire
 
-Pour copier des données vers et depuis le stockage Blob dans les formats Parquet, Texte délimité et Binaire, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données vers et depuis le stockage d’objets blob au format Parquet, Texte délimité, Avro ou Binaire, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -362,7 +362,7 @@ Pour copier des données vers et depuis le stockage Blob dans les formats Parque
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données vers et depuis le stockage Blob aux formats ORC/Avro/JSON, définissez la propriété de type du jeu de données sur **AzureBlob**. Les propriétés suivantes sont prises en charge.
+Pour copier des données vers et depuis le stockage d’objets blob au format ORC/JSON, définissez la propriété de type du jeu de données sur **AzureBlob**. Les propriétés suivantes sont prises en charge.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -413,12 +413,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="blob-storage-as-a-source-type"></a>Stockage Blob en tant que type de source
 
-- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour effectuer une copie à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité ou Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, Avro ou Binaire
 
-Pour copier des données vers et depuis le stockage Blob dans les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans la source de copie basée sur le format :
+Pour copier des données vers et depuis le stockage d’objets blob au **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -476,7 +476,7 @@ Pour copier des données vers et depuis le stockage Blob dans les **formats Parq
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis le stockage Blob aux **formats ORC/Avro/JSON**, définissez le type de source dans l’activité de copie sur **BlobSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
+Pour copier des données depuis le stockage d’objets blob au **format ORC ou JSON**, définissez le type de source dans l’activité de copie sur **BlobSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -518,12 +518,12 @@ Pour copier des données depuis le stockage Blob aux **formats ORC/Avro/JSON**, 
 
 ### <a name="blob-storage-as-a-sink-type"></a>Stockage Blob en tant que type de récepteur
 
-- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour effectuer une copie à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité ou Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, Avro ou Binaire
 
-Pour effectuer une copie à partir d’un stockage Blob dans les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans le récepteur de copie basée sur le format :
+Pour copier des données à partir d’un stockage d’objets blob au **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans le récepteur de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -571,7 +571,7 @@ Pour effectuer une copie à partir d’un stockage Blob dans les **formats Parqu
 
 #### <a name="other-format-sink"></a>Autres formats de récepteur
 
-Pour copier des données vers le stockage Blob au format **ORC/Avro/JSON**, définissez le type de récepteur dans l’activité de copie sur **BlobSink**. Les propriétés suivantes sont prises en charge dans la section **récepteur**.
+Pour copier des données vers le stockage d’objets blob au **format ORC/JSON**, définissez le type de récepteur dans l’activité de copie sur **BlobSink**. Les propriétés suivantes sont prises en charge dans la section **récepteur**.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

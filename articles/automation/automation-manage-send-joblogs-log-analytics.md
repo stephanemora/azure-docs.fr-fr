@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a305c90f50ce0ad618ca1cf4f32d88120a19d4a7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476656"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186784"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers des journaux Azure Monitor
 
@@ -33,7 +33,7 @@ Automation peut envoyer un état de tâche du runbook et des flux de tâches à 
 Pour commencer à envoyer vos journaux d’activité Automation à des journaux Azure Monitor, vous devez disposer des éléments suivants :
 
 * La version la plus récente d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Un espace de travail Log Analytics. Pour plus d’informations, voir [Prise en main d’Azure Monitor](../log-analytics/log-analytics-get-started.md). 
+* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../log-analytics/log-analytics-get-started.md).
 * L’ID de ressource de votre compte Azure Automation.
 
 Pour trouver l’ID de ressource de votre compte Azure Automation :
@@ -97,10 +97,10 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Créé<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Terminé |
-| Catégorie | Classification du type de données. Pour Automation, la valeur est JobLogs. |
+| Category | Classification du type de données. Pour Automation, la valeur est JobLogs. |
 | OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
-| SourceSystem | Comment les journaux Azure Monitor collectent les données. Toujours *Azure* pour les diagnostics Azure. |
+| SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Décrit l’état résultant du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
 | CorrelationId |GUID représentant l’ID de corrélation du travail du runbook. |
 | ResourceId |Spécifie l’id de ressource de compte Azure Automation du runbook. |
@@ -120,10 +120,10 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- In Progress |
-| Catégorie | Classification du type de données. Pour Automation, la valeur est JobStreams. |
+| Category | Classification du type de données. Pour Automation, la valeur est JobStreams. |
 | OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
-| SourceSystem | Comment les journaux Azure Monitor collectent les données. Toujours *Azure* pour les diagnostics Azure. |
+| SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Inclut le flux de sortie du runbook. |
 | CorrelationId |GUID représentant l’ID de corrélation du travail du runbook. |
 | ResourceId |Spécifie l’id de ressource de compte Azure Automation du runbook. |
@@ -139,7 +139,7 @@ Maintenant que nous avons commencé à envoyer des journaux d’activité de tra
 Pour afficher les journaux d’activité, exécutez la requête suivante :`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envoyer un e-mail en cas d’échec ou de suspension d’un travail de runbook
-Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’une erreur survient sur un travail de runbook.   
+Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’une erreur survient sur un travail de runbook.
 
 Pour créer une règle d’alerte, vous devez commencer par créer une recherche de journal pour les enregistrements de travaux de runbook qui doivent appeler l’alerte. Cliquez sur le bouton **Alerte** pour créer et configurer la règle d’alerte.
 
@@ -150,20 +150,20 @@ Pour créer une règle d’alerte, vous devez commencer par créer une recherche
 3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Rechercher tous les travaux qui ont rencontré des erreurs
-En plus des alertes concernant les échecs, vous pouvez déterminer lorsqu’une tâche de runbook comporte une erreur sans fin d’exécution. Dans ce cas, PowerShell génère un flux d’erreur. Toutefois, les erreurs sans fin d’exécution ne provoquent la suspension ou l’échec du travail.    
+En plus des alertes concernant les échecs, vous pouvez déterminer lorsqu’une tâche de runbook comporte une erreur sans fin d’exécution. Dans ce cas, PowerShell génère un flux d’erreur. Toutefois, les erreurs sans fin d’exécution ne provoquent la suspension ou l’échec du travail.
 
 1. Dans votre espace de travail Log Analytics, cliquez sur **Journaux**.
 2. Dans le champ de requête, tapez `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`, puis cliquez sur le bouton **Rechercher**.
 
 ### <a name="view-job-streams-for-a-job"></a>Afficher les flux de travail pour un travail
-Lorsque vous déboguez un travail, vous pouvez également examiner les flux de travaux. La requête ci-dessous montre tous les flux pour un seul travail avec le GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 :   
+Lorsque vous déboguez un travail, vous pouvez également examiner les flux de travaux. La requête ci-dessous montre tous les flux pour un seul travail avec le GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 :
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Afficher l’état de travail historique
 Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le temps. Vous pouvez utiliser cette requête pour rechercher l’état de vos travaux au fil du temps.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
 <br> ![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="remove-diagnostic-settings"></a>Supprimer les paramètres de diagnostic
@@ -180,11 +180,13 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 L’envoi de vos données de diffusion en continu et d’état des travaux Automation aux journaux Azure Monitor permet d’obtenir plus de détails sur l’état de vos travaux Automation en :
 + Configurant des alertes pour vous avertir en cas de problème.
-+ Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.  
++ Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.
 
-Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle sur vos travaux Automation et peuvent permettre de traiter les incidents plus rapidement.  
+Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle sur vos travaux Automation et peuvent permettre de traiter les incidents plus rapidement.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+* Pour obtenir de l’aide sur la résolution des problèmes Log Analytics, consultez [Dépannage si Log Analytics ne collecte plus de données](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
 * Pour savoir comment construire différentes requêtes de recherche et consulter les journaux d’activité de travaux Automation avec les journaux Azure Monitor, consultez la page [Recherches dans les journaux d’activité dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez la page [Sortie et messages de runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).

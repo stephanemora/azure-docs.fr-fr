@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616017"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147198"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -101,6 +101,9 @@ Pour connaître les meilleures pratiques associées, consultez la section [Meill
 
 Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Un cluster Kubernetes contient un ou plusieurs pools de nœuds. Le nombre et la taille initiaux des nœuds sont définis quand vous créez un cluster AKS, opération qui engendre la création d’un *nœud de pools par défaut*. Ce pool de nœuds par défaut dans AKS contient les machines virtuelles sous-jacentes qui exécutent vos nœuds d’agent. La prise en charge de plusieurs pools de nœuds est actuellement en préversion dans AKS.
 
+> [!NOTE]
+> Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
+
 Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Vous pouvez aussi choisir de mettre à l’échelle ou de mettre à niveau un pool de nœuds spécifique. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
 
 Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, voir [Créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
@@ -132,7 +135,7 @@ Kubernetes Utilise des *pods* pour exécuter une instance de votre application. 
 
 Quand vous créez un pod, vous pouvez définir des *limites de ressources* pour demander une certaine quantité de ressources en UC ou mémoire. Le planificateur de Kubernetes essaie de planifier les pods afin qu’ils s’exécutent sur un nœud dont les ressources permettent de répondre à la demande. Vous pouvez également spécifier des limites de ressources maximales qui empêchent un pod donné de consommer trop de ressources de calcul à partir du nœud sous-jacent. Une bonne pratique consiste à inclure des limites de ressources pour tous les pods afin d'aider le Scheduler Kubernetes à identifier les ressources nécessaires et autorisées.
 
-Pour plus d’informations, consultez la section [Pods Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
+Pour plus d’informations, consultez [Kubernetes pods][kubernetes-pods] (Pods Kubernetes) et [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (Cycle de vie des pods Kubernetes).
 
 Un pod est une ressource logique, tandis que les conteneurs sont l’endroit où s’exécutent les charges de travail d’applications. Les pods sont en général des ressources éphémères jetables, et ceux planifiés individuellement ne bénéficient pas de toutes les fonctionnalités de haute disponibilité et de redondance fournies par Kubernetes. Au lieu de cela, les pods sont généralement déployés et gérés par des *contrôleurs* Kubernetes, tels que le contrôleur de déploiement.
 

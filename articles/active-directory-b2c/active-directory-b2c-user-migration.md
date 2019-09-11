@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613308"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183144"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : Migration utilisateur
 
@@ -67,7 +67,7 @@ Tout d’abord, inscrivez votre application de migration dans Azure AD. Ensuite,
    - Pour **Nom**, utilisez *B2CUserMigration* ou n’importe quel nom de votre choix.
    - Pour **Type d’application**, sélectionnez **Application web/API**.
    - Pour **URL de connexion**, utilisez `https://localhost` (paramètre non pertinent pour cette application).
-   - Sélectionnez **Créer**.
+   - Sélectionnez **Create** (Créer).
 
     Une fois l’application créée, la page **Application inscrite** s’affiche avec ses propriétés.
 1. Copiez **l’ID d’application** et enregistrez-le pour une utilisation ultérieure.
@@ -139,7 +139,9 @@ Remplacez la valeur `$AppId` par **l’ID de votre application** Azure AD.
 
 ## <a name="step-2-pre-migration-application-sample"></a>Étape 2 : Exemple d’application de prémigration
 
-[Téléchargez et exécutez l’exemple d’application][UserMigrationSample]. Vous pouvez le télécharger sous la forme d’un fichier .zip.
+Vous pouvez trouver l’exemple de code de prémigration dans le dépôt GitHub `azure-ad-b2c/user-migration` géré par la communauté :
+
+[azure-ad-b2c/user-migration/pre-migration][UserMigrationSample-code] (GitHub)
 
 ### <a name="step-21-edit-the-migration-data-file"></a>Étape 2.1 : Modifier le fichier de données de migration
 
@@ -364,7 +366,7 @@ Vous pouvez afficher et surveiller les informations de journalisation en temps q
 
 ## <a name="optional-download-the-complete-policy-files"></a>(Facultatif) Télécharger les fichiers de stratégie complets
 
-Une fois que vous avez [pris en main les stratégies personnalisées][B2C-GetStartedCustom], nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie][UserMigrationSample] sont à votre disposition pour référence.
+Une fois que vous avez [pris en main les stratégies personnalisées][B2C-GetStartedCustom], nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie][UserMigrationSample-policy] sont à votre disposition pour référence.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -375,4 +377,5 @@ Une fois que vous avez [pris en main les stratégies personnalisées][B2C-GetSta
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637281"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164344"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Choisissez parmi les niveaux de service vCore et effectuez la migration depuis les niveaux de service DTU
 
 Le modèle d’achat vCore (cœurs virtuels) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération du matériel :
 
-- **Gen4** : jusqu’à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
-- **Gen5** : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 Go par cœur, disque SSD fast eNVM
+- **Gen4** : Jusqu’à 24 processeurs logiques basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par vCore, disque SSD attaché
+- **Gen5** : Jusqu’à 80 processeurs logiques basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5,1 Go par vCore pour le calcul provisionné et jusqu’à 24 Go par vCore pour le calcul serverless, disque SSD eNVM haute vitesse
 
 Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante.
 
@@ -43,10 +43,10 @@ Le tableau suivant explique les différences entre les trois niveaux :
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.|
-|Calcul|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels<br/>**Calcul serverless** :<br/>Gen5 : 0,5 à 4 cœurs virtuels|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|
-|Mémoire|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul serverless** :<br/>Gen5 : 3 Go par vCore|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
-|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné par une base de données unique** :<br/>5 Go - 4 To<br/>**Calcul serverless avec base de données unique** :<br/>5 Go - 1 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné par une base de données unique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
-|Débit d’E/S (approximatif)|**Base de données unique** : 500 IOPS par vCore avec un maximum de 7 000 IOPS<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS par cœur avec 200 000 IOPS au maximum|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
+|Calcul|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels<br/>**Calcul serverless** :<br/>Gen5 : De 0,5 à 16 vCores|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|
+|Mémoire|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul serverless** :<br/>Gen5 : Jusqu’à 24 Go par vCore|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
+|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
+|Débit d’E/S (approximatif)|**Base de données et pool élastique** : 500 IOPS par vCore avec un maximum de 40 000 IOPS.<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5 000 IOPS par cœur avec un maximum de 200 000 IOPS.|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](sql-database-read-scale-out.md)|
 |Sauvegardes|[Stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Pris en charge|Non pris en charge|

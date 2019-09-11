@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4def4a6e8ca743ce03151f45e17da03d748c121e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126920"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207249"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -111,7 +111,7 @@ Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Créer une instance Azure AD Domain Services | Administrateur général | 
-Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Lire toute la configuration | Lecteur sur l’abonnement Azure contenant le service AD DS | 
 
 ## <a name="devices"></a>Appareils
@@ -143,6 +143,11 @@ Mettre à jour le provisionnement d’une application d’entreprise | Propriét
 Mettre à jour le libre-service d’une application d’entreprise | Propriétaire d’une application d’entreprise ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’application cloud, administrateur d’application
 Mettre à jour les propriétés de l’authentification unique | Propriétaire d’une application d’entreprise ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’application cloud, administrateur d’application
 
+## <a name="entitlement-management"></a>Gestion des droits d’utilisation
+Tâche | Rôle moins privilégié | Autres rôles
+---- | --------------------- | ----------------
+Ajouter des ressources à un catalogue | Administrateur d’utilisateurs | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Ajouter des sites SharePoint Online au catalogue | Administrateur général
 
 
 ## <a name="groups"></a>Groupes

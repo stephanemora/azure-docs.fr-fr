@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1b1e9338f92aaefab8e7754139066ac03e8b8213
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779169"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142631"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -252,6 +252,18 @@ La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure
 Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb) ou signalez un problème sur le dépôt [GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+
+Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
+
+Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
+
+> [!WARNING]
+> Toutes les versions **1.x** du kit SDK .NET Core pour l’API SQL seront supprimées le **30 août 2020**.
+> 
+>
+<br/>
+
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
@@ -268,26 +280,26 @@ Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](http
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 septembre 2018 |--- |
 | [2.0.0](#2.0.0) |07 septembre 2018 |--- |
-| [1.9.1](#1.9.1) |09 mars 2018 |--- |
-| [1.8.2](#1.8.2) |21 février 2018 |--- |
-| [1.8.1](#1.8.1) |05 février 2018 |--- |
-| [1.7.1](#1.7.1) |16 novembre 2017 |--- |
-| [1.7.0](#1.7.0) |10 novembre 2017 |--- |
-| [1.6.0](#1.6.0) |17 octobre 2017 |--- |
-| [1.5.1](#1.5.1) |2 octobre 2017 |--- |
-| [1.5.0](#1.5.0) |10 août 2017 |--- | 
-| [1.4.1](#1.4.1) |7 août 2017 |--- |
-| [1.4.0](#1.4.0) |2 août 2017 |--- |
-| [1.3.2](#1.3.2) |12 juin 2017 |--- |
-| [1.3.1](#1.3.1) |23 mai 2017 |--- |
-| [1.3.0](#1.3.0) |10 mai 2017 |--- |
-| [1.2.2](#1.2.2) |19 avril 2017 |--- |
-| [1.2.1](#1.2.1) |29 mars 2017 |--- |
-| [1.2.0](#1.2.0) |25 mars 2017 |--- |
-| [1.1.2](#1.1.2) |20 mars 2017 |--- |
-| [1.1.1](#1.1.1) |14 mars 2017 |--- |
-| [1.1.0](#1.1.0) |16 février 2017 |--- |
-| [1.0.0](#1.0.0) |21 décembre 2016 |--- |
+| [1.9.1](#1.9.1) |09 mars 2018 |30 août 2020 |
+| [1.8.2](#1.8.2) |21 février 2018 |30 août 2020 |
+| [1.8.1](#1.8.1) |05 février 2018 |30 août 2020 |
+| [1.7.1](#1.7.1) |16 novembre 2017 |30 août 2020 |
+| [1.7.0](#1.7.0) |10 novembre 2017 |30 août 2020 |
+| [1.6.0](#1.6.0) |17 octobre 2017 |30 août 2020 |
+| [1.5.1](#1.5.1) |2 octobre 2017 |30 août 2020 |
+| [1.5.0](#1.5.0) |10 août 2017 |30 août 2020 | 
+| [1.4.1](#1.4.1) |7 août 2017 |30 août 2020 |
+| [1.4.0](#1.4.0) |2 août 2017 |30 août 2020 |
+| [1.3.2](#1.3.2) |12 juin 2017 |30 août 2020 |
+| [1.3.1](#1.3.1) |23 mai 2017 |30 août 2020 |
+| [1.3.0](#1.3.0) |10 mai 2017 |30 août 2020 |
+| [1.2.2](#1.2.2) |19 avril 2017 |30 août 2020 |
+| [1.2.1](#1.2.1) |29 mars 2017 |30 août 2020 |
+| [1.2.0](#1.2.0) |25 mars 2017 |30 août 2020 |
+| [1.1.2](#1.1.2) |20 mars 2017 |30 août 2020 |
+| [1.1.1](#1.1.1) |14 mars 2017 |30 août 2020 |
+| [1.1.0](#1.1.0) |16 février 2017 |30 août 2020 |
+| [1.0.0](#1.0.0) |21 décembre 2016 |30 août 2020 |
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi

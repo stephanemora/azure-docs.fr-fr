@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996673"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275872"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -234,7 +234,9 @@ Pour copier des données depuis ou vers Azure SQL Data Warehouse, les propriét�
 | Propriété  | Description                                                  | Obligatoire                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La propriété **type** du jeu de données doit être définie sur **AzureSqlDWTable**. | OUI                         |
-| tableName | Nom de la table ou de la vue dans l’instance Azure SQL Data Warehouse à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
+| schema | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
+| table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
+| tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
 
 #### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
 
@@ -250,7 +252,8 @@ Pour copier des données depuis ou vers Azure SQL Data Warehouse, les propriét�
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -379,6 +382,7 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 | writeBatchSize    | Nombre de lignes à insérer dans le tableau SQL **par lot**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non                                            |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non                                            |
 | preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
+| disableMetricsCollection | Data Factory collecte des métriques telles que les DWU SQL Data Warehouse pour effectuer des suggestions et l’optimisation des performances de copie. Si vous vous inquiétez de ce comportement, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemple de récepteur SQL Data Warehouse
 
@@ -536,6 +540,10 @@ Quand votre source de données comporte des lignes supérieures à 1 Mo, vous po
 
 Autrement, pour les données avec des colonnes aussi larges, vous pouvez utiliser non-PolyBase pour charger les données à l’aide d’ADF, en désactivant le paramètre « Autoriser PolyBase ».
 
+### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
+
+Pour obtenir le meilleur débit possible, attribuez une classe de ressources plus volumineuse à l’utilisateur qui charge des données dans SQL Data Warehouse par le biais de PolyBase.
+
 ### <a name="polybase-troubleshooting"></a>Résolution des problèmes liés à PolyBase
 
 **Chargement de la colonne décimale**
@@ -549,13 +557,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 La solution consiste à désélectionner l’option « **Utiliser l’option de type par défaut** » (false) dans Récepteur d’activité de copie -> Paramètres de PolyBase. « [USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 ) » est une configuration native PolyBase qui spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte. 
 
-**Autres**
-
-### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
-
-Pour obtenir le meilleur débit possible, attribuez une classe de ressources plus volumineuse à l’utilisateur qui charge des données dans SQL Data Warehouse par le biais de PolyBase.
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>**tableName** dans Azure SQL Data Warehouse
+**`tableName` dans Azure SQL Data Warehouse**
 
 Le tableau suivant donne des exemples montrant comment spécifier la propriété **tableName** dans le jeu de données JSON. Il montre plusieurs combinaisons de noms de schéma et de table.
 
@@ -572,7 +574,7 @@ Si vous voyez l’erreur suivante, il peut s’agir d’un problème avec la val
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>Colonnes avec des valeurs par défaut
+**Colonnes avec valeurs par défaut**
 
 Actuellement, la fonctionnalité PolyBase dans Data Factory accepte seulement le même nombre de colonnes que dans la table cible. Par exemple, vous avez une table avec quatre colonnes dont l’une est définie avec une valeur par défaut. Les données d’entrée doivent toujours avoir quatre colonnes. Un jeu de données d’entrée de trois colonnes produit une erreur semblable au message suivant :
 

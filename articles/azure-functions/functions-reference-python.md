@@ -13,30 +13,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615897"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207211"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
-Cet article est une introduction au développement d’Azure Functions avec Python. Le contenu ci-dessous suppose d’avoir lu le [Guide de développement Azure Functions](functions-reference.md).
+Cet article est une introduction au développement d’Azure Functions avec Python. Le contenu ci-dessous suppose d’avoir lu le [Guide de développement Azure Functions](functions-reference.md). 
+
+Pour obtenir des exemples de projets Functions autonomes en Python, consultez les [exemples Functions en Python](/samples/browse/?products=azure-functions&languages=python). 
 
 ## <a name="programming-model"></a>Modèle de programmation
 
-Une fonction Azure doit être une méthode sans état qui traite une entrée et produit une sortie dans un script Python. Par défaut, le runtime s’attend à ce que la méthode soit implémentée en tant que méthode globale nommée `main()` dans le fichier `__init__.py`.
-
-Vous pouvez modifier la configuration par défaut en spécifiant les propriétés `scriptFile` et `entryPoint` dans le fichier *function.json*. Par exemple, le fichier _function.json_ (voir ci-dessous) indique au runtime d’utiliser la méthode `customentry()` dans le fichier _main.py_ comme point d’entrée de la fonction Azure.
-
-```json
-{
-  "scriptFile": "main.py",
-  "entryPoint": "customentry",
-  ...
-}
-```
+Azure Functions s’attend à ce qu’une fonction soit une méthode sans état qui traite une entrée et produit une sortie dans un script Python. Par défaut, le runtime s’attend à ce que la méthode soit implémentée en tant que méthode globale nommée `main()` dans le fichier `__init__.py`. Vous pouvez également [spécifier un autre point d’entrée](#alternate-entry-point).
 
 Les données issues des déclencheurs et des liaisons sont liées à la fonction par des attributs de méthode avec la propriété `name` qui est définie dans le fichier *function.json*. L’exemple de fichier _function.json_ ci-dessous décrit une fonction simple déclenchée par une requête HTTP nommée `req` :
 
@@ -66,7 +58,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Si vous souhaitez utiliser les fonctionnalités IntelliSense et de saisie semi-automatique fournies par votre éditeur de code, vous pouvez également déclarer les types d’attributs et le type de retour dans la fonction à l’aide d’annotations Python. 
+Vous pouvez également déclarer explicitement les types d’attributs et le type de retour dans la fonction à l’aide des annotations de type Python. L’utilisation des fonctionnalités IntelliSense et de saisie semi-automatique fournies par de nombreux éditeurs de code Python s’en trouve facilitée.
 
 ```python
 import azure.functions
@@ -79,9 +71,23 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 Utilisez les annotations Python incluses dans le package [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) pour lier des entrées et des sorties à vos méthodes.
 
+## <a name="alternate-entry-point"></a>Autre point d’entrée
+
+Vous pouvez changer le comportement par défaut d’une fonction en spécifiant éventuellement les propriétés `scriptFile` et `entryPoint` dans le fichier *function.json*. Par exemple, le fichier _function.json_ (voir ci-dessous) indique au runtime d’utiliser la méthode `customentry()` dans le fichier _main.py_ comme point d’entrée de la fonction Azure.
+
+```json
+{
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
+  "bindings": [
+      ...
+  ]
+}
+```
+
 ## <a name="folder-structure"></a>Structure de dossiers
 
-La structure de dossiers d’un projet Python Functions se présente ainsi :
+La structure de dossiers d’un projet Python Functions se présente comme l’exemple suivant :
 
 ```
  FunctionApp
@@ -227,12 +233,48 @@ Des méthodes d’enregistrement supplémentaires permettent d’écrire dans la
 
 | Méthode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| logging.**critical(_message_)**   | Écrit un message de niveau CRITIQUE sur l’enregistreur racine.  |
-| logging.**error(_message_)**   | Écrit un message de niveau ERREUR sur l’enregistreur racine.    |
-| logging.**warning(_message_)**    | Écrit un message de niveau AVERTISSEMENT sur l’enregistreur racine.  |
-| logging.**info(_message_)**    | Écrit un message de niveau INFO sur l’enregistreur racine.  |
-| logging.**debug(_message_)** | Écrit un message de niveau DÉBOGAGE sur l’enregistreur racine.  |
+| **`critical(_message_)`**   | Écrit un message de niveau CRITIQUE sur l’enregistreur racine.  |
+| **`error(_message_)`**   | Écrit un message de niveau ERREUR sur l’enregistreur racine.    |
+| **`warning(_message_)`**    | Écrit un message de niveau AVERTISSEMENT sur l’enregistreur racine.  |
+| **`info(_message_)`**    | Écrit un message de niveau INFO sur l’enregistreur racine.  |
+| **`debug(_message_)`** | Écrit un message de niveau DÉBOGAGE sur l’enregistreur racine.  |
 
+Pour en savoir plus sur la journalisation, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+
+## <a name="http-trigger-and-bindings"></a>Déclencheur et liaisons HTTP
+
+Le déclencheur HTTP est défini dans le fichier function.jon. Le `name` de la liaison doit correspondre au paramètre nommé dans la fonction. Dans les exemples précédents, un nom de liaison `req` est utilisé. Ce paramètre est un objet [HttpRequest], et un objet [HttpResponse] est retourné.
+
+À partir de l’objet [HttpRequest], vous pouvez obtenir des en-têtes de demande, des paramètres de requête, des paramètres de route et le corps du message. 
+
+L’exemple suivant provient du [modèle de déclencheur HTTP pour Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    headers = {"my-http-header": "some-value"}
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+            
+    if name:
+        return func.HttpResponse(f"Hello {name}!", headers=headers)
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             headers=headers, status_code=400
+        )
+```
+
+Dans cette fonction, la valeur du paramètre de requête `name` est obtenue à partir du paramètre `params` de l’objet [HttpRequest]. Le corps du message encodé JSON est lu à l’aide de la méthode `get_json`. 
+
+De même, vous pouvez définir les `status_code` et `headers` pour le message de réponse dans l’objet [HttpResponse] retourné.
+                                                              
 ## <a name="async"></a>Async
 
 Nous vous recommandons d’écrire votre fonction Azure dans une coroutine asynchrone à l’aide de l’instruction `async def`.
@@ -245,7 +287,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Si la fonction main() est synchrone (sans qualificateur `async`), elle sera automatiquement exécutée dans un pool de threads `asyncio`.
+Si la fonction main() est synchrone (sans qualificateur), elle est automatiquement exécutée dans un pool de threads `asyncio`.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -297,6 +339,26 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
+## <a name="environment-variables"></a>Variables d’environnement
+
+Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposés en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres en déclarant `import os` puis en utilisant `setting = os.environ["setting-name"]`.
+
+L’exemple suivant obtient le [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings), avec la clé nommée `myAppSetting` :
+
+```python
+import logging
+import os
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Get the setting named 'myAppSetting'
+    my_app_setting_value = os.environ["myAppSetting"]
+    logging.info(f'My app setting value:{my_app_setting_value}')
+```
+
+Pour le développement local, les paramètres d’application sont [conservés dans le fichier local.settings.json](functions-run-local.md#local-settings-file).  
+
 ## <a name="python-version-and-package-management"></a>Version de Python et gestion des packages
 
 Actuellement, Azure Functions ne prend en charge que Python 3.6.x (distribution officielle de CPython).
@@ -316,6 +378,8 @@ pip install -r requirements.txt
 ## <a name="publishing-to-azure"></a>Publier sur Azure
 
 Avant de procéder à la publication, vérifiez que toutes les dépendances sont listées dans le fichier *requirements.txt*, situé à la racine de votre répertoire de projet. Azure Functions peut [créer à distance](functions-deployment-technologies.md#remote-build) ces dépendances.
+
+Les dossiers et fichiers projet qui sont exclus de la publication, y compris le dossier d’environnement virtuel, sont listés dans le fichier .funcignore.  
 
 Pour déployer sur Azure et effectuer une build distante, utilisez la commande suivante :
 
@@ -338,7 +402,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 En coulisses, Core Tools utilise Docker pour exécuter l’image [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) comme conteneur sur l’ordinateur local. Avec cet environnement, il génère alors les modules requis et les installe à partir de la distribution source, avant de les packager pour le déploiement final sur Azure.
 
-Pour générer les dépendances et effectuer la publication au moyen d’un système de livraison continue (CD), [utilisez Azure DevOps Pipelines](functions-how-to-azure-devops.md). 
+Pour générer les dépendances et effectuer la publication au moyen d’un système de livraison continue (CD), [utilisez Azure Pipelines](functions-how-to-azure-devops.md). 
 
 ## <a name="unit-testing"></a>Tests unitaires
 
@@ -462,6 +526,39 @@ class TestFunction(unittest.TestCase):
 
 Tous les problèmes connus et les demandes de fonctionnalités sont listés dans [Problèmes GitHub](https://github.com/Azure/azure-functions-python-worker/issues). Si vous rencontrez un problème qui n’apparaît pas dans GitHub, soumettez un nouveau problème en incluant une description détaillée.
 
+### <a name="cross-origin-resource-sharing"></a>Partage de ressources cross-origin
+
+Azure Functions prend en charge le partage des ressources cross-origin (CORS). CORS est configuré [dans le portail](functions-how-to-use-azure-function-app-settings.md#cors) et par le biais d’[Azure CLI](/cli/azure/functionapp/cors). La liste des origines autorisées CORS s’applique au niveau de l’application de fonction. Quand CORS est activé, les réponses incluent l’en-tête `Access-Control-Allow-Origin`. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](functions-how-to-use-azure-function-app-settings.md#cors).
+
+La liste des origines autorisées [n’est pas prise en charge](https://github.com/Azure/azure-functions-python-worker/issues/444) pour les applications de fonction Python. En raison de cette limitation, vous devez définir expressément l’en-tête `Access-Control-Allow-Origin` dans vos fonctions HTTP, comme indiqué dans l’exemple suivant :
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Define the allow origin headers.
+    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
+
+    # Set the headers in the response.
+    return func.HttpResponse(
+            f"Allowed origin '{headers}'.",
+            headers=headers, status_code=200
+    )
+``` 
+
+Veillez également à mettre à jour votre fichier function.json pour prendre en charge la méthode HTTP :
+
+```json
+    ...
+      "methods": [
+        "get",
+        "post",
+        "options"
+      ]
+    ...
+```
+
+Le navigateur Chrome utilise cette méthode pour négocier la liste des origines autorisées. 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les ressources suivantes :
@@ -473,3 +570,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Liaisons HTTP et Webhook](functions-bindings-http-webhook.md)
 * [Liaisons de Stockage File d’attente](functions-bindings-storage-queue.md)
 * [Déclencheur de minuteur](functions-bindings-timer.md)
+
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061374"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183194"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -143,7 +143,7 @@ Procédez comme suit pour supprimer votre client Azure AD B2C :
 1. Sélectionnez **Afficher toutes les applications**.
 1. Sélectionnez l’application nommée **b2c-extensions-app**, **Supprimer**, puis **Oui** lorsque vous y êtes invité.
 1. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
-1. Sous **Connexions au compte LinkedIn**, sélectionnez **Non**, puis **Enregistrer**.
+1. Le cas échéant, sous **Connexions au compte LinkedIn**, sélectionnez **Non**, puis **Enregistrer**.
 1. Sous **Gérer**, sélectionnez **Propriétés**.
 1. Sous **Gestion de l’accès pour les ressources Azure**, sélectionnez **Oui**, puis **Enregistrer**.
 1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous pour actualiser votre accès.

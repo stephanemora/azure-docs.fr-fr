@@ -7,20 +7,20 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543512"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194624"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
-Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/dsc) (DSC) pour créer la configuration pour l’audit de machines virtuelles Azure. La configuration DSC définit la condition dans laquelle la machine virtuelle doit se trouver. Si l’évaluation de la configuration échoue, l’**audit** d’effet de stratégie est déclenché et la machine virtuelle est considérée comme **non conforme**.
+Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/dsc) (DSC) pour créer la configuration pour l’audit de machines Azure. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
 
-La [configuration d’invité Azure Policy](/azure/governance/policy/concepts/guest-configuration) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines virtuelles. La correction des paramètres à l’intérieur des machines virtuelles n’est pas encore disponible.
+La [configuration d’invité Azure Policy](/azure/governance/policy/concepts/guest-configuration) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
 
-Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine virtuelle Azure.
+Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine Azure.
 
 > [!IMPORTANT]
 > Les stratégies personnalisées avec Guest Configuration sont une fonctionnalité en préversion.
@@ -133,18 +133,18 @@ Paramètres de la cmdlet `New-GuestConfigurationPackage` :
 - **Chemin d’accès** : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
 - **ChefProfilePath** : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
 
-Le package terminé doit être stocké à un emplacement accessible par les machines virtuelles gérées. Exemples : référentiels GitHub, référentiel Azure ou stockage Azure. Si vous préférez ne pas rendre le package public, vous pouvez inclure un [jeton SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) dans l’URL. Vous pouvez également implémenter le [point de terminaison de service](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) pour les machines virtuelles dans un réseau privé, bien que cette configuration s’applique uniquement à l’accès au package et ne communique pas avec le service.
+Le package terminé doit être stocké à un emplacement accessible par les machines virtuelles gérées. Exemples : référentiels GitHub, référentiel Azure ou stockage Azure. Si vous préférez ne pas rendre le package public, vous pouvez inclure un [jeton SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) dans l’URL. Vous pouvez également implémenter le [point de terminaison de service](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) pour les machines dans un réseau privé, bien que cette configuration s’applique uniquement à l’accès au package et ne communique pas avec le service.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>Utilisation des secrets dans les packages Guest Configuration
 
 Dans la configuration Guest Configuration d’Azure Policy, le meilleur moyen de gérer les secrets utilisés lors de l’exécution est de les stocker dans Azure Key Vault. Cette conception est implémentée au sein des ressources DSC personnalisées.
 
-Créez d’abord une identité managée affectée par l’utilisateur dans Azure. L’identité est utilisée par les machines virtuelles pour accéder aux secrets stockés dans Key Vault. Pour plus d’informations, consultez [Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Créez d’abord une identité managée affectée par l’utilisateur dans Azure. L’identité est utilisée par les machines pour accéder aux secrets stockés dans Key Vault. Pour plus d’informations, consultez [Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 Créez ensuite une instance Key Vault. Pour plus d’informations, consultez [Définir et récupérer un secret : PowerShell](../../../key-vault/quick-create-powershell.md).
-Affectez des autorisations à l’instance pour donner à l’identité affectée par l’utilisateur l’accès aux secrets stockés dans Key Vault. Pour plus d’informations, consultez [Définir et récupérer un secret : .NET](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault).
+Affectez des autorisations à l’instance pour donner à l’identité affectée par l’utilisateur l’accès aux secrets stockés dans Key Vault. Pour plus d’informations, consultez [Définir et récupérer un secret : .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Attribuez ensuite l’identité affectée par l’utilisateur à votre machine virtuelle. Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+Attribuez ensuite l’identité affectée par l’utilisateur à votre machine. Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 À l’échelle, attribuez cette identité à l’aide d’Azure Resource Manager via Azure Policy. Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
 Enfin, dans votre ressource personnalisée, utilisez l’ID client généré ci-dessus pour accéder à Key Vault à l’aide du jeton disponible à partir de l’ordinateur. Le `client_id` et l’URL de l’instance Key Vault peuvent être passés à la ressource en tant que [propriétés](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) pour que la ressource n’ait pas à être mise à jour pour plusieurs environnement, ou si les valeurs doivent être modifiées.
@@ -165,7 +165,7 @@ $credential = New-Object System.Management.Automation.PSCredential('secret',$val
 
 ## <a name="test-a-guest-configuration-package"></a>Tester un package Guest Configuration
 
-Après avoir créé le package de configuration, et avant de le publier sur Azure, vous pouvez tester la fonctionnalité du package à partir de votre station de travail ou de votre environnement d’intégration CI/CD. Le module GuestConfiguration comprend une cmdlet `Test-GuestConfigurationPackage` qui charge le même agent dans votre environnement de développement que celui utilisé dans les machines virtuelles Azure. Via cette solution, vous pouvez effectuer un test d’intégration en local avant la publication dans des environnements de production/AQ/test facturés.
+Après avoir créé le package de configuration, et avant de le publier sur Azure, vous pouvez tester la fonctionnalité du package à partir de votre station de travail ou de votre environnement d’intégration CI/CD. Le module GuestConfiguration comprend une applet de commande `Test-GuestConfigurationPackage` qui charge le même agent dans votre environnement de développement que celui utilisé dans les machines Azure. Via cette solution, vous pouvez effectuer un test d’intégration en local avant la publication dans des environnements de production/AQ/test facturés.
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
@@ -187,7 +187,7 @@ Pour savoir comment tester avec des paramètres, consultez la section ci-dessous
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Créer la définition Azure Policy et les fichiers de déploiement d’initiative
 
-Une fois qu’un package de stratégie personnalisée Guest Configuration a été créé et chargé dans un emplacement accessible par les machines virtuelles, créez la définition de la stratégie Guest Configuration pour Azure Policy. La cmdlet `New-GuestConfigurationPolicy` prend un package de stratégie personnalisée Guest Configuration accessible publiquement et crée une définition de stratégie **auditIfNotExists** et **deployIfNotExists**. Une définition d’initiative de stratégie qui comprend les deux définitions de stratégie est également créée.
+Une fois qu’un package de stratégie personnalisée Guest Configuration a été créé et chargé dans un emplacement accessible par les machines, créez la définition de la stratégie Guest Configuration pour Azure Policy. La cmdlet `New-GuestConfigurationPolicy` prend un package de stratégie personnalisée Guest Configuration accessible publiquement et crée une définition de stratégie **auditIfNotExists** et **deployIfNotExists**. Une définition d’initiative de stratégie qui comprend les deux définitions de stratégie est également créée.
 
 L’exemple suivant crée les définitions de stratégie et d’initiative dans un chemin d’accès spécifié à partir d’un package de stratégie personnalisée Guest Configuration pour Windows et fournit un nom, une description et une version :
 
@@ -220,7 +220,7 @@ Les fichiers suivants sont créés par `New-GuestConfigurationPolicy` :
 
 La sortie de la cmdlet retourne un objet contenant le nom complet de l’initiative et le chemin d’accès aux fichiers de stratégie.
 
-Si vous souhaitez utiliser cette commande pour structurer un projet de stratégie personnalisée, vous pouvez effectuer les modifications à ces fichiers. Par exemple, vous pouvez modifier la section « if » pour évaluer si une balise spécifique est présente pour les machines virtuelles. Pour plus d’informations sur la création de stratégies, consultez [Créer des stratégies par programmation](./programmatically-create.md).
+Si vous souhaitez utiliser cette commande pour structurer un projet de stratégie personnalisée, vous pouvez effectuer les modifications à ces fichiers. Par exemple, vous pouvez modifier la section « if » pour évaluer si une balise spécifique est présente pour les machines. Pour plus d’informations sur la création de stratégies, consultez [Créer des stratégies par programmation](./programmatically-create.md).
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Utilisation de paramètres dans des stratégies personnalisées Guest Configuration
 
@@ -318,11 +318,11 @@ Avec les définitions de stratégie et d’initiative créées dans Azure, la de
 
 Une fois que vous avez publié une stratégie Azure Policy personnalisée à l’aide de votre package de contenu personnalisé, vous devez mettre à jour deux champs si vous souhaitez publier une nouvelle version.
 
-- **Version** : Lorsque vous exécute la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celle qui est actuellement publiée.  Cette opération met à jour la version de l’attribution Guest Configuration dans le nouveau fichier de stratégie pour que l’extension reconnaisse que le package a été mis à jour.
-- **contentHash** : Automatiquement mis à jour par la cmdlet `New-GuestConfigurationPolicy`.  Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`.  Cette valeur doit être correcte pour le fichier `.zip` que vous publiez.  Si seule la propriété `contentUri` est mise à jour, par exemple si une personne peut apporter une modification manuelle à la définition de stratégie à partir du portail, l’extension n’acceptera pas le package de contenu.
+- **Version** : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.  Cette propriété met à jour la version de l’attribution Guest Configuration dans le nouveau fichier de stratégie pour que l’extension reconnaisse que le package a été mis à jour.
+- **contentHash** : Cette propriété est automatiquement mise à jour par l’applet de commande `New-GuestConfigurationPolicy`.  Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`.  Cette propriété doit être correcte pour le fichier `.zip` que vous publiez.  Si seule la propriété `contentUri` est mise à jour, par exemple si une personne peut apporter une modification manuelle à la définition de stratégie à partir du portail, l’extension n’acceptera pas le package de contenu.
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour.
-Cela permet de garantir que toutes les propriétés ont été correctement mises à jour.
+Ce processus garantit que toutes les propriétés ont été correctement mises à jour.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversion de contenu de stratégie de groupe Windows en configuration d’invité Azure Policy
 
@@ -337,7 +337,7 @@ Une fois que le contenu a été converti, les étapes ci-dessus pour créer un p
 Les stratégies personnalisées Guest Configuration utilisent par défaut le hachage SHA256 pour valider que le package de stratégie n’a pas été modifié entre sa publication et sa lecture par le secteur qui est l’objet d’un audit.
 Si vous le souhaitez, les clients peuvent également utiliser un certificat pour signer des packages et forcer l’extension Guest Configuration à autoriser uniquement le contenu signé.
 
-Pour activer ce scénario, vous devez effectuer deux étapes. Exécutez la cmdlet pour signer le package de contenu, et ajoutez une balise aux machines virtuelles qui doivent nécessiter du code pour être signées.
+Pour activer ce scénario, vous devez effectuer deux étapes. Exécutez l’applet de commande pour signer le package de contenu et ajoutez une balise aux machines qui doivent nécessiter du code pour être signées.
 
 Pour utiliser la fonctionnalité de validation de signature, exécutez la cmdlet `Protect-GuestConfigurationPackage` pour signer le package avant sa publication. Cette cmdlet nécessite un certificat de « signature du code ».
 
@@ -353,20 +353,27 @@ Paramètres de la cmdlet `Protect-GuestConfigurationPackage` :
 - **PrivateGpgKeyPath** : Chemin d'accès à la clé GPG privée. Ce paramètre est uniquement pris en charge lors de la signature de contenu pour Linux.
 - **PublicGpgKeyPath** : Chemin d'accès à la clé GPG publique. Ce paramètre est uniquement pris en charge lors de la signature de contenu pour Linux.
 
-L’agent GuestConfiguration s’attend à trouver la clé publique du certificat dans « Autorités de certification racines de confiance » sur des machines Windows et dans le chemin `/usr/local/share/ca-certificates/extra` sur des machines Linux. Pour que le nœud vérifie le contenu signé, installez la clé publique du certificat sur la machine virtuelle avant d’appliquer la stratégie personnalisée. Ce processus peut être effectué à l’aide de n’importe quelle technique à l’intérieur de la machine virtuelle, ou à l’aide d’Azure Policy. Vous trouverez un exemple modèle en suivant [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+L’agent GuestConfiguration s’attend à trouver la clé publique du certificat dans « Autorités de certification racines de confiance » sur des machines Windows et dans le chemin `/usr/local/share/ca-certificates/extra` sur des machines Linux. Pour que le nœud vérifie le contenu signé, installez la clé publique du certificat sur la machine avant d’appliquer la stratégie personnalisée. Ce processus peut être effectué à l’aide de n’importe quelle technique à l’intérieur de la machine virtuelle, ou à l’aide d’Azure Policy. Vous trouverez un exemple modèle en suivant [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
 La stratégie d’accès Key Vault doit autoriser le fournisseur de ressources de calcul à accéder aux certificats lors des déploiements. Pour les étapes détaillées, consultez [Configurer Key Vault pour des machines virtuelles dans Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
-Voici un exemple d’exportation de la clé publique à partir d’un certificat de signature, à importer vers la machine virtuelle.
+Voici un exemple d’exportation de la clé publique à partir d’un certificat de signature, à importer vers la machine.
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
-Vous trouverez une bonne référence de création de clés GPG à utiliser avec les machines virtuelles Linux dans cet article sur GitHub, [Génération d’une clé GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
+Vous trouverez une bonne référence de création de clés GPG à utiliser avec les machines Linux dans cet article sur GitHub, [Génération d’une clé GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 Une fois votre contenu publié, ajoutez une balise nommée `GuestConfigPolicyCertificateValidation` et avec une valeur `enabled` à toutes les machines virtuelles où la signature du code doit être requise. Cette balise peut être fournie à l’échelle à l’aide d’Azure Policy. Consultez l’exemple [Appliquer la balise et sa valeur par défaut](../samples/apply-tag-default-value.md).
 Une fois cette balise en place, la définition de stratégie générée via la cmdlet `New-GuestConfigurationPolicy` met en œuvre l’exigence via l’extension Guest Configuration.
+
+## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[PRÉVERSION] Résolution des problèmes liés aux attributions de stratégie Guest Configuration
+
+Un outil est disponible en préversion pour favoriser la résolution des problèmes liés aux attributions de configuration d’invité Azure Policy.
+L’outil est en préversion et a été publié sur PowerShell Gallery avec le nom de module [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
+
+Pour plus d’informations sur les applets de commande de cet outil, utilisez la commande Get-Help dans PowerShell pour afficher les conseils intégrés.  Comme l’outil fait l’objet de mises à jour fréquentes, c’est la meilleure façon d’obtenir les informations les plus récentes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

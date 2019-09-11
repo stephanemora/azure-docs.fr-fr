@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358676"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183541"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning service, Azure Kubernetes Service et Azure Container Instances
 
@@ -204,6 +204,9 @@ print(prediction)
 
 Pendant le test local, vous devrez peut-être mettre à jour le fichier `score.py` pour ajouter la journalisation ou tenter de résoudre les problèmes détectés. Pour recharger les modifications apportées au fichier `score.py`, utilisez `reload()`. Par exemple, le code suivant recharge le script pour le service et lui envoie des données. Les données sont calculées à l’aide du fichier `score.py` mis à jour :
 
+> [!IMPORTANT]
+> La méthode `reload` est disponible uniquement pour les déploiements locaux. Pour plus d’informations sur la mise à jour d’un déploiement vers une autre cible de calcul, consultez la section mise à jour de [Déployer des modèles](how-to-deploy-and-where.md#update).
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -240,7 +243,7 @@ Une fois l’image correctement générée, le système tente de démarrer un co
 
 Utilisez les informations de la section [Examiner le journal Docker](#dockerlog) pour vérifier les journaux.
 
-## <a name="function-fails-getmodelpath"></a>Échec de la fonction : get_model_path()
+## <a name="function-fails-get_model_path"></a>Échec de la fonction : get_model_path()
 
 Souvent, dans la fonction `init()` du script de scoring, la fonction [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) est appelée pour rechercher un fichier de modèle ou un dossier de fichiers de modèle dans le conteneur. Si le fichier ou le dossier de modèle est introuvable, la fonction échoue. Le moyen le plus simple de déboguer cette erreur consiste à exécuter le code Python ci-dessous dans l’interpréteur de commandes du conteneur :
 
@@ -255,7 +258,7 @@ Cet exemple affiche le chemin local (relatif à `/var/azureml-app`) sur le conte
 
 La définition du niveau de journalisation sur DEBUG peut entraîner l’enregistrement d’informations supplémentaires, qui peuvent être utiles pour identifier l’échec.
 
-## <a name="function-fails-runinputdata"></a>Échec de la fonction : run(input_data)
+## <a name="function-fails-runinput_data"></a>Échec de la fonction : run(input_data)
 
 Si le service est déployé avec succès, mais qu’il plante quand vous publiez des données sur le point de terminaison de scoring, vous pouvez ajouter une instruction d’interception d’erreur dans votre fonction `run(input_data)` afin qu’elle retourne un message d’erreur détaillé. Par exemple :
 

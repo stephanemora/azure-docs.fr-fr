@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeed84f19da3843d043eafef9d7444661901c53e
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028169"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147143"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites dans Azure Blockchain Service
 
@@ -34,7 +34,7 @@ La modification du niveau tarifaire entre le niveau De base et le niveau Standar
 
 ## <a name="storage-capacity"></a>Capacité de stockage
 
-La quantité de stockage maximale qui peut être utilisée par nœud pour les journaux et données de registre est 1 To.
+La quantité de stockage maximale qui peut être utilisée par nœud pour les journaux et données de registre est 1.8 To.
 
 La diminution de la taille de stockage des registres et journaux n’est pas prise en charge.
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114293"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147906"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la configuration de votre application web, consultez la documentation [App Service sur Linux](/azure/app-service/containers/).
-* Pour plus d’informations sur la mise à l’échelle, consultez [Bien démarrer avec la mise à l’échelle automatique dans Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* Pour plus d’informations sur la prise en charge de SSL, consultez [Utiliser un certificat SSL dans Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
-* Pour plus d’informations sur l’authentification, consultez [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](/azure/app-service/configure-authentication-provider-aad).
+* Découvrez comment configurer votre application web dans la documentation sur [App service sur Linux](/azure/app-service/containers/).
+* Découvrez la mise à l’échelle dans [Bien démarrer avec la mise à l’échelle automatique dans Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Utiliser un certificat SSL dans votre Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](/azure/app-service/configure-authentication-provider-aad).
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)

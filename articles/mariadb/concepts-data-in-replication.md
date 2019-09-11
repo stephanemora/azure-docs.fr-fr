@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 28c2c01e85120ec17e6f782fb0686a627d50d0d0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839250"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136741"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Répliquer des données dans Azure Database for MariaDB
 
@@ -34,6 +34,10 @@ La [*base de données système mysql*](https://mariadb.com/kb/en/library/the-mys
 - Chaque table doit avoir une clé primaire.
 - Le serveur maître doit utiliser le moteur InnoDB.
 - L’utilisateur doit disposer des autorisations nécessaires pour configurer la journalisation binaire et créer de nouveaux utilisateurs sur le serveur maître.
+- Si SSL est activé sur le serveur maître, vérifiez que le certificat d’autorité de certification SSL fourni pour le domaine a été inclus dans la procédure stockée `mariadb.az_replication_change_master`. Consultez les [exemples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) suivants et le paramètre `master_ssl_ca`.
+- Vérifiez que l’adresse IP du serveur maître a été ajoutée aux règles de pare-feu du serveur réplica Azure Database for MariaDB. Mettez à jour les règles de pare-feu à l’aide du [portail Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) ou d’[Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Vérifiez que la machine qui héberge le serveur maître autorise à la fois le trafic entrant et le trafic sortant sur le port 3306.
+- Vérifiez que le serveur maître dispose d’une **adresse IP publique** ou que le DNS est public
 
 ### <a name="other"></a>Autres
 - La réplication des données entrantes est prise en charge uniquement dans les niveaux tarifaires Usage général et Mémoire optimisée.

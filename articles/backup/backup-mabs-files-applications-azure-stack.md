@@ -6,16 +6,17 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/5/2018
+ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735472"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210213"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Sauvegarder des fichiers et applications sur Azure Stack
+
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
 
 > [!NOTE]
@@ -23,7 +24,6 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichie
 >
 
 Cet article ne couvre pas l’installation du serveur de sauvegarde Azure dans l’environnement Azure Stack. Pour installer un serveur de sauvegarde Azure sur Azure Stack, voir l’article [Installer un serveur de sauvegarde Azure](backup-mabs-install-azure-stack.md).
-
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Sauvegarder des fichiers et des dossiers dans des machines virtuelles Azure Stack sur Azure
 
@@ -41,7 +41,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-    L’écran **Sélectionner les membres du groupe** s’ouvre. 
+    L’écran **Sélectionner les membres du groupe** s’ouvre.
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
@@ -63,7 +63,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
     > Vous ne devez **pas** conserver des données de récupération (sauvegarde) opérationnelle sur des disques attachés à un serveur de sauvegarde Azure pendant plus de cinq jours.
     >
 
-    ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+    ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     Au lieu de sélectionner un intervalle pour les sauvegardes incrémentielles, pour exécuter une sauvegarde complète rapide juste avant chaque point de récupération planifié, cliquez sur **Just before a recovery point** (Juste avant un point de récupération). Si vous protégez des charges de travail d’application, le serveur de sauvegarde Azure crée des points de récupération selon la fréquence de synchronisation planifiée (à condition que l’application prenne en charge les sauvegardes incrémentielles). Si l’application ne prend pas en charge les sauvegardes incrémentielles, le serveur de sauvegarde Azure exécute une sauvegarde complète rapide.
 
@@ -80,13 +80,13 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
 9. Si vous avez choisi de sauvegarder dans Azure, dans la page **Indiquer les données de protection en ligne**, veillez à sélectionner les charges de travail que vous souhaitez sauvegarder dans Azure.
 
-10. Sous **Spécifier la planification de sauvegarde en ligne**, indiquez quand doivent avoir lieu les sauvegardes incrémentielles dans Azure. 
+10. Sous **Spécifier la planification de sauvegarde en ligne**, indiquez quand doivent avoir lieu les sauvegardes incrémentielles dans Azure.
 
     Vous pouvez planifier des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles, ainsi que sélectionner la date et l’heure de leur exécution. Les sauvegardes peuvent avoir lieu jusqu’à deux fois par jour. Chaque fois qu’une sauvegarde de travail s’exécute, un point de récupération de données est créé dans Azure à partir de la copie des données de sauvegarde stockées sur le disque du serveur de sauvegarde Azure.
 
 11. Sous **Spécifier la stratégie de rétention en ligne**, sélectionnez la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 
-12. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire. 
+12. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire.
 
 13. Sous **Résumé**, vérifiez vos paramètres. Lorsque vous cliquez sur **Créer un groupe**, la réplication initiale des données se produit. Une fois la réplication des données terminée, dans la page **État**, l’état du groupe de protection est **OK**. Le travail de sauvegarde initiale a lieu conformément aux paramètres du groupe de protection.
 
@@ -115,11 +115,10 @@ Utilisez la console du serveur de sauvegarde Azure pour récupérer des données
     * **Notification** Cliquez sur **Send an e-mail when the recovery completes** (Envoyer un e-mail lorsque cette récupération est terminée), puis indiquez les destinataires qui recevront la notification. Séparez les adresses de messagerie par des virgules.
     * Après avoir fait vos choix, cliquez sur **Suivant**.
 
-7. Vérifiez vos paramètres de récupération, puis cliquez sur **Récupérer**. 
+7. Vérifiez vos paramètres de récupération, puis cliquez sur **Récupérer**.
 
-    > [!Note] 
-    > Pendant l’exécution du travail de récupération, tous les travaux de synchronisation des éléments de récupération sélectionnés sont annulés.
-    >
+    >[!Note]
+    >Pendant l’exécution du travail de récupération, tous les travaux de synchronisation des éléments de récupération sélectionnés sont annulés.
 
 Si vous utilisez le stockage de sauvegarde moderne (MBS), la récupération par l’utilisateur final (EUR) du serveur de fichiers n’est pas prise en charge. L’EUR du serveur de fichiers comporte une dépendance sur le service VSS (Volume Shadow Copy), que le stockage de sauvegarde moderne n’utilise pas. Si l’EUR est activé, utilisez les étapes suivantes pour récupérer des données :
 
@@ -128,12 +127,16 @@ Si vous utilisez le stockage de sauvegarde moderne (MBS), la récupération par 
 2. Dans le menu **Propriétés**, cliquez sur **Versions précédentes** et choisissez la version que vous souhaitez récupérer.
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Afficher le serveur de sauvegarde Azure avec un coffre
-Pour afficher les entités du serveur de sauvegarde Azure sur le Portail Azure, vous pouvez suivre les étapes ci-dessous :
+
+Pour voir les entités du serveur de sauvegarde Azure sur le portail Azure, vous pouvez suivre les étapes ci-dessous :
+
 1. Ouvrir le coffre Recovery Services.
 2. Cliquer sur Infrastructure de sauvegarde.
 3. Afficher la liste des serveurs de gestion des sauvegardes.
 
 ## <a name="see-also"></a>Voir aussi
+
 Pour plus d’informations sur l’utilisation d’un serveur de sauvegarde Azure pour protéger d’autres charges de travail, voir les articles suivants :
-- [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Sauvegarder SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+
+* [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+* [Sauvegarder SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
