@@ -1,6 +1,6 @@
 ---
 title: Configurer l’authentification Twitter – Azure App Service
-description: Découvrez comment configurer l'authentification Twitter pour votre application App Services.
+description: Découvrez comment configurer l'authentification Twitter pour votre application App Service.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 728eacdcb0ee0d0bee878ff4764b1ca5e430c59c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d49b8bf9c62813023c1a1e06e0f8fc0d7809f48d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088195"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232057"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,8 +31,8 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 ## <a name="register"></a>Inscription de votre application avec Twitter
 1. Connectez-vous au [portail Azure]et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Twitter.
 2. Accédez au site web [Twitter Developers] , connectez-vous avec vos identifiants Twitter, puis cliquez sur **Create New App**.
-3. Entrez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL** de votre application en guise de **Site web**. Ensuite, pour l’**URL de rappel**, collez l’**URL de rappel** que vous avez copiée précédemment. Il s’agit de la passerelle de votre application Mobile App suivie du chemin */.auth/login/twitter/callback*. Par exemple, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assurez-vous d'utiliser le schéma HTTPS.
-4. Au bas de la page, lisez et acceptez les termes du contrat. Ensuite, cliquez sur **Create your Twitter application**. Cette opération inscrit l'application et affiche les détails de la demande.
+3. Entrez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL** de votre application en guise de **Site web**. Ensuite, pour l'**URL de rappel**, entrez l’URL de votre application App Service et ajoutez le chemin d'accès `/.auth/login/aad/callback`. Par exemple : `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assurez-vous d'utiliser le schéma HTTPS.
+4. Au bas de la page, lisez et acceptez les termes du contrat. Ensuite, cliquez sur **Create your Twitter application**. Les détails de l’application s’affichent.
 5. Cliquez sur l’onglet **Paramètres**, activez l’option **Autoriser la connexion à Twitter via cette application**, puis cliquez sur **Mettre à jour les paramètres**.
 6. Sélectionnez l’onglet **Keys and Access Tokens** . Prenez note des valeurs de **Clé de consommateur (clé API)** et de **Secret de consommateur (clé secrète API)** .
    
@@ -51,7 +51,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
    Par défaut, App Service fournit une authentification, mais ne restreint pas l'accès autorisé à votre contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.
 4. (Facultatif) Pour restreindre l’accès à votre site aux seuls utilisateurs authentifiés par Twitter, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Twitter**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers Twitter pour être authentifiées.
 
-> [!CAUTION]
+> [!NOTE]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique. Pour de telles applications **Autoriser les demandes anonymes (aucune action)** peut être préféré. L’application démarre alors elle-même manuellement la connexion, comme décrit [ici](overview-authentication-authorization.md#authentication-flow).
 
 5. Cliquez sur **Enregistrer**.

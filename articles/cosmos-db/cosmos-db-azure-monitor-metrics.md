@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: 2eb61a6b9afa3cabf1733be120dfbdacb7de4534
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/01/2019
+ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276530"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241223"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Superviser et déboguer des métriques Azure Cosmos DB à partir d’Azure Monitor
 
@@ -54,8 +54,8 @@ Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la di
             
 |Métrique (Nom d’affichage de la métrique)|Unité (Type d’agrégation) |Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (Nombre total de requêtes) | Count (Nombre) | Nombre de requêtes effectuées| DatabaseName, CollectionName, Region, StatusCode| Tous | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Erreur interne du service, Service indisponible, Requêtes limitées, Requêtes moyennes par seconde | Permet de surveiller les requêtes par code d'état, collection à une granularité d'une minute. Pour obtenir les requêtes moyennes par seconde, utilisez l'agrégation Count pour une minute et divisez-la par 60. |
-| MetadataRequests (Requêtes de métadonnées) |Count (Nombre) | Nombre de demandes de métadonnées. Azure Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement. | DatabaseName, CollectionName, Region, StatusCode| Tous| |Permet de surveiller les limitations dues aux requêtes de métadonnées.|
+| TotalRequests (Nombre total de requêtes) | Count (Nombre) | Nombre de requêtes effectuées| DatabaseName, CollectionName, Region, StatusCode| Tous | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Erreur interne du service, Service indisponible, Requêtes limitées, Requêtes moyennes par seconde | Permet de surveiller les requêtes par code d'état, conteneur à une granularité d'une minute. Pour obtenir les requêtes moyennes par seconde, utilisez l'agrégation Count pour une minute et divisez-la par 60. |
+| MetadataRequests (Requêtes de métadonnées) |Count (Nombre) | Nombre de demandes de métadonnées. Azure Cosmos DB gère le conteneur des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement. | DatabaseName, CollectionName, Region, StatusCode| Tous| |Permet de surveiller les limitations dues aux requêtes de métadonnées.|
 | MongoRequests (Requêtes Mongo) | Count (Nombre) | Nombre de requêtes Mongo effectuées | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tous |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Permet de surveiller les erreurs de requête Mongo, les utilisations par type de commande. |
 
 ### <a name="request-unit-metrics"></a>Métriques d’unités de requête
@@ -64,17 +64,17 @@ Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la di
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Frais des requêtes Mongo) | Count (Total) |Unités de requête Mongo consommées| DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tous |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Permet de surveiller les unités de requête des ressources Mongo en une minute.|
 | TotalRequestUnits (Nombre total d’unités de requête)| Count (Total) | Unités de requête consommées| DatabaseName, CollectionName, Region, StatusCode |Tous| TotalRequestUnits| Permet de surveiller l’utilisation total des unités de requête à une granularité d’une minute. Pour obtenir les unités de requête moyennes consommées par seconde, utilisez l'agrégation Total pour une minute et divisez-la par 60.|
-| ProvisionedThroughput (Débit provisionné)| Count (Maximum) |Débit approvisionné à la granularité de la collection| DatabaseName, CollectionName| 5 Mo| | Permet de surveiller le débit approvisionné par collection.|
+| ProvisionedThroughput (Débit provisionné)| Count (Maximum) |Débit approvisionné à la granularité du conteneur| DatabaseName, ContainerName| 5 Mo| | Permet de surveiller le débit approvisionné par conteneur.|
 
 ### <a name="storage-metrics"></a>Métriques de stockage
 
 |Métrique (Nom d’affichage de la métrique)|Unité (Type d’agrégation)|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage (Stockage disponible) |Octets (Total) | Stockage total disponible signalé à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo| Stockage disponible| Permet de surveiller la capacité de stockage disponible (applicable uniquement aux collections de stockage fixe) La granularité minimale doit être de 5 minutes.| 
-| DataUsage (Utilisation des données) |Octets (Total) |Utilisation totale des données signalée à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo |Taille des données | Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
-| IndexUsage (Utilisation d’index) | Octets (Total) |Utilisation d’index totale signalée à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo| Taille d'index| Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes. |
-| DocumentQuota (Quota de document) | Octets (Total) | Quota de stockage total signalé à une granularité de 5 minutes par région.| DatabaseName, CollectionName, Region| 5 Mo |Capacité de stockage| Permet de surveiller le quota total d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
-| DocumentCount (Nombre de documents) | Count (Total) |Nombre total de documents signalé à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo |Nombre de documents|Permet de surveiller le nombre de document total d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
+| DataUsage (Utilisation des données) |Octets (Total) |Utilisation totale des données signalée à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo |Taille des données | Permet de surveiller l'utilisation totale des données d'un conteneur et d'une région, la granularité minimale doit être de 5 minutes.|
+| IndexUsage (Utilisation d’index) | Octets (Total) |Utilisation d’index totale signalée à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo| Taille d'index| Permet de surveiller l'utilisation totale des données d'un conteneur et d'une région, la granularité minimale doit être de 5 minutes. |
+| DocumentQuota (Quota de document) | Octets (Total) | Quota de stockage total signalé à une granularité de 5 minutes par région.| DatabaseName, CollectionName, Region| 5 Mo |Capacité de stockage| Permet de surveiller le quota total des données d'un conteneur et d'une région, la granularité minimale doit être de 5 minutes.|
+| DocumentCount (Nombre de documents) | Count (Total) |Nombre total de documents signalé à une granularité de 5 minutes par région| DatabaseName, CollectionName, Region| 5 Mo |Nombre de documents|Permet de surveiller le nombre de documents d'un conteneur et d'une région, la granularité minimale doit être de 5 minutes.|
 
 ### <a name="latency-metrics"></a>Métriques de latence
 

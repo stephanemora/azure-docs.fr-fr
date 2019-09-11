@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240210"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390403"
 ---
 ::: zone target="chromeless"
 
@@ -85,12 +85,9 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour l’enlèvement en Australie.
 
-1. Envoyez un e-mail à `adbops@microsoft.com` pour demander l’étiquette d’expédition avec un ID entrant unique ou le code TAU. Faites votre demande au moins 3 jours avant la date d’expédition prévue pour obtenir l’étiquette à temps.
-2. L’objet de l’e-mail doit être : *Demande d’étiquette d’expédition inverse avec code TAU*. Veillez à inclure les informations suivantes dans l’e-mail : 
-
-    - Nom de la commande
-    - Adresse
-    - Nom du contact
+1. Utilisez l’étiquette d’expédition de retour et assurez-vous que le code TAU (numéro de référence) est écrit dessus. Si l’étiquette d’expédition fournie est manquante ou si vous rencontrez tout autre problème, envoyez un e-mail à [Data Box Asia Operations](mailto:adbo@microsoft.com). Indiquez le nom de la commande dans l’en-tête d’objet et les détails du problème auquel vous êtes confronté.
+3. Collez l’étiquette sur le colis. 
+4. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
 ### <a name="pick-up-in-asia"></a>Enlèvement en Asie
 

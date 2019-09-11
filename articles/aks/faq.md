@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381967"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241795"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur l’utilisation de kured, consultez [Appliquer le
 
 ### <a name="windows-server-nodes"></a>Nœuds Windows Server
 
-Pour les nœuds Windows Server (actuellement en préversion dans AKS), Windows Update ne s’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Pour les nœuds Windows Server (actuellement en préversion dans AKS), Windows Update ne s’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le cluster ou le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 
@@ -66,7 +66,7 @@ Chaque déploiement AKS s’étend sur deux groupes de ressources :
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Puis-je nommer mon groupe de ressources d’infrastructure AKS comme je le veux ?
 
-Oui. Par défaut, AKS nomme le groupe de ressources de nœud *MC_clustername_resourcegroupname_location*, mais vous pouvez également entrer votre propre nom.
+Oui. Par défaut, AKS nomme le groupe de ressources de nœud *MC_resourcegroupname_clustername_location*, mais vous pouvez également entrer votre propre nom.
 
 Pour spécifier votre propre nom de groupe de ressources, installez la version *0.3.2* ou une version ultérieure de l’extension Azure CLI [aks-preview][aks-preview-cli]. Lorsque vous créez un cluster AKS à l’aide de la commande [az aks create][az-aks-create], utilisez le paramètre *--node-resource-group* et spécifiez un nom pour le groupe de ressources. Si vous [utilisez un modèle Azure Resource Manager][aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources à l’aide de la propriété *nodeResourceGroup*.
 
@@ -114,7 +114,9 @@ La prise en charge des pools de nœuds dans Windows Server comprend certaines li
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
 
-Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le coût du service au client si le niveau de service publié n’est pas respecté. Comme AKS est gratuit, aucun coût ne peut être remboursé, de sorte qu’AKS n’a aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
+Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le coût du service au client si le niveau de service publié n’est pas respecté. AKS étant gratuit, aucun coût ne peut être remboursé, et dès lors, AKS ne dispose d'aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
+
+Il est important de bien distinguer la disponibilité du service AKS, qui fait référence au temps de fonctionnement du plan de contrôle Kubernetes, et la disponibilité de votre charge de travail spécifique, qui s’exécute sur les machines virtuelles Azure. Même si le plan de contrôle n'est pas prêt et donc indisponible, vos charges de travail de cluster s’exécutant sur des machines virtuelles Azure peuvent continuer de fonctionner. Les machines virtuelles Azure sont des ressources payantes qui s'appuient sur un contrat SLA financier. Consultez [ceci pour plus d'informations](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sur le contrat SLA de machine virtuelle Azure et la manière d'améliorer cette disponibilité avec des fonctionnalités telles que les [Zones de disponibilité][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir une valeur maxPods inférieure à 30 ?
 
@@ -204,6 +206,7 @@ Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas 
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

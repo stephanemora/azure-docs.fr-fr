@@ -7,19 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899700"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233258"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
 Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pour vous :
 
 - Recherchez des activités de diagnostic (gestion, connexion ou flux) pour un seul utilisateur sur une période d’une semaine.
-- Rassemblez les informations sur l’hôte de session pour les activités de connexion à partir de votre espace de travail Log Analytics.
+- Rassemblez les informations sur l’hôte de session pour les activités de connexion à partir de votre espace de travail Log Analytics.
 - Examinez les détails des performances des machines virtuelles pour un hôte particulier.
 - Consultez quels utilisateurs sont connectés à l’hôte de session.
 - Envoyez un message aux utilisateurs actifs sur un hôte de session spécifique.
@@ -27,7 +27,7 @@ Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pou
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez créer une inscription de l’application Azure Active Directory et un espace de travail Log Analytics avant de pouvoir déployer le modèle Azure Resource Manager pour l’outil. Vous ou l’administrateur avez besoin de ces autorisations pour effectuer cette opération :
+Vous devez créer une inscription de l’application Azure Active Directory et un espace de travail Log Analytics avant de pouvoir déployer le modèle Azure Resource Manager pour l’outil. Vous ou l’administrateur avez besoin de ces autorisations pour effectuer cette opération :
 
 - Propriétaire de l’abonnement Azure
 - Autorisation de créer des ressources dans votre abonnement Azure
@@ -60,18 +60,18 @@ Une fois que le script s’exécute correctement, il doit afficher les élément
 -  Un message confirmant votre application a maintenant une attribution de rôle de principal du service.
 -  Votre ID client d’impression et votre clé secrète client dont vous aurez besoin quand vous déploierez l’outil de diagnostic.
 
-Maintenant que vous avez inscrit votre application, il est temps de configurer votre espace de travail Log Analytics.
+Maintenant que vous avez inscrit votre application, il est temps de configurer votre espace de travail Log Analytics.
 
-## <a name="configure-your-log-analytics-workspace"></a>Configurer votre espace de travail Log Analytics
+## <a name="configure-your-log-analytics-workspace"></a>Configurer votre espace de travail Log Analytics
 
-Pour une expérience optimale, nous vous recommandons de configurer votre espace de travail Log Analytics avec les compteurs de performances suivants qui vous permettent de dériver des instructions de l’expérience utilisateur dans une session à distance. Pour obtenir une liste des compteurs recommandés avec des seuils suggérés, consultez [seuils des compteurs de performances Windows](deploy-diagnostics.md#windows-performance-counter-thresholds).
+Pour une expérience optimale, nous vous recommandons de configurer votre espace de travail Log Analytics avec les compteurs de performances suivants qui vous permettent de dériver des instructions de l’expérience utilisateur dans une session à distance. Pour obtenir une liste des compteurs recommandés avec des seuils suggérés, consultez [seuils des compteurs de performances Windows](deploy-diagnostics.md#windows-performance-counter-thresholds).
 
-### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Créer un espace de travail Log Analytics dans Azure à l’aide de PowerShell
+### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Créer un espace de travail Log Analytics dans Azure à l’aide de PowerShell
 
-Vous pouvez exécuter un script PowerShell pour créer un espace de travail Log Analytics et configurer les compteurs de performances Windows recommandés pour surveiller l’expérience utilisateur et les performances de l’application.
+Vous pouvez exécuter un script PowerShell pour créer un espace de travail Log Analytics et configurer les compteurs de performances Windows recommandés pour surveiller l’expérience utilisateur et les performances de l’application.
 
 >[!NOTE]
->Si vous disposez déjà d’un espace de travail Log Analytics que vous avez créé sans le script PowerShell que vous souhaitez utiliser, passez directement à [Valider les résultats du script dans le Portail Azure](#validate-the-script-results-in-the-azure-portal).
+>Si vous disposez déjà d’un espace de travail Log Analytics que vous avez créé sans le script PowerShell que vous souhaitez utiliser, passez directement à [Valider les résultats du script dans le Portail Azure](#validate-the-script-results-in-the-azure-portal).
 
 Pour exécuter le script PowerShell :
 
@@ -80,23 +80,23 @@ Pour exécuter le script PowerShell :
 3. Entrez les valeurs suivantes pour les paramètres :
 
     - Pour **ResourceGroupName**, entrez le nom du groupe de ressources.
-    - Pour **LogAnalyticsWorkspaceName**, entrez un nom unique pour votre espace de travail Log Analytics.
+    - Pour **LogAnalyticsWorkspaceName**, entrez un nom unique pour votre espace de travail Log Analytics.
     - Pour **Emplacement**, saisissez la région Azure que vous utilisez.
     - Entrez l'**ID d’abonnement Azure**, que vous trouverez dans le Portail Azure sous **Abonnements**.
 
 4. Entrez les informations d’identification d’un utilisateur disposant d’un accès administrateur délégué.
 5. Connectez-vous au Portail Azure avec les mêmes informations d’identification d’utilisateur.
 6. Notez l’ID LogAnalyticsWorkspace ou mémorisez-le pour une utilisation ultérieure.
-7. Si vous configurez l’espace de travail Log Analytics avec le script PowerShell, vos compteurs de performances doivent déjà être configurés et vous pouvez passer directement à [Valider des résultats du script dans le Portail Azure](#validate-the-script-results-in-the-azure-portal). Sinon, passez à la section suivante.
+7. Si vous configurez l’espace de travail Log Analytics avec le script PowerShell, vos compteurs de performances doivent déjà être configurés et vous pouvez passer directement à [Valider des résultats du script dans le Portail Azure](#validate-the-script-results-in-the-azure-portal). Sinon, passez à la section suivante.
 
-### <a name="configure-windows-performance-counters-in-your-existing-log-analytics-workspace"></a>Configurer les compteurs de performances Windows dans votre espace de travail Log Analytics existant
+### <a name="configure-windows-performance-counters-in-your-existing-log-analytics-workspace"></a>Configurer les compteurs de performances Windows dans votre espace de travail Log Analytics existant
 
-Cette section est destinée aux utilisateurs qui souhaitent utiliser un espace de travail Log Analytics existant créé sans le script PowerShell dans la section précédente. Si vous n’avez pas utilisé le script, vous devez alors configurer manuellement les compteurs de performances Windows recommandés.
+Cette section est destinée aux utilisateurs qui souhaitent utiliser un espace de travail Log Analytics existant créé sans le script PowerShell dans la section précédente. Si vous n’avez pas utilisé le script, vous devez alors configurer manuellement les compteurs de performances Windows recommandés.
 
 Voici comment configurer manuellement les compteurs de performances recommandés :
 
 1. Ouvrez votre navigateur Internet et connectez-vous au [Portail Azure](https://portal.azure.com/) avec votre compte d’administrateur.
-2. Accédez ensuite aux **espaces de travail Log Analytics** pour examiner les compteurs de performances Windows configurés.
+2. Accédez ensuite aux **espaces de travail Log Analytics** pour examiner les compteurs de performances Windows configurés.
 3. Dans la section **Paramètres**, sélectionnez **Paramètres avancés**.
 4. Ensuite, accédez à **Données** >  **Compteurs de performances Windows** et ajoutez les compteurs suivants :
 
@@ -113,7 +113,7 @@ Découvrez-en plus sur les compteurs de performances sur [Source de données des
 
 ## <a name="validate-the-script-results-in-the-azure-portal"></a>Valider les résultats du script dans le Portail Azure
 
-Avant de poursuivre le déploiement de l’outil de diagnostic, nous vous recommandons de vérifier que votre application Azure Active Directory possède des autorisations d’API et que votre espace de travail Log Analytics dispose des compteurs de performances Windows préconfigurés.
+Avant de poursuivre le déploiement de l’outil de diagnostic, nous vous recommandons de vérifier que votre application Azure Active Directory possède des autorisations d’API et que votre espace de travail Log Analytics dispose des compteurs de performances Windows préconfigurés.
 
 ### <a name="review-your-app-registration"></a>Consulter votre inscription d’application
 
@@ -125,11 +125,11 @@ Pour vous assurer que votre inscription d’application possède des autorisatio
       ![La page des autorisations d’API.](media/api-permissions-page.png)
 
 
-### <a name="review-your-log-analytics-workspace"></a>Consulter votre espace de travail Log Analytics
+### <a name="review-your-log-analytics-workspace"></a>Consulter votre espace de travail Log Analytics
 
-Pour vous assurer que votre espace de travail Log Analytics dispose des compteurs de performances Windows préconfigurés :
+Pour vous assurer que votre espace de travail Log Analytics dispose des compteurs de performances Windows préconfigurés :
 
-1. Dans le [Portail Azure](https://portal.azure.com/), allez à **espace de travail Log Analytics** pour consulter les compteurs de performances Windows configurés.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à **espace de travail Log Analytics** pour consulter les compteurs de performances Windows configurés.
 2. Sous **Paramètres**, sélectionnez **Paramètres avancés**.
 3. Ensuite, accédez à **Données** > **Compteur de performances Windows**.
 4. Assurez-vous que les compteurs suivants sont préconfigurés :
@@ -140,7 +140,7 @@ Pour vous assurer que votre espace de travail Log Analytics dispose des compt
    - Informations processeur(\*)\\Temps processeur : pourcentage de durée calendaire passée par le processeur pour exécuter des threads actives.
    - Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal
 
-### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Se connecter aux machines virtuelles dans votre espace de travail Log Analytics
+### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Se connecter aux machines virtuelles dans votre espace de travail Log Analytics
 
 Pour pouvoir afficher l’intégrité des machines virtuelles, vous devez activer la connexion Log Analytics. Suivez ces étapes pour connecter vos machines virtuelles :
 
@@ -154,7 +154,7 @@ Pour pouvoir afficher l’intégrité des machines virtuelles, vous devez active
 
 Pour déployer le modèle Azure Resource Management pour l’outil de diagnostic :
 
-1.  Accédez à la page Modèles Services Bureau à distance Azure GitHub.
+1.  Accédez à la  [page Modèles Services Bureau à distance Azure GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Déployez le modèle sur Azure et suivez les instructions dans le modèle. Assurez-vous de disposer des informations suivantes :
 
     -   ID-Client

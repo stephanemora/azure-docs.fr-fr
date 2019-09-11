@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 937a076b3e0e3c5170779d3449776f0aa1cf5b49
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827845"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259002"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Utilisez Azure Data Factory pour migrer des données de votre lac de données ou de votre entrepôt de données vers Azure 
 
@@ -60,3 +60,5 @@ Si vous souhaitez effectuer la migration des données dans les deux semaines (fe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Migrer des données d’AWS S3 vers Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrer des données du cluster Hadoop local vers Azure](data-migration-guidance-hdfs-azure-storage.md)
+- [Migrer des données du serveur Netezza local vers Azure](data-migration-guidance-netezza-azure-sqldw.md)

@@ -1,6 +1,6 @@
 ---
 title: Configurer l’authentification Facebook - Azure App Service
-description: Découvrez comment configurer l'authentification Facebook pour votre application App Services.
+description: Découvrez comment configurer l'authentification Facebook pour votre application App Service.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f4d26572dc21e2c7454fb739cb4b5fb5665bd1db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 410d769d0d9abe3a0a0f9c45e3cf67bb94ec9f4d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098576"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232078"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,7 +32,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 1. Accédez au site Web [Développeurs Facebook] et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
 3. (Facultatif) Si vous n’avez pas de compte Facebook pour les développeurs, cliquez sur **Prise en main** et suivez les étapes d’inscription.
 4. Cliquez sur **Mes applications** > **Ajouter une nouvelle application**.
-5. Dans **Nom d’affichage**, tapez le nom unique de votre application. Indiquez également votre **E-mail de contact**, puis cliquez sur **Créer un ID d’application** et exécutez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
+5. Dans **Nom d’affichage**, tapez le nom unique de votre application. Indiquez également votre **E-mail de contact**, puis cliquez sur **Créer un ID d’application** et exécutez la vérification de sécurité. Le tableau de bord du développeur pour votre nouvelle application Facebook s'ouvre.
 6. Cliquez sur **Tableau de bord** > **Connexion Facebook** > **Configurer** > **Web**.
 1. Dans le volet de navigation gauche sous **Connexion Facebook**, cliquez sur **Paramètres**.
 1. Dans **URI de redirection OAuth valides**, saisissez `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` et remplacez *\<nom de l’application>* par le nom de votre application Azure App Service. Cliquez sur **Enregistrer les modifications**.
@@ -42,7 +42,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
    > La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
    > 
    > 
-9. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et activez **Rendre public \<nom-de-votre-application** pour activer l’accès public général à l’aide de l’authentification Facebook.
+9. Le compte Facebook que vous avez utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et activez **Rendre public \<nom-de-votre-application** pour activer l’accès public général à l’aide de l’authentification Facebook.
 
 ## <a name="secrets"></a>Ajout des informations Facebook à votre application
 1. Connectez-vous au [portail Azure]et accédez à votre application App Service. Cliquez sur **Paramètres** > **Authentification / Autorisation**, et vérifiez que **l’authentification App Service** est activée, sur **On**.

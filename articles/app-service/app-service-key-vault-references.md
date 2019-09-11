@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088180"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258613"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utiliser des références Key Vault pour App Service et Azure Functions (préversion)
 
@@ -184,3 +184,27 @@ Un exemple de pseudo-modèle pour une application de fonction peut se présenter
 
 > [!NOTE] 
 > Dans cet exemple, le déploiement du contrôle de code source varie selon les paramètres d’application. Il s’agit normalement d’un comportement non sécurisé, car la mise à jour du paramètre d’application se comporte de façon asynchrone. Toutefois, comme nous avons inclus le paramètre d'application `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la mise à jour est synchrone. Cela signifie que le déploiement de contrôle source commence uniquement une fois que les paramètres d’application ont été entièrement mis à jour.
+
+## <a name="troubleshooting-key-vault-references"></a>Résolution des problèmes liés aux références Key Vault
+
+Si une référence ne se résout pas correctement, la valeur de référence est utilisée. Ainsi, pour les paramètres d’application, une variable d’environnement dont la valeur répond à la syntaxe `@Microsoft.KeyVault(...)` est créée. L'application peut alors générer des erreurs car elle s'attendait à un secret répondant à une certaine structure.
+
+En règle générale, il s'agit d'une configuration incorrecte de la [stratégie d'accès à Key Vault](#granting-your-app-access-to-key-vault). Mais cela peut également être dû à un secret qui n'existe plus ou à une erreur de syntaxe dans la référence elle-même.
+
+Si la syntaxe est correcte, vous pouvez afficher d’autres causes d’erreur en vérifiant l’état de résolution actuel à l’aide d’un détecteur intégré.
+
+### <a name="using-the-detector-for-app-service"></a>Utilisation du détecteur pour App Service
+
+1. Dans le portail, accédez à votre application.
+2. Sélectionnez **Diagnostiquer et résoudre les problèmes**.
+3. Sélectionnez **Disponibilité et performances**, puis **Application web inactive**.
+4. Recherchez **Diagnostics des paramètres de l'application Key Vault** et cliquez sur **En savoir plus**.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Utilisation du détecteur pour Azure Functions
+
+1. Dans le portail, accédez à votre application.
+2. Accédez à **Fonctionnalités de la plateforme**.
+3. Sélectionnez **Diagnostiquer et résoudre les problèmes**.
+4. Sélectionnez **Disponibilité et performances**, puis **Function App cesse de fonctionner ou signale des erreurs**.
+5. Cliquez sur **Diagnostics des paramètres de l'application Key Vault**.

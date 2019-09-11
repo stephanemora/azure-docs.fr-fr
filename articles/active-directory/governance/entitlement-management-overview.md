@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032545"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241707"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
@@ -139,6 +139,18 @@ Pour mieux comprendre la gestion des droits d'utilisation et sa documentation, v
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne peuvent pas être utilisés dans cette préversion.
+
+### <a name="which-users-must-have-licenses"></a>Quels utilisateurs doivent avoir des licences ?
+
+Votre locataire doit avoir au moins autant de licences Azure AD Premium P2 que vous avez des utilisateurs membres actifs. En termes de gestion des droits d'utilisation, les utilisateurs membres actifs sont les suivants :
+
+- Utilisateur qui initie ou approuve une requête de package d’accès.
+- Utilisateur auquel un package d’accès a été attribué. 
+- Utilisateur qui gère les packages d’accès.
+
+Dans le cadre des licences des utilisateurs membres, vous pouvez également autoriser un certain nombre d’utilisateurs invités à interagir avec la gestion des droits d'utilisation. Pour plus d’informations sur la façon de calculer le nombre d’utilisateurs invités que vous pouvez inclure, consultez [Guide d’attribution de licences pour Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
+
+Pour plus d’informations sur l’attribution de licences aux utilisateurs, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

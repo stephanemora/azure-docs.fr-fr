@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602049"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233157"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -285,7 +285,7 @@ Pour afficher l’état d’intégrité mis à jour, vous pouvez actualiser la p
 
 L’intégrité d’Azure Monitor pour machines virtuelles s’intègre aux [alertes Azure](../../azure-monitor/platform/alerts-overview.md). Elle déclenche une alerte lorsque des critères prédéfinis, s’ils sont détectés, entraînent un changement de l’état de sain à non sain. Les alertes sont classées par gravité, de Gravité 0 à Gravité 4, où Gravité 0 est le niveau le plus élevé.
 
-Les alertes ne sont pas associées à un groupe d’actions pour vous avertir quand l’alerte a été déclenchée. Le propriétaire de l’abonnement doit configurer des notifications en suivant les étapes décrites dans la section [Configurer des alertes](#configure-alerts).
+Les alertes ne sont pas associées à un groupe d’actions pour vous avertir quand l’alerte a été déclenchée. Un utilisateur doté du rôle Propriétaire au niveau de l'abonnement doit configurer des notifications en suivant les étapes décrites dans la section [Configurer des alertes](#configure-alerts).
 
 Le nombre total d’alertes d’intégrité de machine virtuelle classées par gravité est disponible au niveau du tableau de bord **Intégrité** dans la section **Alertes**. Lorsque vous sélectionnez le nombre total d’alertes ou le numéro correspondant à un niveau de gravité, la page **Alertes** s’ouvre et affiche toutes les alertes correspondant à votre sélection.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996456"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232347"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -181,6 +181,7 @@ Pour chaque exécution d’activité de copie, Azure Data Factory détermine le 
 | Scénario de copie | Nombre de copie en parallèle par défaut déterminé par le service |
 | --- | --- |
 | Copie de données entre des magasins basés sur des fichiers |Dépend de la taille des fichiers et du nombre d’unités d’intégration de données utilisées pour copier des données entre les deux banques de données cloud, ou de la configuration physique de l’ordinateur du runtime d’intégration auto-hébergé. |
+| Copiez à partir du magasin de données relationnel avec l'option de partition activée (y compris [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | Copie de données de n’importe quelle banque source vers le stockage Table Azure |4 |
 | Tous les autres scénarios de copie |1 |
 
@@ -192,7 +193,7 @@ Pour contrôler la charge sur les machines qui hébergent vos banques de donnée
 **Points à noter :**
 
 - Lorsque vous copiez des données entre des banques basées sur fichier, **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de banque de données source donnée pour charger des données de manière parallèle et orthogonale à la valeur **parallelCopies**. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
-- Lorsque vous copiez des données à partir de magasins qui ne sont pas basés sur des fichiers (sauf [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et le connecteur [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) en tant que source avec le partitionnement des données activé) vers des magasins qui sont basés sur des fichiers, le service de déplacement des données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
+- Lorsque vous copiez des données à partir de magasins qui ne sont pas basés sur des fichiers (sauf [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et le connecteur [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) en tant que source avec le partitionnement des données activé) vers des magasins qui sont basés sur des fichiers, le service de déplacement des données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
 - La propriété **parallelCopies** est orthogonale par rapport à **dataIntegrationUnits**. La première valeur est calculée à partir de toutes les unités d’intégration de données.
 - Lorsque vous spécifiez une valeur pour la propriété **parallelCopies**, songez à l’augmentation de la charge sur vos banques de données source et réceptrice. Envisagez également l’augmentation de la charge pour le runtime d’intégration auto-hébergé si l’activité de copie repose sur celui-ci, par exemple, pour une copie hybride. Cela se produit en particulier lorsque plusieurs activités ou exécutions simultanées des mêmes activités ont lieu en même temps dans la même banque de données. Si vous remarquez que la banque de données ou le runtime d’intégration auto-hébergé est submergé par la charge, diminuez la valeur **parallelCopies** pour alléger la charge.
 

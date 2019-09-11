@@ -1,6 +1,6 @@
 ---
 title: Configurer l’authentification par compte Microsoft - Azure App Service
-description: Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Services.
+description: Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Service.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cb2da26fcc00d1daf4b2dd0faf8bde8b743b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098518"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233086"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,7 +61,7 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
 4. (Facultatif) Pour restreindre l’accès aux utilisateurs du compte Microsoft, définissez **Action à exécuter quand une demande n’est pas authentifiée** pour **Se connecter avec un compte Microsoft**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers le compte Micrososft pour être authentifiées.
 
-> [!CAUTION]
+> [!NOTE]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique. Pour de telles applications **Autoriser les demandes anonymes (aucune action)** peut être préféré. L’application démarre alors elle-même manuellement la connexion, comme décrit [ici](overview-authentication-authorization.md#authentication-flow).
 
 5. Cliquez sur **Enregistrer**.
