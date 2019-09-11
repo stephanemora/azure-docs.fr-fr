@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2499842eeb2dd5a8fa845ed364a6aea7418acc8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824410"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231985"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Créer et utiliser les règles personnalisées du pare-feu d’applications web v2
 
@@ -127,7 +127,7 @@ Voici le JSON correspondant :
 
 ## <a name="example-2"></a>Exemple 2
 
-Vous souhaitez bloquer toutes les requêtes provenant d’adresses IP comprises dans la plage 198.168.5.4/24.
+Vous souhaitez bloquer toutes les requêtes provenant d'adresses IP de la plage 198.168.5.0/24.
 
 Dans cet exemple, vous allez bloquer tout le trafic provenant d’une plage d’adresses IP. Le nom de la règle est *myrule1* et la priorité est définie sur 100.
 
@@ -140,7 +140,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -166,7 +166,7 @@ Voici le JSON correspondant :
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -175,11 +175,11 @@ Voici le JSON correspondant :
   }
 ```
 
-Règle CRS correspondante : `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+Règle CRS correspondante : `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>Exemple 3
 
-Pour cet exemple, vous souhaitez bloquer *evilbot* de l’en-tête User-Agent et le trafic compris dans la plage 192.168.5.4/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinctes et les placer dans la même règle. Cela garantit le blocage d’*evilbot* de l’en-tête User-Agent **et** des adresses IP de la plage 192.168.5.4/24.
+Pour cet exemple, vous souhaitez bloquer *evilbot* dans l'en-tête User-Agent et le trafic de la plage 192.168.5.0/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinctes et les placer dans la même règle. Cela garantit le blocage d'*evilbot* dans l'en-tête User-Agent **et** des adresses IP de la plage 192.168.5.0/24.
 
 Logique : p **and** q
 
@@ -194,7 +194,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -229,7 +229,7 @@ Voici le JSON correspondant :
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -251,7 +251,7 @@ Voici le JSON correspondant :
 
 ## <a name="example-4"></a>Exemple 4
 
-Pour cet exemple, vous souhaitez l’activation du blocage si la demande est en dehors de la plage d’adresses IP *192.168.5.4/24*, ou si la chaîne de l’agent utilisateur n’est pas *chrome* (ce qui signifie que l’utilisateur n’utilise pas le navigateur Chrome). Étant donné que cette logique utilise **ou**, les deux conditions se trouvent dans des règles distinctes, comme cela a été abordé dans l’exemple suivant. *myrule1* et *myrule2* doivent toutes deux correspondre pour bloquer le trafic.
+Pour cet exemple, vous souhaitez l'activation du blocage si la demande est en dehors de la plage d'adresses IP *192.168.5.0/24*, ou si la chaîne de l'agent utilisateur n'est pas *chrome* (ce qui signifie que l'utilisateur n'utilise pas le navigateur Chrome). Étant donné que cette logique utilise **ou**, les deux conditions se trouvent dans des règles distinctes, comme cela a été abordé dans l’exemple suivant. *myrule1* et *myrule2* doivent toutes deux correspondre pour bloquer le trafic.
 
 Logique : **not** (p **and** q) = **not** p **or not** q.
 
@@ -266,7 +266,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -307,7 +307,7 @@ Voici le JSON correspondant :
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]

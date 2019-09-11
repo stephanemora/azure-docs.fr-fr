@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 09/03/2019
+ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035822"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233225"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
@@ -83,37 +83,19 @@ Vous pouvez restaurer un fichier de sauvegarde ou importer des données vers une
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-<del>Lorsque vous effectuez une restauration dans le temps, l’heure de la restauration est interprétée comme une heure UTC. Toute ambiguïté due à l’heure d’été et à ses éventuelles modifications est ainsi évitée.<del>
-
- >[!WARNING]
-  > Le comportement actuel ne correspond pas à la déclaration ci-dessus et l’heure de restauration est interprétée en fonction du fuseau horaire de l’instance gérée source des sauvegardes automatiques de base de données. Nous travaillons à la correction de ce comportement pour interpréter un moment donné en heure UTC.
+Lorsque vous effectuez une restauration dans le temps, l'heure de la restauration est interprétée comme une heure UTC. Toute ambiguïté liée à l'heure d'été et à ses éventuelles modifications est ainsi évitée.
 
 ### <a name="auto-failover-groups"></a>Groupes de basculement automatique
 
 L'utilisation du même fuseau horaire dans des instances principale et secondaire d'un groupe de basculement n'est pas imposée, mais nous le recommandons fortement.
 
   >[!WARNING]
-  > Nous vous conseillons vivement d'utiliser le même fuseau horaire pour les instances principale et secondaire d’un groupe de basculement. En raison de quelques rares scénarios, le même fuseau horaire n’est pas conservé entre les instances principale et secondaire. Il est important de comprendre qu'en cas de basculement manuel ou automatique, l'instance secondaire conservera son fuseau horaire original.
+  > Nous vous conseillons vivement d'utiliser le même fuseau horaire pour les instances principale et secondaire d’un groupe de basculement. En raison de certains cas d'usage rares, le même fuseau horaire n'est pas conservé entre les instances principale et secondaire. Il est important de comprendre qu'en cas de basculement manuel ou automatique, l'instance secondaire conservera son fuseau horaire original.
 
 ## <a name="limitations"></a>Limites
 
 - Le fuseau horaire de l’instance gérée existante ne peut pas être modifié.
 - Les processus externes lancés à partir des travaux SQL Server Agent ne suivent pas le fuseau horaire de l'instance.
-
-## <a name="known-issues"></a>Problèmes connus
-
-Lors de l’exécution de l’opération Limite de restauration dans le temps (PiTR), l’heure à restaurer est interprétée en fonction du fuseau horaire défini sur l’instance gérée dont sont extraites les sauvegardes automatiques de base de données, même si la page du portail pour PiTR suggère que l’heure est interprétée en UTC.
-
-Exemple :
-
-Imaginons que le fuseau horaire défini sur l’instance dans laquelle les sauvegardes automatiques sont effectuées est UTC-5 (Heure standard de l’Est) .
-La page du portail pour la Limite de restauration dans le temps indique que l’heure à laquelle vous choisissez de restaurer est l’heure UTC :
-
-![PiTR avec heure locale sur le portail](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
-
-Toutefois, l’heure de restauration est en fait interprétée comme Heure standard de l’Est. Dans cet exemple, la base de données sera restaurée dans l’état dans lequel elle était à 9 heures, Heure standard de l’Est, et non Heure UTC.
-
-Si vous souhaitez effectuer une restauration à un point précis en heure UTC, commencez par calculer l’heure équivalente dans le fuseau horaire de l’instance source, puis utilisez l’heure ainsi obtenue sur le portail ou dans le script PowerShell/CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge
 

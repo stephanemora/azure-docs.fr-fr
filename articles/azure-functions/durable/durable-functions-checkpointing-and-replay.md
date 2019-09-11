@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087449"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241058"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Points de contrôle et réexécution dans Fonctions durables (Azure Functions)
 
@@ -145,6 +145,9 @@ Le comportement de réexécution crée des contraintes concernant le type de cod
   Si un orchestrateur doit être différé, il peut utiliser l’API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) ou `createTimer` (JavaScript).
 
 * Le code d’orchestrateur doit **lancer une opération asynchrone uniquement** à l’aide de l’API [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) ou de l’API de l’objet `context.df`. Par exemple, pas de `Task.Run`, `Task.Delay` ou de `HttpClient.SendAsync` dans .NET, ou de `setTimeout()` et de `setInterval()` en JavaScript. Durable Task Framework exécute le code d’orchestrateur sur un thread unique et ne peut pas interagir avec d’autres threads planifiés par d’autres API asynchrones. Si cela se produit, l’exception `InvalidOperationException` est levée.
+
+> [!NOTE]
+> L'API [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) effectue des E/S asynchrones, ce qui n'est pas autorisé dans une fonction d'orchestrateur et ne peut être utilisé que dans d'autres types de fonctions.
 
 * **Évitez les boucles infinies** dans le code d’orchestrateur. Étant donné que Durable Task Framework enregistre l’historique d’exécution à mesure que la fonction d’orchestration s’exécute, une boucle infinie risquerait de laisser une instance d’orchestrateur sans mémoire suffisante. Pour les scénarios de boucle infinie, utilisez des API comme [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) ou `continueAsNew` (JavaScript) pour redémarrer l’exécution de la fonction et ignorer l’historique d’exécution précédent.
 

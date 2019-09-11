@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759324"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240649"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -113,13 +113,13 @@ Avant de commencer à ingérer les données, vous devez vous poser les questions
 * Quelles sont les exigences de latence ? 
 * Peut-on utiliser l’un des pipelines d’ingestion managés existants ? 
 
-Pour les organisations disposant d’une infrastructure existante basée sur un service de messagerie tel qu’Event Hub, l’utilisation d’un connecteur est probablement la solution la plus appropriée. L’ingestion en file d’attente convient aux grands volumes de données.
+Pour les organisations disposant d’une infrastructure existante basée sur un service de messagerie tel qu’Event Hub et IoT Hub, l’utilisation d’un connecteur est probablement la solution la plus appropriée. L’ingestion en file d’attente convient aux grands volumes de données.
 
 ## <a name="supported-data-formats"></a>Formats de données pris en charge
 
 Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. les formats de données pris en charge sont :
 
-* CSV, TSV, PSV, SCSV, SOH
+* CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (séparé par une ligne, multiligne), Avro
 * ZIP et GZIP 
 

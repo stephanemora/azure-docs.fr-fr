@@ -1,6 +1,6 @@
 - name: Azure Blockchain Workbench (préversion publique)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: À propos d’Azure Blockchain Workbench
@@ -61,7 +61,7 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: Communauté
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Forum
+    - name: Forum de support
       href: 'https://aka.ms/workbenchforum'
     - name: Commentaires sur le produit
       href: 'https://aka.ms/blockchainuservoice'

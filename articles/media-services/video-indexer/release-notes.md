@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845890"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232597"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -27,6 +27,43 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="august-2019"></a>Août 2019
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>Déploiement de Video Indexer dans la région Royaume-Uni Sud
+
+Vous pouvez maintenant créer un compte Video Indexer payant dans la région Royaume-Uni Sud.
+
+### <a name="new-editorial-shot-type-insights-available"></a>Nouvelles informations éditoriales disponibles
+
+De nouvelles balises ajoutées aux séquences vidéo fournissent des « types de prises de vue » éditoriales pour les identifier à l'aide de phrases éditoriales courantes utilisées dans le processus de création de contenu, par exemple : gros plan extrême, gros plan, large, moyen, deux plans, extérieur, intérieur, face gauche et face droite (disponible dans le fichier JSON).
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>Extraction de nouvelles entités Personnes et Lieux disponible
+
+Video Indexer identifie les lieux et les personnes nommés via le traitement automatique du langage naturel (TALN) à partir de la reconnaissance optique de caractères et de la transcription de la vidéo. Video Indexer utilise un algorithme d'apprentissage automatique pour reconnaître le moment où certains lieux (par exemple, la Tour Eiffel) ou certaines personnes (par exemple, Monsieur Dupont) sont appelés dans une vidéo.
+
+### <a name="keyframes-extraction-in-native-resolution"></a>Extraction d'images clés en résolution native
+
+Les images clés extraites par Video Indexer sont disponibles dans la résolution d'origine de la vidéo.
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>Lancement du mode Disponibilité générale pour la formation de modèles de visage personnalisés à partir d'images
+
+Passage du mode Préversion au mode Disponibilité générale pour la formation des visages à partir d'images (disponible via l'API et sur le portail).
+
+> [!NOTE]
+> Ce passage du mode Préversion au mode Disponibilité générale n'a aucun impact sur les prix.
+
+### <a name="hide-gallery-toggle-option"></a>Option Masquer la galerie
+
+L'utilisateur peut choisir de masquer l'onglet de la galerie sur le portail (comme pour l'onglet des exemples).
+ 
+### <a name="maximum-url-size-increased"></a>Augmentation de la taille maximale des URL
+
+Prise en charge de la chaîne de requête d'URL de 4096 (au lieu de 2048) pour l'indexation d'une vidéo.
+ 
+### <a name="support-for-multi-lingual-projects"></a>Prise en charge des projets multilingues
+
+Les projets peuvent maintenant être créés à partir de vidéos indexées dans différents langages (API uniquement).
 
 ## <a name="july-2019"></a>Juillet 2019
 

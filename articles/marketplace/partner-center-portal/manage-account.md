@@ -1,18 +1,18 @@
 ---
 title: Comment gérer un compte Place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment gérer un compte Place de marché commerciale dans l’Espace partenaires.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: e0c9f1fcf2d9d7e806645f1bdf9e8a6c74245a60
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 08/30/2019
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619329"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259188"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Comment gérer votre compte Place de marché commerciale dans l’Espace partenaires 
 
@@ -25,12 +25,12 @@ Dans cet article, nous aborderons comment gérer votre compte Espace partenaires
 - [Mettre à jour les informations de contact](#contact-info)
 - [Gérer les détails financiers (compte de paiement, profil fiscal, état de paiement en attente)](#financial-details)
 - [Configurer les GUID de suivi pour surveiller l’utilisation du client](#tracking-guids)
-- [Gérer les utilisateurs](#manage-users)
-- [Gérer les groupes](#manage-groups)
+- [Gestion des utilisateurs](#manage-users)
+- [Gestion des groupes](#manage-groups)
 - [Gérer les applications Azure AD](#manage-azure-ad-applications)
 - [Définir des rôles et autorisations d’utilisateur](#define-user-roles-and-permissions)
 - [Gérer les locataires Azure AD (comptes professionnels)](#manage-tenants)
-- [Gérer les contrats de l’Espace partenaires](#agreements)
+- [Gérer les contrats de l'Espace partenaires](#agreements)
 
 
 ## <a name="access-your-account-settings"></a>Accéder à vos paramètres de compte
@@ -149,9 +149,9 @@ Pour plus d’informations, consultez le [FAQ Suivi de l’utilisation d’Azure
 
 L’Espace partenaires s’appuie sur [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) pour l’accès et la gestion des comptes multi-utilisateurs. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription. 
 
-## <a name="manage-users"></a>Manage Users
+## <a name="manage-users"></a>Gestion des utilisateurs
 
-La section **Utilisateurs** de l’Espace partenaires (sous **Paramètres de compte**) vous permet d’utiliser Azure AD pour gérer les utilisateurs, groupes et applications Azure AD qui ont accès à votre compte Espace partenaires. Notez que pour gérer les utilisateurs, vous devez être connecté avec votre [compte professionnel](./company-work-accounts.md) (le locataire Azure AD associé). Pour gérer les utilisateurs d’un compte professionnel/locataire différent, vous devez vous déconnecter et puis vous reconnecter en tant qu’utilisateur avec les autorisateurs **Manager** sur ce compte/locataire. 
+La section **Utilisateurs** de l’Espace partenaires (sous **Paramètres de compte**) vous permet d’utiliser Azure AD pour gérer les utilisateurs, groupes et applications Azure AD qui ont accès à votre compte Espace partenaires. Pour gérer les utilisateurs, vous devez être connecté avec votre [compte professionnel](./company-work-accounts.md) (le locataire Azure AD associé). Pour gérer les utilisateurs d’un compte professionnel/locataire différent, vous devez vous déconnecter et puis vous reconnecter en tant qu’utilisateur avec les autorisateurs **Manager** sur ce compte/locataire. 
 
 Une fois connecté avec votre compte professionnel (locataire Azure AD), vous pouvez :
 - [Ajouter ou supprimer des utilisateurs](#add-or-remove-users)
@@ -300,31 +300,21 @@ Si votre application Azure AD lit et écrit des données dans Microsoft Azure AD
 4.  Si vous souhaitez créer plus de clés, sélectionnez **Ajouter une autre clé**.
 
 
-### <a name="define-user-roles-and-permissions"></a>Définir des rôles et autorisations d’utilisateur
+## <a name="define-user-roles-and-permissions"></a>Définir des rôles et autorisations d’utilisateur
 
-Les utilisateurs de votre entreprise peuvent obtenir les autorisations et rôles suivants dans le programme de la Place de marché commerciale dans l’Espace partenaires. 
+Dans le cadre du programme Place de marché commerciale, les rôles et autorisations suivants peuvent être attribués aux utilisateurs de votre entreprise à partir de l'Espace partenaires :
 
-Notez que les rôles de locataire Azure Active Directory (AAD) incluent l’administrateur général, l’administrateur d’utilisateurs et les rôles CSP. Les rôles non AAD sont les rôles qui ne gèrent pas le locataire, tels que l’administrateur MPN, l’administrateur de profil métier, l’administrateur de référence, l’administrateur des offres incitatives et l’utilisateur incitatif.
+- **Manager**
+  - Peut accéder à toutes les fonctionnalités du compte Microsoft, à l'exception des paramètres fiscaux et de paiement
+  - Peut gérer les utilisateurs, les rôles et les comptes professionnels (locataires)
+- **Développeur**
+  - Peut gérer et publier des offres
+  - Peut afficher certains rapports du serveur de publication
 
+> [!NOTE]
+> Dans le cadre du programme Place de marché commerciale, les rôles Administrateur général, Contributeur professionnel, Contributeur financier et Responsable marketing ne sont pas utilisés. L'attribution de ces rôles aux utilisateurs n'a aucun effet. Seuls les rôles Manager et Développeur accordent des autorisations aux utilisateurs.
 
-|**Rôle**|**autorisations**|
-|----------------------------------|:---------------------------------|
-|Administrateur général|• Peut accéder à tous les comptes/services Microsoft avec des privilèges complets
-|      |• Crée des tickets de support pour l’Espace partenaires
-||• Affiche les contrats, les listes de prix et les offres
-||• Affiche, crée et gère les utilisateurs partenaires|
-|Manager|• Peut accéder à toutes les fonctionnalités de compte Microsoft, à l’exception des paramètres fiscaux et de paiement
-|      |• Peut gérer les utilisateurs, rôles et comptes professionnels (locataires)|
-|Développeur|• Peut charger des packages, soumettre des applications et des modules complémentaires, et afficher le rapport d’utilisation pour obtenir des informations sur la télémétrie
-|      |• Ne peut pas accéder aux paramètres de compte ou aux informations financières|
-|Contributeur commercial|• Peut accéder aux informations financières et définir les détails de la tarification
-|      |• Ne peut pas créer ou soumettre de nouveaux modules complémentaires ou applications|
-|Contributeur financier|• Affiche les rapports de paiement
-|      |• Ne peut pas apporter de modifications aux applications ou aux paramètres|
-|Distributeur|• Peut répondre aux avis des clients et aux rapports non financiers
-|      |• Ne peut pas apporter de modifications aux applications ou aux paramètres|
-
-Pour plus d’informations sur la gestion des rôles et des autorisations dans d’autres domaines de l’Espace partenaires, tels que Azure Active Directory (AD), le fournisseur de solutions Cloud (CSP), le fournisseur de panneau de configuration (CPV), les utilisateurs invités ou Microsoft Partner Network (MPN), consultez [Attribuer des rôles et autorisations d’utilisateur dans l’Espace partenaires](https://docs.microsoft.com/partner-center/permissions-overview).
+Pour plus d'informations sur la gestion des rôles et des autorisations dans le cadre d'autres programmes de l'Espace partenaires (Azure Active Directory (AD), Fournisseur de solutions Cloud (CSP), Fournisseur de panneau de contrôle (CPV), Utilisateurs invités, Microsoft Partner Network (MPN), etc.), consultez [Attribuer des rôles et des autorisations aux utilisateurs dans l'Espace partenaires](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
 ## <a name="manage-tenants"></a>Gérer les locataires
@@ -373,7 +363,6 @@ La section **Contrats** de l’Espace partenaires (sous **Paramètres de compte*
 
 Les **actions nécessaires** peuvent apparaître en haut de cette page s’il existe des mises à jour de contrat qui nécessitent votre attention. Pour accepter un contrat modifié, commencez par lire la version du contrat liée, puis sélectionnez **Accepter le contrat**. 
 
-Pour plus d’informations sur les contrats de fournisseurs de solutions Cloud (CSP) dans l’Espace partenaires, consultez [Contrats Cloud Microsoft par région et par langue](https://docs.microsoft.com/partner-center/agreements).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

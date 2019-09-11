@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741863"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241019"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech
 
@@ -25,8 +25,8 @@ Les deux conteneurs Speech sont la **reconnaissance vocale** et **synthèse voca
 
 |Fonction|Caractéristiques|Latest|
 |-|-|--|
-|Reconnaissance vocale| <li>Transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires.|1.1.3|
-|Synthèse vocale| <li>Convertit le texte en paroles naturelles. Avec entrée de texte brut ou Langage de balisage de synthèse vocale (SSML). |1.1.0|
+|Reconnaissance vocale| <li>Transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires.|1.2.0|
+|Synthèse vocale| <li>Convertit le texte en paroles naturelles. Avec entrée de texte brut ou Langage de balisage de synthèse vocale (SSML). |1.2.0|
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -101,10 +101,10 @@ Toutes les balises, à l’exception de `latest`, sont au format suivant, où `<
 La balise suivante illustre le format :
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-Le tableau suivant répertorie les paramètres régionaux pris en charge pour la **reconnaissance vocale** dans la version 1.1.3 du conteneur :
+Le tableau suivant répertorie les paramètres régionaux pris en charge pour la **reconnaissance vocale** dans la version 1.2.0 du conteneur :
 
 |Paramètres régionaux de langue|Balises|
 |--|--|
@@ -129,10 +129,10 @@ Toutes les balises, à l’exception de `latest`, sont au format suivant, où `<
 La balise suivante illustre le format :
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-Le tableau suivant répertorie les paramètres régionaux pris en charge pour la **synthèse vocale** dans la version 1.1.0 du conteneur :
+Le tableau suivant répertorie les paramètres régionaux pris en charge pour la **synthèse vocale** dans la version 1.2.0 du conteneur :
 
 |Paramètres régionaux de langue|Balises|Voix prises en charge|
 |--|--|--|

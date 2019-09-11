@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 09ef80742c931c9b7e8f8c2e2cf0b9e373ad6184
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015769"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232155"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Didacticiel : Configurer iPass SmartConnect pour l’approvisionnement automatique d’utilisateurs
 
@@ -57,7 +57,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 Avant de configurer iPass SmartConnect pour l’approvisionnement automatique d’utilisateurs avec Azure AD, vous devez récupérer les informations de configuration à partir de la console d’administration iPass SmartConnect :
 
 1. Pour récupérer le jeton du porteur nécessaire pour l’authentification auprès de votre point de terminaison iPass SmartConnect SCIM, reportez-vous à la première fois où vous configurez iPass SmartConnect, car cette valeur n’est fournie qu’à ce moment-là. 
-2. Si vous n’avez pas le jeton du porteur, contactez l’[équipe du support technique d’iPass SmartConnect] (mailto:help@ipass.com) pour en récupérer un nouveau.
+2. Si vous ne disposez pas du jeton du porteur, contactez l'[équipe du support technique d'iPass SmartConnect](mailto:help@ipass.com) pour en récupérer un nouveau.
 
 ## <a name="add-ipass-smartconnect-from-the-gallery"></a>Ajouter iPass SmartConnect à partir de la galerie
 

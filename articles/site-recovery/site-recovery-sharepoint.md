@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325108"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231470"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery
 
@@ -56,7 +56,7 @@ SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rô
 
 ## <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 
-Pour la création de cet article, des machines virtuelles VMware avec Windows Server 2012 R2 Enterprise ont été utilisées. Les applications SharePoint 2013 Enterprise Edition et SQL Server 2014 Enterprise Edition ont été utilisées. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées également s’appliquer aux scénarios suivants.
+Site Recovery est indépendant de toute application et doit fonctionner avec n'importe quelle version de SharePoint exécutée sur un ordinateur pris en charge. Pour la création de cet article, des machines virtuelles VMware avec Windows Server 2012 R2 Enterprise ont été utilisées. Les applications SharePoint 2013 Enterprise Edition et SQL Server 2014 Enterprise Edition ont été utilisées.
 
 ### <a name="source-and-target"></a>Source et cible
 
@@ -67,15 +67,8 @@ Pour la création de cet article, des machines virtuelles VMware avec Windows Se
 **Serveur physique** | OUI | OUI
 **Microsoft Azure** | N/D | OUI
 
-### <a name="sharepoint-versions"></a>Versions de SharePoint
-Les versions suivantes de SharePoint Server sont prises en charge.
 
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
-
-### <a name="things-to-keep-in-mind"></a>Éléments à prendre en compte
+### <a name="things-to-keep-in-mind"></a>Points à prendre en compte
 
 Si vous utilisez un cluster basé sur disque partagé comme n’importe quel niveau dans votre application, vous ne pourrez pas utiliser la réplication de Site Recovery pour répliquer ces machines virtuelles. Vous pouvez utiliser la réplication native fournie par l’application, puis utiliser un [plan de récupération](site-recovery-create-recovery-plans.md) pour basculer tous les niveaux.
 

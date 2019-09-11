@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639265"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256928"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Cycle de création de votre application LUIS
 LUIS apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -38,12 +38,12 @@ Vous demandez à LUIS d’ignorer les énoncés qui ne sont pas pertinents dans 
 ## <a name="train-and-publish-the-app"></a>Former et publier l’application
 Une fois que vous avez entre 15 et 30 énoncés différents dans chaque intention, avec les entités requises étiquetées, vous devez effectuer l’[apprentissage](luis-how-to-train.md) et la [publication](luis-how-to-publish-app.md). À partir de la notification de réussite de publication, suivez le lien pour obtenir vos points de terminaison. Veillez à créer et à publier votre application afin qu’elle soit disponible dans les [régions de point de terminaison](luis-reference-regions.md) requises. 
 
-## <a name="https-endpoint-testing"></a>Test de point de terminaison HTTPS
-Vous pouvez tester votre application LUIS à partir du point de terminaison HTTPS. Le test à partir du point de terminaison permet à LUIS de choisir n’importe quel énoncé avec une confiance faible pour la [révision](luis-how-to-review-endpoint-utterances.md).  
+## <a name="https-prediction-endpoint-testing"></a>Test du point de terminaison de prédiction HTTPS
+Vous pouvez tester votre application LUIS à partir du point de terminaison de prédiction HTTPS. Le test à partir du point de terminaison de prédiction permet à LUIS de choisir n’importe quel énoncé avec une confiance faible pour la [révision](luis-how-to-review-endpoint-utterances.md).  
 
 ## <a name="recycle"></a>Recycler
 
-Lorsque vous avez terminé un cycle de création, vous pouvez recommencer. Commencez par [examiner les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) marqués par LUIS avec une confiance faible. Vérifiez ces énoncés en termes d’intention et d’entité. Une fois les énoncés passés en revue, la liste doit être vide.  
+Lorsque vous avez terminé un cycle de création, vous pouvez recommencer. Commencez par [examiner les énoncés de prédiction de point de terminaison](luis-how-to-review-endpoint-utterances.md) marqués par LUIS avec une confiance faible. Vérifiez ces énoncés en termes d’intention et d’entité. Une fois les énoncés passés en revue, la liste doit être vide.  
 
 Envisagez de [cloner](luis-concept-version.md#clone-a-version) la version actuelle dans une nouvelle version, puis commencez vos modifications de création dans la nouvelle version. 
 
@@ -53,4 +53,4 @@ Le [test par lot](luis-concept-batch-test.md) est un moyen de voir combien d’e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts de la [collaboration](luis-concept-collaborator.md).
+Découvrez les concepts de la [collaboration](luis-concept-keys.md).

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014423"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241747"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -236,6 +236,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |UserMaxStandByReplicaCount |Entier (valeur par défaut : 1) |Dynamique|Nombre maximum par défaut de réplicas en attente que le système conserve pour les services de l’utilisateur. |
 |UserReplicaRestartWaitDuration |Durée en secondes, la valeur par défaut est 60.0 \* 30 |Dynamique|Spécifiez la durée en secondes. Lorsqu’un réplica persistant tombe en panne, Windows Fabric attend pendant cette durée que le réplica revienne en ligne avant de créer d’autres réplicas de remplacement (ce qui nécessite une copie de l’état). |
 |UserStandByReplicaKeepDuration |Durée en secondes (valeur par défaut : 3600.0 \* 24 \* 7) |Dynamique|Spécifiez la durée en secondes. Lorsqu’un réplica persistant n’est plus défaillant, il peut avoir déjà été remplacé. Ce minuteur détermine la durée pendant laquelle le FM conserve le réplica en attente avant de le rejeter. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60 * 10)|Dynamique|Spécifiez la durée en secondes. Entrée de configuration pour le délai d'attente optionnel du contrôle de sécurité WaitForInBuildReplica. Cette configuration définit le délai d'expiration du contrôle de sécurité WaitForInBuildReplica pour les désactivations et les mises à niveau de nœuds. Ce contrôle de sécurité échoue si l'une des conditions ci-dessous est vraie : - Un principal est en cours de création et la taille du jeu de réplicas cible est > 1 - Si le réplica actuel est en construction et est persistant - S'il s'agit du principal actuel et qu'un nouveau réplica est en cours de construction. Ce contrôle de sécurité sera ignoré si le délai d'attente expire, même si l'une des conditions précédentes est toujours vraie. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60.0 * 10)|Dynamique|Spécifiez la durée en secondes. Entrée de configuration pour le délai d'attente optionnel du contrôle de sécurité WaitForReconfiguration. Cette configuration définit le délai d'expiration du contrôle de sécurité WaitForReconfiguration pour les désactivations et les mises à niveau de nœuds. Ce contrôle de sécurité échoue si le réplica vérifié fait partie d'une partition en cours de reconfiguration. Le contrôle de sécurité sera ignoré après l'expiration de ce délai, même si la partition est encore en cours de reconfiguration.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -309,7 +311,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Valeur booléenne (valeur par défaut : false) |statique|Stratégie d’évaluation de l’intégrité du cluster : activer pour chaque évaluation de l’intégrité du type d’application. |
-|MaxSuggestedNumberOfEntityHealthReports|Entier, valeur par défaut : 500 |Dynamique|Nombre maximal de rapports d’intégrité qu’une entité peut avoir avant de susciter des inquiétudes concernant la logique de création de rapports d’intégrité de la surveillance. Chaque entité d’intégrité est supposée avoir un nombre relativement faible de rapports d’intégrité. Si le nombre de rapports dépasse ce nombre, des problèmes peuvent se poser avec l’implémentation de la surveillance. Une entité avec un trop grand nombre de rapports est marquée d’un rapport d’intégrité d’avertissement quand l’entité est évaluée. |
+|MaxSuggestedNumberOfEntityHealthReports|Entier (valeur par défaut : 100) |Dynamique|Nombre maximal de rapports d’intégrité qu’une entité peut avoir avant de susciter des inquiétudes concernant la logique de création de rapports d’intégrité de la surveillance. Chaque entité d’intégrité est supposée avoir un nombre relativement faible de rapports d’intégrité. Si le nombre de rapports dépasse ce nombre, des problèmes peuvent se poser avec l’implémentation de la surveillance. Une entité avec un trop grand nombre de rapports est marquée d’un rapport d’intégrité d’avertissement quand l’entité est évaluée. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
@@ -647,6 +649,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AADClusterApplication|Chaîne (valeur par défaut : "")|statique|Nom de l’application API Web ou ID représentant le cluster |
 |AADLoginEndpoint|Chaîne (valeur par défaut : "")|statique|Point de terminaison de connexion AAD, Azure Commercial par défaut, spécifié pour un environnement autre que par défaut comme Azure Government « https:\//login.microsoftonline.us » |
 |AADTenantId|Chaîne (valeur par défaut : "")|statique|ID de client (GUID) |
+|AcceptExpiredPinnedClusterCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Indicateur déterminant si les certificats de cluster expirés déclarés par empreinte doivent être acceptés. S'applique uniquement aux certificats de cluster afin de maintenir le cluster actif. |
 |AdminClientCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats utilisées par les clients dans le rôle d’administrateur. Il s’agit d’une liste de noms séparés par des virgules. |
 |AADTokenEndpointFormat|Chaîne (valeur par défaut : "")|statique|Point de terminaison de jeton AAD, Azure Commercial par défaut, spécifié pour un environnement autre que par défaut comme Azure Government « https:\//login.microsoftonline.us/{0} » |
 |AdminClientClaims|Chaîne (valeur par défaut : "")|Dynamique|Toutes les revendications possibles attendues des clients d’administration ; même format que ClientClaims ; cette liste est ajoutée en interne à ClientClaims ; par conséquent, pas besoin d’ajouter également les mêmes entrées à ClientClaims. |

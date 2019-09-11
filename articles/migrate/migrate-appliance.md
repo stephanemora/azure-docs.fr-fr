@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827326"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231133"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -72,6 +72,9 @@ Débit d’écriture de la carte d’interface réseau (Mo par seconde) | net.tr
 
 ## <a name="collected-metadata-vmware"></a>Métadonnées VMware collectées
 
+> [!NOTE]
+> Les métadonnées découvertes par l'appliance Azure Migrate sont utilisées pour vous aider à adapter la taille de vos applications lors de leur migration vers Azure, ainsi qu'à effectuer les analyses d'adéquation Azure, les analyses de dépendance des applications et la planification des coûts. Microsoft n’utilise pas ces données dans le cadre d’un audit de conformité des licences.
+
 Voici la liste complète des métadonnées des machines virtuelles VMware que l’appliance collecte et envoie à Azure.
 
 **Données** | **Compteur**
@@ -122,6 +125,9 @@ Détails de l’hôte par machine virtuelle | ((HostSystem)container).VM
 
 
 ## <a name="collected-performance-data-hyper-v"></a>Données de performances Hyper-V collectées
+
+> [!NOTE]
+> Les métadonnées découvertes par l'appliance Azure Migrate sont utilisées pour vous aider à adapter la taille de vos applications lors de leur migration vers Azure, ainsi qu'à effectuer les analyses d'adéquation Azure, les analyses de dépendance des applications et la planification des coûts. Microsoft n’utilise pas ces données dans le cadre d’un audit de conformité des licences.
 
 Voici les données de performances des machines virtuelles VMware que l’appliance collecte et envoie à Azure.
 

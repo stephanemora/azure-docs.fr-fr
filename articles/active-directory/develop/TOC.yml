@@ -205,6 +205,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
+                    - name: Utiliser des répartiteurs avec des applications Xamarin iOS et Android
+                      href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: Plateforme Windows universelle
                       href: msal-net-uwp-considerations.md
                 - name: Acquisition d’un jeton pour l’application
@@ -225,6 +227,8 @@
                   href: msal-net-migration.md
                 - name: Migrer vers MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrer des applications Xamarin avec des répartiteurs d’ADAL.NET vers MSAL.NET
+                  href: msal-net-migration-ios-broker.md
             - name: Flux d’authentification pris en charge
               href: msal-authentication-flows.md
             - name: Acquérir et mettre en cache des jetons

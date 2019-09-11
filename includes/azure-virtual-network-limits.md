@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903939"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242651"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -52,7 +52,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | --- | --- | --- |
 | Adresses IP publiques (dynamiques) | 1 000 pour De base. |Contactez le support technique. |
 | Adresses IP publiques (statiques) | 1 000 pour De base. |Contactez le support technique. |
-| Adresses IP publiques (statiques) | 200 pour Standard.|Contactez le support technique. |
+| Adresses IP publiques (statiques) | 1 000 pour Standard.|Contactez le support technique. |
 | Taille de préfixe d’adresse IP publique | /28 | Contactez le support technique. |
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge

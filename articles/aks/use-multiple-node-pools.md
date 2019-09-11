@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898745"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241065"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -101,12 +101,15 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --enable-vmss \
-    --node-count 1 \
+    --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
 ```
 
 La création du cluster ne prend que quelques minutes.
+
+> [!NOTE]
+> Pour vous assurer de la fiabilité de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut, car les services système essentiels sont exécutés sur ce pool de nœuds.
 
 Lorsque le cluster est prêt, utilisez la commande [az aks get-credentials][az-aks-get-credentials] pour obtenir les informations d’identification du cluster à utiliser avec `kubectl` :
 
@@ -133,7 +136,7 @@ Pour afficher l’état de vos pools de nœuds, utilisez la commande [az aks nod
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-L’exemple de sortie suivant montre que *mynodepool* a été créé avec trois nœuds dans le pool de nœuds. Lorsque le cluster AKS a été créé à l’étape précédente, un pool *nodepool1* par défaut a été créé avec un nombre de nœuds de *1*.
+L’exemple de sortie suivant montre que *mynodepool* a été créé avec trois nœuds dans le pool de nœuds. Lorsque le cluster AKS a été créé à l'étape précédente, un pool *nodepool1* par défaut a été généré avec *2* nœuds.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -151,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -166,11 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > Si aucun paramètre *OrchestratorVersion* ou *VmSize* n’est spécifié lorsque vous ajoutez un pool de nœuds, les nœuds sont créés en fonction des valeurs par défaut pour le cluster AKS. Dans cet exemple, il s’agissait de la version Kubernetes *1.13.10* et de la taille de nœud *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Mettre à niveau un pool de nœuds
-
+ 
 > [!NOTE]
 > Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds s’excluent mutuellement. Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. Au lieu de cela, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
 
-Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.10* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Il existe différentes commandes pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds. La commande `az aks upgrade` sert à mettre à niveau le plan de contrôle, tandis que la commande `az aks nodepool upgrade` est utilisée pour mettre à niveau un pool individuel de nœuds.
+Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.10* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Les différentes commandes disponibles pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds sont décrites [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+
+> [!NOTE]
+> La version de l'image de système d'exploitation du pool de nœuds est liée à la version Kubernetes du cluster. Vous n'obtiendrez les mises à niveau de l'image de système d'exploitation qu'après une mise à niveau du cluster.
 
 Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.10*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
 
@@ -184,7 +190,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> Pour mettre à niveau le plan avec la version *1.14.6*, exécutez `az aks upgrade -k 1.14.6`.
+> Pour mettre à niveau le plan avec la version *1.14.6*, exécutez `az aks upgrade -k 1.14.6`. Pour en savoir plus sur [les mises à niveau de plan de contrôle avec plusieurs pools de nœuds, cliquez ici](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.13.10* :
 
@@ -206,7 +212,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -223,14 +229,32 @@ Il faut quelques minutes pour mettre à niveau les nœuds vers la version spéci
 
 En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds dans un cluster AKS vers la même version de Kubernetes. La possibilité de mettre à niveau les pools de nœuds individuels vous permet d’effectuer une mise à niveau propagée et de planifier des pods entre les pools de nœuds pour maintenir la disponibilité des applications au sein des contraintes susmentionnées.
 
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Mettre à niveau un plan de contrôle de cluster avec plusieurs pools de nœuds
+
 > [!NOTE]
 > Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et du pool de nœuds initial est définie lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle, mais les restrictions suivantes s'appliquent :
 > 
 > * La version du pool de nœuds doit avoir la même version principale que le plan de contrôle.
 > * La version du pool de nœuds peut être une version secondaire inférieure à la version du plan de contrôle.
 > * La version du pool de nœuds peut être n'importe quelle version de correctif tant que les deux autres contraintes sont respectées.
-> 
-> Pour mettre à jour la version Kubernetes du plan de contrôle, utilisez `az aks upgrade`. Si votre cluster n'a qu'un seul pool de nœuds, la commande `az aks upgrade` mettra également à jour la version Kubernetes du pool de nœuds.
+
+Un cluster AKS possède deux objets de ressource de cluster. Le premier est une version Kubernetes du plan de contrôle. Le second est un pool d'agents avec une version de Kubernetes. Un plan de contrôle est mappé à un ou plusieurs pools de nœuds, chacun possédant sa propre version de Kubernetes. Le comportement d'une opération de mise à niveau dépend de la ressource ciblée et de la version de l'API sous-jacente qui est appelée.
+
+1. La mise à niveau du plan de contrôle requiert l'utilisation de `az aks upgrade`
+   * Si le cluster ne possède qu'un seul pool d'agents, le plan de contrôle et le pool d'agents sont mis à niveau ensemble.
+   * Si le cluster possède plusieurs pools d'agents, seul le plan de contrôle est mis à niveau.
+1. Mise à niveau à l'aide de `az aks nodepool upgrade`
+   * Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée.
+
+La relation entre les versions de Kubernetes détenues par les pools de nœuds doit également suivre un ensemble de règles.
+
+1. Vous ne pouvez pas passer à une version de Kubernetes antérieure à celle du plan de contrôle ou du pool de nœuds.
+1. Si aucune version de Kubernetes n'est spécifiée pour le plan de contrôle, la version par défaut correspond à la version actuelle du plan de contrôle existant.
+1. Si aucune version de Kubernetes n'est spécifiée pour le pool de nœuds, la version par défaut correspond à celle du plan de contrôle.
+1. Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre les deux opérations simultanément.
+1. La version de Kubernetes d'un pool de nœuds doit correspondre à la version principale du plan de contrôle.
+1. La version de Kubernetes d'un pool de nœuds peut être au maximum de deux (2) versions mineures inférieure à celle du plan de contrôle, mais jamais supérieure.
+1. Un pool de nœuds peut utiliser n'importe quelle version d'un correctif Kubernetes à condition qu'elle soit inférieure ou égale à celle du plan de contrôle, mais jamais supérieure.
 
 ## <a name="scale-a-node-pool-manually"></a>Mettre manuellement à l'échelle un pool de nœuds
 
@@ -269,7 +293,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -319,7 +343,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -372,7 +396,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -389,7 +413,7 @@ Il faut quelques minutes pour que *gpunodepool* soit créé avec succès.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Planifier des pods à l’aide de teintes et de tolérances
 
-Vous avez maintenant deux pools de nœuds dans votre cluster, le pool de nœuds par défaut initialement créé et le pool de nœuds basé sur GPU. Utilisez la commande [kubectl get nodes][kubectl-get] pour voir les nœuds figurant dans votre cluster. L’exemple de sortie suivant montre un seul nœud dans chaque pool de nœuds :
+Vous avez maintenant deux pools de nœuds dans votre cluster, le pool de nœuds par défaut initialement créé et le pool de nœuds basé sur GPU. Utilisez la commande [kubectl get nodes][kubectl-get] pour voir les nœuds figurant dans votre cluster. L'exemple de sortie suivant montre les nœuds :
 
 ```console
 $ kubectl get nodes
@@ -480,68 +504,68 @@ Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou sup
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "clusterName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of your existing AKS cluster."
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of your existing AKS cluster."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The location of your existing AKS cluster."
+            }
+        },
+        "agentPoolName": {
+            "type": "string",
+            "defaultValue": "myagentpool",
+            "metadata": {
+                "description": "The name of the agent pool to create or update."
+            }
+        },
+        "vnetSubnetId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The Vnet subnet resource ID for your existing AKS cluster."
+            }
+        }
     },
-    "location": {
-      "type": "string",
-      "metadata": {
-        "description": "The location of your existing AKS cluster."
-      }
+    "variables": {
+        "apiVersion": {
+            "aks": "2019-04-01"
+        },
+        "agentPoolProfiles": {
+            "maxPods": 30,
+            "osDiskSizeGB": 0,
+            "agentCount": 3,
+            "agentVmSize": "Standard_DS2_v2",
+            "osType": "Linux",
+            "vnetSubnetId": "[parameters('vnetSubnetId')]"
+        }
     },
-    "agentPoolName": {
-      "type": "string",
-      "defaultValue": "myagentpool",
-      "metadata": {
-        "description": "The name of the agent pool to create or update."
-      }
-    },
-    "vnetSubnetId": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "The Vnet subnet resource ID for your existing AKS cluster."
-      }
-    }
-  },
-  "variables": {
-    "apiVersion": {
-      "aks": "2019-04-01"
-    },
-    "agentPoolProfiles": {
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]"
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2019-04-01",
-      "type": "Microsoft.ContainerService/managedClusters/agentPools",
-      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
-      "location": "[parameters('location')]",
-      "properties": {
-            "maxPods": "[variables('agentPoolProfiles').maxPods]",
-            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
-            "count": "[variables('agentPoolProfiles').agentCount]",
-            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
-            "osType": "[variables('agentPoolProfiles').osType]",
-            "storageProfile": "ManagedDisks",
-      "type": "VirtualMachineScaleSets",
-            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.10"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.ContainerService/managedClusters/agentPools",
+            "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "maxPods": "[variables('agentPoolProfiles').maxPods]",
+                "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+                "count": "[variables('agentPoolProfiles').agentCount]",
+                "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+                "osType": "[variables('agentPoolProfiles').osType]",
+                "storageProfile": "ManagedDisks",
+                "type": "VirtualMachineScaleSets",
+                "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+                "orchestratorVersion": "1.13.10"
+            }
+        }
+    ]
 }
 ```
 

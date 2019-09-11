@@ -1,6 +1,6 @@
-- name: Documentation Stockage Azure
-  href: /azure/storage/
-- name: Vue d’ensemble
+- name: Documentation du stockage Blob Azure
+  href: /azure/storage/blobs/
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le stockage d’objets blob Azure\_?"

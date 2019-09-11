@@ -3,21 +3,21 @@ title: Transformer des données avec Databricks Notebook - Azure | Microsoft Doc
 description: Découvrez comment traiter ou transformer des données en exécutant un bloc-notes Databricks.
 services: data-factory
 documentationcenter: ''
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: nabhishek
+ms.author: abnarain
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335844"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233066"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformer des données en exécutant un bloc-notes Databricks
 
@@ -111,6 +111,19 @@ Dans la définition d’activité Databricks ci-dessus, vous précisez ces types
 ```
 
 Pour plus d’informations, consultez la [documentation Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) pour les types de bibliothèques.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Transmission de paramètres entre des notebooks et une fabrique de données
+
+Vous pouvez transmettre les paramètres d'une fabrique de données à des notebooks en utilisant la propriété *baseParameters* dans l'activité Databricks. 
+
+Dans certains cas, il peut être nécessaire de retransmettre certaines valeurs du notebook vers la fabrique de données. Celles-ci peuvent être utilisées pour le flux de contrôle (contrôles conditionnels) dans la fabrique de données ou être consommées par les activités situées en aval (taille maximale autorisée : 2 Mo). 
+
+1. Dans votre notebook, vous pouvez appeler [dbutils.notebook.exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) et la valeur « returnValue » correspondante sera renvoyée à la fabrique de données.
+
+2. Vous pouvez utiliser la sortie dans la fabrique de données en utilisant une expression telle que `'@activity('databricks notebook activity name').output.runOutput'`. 
+
+   > [!IMPORTANT]
+   > Si vous transmettez un objet JSON, vous pouvez récupérer des valeurs en ajoutant des noms de propriété. Exemple : `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Comment charger une bibliothèque dans Databricks
 
