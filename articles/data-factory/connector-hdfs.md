@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c25a1deb08c816088e9d5811a73bb19890657a43
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 16a4fee9e050a4e673a0cd4d8350082dedfdfcf1
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966515"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275097"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copier des données depuis HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -113,12 +113,12 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
+### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Texte délimité, Avro ou Binaire
 
-Pour copier des données depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -157,7 +157,7 @@ Pour copier des données depuis les **formats Parquet, Texte délimité et Binai
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données depuis HDFS au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge :
+Pour copier des données depuis HDFS au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -208,12 +208,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="hdfs-as-source"></a>HDFS en tant que source
 
-- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour copier des données à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, Avro ou Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
+#### <a name="format-based-source"></a>Source au format Parquet, Texte délimité, Avro ou Binaire
 
-Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour copier des données à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -278,7 +278,7 @@ Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Bi
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour la copie de données depuis HDFS au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données depuis HDFS au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

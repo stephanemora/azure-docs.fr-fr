@@ -1,18 +1,18 @@
 ---
 title: Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer
 description: Cet article explique comment sélectionner la taille optimale de référence SKU pour le cluster Azure Data Explorer.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 2eb23a65196ac4f6456f50dbbbfd9e4b484ad171
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515728"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186748"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer 
 
@@ -83,7 +83,7 @@ Les spécifications techniques des machines virtuelles du cluster Azure Data Exp
 |L16s_1| Optimisé pour le stockage | 2,6&nbsp;To | 16| 128&nbsp;Go | 0 | 2 | 1 000
 
 * Vous pouvez visualiser la liste mise à jour des références SKU de machine virtuelle par région à l’aide de l’[API ListSkus](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet) Azure Data Explorer. 
-* Découvrez-en plus sur les [différentes références SKU de calcul](/azure/virtual-machines/windows/sizes-compute). 
+* Découvrez-en plus sur les [différentes références SKU](/azure/virtual-machines/windows/sizes). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

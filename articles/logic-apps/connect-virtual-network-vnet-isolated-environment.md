@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517197"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099471"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -67,31 +67,35 @@ Lorsque vous utilisez un ISE avec un réseau virtuel existant, il arrive souvent
 
 Si vous avez créé un réseau virtuel et des sous-réseaux sans contraintes, vous n’avez pas besoin de configurer des [groupes de sécurité réseau (NSG)](../virtual-network/security-overview.md) dans votre réseau virtuel pour pouvoir contrôler le trafic entre les sous-réseaux. Pour un réseau virtuel existant, vous pouvez *éventuellement* configurer des groupes de sécurité réseau en [filtrant le trafic réseau entre sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Si vous choisissez cette méthode, assurez-vous que votre ISE ouvre des ports spécifiques, comme décrit dans le tableau suivant, sur le réseau virtuel qui dispose des groupes de sécurité réseau. Pour des groupes de sécurité réseau ou pare-feu existants dans votre réseau virtuel, assurez-vous qu’ils ouvrent ces ports. De cette façon, votre ISE reste accessible et peut fonctionner correctement, et vous ne perdez pas l’accès à votre ISE. Sinon, si certains des ports requis ne sont pas disponibles, votre ISE cesse de fonctionner.
 
-Ce tableau décrit les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. Les [balises de service de Resource Manager](../virtual-network/security-overview.md#service-tags) représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
-
 > [!IMPORTANT]
 > Pour la communication à l’intérieur de vos sous-réseaux, l’ISE nécessite que vous ouvriez tous les ports au sein de ces sous-réseaux.
 
-| Objectif | Direction | Ports | Balise du service source | Identification de destination | Notes |
-|---------|-----------|-------|--------------------|-------------------------|-------|
-| Communication depuis Azure Logic Apps | Règle de trafic sortant | 80 & 443 | VirtualNetwork | Internet | Le port dépend du service externe avec lequel le service Logic Apps communique |
-| Azure Active Directory | Règle de trafic sortant | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
-| Dépendance du Stockage Azure | Règle de trafic sortant | 80 & 443 | VirtualNetwork | Stockage | |
-| Communication interne aux sous-réseaux | Trafic entrant et sortant | 80 & 443 | VirtualNetwork | VirtualNetwork | Pour les communications entre sous-réseaux |
+Ce tableau décrit les ports du réseau virtuel que votre ISE utilise et l’endroit où ces ports sont utilisés. Les [balises de service de Resource Manager](../virtual-network/security-overview.md#service-tags) représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
+
+> [!NOTE]
+> Les ports source étant éphémères, affectez-leur la valeur `*` pour toutes les règles.
+
+| Objectif | Direction | Ports de destination | Balise du service source | Identification de destination | Notes |
+|---------|-----------|-------------------|--------------------|-------------------------|-------|
+| Communication depuis Azure Logic Apps | Règle de trafic sortant | 80, 443 | VirtualNetwork | Internet | Le port dépend du service externe avec lequel le service Logic Apps communique |
+| Azure Active Directory | Règle de trafic sortant | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Dépendance du Stockage Azure | Règle de trafic sortant | 80, 443 | VirtualNetwork | Stockage | |
+| Communication interne aux sous-réseaux | Trafic entrant et sortant | 80, 443 | VirtualNetwork | VirtualNetwork | Pour les communications entre sous-réseaux |
 | Communication vers Azure Logic Apps | Trafic entrant | 443 | Points de terminaison d’accès interne : <br>VirtualNetwork <p><p>Points de terminaison d’accès externe : <br>Internet <p><p>**Remarque**: Ces points de terminaison font référence au paramètre du point de terminaison [sélectionné lors de la création de votre ISE](#create-environment). Pour plus d’informations, consultez l’article [Accès au point de terminaison](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | L’adresse IP de l’ordinateur ou du service qui appelle n’importe quel déclencheur de requête ou webhook qui existe dans votre application logique. Fermer ou bloquer ce port empêche les appels HTTP vers Logic Apps avec les déclencheurs de requête. |
 | Historique des exécutions d’une application logique | Trafic entrant | 443 | Points de terminaison d’accès interne : <br>VirtualNetwork <p><p>Points de terminaison d’accès externe : <br>Internet <p><p>**Remarque**: Ces points de terminaison font référence au paramètre du point de terminaison [sélectionné lors de la création de votre ISE](#create-environment). Pour plus d’informations, consultez l’article [Accès au point de terminaison](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | L’adresse IP de l’ordinateur à partir duquel vous affichez l’historique des exécutions de l’application logique. Bien que la fermeture ou le blocage de ce port ne vous empêche pas d’afficher l’historique des exécutions, vous ne pouvez pas afficher les entrées et sorties pour chaque étape dans cet historique des exécutions. |
 | Gestion des connexions | Règle de trafic sortant | 443 | VirtualNetwork  | Internet | |
 | Publier des journaux de diagnostic et métriques | Règle de trafic sortant | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication à partir d’Azure Traffic Manager | Trafic entrant | 443 | AzureTrafficManager | VirtualNetwork | |
-| Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | Internet  | VirtualNetwork | Les demandes proviennent des [adresses IP de point de terminaison d’accès entrantes de Logic Apps cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Dépendance de gestion App Service | Trafic entrant | 454 & 455 | AppServiceManagement | VirtualNetwork | |
-| Déploiement du connecteur | Trafic entrant | 454 & 3443 | Internet  | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
-| Dépendance Azure SQL | Règle de trafic sortant | 1433 | VirtualNetwork | SQL |
+| Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | Internet | VirtualNetwork | Les demandes proviennent des [adresses IP de point de terminaison d’accès entrantes de Logic Apps cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dépendance de gestion App Service | Trafic entrant | 454, 455 | AppServiceManagement | VirtualNetwork | |
+| Déploiement du connecteur | Trafic entrant | 454 | AzureConnectors | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
+| Déploiement de la stratégie de connecteur | Trafic entrant | 3443 | Internet | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
+| Dépendance Azure SQL | Règle de trafic sortant | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Règle de trafic sortant | 1886 | VirtualNetwork | AzureMonitor | Pour publier l’état d’intégrité sur Resource Health |
-| Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement  | VirtualNetwork | |
-| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VirtualNetwork  | Event Hub | |
-| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VirtualNetwork  | VirtualNetwork | En outre, pour qu’ISE fonctionne avec le cache Azure pour Redis, vous devez ouvrir les [ports entrants et sortants décrits dans la FAQ sur le cache Azure pour Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Trafic entrant | * | AzureLoadBalancer | VirtualNetwork |  |
+| Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement | VirtualNetwork | |
+| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VirtualNetwork | Event Hub | |
+| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VirtualNetwork | VirtualNetwork | En outre, pour qu’ISE fonctionne avec le cache Azure pour Redis, vous devez ouvrir les [ports entrants et sortants décrits dans la FAQ sur le cache Azure pour Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Trafic entrant | * | AzureLoadBalancer | VirtualNetwork | |
 ||||||
 
 <a name="create-environment"></a>
@@ -117,13 +121,13 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
    |----------|----------|-------|-------------|
    | **Abonnement** | OUI | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre environnement |
    | **Groupe de ressources** | OUI | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
-   | **Nom de l’environnement de service d’intégration** | OUI | <*nom-environnement*> | Nom à donner à votre environnement |
+   | **Nom de l’environnement de service d’intégration** | OUI | <*nom-environnement*> | Votre nom ISE, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`) et des points (`.`). |
    | **Lieu** | OUI | <*région-centre de données-Azure*> | Région du centre de données Azure où déployer votre environnement |
    | **Référence (SKU)** | OUI | **Premium** ou **Développeur (aucun contrat SLA)** | Référence SKU d’ISE à créer et à utiliser. Pour connaître les différences entre ces références SKU, consultez [Références SKU d’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important !** Cette option est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement. |
    | **Capacité supplémentaire** | Premium : <br>OUI <p><p>Développeur : <br>Non applicable | Premium : <br>0 à 10 <p><p>Développeur : <br>Non applicable | Le nombre d’unités de traitement supplémentaires à utiliser pour cette ressource ISE. Pour ajouter de la capacité après création, consultez [Ajouter de la capacité à l’ISE](#add-capacity). |
    | **Point de terminaison de l'accès** | OUI | **Interne** ou **externe** | Le type de points de terminaison d’accès à utiliser avec votre ISE, qui déterminent si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel. Le type de point de terminaison affecte également l’accès aux entrées et aux sorties dans l’historique des exécutions de votre application logique. Pour plus d’informations, consultez l’article [Accès au point de terminaison](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important !** Cette option est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement. |
    | **Réseau virtuel** | OUI | <*Azure-virtual-network-name*> | Réseau virtuel Azure où vous voulez injecter votre environnement, pour que les applications logiques de cet environnement puissent accéder à votre réseau virtuel. Si vous n’avez pas de réseau, [créez d’abord un réseau virtuel Azure](../virtual-network/quick-create-portal.md). <p>**Important !** Vous pouvez effectuer cette injection *seulement*  quand vous créez votre ISE. |
-   | **Sous-réseaux** | OUI | <*subnet-resource-list*> | Un environnement ISE nécessite quatre sous-réseaux *vides* pour la création et le déploiement des ressources dans votre environnement. Pour créer chaque sous-réseau, [suivez les étapes décrites dans ce tableau](#create-subnet).  |
+   | **Sous-réseaux** | OUI | <*subnet-resource-list*> | Un environnement ISE nécessite quatre sous-réseaux *vides* pour la création et le déploiement des ressources dans votre environnement. Pour créer chaque sous-réseau, [suivez les étapes décrites dans ce tableau](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -136,7 +140,7 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
 
    * Il utilise le format [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de Classe B.
 
-   * Utilise au moins un `/27` dans l’espace d’adressage, car chaque sous-réseau doit avoir *au moins* 32 adresses. Par exemple :
+   * Utilise au moins un `/27` dans l’espace d’adressage, car chaque sous-réseau doit avoir *au moins* 32 *adresses*. Par exemple :
 
      * `10.0.0.0/27` a 32 adresses car 2<sup>(32-27)</sup> est égal à 2<sup>5</sup> soit 32.
 
@@ -228,6 +232,7 @@ L’unité de base d’ISE Premium dispose d’une capacité fixe ; si vous ave
    * Si vous choisissez la méthode basée sur les mesures, procédez comme suit :
 
      1. Dans la section **Règles**, choisissez **+ Ajouter une règle**.
+
      1. Dans le volet **Règle de mise à l’échelle**, configurez vos critères et l’action à effectuer lorsque la règle se déclenche.
 
      1. Une fois que vous avez terminé, sélectionnez **Ajouter**.
