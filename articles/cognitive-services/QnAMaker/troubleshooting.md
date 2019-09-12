@@ -8,19 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b91adc9dd5f221a6d354a98bdc0f4a7fd4483ecb
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982354"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277482"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
 La liste organisée des questions fréquentes concernant le service QnA Maker vous aidera à adopter le service plus rapidement et avec de meilleurs résultats.
+
+
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>Comment obtenir le nom d’hôte du service QnAMaker
+
+Le nom d’hôte du service QnAMaker est utile pour le débogage quand vous contactez le support technique de QnAMaker ou UserVoice. Le nom d’hôte est une URL de cette forme : https:// *{hostname}* .azurewebsites.net.
+    
+1. Accédez à votre service QnAMaker (groupe de ressources) dans le [portail Azure](https://portal.azure.com).
+
+    ![Groupe de ressources Azure QnAMaker sur le portail Azure](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. Sélectionnez l’App Service associé à la ressource QnA Maker. Les noms sont généralement identiques.
+
+     ![Sélectionner l’App Service QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. L’URL de nom d’hôte est indiquée dans la section Vue d’ensemble.
+
+    ![Nom d’hôte QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Utiliser le bot d’aide dans le portail QnA Maker
 
@@ -98,6 +116,14 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 
 Actualisez votre instance d’App Service lorsque l’icône d’avertissement apparaît en regard du numéro de version de la base de connaissances dans le tableau **Clés de point de terminaison** sur la page **Paramètres utilisateur**[page](https://www.qnamaker.ai/UserSettings).
 
+### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>J’ai supprimé mon service de recherche existant. Comment puis-je résoudre ce problème ?
+
+Si vous supprimez un index Recherche Azure, l’opération est définitive et l’index ne peut pas être récupéré. 
+
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>J’ai supprimé l’index `testkb` de mon service de recherche. Comment puis-je résoudre ce problème ? 
+
+Vos anciennes données ne peuvent pas être récupérées. Créez une ressource QnA Maker, puis recréez votre base de connaissances.
+
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>Quand dois-je actualiser mes clés de point de terminaison ?
 
 Actualisez vos clés de point de terminaison si vous pensez qu’elles ont été compromises.
@@ -108,7 +134,7 @@ Pour utiliser plusieurs langues et plusieurs bases de connaissances, l’utilisa
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Comment changer le nom de la ressource Recherche Azure utilisée par QnA Maker ?
 
-Le nom de la ressource Recherche Azure est le nom de ressource QnA Maker avec des lettres aléatoires ajoutées à la fin. De ce fait, il est difficile de faire la distinction entre plusieurs ressources de recherche pour QnA Maker. Créez un service Recherche Azure distinct (en le nommant comme vous le souhaitez), puis connectez-le à votre service QnA. La procédure est similaire à celle que vous devez effectuer pour [mettre à niveau une Recherche Azure](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+Le nom de la ressource Recherche Azure est le nom de ressource QnA Maker avec des lettres aléatoires ajoutées à la fin. De ce fait, il est difficile de faire la distinction entre plusieurs ressources de recherche pour QnA Maker. Créez un service Recherche Azure distinct (en le nommant comme vous le souhaitez), puis connectez-le à votre service QnA. La procédure est similaire à celle que vous devez effectuer pour [mettre à niveau une Recherche Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Quand QnA Maker retourne `Runtime core is not initialized,`, comment résoudre le problème ?
 
