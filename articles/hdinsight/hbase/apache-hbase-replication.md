@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a93f8286c6927a3e87e03fb73e680c9638285336
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433718"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917782"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -60,7 +60,7 @@ Pour vous aider à configurer les environnements, nous avons créé des [modèle
 
 Pour utiliser un modèle qui crée deux réseaux virtuels dans deux régions différentes et la connexion VPN entre les deux, sélectionnez le bouton suivant **Déployer sur Azure**. La définition de modèle est stockée dans un [stockage Blob public](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 Voici quelques-unes des valeurs codées en dur dans le modèle :
 
@@ -297,7 +297,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
       > [!NOTE]
       > Utilisez le nom d’hôte plutôt que le nom de domaine complet (FQDN) pour le nom DNS du cluster source et du cluster de destination.
 
-6. Sélectionnez **Créer**. L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
+6. Sélectionnez **Create** (Créer). L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
 
 Arguments requis :
 

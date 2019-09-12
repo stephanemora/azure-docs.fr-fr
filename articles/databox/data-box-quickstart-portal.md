@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241363"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772746"
 ---
 ::: zone target="docs"
 
@@ -80,10 +80,6 @@ Avant de commencer, vous devez avoir :
     - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
     - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
 6. Disposer d’une surface plane où placer la Data Box. Pour placer l’appareil à plat ou droit sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack.
-7. Vous devez disposer des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
-    - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Pour plus d’informations, consultez la [liste des câbles et des commutateurs pris en charge auprès de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) compatibles avec les cartes 10GBASE double port Mellanox ConnectX®-3 Pro avec l’interface réseau PCI Express 3.0.
-    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
-    - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
 ::: zone-end
 
