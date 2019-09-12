@@ -3,18 +3,18 @@ title: Paramètres et en-têtes communs
 description: Paramètres et en-têtes communs à toutes les opérations que vous pouvez effectuer concernant les ressources Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 7ec8e1df71e6513b13e9c37174a3363471be01d9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64696685"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879270"
 ---
 # <a name="common-parameters-and-headers"></a>Paramètres et en-têtes communs
 
@@ -41,8 +41,8 @@ Le service utilise les codes d’état HTTP pour indiquer la réussite ou l’é
 
 |Nom de l'élément | Type | Description |
 |---|---|---|
-| code | chaîne | Type d’erreur qui s’est produit.|
-| message | chaîne | Description de ce qui a provoqué l’erreur. |
+| code | string | Type d’erreur qui s’est produit.|
+| message | string | Description de ce qui a provoqué l’erreur. |
 
 
 

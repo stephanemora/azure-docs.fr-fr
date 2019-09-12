@@ -1,22 +1,22 @@
 ---
-title: Créer un service Recherche Azure dans le portail - Recherche Azure
+title: 'Démarrage rapide : Créer un service Recherche Azure dans le portail - Recherche Azure'
 description: Provisionnez un service Recherche Azure dans le Portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649944"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883854"
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
+# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>Démarrage rapide : Création d'un service Azure Search dans le portail
 
 La Recherche Azure est une ressource autonome utilisée pour ajouter une expérience de recherche à des applications personnalisées. Bien que la Recherche Azure s’intègre facilement à de nombreux autres services Azure, vous pouvez également l’utiliser comme un composant autonome. Vous pouvez aussi l’intégrer à des applications situées sur des serveurs réseau ou à des logiciels s’exécutant sur d’autres plateformes cloud.
 

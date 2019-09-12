@@ -3,18 +3,18 @@ title: Surveiller et gérer la création de certificats
 description: Scénarios illustrant un éventail d’options permettant de créer un certificat, de surveiller le processus de création du certificat et d’interagir avec ce dernier avec Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729221"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880833"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Surveiller et gérer la création de certificats
 S’applique à : Azure

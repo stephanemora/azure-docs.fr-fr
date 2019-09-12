@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 45f6f181ddbf7e76662f76c433d8ff68c18f0de1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "69656844"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Résoudre les problèmes de paiement d’Azure
@@ -96,7 +96,7 @@ Autres articles sur la résolution des problèmes liés à la facturation et aux
 - [Aucun abonnement trouvé](billing-no-subscriptions-found.md)
 - [Désactivation de l’affichage des coûts d’entreprise](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l’aide
+## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l'aide
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

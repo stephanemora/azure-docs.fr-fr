@@ -7,14 +7,14 @@ manager: carmonm
 keywords: récupération au niveau élément ; récupération de fichiers à partir d’une sauvegarde de machine virtuelle Azure ; restaurer des fichiers à partir d’une machine virtuelle Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954605"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210371"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -68,7 +68,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
     - download.microsoft.com
     - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.com (pour les zones géographiques publiques Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure Chine)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure Chine 21Vianet)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.us (pour Azure US Government)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.de (pour Azure Allemagne)
     - port sortant 3260

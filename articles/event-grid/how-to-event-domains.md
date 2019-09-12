@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.date: 07/11/2019
+ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137841"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842566"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
@@ -27,27 +27,39 @@ Pour en savoir plus sur les domaines d’événements, consultez [Comprendre les
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
+## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+
 ## <a name="create-an-event-domain"></a>Créer un domaine d’événement
 
 Pour gérer de grands ensembles de rubriques, créez un domaine d’événements.
 
-Pour l’interface de ligne de commande Azure, consultez :
+# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
 
 ```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
   -l <location>
 ```
 
-Pour PowerShell, utilisez la commande suivante :
-
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
 Une création réussie retourne les valeurs suivantes :
 
@@ -74,6 +86,7 @@ La gestion de l’accès aux rubriques est effectuée par le biais d’une [attr
 
 Event Grid a deux rôles intégrés que vous pouvez utiliser pour attribuer à des utilisateurs spécifiques l’accès à différentes rubriques au sein d’un domaine. Ces rôles sont `EventGrid EventSubscription Contributor (Preview)`, qui permet de créer et de supprimer des abonnements, et `EventGrid EventSubscription Reader (Preview)`, qui permet uniquement de répertorier les abonnements aux événements.
 
+# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
 La commande Azure CLI suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
 
 ```azurecli-interactive
@@ -83,6 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 La commande PowerShell suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
 
 ```azurepowershell-interactive
@@ -91,6 +105,7 @@ New-AzureRmRoleAssignment `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
 Pour plus d’informations sur la gestion des accès pour les opérations Event Grid, consultez la page [Sécurité et authentification Azure Event Grid](./security-authentication.md).
 
@@ -102,7 +117,7 @@ L’abonnement à une rubrique dans un domaine est identique à l’abonnement �
 
 Généralement, l’utilisateur auquel vous avez accordé l’accès dans la section précédente créera l’abonnement. Pour plus de simplicité dans cet article, c’est vous qui créez l’abonnement. 
 
-Pour l’interface de ligne de commande Azure, consultez :
+# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -111,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-Pour PowerShell, utilisez la commande suivante :
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -119,6 +134,8 @@ New-AzureRmEventGridSubscription `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
+
+---
 
 Si vous avez besoin d’un point de terminaison de test auquel abonner vos événements, vous pouvez toujours déployer une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les événements entrants. Vous pouvez envoyer vos événements à votre site web de test à l’adresse `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -158,6 +175,7 @@ La publication d’événements sur un domaine est similaire à la [publication 
 }]
 ```
 
+# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
 Pour obtenir le point de terminaison de domaine avec Azure CLI, utilisez
 
 ```azurecli-interactive
@@ -174,6 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Pour obtenir le point de terminaison de domaine avec PowerShell, utilisez
 
 ```azurepowershell-interactive
@@ -189,25 +208,9 @@ Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
+---
 
 Ensuite, publiez vos événements sur votre domaine Event Grid en effectuant une requête HTTP POST selon la méthode de votre choix.
-
-## <a name="search-lists-of-topics-or-subscriptions"></a>Listes de recherche de rubriques ou abonnements
-
-Pour la recherche et la gestion d’un nombre important de rubriques et d’abonnements, les API Event Grid prennent en charge le référencement et la pagination.
-
-### <a name="using-cli"></a>Utiliser l'interface CLI
-
-Pour l’utiliser, veillez à utiliser l’extension Event Grid d’Azure CLI version 0.4.1 ou plus récente.
-
-```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid topic list \
-    --odata-query "contains(name, 'my-test-filter')"
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

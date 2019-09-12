@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231904"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910052"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
@@ -27,6 +27,10 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 > - Supprimer un blueprint affecté à un abonnement
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+
+## <a name="prerequisites"></a>Prérequis
+
+Si le module n’est pas encore installé, suivez les instructions fournies dans [Ajouter le module Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) pour installer et valider le module **AZ.Blueprint** à partir de PowerShell Gallery.
 
 ## <a name="create-a-blueprint"></a>Créer un blueprint
 

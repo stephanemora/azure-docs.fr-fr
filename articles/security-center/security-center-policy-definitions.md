@@ -2,24 +2,18 @@
 title: Définitions de stratégie Azure surveillées dans Azure Security Center | Microsoft Docs
 description: Définitions de stratégie Azure surveillées dans Azure Security Center.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990501"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910356"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Stratégies de sécurité Azure supervisées par Azure Security Center
 Cet article fournit une liste de définitions de stratégies Azure Policy que vous pouvez superviser dans Security Center. Pour plus d’informations sur les stratégies de sécurité, consultez [Utilisation des stratégies de sécurité](tutorial-security-policy.md).
@@ -50,7 +44,7 @@ Pour plus d’informations sur les stratégies intégrées supervisées par Secu
 |Les journaux de diagnostic doivent être activés dans Azure Data Lake Store|Auditez l’activation des journaux et conservez-les jusqu’à un an. Ceci crée des pistes des activités pour les investigations en cas d’incident de sécurité ou de compromission du réseau.|
 |Les journaux de diagnostic doivent être activés dans Data Lake Analytics|Auditez l’activation des journaux et conservez-les jusqu’à un an. Ceci crée des pistes des activités pour les investigations en cas d’incident de sécurité ou de compromission du réseau.|
 |Les comptes de stockage doivent être migrés vers de nouvelles ressources AzureRM|Utilisez Azure Resource Manager pour vos comptes de stockage pour fournir des améliorations de la sécurité. Il s’agit des actions suivantes : <br>- Contrôle d’accès plus fort (RBAC)<br>- Amélioration des audits<br>- Déploiement et gouvernance basés sur Azure Resource Manager<br>- Accès aux identités managées<br>- Accès à Azure Key Vault pour les secrets<br>- Authentification basée sur Azure AD<br>- Prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité|
-|Les machines virtuelles doivent être migrées vers de nouvelles ressources AzureRM|Utilisez Azure Resource Manager pour vos machines virtuelles afin de fournir des améliorations de la sécurité.  Il s’agit des actions suivantes : <br>- Contrôle d’accès plus fort (RBAC)<br>- Amélioration des audits<br>- Déploiement et gouvernance basés sur Azure Resource Manager<br>- Accès aux identités managées<br>- Accès à Azure Key Vault pour les secrets<br>- Authentification basée sur Azure AD<br>- Prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité|
+|Les machines virtuelles doivent être migrées vers de nouvelles ressources AzureRM|Utilisez Azure Resource Manager pour vos machines virtuelles afin de fournir des améliorations de la sécurité. Il s’agit des actions suivantes : <br>- Contrôle d’accès plus fort (RBAC)<br>- Amélioration des audits<br>- Déploiement et gouvernance basés sur Azure Resource Manager<br>- Accès aux identités managées<br>- Accès à Azure Key Vault pour les secrets<br>- Authentification basée sur Azure AD<br>- Prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité|
 |Des règles d’alerte de métrique doivent être configurées sur les comptes Batch|Auditez la configuration des règles d’alerte de métrique sur les comptes Azure Batch pour activer la métrique nécessaire.|
 |Les journaux de diagnostic doivent être activés dans les comptes Batch|Auditez l’activation des journaux et conservez-les jusqu’à un an. Ceci crée des pistes des activités pour les investigations en cas d’incident de sécurité ou de compromission du réseau.|
 |Le chiffrement doit être activé sur les variables des comptes Automation|Il est important d’activer le chiffrement des ressources de variables des comptes Automation quand vous stockez des données sensibles.|

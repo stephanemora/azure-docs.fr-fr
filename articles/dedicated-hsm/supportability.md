@@ -3,7 +3,7 @@ title: Prise en charge - Azure HSM dédié | Microsoft Docs
 description: Options de prise en charge et domaines de responsabilité pour un module de sécurité matériel (HSM) dédié Azure dans différents scénarios
 services: dedicated-hsm
 author: johndaw
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: 8341e9057b07fbb72957eddc342ae875e4591993
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912249"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881005"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Prise en charge Azure HSM dédié
 
@@ -30,7 +30,7 @@ Le support technique pour Dedicated HSM est un effort conjoint entre Microsoft e
 
 ## <a name="gemalto-support"></a>Support de Gemalto
 
-Les clients qui utilisent le service Dedicated HSM sont éligibles au support technique de Gemalto conformément à leur Plan de support Plus. Cela nécessite simplement un processus d’inscription par le biais du portail de support Gemalto. Un ID de client et des instructions vous seront fournis dans le cadre de l’engagement initial auprès de Microsoft afin d’accéder au service Dedicated HSM. Pour bénéficier du support de Gemalto, les utilisateurs doivent passer par leur [portail de support client](https://supportportal.gemalto.com/csm/).
+Les clients qui utilisent le service Dedicated HSM sont éligibles au support technique de Gemalto conformément à leur Plan de support Plus. Cela nécessite simplement un processus d’inscription par le biais du portail de support Gemalto. Un ID de client et des instructions vous seront fournis dans le cadre de l’engagement initial auprès de Microsoft afin d’accéder au service Dedicated HSM. Pour bénéficier du support de Gemalto, ils doivent passer par leur [portail de support client](https://supportportal.gemalto.com/csm/).
 Un aspect important à noter est que Gemalto fournit tous les logiciels et la documentation nécessaires pour utiliser le HSM (par exemple le logiciel d’accès client et les kits SDK) par le biais du téléchargement à partir du portail de support client.
 
 ### <a name="software-components"></a>Composants logiciels

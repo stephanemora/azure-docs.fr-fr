@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762306"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910325"
 ---
 # <a name="media-services-concepts"></a>Concepts d’Azure Media Services
 
@@ -76,7 +76,7 @@ Lors de la création du **localisateur de streaming**, outre le nom de l’élé
 
 L’empaquetage dynamique est utilisé que le streaming de contenu soit effectué en direct ou à la demande. Le diagramme suivant illustre le flux de travail du streaming à la demande avec l’empaquetage dynamique.
 
-![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Media Services vous permet de transmettre votre contenu en direct ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou l’un des trois principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés.
 

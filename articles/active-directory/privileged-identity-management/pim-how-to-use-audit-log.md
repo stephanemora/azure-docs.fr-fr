@@ -3,7 +3,7 @@ title: Voir l’historique des audits pour les rôles Azure AD dans PIM - Azure
 description: Découvrez comment afficher l’historique des audits des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/10/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8061cff8d39db66cb22a5650c7688657aa8b3554
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053930"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804329"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Voir l’historique d’audit pour les rôles Azure AD dans PIM
 
@@ -49,7 +49,7 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
     | Demandeur | Personne qui a demandé l’activation d’un rôle ou sa modification. Si la valeur est **Système Azure**, consultez l’historique d’audit Azure pour obtenir plus d’informations. |
     | Action | Actions effectuées par le demandeur. Il peut s’agir des actions Affecter, Annuler l’affectation, Activer, Désactiver ou AddedOutsidePIM. |
     | Membre | Utilisateur qui active un rôle ou est affecté à ce rôle. |
-    | Rôle | Rôle affecté ou activé par l’utilisateur. |
+    | Role | Rôle affecté ou activé par l’utilisateur. |
     | Raisonnement | Texte entré dans le champ Motif pendant l’activation. |
     | Expiration | Date d’expiration d’un rôle activé. S’applique uniquement aux affectations de rôles éligibles. |
 

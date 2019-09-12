@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67827638"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Processus d’application d’une remise pré-achat Azure Databricks
@@ -29,8 +29,8 @@ Le pré-achat de Databricks s’applique à toutes les charges de travail et les
 
 | **Charge de travail** | **Rapport d’application DBU : niveau Standard** | **Rapport d’application DBU : niveau Premium** |
 | --- | --- | --- |
-| Analytique des données | 0,4 | 0,55 |
-| Engineering données | 0,15 | 0,30 |
+| Analytique des données | 0.4 | 0,55 |
+| Engineering données | 0.15 | 0.30 |
 | Engineering données allégé | 0,07 | 0,22 |
 
 Par exemple, lorsqu’une quantité d’analytique données (niveau Standard) est utilisée, les unités de validation Databricks pré-achetées sont déduites de 0,4 unités. Lorsqu’une quantité Engineering données allégé (niveau Standard) est utilisée, les unités de validation Databricks pré-achetées sont déduites de 0,07 unités

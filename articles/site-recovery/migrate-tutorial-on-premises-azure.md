@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396536"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873363"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -46,7 +46,7 @@ Notez que les appareils exportés par les pilotes paravirtualized ne sont pas pr
 2. Préparez les serveurs [VMware](vmware-azure-tutorial-prepare-on-premises.md) locaux ou les serveurs [Hyper-V](hyper-v-prepare-on-premises-tutorial.md). Si vous migrez des machines physiques, vous n’avez rien à préparer. Vérifiez simplement la [matrice de prise en charge](vmware-physical-azure-support-matrix.md).
 
 
-## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
+## <a name="select-a-protection-goal"></a>Sélectionner un objectif de protection
 
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 1. Cliquez sur **Coffres Recovery Services** > coffre.

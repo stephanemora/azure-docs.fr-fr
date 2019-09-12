@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 36430e9b0a4554761d53b537d3c32fa57068eabb
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490214"
 ---
 # <a name="view-billing-accounts-in-azure-portal"></a>Afficher les comptes de facturation dans le Portail Azure  
@@ -43,7 +43,7 @@ Une étendue est un nœud à l’intérieur d’un compte de facturation que les
 |Étendue  |Définition  |
 |---------|---------|
 |Compte de facturation     | Représente un seul propriétaire (administrateur de compte) pour un ou plusieurs abonnements Azure. Un administrateur de compte est autorisé à effectuer diverses tâches de facturation comme créer des abonnements, afficher des factures ou modifier la facturation des abonnements.  |
-|Abonnement     |  Représente un regroupement de ressources Azure. La facture est générée dans cette étendue. Il a ses propres modes de paiement qui permettent de régler la facture associée.|
+|Subscription     |  Représente un regroupement de ressources Azure. La facture est générée dans cette étendue. Il a ses propres modes de paiement qui permettent de régler la facture associée.|
 
 
 ### <a name="enterprise-agreement"></a>Contrat Entreprise

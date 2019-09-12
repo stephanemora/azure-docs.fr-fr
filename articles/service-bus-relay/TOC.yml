@@ -36,8 +36,8 @@
       href: relay-authentication-and-authorization.md
     - name: Protocole Connexions hybrides
       href: relay-hybrid-connections-protocol.md
-    - name: Attributs de sécurité courants Azure
-      href: service-bus-relay-security-attributes.md
+    - name: Contrôles de sécurité intégrés
+      href: service-bus-relay-security-controls.md
 - name: Procédure
   items:
     - name: Planifier et concevoir

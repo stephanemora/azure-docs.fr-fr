@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639277"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382889"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS : 
@@ -84,7 +84,7 @@ Cela permet de comprendre comment votre application se comporte sans ces éléme
 
 Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque fonctionnalité une fois le modèle testé avec des énoncés. 
 
-Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
+Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
  
 
 ### <a name="phrase-lists"></a>Listes d’expressions

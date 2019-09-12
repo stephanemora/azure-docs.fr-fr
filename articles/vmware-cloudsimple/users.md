@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c775f5352461dce6c63f5cc4a1c910c7f8df80ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9d261acf80f51a09cc4daa9182a87b0354cf8a3d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563816"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845403"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Afficher la liste des utilisateurs du portail CloudSimple
 
-Les utilisateurs sont ajoutés à la liste des utilisateurs lorsqu’ils accèdent pour la première fois au portail CloudSimple. Pour afficher la liste des utilisateurs qui ont accès au portail CloudSimple via Azure, [accédez au portail CloudSimple](monitor-activity.md), sélectionnez **Compte** dans le menu latéral, puis sélectionnez **Utilisateurs** dans le portail CloudSimple.
+Les utilisateurs sont ajoutés à la liste des utilisateurs lorsqu’ils accèdent pour la première fois au portail CloudSimple. Pour afficher la liste des utilisateurs qui ont accès au portail CloudSimple via Azure, [accédez au portail CloudSimple](access-cloudsimple-portal.md), sélectionnez **Compte** dans le menu latéral, puis sélectionnez **Utilisateurs** dans le portail CloudSimple.
 
 * Pour afficher les détails de l’utilisateur, y compris l’abonnement Azure, le locataire et les ID d’utilisateur, cliquez sur une entrée sur la page **Utilisateurs**.
 

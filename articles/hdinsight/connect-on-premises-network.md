@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404543"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918528"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -67,7 +67,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
   
 2. Dans le menu gauche, accédez à **+ Créer une ressource** > **Calcul** > **Ubuntu Server 18.04 LTS**.
 
-    ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. Sous l’onglet __De base__, entrez les informations suivantes :  
   
@@ -84,7 +84,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
     |Mot de passe ou clé publique SSH | Le champ disponible est déterminé par votre choix de **Type d’authentification**.  Entrez la valeur appropriée.|
     |Aucun port d’entrée public|Sélectionnez **Autoriser les ports sélectionnés**. Ensuite, sélectionnez **SSH (22)** dans la liste déroulante **Sélectionner des ports d’entrée**.|
 
-    ![Configuration de base de machine virtuelle](./media/connect-on-premises-network/vm-basics.png)
+    ![Configuration de base de machine virtuelle](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Conservez les valeurs par défaut des autres entrées, puis sélectionnez l’onglet **Mise en réseau**.
 
@@ -109,7 +109,7 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
 
 2. Notez les valeurs d’**Adresse IP publique/étiquette du nom DNS**  et d’**Adresse IP privée**. Vous en aurez besoin plus tard.
 
-   ![Adresses IP publique et privée](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Adresses IP publique et privée](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installer et configurer Bind (logiciel DNS)
 

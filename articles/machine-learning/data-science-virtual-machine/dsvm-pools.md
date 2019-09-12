@@ -1,31 +1,25 @@
 ---
-title: Pools de machines virtuelles DSVM - Azure | Microsoft Docs
+title: Pools partagés
+titleSuffix: Azure Data Science Virtual Machine
 description: Déploiement de pools de machines virtuelles DSVM en tant que ressource partagée pour une équipe
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 76a715838fa5eb4f806fccc98675ea5acdbe1822
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: conceptual
+ms.date: 12/10/2018
+ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992028"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195626"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Création d’un pool partagé de Data Science Virtual Machines
 
-Cet article explique comment créer un pool partagé de machines virtuelles DSVM (Data Science Virtual Machine) pour une équipe. L’utilisation d’un pool partagé comporte certains avantages : meilleure utilisation des ressources, partage et collaboration facilités, et gestion plus efficace des ressources des machines virtuelles DSVM.
+Dans cet article, vous allez apprendre à créer un pool partagé de DSVM (Data Science Virtual Machine) pour une équipe. L’utilisation d’un pool partagé comporte certains avantages : meilleure utilisation des ressources, partage et collaboration facilités, et gestion plus efficace des ressources des machines virtuelles DSVM.
 
 Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de DSVM. Cet article se concentre sur les pools de machines virtuelles interactives. La capacité de calcul Azure Machine Learning est un autre exemple d'infrastructure de calcul managée. Pour plus d’informations, consultez [Configurer des cibles de calcul](../service/how-to-set-up-training-targets.md#amlcompute).
 

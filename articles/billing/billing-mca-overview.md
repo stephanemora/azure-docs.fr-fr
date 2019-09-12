@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: 87483c967641489e9548f38c99eebbf121d0d252
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 835686d639679cca7e9a83b5297b365953835e47
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490751"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880736"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 
@@ -67,8 +67,8 @@ Les plans Azure déterminent les contrats de niveau de service et la tarificatio
 
 | Planification             | Définition  |
 |------------------|-------------|
-|Offre Microsoft Azure   | Autorisez les utilisateurs à créer des abonnements pouvant exécuter n'importe quelle charge de travail. Pour plus d’informations, consultez [Offre Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/). |
-|Offre Microsoft Azure pour Dev/Test | Autorisez les abonnés Visual Studio à créer des abonnements limités aux charges de travail de développement ou de test. Ces abonnements s'accompagnent d'avantages tels que des tarifs privilégiés et un accès à des images de machine virtuelle exclusives dans le portail Azure. Pour plus d’informations, consultez [Offre Microsoft Azure pour DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/).|
+|Offre Microsoft Azure   | Autorisez les utilisateurs à créer des abonnements pouvant exécuter n'importe quelle charge de travail.  |
+|Offre Microsoft Azure pour Dev/Test | Autorisez les abonnés Visual Studio à créer des abonnements limités aux charges de travail de développement ou de test. Ces abonnements s'accompagnent d'avantages tels que des tarifs privilégiés et un accès à des images de machine virtuelle exclusives dans le portail Azure. |
 
 ## <a name="invoice-sections"></a>Sections de facture
 

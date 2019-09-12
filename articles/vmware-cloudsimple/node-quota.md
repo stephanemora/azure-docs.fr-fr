@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12fecfc3a20d91b9324e1662f3f937340b7ff5c4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972448"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913946"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nœuds CloudSimple
 
@@ -32,9 +32,6 @@ Vous pouvez augmenter le quota de nœuds en envoyant une demande de prise en cha
 
 Dans les détails du ticket de support, indiquez le nombre requis de nœuds et la référence SKU de nœud.
 
-Vous pouvez également contacter votre responsable de compte Microsoft à [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) pour augmenter le quota de nœuds de votre abonnement.  Vous devrez fournir les éléments suivants :
-
-* Identifiant d’abonnement
 * Référence SKU de nœud
 * Nombre de nœuds supplémentaires pour lesquels vous demandez l’augmentation du quota
 

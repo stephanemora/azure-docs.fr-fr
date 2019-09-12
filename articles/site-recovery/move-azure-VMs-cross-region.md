@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793724"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375711"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -67,8 +67,8 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
    Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable ces ressources et les affecter à la machine virtuelle dans le cadre de l’étape d’activation de la réplication. Mais vous devez créer manuellement toutes les autres ressources dans la région cible. Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de votre machine virtuelle source :
 
    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+   - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
    Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
@@ -110,7 +110,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
 2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Comme le traitement des données ne prend pas de temps, cette option offre donc un objectif de délai de récupération faible (RTO).
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Aucun temps n’est passé à traiter les données, et cette option offre donc un objectif de délai de récupération faible (RTO).
    - **Dernier point de cohérence des applications** : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 

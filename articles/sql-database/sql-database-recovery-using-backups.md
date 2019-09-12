@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103118"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813343"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes automatisées d’une base de données
 
@@ -127,10 +127,7 @@ La restauration dans le temps sur un géo-réplica secondaire n’est pas prise 
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Géo-restauration à l’aide du portail Azure
 
-Pour effectuer une géorestauration d’une base de données à l’aide du portail Azure, ouvrez la page SQL Database, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix.
-
-> [!Note]
-> La géorestauration avec le Portail Azure n’est pas disponible dans Managed Instance. Utilisez plutôt PowerShell.
+Pour effectuer une géorestauration d’une base de données à l’aide du portail Azure, ouvrez la page SQL Database, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Exécution par programme d’une récupération à l’aide des sauvegardes automatisées
 

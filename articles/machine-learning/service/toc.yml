@@ -152,18 +152,20 @@
         - name: Configurer des environnements d’entraînement
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
-        - name: Créer des estimateurs dans l’entraînement
-          href: how-to-train-ml-models.md
-        - name: Utiliser Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: Utiliser TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Utiliser Keras
-          href: how-to-train-keras.md
-        - name: Utiliser PyTorch
-          href: how-to-train-pytorch.md
-        - name: Utiliser Chainer
-          href: how-to-train-chainer.md
+        - name: Utiliser des estimateurs pour l’entraînement
+          items:
+            - name: Créer des estimateurs dans l’entraînement
+              href: how-to-train-ml-models.md
+            - name: Utiliser Scikit-learn
+              href: how-to-train-scikit-learn.md
+            - name: Utiliser TensorFlow
+              href: how-to-train-tensorflow.md
+            - name: Utiliser Keras
+              href: how-to-train-keras.md
+            - name: Utiliser PyTorch
+              href: how-to-train-pytorch.md
+            - name: Utiliser Chainer
+              href: how-to-train-chainer.md
         - name: Optimiser les hyperparamètres
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -189,7 +191,7 @@
         - name: Utiliser le machine learning automatisé (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: Utiliser le machine learning automatisé (portail Azure)
+        - name: Utiliser le machine learning automatisé (page d’accueil de l’espace de travail)
           href: how-to-create-portal-experiments.md
         - name: Utiliser des cibles de calcul distantes
           displayName: automl automated auto ml

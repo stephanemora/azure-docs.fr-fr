@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c56d469360814cb663b4c5c11689961225eebb2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544036"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772344"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurer des tables et des règles de pare-feu pour des clouds privés
 
@@ -24,7 +24,7 @@ Les tables de pare-feu et les règles associées vous permettent de spécifier d
 
 ## <a name="add-a-new-firewall-table"></a>Ajouter une nouvelle table de pare-feu
 
-1. [Accédez au portail CloudSimple](monitor-activity.md), puis sélectionnez **Network** (Réseau) dans le menu latéral.
+1. [Accédez au portail CloudSimple](access-cloudsimple-portal.md), puis sélectionnez **Network** (Réseau) dans le menu latéral.
 2. Sélectionnez **Firewall Tables** (Tables de pare-feu).
 3. Sélectionnez **Create firewall table** (Créer une table de pare-feu).
 
