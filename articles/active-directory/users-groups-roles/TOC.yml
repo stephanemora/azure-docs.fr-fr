@@ -40,6 +40,16 @@
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gérer les profils utilisateur
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Opérations en bloc (préversion)
+          items:
+            - name: Télécharger des utilisateurs (préversion)
+              href: users-bulk-download.md
+            - name: Importer en bloc des utilisateurs (préversion)
+              href: users-bulk-add.md
+            - name: Supprimer en bloc des utilisateurs (préversion)
+              href: users-bulk-delete.md
+            - name: Restaurer en bloc des utilisateurs (préversion)
+              href: users-bulk-restore.md
         - name: Partager des comptes d’utilisateurs
           href: users-sharing-accounts.md
         - name: Affecter des utilisateurs aux rôles d’administrateur
@@ -74,8 +84,8 @@
       items:
         - name: Gérer l’accès à l’aide des groupes
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Gérer les groupes dans le Portail Azure
-          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Rechercher dans les listes de groupes et de membres (préversion)
+          href: groups-members-owners-search.md
         - name: Gérer les groupes PowerShell pour Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Gérer les groupes PowerShell MSOnline
@@ -84,8 +94,20 @@
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gérer les propriétaires de groupe
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Opérations en bloc (préversion)
+          items:
+            - name: Importer en bloc des membres (préversion)
+              href: groups-bulk-import-members.md
+            - name: Télécharger en bloc des membres (préversion)
+              href: groups-bulk-download-members.md
+            - name: Supprimer en bloc des membres (préversion)
+              href: groups-bulk-remove-members.md
+            - name: Télécharger en bloc une liste de groupes (préversion)
+              href: groups-bulk-download.md
         - name: Gestion les groupes dans des groupes
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Créer un groupe (portail Azure)
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Ajouter l’accès de groupe aux applications SaaS
           href: groups-saasapps.md
         - name: Référence d’affectation de noms de groupes
