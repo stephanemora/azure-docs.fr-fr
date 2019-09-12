@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 156699b8d8c1a645961f4e919bdd843d995a3d18
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624686"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142641"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -152,6 +152,10 @@ Les nouvelles fonctionnalités et optimisations sont ajoutées uniquement au SDK
 
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
+> [!WARNING]
+> Toutes les versions **1.x** du kit SDK Async Java pour l’API SQL seront supprimées le **30 août 2020**.
+> 
+>
 <br/>
 
 | Version | Date de lancement | Date de suppression |
@@ -169,9 +173,9 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | [2.1.0](#2.1.0) |5 septembre 2018|--- |
 | [2.0.1](#2.0.1) |16 août 2018|--- |
 | [2.0.0](#2.0.0) |20 juin 2018|--- |
-| [1.0.2](#1.0.2) |18 mai 2018|--- |
-| [1.0.1](#1.0.1) |20 avril 2018|--- |
-| [1.0.0](#1.0.0) |27 février 2018|--- |
+| [1.0.2](#1.0.2) |18 mai 2018|30 août 2020 |
+| [1.0.1](#1.0.1) |20 avril 2018|30 août 2020 |
+| [1.0.0](#1.0.0) |27 février 2018|30 août 2020 |
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

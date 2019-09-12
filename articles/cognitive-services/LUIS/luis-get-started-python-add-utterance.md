@@ -1,5 +1,5 @@
 ---
-title: Modifier, entraîner l’application, Python - LUIS
+title: 'Démarrage rapide : Modifier, entraîner l’application, Python - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de Python, vous allez ajouter des exemples d’énoncés à une application de domotique et entraîner l’application.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 96f4d251b0ccc76ef33c86f6661cc9b94098a967
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 32c87c0ec78c57aee83b15f13a4d5240eedc1239
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560538"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375404"
 ---
 # <a name="quickstart-change-model-using-python"></a>Démarrage rapide : Changer de modèle à l’aide de Python
 

@@ -1,5 +1,5 @@
 ---
-title: Bot QnA - Azure Bot Service - QnA Maker
+title: 'Didacticiel : Bot QnA - Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Créez un bot conversationnel QnA à partir de la page Publier pour une base de connaissances existante. Ce bot utilise le SDK Bot Framework v4. Vous n’avez pas besoin d’écrire de code pour construire le bot, car tout le code vous est fourni.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 07/31/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697988"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390902"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Didacticiel : Créer un bot QnA avec Azure Bot Service v4
 

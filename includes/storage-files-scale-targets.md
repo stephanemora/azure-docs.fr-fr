@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.openlocfilehash: 9f259c3e403e933c847ac56000b1db2cd594caf5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67449932"
 ---
 | Ressource | Partages de fichiers Standard | Partages de fichiers Premium |
 |----------|---------------|------------------------------------------|
 | Taille minimale d'un partage de fichiers | (aucun minimum ; paiement à l’utilisation) | 100 GiB provisionné |
-| Taille maximale d’un partage de fichiers | 5 To (GA), 100 Tio (préversion) | 100 Tio |
+| Taille maximale d’un partage de fichiers | 5 To (GA), 100 Tio (préversion) | 100 Tio |
 | Taille maximale d’un fichier dans un partage de fichiers | 1 Tio | 1 Tio |
 | Nombre maximal de fichiers dans un partage de fichiers | Aucune limite | Aucune limite |
 | Maximum d’E/S par seconde par partage | 1 000 IOPS (GA), 10 000 IOPS (préversion) | 100 000 E/S par seconde |

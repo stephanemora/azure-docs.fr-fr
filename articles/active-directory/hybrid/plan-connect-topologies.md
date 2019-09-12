@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383759"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275212"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -60,7 +60,7 @@ Le fait de disposer de plusieurs serveurs Azure AD Connect Sync connectés à un
 
 De nombreuses organisations possèdent des environnements comportant plusieurs forêts Active Directory locales. Il existe plusieurs raisons de déployer plus d’une forêt Active Directory locale. Par exemple : des modèles avec des forêts de ressources de comptes et la conséquence d’une fusion ou d’une acquisition.
 
-Lorsque vous avez plusieurs forêts, toutes les forêts doivent être accessibles par un même serveur Azure AD Connect Sync. Vous n’êtes pas obligé de joindre le serveur à un domaine. Si nécessaire pour atteindre toutes les forêts, vous pouvez placer le serveur dans un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré).
+Lorsque vous avez plusieurs forêts, toutes les forêts doivent être accessibles par un même serveur Azure AD Connect Sync. Le serveur doit être joint à un domaine. Si nécessaire pour atteindre toutes les forêts, vous pouvez placer le serveur dans un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré).
 
 L’Assistant d’installation d’Azure AD Connect offre plusieurs options différentes pour consolider les utilisateurs qui sont représentés dans plusieurs forêts. L’objectif est de représenter un utilisateur une seule fois dans Azure AD. Il existe certaines topologies courantes que vous pouvez configurer dans le chemin d’installation personnalisé de l’Assistant d’installation. Sur la page **Identification unique de vos utilisateurs**, sélectionnez l’option correspondante qui représente votre topologie. La consolidation est configurée uniquement pour les utilisateurs. Les groupes en doublon ne sont pas consolidés avec la configuration par défaut.
 

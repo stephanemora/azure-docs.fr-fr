@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981159"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845662"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Niveau de service Hyperscale pour jusqu’à 100 To
 
@@ -186,7 +186,7 @@ Pour demander à pouvoir créer des bases de données Hyperscale dans des régio
 
 2. Cliquez sur [**Nouvelle demande de support**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Panneau Aide et support d’Azure](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Panneau Aide et support d’Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
 
@@ -198,13 +198,13 @@ Pour demander à pouvoir créer des bases de données Hyperscale dans des régio
 
 1. Cliquez sur **Fournir les détails**.
 
-    ![Détails du problème](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Détails du problème](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. Choisissez **Type de quota de base de données SQL** : **Autre demande de quota**.
 
 9. Remplissez le modèle suivant :
 
-    ![Détails du quota](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Détails du quota](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     Dans le modèle, fournissez les informations suivantes :
 

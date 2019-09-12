@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066665"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210117"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.  
@@ -110,7 +110,7 @@ Pour déconnecter votre application du réseau virtuel, sélectionnez **Déconne
 
 #### <a name="web-app-for-containers"></a>Web App pour conteneurs
 
-Si vous utilisez App Service sur Linux avec les images intégrées, la fonctionnalité d’intégration au réseau virtuel régional fonctionne sans modifications supplémentaires. Si vous utilisez Web App pour conteneurs, vous devez modifier votre image docker pour pouvoir utiliser l’intégration au réseau virtuel. Dans votre image docker, utilisez la variable d’environnement PORT comme port d’écoute du serveur web principal, au lieu d’utiliser un numéro de port codé en dur. La variable d’environnement PORT est automatiquement définie par la plateforme App Service au démarrage du conteneur.
+Si vous utilisez App Service sur Linux avec les images intégrées, la fonctionnalité d’intégration au réseau virtuel régional fonctionne sans modifications supplémentaires. Si vous utilisez Web App pour conteneurs, vous devez modifier votre image docker pour pouvoir utiliser l’intégration au réseau virtuel. Dans votre image docker, utilisez la variable d’environnement PORT comme port d’écoute du serveur web principal, au lieu d’utiliser un numéro de port codé en dur. La variable d’environnement PORT est automatiquement définie par la plateforme App Service au démarrage du conteneur. Si vous utilisez SSH, le démon SSH doit être configuré pour écouter sur le numéro de port spécifié par la variable d’environnement SSH_PORT lors de l’utilisation de l’intégration au réseau virtuel régional.
 
 ### <a name="service-endpoints"></a>Points de terminaison de service
 

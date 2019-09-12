@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 7/01/2019
+ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883577"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194311"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
@@ -242,7 +242,7 @@ Le champ `tags` contient un nom d’affichage et une liste d’actions (Insights
 
 Pour obtenir la liste des informations par défaut, voir [Balise Insights par défaut](../default-insights-tag.md).
 
-Les balises restantes contiennent d’autres informations éventuellement utiles à l’utilisateur. Par exemple, si l’image contient du texte, une des balises peut inclure une information TextResults, avec le texte reconnu. Ou alors, si Bing reconnaît une entité (c’est-à-dire, une personne, un lieu ou une chose) dans l’image, une des balises peut identifier l’entité. La recherche visuelle renvoie également un ensemble varié de termes (balises) dérivés de l’image d’entrée. Ces étiquettes permettent aux utilisateurs d’explorer les concepts trouvés dans l’image. Par exemple, si l’image d’entrée représente un athlète célèbre, une des balises peut être Sports et contenir des liens vers des images de sports.
+Les balises restantes contiennent d’autres informations éventuellement utiles à l’utilisateur. Par exemple, si l’image contient du texte, une des balises peut inclure une information TextResults, avec le texte reconnu. Ou alors, si Bing reconnaît dans l’image une entité (c’est-à-dire, une personne, un lieu ou un objet populaires ou culturellement bien connus), l’une des étiquettes peut identifier cette entité. La recherche visuelle renvoie également un ensemble varié de termes (balises) dérivés de l’image d’entrée. Ces étiquettes permettent aux utilisateurs d’explorer les concepts trouvés dans l’image. Par exemple, si l’image d’entrée représente un athlète célèbre, une des balises peut être Sports et contenir des liens vers des images de sports.
 
 Chaque balise inclut un nom d’affichage que vous pouvez utiliser pour catégoriser les informations, un rectangle englobant qui identifie la zone d’intérêt correspondant aux informations, les informations elles-mêmes et une miniature de l’image. Par exemple, si l’image représente une personne portant le maillot d’une équipe sportive, une des balises peut inclure un rectangle englobant qui délimite le maillot et inclut des données VisualSearch et ProductVisualSearch. Et une autre balise peut inclure des informations ImageResults avec une URL pour une requête d’API /images/search afin d’obtenir des images sur un sujet connexe ou une URL de recherche Bing.com qui dirige l’utilisateur vers les résultats de recherche d’images Bing.com.
 
@@ -368,7 +368,7 @@ La reconnaissance de texte peut aussi reconnaître les coordonnées sur des cart
     }
 ```
 
-Si l’image contient une entité reconnue, comme une personne, un lieu ou un objet, une des balises peut inclure des informations sur l’entité.
+Si l’image contient une entité reconnue, comme une personne, un lieu ou un objet populaires ou culturellement bien connus, l’une des étiquettes peut inclure des insights sur cette entité.
 
 ```json
     {

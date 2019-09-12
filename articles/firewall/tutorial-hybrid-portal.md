@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: f7dce448b01c211441fd1e0fd530ff6ad062c303
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114872"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918782"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -102,7 +102,7 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
 4. Pour **Nom**, tapez **VNet-Spoke**.
 5. Pour **Espace d’adressage**, tapez **10.6.0.0/16**.
 6. Pour **Abonnement**, sélectionnez votre abonnement.
-7. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
+7. Pour **Groupe de ressources**, sélectionnez **FW-Hybrid-Test**.
 8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
 9. Sous **Sous-réseau**, tapez **SN-Workload** pour **Nom**.
 10. Pour **Plage d’adresses**, tapez **10.6.0.0/24**.

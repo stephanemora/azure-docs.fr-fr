@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274c4e89ff3f996cc71cdacdfb7b5b72e813ae4b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: fdd99899494e9f7b3c0caa4e83f18803b969db1e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297660"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192718"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’appareil OAuth 2.0
 
@@ -35,7 +35,7 @@ La plateforme d’identités Microsoft prend en charge l’[octroi de code d’a
 >
 > Les comptes personnels invités sur un locataire Azure AD peuvent utiliser l’octroi de flux d’appareil, mais uniquement dans le contexte du locataire.
 >
-> Par ailleurs, le champ de réponse `verification_uri_complete` n’est ni inclus ni pris en charge pour l’instant.  
+> Par ailleurs, le champ de réponse `verification_uri_complete` n’est ni inclus ni pris en charge pour l’instant.  Nous le mentionnons, car si vous lisez la norme, vous voyez que `verification_uri_complete` est listé comme une partie facultative de la norme de flux de code d’appareil.
 
 > [!NOTE]
 > Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).

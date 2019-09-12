@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719568"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917714"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -34,11 +34,11 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
 3. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
-    ![L’affichage Hive sélectionné](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![L’affichage Hive sélectionné](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     L’affiche Hive est similaire à ceci :
 
-    ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
 
@@ -104,19 +104,19 @@ Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul 
 
 L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
-![Image de l’historique des travaux](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Image de l’historique des travaux](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tables de base de données
 
 Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des tables dans une base de données Hive.
 
-![Image de l’onglet tables](./media/apache-hadoop-use-hive-ambari-view/tables.png)
+![Image de l’onglet tables](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
 À partir de l’onglet **Query** (Requête), vous pouvez éventuellement enregistrer des requêtes. Après avoir enregistré une requête, vous pouvez la réutiliser à partir de l’onglet __Saved Queries__ (Requêtes enregistrées).
 
-![Image de l’onglet de requêtes enregistrées](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Image de l’onglet de requêtes enregistrées](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Les requêtes enregistrées sont stockées dans le stockage en cluster par défaut. Vous pouvez rechercher les requêtes enregistrées sous le chemin `/user/<username>/hive/scripts`. Ces fichiers sont stockés en tant que fichiers `.hql` en texte brut.

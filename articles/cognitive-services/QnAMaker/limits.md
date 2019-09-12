@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c7b0dc39d2da403383f245b9ff3227734c58cbbe
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423452"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193485"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -44,19 +44,31 @@ Le nombre maximal de liens ciblés pouvant être analysés pour l’extraction d
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
 
+### <a name="by-azure-search-pricing-tier"></a>Par niveau tarifaire Recherche Azure
+
 Le nombre maximal de champs de métadonnées par base de connaissances est basé sur les **[limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
 
+### <a name="by-name-and-value"></a>Par nom et valeur
+
+La longueur et les caractères acceptables pour le nom et la valeur des métadonnées sont listés dans le tableau suivant.
+
+|Item|Caractères autorisés|Modèle d’expression régulière|Caractères max.|
+|--|--|--|--|
+|Nom|Sont autorisés<br>les caractères alphanumériques (lettres et chiffres) et<br>`_` (trait de soulignement)|`^[a-zA-Z0-9_]+$`|100|
+|Valeur|Tous sauf<br>`:` (deux points)<br>`|` (barre verticale)|`^[^:|]+$`|500|
+|||||
+
 ## <a name="knowledge-base-content-limits"></a>Limites de contenu de la base de connaissances
 Limites globales sur le contenu de la base de connaissances :
 * Longueur du texte de réponse : 25 000
 * Longueur du texte de question : 1 000
 * Longueur du texte de valeur/clé des métadonnées : 100
-* Caractères pris en charge pour le nom des métadonnées : lettres, chiffres et _  
-* Caractères pris en charge pour la valeur des métadonnées : tout sauf : et | 
+* Caractères pris en charge pour le nom des métadonnées : lettres, chiffres et `_`  
+* Caractères pris en charge pour la valeur des métadonnées : Tous sauf `:` et `|` 
 * Longueur de nom de fichier : 200
 * Formats de fichier pris en charge : « .tsv », « .pdf », « .txt », « .docx », « .xlsx ».
 * Nombre maximal de questions alternatives : 300
@@ -78,8 +90,4 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez quand et comment changer les niveaux de service :
-
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku) : si vous avez besoin d’ajouter des fichiers sources supplémentaires ou des documents plus volumineux dans votre base de connaissances, au-delà de votre niveau actuel, mettez à jour le niveau tarifaire de votre service QnA Maker.
-* [Service d’application](how-to/upgrade-qnamaker-service.md#upgrade-app-service) : Lorsque votre base de connaissances doit répondre à un plus grand nombre de demandes de votre application client, mettez à niveau le niveau tarifaire de vos services applicatifs.
-* [Recherche Azure](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service) : Lorsque vous prévoyez de disposer de plusieurs bases de connaissances, mettez à niveau votre niveau tarifaire du service Recherche Azure.
+Découvrez quand et comment changer de [niveau tarifaire](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).

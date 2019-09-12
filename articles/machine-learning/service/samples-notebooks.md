@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035944"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860382"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explorer Azure Machine Learning service avec des notebooks Jupyter
 
@@ -27,7 +27,6 @@ Cet article vous montre comment accéder au dépôt dans les environnements suiv
 - [Machine virtuelle Notebook Azure Machine Learning](#notebookvm)
 - [Utiliser son propre serveur de notebooks](#byo)
 - [Data Science Virtual Machine](#dsvm) (Machine virtuelle Science des données)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Une fois que vous avez cloné le dépôt, vous voyez que des notebooks de tutoriel se trouvent dans le dossier **tutorials**, et que des notebooks relatifs à certaines fonctionnalités se trouvent dans le dossier **how-to-use-azureml**.
@@ -53,13 +52,6 @@ Ces instructions permettent d’installer les packages de base du SDK qui sont n
 La machine virtuelle DSVM (Data Science Virtual Machine) est une image de machine virtuelle personnalisée spécialement conçue pour la science des données. Lorsque vous [créez une machine virtuelle DSVM](how-to-configure-environment.md#dsvm), le SDK et le serveur de notebooks sont installés et configurés automatiquement. Toutefois, vous devrez créer un espace de travail et cloner l’exemple de dépôt.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-<a name="aznb"></a>
-## <a name="get-samples-on-azure-notebooks"></a>Recevoir des exemples sur Azure Notebooks
-
-Dans [Azure Notebooks](https://notebooks.azure.com/), le SDK et le serveur de notebooks sont installés et configurés automatiquement. Azure Notebooks fournit un environnement de notebook léger et complètement managé.
-
-Pour accéder à l’exemple de dépôt dans Azure Notebooks, accédez à votre espace de travail Azure Machine Learning via le [portail Azure](https://portal.azure.com). Dans la section **Vue d’ensemble**, sélectionnez **Bien démarrer dans Azure Notebooks**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

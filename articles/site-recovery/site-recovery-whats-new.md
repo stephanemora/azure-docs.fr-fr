@@ -5,25 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972518"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146897"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
 Le service [Azure Site Recovery](site-recovery-overview.md) fait l’objet de mises à jour et d’améliorations continues. Pour vous aider à rester à jour, cet article vous donne des informations sur les versions les plus récentes, les nouvelles fonctionnalités et le nouveau contenu. Cette page est régulièrement mise à jour.
 
-Si vous avez des suggestions concernant les fonctionnalités de Site Recovery, [faites-nous part de vos commentaires](https://feedback.azure.com/forums/256299-site-recovery).
+Vous pouvez suivre et vous abonner aux notifications de mise à jour Site Recovery dans le canal [Mises à jour Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## <a name="supported-updates"></a>Mises à jour prises en charge
 
-## <a name="installing-updates"></a>Installation des mises à jour
+Pour les composants Site Recovery, nous prenons en charge les versions N-4, où N correspond à la dernière version publiée. Celles-ci sont récapitulées dans le tableau ci-dessous.
 
-[Consultez cet article](service-updates-how-to.md) pour obtenir des instructions et du support sur la mise à jour de Site Recovery.
+**Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services** 
+--- | --- | --- | --- | ---
+[Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[Correctif cumulatif 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[Correctif cumulatif 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
+        
+
+[En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
+
 
 ## <a name="updates-august-2019"></a>Mises à jour (août 2019)
 

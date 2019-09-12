@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 846239c0122f3f2cadc40e7965ae690d4ba3e538
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066488"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899848"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analyser les journaux d’activité de télémétrie Application Insights avec Apache Spark sur HDInsight
 
@@ -39,7 +39,7 @@ Les ressources suivantes ont été utilisées lors du développement et du test 
 
 Le schéma suivant illustre l'architecture du service dans cet exemple :
 
-![diagramme montrant les données transmises par Application Insights vers le stockage d’objets blob, puis traitées par Spark sur HDInsight](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![diagramme montrant les données transmises par Application Insights vers le stockage d’objets blob, puis traitées par Spark sur HDInsight](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Stockage Azure
 
@@ -72,7 +72,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre Spark sur le cluster HDInsight. Dans la section **Liens rapides**, sélectionnez **Tableaux de bord du cluster**, puis **Bloc-notes Jupyter** dans la section Tableau de bord du cluster.
 
-    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 
 2. Dans l’angle supérieur droit de la page Jupyter, sélectionnez **Nouveau**, puis **PySpark**. Un nouvel onglet de navigateur s’ouvre, contenant un notebook Jupyter basé sur Python.
 
@@ -215,7 +215,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre Spark sur le cluster HDInsight. Dans la section **Liens rapides**, sélectionnez **Tableaux de bord du cluster**, puis **Bloc-notes Jupyter** dans la section Tableau de bord du cluster.
 
-    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 2. Dans l’angle supérieur droit de la page Jupyter, sélectionnez **Nouveau**, puis **Scala**. Un nouvel onglet de navigateur s’ouvre, contenant un bloc-notes Jupyter basé sur Scala.
 3. Dans le premier champ (appelé **cellule**) de la page, entrez le texte suivant :
 

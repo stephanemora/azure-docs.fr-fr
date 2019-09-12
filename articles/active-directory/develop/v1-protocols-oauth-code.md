@@ -12,19 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 81b1f06238b8205e72fd989bb581fba39423f7c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834701"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193235"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
+
+> [!NOTE]
+>  Si vous n’indiquez pas au serveur la ressource que vous envisagez d’appeler, le serveur ne déclenche pas les stratégies d’accès conditionnel pour cette ressource. Ainsi, pour que l’authentification MFA se déclenche, vous devez inclure une ressource dans votre URL. 
+>
 
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos [bibliothèques open source](active-directory-authentication-libraries.md).
 
@@ -175,7 +179,7 @@ Une réponse réussie se présenterait ainsi :
 
 | Paramètre | Description |
 | --- | --- |
-| access_token |Le [jeton d’accès](access-tokens.md) demandé sous forme de JSON Web Token (JWT) signé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
+| access_token |Le jeton d’accès demandé.  Il s’agit d’une chaîne opaque, qui dépend de ce que la ressource s’attend à recevoir, et elle n’est pas destinée à être examinée par le client. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Utilisation de jetons du porteur (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
@@ -346,3 +350,6 @@ Une réponse d’erreur se présenterait ainsi :
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
 Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur le point de terminaison Azure AD v1.0 ainsi que sur l’ajout de l’authentification et de l’autorisation à vos applications web et API web, consultez [Exemples d’applications](sample-v1-code.md).

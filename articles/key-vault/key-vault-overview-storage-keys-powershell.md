@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 7968c045a59e86ecb89c0cc797936210b9cfb07d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562537"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883287"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Compte de stockage managé Azure Key Vault - PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562537"
 > - Authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. 
 > - Utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment totalement l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 > - Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
+> - L’accès AAD au compte de stockage ne fonctionne pas encore pour l’accès aux tables.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -110,7 +111,7 @@ Dans la même session PowerShell, mettez à jour la stratégie d’accès Key Va
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
 ```
 
 Notez que les autorisations pour les comptes de stockage ne sont pas disponibles sur la page « Stratégies d’accès » du compte de stockage dans le portail Azure.
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Activer la régénération des clés
 
-Si vous souhaitez que Key Vault régénère régulièrement les clés de votre compte de stockage, vous pouvez définir une période de régénération. Dans l’exemple suivant, nous définissons une période de régénération de trois jours. Après trois jours, Key Vault regénère « key1 » et remplace la clé active « key2 » par « key1 ».
+Si vous souhaitez que Key Vault régénère régulièrement les clés de votre compte de stockage, vous pouvez définir une période de régénération. Dans l’exemple suivant, nous définissons une période de régénération de trois jours. Après trois jours, Key Vault regénère « key2 » et change la clé active « key2 » pour « key1 ».
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

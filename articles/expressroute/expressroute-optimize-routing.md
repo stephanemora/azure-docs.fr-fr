@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854323"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141862"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.
@@ -75,7 +75,7 @@ Il existe deux solutions à ce problème. La première consiste simplement à pu
 La deuxième solution est de continuer à publier les deux préfixes sur les deux circuits ExpressRoute, tout en nous indiquant quel préfixe correspond à chacun de vos bureaux. Étant donné que nous prenons en charge l’ajout de préfixe AS PATH BGP, vous pouvez configurer l’AS PATH pour influencer le routage. Dans cet exemple, vous pouvez allonger le chemin AS PATH pour 172.2.0.0/31 dans la région USA Est pour que nous privilégiions le circuit ExpressRoute dans la région USA Ouest pour le trafic destiné à ce préfixe ; notre réseau pensera que le chemin d’accès pour ce préfixe est plus court dans l’Ouest. De même, vous pouvez allonger le chemin AS PATH pour 172.2.0.2/31 dans la région USA Ouest pour que nous privilégiions le circuit ExpressRoute dans la région USA Est. Le routage est optimisé pour les deux bureaux. Grâce à cette conception, si un circuit ExpressRoute est défaillant, Exchange Online peut toujours vous joindre via un autre circuit ExpressRoute ainsi que par le biais de votre réseau étendu. 
 
 > [!IMPORTANT]
-> Nous supprimons les numéros AS privés dans le chemin AS PATH pour les préfixes reçus sur l’homologation Microsoft. Vous devez ajouter des numéros AS publics au chemin AS PATH pour influencer le routage pour l’homologation Microsoft.
+> Nous supprimons les numéros AS privés dans le chemin AS PATH pour les préfixes reçus dans le cadre de l’appairage Microsoft lors d’un appairage avec un numéro AS privé. Vous devez effectuer un appairage avec un numéro AS public et ajouter des numéros AS publics au chemin AS PATH pour influencer le routage pour l’appairage Microsoft.
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442068"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885254"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari
 
@@ -76,7 +76,7 @@ Les alertes autres que **OK** font apparaître l’entrée **# alerts** en haut 
 
 Les alertes sont organisées en plusieurs groupes par défaut, qui peuvent être consultés depuis la page **Alertes** .
 
-![page d’alertes](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![page d’alertes](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 Vous pouvez gérer les groupes à l'aide du menu **Actions**, en sélectionnant **Gérer les groupes d'alerte**.
 
@@ -92,11 +92,11 @@ Enfin, en sélectionnant __Gérer les paramètres d’alerte__ à partir du menu
 
 L'onglet **Mesures** du tableau de bord contient une série de widgets qui permettent de surveiller facilement l'état de votre cluster d'un seul coup d'œil. Plusieurs widgets, tels que **Utilisation du processeur**, fournissent des informations supplémentaires lorsque vous cliquez dessus.
 
-![tableau de bord avec des mesures](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![tableau de bord avec des mesures](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 L'onglet **Cartes thermiques** affiche les paramètres sous forme de cartes thermiques colorées, allant du vert au rouge.
 
-![tableau de bord avec des cartes thermiques](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![tableau de bord avec des cartes thermiques](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Pour plus d’informations sur les nœuds du cluster, sélectionnez **Hôtes**. Puis sélectionnez le nœud spécifique qui vous intéresse.
 
@@ -142,7 +142,7 @@ Il est possible de travailler avec des utilisateurs, des groupes et des autorisa
 
 La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôtes, procédez comme suit :
 
-![page d'hôtes](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![page d'hôtes](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > L’ajout, la désactivation et la remise en service d’un hôte ne doivent pas être utilisés avec des clusters HDInsight.

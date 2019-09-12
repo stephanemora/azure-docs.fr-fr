@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 558410d980d261780f7287d1e27ed704b356fc2b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490940"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Créer un abonnement Azure associé dans le cadre de votre Contrat client Microsoft
@@ -49,7 +49,7 @@ Pour créer un abonnement, vous devez être **propriétaire de section de factur
 
 8. Entrez un nom pour l’abonnement. Le nom vous aide à identifier facilement l’abonnement dans le portail Azure.
 
-9. Sélectionnez **Créer**.
+9. Sélectionnez **Create** (Créer).
 
 ## <a name="give-others-permission"></a>Donner des autorisations à d’autres utilisateurs
 

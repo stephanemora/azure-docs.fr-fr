@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418358"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814332"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -89,7 +89,7 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 5. Dans **Abonnement**, sélectionnez l’abonnement dans lequel créer le réseau.
 6. Dans **Emplacement**, choisissez **Europe Ouest**. Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
 7. Conservez les options par défaut de la protection DDoS de base, sans point de terminaison de service sur le réseau.
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 ![Créez un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
 

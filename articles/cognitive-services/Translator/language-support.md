@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127883"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909978"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -229,6 +229,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Hongrois      | `hu`          |
 | Islandais | `is` |
 | Indonésien|   `id`    |
+| Irlandais | `ga`  |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
 |Kiswahili| `sw`    |

@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: eadaf34dc5bdd93af532362e8f8542de3f17f414
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490777"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Créer des sections sur votre facture pour organiser vos coûts
@@ -43,7 +43,7 @@ Pour créer une section de facture, vous devez être **propriétaire de profil d
 
    ![Capture d’écran montrant la page de création de la section de facture](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Sélectionnez **Créer**.
+6. Sélectionnez **Create** (Créer).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

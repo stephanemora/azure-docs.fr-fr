@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822797"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845461"
 ---
 # <a name="event-grid-subscription-schema"></a>Schéma d’abonnement à Event Grid
 
@@ -35,24 +35,24 @@ Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractère
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| destination | objet | Objet qui définit le point de terminaison. |
-| filter | objet | Champ facultatif pour filtrer les types d’événements. |
+| destination | object | Objet qui définit le point de terminaison. |
+| filter | object | Champ facultatif pour filtrer les types d’événements. |
 
 ### <a name="destination-object"></a>objet de destination
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| endpointType | chaîne | Type de point de terminaison pour l’abonnement (webhook/HTTP, concentrateur d’événements ou file d’attente). | 
-| endpointUrl | chaîne | URL de destination des événements dans cet abonnement aux événements. | 
+| endpointType | string | Type de point de terminaison pour l’abonnement (webhook/HTTP, concentrateur d’événements ou file d’attente). | 
+| endpointUrl | string | URL de destination des événements dans cet abonnement aux événements. | 
 
 ### <a name="filter-object"></a>objet de filtre
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Affiche une correspondance lorsque le type d’événement du message d’événement correspond exactement à l’un de ces noms de type d’événement. Génère une erreur lorsque le nom de l’événement ne correspond pas aux noms de type d’événement inscrits pour la source d’événements. Génère une correspondance pour tous les types d’événements. |
-| subjectBeginsWith | chaîne | Filtre de correspondance de préfixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. | 
-| subjectEndsWith | chaîne | Filtre de correspondance de suffixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. |
-| isSubjectCaseSensitive | chaîne | Contrôle la correspondance sensible à la casse pour les filtres. |
+| subjectBeginsWith | string | Filtre de correspondance de préfixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. | 
+| subjectEndsWith | string | Filtre de correspondance de suffixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. |
+| isSubjectCaseSensitive | string | Contrôle la correspondance sensible à la casse pour les filtres. |
 
 
 ## <a name="example-subscription-schema"></a>Exemple de schéma d’abonnement
@@ -68,7 +68,7 @@ Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractère
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

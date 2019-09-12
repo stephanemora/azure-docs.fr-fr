@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019099"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376292"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -226,7 +226,7 @@ Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode
 
 Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Ainsi, vous pouvez créer des hiérarchies d’exécutions parentes et enfants, chacune s’exécutant sur différentes cibles de calcul, connectées par un ID d’exécution parente commun.
 
-Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode « submit_child » de l'instance de contexte.
+Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode « submit_child » de l'instance de contexte.
 
 ```python
 ## In parent run script

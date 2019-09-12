@@ -1,5 +1,5 @@
 ---
-title: Créer une base de connaissances – QnA Maker
+title: 'Démarrage rapide : Créer une base de connaissances – QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Utilisez le portail de service de l’API QnA Maker pour ajouter/créer une base de connaissances avec des échanges de conversation. Votre application s’en trouvera plus attrayante. Ajoutez à votre base de connaissances un ensemble prérempli des principaux échanges comme point de départ de la conversation de votre bot, ce qui vous évitera de les écrire entièrement.
 services: cognitive-services
@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 05/10/2019
+ms.topic: quickstart
+ms.date: 09/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 798bbb725d4764c5ec7a1d69770e9508af0fdf5a
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012814"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376209"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Démarrage rapide : Créer une base de connaissances à partir du portail de service de l’API QnA Maker
 
@@ -67,7 +67,7 @@ Quand vous en avez fini avec la base de connaissances, supprimez-la du portail Q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour réduire vos coûts, vous pouvez [partager](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) certaines mais pas toutes les ressources Azure créées pour QnA Maker.
+Pour réduire vos coûts, vous pouvez [partager](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) certaines des ressources Azure créées pour QnA Maker, mais pas toutes.
 
 > [!div class="nextstepaction"]
-> [Ajouter des échanges de conversation personnels](./chit-chat-knowledge-base.md)
+> [Ajouter des questions avec des métadonnées](../quickstarts/add-question-metadata-portal.md)

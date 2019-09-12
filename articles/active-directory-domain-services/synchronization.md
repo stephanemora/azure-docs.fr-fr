@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011287"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171930"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure AD Domain Services
 
@@ -30,7 +30,7 @@ Le diagramme suivant illustre le fonctionnement de la synchronisation entre Azur
 
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Synchronisation à partir d’Azure AD vers Azure AD DS
 
-Les comptes d’utilisateur, les appartenances aux groupes et les hachages des informations d’identification sont synchronisés dans une direction, d’Azure AD à Azure AD DS. Ce processus de synchronisation est automatique. Il est inutile de configurer, surveiller ou gérer le processus de synchronisation. La synchronisation initiale peut durer de quelques heures à quelques jours, en fonction du nombre d’objets contenus dans l’annuaire Azure AD. Une fois la synchronisation initiale terminée, les modifications apportées à Azure AD, telles que les modifications de mot de passe ou d’attribut, prennent environ 20 à 30 minutes pour être mises à jour dans Azure AD DS.
+Les comptes d’utilisateur, les appartenances aux groupes et les hachages des informations d’identification sont synchronisés dans une direction, d’Azure AD à Azure AD DS. Ce processus de synchronisation est automatique. Il est inutile de configurer, surveiller ou gérer le processus de synchronisation. La synchronisation initiale peut durer de quelques heures à quelques jours, en fonction du nombre d’objets contenus dans l’annuaire Azure AD. Une fois la synchronisation initiale terminée, les modifications apportées à Azure AD, telles que les modifications de mot de passe ou d’attribut, sont alors automatiquement synchronisées avec Azure AD DS.
 
 Le processus de synchronisation est unidirectionnel par nature. Il n’existe aucune synchronisation inverse des modifications d’Azure AD DS vers Azure AD. Un domaine managé Azure AD DS est en grande partie en lecture seule, à l’exception des unités d’organisation personnalisées que vous pouvez créer. Vous ne pouvez pas modifier les attributs utilisateur, les mots de passe utilisateur ou les appartenances aux groupes au sein d’un domaine géré Azure AD DS.
 

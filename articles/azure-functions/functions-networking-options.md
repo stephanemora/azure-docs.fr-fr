@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779294"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170654"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -33,11 +33,11 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 |                |[Plan Consommation](functions-scale.md#consumption-plan)|[Plan Premium (préversion)](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|Oui|Oui|Oui|Oui|
-|[Intégration du réseau virtuel](#virtual-network-integration)|Non|Oui (Zones géographiques)|Oui (Zones géographiques et Passerelle)|Oui|
-|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|Non| Non|Oui|Oui|
-|[connexions hybrides](#hybrid-connections)|Non|Non|Oui|Oui|
-|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|Non| Non|Non|Oui|
+|[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|✅ Oui|✅ Oui|✅ Oui|✅ Oui|
+|[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|✅ Oui (Zones géographiques)|✅ Oui (Zones géographiques et Passerelle)|✅ Oui|
+|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ❌Non|✅ Oui|✅ Oui|
+|[connexions hybrides](#hybrid-connections)|❌Non|❌Non|✅ Oui|✅ Oui|
+|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|❌Non| ❌Non|❌Non|✅ Oui|
 
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
@@ -52,8 +52,10 @@ Pour en savoir plus, consultez [Restrictions d’accès statique Azure App Servi
 ## <a name="private-site-access"></a>Accès aux sites privés
 
 L’accès aux sites privés fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. 
-* L'accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md) et [App Service](functions-scale.md#app-service-plan) lorsque des **points de terminaison de service** sont configurés. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * N'oubliez pas qu'avec les points de terminaison de service, votre fonction dispose toujours d'un accès sortant complet à Internet, même si l'intégration au réseau virtuel est configurée.
+* L’accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md), [Consommation](functions-scale.md#consumption-plan) et [App Service](functions-scale.md#app-service-plan) quand des **points de terminaison de service** sont configurés. 
+    * Les points de terminaison de service peuvent être configurés pour chaque application, sous Fonctionnalités de la plateforme > Mise en réseau > Configurer des restrictions d’accès > Ajouter une règle. Les réseaux virtuels peuvent maintenant être sélectionnés en tant que « type » d’une règle.
+    * Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * N'oubliez pas qu'avec les points de terminaison de service, votre fonction dispose toujours d'un accès sortant complet à Internet, même si l'intégration au réseau virtuel est configurée.
 * L'accès aux sites privés est également disponible via une instance d'Azure App Service Environment configurée avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un Azure App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
@@ -65,14 +67,14 @@ Vous pouvez utiliser l’intégration de réseau virtuel pour permettre l’acc�
 La fonctionnalité d'intégration au réseau virtuel se présente sous deux formes :
 
 1. L'intégration au réseau virtuel régional permet une intégration aux réseaux virtuels de la même région. Sous cette forme, la fonctionnalité nécessite un sous-réseau dans un réseau virtuel de la même région. Bien que cette fonctionnalité soit toujours en préversion, elle est prise en charge pour les charges de travail de production des applications Windows. Il existe cependant certaines restrictions qui sont mentionnées ci-dessous.
-2. L'intégration au réseau virtuel avec passerelle obligatoire permet une intégration à des réseaux virtuels situés dans des régions distantes ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d'une passerelle de réseau virtuel dans votre réseau virtuel. Il s'agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
+2. L'intégration au réseau virtuel avec passerelle obligatoire permet une intégration à des réseaux virtuels situés dans des régions distantes ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d'une passerelle de réseau virtuel dans votre réseau virtuel. Il s’agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
 
 Une application ne peut utiliser qu'une seule forme de la fonctionnalité d'intégration au réseau virtuel à la fois. Il convient donc de déterminer quelle fonctionnalité utiliser. Les deux peuvent être utilisées dans des cas divers et variés. Il existe néanmoins des facteurs de différenciation clairs :
 
 | Problème  | Solution | 
 |----------|----------|
 | Nécessité d'accéder à une adresse RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) dans la même région | Intégration au réseau virtuel régional |
-| Nécessité d'accéder aux ressources d'un réseau virtuel classique ou d'un réseau virtuel situé dans une autre région | Intégration au réseau virtuel avec passerelle obligatoire |
+| Nécessité d’accéder aux ressources d’un réseau virtuel classique ou d’un réseau virtuel situé dans une autre région | Intégration au réseau virtuel avec passerelle obligatoire |
 | Nécessité d'accéder à des points de terminaison RFC 1918 via ExpressRoute | Intégration au réseau virtuel régional |
 | Nécessité d'accéder à des ressources via des points de terminaison de service | Intégration au réseau virtuel régional |
 
@@ -99,6 +101,13 @@ Dans Functions, l'intégration au réseau virtuel utilise une infrastructure par
 * [Intégration au réseau virtuel avec passerelle obligatoire](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Pour en savoir plus sur l'utilisation de l'intégration au réseau virtuel, consultez [Intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restriction de votre compte de stockage à un réseau virtuel
+
+> [!note] 
+> Une fois que vous avez configuré des restrictions d’accès sur votre compte de stockage, il peut s’écouler jusqu’à 12 heures avant qu’il ne soit disponible. Pendant ce temps, votre application est complètement hors connexion.
+
+Afin de fournir un niveau de sécurité plus élevé, vous pouvez limiter le compte de stockage de votre application à un réseau virtuel. Vous devez ensuite intégrer votre site à ce réseau virtuel pour accéder à votre compte de stockage. Cette configuration est prise en charge sur tous les plans qui prennent en charge l’intégration du réseau virtuel.
 
 ## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
 

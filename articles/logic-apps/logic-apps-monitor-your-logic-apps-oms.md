@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/16/2019
-ms.openlocfilehash: 2f82bd9c0bcacf2c552df84cdd4f8f2cd6a68c8a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.date: 08/29/2019
+ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543289"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138788"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Obtenez des insights et des données de débogage pour des applications logiques à l’aide des journaux Azure Monitor
 
@@ -55,7 +55,7 @@ Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez 
 
 ## <a name="install-logic-apps-management-solution"></a>Installer la solution Logic Apps Management
 
-Si vous avez déjà activé les journaux Azure Monitor lors de la création de votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
+Si vous avez déjà configuré les journaux Azure Monitor lors de la création de votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Espaces de travail Log Analytics », puis sélectionnez **Espaces de travail Log Analytics**.
 
@@ -107,23 +107,21 @@ Après l’exécution de votre application logique, vous pouvez afficher l’ét
 
    Voici un exemple qui montre toutes les exécutions d’une application logique :
 
-   ![Affichage des exécutions d’une application logique ou d’un état](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
+   ![Voir les exécutions et l’état des applications logiques](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   Cette page présente ces options avancées :
+   Cette page a des options avancées : 
 
-   * **Propriétés suivies :**
+   * Colonne **Propriétés suivies** : Pour une application logique dans laquelle vous configurez des propriétés suivies, qui sont regroupées par actions, vous pouvez voir ces propriétés à partir de cette colonne. Pour voir ces propriétés suivies, sélectionnez **Afficher**. Pour rechercher les propriétés suivies, utilisez le filtre de colonne.
 
-     Cette colonne affiche les propriétés suivies, regroupées par actions, pour l’application logique. Pour afficher les propriétés suivies, sélectionnez **Afficher**. Pour rechercher les propriétés suivies, utilisez le filtre de colonne.
+      ![Afficher les propriétés suivies pour une application de logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     ![Afficher les propriétés suivies pour une application de logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+      Quand vous ajoutez de nouvelles propriétés suivies, 10 à 15 minutes peuvent s’écouler avant leur apparition. Découvrez [comment ajouter des propriétés suivies à votre application logique](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-     Quand vous ajoutez de nouvelles propriétés suivies, 10 à 15 minutes peuvent s’écouler avant leur apparition. Découvrez [comment ajouter des propriétés suivies à votre application logique](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
-
-   * **Soumettre à nouveau :** vous pouvez soumettre à nouveau une ou plusieurs exécutions d’application logique ayant échoué ou réussi, ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous souhaitez soumettre à nouveau, puis sélectionnez **Soumettre à nouveau**.
+   * **Soumettre à nouveau** : Vous pouvez resoumettre une ou plusieurs exécutions d’application logique ayant échoué ou réussi, ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous voulez resoumettre, puis sélectionnez **Soumettre à nouveau**.
 
      ![Soumettre à nouveau des exécutions d’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-1. Pour filtrer ces résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
+1. Pour filtrer vos résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
 
    * **Filtre côté client** : Pour chaque colonne, sélectionnez les filtres que vous souhaitez, par exemple :
 
@@ -133,25 +131,21 @@ Après l’exécution de votre application logique, vous pouvez afficher l’ét
 
      ![Modifier la fenêtre de temps](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 
-1. Pour afficher toutes les actions et leurs détails pour une exécution spécifique, sélectionnez une ligne correspondant à une exécution d’application logique.
+1. Pour voir toutes les actions et leurs détails pour une exécution spécifique, sélectionnez la ligne correspondant à une exécution d’application logique.
 
-   Voici un exemple qui montre toutes les actions pour une exécution d’application logique spécifique :
+   Voici un exemple qui montre toutes les actions et tous les déclencheurs pour une exécution d’application logique spécifique :
 
    ![Afficher les actions d’une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
 
-1. Pour afficher la requête derrière les résultats ou afficher tous les résultats dans n’importe quelle page de résultats, sélectionnez **Tout afficher**. La page Recherche dans les journaux s’ouvre.
+1. Pour voir la requête derrière les résultats ou tous les résultats, dans n’importe quelle page de résultats, sélectionnez **Afficher tout**, ce qui ouvre la page **Journaux**.
 
-   ![Tout afficher dans les pages de résultats](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   ![Voir tous les résultats](media/logic-apps-monitor-your-logic-apps-oms/logic-app-see-all.png)
 
-   Sur la page Recherche dans les journaux, vous pouvez choisir ces options :
+   Dans la page **Journaux**, vous pouvez choisir ces options :
 
    * Pour afficher les résultats de la requête dans une table, sélectionnez **Table**.
 
-   * Pour modifier la requête, modifiez la chaîne de requête dans la barre de recherche. Pour une meilleure expérience, sélectionnez **Analytique avancée**.
-
-     ![Affichage des actions et des détails relatifs à une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
-     Dans la page d’analytique des journaux, vous pouvez mettre à jour des requêtes et voir les résultats dans un tableau. Cette requête utilise le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous souhaitez afficher des résultats différents.
+   * Les requêtes utilisent le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous voulez voir des résultats différents. Pour changer la requête, mettez à jour la chaîne de requête, puis sélectionnez **Exécuter** pour voir les résultats dans le tableau. 
 
      ![Log Analytics - Vue de la requête](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

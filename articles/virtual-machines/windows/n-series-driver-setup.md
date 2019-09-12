@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc6e37b088c6bcbb2de4693eb50be661db869ecd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089183"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207355"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles de série N exécutant Windows 
 
@@ -40,6 +40,8 @@ Pour obtenir les spécifications de base, les capacités de stockage et les info
 Après l’installation du pilote GRID sur une machine virtuelle, un redémarrage est nécessaire. Après l’installation du pilote CUDA, aucun redémarrage n’est nécessaire.
 
 ## <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
+
+Notez que le panneau de configuration Nvidia n’est accessible que si vous installez le pilote GRID. Si vous avez installé les pilotes CUDA, le panneau de configuration Nvidia ne sera pas accessible.
 
 Vous pouvez vérifier l’installation du pilote dans le Gestionnaire de périphériques. L’exemple suivant illustre une configuration réussie de la carte Tesla K80 sur une machine virtuelle NC Azure.
 

@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67177442"
 ---
 Vous pouvez créer plusieurs services au sein d’un abonnement. Chacun peut être approvisionné à un niveau spécifique. Vous êtes uniquement limité par le nombre de services autorisé à chaque niveau. Ainsi, vous pouvez créer jusqu’à 12 services au niveau de base et 12 autres au niveau S1 au sein du même abonnement. Pour en savoir plus sur ces niveaux, consultez [Choose a pricing tier for Azure Search](../articles/search/search-sku-tier.md) (Choisir un niveau tarifaire pour Recherche Azure).
@@ -21,7 +21,7 @@ Les limites de service maximales peuvent être augmentées sur demande. S’il v
 
 | Ressource            | Gratuit<sup>1</sup> | De base | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
-| Nombre de services maximum    |1     | 16    | 16  | 8  | 6\.  | 6\.     | 6\.  | 6\.  |
+| Nombre de services maximum    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Augmentation de la taille des instances : nombre maximal d’unités de recherche (SU) <sup>2</sup> |N/A |3 unités de recherche |36 unités de recherche |36 unités de recherche |36 unités de recherche |36 unités de recherche |36 unités de recherche |36 unités de recherche |
 
 <sup>1</sup> Le niveau Gratuit est basé sur des ressources partagées, non des ressources dédiées. Le « scale up » n’est pas pris en charge sur les ressources partagées.

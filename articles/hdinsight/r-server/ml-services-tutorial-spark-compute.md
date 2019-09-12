@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
+title: 'Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
 description: 'Tutoriel : Bien démarrer avec R et Spark sur un cluster Azure HDInsight Machine Learning Services.'
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: f072b6905881da7b7854b0e51d690dbbd40dffb5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227441"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899988"
 ---
-# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
+# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
 
 Ce tutoriel fournit une présentation étape par étape de l’utilisation des fonctions R dans Apache Spark qui s’exécutent sur un cluster Azure HDInsight Machine Learning Services.
 
@@ -59,7 +59,7 @@ Le jeu de données *Airline 2012 On-Time Data Set* se compose de 12 fichiers s�
 
 1. Dans le volet droit, sélectionnez l’onglet **Environnement**. Les variables sont affichées sous **Valeurs**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/rstudio.png)
+    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
 1.  Créez un répertoire local et téléchargez les exemples de données. Dans RStudio, entrez le code suivant :
 

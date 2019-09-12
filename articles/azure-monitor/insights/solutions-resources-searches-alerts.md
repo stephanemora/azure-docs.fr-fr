@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662904"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772983"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -169,30 +169,29 @@ Les actions d’alerte présentent la structure suivante. Cela inclut des variab
 
 Les propriétés des ressources d’action d’alerte sont décrites dans les tableaux suivants.
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
-| name | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
-| description | Non | La description facultative de l’alerte. |
-| severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
-
+| `type` | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
+| `name` | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| `description` | Non | La description facultative de l’alerte. |
+| `severity` | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>Seuil
 Cette section est obligatoire. Elle définit les propriétés du seuil d’alerte.
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Value | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| `Operator` | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| `Value` | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Value | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| `TriggerCondition` | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| `Operator` | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| `Value` | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation

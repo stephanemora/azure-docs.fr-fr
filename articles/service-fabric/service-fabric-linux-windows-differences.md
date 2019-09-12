@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7ff2d7e02b557676d2ba569f7baa216d07221b9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719989"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192552"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Différences entre Service Fabric sur Linux et Windows
 
@@ -31,6 +31,7 @@ Il existe certaines fonctionnalités qui sont prises en charge sur Windows, mais
 * Le Service d’analyse d’erreur (FAS) sur Linux
 * Service DNS pour les services Service Fabric (le service DNS est pris en charge pour les conteneurs sur Linux)
 * Équivalents de commande de l’interface de ligne de commande de certaines commandes PowerShell (liste ci-dessous, dont la plupart ne s’appliquent qu’aux clusters autonomes)
+* [Différences dans l’implémentation du journal qui peuvent affecter la scalabilité](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Applets de commande PowerShell ne fonctionnant pas sur un cluster Linux Service Fabric
 

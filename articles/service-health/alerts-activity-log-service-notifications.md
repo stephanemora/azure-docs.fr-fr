@@ -7,12 +7,12 @@ services: monitoring
 ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 1151eb8659c60cd71430c3dd971e73ec03a5545f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538117"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383160"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Créer des alertes de journal d’activité sur les notifications de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -61,8 +61,8 @@ Pour plus d’informations sur le mode de configuration des alertes de notificat
 
     ![La boîte de dialogue « Ajouter une alerte activité journal »](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
-> [!NOTE]
-> Cet abonnement est utilisé pour enregistrer l’alerte de journal d’activité. La ressource d’alerte est déployée pour cet abonnement et surveille les événements du journal d’activité.
+    > [!NOTE]
+    > Cet abonnement est utilisé pour enregistrer l’alerte de journal d’activité. La ressource d’alerte est déployée pour cet abonnement et surveille les événements du journal d’activité.
 
 1. Choisissez les **types d’événements** pour lesquels vous voulez recevoir des alertes : *Problème de service*, *maintenance planifiée* et *avis d’intégrité* 
 
@@ -90,7 +90,6 @@ Découvrez comment [configurer des notifications de Webhook pour les systèmes d
 
 >[!NOTE]
 >Le groupe d’actions défini dans cette procédure est réutilisable en tant que groupe d’actions existant, pour la définition de toutes les futures alertes.
->
 >
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerte avec groupe d’actions existant à l’aide du portail Azure

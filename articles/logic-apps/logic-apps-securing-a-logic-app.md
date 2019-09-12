@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736899"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845437"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -440,7 +440,7 @@ Cet exemple de modèle avec plusieurs définitions de paramètres sécurisés qu
 | Nom du paramètre | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | Paramètre de modèle acceptant un mot de passe qui est ensuite passé au paramètre `basicAuthPasswordParam` de la définition de workflow. |
-| `TemplatePasswordParam` | Paramètre de modèle acceptant un nom d’utilisateur qui est ensuite passé au paramètre `basicAuthUserNameParam` de la définition de workflow. |
+| `TemplateUsernameParam` | Paramètre de modèle acceptant un nom d’utilisateur qui est ensuite passé au paramètre `basicAuthUserNameParam` de la définition de workflow. |
 | `basicAuthPasswordParam` | Paramètre de définition de workflow qui accepte le mot de passe pour l’authentification de base dans une action HTTP |
 | `basicAuthUserNameParam` | Paramètre de définition de workflow qui accepte le nom d’utilisateur pour l’authentification de base dans une action HTTP |
 |||

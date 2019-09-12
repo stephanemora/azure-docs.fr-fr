@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4b24805cd59d1eb9d28591749d5169486e54d506
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250119"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141775"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturation à la consommation avec le service de mesure de la consommation de la Place de marché
 
@@ -84,7 +84,7 @@ Les autres attributs d’une dimension sont spécifiques à chaque plan et peuve
 
 Les dimensions ont également deux concepts spéciaux, « Activé » et « Infini » :
 
-* **Activé** indique que ce plan participe à cette dimension.  Vous pouvez ne pas activer cette option si vous créez un plan qui n’envoie pas d’événements d’utilisation basés sur cette dimension.  En outre, toutes les nouvelles dimensions ajoutées après la publication initiale d’un plan apparaissent comme « Non activées » sur le plan déjà publié.  Une dimension désactivée s’affiche alors dans les listes de dimensions pour un plan visible par les clients.
+* **Activé** indique que ce plan participe à cette dimension.  Vous pouvez ne pas activer cette option si vous créez un plan qui n’envoie pas d’événements d’utilisation basés sur cette dimension.  En outre, toutes les nouvelles dimensions ajoutées après la publication initiale d’un plan apparaissent comme « Non activées » sur le plan déjà publié.  Une dimension désactivée ne s’affiche dans aucune des listes de dimensions pour un plan visualisé par des clients.
 * **Infini**, représentée par le symbole de l’infini « ∞ », indique que ce plan participe à cette dimension, mais ne mesure pas l’utilisation pour cette dimension.  Si vous voulez indiquer à vos clients que les fonctionnalités représentées par cette dimension sont incluses dans le plan, mais sans limite d’utilisation.  Une dimension dont l’utilisation est infinie apparaît dans les listes de dimensions d’un plan montrées aux clients, avec une indication établissant qu’elle n’engendrera jamais de coûts pour ce plan.
 
 >[!Note] 

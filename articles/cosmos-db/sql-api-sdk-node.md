@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 27b548d03e6b05179da744e636a5c887e6b01ad5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624674"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207958"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel .Node.js Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -413,45 +413,66 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
+> [!WARNING]
+> Toutes les versions **1.x** du kit SDK client Node pour l’API SQL seront supprimées le **30 août 2020**. Cela affecte uniquement le kit SDK Node côté client ; les scripts côté serveur (procédures stockées, déclencheurs et fonctions définies par l’utilisateur) ne sont pas concernés.
+> 
+>
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [3.1.0](#3.1.0) |26 juillet 2019 |--- |
+| [3.0.4](#3.0.4) |22 juillet 2019 |--- |
+| [3.0.3](#3.0.3) |17 juillet 2019 |--- |
+| [3.0.2](#3.0.2) |9 juillet 2019 |--- |
+| [3.0.0](#3.0.0) |28 juin 2019 |--- |
+| [2.1.5](#2.1.5) |20 mars 2019 |--- |
+| [2.1.4](#2.1.4) |15 mars 2019 |--- |
+| [2.1.3](#2.1.3) |8 mars 2019 |--- |
+| [2.1.2](#2.1.2) |28 janvier 2019 |--- |
+| [2.1.1](#2.1.1) |5 décembre 2018 |--- |
+| [2.1.0](#2.1.0) |4 décembre 2018 |--- |
+| [2.0.5](#2.0.5) |7 novembre 2018 |--- |
+| [2.0.4](#2.0.4) |30 octobre 2018 |--- |
+| [2.0.3](#2.0.3) |30 octobre 2018 |--- |
+| [2.0.2](#2.0.2) |10 octobre 2018 |--- |
+| [2.0.1](#2.0.1) |25 septembre 2018 |--- |
+| [2.0.0](#2.0.0) |24 septembre 2018 |--- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 août 2018 |--- |
-| [1.14.4](#1.14.4) |3 mai 2018 |--- |
-| [1.14.3](#1.14.3) |3 mai 2018 |--- |
-| [1.14.2](#1.14.2) |21 décembre 2017 |--- |
-| [1.14.1](#1.14.1) |10 novembre 2017 |--- |
-| [1.14.0](#1.14.0) |9 novembre 2017 |--- |
-| [1.13.0](#1.13.0) |11 octobre 2017 |--- |
-| [1.12.2](#1.12.2) |10 août 2017 |--- |
-| [1.12.1](#1.12.1) |10 août 2017 |--- |
-| [1.12.0](#1.12.0) |10 mai 2017 |--- |
-| [1.11.0](#1.11.0) |16 mars 2017 |--- |
-| [1.10.2](#1.10.2) |27 janvier 2017 |--- |
-| [1.10.1](#1.10.1) |22 décembre 2016 |--- |
-| [1.10.0](#1.10.0) |3 octobre 2016 |--- |
-| [1.9.0](#1.9.0) |7 juillet 2016 |--- |
-| [1.8.0](#1.8.0) |14 juin 2016 |--- |
-| [1.7.0](#1.7.0) |26 avril 2016 |--- |
-| [1.6.0](#1.6.0) |29 mars 2016 |--- |
-| [1.5.6](#1.5.6) |8 mars 2016 |--- |
-| [1.5.5](#1.5.5) |2 février 2016 |--- |
-| [1.5.4](#1.5.4) |1er février 2016 |--- |
-| [1.5.2](#1.5.2) |26 janvier 2016 |--- |
-| [1.5.2](#1.5.2) |22 janvier 2016 |--- |
-| [1.5.1](#1.5.1) |4 janvier 2016 |--- |
-| [1.5.0](#1.5.0) |31 décembre 2015 |--- |
-| [1.4.0](#1.4.0) |6 octobre 2015 |--- |
-| [1.3.0](#1.3.0) |6 octobre 2015 |--- |
-| [1.2.2](#1.2.2) |10 septembre 2015 |--- |
-| [1.2.1](#1.2.1) |15 août 2015 |--- |
-| [1.2.0](#1.2.0) |5 août 2015 |--- |
-| [1.1.0](#1.1.0) |9 juillet 2015 |--- |
-| [1.0.3](#1.0.3) |4 juin 2015 |--- |
-| [1.0.2](#1.0.2) |23 mai 2015 |--- |
-| [1.0.1](#1.0.1) |15 mai 2015 |--- |
-| [1.0.0](#1.0.0) |8 avril 2015 |--- |
+| [1.14.4](#1.14.4) |3 mai 2018 |30 août 2020 |
+| [1.14.3](#1.14.3) |3 mai 2018 |30 août 2020 |
+| [1.14.2](#1.14.2) |21 décembre 2017 |30 août 2020 |
+| [1.14.1](#1.14.1) |10 novembre 2017 |30 août 2020 |
+| [1.14.0](#1.14.0) |9 novembre 2017 |30 août 2020 |
+| [1.13.0](#1.13.0) |11 octobre 2017 |30 août 2020 |
+| [1.12.2](#1.12.2) |10 août 2017 |30 août 2020 |
+| [1.12.1](#1.12.1) |10 août 2017 |30 août 2020 |
+| [1.12.0](#1.12.0) |10 mai 2017 |30 août 2020 |
+| [1.11.0](#1.11.0) |16 mars 2017 |30 août 2020 |
+| [1.10.2](#1.10.2) |27 janvier 2017 |30 août 2020 |
+| [1.10.1](#1.10.1) |22 décembre 2016 |30 août 2020 |
+| [1.10.0](#1.10.0) |3 octobre 2016 |30 août 2020 |
+| [1.9.0](#1.9.0) |7 juillet 2016 |30 août 2020 |
+| [1.8.0](#1.8.0) |14 juin 2016 |30 août 2020 |
+| [1.7.0](#1.7.0) |26 avril 2016 |30 août 2020 |
+| [1.6.0](#1.6.0) |29 mars 2016 |30 août 2020 |
+| [1.5.6](#1.5.6) |8 mars 2016 |30 août 2020 |
+| [1.5.5](#1.5.5) |2 février 2016 |30 août 2020 |
+| [1.5.4](#1.5.4) |1er février 2016 |30 août 2020 |
+| [1.5.2](#1.5.2) |26 janvier 2016 |30 août 2020 |
+| [1.5.2](#1.5.2) |22 janvier 2016 |30 août 2020 |
+| [1.5.1](#1.5.1) |4 janvier 2016 |30 août 2020 |
+| [1.5.0](#1.5.0) |31 décembre 2015 |30 août 2020 |
+| [1.4.0](#1.4.0) |6 octobre 2015 |30 août 2020 |
+| [1.3.0](#1.3.0) |6 octobre 2015 |30 août 2020 |
+| [1.2.2](#1.2.2) |10 septembre 2015 |30 août 2020 |
+| [1.2.1](#1.2.1) |15 août 2015 |30 août 2020 |
+| [1.2.0](#1.2.0) |5 août 2015 |30 août 2020 |
+| [1.1.0](#1.1.0) |9 juillet 2015 |30 août 2020 |
+| [1.0.3](#1.0.3) |4 juin 2015 |30 août 2020 |
+| [1.0.2](#1.0.2) |23 mai 2015 |30 août 2020 |
+| [1.0.1](#1.0.1) |15 mai 2015 |30 août 2020 |
+| [1.0.0](#1.0.0) |8 avril 2015 |30 août 2020 |
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

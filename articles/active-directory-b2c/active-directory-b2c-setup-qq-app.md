@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11fc41374089c0ab7258dd191a255387713836eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622318"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811427"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Pour utiliser un compte QQ en tant que fournisseur d’identité dans Azure Acti
 ### <a name="register-for-the-qq-developer-program"></a>Inscrivez-vous au programme de développement QQ
 
 1. Connectez-vous au [portail des développeurs QQ](http://open.qq.com) avec les informations d’identification de votre compte QQ.
-1. Une fois connecté, accédez à [http://open.qq.com/reg](http://open.qq.com/reg) vous inscrire en tant que développeur.
+1. Une fois connecté, accédez à [https://open.qq.com/reg](https://open.qq.com/reg) vous inscrire en tant que développeur.
 1. Sélectionnez **个人** (développeur individuel).
 1. Entrez les informations requises et sélectionnez **下一步** (étape suivante).
 1. Finalisez le processus de vérification d’e-mail. Une fois que vous êtes inscrit en tant que développeur, vous devez attendre votre approbation pendant quelques jours.

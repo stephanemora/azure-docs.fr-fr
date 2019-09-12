@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 9b809681b68fe3347a68cb2b2006c41783a356a6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932810"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382353"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Comment passer en revue les énoncés de point de terminaison dans le portail LUIS pour l’apprentissage actif
 
@@ -25,11 +25,11 @@ ms.locfileid: "68932810"
 
 ## <a name="enable-active-learning"></a>Activer l’apprentissage actif
 
-Pour activer l’apprentissage actif, enregistrez des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) avec la valeur et le paramètre `log=true` querystring.
+Pour activer l’apprentissage actif, enregistrez des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=true` querystring.
 
 ## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 
-Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) avec la valeur et le paramètre `log=false` querystring.
+Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=false` querystring.
 
 ## <a name="filter-utterances"></a>Filtrer les énoncés
 

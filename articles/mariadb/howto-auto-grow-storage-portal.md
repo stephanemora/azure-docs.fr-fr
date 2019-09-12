@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: bb3291b66776a5f0f6be16069b2d6a999b2d1f32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d7b126b5c07cc8661cf50b4c4e13f78592b118e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676877"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136687"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Augmenter automatiquement le stockage dans Azure Database for MariaDB à l’aide du portail Azure
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database for MariaDB sans affecter la charge de travail.
@@ -26,7 +26,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 Suivez ces étapes pour définir l’augmentation automatique du stockage de serveur MariaDB :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur Azure Database for MariaDB.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur Azure Database for MariaDB existant.
 
 2. Dans la page de serveur MariaDB, sous le titre **Paramètres**, cliquez sur **Niveau tarifaire** pour ouvrir la page de niveau tarifaire.
 

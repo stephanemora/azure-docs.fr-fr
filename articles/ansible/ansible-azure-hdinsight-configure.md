@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d6b6dd333d04457a68c3f2452d3cc538a32b61f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230284"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861275"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Didacticiel : Configurer un cluster dans Azure HDInsight à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) est un service d’analytique basé sur Hadoop pour le traitement des données. HDInsight est un outil ETL (extraction, transformation et chargement) servant à manipuler des Big Data, structurées ou non. HDInsight prend en charge plusieurs [types de clusters](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight), où chaque type prend en charge un ensemble différent de composants. 
+[Azure HDInsight](/azure/hdinsight/) est un service d’analytique basé sur Hadoop pour le traitement des données. HDInsight est un outil ETL (extraction, transformation et chargement) servant à manipuler des Big Data, structurées ou non. HDInsight prend en charge plusieurs [types de clusters](/azure/hdinsight/hadoop/apache-hadoop-introduction), où chaque type prend en charge un ensemble différent de composants. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -204,9 +204,9 @@ Le code de playbook dans cette section supprime le cluster.
 
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
-Il existe deux façons d’obtenir l’exemple complet de playbook :
-- [Téléchargez le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) et enregistrez-le dans `hdinsight_create.yml`.
-- Créez un fichier nommé `hdinsight_create.yml` et copiez-y le contenu suivant :
+Il existe deux façons d’obtenir l’exemple de playbook complet :
+- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) et l’enregistrer dans `hdinsight_create.yml`.
+- Créer un fichier nommé `hdinsight_create.yml` et y copier le contenu suivant :
 
 ```yml
 ---
@@ -352,7 +352,7 @@ Il existe deux façons d’obtenir l’exemple complet de playbook :
 
 Dans cette section, exécutez le playbook pour tester les différentes fonctionnalités présentées dans cet article.
 
-Avant d’exécuter le playbook, apportez les modifications suivantes :
+Avant d’exécuter le playbook, effectuez les modifications suivantes :
 - Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 
 Exécutez le playbook à l’aide de la commande `ansible-playbook` :
@@ -363,9 +363,9 @@ ansible-playbook hdinsight.yml
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 - hosts: localhost

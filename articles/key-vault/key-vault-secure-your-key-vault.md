@@ -3,18 +3,18 @@ title: Sécuriser l’accès à un coffre de clés - Azure Key Vault | Microsoft
 description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118979"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883095"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -123,7 +123,7 @@ Nous devons autoriser les opérations suivantes pour nos rôles :
 
 Le tableau suivant récapitule les autorisations d’accès pour nos rôles et notre application. 
 
-| Rôle | Autorisations de plan de gestion | Autorisations de plan de données |
+| Role | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |
 | Équipe de sécurité | Contributeur Key Vault | Clés : sauvegarde, création, suppression, obtention, importation, énumération, restauration<br>Secrets : toutes les opérations |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque**: Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | Aucun |

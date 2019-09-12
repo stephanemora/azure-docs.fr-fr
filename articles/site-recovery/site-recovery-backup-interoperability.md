@@ -1,19 +1,18 @@
 ---
-title: Prise en charge de l’utilisation d’Azure Site Recovery avec Sauvegarde Azure | Microsoft Docs
+title: Prise en charge de l’utilisation d’Azure Site Recovery avec la sauvegarde Azure
 description: Fournit une vue d’ensemble de la façon dont Azure Site Recovery et Sauvegarde Azure peuvent être utilisés conjointement.
-services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2078aa33ca735b91b5923d94028a286427f107a6
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035761"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146876"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Prise en charge de l’utilisation de Site Recovery avec Sauvegarde Azure
 

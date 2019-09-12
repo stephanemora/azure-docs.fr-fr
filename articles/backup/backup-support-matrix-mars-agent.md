@@ -1,18 +1,18 @@
 ---
-title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services (MARS) – Sauvegarde Azure
+title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services (MARS)
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951984"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210133"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -72,20 +72,22 @@ Limitation du réseau | Non disponible pour les machines sauvegardées qui exéc
 
 Vous pouvez utiliser l’agent MARS pour sauvegarder directement sur Azure, sur certains systèmes d’exploitation qui s’exécutent sur des machines locales et sur des machines virtuelles Azure. Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 bits et doivent utiliser les derniers Service Packs et les dernières mises à jour. Ces systèmes d’exploitation sont décrits dans le tableau suivant :
 
-**Système d’exploitation** | **Fichiers/dossiers** | **État du système** 
---- | --- | --- 
-Windows 10 (Entreprise, Professionnel, Famille) | OUI | Non
-Windows 8.1 (Entreprise, Professionnel)| OUI |Non
-Windows 8 (Entreprise, Professionnel) | OUI | Non
-Windows 7 (Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium/Basique, Édition Starter) | OUI | Non
-Windows Server 2016 (Standard, Datacenter, Essentials) | OUI | OUI
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | OUI | OUI
-Windows Server 2012 (Standard, Datacenter, Foundation) | OUI | OUI
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | OUI | OUI
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | OUI | Non
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | OUI | Non
+**Système d’exploitation** | **Fichiers/dossiers** | **État du système** | **Configuration requise concernant les logiciels et les modules**
+--- | --- | --- | ---
+Windows 10 (Entreprise, Professionnel, Famille) | OUI | Non |  Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
+Windows 8.1 (Entreprise, Professionnel)| OUI |Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
+Windows 8 (Entreprise, Professionnel) | OUI | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
+Windows 7 (Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium/Basique, Édition Starter) | OUI | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
+Windows Server 2016 (Standard, Datacenter, Essentials) | OUI | OUI | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | OUI | OUI | - .NET 4.5 <br> -   Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | OUI | OUI |- .NET 4.5 <br> -   Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | OUI | OUI | - .NET 3.5, .Net 4.5 <br> - Windows PowerShell <br> - Package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | OUI | Non | - .NET 3.5, .Net 4.5 <br> - Windows PowerShell <br> - Package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Base Virtual Server 2005 +  KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | OUI | Non | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | OUI | OUI | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 
 Pour plus d’informations, consultez [Systèmes d’exploitation pris en charge pour MABS et DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
 
 ## <a name="backup-limits"></a>Limites Azure Backup
 

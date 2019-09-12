@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 0f0f4da38b6b9b315508d956075840907fd46fd4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774739"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883791"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js et Java EE, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -28,7 +28,7 @@ Vous installez un petit package d’instrumentation dans votre application puis 
 
 Vous pouvez instrumenter non seulement l’application de service web, mais aussi tous les composants d’arrière-plan et le code JavaScript des pages web elles-mêmes. 
 
-![L’instrumentation Application Insights dans votre application envoie la télémétrie à votre ressource Application Insights.](./media/app-insights-overview/01-scheme.png)
+![L’instrumentation Application Insights dans votre application envoie la télémétrie à votre ressource Application Insights.](./media/app-insights-overview/diagram.png)
 
 En outre, vous pouvez extraire des données de télémétrie des environnements hôtes, notamment des compteurs de performances, des diagnostics Azure ou des journaux d’activité Docker. Vous pouvez également configurer des tests web qui envoient régulièrement des demandes synthétiques à votre service web.
 
@@ -139,12 +139,6 @@ Prise en main pendant le développement avec :
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog :
   * [Blog Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
-## <a name="videos"></a>Videos
-
-- Vidéo externe : [Configuration d’Application Insights avec une application ASP.NET](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- Vidéo externe : [Configuration d’Application Insights avec ASP.NET Core et Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- Vidéo externe : [Configuration d’Application Insights avec ASP.NET Core et Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

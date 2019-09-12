@@ -1,6 +1,6 @@
 ---
 title: Se connecter à une machine virtuelle Linux avec les informations d’identification d’Azure Active Directory | Microsoft Docs
-description: Dans cette procédure, vous apprenez à créer et à configurer une machine virtuelle Linux pour utiliser l’authentification Azure Active Directory pour les connexions utilisateur.
+description: Découvrez comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure Active Directory.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/17/2018
+ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: f8f00c49ced4e06eb634cbbfb1b786e6729783d2
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667665"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163215"
 ---
-# <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
 Pour améliorer la sécurité des machines virtuelles Linux (VM) dans Azure, vous pouvez intégrer l’authentification Azure Active Directory (AD). Lorsque vous utilisez l’authentification Azure AD pour les machines virtuelles Linux, vous contrôlez et appliquez de façon centralisée des stratégies qui autorisent ou refusent l’accès aux machines virtuelles. Cet article indique comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure AD.
 
-> [!NOTE]
-> Cette fonctionnalité est en préversion ; son utilisation n’est pas recommandée avec les charges de travail ou les machines virtuelles de production. Utilisez cette fonctionnalité sur une machine virtuelle de test que vous prévoyez d’abandonner après le test.
+
+> [!IMPORTANT]
+> L’authentification Azure Active Directory est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Utilisez cette fonctionnalité sur une machine virtuelle de test que vous prévoyez d’abandonner après le test.
+>
+
 
 Les avantages liés à l’utilisation de l’authentification Azure AD pour se connecter aux machines virtuelles Linux dans Azure sont nombreux, parmi lesquels :
 
@@ -60,7 +65,6 @@ Les régions Azure suivantes sont actuellement prises en charge dans la prévers
 >[!IMPORTANT]
 > Pour utiliser cette fonctionnalité en préversion, déployez uniquement une distribution Linux prise en charge dans une région Azure prise en charge. La fonctionnalité n’est prise en charge ni dans Azure Government ni dans les clouds souverains.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -132,24 +136,21 @@ Commencez par afficher l’adresse IP publique de votre machine virtuelle à l�
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Connectez-vous à la machine virtuelle Azure Linux à l’aide de vos informations d’identification Azure AD. Le paramètre `-l` vous permet de spécifier votre propre adresse de compte Azure AD. Les adresses de comptes doivent être entrées en minuscules. Utilisez l’adresse IP publique de votre machine virtuelle obtenue à partir de la commande précédente :
+Connectez-vous à la machine virtuelle Azure Linux à l’aide de vos informations d’identification Azure AD. Le paramètre `-l` vous permet de spécifier votre propre adresse de compte Azure AD. Remplacez l’exemple de compte par le vôtre. Les adresses de comptes doivent être entrées en minuscules. Remplacez l’exemple d’adresse IP par l’adresse IP publique de votre machine virtuelle de la commande précédente.
 
 ```azurecli-interactive
-ssh -l azureuser@contoso.onmicrosoft.com publicIps
+ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Vous êtes invité à vous connecter à Azure AD avec un code à usage unique à [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copiez et collez le code à usage unique dans la page de connexion de l’appareil, comme indiqué dans l’exemple suivant :
+Vous êtes invité à vous connecter à Azure AD avec un code à usage unique à [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copiez et collez le code à usage unique dans la page de connexion de l’appareil.
 
-```bash
-~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJS3K6X4D to authenticate. Press ENTER when ready.
-```
+Lorsque vous y êtes invité, entrez vos informations d’identification de connexion à Azure AD dans la page de connexion. 
 
-Lorsque vous y êtes invité, entrez vos informations d’identification de connexion à Azure AD dans la page de connexion. Le message suivant s’affiche dans le navigateur web lorsque vous avez été authentifié avec succès :
+Le message suivant s’affiche dans le navigateur web une fois que vous êtes authentifié : `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
-    You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
+Fermez la fenêtre du navigateur, revenez à l’invite SSH, puis appuyez sur la touche **Entrée**. 
 
-Fermez la fenêtre du navigateur, revenez à l’invite SSH, puis appuyez sur la touche **Entrée**. Vous êtes à présent connecté à la machine virtuelle Azure Linux avec les autorisations de rôle attribuées, par exemple *Utilisateur de machine virtuelle* ou *Administrateur de machine virtuelle*. Si le rôle *Connexion de l’administrateur aux machines virtuelles* est attribué à votre compte d’utilisateur, vous pouvez utiliser le paramètre `sudo` pour exécuter des commandes qui requièrent des privilèges racine.
+Vous êtes à présent connecté à la machine virtuelle Azure Linux avec les autorisations de rôle attribuées, par exemple *Utilisateur de machine virtuelle* ou *Administrateur de machine virtuelle*. Si le rôle *Connexion de l’administrateur de l’ordinateur virtuel* est attribué à votre compte d’utilisateur, vous pouvez utiliser le paramètre `sudo` pour exécuter des commandes qui nécessitent des privilèges racine.
 
 ## <a name="sudo-and-aad-login"></a>Connexion sudo et AAD
 

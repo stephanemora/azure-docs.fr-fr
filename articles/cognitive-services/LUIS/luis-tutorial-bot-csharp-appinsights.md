@@ -1,5 +1,5 @@
 ---
-title: Application Insights, C# - LUIS
+title: 'Didacticiel : Application Insights, C# - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Ce didacticiel montre comment ajouter des informations de bot et LUIS à un stockage de données de télémétrie Application Insights.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560066"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772818"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>Ajouter des résultats LUIS à Application Insights à partir d’un bot en C#
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Didacticiel : Ajouter des résultats LUIS à Application Insights à partir d’un bot en C#
 
 Ce didacticiel montre comment ajouter des informations de bot et LUIS à un stockage de données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous disposez de ces données, vous pouvez les interroger avec le langage de requête Kusto ou Power BI pour analyser, agréger et générer des rapports sur les intentions et les entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.
 
@@ -160,7 +160,7 @@ Pour ajouter des données à Application Insights, vous avez besoin de la clé d
 1. Dans Visual Studio, créez et exécutez le bot. 
 1. Démarrer l’émulateur de bot et ouvrez le bot. Cette [étape](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) est présentée dans le didacticiel précédent.
 
-1. Posez une question au bot. Cette [étape](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) est présentée dans le didacticiel précédent.
+1. Posez une question au bot. Cette [étape](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) est présentée dans le didacticiel précédent.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Afficher les entrées de LUIS dans Application Insights
 

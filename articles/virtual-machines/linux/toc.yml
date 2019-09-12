@@ -53,7 +53,7 @@
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -145,8 +145,8 @@
       href: backup-recovery.md
     - name: Instructions pour les infrastructures
       href: infrastructure-example.md
-    - name: Attributs de sécurité
-      href: virtual-machines-linux-security-attributes.md
+    - name: Contrôles de sécurité intégrés
+      href: virtual-machines-linux-security-controls.md
 - name: Guides pratiques
   items:
     - name: Créer des machines virtuelles

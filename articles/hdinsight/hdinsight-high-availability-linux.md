@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68405995"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879804"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -106,7 +106,7 @@ L’interface utilisateur web d’Ambari est visible à l’adresse `https://CLU
 
 Lorsque vous arrivez sur la page Ambari, les services installés apparaissent à gauche de la page.
 
-![Services installés](./media/hdinsight-high-availability-linux/services.png)
+![Services installés](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Une série d'icônes s'affichent en regard d'un service pour indiquer son état. Des alertes liées à un service peuvent être affichées à l'aide du lien **Alertes** situé en haut de la page.  Ambari offre plusieurs alertes prédéfinies.
 
@@ -155,11 +155,11 @@ Vous pouvez sélectionner chaque service pour afficher plus d'informations sur c
 
 La page de service fournit des informations sur l'état et la configuration de chaque service. Il ne fournit pas d'informations sur le nœud principal sur lequel le service s'exécute. Pour afficher ces informations, utilisez le lien **Hôtes** en haut de la page. Cette page affiche les hôtes au sein du cluster, notamment les nœuds principaux.
 
-![liste des hôtes](./media/hdinsight-high-availability-linux/hosts.png)
+![liste des hôtes](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Sélectionner le lien de l’un des nœuds principaux permet d’afficher les services et les composants qui s’exécutent sur ce nœud.
 
-![État du composant](./media/hdinsight-high-availability-linux/nodeservices.png)
+![État du composant](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Pour plus d’informations sur l’utilisation d’Ambari, consultez [Surveiller et gérer HDInsight avec l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -241,7 +241,7 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 
 Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux d’activité (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux d’activité.
 
-![Utilisation des liens rapides pour afficher les journaux d’activité](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Utilisation des liens rapides pour afficher les journaux d’activité](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 
@@ -251,7 +251,7 @@ Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les
 
 * **Portail Azure**: lors de la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 
-    ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **Azure CLI** : Quand vous utilisez la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create), vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `--headnode-size`, `--workernode-size` et `--zookeepernode-size`.
 

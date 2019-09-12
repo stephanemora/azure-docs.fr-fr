@@ -770,8 +770,6 @@
                   href: log-query/get-started-portal.md
                 - name: Tutoriel sur les requêtes de journal
                   href: log-query/get-started-queries.md
-                - name: Expérience simple des journaux
-                  href: log-query/simple-logs.md
             - name: Données de journal
               items:
                 - name: Structure des données de journal
@@ -1037,8 +1035,6 @@
               href: insights/solutions-resources-views.md
             - name: Bonnes pratiques
               href: insights/solutions-best-practices.md
-            - name: Collecter les données de surveillance à partir d’un runbook
-              href: platform/runbook-datacollect.md
 - name: Informations de référence
   items:
     - name: Limites du service

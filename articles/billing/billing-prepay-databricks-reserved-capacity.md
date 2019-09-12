@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 99eb4de86aa227d558bec54d011a0b1548d27cf0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67810052"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimiser les coûts de Azure Databricks avec un pré-achat
@@ -29,7 +29,7 @@ Le pré-achat de Databricks s’applique à toutes les charges de travail et les
 
 | **Charge de travail** | **Rapport d’application DBU - niveau Standard** | **Rapport d’application DBU - niveau Premium** |
 | --- | --- | --- |
-| Analytique des données | 0.4 | 0.55 |
+| Analytique des données | 0.4 | 0,55 |
 | Engineering données | 0.15 | 0.30 |
 | Engineering données allégé | 0,07 | 0,22 |
 

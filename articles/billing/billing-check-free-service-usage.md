@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 3543bed7f699fd149ca7f2a6f61e9eb5aad5f1a3
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491420"
 ---
 # <a name="check-free-service-usage-included-with-your-azure-free-account"></a>Vérifier l’utilisation du service gratuit inclus avec votre compte gratuit Azure

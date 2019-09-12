@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706309"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193193"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -281,12 +281,19 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 ## <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
 
-### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>Q : Comment faire pour supprimer un appareil Azure AD inscrit localement sur l’appareil ?
+### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>Q : Comment supprimer un état inscrit auprès d’Azure AD pour un appareil localement ?
 
 **R :** 
 - Pour les appareils Azure AD inscrits sur Windows 10, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. L’inscription de l’appareil est par profil utilisateur sur Windows 10.
 - Pour iOS et Android, vous pouvez utiliser l’application Microsoft Authenticator et aller dans **Paramètres** > **Inscription de l’appareil** et sélectionnez **Désinscrire l’appareil**.
 - Pour macOS, vous pouvez utiliser l’application le portail d’entreprise Microsoft Intune pour annuler l’inscription de l’appareil à partir de la gestion et supprimer toute inscription. 
+
+---
+### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>Q : Comment empêcher les utilisateurs d’ajouter des comptes professionnels supplémentaires (inscrits auprès d’Azure AD) sur mes appareils Windows 10 d’entreprise ?
+
+**R :** Activez le Registre suivant pour empêcher vos utilisateurs d’ajouter des comptes professionnels supplémentaires à vos appareils Windows 10 joints à un domaine d’entreprise, joints à Azure AD ou joints à une version hybride d’Azure AD. Cette stratégie peut également être utilisée pour empêcher les ordinateurs joints à un domaine d’être inscrits par inadvertance auprès d’Azure AD avec le même compte d’utilisateur. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>Q : Puis-je inscrire des appareils BYOD Android ou iOS ?

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017787"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376333"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -52,7 +52,9 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 * Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
 * Votre solution nécessite un comportement transactionnel et l'atomicité lors de l'envoi ou de la réception de plusieurs messages à partir d'une file d'attente.
 * Votre application gère des messages qui peuvent dépasser 64 Ko, mais qui n'atteindront sans doute pas la limite de 256 Ko.
-* Vous êtes confronté à l'exigence de fournir un modèle d'accès basé sur les rôles aux files d'attente et des droits/autorisations différents pour les expéditeurs et les destinataires. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory (préversion)](service-bus-role-based-access-control.md)
+* Vous êtes confronté à l'exigence de fournir un modèle d'accès basé sur les rôles aux files d'attente et des droits/autorisations différents pour les expéditeurs et les destinataires. Pour plus d’informations, consultez les articles suivants :
+    - [Authentifier avec des identités managées](service-bus-managed-service-identity.md)
+    - [Authentifier à partir d’une application](authenticate-application.md)
 * La taille de la file d'attente ne sera pas supérieure à 80 Go.
 * Vous souhaitez utiliser le protocole de messagerie basé sur les normes AMQP 1.0. Pour plus d’informations sur AMQP, consultez [Présentation d’AMQP Service Bus](service-bus-amqp-overview.md).
 * Vous pouvez prévoir une migration éventuelle de la communication point à point basée sur la file d'attente vers un modèle d'échange de messages qui permet une intégration transparente de récepteurs (abonnés) supplémentaires, chacun d'entre eux recevant des copies indépendantes de certains ou de tous les messages envoyés à la file d'attente. Ce dernier point fait référence à la fonctionnalité publication/abonnement en mode natif fournie par Service Bus.
@@ -68,7 +70,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 | Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
 | Garantie de classement |**Non** <br/><br>Pour plus d’informations, consultez la première remarque dans la section « Informations supplémentaires ».</br> |**Oui - Premier entré premier sorti (PEPS)**<br/><br>(par le biais de l’utilisation de sessions de messagerie) |
-| Garantie de livraison |**Au moins une fois** |**Au moins une fois**<br/><br/>**Une fois au maximum** |
+| Garantie de livraison |**Au moins une fois** |**Au moins une fois** (avec le mode de réception par défaut, PeekLock) <br/><br/>**Une fois au maximum** (avec le mode de réception ReceiveAndDelete) <br/> <br/> En savoir plus sur les différents [modes de réception](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Prise en charge des opérations atomiques |**Non** |**Oui**<br/><br/> |
 | Comportement de réception |**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n’est trouvé) |**Blocage avec ou sans délai d’expiration**<br/><br/>(offre une interrogation longue, dite [« technique Comet »](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloquant**<br/><br/>(via l’utilisation d’une API gérée sur .NET uniquement) |
 | API style Push |**Non** |**Oui**<br/><br/>API .NET [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) et sessions **OnMessage**. |
@@ -83,7 +85,6 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 * Les messages dans les files d’attente de stockage se voient en général appliquer la méthode Premier entré, premier sorti. Mais ils peuvent parfois être dans le désordre. C’est le cas lorsque le délai de visibilité d’un message expire (par exemple, à cause du blocage d’une application cliente pendant le traitement). Lorsque le délai de visibilité expire, le message est de nouveau visible dans la file d'attente et un autre processus peut le retirer de la file d'attente. À ce stade, le message nouvellement visible peut être placé dans la file d'attente (pour en être de nouveau retiré) après un message qui se trouvait à l'origine dans la file d'attente après lui.
 * Le modèle Premier entré, premier sorti garanti dans les files d'attente Service Bus requiert l'utilisation de sessions de messagerie. Dans le cas où l’application se bloque lors du traitement d’un message reçu en mode **Aperçu et verrouillage**, la prochaine fois qu’un destinataire de file d’attente acceptera une session de messagerie, celle-ci démarrera avec le message ayant échoué après que sa durée de vie ait expiré.
 * Les files d’attente de stockage sont conçues pour prendre en charge des scénarios de mise en file d’attente standard, tels que le découplage de composants d’application pour augmenter l’évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
-* Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. 
 * Des incohérences relatives à la gestion de message dans le contexte de sessions Service Bus peuvent être évitées via l’utilisation d’état de session pour stocker l’état de l’application relatif à la progression de la gestion de la séquence de message de la session, et via l’utilisation de transactions pour l’installation de messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence est parfois appelé *Exactly-Once Processing* chez les produits d’autres vendeurs, mais les échecs de transaction entraîneront évidemment une nouvelle livraison des messages, ce qui rend caduque cette appelation.
 * Les files d’attente de stockage fournissent un modèle de programmation uniforme et cohérent entre les files d’attente, les tables et les objets blob, pour les développeurs et les équipes d’exploitation.
 * Les files d'attente Service Bus prennent en charge les transactions locales dans le contexte d'une file d'attente unique.

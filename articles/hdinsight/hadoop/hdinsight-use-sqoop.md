@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 564bced9ae71213cb534393a7dcc45c929df3794
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129397"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917365"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utiliser Apache Sqoop avec Hadoop dans HDInsight
+
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Découvrez comment utiliser Apache Sqoop dans HDInsight pour importer et exporter des données entre un cluster HDInsight et une base de données Azure SQL.
@@ -45,14 +46,14 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux él
   
   | Champ | Type de données |
   | --- | --- |
-  | clientid |chaîne |
-  | querytime |chaîne |
-  | market |chaîne |
-  | deviceplatform |chaîne |
-  | devicemake |chaîne |
-  | devicemodel |chaîne |
-  | state |chaîne |
-  | country |chaîne |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -72,15 +73,15 @@ Le cluster, la base de données SQL et d’autres objets sont créés via le por
 
 1. Sélectionnez l’image suivante pour ouvrir le modèle Resource Manager dans le portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. Entrez les propriétés suivantes :
 
     |Champ |Valeur |
     |---|---|
-    |Abonnement |Sélectionnez votre abonnement Azure dans la liste déroulante.|
-    |Groupe de ressources |Sélectionnez votre groupe de ressources dans la liste déroulante, ou créez-en un|
-    |Lieu |Sélectionnez une région dans la liste déroulante.|
+    |Subscription |Sélectionnez votre abonnement Azure dans la liste déroulante.|
+    |Resource group |Sélectionnez votre groupe de ressources dans la liste déroulante, ou créez-en un|
+    |Location |Sélectionnez une région dans la liste déroulante.|
     |Nom du cluster |Entrez un nom pour le cluster Hadoop. Utilisez seulement des lettres minuscules.|
     |Nom d’utilisateur de connexion au cluster |Conservez la valeur préremplie `admin`.|
     |Mot de passe de connexion au cluster |Entrez un mot de passe.|
@@ -91,7 +92,7 @@ Le cluster, la base de données SQL et d’autres objets sont créés via le por
     |Emplacement des artefacts | Utilisez la valeur par défaut, sauf si vous voulez utiliser votre propre fichier bacpac dans un emplacement différent.|
     |Jeton SAS de l’emplacement des artefacts |Laisser vide.|
     |Nom du fichier Bacpac |Utilisez la valeur par défaut, sauf si vous voulez utiliser votre propre fichier bacpac.|
-    |Lieu |Utilisez la valeur par défaut.|
+    |Location |Utilisez la valeur par défaut.|
 
     Le nom due serveur Azure SQL sera `<ClusterName>dbserver`. Le nom de la base de données sera `<ClusterName>db`. Le nom du compte de stockage par défaut sera `e6qhezrh2pdqu`.
 

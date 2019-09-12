@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555790"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162398"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
 
@@ -32,9 +32,12 @@ En tant qu’administrateur doté du rôle d’administrateur d’authentificati
 
 ![Gérer les méthodes d’authentification à partir du portail Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Réinitialiser le mot de passe permet de réinitialiser le mot de passe de l’utilisateur et d’attribuer un mot de passe temporaire qui doit être modifié lors de la prochaine connexion.
-2. Exiger une nouvelle inscription MFA fera en sorte que lorsque l’utilisateur se connecte la prochaine fois, il sera invité à configurer une nouvelle méthode d’authentification MFA.
-3. Révoquer les sessions MFA efface les sessions d’authentification MFA mémorisées de l’utilisateur et leur demande d’effectuer l’authentification MFA la prochaine fois qu’elle est requise par la stratégie sur l’appareil.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Sur la gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
+1. Choisissez l’utilisateur sur lequel vous souhaitez effectuer une action et sélectionnez **Méthodes d’authentification**.
+   - **Réinitialiser le mot de passe** permet de réinitialiser le mot de passe de l’utilisateur et d’attribuer un mot de passe temporaire qui doit être modifié lors de la prochaine connexion.
+   - **Exiger le réenregistrement de la MFA** fera en sorte que, lors de la prochaine connexion de l’utilisateur, il sera invité à configurer une nouvelle méthode d’authentification MFA.
+   - **Révoquer les sessions MFA** efface les sessions d’authentification multifacteur mémorisées de l’utilisateur et lui demande d’effectuer l’authentification multifacteur la prochaine fois qu’elle est requise par la stratégie sur l’appareil.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Demander aux utilisateurs de fournir à nouveau des méthodes de contact
 

@@ -1,5 +1,5 @@
 ---
-title: Maintenir la connexion dans Azure Active Directory B2C | Microsoft Docs
+title: Maintenir la connexion dans Azure Active Directory B2C
 description: Découvrez comment configurer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/29/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835382"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147040"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez activer la fonctionnalité « Maintenir la connexion » pour vos applications web et native dans Azure Active Directory (Azure AD) B2C. Cette fonctionnalité permet aux utilisateurs déjà inscrits d’accéder à l’application sans avoir à entrer une nouvelle fois leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
+Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et native qui ont des comptes locaux dans votre annuaire Azure AD B2C (Azure Active Directory B2C). Cette fonctionnalité accorde l’accès aux utilisateurs qui retournent dans votre application sans avoir à entrer une nouvelle fois leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
 
 Vous ne devez pas activer cette option sur les ordinateurs publics.
 
@@ -29,7 +29,9 @@ Vous ne devez pas activer cette option sur les ordinateurs publics.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un locataire Azure AD B2C configuré pour permettre l’inscription et la connexion des comptes locaux. Si vous n’avez pas de locataire, vous pouvez en créer un en suivant les étapes décrites du [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
+Un locataire Azure AD B2C configuré pour permettre la connexion à un compte local. La fonctionnalité Maintenir la connexion n’est pas prise en charge pour les comptes des fournisseurs d’identité externes.
+
+Si vous n’avez pas de locataire, vous pouvez en créer un en suivant les étapes décrites du [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Ajouter un élément de définition de contenu
 
@@ -87,7 +89,7 @@ Ajoutez les identificateurs d’application au fichier *TrustFrameworkExtensions
 
 1. Dans le fichier *TrustFrameworkExtensions.xml*, recherchez l’élément **TechnicalProfile** avec l’identificateur `login-NonInteractive`, et l’élément **TechnicalProfile** avec l’identificateur`login-NonInteractive-PasswordChange`, puis remplacez toutes les valeurs `IdentityExperienceFrameworkAppId` par l’identificateur de l’application Identity Experience Framework, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -183,11 +185,3 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 5. Pour tester la stratégie personnalisée que vous avez chargée, dans le portail Azure, accédez à la page Stratégie, puis sélectionnez **Exécuter maintenant**.
 
 Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

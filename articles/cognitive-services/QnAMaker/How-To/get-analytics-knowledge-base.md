@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 961bb7d5f64fa6d6cafa4730a5849abb4b82478f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967705"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206840"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtenir des analyses sur votre base de connaissances
 
@@ -32,7 +32,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 3. Collez la requête suivante et exécutez-la.
 
-    ```query
+    ```kusto
     requests
     | where url endswith "generateAnswer"
     | project timestamp, id, name, resultCode, duration, performanceBucket
@@ -54,7 +54,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 ### <a name="total-90-day-traffic"></a>Trafic total pendant 90 jours
 
-```query
+```kusto
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -64,7 +64,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 ### <a name="total-question-traffic-in-a-given-time-period"></a>Question sur le trafic total dans un laps de temps donné
 
-```query
+```kusto
     //Total Question Traffic in a given time period
     let startDate = todatetime('2018-02-18');
     let endDate = todatetime('2018-03-12');
@@ -77,7 +77,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 ### <a name="user-traffic"></a>Trafic utilisateur
 
-```query
+```kusto
     //User Traffic
     requests
     | where url endswith "generateAnswer"
@@ -92,7 +92,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 ### <a name="latency-distribution-of-questions"></a>Distribution de la latence de questions
 
-```query
+```kusto
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -104,4 +104,4 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Gérer les clés](./key-management.md)
+> [Choisir la capacité](../tutorials/choosing-capacity-qnamaker-deployment.md)

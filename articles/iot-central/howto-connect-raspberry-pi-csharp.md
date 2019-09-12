@@ -3,17 +3,17 @@ title: Connecter un appareil Raspberry Pi à votre application Azure IoT Central
 description: Découvrez en tant que développeur d’appareils comment connecter un appareil Raspberry Pi à votre application Azure IoT Central en utilisant C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/15/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3feb0b2b50851903bbd6799f46d489879e62bf43
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 7a66925dceee4bf90bc6a5cd155f99347bbd124e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876216"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886003"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#)
 
@@ -356,10 +356,10 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| Type            | Nom complet | Nom du champ | Type de données |
-| --------------- | ------------ | ---------- | --------- |
-| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Texte            | Location     | location   | N/A       |
+| Type            | Nom complet | Nom du champ | Type de données                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | number                                 |
+| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

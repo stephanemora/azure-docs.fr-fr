@@ -7,27 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036126"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918992"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
 Cet article classe les partenaires Windows Virtual Desktop par ordre alphabétique.
-
-## <a name="active-cypher"></a>Active Cypher
-
-![Logo d’Active Cypher](./media/partners/active-cypher.png)
-
-Active Cypher est un fournisseur de services à valeur ajoutée Windows Virtual Desktop qui offre aux services informatiques une technologie de chiffrement permettant de protéger l’entreprise contre les failles de sécurité et les pertes de données. Avec Active Cypher, une technologie de chiffrement innovante prend en charge la stratégie globale de protection des fichiers pour exécuter Windows Virtual Desktop sur Azure.
-
-Utilisé avec Windows Virtual Desktop, Active Cypher offre des fonctionnalités supplémentaires favorisant l'accessibilité et la mobilité des données utilisateur tout en empêchant la perte accidentelle de données. Avec Active Cypher, les stratégies de sécurité de groupe et autorisations existantes dans Azure Information Protection peuvent être utilisées pour chiffrer les fichiers utilisateur tout en utilisant Windows Virtual Desktop.
-
-- [Consultez le résumé de la solution conjointe.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [Visitez le site web du partenaire.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 

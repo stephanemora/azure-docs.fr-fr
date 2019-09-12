@@ -1,17 +1,17 @@
 ---
 title: Création et gestion d’un serveur Azure Database pour MySQL à l’aide du portail Azure
-description: Cet article explique comment créer rapidement un nouveau serveur Azure Database pour MySQL et gérer le serveur à l’aide du portail Azure.
+description: Cet article explique comment créer rapidement un serveur Azure Database pour MySQL et gérer le serveur avec le portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcb302d3a14b02ea86fb92c8dbf822ef3f42177
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459524"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142298"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Création et gestion d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment créer rapidement un nouveau serveur Azure Database pour MySQL. Il comprend également des informations sur la gestion du serveur à l’aide du Portail Azure, notamment l’affichage des détails du serveur et des bases de données, la réinitialisation du mot de passe, la mise à l’échelle des ressources et la suppression du serveur.
@@ -44,6 +44,8 @@ Suivez ces étapes pour créer un serveur Azure Database pour MySQL nommé « m
     | *Lieu* | Asie Sud-Est (choisissez entre Europe Nord et USA Ouest) |
     | *Version* | 5.7 (choisissez la version du serveur Azure Database pour MySQL) |
 
+   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
+
 4. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances de votre nouveau serveur. Sélectionnez l’onglet **Usage général**. *Gen 5*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de conservation des sauvegardes**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
@@ -53,7 +55,7 @@ Suivez ces étapes pour créer un serveur Azure Database pour MySQL nommé « m
     > Sélectionnez l’option **Épingler au tableau de bord** pour faciliter le suivi de vos déploiements.
 
 ## <a name="update-an-azure-database-for-mysql-server"></a>Mise à jour d’un serveur Azure Database pour MySQL
-Une fois le nouveau serveur provisionné, l’utilisateur dispose de plusieurs options pour configurer le serveur existant : réinitialiser le mot de passe administrateur, augmenter ou diminuer la capacité du serveur en modifiant les paramètres vCore ou Stockage, etc.
+Une fois le nouveau serveur provisionné, l’utilisateur dispose de plusieurs options pour configurer le serveur existant, notamment réinitialiser le mot de passe administrateur, changer le niveau tarifaire, et effectuer un scale-up ou un scale-down du serveur en changeant les cœurs virtuels ou le stockage.
 
 ### <a name="change-the-administrator-user-password"></a>Modification du mot de passe administrateur
 1. Dans **Vue d’ensemble** du serveur, cliquez sur **Réinitialiser le mot de passe** pour afficher la fenêtre de réinitialisation du mot de passe.
@@ -65,6 +67,17 @@ Une fois le nouveau serveur provisionné, l’utilisateur dispose de plusieurs o
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Cliquez sur **OK** pour enregistrer le nouveau mot de passe.
+
+### <a name="change-the-pricing-tier"></a>Changer le niveau tarifaire
+> [!NOTE]
+> La mise à l’échelle est possible seulement entre les niveaux de service Usage général et Mémoire optimisée (et inversement). Notez que le passage vers ou depuis le niveau tarifaire De base n’est pas pris en charge après la création du serveur dans Azure Database pour MySQL.
+> 
+1. Cliquez sur **Niveau tarifaire**, sous **Paramètres**.
+2. Cliquez sur le **Niveau tarifaire** que vous voulez utiliser.
+
+    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+
+4. Cliquez sur **OK** pour enregistrer les modifications. 
 
 ### <a name="scale-vcores-updown"></a>Augmenter/diminuer le nombre de vCores
 
