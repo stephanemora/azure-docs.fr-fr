@@ -1,0 +1,173 @@
+### YamlMime:Hub
+title: Documentation Azure IoT
+summary: L’Internet des objets Azure (IoT) est une collection de services cloud gérés par Microsoft qui permettent de connecter, superviser et contrôler des milliards de ressources IoT.
+brand: azure
+metadata:
+  title: Documentation Azure IoT
+  description: L’Internet des objets Azure (IoT) est une collection de services cloud gérés par Microsoft qui permettent de connecter, superviser et contrôler des milliards de ressources IoT.
+  ms.service: iot-fundamentals
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 09/04/2019
+  ms.openlocfilehash: e74fbe6e358c3a230fe466f3e73850022574a868
+  ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70919072"
+highlightedContent:
+  items:
+  - title: Qu’est-ce qu’Azure IoT ?
+    itemType: overview
+    url: ../iot-fundamentals/iot-introduction.md
+  - title: Installer les outils VS Code pour Azure IoT
+    itemType: download
+    url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+  - title: Parcourir les exemples de code Azure IoT
+    itemType: overview
+    url: https://docs.microsoft.com/en-us/samples/browse/?term=iot
+  - title: Sécuriser votre déploiement IoT
+    itemType: concept
+    url: ../iot-fundamentals/security-recommendations.md
+  - title: Architecture de référence Azure IoT
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
+  - title: Azure IoT sur Microsoft Learn
+    itemType: learn
+    url: https://docs.microsoft.com/en-us/learn/browse/?products=azure&term=iot
+conceptualContent:
+  title: Commencer à créer votre solution IoT
+  summary: Azure IoT vous offre des plateformes IoT cloud et de périphérie, ainsi que des solutions IoT complètement managées.
+  items:
+  - title: Utiliser Azure IoT Hub pour créer votre propre solution IoT
+    links:
+    - url: ../iot-hub/about-iot-hub.md
+      itemType: overview
+      text: Qu’est-ce qu’Azure IoT Hub ?
+    - url: ../iot-hub/quickstart-send-telemetry-c.md
+      itemType: quickstart
+      text: Envoyer des données de télémétrie depuis un appareil
+    - url: ../iot-hub/quickstart-control-device-node.md
+      itemType: quickstart
+      text: Contrôler un appareil à partir du cloud
+    footerLink:
+      url: ../iot-hub/index.yml
+      text: En savoir plus
+  - title: Utiliser Azure IoT Central pour déployer une solution IoT complètement managée
+    links:
+    - url: ../iot-central/overview-iot-central.md
+      itemType: overview
+      text: Qu’est-ce que Azure IoT Central
+    - url: ../iot-central/quick-deploy-iot-central.md
+      itemType: quickstart
+      text: Créer une application IoT Central
+    - url: ../iot-central/tutorial-define-device-type.md
+      itemType: tutorial
+      text: Définir le type de votre appareil
+    footerLink:
+      url: ../iot-central/index.yml
+      text: En savoir plus
+  - title: Utiliser des accélérateurs de solution Azure IoT pour personnaliser une solution IoT prédéfinie
+    links:
+    - url: ../iot-accelerators/about-iot-accelerators.md
+      itemType: overview
+      text: Que sont les accélérateurs de solution IoT ?
+    - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
+      itemType: quickstart
+      text: Essayer une solution de supervision à distance
+    - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
+      itemType: quickstart
+      text: Essayer une solution de fabrique connectée
+    footerLink:
+      url: ../iot-accelerators/index.md
+      text: En savoir plus
+  - title: Utiliser Azure IoT Edge pour exécuter l’intelligence cloud sur les appareils
+    links:
+    - url: ../iot-edge/about-iot-edge.md
+      itemType: overview
+      text: Qu’est-ce qu’Azure IoT Edge ?
+    - url: ../iot-edge/quickstart-linux.md
+      itemType: quickstart
+      text: Déployer votre module IoT Edge sur un appareil Linux
+    - url: ../iot-edge/quickstart.md
+      itemType: quickstart
+      text: Déployer votre module IoT Edge sur un appareil Windows
+    footerLink:
+      url: ../iot-edge/index.yml
+      text: En savoir plus
+  - title: Utiliser Azure Digital Twins pour créer des infrastructures connectées et intelligentes
+    links:
+    - url: ../digital-twins/about-digital-twins.md
+      itemType: overview
+      text: Qu’est-ce qu’Azure Digital Twins ?
+    - url: ../digital-twins/quickstart-view-occupancy-dotnet.md
+      itemType: quickstart
+      text: Rechercher des salles vides dans un bâtiment
+    - url: ../digital-twins/tutorial-facilities-setup.md
+      itemType: tutorial
+      text: Superviser un immeuble de bureaux
+    footerLink:
+      url: ../digital-twins/index.yml
+      text: En savoir plus
+  - title: Utiliser le service IoT Hub Device Provisioning pour provisionner des appareils à grande échelle de façon sécurisée
+    links:
+    - url: ../iot-dps/about-iot-dps.md
+      itemType: overview
+      text: Qu’est-ce que le service Azure IoT Hub Device Provisioning ?
+    - url: ../iot-dps/quick-setup-auto-provision-cli.md
+      itemType: quickstart
+      text: Configurer le service
+    - url: ../iot-dps/quick-create-simulated-device.md
+      itemType: quickstart
+      text: Provisionner un appareil TPM
+    footerLink:
+      url: ../iot-dps/index.yml
+      text: En savoir plus
+  - title: Utiliser Azure Time Series Insights pour explorer et analyser les données des appareils
+    links:
+    - url: ../time-series-insights/time-series-insights-update-overview.md
+      itemType: overview
+      text: Qu’est-ce que Azure Time Series Insights ?
+    - url: ../time-series-insights/time-series-quickstart.md
+      itemType: quickstart
+      text: Explorer Time Series Insights
+    - url: ../time-series-insights/tutorial-create-tsi-sample-spa.md
+      itemType: tutorial
+      text: Créer une application web Time Series Insights
+    footerLink:
+      url: ../time-series-insights/index.yml
+      text: En savoir plus
+  - title: Utiliser Azure Maps pour inciter à la mobilité dans votre entreprise
+    links:
+    - url: ../azure-maps/about-azure-maps.md
+      itemType: overview
+      text: Qu’est-ce qu’Azure Maps ?
+    - url: ../azure-maps/quick-demo-map-app.md
+      itemType: quickstart
+      text: Créer une carte de recherche interactive
+    - url: ../azure-maps/tutorial-route-location.md
+      itemType: tutorial
+      text: Route vers votre point d’intérêt
+    footerLink:
+      url: ../azure-maps/index.yml
+      text: En savoir plus
+tools:
+  title: Kits de développement logiciel (SDK) Azure IoT
+  summary: Documentation de référence pour les kits SDK Azure IoT
+  items:
+  - title: Informations de référence sur le kit SDK Azure IoT pour C
+    imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
+    url: https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/
+  - title: Kit SDK Azure IoT pour Python (préversion)
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://github.com/Azure/azure-iot-sdk-python
+  - title: Informations de référence sur le kit SDK Azure IoT pour Node.js
+    imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+    url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+  - title: Informations de référence sur le kit SDK Azure IoT pour Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+  - title: Informations de référence sur le kit SDK Azure IoT pour .NET
+    imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+    url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot?view=azure-dotnet

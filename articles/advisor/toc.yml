@@ -1,6 +1,6 @@
 - name: Documentation Azure Advisor
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Advisor
       href: advisor-overview.md
@@ -22,6 +22,8 @@
       href: view-recommendations.md
     - name: Autorisations et actions bloquées
       href: permissions.md
+    - name: Configurer des alertes pour les recommandations
+      href: advisor-alerts.md
 - name: Informations de référence
   items:
     - name: Security Center

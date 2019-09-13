@@ -1,78 +1,78 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Form Recognizer
+summary: Azure Form Recognizer est un service cognitif qui utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il renvoie ensuite des données structurées qui incluent les relations du fichier d’origine. Un apprentissage non supervisé permet au modèle de comprendre la disposition ainsi que les relations entre les champs et les entrées, sans étiquetage manuel des données ni codage et maintenance intensifs.
 metadata:
-  title: "Documentation de l’API\_- Form Recognizer"
-  titleSuffix: Azure Cognitive Services
-  description: Découvrez comment utiliser Form Recognizer pour extraire intelligemment des données clé-valeur de vos documents de formulaire.
+  title: Documentation Form Recognizer
+  description: Azure Form Recognizer est un service cognitif qui utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il renvoie ensuite des données structurées qui incluent les relations du fichier d’origine. Un apprentissage non supervisé permet au modèle de comprendre la disposition ainsi que les relations entre les champs et les entrées, sans étiquetage manuel des données ni codage et maintenance intensifs.
   services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
   ms.service: cognitive-services
-  ms.subservice: forms-recognizer
+  ms.subservice: form-recognizer
   ms.topic: landing-page
-  ms.date: 04/16/2019
+  author: PatrickFarley
   ms.author: pafarley
-ms.custom: seodec18
-abstract:
-  description: 'Azure Form Recognizer est un service cognitif qui utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il renvoie ensuite des données structurées qui incluent les relations du fichier d’origine. Un apprentissage non supervisé permet au modèle de comprendre la disposition ainsi que les relations entre les champs et les entrées, sans étiquetage manuel des données ni codage et maintenance intensifs.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/form-recognizer-landing-page-video.png
-      width: 250
-    title: 'Automatisation des processus intégrant l’intelligence artificielle avec Form Recognizer (2:15)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/form-recognizer/overview
-            html: <p>Découvrez Form Recognizer.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que Form Recognizer\_?"
-          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
-            html: <p>Découvrez comment utiliser le conteneur Form Recognizer pour analyser des données de formulaire et de table.</p>
-            image:
-              src: ../media/index/i_get-started.svg
-            title: Installer et exécuter des conteneurs
-          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
-            html: <p>Créez un jeu de données optimisé pour entraîner un modèle personnalisé.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Créer un jeu de données d’entraînement
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Entraînez un modèle Form Recognizer et extrayez des données de formulaires à l’aide des éléments suivants\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/logos/logo-curl.svg
-            text: cURL
-            href: quickstarts/curl-train-extract.md
-          - image:
-              src: ./media/logos/logo-python.svg
-            text: Python
-            href: quickstarts/python-train-extract.md
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://aka.ms/form-recognizer/api">API Form Recognizer</a></p>'
-          - title: Kits SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview">.NET</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: Interface de ligne de commande
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Interface de ligne de commande Azure</a></p>'
+  ms.date: 09/05/2019
+  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70931822"
+landingContent:
+- title: À propos de Form Recognizer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Form Recognizer ?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Automatisation des processus alimentés par l’IA avec Form Recognizer
+      url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+- title: Entraîner un modèle personnalisé et extraire des données
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/dotnet-sdk.md
+    - text: Utilisation de l’API REST (Python)
+      url: quickstarts/python-train-extract.md
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/curl-train-extract.md
+- title: Extraire les données de reçus
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/dotnet-sdk.md
+- title: Créer un jeu de données d’entraînement
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un jeu de données d’entraînement
+      url: build-training-data-set.md
+- title: Utiliser des conteneurs
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installer et exécuter des conteneurs
+      url: form-recognizer-container-howto.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des conteneurs
+      url: form-recognizer-container-configuration.md
+  - linkListType: deploy
+    links:
+    - text: Utiliser des instances de conteneur
+      url: deploy-form-recognizer-on-container-instances.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Form Recognizer
+      url: https://aka.ms/form-recognizer/api
+    - text: Kit de développement logiciel (SDK) .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interface de ligne de commande Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

@@ -39,7 +39,7 @@
       href: integrate-ci-cd-pipeline.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -81,6 +81,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: Kit SDK Java Azure
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
+        - name: Kit SDK Python Azure
+          href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestion des fonctionnalités

@@ -37,10 +37,12 @@
       href: concepts-limits-quotas.md
 - name: Guides pratiques
   items:
-    - name: Utiliser un banc d’essai d’appareil IoT
-      href: howto-use-iot-device-workbench.md
+    - name: Développer avec Visual Studio et Visual Studio Code
+      href: howto-develop-with-vs-vscode.md
     - name: Installer un explorateur IoT
       href: howto-install-iot-explorer.md
+    - name: Installer l’extension Azure CLI
+      href: howto-install-pnp-cli.md
     - name: Intégration au portail IoT
       href: howto-onboard-portal.md
     - name: Gérer les modèles
