@@ -305,13 +305,13 @@ Vérifiez que le certificat est installé dans la banque personnelle de l\'ordin
         | Propriété | Valeur |
         |---|---|
         | Source | Quelconque |
-        | Plages de ports source | * |
+        | Source port ranges | * |
         | Destination | Quelconque |
-        | Plage de ports de destination | 636 |
-        | Protocole | Quelconque |
+        | Destination port range | 636 |
+        | Protocol | Quelconque |
         | Action | AUTORISER |
-        | Priorité | \<Nombre souhaité\> |
-        | Nom | Port_LDAP_636 |
+        | Priority | \<Nombre souhaité\> |
+        | Name | Port_LDAP_636 |
 
     ![règle de sécurité de trafic entrant](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
