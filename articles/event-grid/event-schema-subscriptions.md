@@ -249,16 +249,16 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| autorisation | objet | Autorisation demandée pour l’opération. |
-| réclamations | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | chaîne | ID d’opération pour le dépannage. |
-| httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
-| resourceProvider | chaîne | Fournisseur de ressources pour l’opération. |
-| resourceUri | chaîne | URI de la ressource dans l’opération. |
-| operationName | chaîne | Opération effectuée. |
-| status | chaîne | L’état de l’opération. |
-| subscriptionId | chaîne | ID d’abonnement de la ressource. |
-| tenantId | chaîne | ID de locataire de la ressource. |
+| autorisation | object | Autorisation demandée pour l’opération. |
+| réclamations | object | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | string | ID d’opération pour le dépannage. |
+| httpRequest | object | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
+| resourceProvider | string | Fournisseur de ressources pour l’opération. |
+| resourceUri | string | URI de la ressource dans l’opération. |
+| operationName | string | Opération effectuée. |
+| status | string | L’état de l’opération. |
+| subscriptionId | string | ID d’abonnement de la ressource. |
+| tenantId | string | ID de locataire de la ressource. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
