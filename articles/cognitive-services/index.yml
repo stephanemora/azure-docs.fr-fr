@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/10/2019
-  ms.openlocfilehash: 0ddceb45db81ae31685cf48a6789d47d54818f3a
-  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.date: 09/12/2019
+  ms.openlocfilehash: 2bb26de076096ff47d38ddb12b1bc17f4aeafb34
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70886110"
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70965456"
 highlightedContent:
   items:
   - title: Présentation de Cognitive Services
@@ -50,14 +50,14 @@ conceptualContent:
       text: Vision personnalisée
     - url: ./face/index.yml
       itemType: overview
-      text: Visage
+      text: Face
     - url: ./form-recognizer/index.yml
       itemType: overview
       text: Reconnaissance de format (préversion)
-    - url: ./form-recognizer/index.yml
+    - url: ./ink-recognizer/index.yml
       itemType: overview
       text: Ink Recognizer (préversion)
-    - url: ./ink-recognizer/index.yml
+    - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Video Indexer
   - title: Langage
@@ -128,7 +128,7 @@ conceptualContent:
       text: Recherche d’actualités
     - url: ./bing-spell-check/index.yml
       itemType: overview
-      text: Vérification orthographique
+      text: API Vérification orthographique
     - url: ./Bing-Video-Search/index.yml
       itemType: overview
       text: Recherche de vidéos
@@ -138,7 +138,7 @@ conceptualContent:
     - url: ./bing-web-search/index.yml
       itemType: overview
       text: Recherche Web
-  - title: Conteneurs
+  - title: Containers
     summary: La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure et offre le choix de l’emplacement de déploiement et de stockage des services fournis avec les conteneurs Docker.
     links:
     - url: ./cognitive-services-container-support.md
@@ -161,7 +161,7 @@ additionalContent:
   - items:
     - title: Ressources supplémentaires
       links:
-      - text: Azure CLI
+      - text: D’Azure CLI
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
         url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

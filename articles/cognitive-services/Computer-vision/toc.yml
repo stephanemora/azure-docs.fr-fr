@@ -7,6 +7,14 @@
       href: Home.md
 - name: Démarrages rapides
   items:
+    - name: Utilisation du kit de développement logiciel (SDK) client
+      items:
+        - name: Kit de développement logiciel (SDK) .NET
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: Kit de développement logiciel (SDK) Python
+          href: quickstarts-sdk/python-sdk.md
+        - name: Kit de développement logiciel (SDK) Java
+          href: quickstarts-sdk/java-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Analyser une image distante
@@ -75,18 +83,6 @@
           items:
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: Utilisation du kit de développement logiciel (SDK) .NET
-      items:
-        - name: Analyser une image
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Générer une miniature
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Extraction du texte
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Python
-      href: quickstarts-sdk/python-sdk.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Java
-      href: quickstarts-sdk/java-sdk.md
 - name: Tutoriels
   items:
     - name: Générer des métadonnées pour les images

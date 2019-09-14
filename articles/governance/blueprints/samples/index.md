@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ea2c56e35741a49d057f2261f7b53fb754a43f8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231837"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967981"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -23,7 +23,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 
 |  |  |
 |---------|---------|
-| [PBMM fédéral du Canada](./canada-federal-pbmm/control-mapping.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
+| [PBMM fédéral du Canada](./canada-federal-pbmm/index.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark. |
 | [IRS 1075](./irs-1075/index.md) | Propose des garde-fous pour la conformité à la norme IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Propose des garde-fous pour la conformité à la norme ISO 27001. |
