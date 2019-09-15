@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: b78f81e16afbd044306c6697e0d8823bdd02b81a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: aa25bbb54893fa84bb345a317850df4125faed25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232877"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003302"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -27,7 +27,7 @@ L’exemple de blueprint de base du framework d’adoption du cloud déploie dan
 
 Cette implémentation intègre plusieurs services Azure utilisés pour fournir une base sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 
-- Une instance [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
+- Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre déploiement sécurisé dans [Comptes de stockage](../../../../storage/common/storage-introduction.md) pour la journalisation des diagnostics.
 - [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - Le blueprint définit et déploie également des [Stratégies Azure](../../../policy/overview.md) pour effectuer les opérations suivantes : 

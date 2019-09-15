@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: dc30aeae842cf9c3cd39422517ed49773c524f1e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 81bde54c65cf3ed25da634c38b7b99e72a187e00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232840"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002463"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -29,7 +29,7 @@ L’exemple de blueprint de zone d’accueil de migration du framework d’adopt
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une gouvernance sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 
-- Une instance [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) destinée à héberger les secrets utilisés pour les certificats, clés et secret déployés dans l’environnement des services partagés
+- Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) destinée à héberger les secrets utilisés pour les certificats, clés et secret déployés dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre migration.
 - [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - [Réseau virtuel Azure](../../../../virtual-network/virtual-networks-overview.md) fournissant un réseau isolé et des sous-réseaux pour votre machine virtuelle.

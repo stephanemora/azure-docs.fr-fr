@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8877c29341c95d5cd0fe8e35887c44594e0b6d41
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cee3867449aea1cb1c59ac5a7c3be57291d1aebc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231768"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000134"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -36,7 +36,7 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 - [Stratégies Azure](../../../policy/overview.md) pour verrouiller les services pouvant être déployés dans l’environnement et interdire la création d’une ressource d’adresse IP publique
 - Un réseau virtuel contenant un seul sous-réseau et appairé à un environnement de [services partagés](../iso27001-shared/index.md) préexistant avec forçage du trafic à travers le pare-feu des [services partagés](../iso27001-shared/index.md) Le réseau virtuel héberge les ressources suivantes :
   - Un [environnement Azure App Service Environment](../../../../app-service/environment/intro.md) utilisable pour héberger une ou plusieurs applications web, API web ou fonctions
-  - Une instance [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) qui utilise un point de terminaison de service de réseau virtuel pour stocker les secrets utilisés par les applications qui s’exécutent dans l’environnement de la charge de travail
+  - Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) qui utilise un point de terminaison de service de réseau virtuel pour stocker les secrets utilisés par les applications qui s’exécutent dans l’environnement de la charge de travail
   - Une instance de serveur [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md) qui utilise un point de terminaison de service de réseau virtuel pour héberger les bases de données utilisées pour les applications dans l’environnement de la charge de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
