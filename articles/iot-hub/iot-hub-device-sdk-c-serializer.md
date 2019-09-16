@@ -17,7 +17,7 @@ ms.locfileid: "68883162"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
-Le premier article de cette série a introduit la [Présentation du Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md). L’article suivant donne une description plus détaillée [d’Azure IoT device SDK for C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **sérialiseur** .
+Le premier article de cette série a introduit la [Présentation du Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md). L’article suivant donne une description plus détaillée [d’Azure IoT device SDK for C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **serializer** .
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,7 +25,7 @@ L’article d’introduction décrit comment utiliser la bibliothèque **sérial
 
 En conclusion, nous reverrons certains des sujets abordés dans les articles précédents, notamment la gestion des messages et des propriétés. Mais comme vous allez le voir, ces fonctionnalités fonctionnent de la même manière que celles de la bibliothèque **serializer** ou la bibliothèque **IoTHubClient**.
 
-Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **sérialiseur** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
+Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **serializer** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
 
 Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
