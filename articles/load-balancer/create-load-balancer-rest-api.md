@@ -35,9 +35,9 @@ Utilisez la requête PUT HTTP suivante pour créer un équilibreur de charge Azu
 
 |Nom  |Dans  |Obligatoire |Type |Description |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  chemin d’accès       |  True       |   string      |  Les informations d’identification d’abonnement qui identifient de façon unique l’abonnement Microsoft Azure. L’ID d’abonnement fait partie de l’URI pour chaque appel de service.      |
-|resourceGroupName     |     chemin d’accès    | True        |  string       |   Nom du groupe de ressources.     |
-|loadBalancerName     |  chemin d’accès       |      True   |    string     |    Le nom de l’équilibreur de charge.    |
+|subscriptionId   |  path       |  True       |   string      |  Les informations d’identification d’abonnement qui identifient de façon unique l’abonnement Microsoft Azure. L’ID d’abonnement fait partie de l’URI pour chaque appel de service.      |
+|resourceGroupName     |     path    | True        |  string       |   Nom du groupe de ressources.     |
+|loadBalancerName     |  path       |      True   |    string     |    Le nom de l’équilibreur de charge.    |
 |api-version    |   query     |  True       |     string    |  Version d’API client.      |
 
 
@@ -55,10 +55,10 @@ Le seul paramètre requis est `location`. Si vous ne définissez pas la *SKU*, u
 
 Dans cet exemple, vous commencez par créer un équilibreur de charge ainsi que ses ressources. Ensuite, vous configurez les ressources de l’équilibreur de charge qui incluent une configuration d’adresses IP frontales, un pool d’adresses principales, une règle d’équilibrage de charge, une sonde d’intégrité et une règle NAT entrante.
 
-Avant de créer un équilibreur de charge à l’aide de l’exemple ci-dessous, créez un réseau virtuel nommé *vnetlb* avec un sous-réseau nommé *subnetlb* dans un groupe de ressources nommé *rg1* à l’emplacement **USA Est**.
+Avant de créer un équilibreur de charge à l’aide de l’exemple ci-dessous, créez un réseau virtuel nommé *vnetlb* avec un sous-réseau nommé *subnetlb* dans un groupe de ressources nommé *rg1* à l’emplacement **East US**.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>ÉTAPE 1. Créer un équilibreur de charge de base public
-Dans cette étape, vous créez un équilibreur de charge de base, nommée *lb* à l’emplacement **USA Est** dans le groupe de ressources *rg1*.
+Dans cette étape, vous créez un équilibreur de charge de base, nommée *lb* à l’emplacement **EAST US** dans le groupe de ressources *rg1*.
 #### <a name="sample-request"></a>Exemple de requête
 
   ```HTTP    
