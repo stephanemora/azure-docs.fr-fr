@@ -150,8 +150,7 @@ Le package `explain` est conçu pour fonctionner avec les cibles de calcul local
     
     # you can use one of the following four interpretable models as a global surrogate to the black box model
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import SGDExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel,SGDExplainableModel
     from azureml.explain.model.mimic.models.tree_model import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
@@ -210,7 +209,7 @@ Le package `explain` est conçu pour fonctionner avec les cibles de calcul local
 
     ```python
     # explain the first five data points in the test set
-    local_explanation = explainer.explain_local(x_test[0:4])
+    local_explanation = explainer.explain_local(x_test[0:5])
 
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
