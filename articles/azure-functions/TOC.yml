@@ -98,6 +98,10 @@
       href: functions-premium-plan.md
     - name: Déploiements
       href: functions-deployment-technologies.md
+    - name: Événements et messagerie
+      items:
+        - name: Conception pour une entrée identique
+          href: functions-idempotent.md
     - name: Déclencheurs et liaisons
       items:
         - name: À propos des déclencheurs et des liaisons

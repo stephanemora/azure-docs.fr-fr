@@ -1,63 +1,61 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation sur Azure Data Share (préversion)
+### YamlMime:Landing
+title: Documentation d’Azure Data Share (préversion)
+summary: Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces.
 metadata:
-  title: "Documentation sur Azure Data Share (préversion)\_: tutoriels, guides pratiques"
+  title: Azure Data Share (préversion)
   description: Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces.
-  author: joannapea
-  ms.author: joanpo
+  services: service
   ms.service: data-share
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/10/2019
-abstract:
-  description: '<p>Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces. Sélectionnez les jeux de données à partager, ajoutez des destinataires et commencez à partager des données avec la possibilité de régir, superviser et contrôler vos relations de partage de données. </p><p>Suivez nos tutoriels et nos guides pratiques pour apprendre à utiliser Azure Data Share.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/azure-friday.png
-      width: 250
-    title: Azure Data Share sur Azure Friday
-    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
-    width: 250
-sections:
-  - title: Guides pratiques
-    items:
-      - type: paragraph
-        text: "Lisez l’un des guides pratiques suivants pour découvrir comment superviser votre partage de données, configurer des mappages de jeu de données, ajouter des destinataires, etc.\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Superviser Azure Data Share
-            href: /azure/data-share/how-to-monitor
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Configurer un mappage de jeu de données
-            href: /azure/data-share/how-to-configure-mapping
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Résoudre les problèmes liés à Azure Data Share
-            href: /azure/data-share/data-share-troubleshoot
-  - title: Tutoriels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrir comment partager vos données avec Azure Data Share
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="share-your-data">Partager vos données avec Azure Data Share</a>
-          - html: <a href="subscribe-to-data-share">Accepter et recevoir des données avec Azure Data Share</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure PowerShell</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/datashare">API REST</a></p>
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 7e44541fae4cb9987f4c2e3b68a6ec3ff61c1bcf
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70993937"
+landingContent:
+- title: À propos d’Azure Data Share
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Data Share ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Concepts d’Azure Data Share
+      url: terminology.md
+    - text: Rôles et exigences pour Azure Data Share
+      url: concepts-roles-permissions.md
+- title: Partager des données
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Partager vos données avec Azure Data Share
+      url: share-your-data.md
+    - text: Accepter et recevoir des données avec Azure Data Share
+      url: subscribe-to-data-share.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des mappages de jeu de données
+      url: how-to-configure-mapping.md
+    - text: Ajouter des jeux de données
+      url: how-to-add-datasets.md
+- title: Surveillance et gestion
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Superviser Azure Data Share
+      url: how-to-monitor.md
+    - text: Résolution des problèmes courants
+      url: data-share-troubleshoot.md
+    - text: Ajouter des jeux de données
+      url: how-to-add-datasets.md
+    - text: Supprimer une invitation
+      url: how-to-delete-invitation.md
+    - text: Révoquer un abonnement de partage
+      url: how-to-revoke-share-subscription.md

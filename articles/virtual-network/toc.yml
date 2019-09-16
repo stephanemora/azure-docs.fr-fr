@@ -253,6 +253,10 @@
           href: virtual-network-public-ip-address.md
         - name: Préfixe d’adresse IP publique
           href: manage-public-ip-address-prefix.md
+    - name: Passer d’une région à l’autre
+      items:
+        - name: Réseaux virtuels - Portail
+          href: virtual-network-azure-to-azure-migrate-vnet-portal.md
     - name: Résolution des problèmes
       items:
         - name: Résoudre les problèmes de peering de réseau virtuel

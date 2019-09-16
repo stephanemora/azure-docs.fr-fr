@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: Concepts
   items:
+    - name: Concepts de base
+      href: basic-concepts.md
     - name: Sécurité
       items:
         - name: Présentation de la sécurité
@@ -68,8 +70,6 @@
           href: key-vault-ovw-security-worlds.md
         - name: Sécuriser votre coffre de clés
           href: key-vault-secure-your-key-vault.md
-    - name: Présentation de Key Vault
-      href: key-vault-whatis.md
     - name: Suppression réversible
       href: key-vault-ovw-soft-delete.md
     - name: Limitation
@@ -92,6 +92,8 @@
           href: create-certificate-scenarios.md
 - name: Guides pratiques
   items:
+    - name: "Utiliser une identité managée App\_Service"
+      href: managed-identity.md
     - name: Journalisation d’Azure Key Vault
       href: key-vault-logging.md
     - name: Accès derrière des pare-feu

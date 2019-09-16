@@ -32,6 +32,10 @@
     - name: Chiffrer dynamiquement avec DRM
       displayName: 'PlayReady, Widevine, FairPlay'
       href: protect-with-drm.md
+- name: Exemples
+  items:
+    - name: Exemples Media Services
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
 - name: Concepts
   items:
     - name: Vue d'ensemble

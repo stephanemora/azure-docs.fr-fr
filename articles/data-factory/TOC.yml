@@ -614,6 +614,12 @@
       items:
         - name: Traiter des fichiers texte à largeur fixe
           href: how-to-fixed-width.md
+    - name: Migration SSIS à partir d’un environnement local
+      items:
+        - name: Vue d’ensemble de la migration SSIS
+          href: scenario-ssis-migration-overview.md
+        - name: Migration d’une base de données SSIS vers une instance managée Azure SQL Database
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: Informations de référence
   items:
     - name: .NET

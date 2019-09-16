@@ -89,7 +89,7 @@
       items:
         - name: "Déployer le proxy d’application Azure\_AD"
           href: deploy-azure-app-proxy.md
-        - name: "Configurer la prise en charge de la synchronisation de profil pour SharePoint\_Server"
+        - name: "Activer la synchronisation de profil pour SharePoint\_Server"
           href: deploy-sp-profile-sync.md
     - name: Résolution des problèmes
       items:

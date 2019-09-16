@@ -4,6 +4,8 @@
   items:
     - name: À propos du portail Azure
       href: azure-portal-overview.md
+    - name: Bien démarrer avec le centre de démarrage rapide Azure
+      href: azure-portal-quickstart-center.md
     - name: Navigateurs et appareils pris en charge
       href: azure-portal-supported-browsers-devices.md
 - name: Concepts
@@ -25,7 +27,7 @@
     - name: Exporter ou supprimer des paramètres utilisateur
       href: azure-portal-export-delete-settings.md
     - name: Série de vidéos de procédures sur le portail Azure
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: Informations de référence
   items:
     - name: Raccourcis clavier
