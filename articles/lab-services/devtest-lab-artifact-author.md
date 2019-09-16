@@ -78,7 +78,7 @@ Pour définir des paramètres, utilisez la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
 | displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
 | description |OUI |Description du paramètre qui est affiché dans le laboratoire. |
 
