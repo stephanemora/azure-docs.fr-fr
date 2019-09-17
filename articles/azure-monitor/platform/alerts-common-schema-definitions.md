@@ -1,6 +1,6 @@
 ---
-title: Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation
-description: Compréhension des définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation
+title: Définitions de schéma d’alerte courant pour Azure Monitor
+description: Comprendre les définitions de schéma d’alerte courant pour Azure Monitor
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,22 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 5f05b95085048515c5f8612f3029ffb2efa28091
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034801"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916029"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
-Cet article décrit les [définitions de schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs) pour les webhooks/applications logiques/fonctions Azure/runbooks automation. 
+Cet article décrit les [définitions de schéma d’alerte courant](https://aka.ms/commonAlertSchemaDocs) pour Azure Monitor, y compris pour les webhooks, Azure Logic Apps, Azure Functions et les runbooks Azure Automation. 
 
-## <a name="overview"></a>Vue d'ensemble
+Chaque instance d’alerte décrit la ressource affectée et la cause de l’alerte. Ces instances sont décrites dans le schéma commun dans les sections suivantes :
+* **Informations de base** : ensemble de champs standardisés, commun à tous les types d’alerte, qui décrivent quelle ressource est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
+* **Contexte de l’alerte** : ensemble de champs qui décrivent la cause de l’alerte, et varient selon le type d’alerte. Par exemple, une alerte de métrique inclut des champs tels que le nom de la métrique et la valeur de la métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité contient des informations sur l’événement à l’origine de l’alerte. 
 
-Toute instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte** ; ces instances sont décrites dans le schéma commun dans les sections suivantes :
-* **Informations de base** : ensemble de **champs standardisés**, commun à tous les types d’alerte, qui décrivent **quelle ressource** est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
-* **Contexte de l’alerte** : ensemble de champs qui décrivent la **cause de l’alerte**, et qui varient **selon le type d’alerte**. Par exemple, une alerte de métrique aurait des champs tels que le nom de la métrique et la valeur de la métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité aurait des informations sur l’événement à l’origine de l’alerte. 
-
-##### <a name="sample-alert-payload"></a>Exemple de charge utile d’alerte
+**Exemple de charge utile d’alerte**
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,25 +72,25 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-## <a name="essentials-fields"></a>Champs des informations de base (« essentials »)
+## <a name="essentials"></a>Essentials
 
 | Champ | Description|
 |:---|:---|
-| alertId | GUID qui identifie de façon unique l’instance d’alerte. |
+| alertId | GUID identifiant de façon unique l’instance d’alerte. |
 | alertRule | Nom de la règle d’alerte qui a généré l’instance d’alerte. |
-| severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Metric, Log, Activity Log |
-| monitorCondition | Quand une alerte se déclenche, la condition de supervision de l’alerte est définie sur « Fired ». Quand la condition sous-jacente qui provoque le déclenchement de l’alerte disparaît, la condition de supervision de l’alerte est définie sur « Resolved ».   |
+| severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3 ou Sev4. |
+| signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Métrique, Journal ou Journal d’activité. |
+| monitorCondition | Quand une alerte se déclenche, la condition d’analyse de l’alerte est **Déclenché**. Quand la condition sous-jacente qui a déclenché l’alerte disparaît, la condition d’analyse est **Résolu**.   |
 | monitoringService | La solution ou le service de supervision qui a généré l’alerte. Les champs du contexte de l’alerte dépendent du service de supervision. |
-| alertTargetIds | Liste des ID ARM de toutes les cibles affectées d’une alerte. Pour une alerte de journal définie sur un espace de travail Log Analytics ou une instance Application Insights, il s’agit de l’espace de travail ou de l’application respectif. |
-| originAlertId | ID de l’instance d’alerte tel que généré par le service de supervision. |
-| firedDateTime | Date et heure, au format UTC, du déclenchement de l’instance d’alerte |
-| resolvedDateTime | Date et heure, au format UTC, auxquelles la condition de supervision pour l’instance d’alerte est définie sur « Resolved ». Applicable uniquement aux alertes de métrique.|
-| description | Description telle que défini dans la règle d’alerte |
+| alertTargetIds | Liste des ID Azure Resource Manager qui sont des cibles affectées d’une alerte. Pour une alerte de journal définie sur un espace de travail Log Analytics ou une instance Application Insights, il s’agit de l’espace de travail ou de l’application respectifs. |
+| originAlertId | ID de l’instance d’alerte tel que généré par le service de surveillance. |
+| firedDateTime | Date et heure, en temps universel coordonné (UTC), auxquelles l’instance d’alerte a été déclenchée. |
+| resolvedDateTime | Date et heure, en temps universel coordonné (UTC), auxquelles la condition d’analyse pour l’instance d’alerte a été définie sur **Résolu**. Applicable uniquement aux alertes de métrique.|
+| description | Description telle que définie dans la règle d’alerte. |
 |essentialsVersion| Numéro de version de la section « essentials ».|
-|alertContextVersion | Numéro de version de la section alertContext |
+|alertContextVersion | Numéro de version de la section `alertContext`. |
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "essentials": {
@@ -114,13 +112,13 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-## <a name="alert-context-fields"></a>Champs du contexte de l’alerte (alertContext)
+## <a name="alert-context"></a>Contexte de l’alerte
 
 ### <a name="metric-alerts"></a>Alertes de métrique
 
-#### <a name="monitoringservice--platform"></a>monitoringService : Platform
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -154,12 +152,11 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> + Si des alertes de journal disposent d’une charge utile JSON personnalisée et définie, l’activation du schéma commun aura pour effet de rétablir le schéma de charge utile décrit ci-dessous.
-> + Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. **Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil après l’incorporation.** Cela peut être déterminé en vérifiant l’indicateur « IncludedSearchResults ». Dans les scénarios où les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Pour des alertes de journal contenant une charge utile JSON personnalisée définie, l’activation du schéma courant a pour effet de rétablir le schéma de charge utile décrit ci-dessous. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludedSearchResults`. Lorsque les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService : Log Analytics
+#### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -224,9 +221,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService : Application Insights
+#### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -289,9 +286,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 
 ### <a name="activity-log-alerts"></a>Alertes de journal d’activité
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService : Activity Log - Administrative
+#### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -316,9 +313,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-#### <a name="monitoringservice--activity-log---policy"></a>monitoringService = 'Activity Log - Policy'
+#### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -349,9 +346,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService = 'Activity Log - Autoscale'
+#### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -379,9 +376,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-#### <a name="monitoringservice--activity-log---security"></a>monitoringService = 'Activity Log - Security'
+#### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -412,9 +409,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService = ’ServiceHealth’
+#### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -456,9 +453,9 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService = ’Resource Health’
+#### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
 
-##### <a name="sample-values"></a>Exemples de valeurs
+**Exemples de valeurs**
 ```json
 {
   "alertContext": {
@@ -487,6 +484,6 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Découvrez-en plus sur le schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs)
-- [Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- Apprenez-en davantage sur le [schéma d’alerte courant](https://aka.ms/commonAlertSchemaDocs).
+- Découvrez [comment créer une application logique qui utilise le schéma d’alerte courant pour gérer toutes vos alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
 

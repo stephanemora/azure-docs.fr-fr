@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663494"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873311"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -30,6 +30,10 @@ Ce tutoriel vous montre comment migrer des machines virtuelles Amazon Web Servic
 > * Exécuter un basculement unique vers Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
+
+
+> [!NOTE]
+    > Vous pouvez maintenant utiliser le service Azure Migrate pour migrer des instances AWS vers Azure. [Plus d’informations](../migrate/tutorial-migrate-physical-virtual-machines.md)
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
@@ -91,11 +95,11 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Mise en réseau** >
    **Réseau virtuel**.
 3. Dans **Nom**, entrez **myMigrationNetwork**.
-4. Laissez la valeur par défaut pour **Espace d’adressage**.
+4. Conservez la valeur par défaut pour **Espace d’adressage** (vous devez entrer une valeur).
 5. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser.
 6. Pour le **Groupe de ressources**, sélectionnez **Existant** puis **migrationRG**.
 7. Pour **Emplacement**, sélectionnez **Europe Ouest**.
-8. Sous **Sous-réseau**, laissez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP**.
+8. Sous **Sous-réseau**, conservez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP** (vous devez entrer une valeur).
 9. Ajoutez des instructions pour les paramètres de protection DDoS.
 10. Laissez l’option **Points de terminaison de Service** désactivée.
 11. Ajoutez des instructions pour les paramètres du pare-feu.

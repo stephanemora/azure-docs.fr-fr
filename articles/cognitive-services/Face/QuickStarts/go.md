@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 14d79c6ec7a4e9197aca49e9c98e4f24a890ba54
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0bcd94c62ec0fe5d9e9ffec18c982e7a102f0ffc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606836"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858954"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
 
@@ -49,7 +49,7 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
+      "https://<My Endpoint String>.com/face/v1.0/detect"
     const imageUrl =
       "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
 
@@ -108,9 +108,11 @@ func main() {
 }
 ```
 
-Vous devez remplacer la valeur `subscriptionKey` par votre clé d’abonnement, et éventuellement changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de région approprié. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents sur l’API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
+Vous devez mettre à jour la valeur `subscriptionKey` avec votre clé d’abonnement, et changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de point de terminaison correct.
 
-Vous pouvez également changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée. Vous pouvez aussi changer le champ `returnFaceAttributes` qui spécifie les attributs de visage à récupérer.
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+Vous pouvez également changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée. Vous souhaiterez peut-être aussi changer le champ `returnFaceAttributes` qui spécifie les attributs de visage à récupérer.
 
 ## <a name="run-the-script"></a>Exécutez le script
 

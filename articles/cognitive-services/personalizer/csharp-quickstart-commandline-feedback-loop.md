@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: e9dd01a58309a6b65538b19b25df70e3d18866a9
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 2940073d18cfee5a2313c03a5e9de6c00782edff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207345"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882928"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Personalizer pour .NET
 
@@ -47,6 +47,8 @@ Après avoir obtenu une clé à partir de votre abonnement ou ressource d’éva
 
 * `PERSONALIZER_RESOURCE_KEY` pour la clé de ressource
 * `PERSONALIZER_RESOURCE_ENDPOINT` pour le point de terminaison de ressource
+
+Dans le portail Azure, les valeurs de clé et de point de terminaison sont disponibles à partir de la page **Démarrage rapide**.
 
 ### <a name="change-the-model-update-frequency"></a>Changer la fréquence de mise à jour du modèle
 

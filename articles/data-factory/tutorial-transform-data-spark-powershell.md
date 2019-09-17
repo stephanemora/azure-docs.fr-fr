@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: f273237431373aa69423ba244d4e7c509ffe7bfe
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 7c7b2b75bdf8aa2be0ea9dd2b60453c2480fc1d2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577107"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813437"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce tutoriel, vous allez effectuer les étapes suivantes :
@@ -137,7 +137,7 @@ Mettez à jour des valeurs des propriétés suivantes dans la définition de ser
 
 - **hostSubscriptionId**. Remplacez &lt;subscriptionID&gt; par l’ID de votre abonnement Azure. Le cluster HDInsight à la demande est créé dans cet abonnement. 
 - **tenant** Remplacez &lt;tenantID&gt; par l’ID de votre client Azure. 
-- **servicePrincipalId**, **servicePrincipalKey**. Remplacez &lt;servicePrincipalID&gt; et &lt;servicePrincipalKey&gt; par l’ID et la clé de votre principal de service dans Azure Active Directory. Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus de détails, reportez-vous à l’article relatif à la [création de l’application Azure Active Directory et du principal du service à l’aide du portail](../active-directory/develop/howto-create-service-principal-portal.md). 
+- **servicePrincipalId**, **servicePrincipalKey**. Remplacez &lt;servicePrincipalID&gt; et &lt;servicePrincipalKey&gt; par l’ID et la clé de votre principal de service dans Azure Active Directory. Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus de détails, reportez-vous à l’article relatif à la [création de l’application Azure Active Directory et du principal du service à l’aide du portail](../active-directory/develop/howto-create-service-principal-portal.md). L’**ID de principal de service** est équivalent à l’*ID d’application* et une **clé de principal de service** est équivalente à la valeur d’un *secret client*.
 - **clusterResourceGroup**. Remplacez &lt;resourceGroupOfHDICluster&gt; par le nom du groupe de ressources dans lequel le cluster HDInsight doit être créé. 
 
 > [!NOTE]

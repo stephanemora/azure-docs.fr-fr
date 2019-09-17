@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: e05dbc570836741a69ed229fc93eb32a7dfd01dd
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 523c722edd3e76a291ae753ec7c3482e19ca7e24
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503181"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845716"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à .NET Core
 
@@ -84,7 +84,7 @@ Entrez la commande Azure CLI suivante en utilisant le groupe de ressources qui c
 Des fonctionnalités puissantes comme le débogage Kubernetes sont disponibles pour les développeurs .NET Core et Node.js à l’aide de VS Code.
 
 1. Installez [VS Code](https://code.visualstudio.com/Download) si vous ne l’avez pas encore fait.
-1. Téléchargez et installez l’[extension VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Cliquez sur Installer une fois sur la page Place de marché de l’extension, puis à nouveau dans VS Code. 
+1. Téléchargez et installez les extensions [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) et [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). Pour chaque extension, cliquez sur Installer dans la page Place de marché de l’extension, puis à nouveau dans VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Créer une application web s’exécutant dans un conteneur
 

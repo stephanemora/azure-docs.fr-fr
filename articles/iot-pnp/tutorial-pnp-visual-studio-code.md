@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186479"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858869"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Didacticiel : Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
 
@@ -35,10 +35,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour utiliser le modèle de capacité d’appareil dans le cadre de ce tutoriel, vous avez besoin des éléments suivants :
 
 * [Visual Studio Code](https://code.visualstudio.com/download) : VS Code est disponible pour plusieurs plateformes.
-* Extension Azure IoT Device Workbench dans VS Code. Pour installer l’extension Azure IoT Device Workbench dans VS Code, procédez comme suit :
+* Pack d’extension [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). Pour installer le pack d’extension dans VS Code, effectuez les étapes suivantes :
 
     1. Dans VS Code, sélectionnez l’onglet **Extensions**.
-    1. Recherchez **Azure IoT Device Workbench**.
+    1. Recherchez **Azure IoT Tools**.
     1. Sélectionnez **Installer**.
 
 Pour compiler le code C généré sur Windows dans le cadre de ce tutoriel, vous avez besoin des éléments suivants :
@@ -61,7 +61,7 @@ Pour tester votre code d’appareil dans le cadre de ce tutoriel, vous avez beso
 
 ## <a name="model-your-device"></a>Modéliser votre appareil
 
-Vous allez utiliser le _langage de définition pour les jumeaux numériques_ pour créer un modèle de capacité d’appareil. Un modèle se compose généralement de plusieurs fichiers de définition d’_interface_ et d’un fichier de modèle unique. L’**extension Azure IoT Device Workbench pour VS Code** inclut des outils vous permettant de créer et modifier ces fichiers JSON.
+Vous allez utiliser le _langage de définition pour les jumeaux numériques_ pour créer un modèle de capacité d’appareil. Un modèle se compose généralement de plusieurs fichiers de définition d’_interface_ et d’un fichier de modèle unique. **Azure IoT Tools pour VS Code** inclut des outils vous permettant de créer et de modifier ces fichiers JSON.
 
 ### <a name="create-the-interface-file"></a>Créer le fichier d’interface
 
@@ -298,7 +298,7 @@ Vos fichiers sont maintenant stockés dans votre référentiel d’entreprise.
 
 ## <a name="generate-code"></a>Générer le code
 
-Vous pouvez utiliser l’**extension Azure IoT Device Workbench pour VS Code** pour générer du code de squelette C à partir de votre modèle. Pour générer le code de squelette dans VS Code :
+Vous pouvez utiliser **Azure IoT Tools pour VS Code** afin de générer du code de squelette C à partir de votre modèle. Pour générer le code de squelette dans VS Code :
 
 1. Appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes.
 

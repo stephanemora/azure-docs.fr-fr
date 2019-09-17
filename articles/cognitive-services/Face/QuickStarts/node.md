@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603271"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859132"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de Node.js
 
@@ -38,7 +38,9 @@ npm install request --save
 
 ## <a name="write-the-nodejs-script"></a>Écrire le script Node.js
 
-Collez le code suivant dans *facedetection.js*. Ces champs spécifient comment se connecter au service Visage et où obtenir les données d’entrée. Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre clé d’abonnement, et éventuellement changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de région approprié. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Vous pouvez changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée.
+Collez le code suivant dans *facedetection.js*. Ces champs spécifient comment se connecter au service Visage et où obtenir les données d’entrée. Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre clé d’abonnement, et changer la chaîne `uriBase` pour qu’elle contienne la chaîne de point de terminaison correcte. Vous pouvez changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';
@@ -51,7 +53,7 @@ const subscriptionKey = '<Subscription Key>';
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
 // westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';

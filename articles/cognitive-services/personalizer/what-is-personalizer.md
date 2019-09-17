@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306960"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883661"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -29,7 +29,7 @@ Azure Personalizer est un service d’API cloud qui vous permet de choisir la me
 
 ## <a name="how-does-personalizer-work"></a>Fonctionnement de Personalizer
 
-Personalizer utilise des modèles Machine Learning pour découvrir quelle action classer en premier dans un contexte donné. Votre application cliente fournit une liste d’actions possibles, avec des informations sur celles-ci, et des informations sur le contexte, qui peuvent inclure des informations sur l’utilisateur, l’appareil, etc. Personalizer détermine l’action à effectuer. Une fois que votre application cliente utilise l’action choisie, elle fournit un feedback à Personalizer sous la forme d’un score de récompense. Une fois le feedback reçu, Personalizer met automatiquement à jour son propre modèle utilisé pour les classements ultérieurs.
+Personalizer utilise des modèles Machine Learning pour découvrir quelle action classer en premier dans un contexte donné. Votre application cliente fournit une liste d’actions possibles, avec des informations sur celles-ci, et des informations sur le contexte, qui peuvent inclure des informations sur l’utilisateur, l’appareil, etc. Personalizer détermine l’action à effectuer. Une fois que votre application cliente utilise l’action choisie, elle fournit un feedback à Personalizer sous la forme d’un score de récompense. Une fois le feedback reçu, Personalizer met automatiquement à jour son propre modèle utilisé pour les classements ultérieurs. Au fil du temps, Personalizer entraîne un modèle qui peut suggérer la meilleure action à choisir dans chaque contexte en fonction de ses caractéristiques.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Comment utiliser Personalizer ?
 
@@ -53,6 +53,8 @@ Par exemple, votre application cliente peut ajouter Personalizer pour :
 * Choisir la réponse d’un chatbot pour clarifier l’intention de l’utilisateur ou suggérer une action.
 * Hiérarchiser les suggestions de ce qu’un utilisateur devrait faire à l’étape suivante d’un processus métier.
 
+Personalizer n’est pas un service permettant de conserver et de gérer les informations de profil utilisateur, ou de consigner les préférences ou l’historique des utilisateurs individuels. Personalizer apprend des caractéristiques de chaque interaction de l’action un contexte d’un modèle unique qui peut obtenir des récompenses maximales en cas de caractéristiques similaires. 
+
 ## <a name="personalization-for-developers"></a>Personnalisation pour les développeurs
 
 Le service Personalizer a deux API :
@@ -64,9 +66,9 @@ Le service Personalizer a deux API :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
-* [Démarrage rapide : Créer une boucle de rétroaction dans Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
-* [Démarrage rapide : Créer une boucle de rétroaction dans Python](python-quickstart-commandline-feedback-loop.md)
+* [Nouveautés de Personalizer](whats-new.md)
+* [Fonctionnement de Personalizer](how-personalizer-works.md)
+* [Qu’est-ce que l’apprentissage par renforcement ?](concepts-reinforcement-learning.md)
 * [En savoir plus sur les fonctionnalités et les actions de la demande de classement](concepts-features.md)
 * [En savoir plus sur le calcul du score de la demande de récompense](concept-rewards.md)
 * [Utiliser la démonstration interactive](https://personalizationdemo.azurewebsites.net/)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697747"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845346"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemple : Détecter les sentiments avec Analyse de texte
 
@@ -80,9 +80,9 @@ Pour plus d’informations sur la définition de la requête, consultez [Appeler
 
 + Créez une requête POST. Pour passer en revue la documentation de l’API pour cette requête, consultez [API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
++ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Vous devez inclure `/text/analytics/v2.1/sentiment` dans l’URL. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
-+ Définissez un en-tête de demande pour inclure la [clé d’accès](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) des opérations Analyse de texte.
++ Définissez un en-tête de requête pour inclure la [clé d’accès](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) des opérations Analyse de texte.
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
@@ -139,8 +139,8 @@ La [prochaine version d’Analyse des sentiments](https://westcentralus.dev.cogn
 > [!NOTE]
 > * Analyse des sentiments v3 nécessite le même format de requête et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
 > * À l’heure actuelle, Analyse des sentiments v3 :
->    * Prend en charge uniquement la langue anglaise.
->    * Est disponible dans les régions suivantes : `Central US`, `Central Canada` et `East Asia`.
+>    * Prend actuellement en charge l’anglais, le chinois simplifié et le japonais.
+>    * Est disponible dans les régions suivantes : `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` et `West US 2`.
 
 |Fonctionnalité |Description  |
 |---------|---------|

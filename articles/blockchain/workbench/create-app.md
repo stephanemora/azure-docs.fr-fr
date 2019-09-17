@@ -1,21 +1,21 @@
 ---
 title: Créer une application blockchain dans Azure Blockchain Workbench
-description: Tutoriel sur la création d’une application blockchain dans Azure Blockchain Workbench.
+description: Préversion du tutoriel sur la création d’une application blockchain dans Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417369"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845160"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Didacticiel : Créer une application blockchain dans Azure Blockchain Workbench
 
@@ -214,7 +214,7 @@ Le début du fichier de configuration contient des informations sur l’applicat
 
 La section des rôles d’application définit les rôles d’utilisateur autorisés à agir ou à participer dans l’application blockchain. Vous définissez un ensemble de rôles distincts basé sur la fonctionnalité. Dans le scénario de requête-réponse, il existe une distinction entre la fonctionnalité d’un demandeur en tant qu’entité formulant des requêtes et d’un répondeur en tant qu’entité formulant des réponses.
 
-### <a name="workflows"></a>Flux de travail
+### <a name="workflows"></a>Workflows
 
 Les flux de travail définissent une ou plusieurs étapes et actions du contrat. Dans le scénario de requête-réponse, la première étape (état) du flux de travail implique qu’un demandeur (rôle) effectue une action (transition) pour envoyer une requête (fonction). L’étape suivante (état) implique qu’un répondeur (rôle) effectue une action (transition) pour envoyer une réponse (fonction). Le flux de travail d’une application peut impliquer des propriétés, fonctions et états nécessaires pour décrire le flux d’un contrat.
 

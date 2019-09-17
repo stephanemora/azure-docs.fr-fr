@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891612"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858634"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle
 
@@ -118,6 +118,8 @@ Les modèles et les déploiements du service web que vous créez dans l’interf
 1. Sélectionnez **Déploiements** pour lister tous les services web qui utilisent ce modèle. Sélectionnez le nom du service web pour accéder à la page de détails du service web. Dans cette page, vous pouvez obtenir des informations détaillées sur le service web.
 
     [![Capture d’écran d’un rapport d’exécution détaillé](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+Vous trouverez également ces modèles et déploiements dans les sections **Modèles** et **Points de terminaison** de la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

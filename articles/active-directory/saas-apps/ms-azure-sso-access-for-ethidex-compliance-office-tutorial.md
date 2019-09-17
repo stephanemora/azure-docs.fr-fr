@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0ec97683fe8597ced234fe4b7251a4daeed49f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174365"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844370"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory avec MS Azure SSO Access for Ethidex Compliance Office™
 
@@ -80,8 +80,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `com.ethidex.prod.<CLIENTID>`
+
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.ethidex.com/saml2/sp/acs/<CLIENTID>`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Contactez l’[équipe du support technique de MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application MS Azure SSO Access for Ethidex Compliance Office™ s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application MS Azure SSO Access for Ethidex Compliance Office™ s’attend à ce que **nameidentifier** soit mappé à **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 

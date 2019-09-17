@@ -1,21 +1,21 @@
 ---
-title: Utilisation d’applications dans Azure Blockchain Workbench
-description: Tutoriel sur l’utilisation des contrats d’application dans Azure Blockchain Workbench.
+title: Préversion de l’utilisation d’applications dans Azure Blockchain Workbench
+description: Préversion du tutoriel sur l’utilisation des contrats d’application dans Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e1ba09c4fbba6492e2d5f870a6c31a3d5a6d8956
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578848"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845138"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Didacticiel : Utilisation d’applications dans Azure Blockchain Workbench
 
@@ -50,7 +50,7 @@ Pour créer un contrat, vous devez être un membre désigné comme **initiateur*
 
     ![Bouton Nouveau contrat](./media/use/contract-list.png)
 
-3. Le volet **Nouveau contrat** s’affiche. Spécifiez les valeurs de paramètres initiales. Sélectionnez **Créer**.
+3. Le volet **Nouveau contrat** s’affiche. Spécifiez les valeurs de paramètres initiales. Sélectionnez **Create** (Créer).
 
     ![Volet Nouveau contrat](./media/use/new-contract.png)
 

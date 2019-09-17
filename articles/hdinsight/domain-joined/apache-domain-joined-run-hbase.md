@@ -1,18 +1,18 @@
 ---
-title: Didacticiel - Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise - Azure
+title: Tutoriel - Configurer Apache HBase avec le Pack Sécurité Entreprise - Azure
 description: Didacticiel - Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274395"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885155"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -100,7 +100,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
 2. L’écran **List of Policies** (Liste des stratégies) affiche toutes les stratégies Ranger qui ont été créées pour ce cluster. Il est possible qu’une stratégie préconfigurée figure dans la liste. Cliquez sur **Add New Policy** (Ajouter une nouvelle stratégie).
 
-    ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Liste des stratégies Apache Ranger pour HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Dans l’écran **Create Policy** (Créer une stratégie), entrez les valeurs suivantes :
 
@@ -119,7 +119,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    * `*` indique zéro, une ou plusieurs occurrences des caractères.
    * `?` indique n’importe quel caractère individuel.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![créer une stratégie Apache Ranger pour sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
@@ -138,7 +138,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    |Sélectionner un utilisateur  | marketing_user1 |
    |Autorisations  | Lire |
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![créer une stratégie Apache Ranger pour marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Cliquez sur **Ajouter** pour enregistrer la stratégie.
 
@@ -146,7 +146,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
 En fonction des stratégies Ranger configurées, **sales_user1** peut voir toutes les données des colonnes à la fois dans les familles de colonnes `Name` et `Contact`. **marketing_user1** peut uniquement voir les données dans la famille de colonnes `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Accéder aux données en tant qu’utilisateur sales_user1
+### <a name="access-data-as-sales_user1"></a>Accéder aux données en tant qu’utilisateur sales_user1
 
 1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter au cluster :
 
@@ -188,7 +188,7 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Accéder aux données en tant qu’utilisateur marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Accéder aux données en tant qu’utilisateur marketing_user1
 
 1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter en tant que **marketing_user1** :
 

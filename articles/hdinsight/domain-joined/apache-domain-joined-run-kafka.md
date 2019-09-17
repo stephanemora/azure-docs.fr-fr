@@ -1,18 +1,18 @@
 ---
-title: 'Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise - Azure'
+title: Tutoriel - Apache Kafka avec le Pack Sécurité Entreprise dans Azure HDInsight
 description: Didacticiel - Découvrez comment configurer des stratégies Apache Ranger pour Kafka dans Azure HDInsight avec le Pack Sécurité Entreprise (ESP, Enterprise Security Package).
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441367"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885943"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -64,7 +64,7 @@ Créez une stratégie Ranger pour **sales_user** et **marketing_user**.
    * « * » indique zéro, une ou plusieurs occurrences des caractères.
    * « ? » indique n’importe quel caractère individuel.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
 
@@ -79,7 +79,7 @@ Créez une stratégie Ranger pour **sales_user** et **marketing_user**.
    |Sélectionner un utilisateur  |  marketing_user1 |
    |Autorisations  | publier, consommer, créer |
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. Sélectionnez **Ajouter** pour enregistrer la stratégie.
 
