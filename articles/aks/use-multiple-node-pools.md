@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241065"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915852"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une versi
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.1 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.12 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -47,14 +47,13 @@ az extension update --name aks-preview
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Inscrire le fournisseur de fonctionnalités à plusieurs pools de nœuds
 
-Pour créer un cluster AKS capable d’utiliser plusieurs pools de nœuds, commencez par activer deux indicateurs de fonctionnalité sur votre abonnement. Les clusters de pools multinœuds utilisent un groupe de machines virtuelles identiques pour gérer le déploiement et la configuration des nœuds Kubernetes. Inscrivez les indicateurs de fonctionnalité *MultiAgentpoolPreview* et *VMSSPreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Pour créer un cluster AKS capable d’utiliser plusieurs pools de nœuds, commencez par activer un indicateur de fonctionnalité sur votre abonnement. Enregistrez l’indicateur de fonctionnalité *MultiAgentpoolPreview* à l’aide de la commande [az feature register][az-feature-register], comme dans l’exemple suivant :
 
 > [!CAUTION]
 > Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -64,7 +63,6 @@ Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
@@ -77,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
-* Plusieurs pools de nœud sont disponibles seulement pour les clusters créés une fois que vous avez correctement inscrit les fonctionnalités *MultiAgentpoolPreview* et *VMSSPreview* pour votre abonnement. Vous ne pouvez pas ajouter ni gérer de pools de nœuds avec un cluster AKS existant créé avant l’enregistrement de ces fonctionnalités.
+* Des pools de nœuds ne sont disponibles pour les clusters créés qu’après que vous avez correctement inscrit la fonctionnalité *MultiAgentpoolPreview* pour votre abonnement. Vous ne pouvez pas ajouter ou gérer des pools de nœuds avec un cluster AKS existant créé avant l’inscription de cette fonctionnalité.
 * Vous ne pouvez pas supprimer le premier pool de nœuds.
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 * Vous ne pouvez pas ajouter/mettre à jour/supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
@@ -100,7 +98,7 @@ az group create --name myResourceGroup --location eastus
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
@@ -171,14 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Mettre à niveau un pool de nœuds
  
 > [!NOTE]
-> Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds s’excluent mutuellement. Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. Au lieu de cela, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
+> Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds ne peuvent pas se produire simultanément. Toute tentative de les exécuter simultanément retourne une erreur. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
 
-Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.10* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Les différentes commandes disponibles pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds sont décrites [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Lors de la création de votre cluster AKS à la première étape, la valeur *1.13.10* a été spécifiée pour `--kubernetes-version`. Celle-ci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds par défaut. Les commandes de cette section expliquent comment mettre à niveau un seul pool de nœuds. La relation entre la mise à niveau de la version Kubernetes du plan de contrôle et le pool de est décrite [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La version de l'image de système d'exploitation du pool de nœuds est liée à la version Kubernetes du cluster. Vous n'obtiendrez les mises à niveau de l'image de système d'exploitation qu'après une mise à niveau du cluster.
 
-Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.10*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
+Comme il existe deux pools de nœuds dans cet exemple, nous devons utiliser la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau un pool de nœuds. Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.10*. Utilisez la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme dans l’exemple suivant :
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -241,16 +239,14 @@ En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds
 Un cluster AKS possède deux objets de ressource de cluster. Le premier est une version Kubernetes du plan de contrôle. Le second est un pool d'agents avec une version de Kubernetes. Un plan de contrôle est mappé à un ou plusieurs pools de nœuds, chacun possédant sa propre version de Kubernetes. Le comportement d'une opération de mise à niveau dépend de la ressource ciblée et de la version de l'API sous-jacente qui est appelée.
 
 1. La mise à niveau du plan de contrôle requiert l'utilisation de `az aks upgrade`
-   * Si le cluster ne possède qu'un seul pool d'agents, le plan de contrôle et le pool d'agents sont mis à niveau ensemble.
-   * Si le cluster possède plusieurs pools d'agents, seul le plan de contrôle est mis à niveau.
+   * Elle entraîne également la mise à niveau de tous les pools de nœuds dans le cluster
 1. Mise à niveau à l'aide de `az aks nodepool upgrade`
    * Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée.
 
 La relation entre les versions de Kubernetes détenues par les pools de nœuds doit également suivre un ensemble de règles.
 
-1. Vous ne pouvez pas passer à une version de Kubernetes antérieure à celle du plan de contrôle ou du pool de nœuds.
-1. Si aucune version de Kubernetes n'est spécifiée pour le plan de contrôle, la version par défaut correspond à la version actuelle du plan de contrôle existant.
-1. Si aucune version de Kubernetes n'est spécifiée pour le pool de nœuds, la version par défaut correspond à celle du plan de contrôle.
+1. Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.
+1. Si aucune version de Kubernetes n’est spécifiée pour le pool de nœuds, la version utilisée est celle du plan de contrôle.
 1. Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre les deux opérations simultanément.
 1. La version de Kubernetes d'un pool de nœuds doit correspondre à la version principale du plan de contrôle.
 1. La version de Kubernetes d'un pool de nœuds peut être au maximum de deux (2) versions mineures inférieure à celle du plan de contrôle, mais jamais supérieure.

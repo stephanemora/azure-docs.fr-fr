@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209634"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858545"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec Managed Instance
 
@@ -201,7 +201,7 @@ Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peu
 
 ### <a name="compatibility-levels"></a>Niveaux de compatibilité
 
-- Les niveaux de compatibilité pris en charge sont 100, 110, 120, 130, and 140.
+- Les niveaux de compatibilité pris en charge sont 100, 110, 120, 130, 140 et 150.
 - Les niveaux de compatibilité inférieurs à 100 ne sont pas pris en charge.
 - Le niveau de compatibilité par défaut est de 140 pour les nouvelles bases de données. Pour les bases de données restaurées, le niveau de compatibilité reste inchangé s’il était de 100 et plus.
 
@@ -541,6 +541,14 @@ Une instance managée ajoute des informations détaillées dans les journaux des
 
 ## <a name="Issues"></a> Problèmes connus
 
+### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement
+
+**Date :** Septembre 2019
+
+Il se peut que la fonctionnalité [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) qui permet de limiter les ressources affectées aux charges de travail utilisateur classe erronément une charge de travail utilisateur après un basculement ou une modification du niveau de service apportée par un utilisateur (par exemple, la modification du nombre maximal de vCores ou de la taille maximale de stockage d’instance).
+
+**Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail de l’agent SQL qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
+
 ### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossible de s’authentifier auprès des serveurs de messagerie externes à l’aide d’une connexion sécurisée (SSL)
 
 **Date :** août 2019
@@ -584,6 +592,12 @@ Si la réplication transactionnelle est activée sur une base de données dans u
 SQL Server Management Studio et SQL Server Data Tools ne prennent pas entièrement en charge les utilisateurs et connexions Azure Active Directory.
 - L’utilisation de principaux de serveur (connexions) et d’utilisateurs (préversion publique) Azure AD avec SQL Server Data Tools n’est pas prise en charge actuellement.
 - La création de scripts pour les principaux de serveur (connexions) et les utilisateurs (préversion publique) Azure AD n’est pas prise en charge dans SQL Server Management Studio.
+
+### <a name="temporary-database-is-used-during-restore-operation"></a>Une base de données temporaire est utilisée d’une opération de restauration
+
+Lors de la restauration d’une base de données sur Managed Instance, le service de restauration commence par créer une base de données vide du nom souhaité pour allouer le nom sur l’instance. Après un certain temps, cette base de données est supprimée et la restauration de la base de données réelle commence. Une valeur GUID aléatoire est allouée temporairement, plutôt qu’un nom, à la base de données en état de *restauration*. Le nom temporaire est remplacé par le nom spécifié dans l’instruction `RESTORE` une fois le processus de restauration terminé. Au cours de la phase initiale, l’utilisateur peut accéder à la base de données vide et même créer des tables ou charger des données dans celle-ci. Cette base de données temporaire est supprimée lorsque le service de restauration démarre la deuxième phase.
+
+**Solution de contournement** : N’accédez pas à la base de données que vous restaurez tant que la restauration n’est pas terminée.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>La structure et le contenu de TEMPDB sont recréés
 
