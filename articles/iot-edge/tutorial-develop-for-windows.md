@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541900"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915148"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Didacticiel : Développer des modules IoT Edge pour les appareils Windows
 
@@ -194,13 +194,13 @@ L’exemple de code C# qui est fourni avec le modèle de projet utilise la [clas
 
 6. Recherchez la propriété **modules** des propriétés souhaitées $edgeAgent. 
 
-   Deux modules doivent y être listés. Le premier est **tempSensor**, inclus par défaut dans tous les modèles pour fournir des données de température simulée que vous pouvez utiliser pour tester vos modules. Le second est le module **IotEdgeModule1** que vous avez créé dans le cadre de ce projet.
+   Deux modules doivent y être listés. Le premier est **SimulatedTemperatureSensor**, inclus par défaut dans tous les modèles pour fournir des données de température simulée que vous pouvez utiliser pour tester vos modules. Le second est le module **IotEdgeModule1** que vous avez créé dans le cadre de ce projet.
 
    Cette propriété de module déclare les modules à inclure dans le déploiement sur votre ou vos appareils. 
 
 7. Recherchez la propriété **routes** des propriétés souhaitées $edgeHub. 
 
-   Une des fonctions du module de hub IoT Edge consiste à router les messages entre tous les modules dans un déploiement. Examinez les valeurs dans la propriété routes. La première route, **IotEdgeModule1ToIoTHub**, utilise un caractère générique ( **\*** ) pour inclure tous les messages provenant d’une file d’attente de sortie dans le module IotEdgeModule1. Ces messages passent dans *$upstream*, nom réservé indiquant le hub IoT. La seconde route, **sensorToIotEdgeModule1**, prend les messages provenant du module tempSensor pour les router vers la file d’attente d’entrée *input1* du module IotEdgeModule1. 
+   Une des fonctions du module de hub IoT Edge consiste à router les messages entre tous les modules dans un déploiement. Examinez les valeurs dans la propriété routes. La première route, **IotEdgeModule1ToIoTHub**, utilise un caractère générique ( **\*** ) pour inclure tous les messages provenant d’une file d’attente de sortie dans le module IotEdgeModule1. Ces messages passent dans *$upstream*, nom réservé indiquant le hub IoT. La seconde route, **sensorToIotEdgeModule1**, prend les messages provenant du module SimulatedTemperatureSensor pour les router vers la file d’attente d’entrée *input1* du module IotEdgeModule1. 
 
    ![Examiner les routes dans deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ Vous avez vérifié que les images de conteneur générées sont stockées dans 
 
 4. Développez les détails de votre appareil IoT Edge dans Cloud Explorer pour voir les modules sur votre appareil.
 
-5. Utilisez le bouton **Actualiser** pour mettre à jour l’état de l’appareil afin de voir que les modules IotEdgeModule1 et tempSensor sont déployés sur votre appareil. 
+5. Utilisez le bouton **Actualiser** pour mettre à jour l’état de l’appareil afin de voir que les modules SimulatedTemperatureSensor et IotEdgeModule1 sont déployés sur votre appareil. 
 
 
    ![Afficher les modules s’exécutant sur votre appareil IoT Edge](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>Afficher les messages provenant de l’appareil
 
-Le code IotEdgeModule1 reçoit des messages via sa file d’attente d’entrée et les transmet à sa file d’attente de sortie. Le manifeste de déploiement a déclaré des routes qui ont passé les messages depuis tempSensor vers IotEdgeModule1, puis vers le hub IoT. Les outils Azure IoT Edge pour Visual Studio vous permettent de voir les messages à mesure qu’ils arrivent au hub IoT en provenance de vos différents appareils. 
+Le code IotEdgeModule1 reçoit des messages via sa file d’attente d’entrée et les transmet à sa file d’attente de sortie. Le manifeste de déploiement a déclaré des routes qui ont passé les messages de SimulatedTemperatureSensor vers IotEdgeModule1, puis transféré les messages de IotEdgeModule1 vers IoT Hub. Les outils Azure IoT Edge pour Visual Studio vous permettent de voir les messages à mesure qu’ils arrivent au hub IoT en provenance de vos différents appareils. 
 
 1. Dans Visual Studio Cloud Explorer, sélectionnez le nom de l’appareil IoT Edge sur lequel vous avez effectué l’opération de déploiement. 
 
@@ -315,7 +315,7 @@ Les commandes de cette section concernent votre appareil IoT Edge, pas votre mac
    iotedge list
    ```
 
-   Vous devez voir quatre modules : les deux modules du runtime IoT Edge, tempSensor et IotEdgeModule1. Les quatre doivent être listés comme étant en cours d’exécution.
+   Vous devez voir quatre modules : les deux modules du runtime IoT Edge, SimulatedTemperatureSensor et IotEdgeModule1. Les quatre doivent être listés comme étant en cours d’exécution.
 
 * Examinez les journaux d’activité d’un module spécifique :
 
@@ -325,7 +325,7 @@ Les commandes de cette section concernent votre appareil IoT Edge, pas votre mac
 
    Les modules IoT Edge respectent la casse. 
 
-   Les journaux d’activité de SamplModule et IotEdgeModule1 doivent afficher les messages qu’ils traitent. Le module edgeAgent étant responsable du démarrage des autres modules, ses journaux d’activité contiennent des informations sur l’implémentation du manifeste de déploiement. Si un module n’est pas listé ou n’est pas en cours d’exécution, les journaux d’activité edgeAgent sont susceptibles de contenir des erreurs. Le module edgeHub est responsable des communications entre les modules et le hub IoT. Si les modules sont opérationnels, mais que les messages n’atteignent pas votre hub IoT, les journaux d’activité edgeHub sont susceptibles de contenir des erreurs. 
+   Les journaux de SimulatedTemperatureSensor et IotEdgeModule1 doivent montrer les messages qu’ils traitent. Le module edgeAgent étant responsable du démarrage des autres modules, ses journaux d’activité contiennent des informations sur l’implémentation du manifeste de déploiement. Si un module n’est pas listé ou n’est pas en cours d’exécution, les journaux d’activité edgeAgent sont susceptibles de contenir des erreurs. Le module edgeHub est responsable des communications entre les modules et le hub IoT. Si les modules sont opérationnels, mais que les messages n’atteignent pas votre hub IoT, les journaux d’activité edgeHub sont susceptibles de contenir des erreurs. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

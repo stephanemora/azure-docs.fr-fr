@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308957"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914876"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour .NET
 
@@ -156,7 +156,7 @@ Ajoutez les directives suivantes en haut de votre code :
 
 ### <a name="authenticate-to-your-key-vault"></a>S’authentifier auprès de votre coffre de clés
 
-Ce guide de démarrage rapide de .NET s’appuie sur des variables d’environnement pour stocker les informations d’identification qui ne doivent pas être placées dans le code. 
+Ce guide de démarrage rapide .NET s’appuie sur des variables d’environnement pour stocker les informations d’identification qui ne doivent pas être placées dans le code. 
 
 Avant de générer et d’exécuter votre application, utilisez la commande `setx` pour affecter les valeurs notées ci-dessus aux variables d’environnement `akvClientId`, `akvClientSecret`, `akvTenantId` et `akvSubscriptionId`.
 
@@ -178,7 +178,7 @@ Affectez ces variables d’environnement aux chaînes de votre code, puis authen
 
 ### <a name="save-a-secret"></a>Enregistrer un secret
 
-Une fois votre application authentifiée, vous pouvez placer un secret dans votre coffre de clés à l’aide de la [méthode SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Cela nécessite l’URL de votre coffre de clés, qui se présente sous la forme `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Un nom est également nécessaire pour le secret. Nous utilisons « mySecret ».  Vous pouvez affecter ces chaînes à des variables pour les réutiliser plus tard.
+Une fois votre application authentifiée, vous pouvez placer un secret dans votre coffre de clés à l’aide de la [méthode SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Cela nécessite l’URL de votre coffre de clés, qui se présente sous la forme `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Un nom est également nécessaire pour le secret. Nous utilisons « mySecret ».  Vous pouvez attribuer ces chaînes à des variables pour les réutiliser plus tard.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

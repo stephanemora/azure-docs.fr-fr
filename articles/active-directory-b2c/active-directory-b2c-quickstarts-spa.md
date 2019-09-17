@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C | Microsoft Docs
+title: Démarrage rapide - Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 description: Exécutez un exemple d’application monopage qui utilise Azure Active Directory B2C pour fournir une connexion à un compte.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 353cbae59a26f6e1efd566b99a04318321740590
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835337"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914415"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -23,11 +23,11 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 - Installez [Node.js](https://nodejs.org/en/download/)
-- Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
+- Un compte de réseau social Facebook, Google ou Microsoft.
 - [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
     ```
@@ -58,9 +58,9 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
     ![Exemple d’application monopage affichée dans un navigateur](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google, Microsoft ou Twitter.
+    L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce guide de démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google ou Microsoft.
 
-2. Azure AD B2C présente une page de connexion personnalisée d’une marque fictive appelée Wingtip Toys pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
+2. Azure AD B2C présente une page de connexion d’une société fictive appelée Fabrikam pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
 
     ![Page de connexion ou d’inscription affichant des boutons de fournisseur d’identité](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 

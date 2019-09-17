@@ -1,5 +1,5 @@
 ---
-title: Développer avec .NET Core sur Kubernetes en utilisant Azure Dev Spaces (Visual Studio Code)
+title: Déboguer et itérer avec Visual Studio Code et .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio Code)
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: cc41e268678872910113c8e198bdaaac34232458
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 162a020351efb27fe25b566918ddda555fac35eb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706324"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772615"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes en utilisant Azure Dev Spaces (Visual Studio Code)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Démarrage rapide : Déboguer et itérer avec Visual Studio Code et .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio Code)
 
 Dans ce guide, vous allez apprendre à :
 
@@ -38,7 +38,7 @@ Vous devez créer un cluster AKS dans une [région prise en charge][supported-re
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Activer Azure Dev Spaces sur votre cluster AKS
@@ -77,13 +77,13 @@ git clone https://github.com/Azure/dev-spaces
 
 Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...* , accédez au répertoire *dev-spaces/samples/dotnetcore/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
 
-Vous avez maintenant le projet *webfrontend* ouvert dans Visual Studio Code. Pour exécuter l’application dans votre espace de développement, générez les ressources du chart Docker et Helm à l’aide de l’extension Azure Dev Spaces dans la palette de commandes.
+Vous avez maintenant le projet *webfrontend* ouvert dans Visual Studio Code. Pour exécuter l’application dans votre espace de développement, générez les ressources de graphique Docker et Helm à l’aide de l’extension Azure Dev Spaces dans la palette de commandes.
 
 Pour ouvrir la palette de commandes dans Visual Studio Code, cliquez sur *Afficher*, puis sur *Palette de commandes*. Commencez à taper `Azure Dev Spaces`, puis cliquez sur `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![Préparer les fichiers de configuration pour Azure Dev Spaces](./media/common/command-palette.png)
 
-Quand Visual Studio Code vous invite également de configurer votre point de terminaison public, choisissez `Yes` pour activer un point de terminaison public.
+Quand Visual Studio Code vous invite également à configurer votre point de terminaison public, choisissez `Yes` pour activer un point de terminaison public.
 
 ![Sélectionner un point de terminaison public](media/common/select-public-endpoint.png)
 

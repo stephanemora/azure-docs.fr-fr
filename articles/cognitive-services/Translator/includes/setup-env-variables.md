@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 156486f4f4f0df3d4bb4ab76492709bbecfb8eb5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c737447c3a3bd2d76d3ed620b7c61aaa81250130
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906519"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393806"
 ---
 ## <a name="set-up"></a>Installation
 
@@ -23,4 +23,4 @@ Les services Azure Cognitive Services sont représentés par des ressources Azur
 Après avoir obtenu une clé à partir de votre ressource ou abonnement d’essai, créez deux [variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) :
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` : clé d’abonnement pour votre ressource de traduction de texte Translator Text.
-* `TRANSLATOR_TEXT_ENDPOINT` : nom du point de terminaison régional ou du sous-domaine personnalisé pour votre ressource.
+* `TRANSLATOR_TEXT_ENDPOINT` : Point de terminaison global pour Traduction de texte Translator Text. Utilisez `https://api.cognitive.microsofttranslator.com/`.

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide C# : Créer, charger et interroger des index à l’aide du kit SDK .NET - Recherche Azure'
+title: 'Démarrage rapide : Créer un index de recherche en C# à l’aide du SDK .NET - Recherche Azure'
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de C# et du kit SDK .NET Recherche Azure.
 author: heidisteen
 manager: nitinme
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.openlocfilehash: 6a77ecd91c0d04f0b449d25686578784921987bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/10/2019
+ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649812"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881586"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Démarrage rapide : Créer un index Recherche Azure en C# à l’aide du kit SDK .NET
 > [!div class="op_single_selector"]

@@ -11,24 +11,27 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932981"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390307"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
-Project Acoustics est un moteur d’acoustique ondulatoire pour les expériences en trois dimensions interactives. Il modélise les effets ondulatoires comme la diffraction, le portage et les effets de réverbération dans des scènes complexes sans nécessiter le balisage manuel des zones. Il inclut également un moteur de jeu et l'intégration d’intergiciel audio. La philosophie de Project Acoustics est similaire à celle de l’éclairage statique : effectuer un baking physique détaillé hors connexion afin de fournir une base physique, et utiliser un runtime léger avec des contrôles de conception expressifs pour vous permettre d’atteindre vos objectifs artistiques.
+Project Acoustics est un moteur d’acoustique ondulatoire pour les expériences en trois dimensions interactives. Il modélise les effets ondulatoires comme l’occlusion, l’obstruction, le portage et les effets de réverbération dans des scènes complexes sans nécessiter le balisage manuel des zones ou un traçage de rayons consommant beaucoup de ressources de processeur. Il inclut également un moteur de jeu et l'intégration d’intergiciel audio. La philosophie de Project Acoustics est similaire à celle de l’éclairage statique : effectuer un baking physique détaillé hors connexion afin de fournir une base physique, et utiliser un runtime léger avec des contrôles de conception expressifs afin de vous permettre d’atteindre vos objectifs artistiques pour l’acoustique de votre monde virtuel.
 
 ![Capture d’écran de Gears of War 4 montrant des voxels Acoustics](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Utilisation de la physique ondulatoire pour l’acoustique interactive
-Les méthodes acoustiques basées sur les rayons peuvent vérifier l’occlusion à l’aide d'un modèle de rayon source-auditeur unique ou piloter la réverbération en estimant le volume local de la scène à l’aide de quelques rayons. Cependant, ces techniques peuvent manquer de fiabilité, car l’occlusion est identique quelle que soit la taille de l’objet. Les rayons ne tiennent pas compte de la façon dont le son est dévié par les objets, un phénomène connu sous le nom de diffraction. La simulation de Project Acoustics saisit ces effets à l’aide d’une simulation basée sur les ondes sonores. Le résultat est plus fiable et prévisible.
+Les méthodes acoustiques basées sur les rayons peuvent vérifier l’occlusion à l’aide d'un modèle de rayon source-auditeur unique ou piloter la réverbération en estimant le volume local de la scène à l’aide de quelques rayons. Cependant, ces techniques peuvent manquer de fiabilité, car l’occlusion est identique quelle que soit la taille de l’objet. Les rayons ne tiennent pas compte de la façon dont le son est dévié par les objets, un phénomène connu sous le nom de diffraction. La simulation de Project Acoustics saisit ces effets à l’aide d’une simulation basée sur les ondes sonores. L’acoustique est plus prévisible, précise et homogène.
 
-L’innovation clé de Project Acoustics est de coupler la simulation acoustique avec les concepts traditionnels de création sonore. Elle traduit les résultats de simulation en paramètres DSP audio traditionnels pour l’occlusion, le portaling et la réverbération. Le concepteur utilise des contrôles sur ce processus de traduction. Pour plus de détails sur les technologies de base inhérents à Project Acoustics, visitez la [page du projet de recherche](https://www.microsoft.com/en-us/research/project/project-triton/).
+L’innovation clé de Project Acoustics est de coupler la simulation acoustique basée sur des ondes sonores réelles avec les concepts traditionnels de création sonore. Elle traduit les résultats de simulation en paramètres DSP audio traditionnels pour l’occlusion, le portaling et la réverbération. Le concepteur utilise des contrôles sur ce processus de traduction. Pour plus de détails sur les technologies de base inhérents à Project Acoustics, visitez la [page du projet de recherche](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animation montrant une coupe 2D horizontale de la propagation d’ondes à travers une scène](media/wave-simulation.gif)
+
+## <a name="video-presentation-from-gdc-2019-30-min"></a>Présentation vidéo de GDC 2019 (~ 30 minutes)
+[![Vidéo Project Acoustics](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Cliquez pour lire la vidéo")
 
 ## <a name="setup"></a>Paramétrage
 [L’intégration d’Unity dans Project Acoustics](unity-integration.md) se fait par glisser-déposer et inclut un plug-in de moteur audio Unity. Augmentez les contrôles de source audio Unity en joignant un composant de contrôles C# Project Acoustics à chaque objet audio.

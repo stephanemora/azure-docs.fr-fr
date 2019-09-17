@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567468"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744418"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée
 
@@ -37,6 +37,7 @@ Dans ce guide de démarrage rapide :
 - Nécessite l’utilisation de SSMS pour se connecter à votre instance managée. Consultez ces guides de démarrage rapide sur la façon de se connecter :
   - [Se connecter à une instance Azure SQL Database Managed Instance à partir d’une machine virtuelle Azure](sql-database-managed-instance-configure-vm.md)
   - [Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
+- Nécessite un compte de stockage Blob Azure (par exemple, Standard_LRS V2) sur une **adresse IP publique**, protégé avec des **informations d’identification SAS** ayant l’autorisation `rw`. [Actuellement, les adresses IP privées pour un stockage d’objets blob protégé par un pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security) et les points de terminaison de service de stockage Blob Azure ne sont pas pris en charge.
 
 > [!NOTE]
 > Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](sql-database-managed-instance-get-started-restore.md).

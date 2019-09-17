@@ -1,5 +1,5 @@
 ---
-title: Héberger une API RESTful avec CORS - Azure App Service | Microsoft Docs
+title: 'Didacticiel : Héberger une API RESTful avec CORS - Azure App Service'
 description: Découvrir comment Azure App Service vous aide à héberger vos API RESTful avec prise en charge de CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138620"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743874"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 

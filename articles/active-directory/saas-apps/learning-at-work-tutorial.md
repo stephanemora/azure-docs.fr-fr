@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Learning at Work | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Learning at Work | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learning at Work.
 services: active-directory
 documentationCenter: na
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823690"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376072"
 ---
-# <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Tutoriel : Intégrer Learning at Work à Azure Active Directory
+# <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Didacticiel : Intégrer Learning at Work à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Learning at Work à Azure Active Directory (Azure AD). Lorsque vous intégrez Learning at Work à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Learning at Work
 * Permettre à vos utilisateurs de se connecter automatiquement à Learning at Work avec leur compte Azure AD
-* Gérer vos comptes à un emplacement central : le Portail Azure
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement Learning at Work pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -90,9 +90,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Learning at Work](https://www.learninga-z.com/site/contact/support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application Learning at Work attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où  **nameidentifier** est mappé à **user.userprincipalname**.
+5. Votre application Learning at Work attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**.
 
-    Vous pouvez mettre à jour la valeur **nameidentifier** dans Azure AD en fonction de la configuration de votre organisation. Cette valeur doit correspondre à celle de l’**ID d’utilisateur** dans le cloud SABA. Pour cela, vous devez modifier le mappage d’attributs en cliquant sur l’icône  **Modifier**  et en procédant aux changements.
+    Vous pouvez mettre à jour la valeur **nameidentifier** dans Azure AD en fonction de la configuration de votre organisation. Cette valeur doit correspondre à celle de l’**ID d’utilisateur** dans le cloud SABA. Pour cela, vous devez modifier le mappage d’attributs en cliquant sur l’icône **Modifier** et en procédant aux changements.
 
     ![image](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-learning-at-work-test-user"></a>Créer l’utilisateur de test Learning at Work
 
-Dans cette section, vous allez créer un utilisateur appelé B. Simon dans Learning at Work. Collaborez avec  [l’équipe du support technique de Learning at Work](https://www.learninga-z.com/site/contact/support) pour ajouter des utilisateurs à la plateforme Learning at Work. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B. Simon dans Learning at Work. Collaborez avec l’[équipe du support technique de Learning at Work](https://www.learninga-z.com/site/contact/support) pour ajouter les utilisateurs dans la plateforme Learning at Work. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

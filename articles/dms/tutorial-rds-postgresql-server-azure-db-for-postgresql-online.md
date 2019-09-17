@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: 17fb83bc845de61f7ec0e674f09c0dc73537f2fd
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.date: 09/06/2019
+ms.openlocfilehash: 6cb10f09772bf6666e197a4b622792c5b62d3ace
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461580"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734799"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Didacticiel : Migrer RDS PostgreSQL vers Azure Database pour PostgreSQL en ligne à l’aide de DMS
 
@@ -49,9 +49,6 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     De plus, la version RDS PostgreSQL doit correspondre à la version Azure Database pour PostgreSQL. Par exemple, RDS PostgreSQL 9.5.11.5 peut migrer uniquement vers Azure Database pour PostgreSQL 9.5.11 et pas vers la version 9.6.7.
 
-    > [!NOTE]
-    > Pour PostgreSQL version 10, DMS prend uniquement en charge la migration de la version 10.3 vers Azure Database pour PostgreSQL.
-
 * Créez une instance [Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Reportez-vous à cette [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) du document pour obtenir des détails sur la façon de se connecter au serveur PostgreSQL avec pgAdmin.
 * Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 * Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
@@ -66,7 +63,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 2. Utilisez le nom d’utilisateur principal pour vous connecter à la source à partir d’Azure Database Migration Service. Si vous utilisez un compte différent du compte d’utilisateur principal, ce compte doit avoir les rôles rds_superuser et rds_replication. Le rôle rds_replication accorde des autorisations pour gérer les emplacements logiques et pour diffuser des données à l’aide d’emplacements logiques.
 3. Créez un groupe de paramètres avec la configuration suivante : a. Définissez le paramètre rds.logical_replication dans votre groupe de paramètres de base de données sur 1.
     b. max_wal_senders = [nombre de tâches simultanées] – Le paramètre max_wal_senders définit le nombre de tâches simultanées qui peuvent s’exécuter. Valeur recommandée : 10 tâches.
-    c. max_replication_slots = [nombre d’emplacements]. Valeur recommandée : 5 emplacements.
+    c. max_replication_slots = [nombre d’emplacements]. Valeur recommandée : cinq emplacements.
 4. Associez le groupe de paramètres que vous avez créé à l’instance RDS PostgreSQL.
 
 ## <a name="migrate-the-schema"></a>Migrer le schéma

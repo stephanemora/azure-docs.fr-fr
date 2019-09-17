@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241434"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898171"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Vérifiez que la copie des données sur l’appareil a été effectuée et que l
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Expédier aux États-Unis, au Canada et en Europe
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[États-Unis, Canada, Europe](#tab/in-us-canada-europe)
 
 Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, au Canada ou en Europe.
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, 
 4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée**. Un ID de suivi s’affiche également.
 
 
-## <a name="ship-in-australia"></a>Expédier en Australie
+## <a name="in-australiatabin-australia"></a>[En Australie](#tab/in-australia)
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour expédier en Australie.
 
@@ -126,7 +126,7 @@ Pour toute demande relative à votre commande par téléphone :
 - Envoyez d’abord un e-mail pour l’enlèvement.
 - Indiquez votre nom de commande par téléphone.
 
-## <a name="ship-in-japan"></a>Expédier au Japon 
+## <a name="in-japantabin-japan"></a>[Au Japon](#tab/in-japan) 
 
 1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
 2. Mettez l’appareil hors tension et débranchez les câbles.

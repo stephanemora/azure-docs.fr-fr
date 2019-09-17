@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390403"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910113"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des don
 
 Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil. Les instructions sont différentes pour les États-Unis/le Canada, l’Union européenne (UE), l’Australie et les pays d’Asie.
 
-### <a name="pick-up-in-us-canada"></a>Enlèvement aux États-Unis et au Canada
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[Aux États-Unis ou au Canada](#tab/in-us-or-canada)
 
 Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux États-Unis ou au Canada.
 
@@ -68,7 +68,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux É
     - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
     - Au lieu de planifier l’enlèvement, vous pouvez également déposer le disque Data Box Disk à l’emplacement de dépôt le plus proche.
 
-### <a name="pick-up-in-europe"></a>Enlèvement en Europe
+### <a name="in-europetabin-europe"></a>[En Europe](#tab/in-europe)
 
 Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Europe.
 
@@ -81,7 +81,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 4. Accédez au site web DHL Express du pays ou de la région et choisissez **Book a Courier Collection (Réserver un enlèvement) > eReturn Shipment (Expédition eReturn)** .    
 3. Spécifiez le numéro de la fiche de transport et cliquez sur **Planifier l’enlèvement** pour choisir une date.
 
-### <a name="pick-up-in-australia"></a>Enlèvement en Australie
+### <a name="in-australiatabin-australia"></a>[En Australie](#tab/in-australia)
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour l’enlèvement en Australie.
 
@@ -89,9 +89,9 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 3. Collez l’étiquette sur le colis. 
 4. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="pick-up-in-asia"></a>Enlèvement en Asie
+### <a name="in-japan-koreatabin-japan-korea"></a>[Au Japon, en Corée](#tab/in-japan-korea)
 
-Les instructions d’enlèvement sont différentes pour le Japon, la Corée et Singapour.
+Voici les instructions d’enlèvement pour le Japon et la Corée.
 
 #### <a name="pick-up-in-japan"></a>Enlèvement au Japon
 
@@ -134,7 +134,8 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
     3. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de *Quantium Solutions International* pour trouver une autre solution. 
     4. Si la demande est effectuée par téléphone, vous recevez une confirmation verbale.
 
-#### <a name="pick-up-in-singapore"></a>Enlever à Singapour
+
+### <a name="in-singaporetabin-singapore"></a>[À Singapour](#tab/in-singapore)
 
 1. Imprimez l’étiquette d’expédition et apposez-la sur la boîte. Si l’étiquette est endommagée ou perdue :
     - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** et récupérez une étiquette d’expédition de retour.

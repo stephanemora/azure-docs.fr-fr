@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Configurer la connexion pour une application ASP.NET à l’aide d’Azure Active Directory B2C | Microsoft Docs
+title: Guide de démarrage rapide - Configurer la connexion pour une application ASP.NET à l’aide d’Azure Active Directory B2C
 description: Exécutez un exemple d’application web ASP.NET qui utilise Azure Active Directory B2C pour fournir une connexion à un compte.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5f5cae82e23fed6a30d5f7ac63a5718c2a057a7d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835475"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914321"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application ASP.NET à l’aide d’Azure Active Directory B2C
 
@@ -23,17 +23,17 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
-- Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
+- Un compte de réseau social Facebook, Google ou Microsoft.
 - [Téléchargez un fichier zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    L’exemple de solution contient deux projets :
+    L’exemple de solution comprend deux projets :
 
     - **TaskWebApp** : application web qui crée et modifie une liste de tâches. L’application web utilise le flux d’**inscription ou de connexion** d’utilisateur pour inscrire ou connecter des utilisateurs.
     - **TaskService** : API web qui prend en charge les fonctionnalités de création, de lecture, de mise à jour et de suppression des listes de tâches. L’API web est protégée par Azure AD B2C et appelée par l’application web.
@@ -55,9 +55,9 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
     ![Exemple d’application web ASP.NET dans un navigateur avec le lien s’inscrire/se connecter en surbrillance](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-    L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google, Microsoft ou Twitter.
+    L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce guide de démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google ou Microsoft.
 
-2. Azure AD B2C présente une page de connexion personnalisée d’une marque fictive appelée Wingtip Toys pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
+2. Azure AD B2C présente une page de connexion d’une société fictive appelée Fabrikam pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
 
     ![Page de connexion ou d’inscription affichant des boutons de fournisseur d’identité](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 

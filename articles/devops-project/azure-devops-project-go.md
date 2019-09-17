@@ -1,28 +1,27 @@
 ---
-title: 'Démarrage rapide : Créer un pipeline CI/CD pour le langage de programmation Go avec Azure DevOps Projects'
+title: 'Démarrage rapide : Créer un pipeline CI/CD pour le langage de programmation Go avec Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure. Il vous aide à lancer une application web créée avec le langage de programmation Go sur un service Azure en quelques étapes rapides.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f7429a6de05a301b579354d722ad354b78ce6cbf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263749"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899668"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Créer un pipeline CI/CD pour Go avec Azure DevOps Projects
 
@@ -72,7 +71,7 @@ DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir 
     Le lien ouvre une vue sur le dépôt Git récemment créé.
 
 1. Pour voir l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite.  
-    Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche master et les valider.
+    Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
 
 1. Sur la gauche, accédez au fichier *views/index.html*, puis sélectionnez **Modifier**.
 
@@ -123,7 +122,7 @@ DevOps Projects configure automatiquement un pipeline CI/CD complet dans Azure R
     Le pipeline de build que vous avez examiné précédemment génère la sortie qui est utilisée pour l’artefact. 
 
 1. À droite de l’icône **Déposer**, sélectionnez **Déclencheur de déploiement continu**.  
-    Ce pipeline de mise en production a un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
+    Ce pipeline de mise en production est doté d’un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
 
 1. Sur la gauche, sélectionnez **Tâches**.  
     Les tâches sont les activités effectuées par votre processus de déploiement. Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.

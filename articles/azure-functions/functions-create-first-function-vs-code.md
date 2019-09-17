@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444635"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70744069"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Créer votre première fonction à l’aide de Visual Studio Code
 
@@ -27,7 +26,7 @@ Dans cet article, vous allez apprendre à utiliser l’extension [Extension Azur
 
 ![Code Azure Functions dans un projet Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Actuellement, l’extension prend en charge les fonctions en C#, JavaScript et Java, et prend en charge Python en préversion. Les étapes décrites dans cet article et l’article qui suit sont valables uniquement pour les fonctions JavaScript et C#. Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions Python, consultez [Déployer Python sur Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions PowerShell, consultez [Créer votre première fonction PowerShell dans Azure](functions-create-first-function-powershell.md). 
+L’extension prend actuellement en charge les fonctions C#, JavaScript, Java et Python. Les étapes décrites dans cet article et l’article qui suit sont valables uniquement pour les fonctions JavaScript et C#. Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions Python, consultez [Déployer Python sur Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions PowerShell, consultez [Créer votre première fonction PowerShell dans Azure](functions-create-first-function-powershell.md). 
 
 L’extension est actuellement en préversion. Pour plus d’informations, consultez la page d’extension [Extension Azure Functions pour Visual Studio Code].
 
@@ -64,11 +63,11 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 ## <a name="run-the-function-in-azure"></a>Exécuter la fonction dans Azure
 
-1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. Comme auparavant, veillez à ajouter la chaîne de requête `?name=<yourname>` à la fin de cette URL et exécutez la requête.
+1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. Cette URL inclut la clé de la fonction, qui est passée au paramètre de requête `code`. Comme auparavant, veillez à ajouter la chaîne de requête `?name=<yourname>` à la fin de cette URL et exécutez la requête.
 
     L’URL qui appelle la fonction déclenchée via HTTP doit être au format suivant :
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande distante GET : 
 

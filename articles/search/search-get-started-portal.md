@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer, charger et interroger un index avec le portail Azure - Recherche Azure'
+title: 'Démarrage rapide : Créer un index de recherche à l’aide du portail Azure - Recherche Azure'
 description: Utilisez l’assistant Importer des données dans le portail Azure pour créer, charger et interroger votre premier index dans Azure Search.
 author: lobrien
 manager: nitinme
@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656344"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884562"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Démarrage rapide : Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]

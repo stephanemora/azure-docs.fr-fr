@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide : Créer un index enrichi par l'IA sur le portail Azure - Recherche Azure"
+title: 'Démarrage rapide : Découvrir l’enrichissement de l’IA avec la recherche cognitive dans le portail Azure - Recherche Azure'
 description: Compétences en extraction de données, en langage naturel et en traitement d’images sur le portail d’indexation de la Recherche Azure, à l’aide du portail Azure et d’exemples de données.
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648919"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881092"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Démarrage rapide : Créer un pipeline d'indexation basé sur l'IA à l'aide de compétences cognitives dans Recherche Azure
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Démarrage rapide : Créer un pipeline d’enrichissement de l’IA à l’aide de compétences cognitives dans Recherche Azure
 
 Grâce à son intégration à [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), la Recherche Azure apporte au pipeline d’indexation des compétences en extraction des données, en traitement en langage naturel (NLP) et en traitement des images. Ainsi, il est plus facile d’effectuer des recherches dans le contenu non structuré et dans le contenu dont les éléments sont impossibles à rechercher. 
 
@@ -45,7 +45,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) fournit des fonctionnalités d’intelligence artificielle. Ce guide de démarrage rapide inclut les étapes permettant d’ajouter ces ressources en ligne, lorsque vous spécifiez le pipeline. Il n’est pas nécessaire de configurer des comptes à l’avance.
 
-Les services Azure doivent fournir les entrées au pipeline d’indexation. Vous pouvez utiliser n’importe quelle source de données prise en charge par les [indexeurs de la Recherche Azure](search-indexer-overview.md), à l’exception du stockage Table Azure, qui n’est pas pris en charge pour l’indexation basée sur l’intelligence artificielle. Ce guide de démarrage rapide utilise le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) comme conteneur pour les fichiers de données sources. 
+Les services Azure doivent fournir les entrées au pipeline d’indexation. Vous pouvez utiliser n’importe quelle source de données prise en charge par les [indexeurs de Recherche Azure](search-indexer-overview.md). Ce guide de démarrage rapide utilise le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) comme conteneur pour les fichiers de données sources. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurer le service Blob Azure et charger les données d’exemple
 

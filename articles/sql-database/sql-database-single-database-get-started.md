@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640049"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845296"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du portail Azure, de PowerShell et d’Azure CLI
 
@@ -30,8 +30,8 @@ Pour toutes les étapes de ce guide de démarrage rapide, connectez-vous au [Por
 
 Une base de données unique peut être créée dans la couche de calcul approvisionnée ou serverless (préversion).
 
-- Une base de données unique dans la couche de calcul approvisionnée a une quantité définie de ressources de calcul allouées au préalable et assorties d’un ensemble de ressources de mémoire et de stockage à l’aide d’un des deux [modèles d’achat](sql-database-purchase-models.md).
-- Une base de données dans la couche de calcul serverless a une gamme de ressources de calcul qui sont automatiquement mises à l’échelle, plus une quantité spécifiée de mémoire par cœur et de ressources de stockage, et est uniquement disponible dans le [modèles d’achat vCore](sql-database-service-tiers-vcore.md).
+- Une base de données unique dans le niveau de calcul provisionné a une quantité définie de ressources de calcul allouées au préalable, notamment en termes de mémoire et de processeur, selon l’un des deux [modèles d’achat](sql-database-purchase-models.md).
+- Une base de données unique dans le niveau de calcul serverless a une gamme de ressources de calcul automatiquement mises à l’échelle, notamment en termes de mémoire et de processeur, et est uniquement disponible avec les [modèles d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) d’une région spécifiée.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer des clusters Apache Hadoop à la demande dans Azure HDInsight avec Data Factory '
+title: 'Didacticiel : Clusters Apache Hadoop à la demande dans Azure HDInsight - Data Factory'
 description: Didacticiel - Découvrez comment créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 7af70de91a7f7696be3b003fec11390d6db9ba60
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854983"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736180"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Didacticiel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -197,7 +197,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
     ![Créer une fabrique de données Azure Data Factory à l’aide du portail Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Créer une fabrique de données Azure Data Factory à l’aide du portail Azure")
 
-4. Sélectionnez **Créer**. La création d’une fabrique de données peut prendre de 2 à 4 minutes.
+4. Sélectionnez **Create** (Créer). La création d’une fabrique de données peut prendre de 2 à 4 minutes.
 
 5. Une fois la fabrique de données créée, vous recevez une notification **Déploiement réussi** contenant un bouton **Accéder à la ressource**.  Sélectionnez **Accéder à la ressource** pour ouvrir la vue par défaut de Data Factory.
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048007"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858996"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Qu’est ce que la préversion d’IoT Plug-and-Play ?
 
@@ -63,7 +63,7 @@ En tant que développeur d’appareils, vous pouvez développer un produit maté
 
 1. Créez le logiciel ou le microprogramme de l’appareil qui implémente les fonctionnalités déclarées dans le modèle de fonctionnalité d’appareil et les interfaces. Le SDK Azure IoT inclut des API permettant d’implémenter des modèles de fonctionnalité d’appareil.
 
-L’extension [IoT Device Workbench pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) fournit de nombreuses fonctionnalités pour vous aider. Par exemple, en tant que développeur d’appareils, vous pouvez utiliser l’extension pour générer un projet squelette C à partir d’un modèle de fonctionnalité. Toutefois, vous pouvez utiliser n’importe quel IDE pour créer et implémenter des modèles de fonctionnalités d’appareil.
+Le pack d’extension [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) met à votre disposition une multitude de fonctionnalités, vous apportant une aide précieuse. Par exemple, en tant que développeur d’appareils, vous pouvez utiliser une extension pour générer un projet squelette C à partir d’un modèle de fonctionnalité. Toutefois, vous pouvez utiliser n’importe quel IDE pour créer et implémenter des modèles de fonctionnalités d’appareil.
 
 ## <a name="certify-an-iot-plug-and-play-device"></a>Certifier un appareil IoT Plug-and-Play
 
@@ -76,6 +76,7 @@ En tant que développeur d’appareils, vous pouvez envoyer des produits matéri
 - Publiez dans le catalogue d’appareils Certified pour IoT.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
+
 Au cours de la préversion publique, IoT Plug-and-Play est disponible dans les régions Europe Nord, USA Centre et Japon Est. Veillez à créer votre hub dans l’une de ces régions.
 
 ## <a name="message-quotas-in-iot-hub"></a>Quotas de message dans IoT Hub

@@ -1,23 +1,23 @@
 ---
-title: Prépayer des frais de timbre avec une capacité réservée pour Azure App Service Isolé
-description: Découvrez comment prépayer des frais de timbre avec une capacité réservée pour Azure App Service Isolé pour économiser de l’argent.
+title: Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
+description: Découvrez comment réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780001"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70806360"
 ---
-# <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Prépayer des frais de timbre avec une capacité réservée pour Azure App Service Isolé
+# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
 
-Vous pouvez réaliser des économies sur les frais de timbre Azure App Service Isolé en prépayant votre utilisation de l’horodatage pour une durée de trois ans. Pour acheter une capacité réservée de frais de timbre Isolé, vous devez choisir la région Azure dans laquelle l’horodatage sera déployé et le nombre d’horodatages à acheter.
+Vous pouvez réaliser des économies sur les frais de timbre Azure App Service Isolé en optant pour une réservation de votre utilisation de timbre pour une durée de trois ans. Pour acheter une capacité réservée de frais de timbre Isolé, vous devez choisir la région Azure dans laquelle l’horodatage sera déployé et le nombre d’horodatages à acheter.
 
 Lorsque vous achetez une réservation, l’utilisation des frais de timbre Isolé correspondant aux attributs de la réservation n’est plus facturée au tarif de paiement à l’utilisation. La réservation est appliquée automatiquement au nombre d’horodatages Isolé qui correspondent à la région et à l’étendue de la capacité réservée. Vous n’avez pas besoin d’affecter une réservation à un horodatage Isolé. La réservation ne s’applique pas aux workers, si bien que toutes les autres ressources associées à l’horodatage sont facturées séparément.
 
@@ -25,7 +25,7 @@ Lorsque la capacité réservée arrive à expiration, les instances Isolé conti
 
 ## <a name="determine-the-right-reservation-to-purchase"></a>Déterminer la réservation appropriée à acheter
 
-En achetant une réservation, vous payez au préalable pour utiliser des quantités réservées en permanence au cours des trois prochaines années. Vérifiez vos données d’utilisation pour déterminer le nombre d’horodatages App Service Isolé que vous utilisez régulièrement et que vous pourriez utiliser dans le futur.
+En achetant une réservation, vous vous engagez à utiliser les quantités réservées au cours des trois prochaines années. Vérifiez vos données d’utilisation pour déterminer le nombre de timbres App Service Isolé que vous utilisez régulièrement et que vous êtes susceptible d’utiliser dans le futur.
 
 En outre, assurez-vous que vous comprenez comment l’horodatage Isolé émet un compteur Linux ou Windows.
 
@@ -39,7 +39,7 @@ Achetez des réservations d’horodatage Windows si vous avez un ou plusieurs wo
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Achetez une capacité réservée d’horodatage Isolé
 
-Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pour acheter une capacité réservée, vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou d’un abonnement individuel avec des tarifs de paiement à l’utilisation.
+Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](billing-monthly-payments-reservations.md). Pour acheter une capacité réservée, vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou d’un abonnement individuel avec des tarifs de paiement à l’utilisation.
 
 - Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si le paramètre est désactivé, vous devez être un administrateur EA.
 - Pour le programme Fournisseur de solutions cloud (CSP), seuls des agents d’administration ou de agents commerciaux peuvent acheter une capacité réservée SQL Data Warehouse.
@@ -47,7 +47,7 @@ Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [port
 **Pour acheter :**
 
 1. Accédez au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Sélectionnez un abonnement. Utilisez la liste **Abonnement** pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P) ou un abonnement CSP.
+1. Sélectionnez un abonnement. Utilisez la liste **Abonnement** pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts de la capacité réservée sont facturés conformément au mode de paiement défini pour l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P) ou un abonnement CSP.
     - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
     - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
 1. Sélectionnez une **Étendue** pour choisir une étendue d’abonnement.

@@ -1,23 +1,23 @@
 ---
-title: Prépayer SQL Data Warehouse avec une capacité réservée Azure
-description: Découvrez comment prépayer SQL Data Warehouse avec une capacité réservée pour économiser de l’argent.
+title: Réduire les coûts de SQL Data Warehouse avec une capacité réservée Azure
+description: Découvrez comment réduire les coûts de SQL Data Warehouse avec une capacité réservée pour économiser de l’argent.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779981"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70806280"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Prépayer SQL Data Warehouse avec une capacité réservée
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Réduire les coûts de SQL Data Warehouse avec une capacité réservée
 
-Vous pouvez économiser de l’argent avec Azure SQL Data Warehouse en prépayant votre utilisation de cDWU pour une durée d’un an ou de trois ans. Pour acheter une capacité réservée de SQL Data Warehouse, vous devez choisir la région Azure et la période. Ensuite, ajoutez la référence SKU SQL Data Warehouse à votre panier, puis choisissez la quantité d’unités cDWU que vous voulez acheter.
+Vous pouvez économiser de l’argent avec Azure SQL Data Warehouse en vous engageant sur une réservation de votre utilisation de cDWU pendant une durée d’un an ou de trois ans. Pour acheter une capacité réservée de SQL Data Warehouse, vous devez choisir la région Azure et la période. Ensuite, ajoutez la référence SKU SQL Data Warehouse à votre panier, puis choisissez la quantité d’unités cDWU que vous voulez acheter.
 
 Lorsque vous achetez une réservation, l’utilisation de SQL Data Warehouse correspondant aux attributs de la réservation n’est plus facturée au tarif de paiement à l’utilisation.
 
@@ -27,7 +27,7 @@ Lorsque la capacité réservée arrive à expiration, les instances SQL Data War
 
 Pour plus d’informations sur la tarification, voir l’[offre de capacité réservée SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-Vous pouvez acheter une capacité réservée Azure SQL Data Warehouse sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pour acheter une capacité réservée :
+Vous pouvez acheter une capacité réservée Azure SQL Data Warehouse sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Payez la réservation [à l’avance ou par paiements mensuels](billing-monthly-payments-reservations.md). Pour acheter une capacité réservée :
 
 - Vous devez avoir le rôle propriétaire pour au moins un abonnement Entreprise ou avec paiement à l’utilisation.
 - Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Si le paramètre est désactivé, vous devez être un administrateur EA.
@@ -45,7 +45,7 @@ Par exemple, supposons que votre consommation totale de SQL Data Warehouse est D
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
-3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
+3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts de la capacité réservée sont facturés conformément au mode de paiement défini pour l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
    - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
    - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
 4. Sélectionnez une étendue. Utilisez la liste Étendue pour choisir une étendue d’abonnement.

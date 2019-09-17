@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210181"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773135"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Créer une fonction sur Linux avec une image personnalisée
 
@@ -143,9 +143,8 @@ Tandis que l’image personnalisée s’exécute dans un conteneur Docker local,
 
 ![Testez localement l’application de fonction.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Vous pouvez tester votre fonction à nouveau, cette fois-ci dans le conteneur local avec l’URL suivante :
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> À ce stade, lorsque vous essayez d’appeler votre fonction HTTP spécifique, vous recevez une réponse d’erreur HTTP 401. Cela est dû au fait que votre fonction s’exécute dans le conteneur local comme dans Azure, ce qui signifie que la clé de fonction est requise. Étant donné que le conteneur n’a pas encore été publié dans une application de fonction, aucune clé de fonction n’est disponible. Vous verrez plus tard que, lorsque vous utilisez Core Tools pour publier votre conteneur, les clés de fonction vous sont indiquées. Si vous souhaitez tester votre fonction en cours d’exécution dans le conteneur local, vous pouvez remplacer la [clé d’autorisation](functions-bindings-http-webhook.md#authorization-keys) par `anonymous`. 
 
 Une fois que vous avez vérifié l’application de fonction dans le conteneur, arrêtez l’exécution. À présent, vous pouvez transmettre l’image personnalisée à votre compte Docker Hub.
 
@@ -159,7 +158,7 @@ Avant de pousser une image, vous devez vous connecter à Docker Hub par le biais
 docker login --username <docker-id>
 ```
 
-Un message « login succeeded » (connexion réussie) confirme que vous êtes connecté. Une fois connecté, vous pouvez transférer l’image à Docker Hub au moyen de la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+Un message indiquant que votre connexion a réussi confirme que vous êtes connecté. Une fois connecté, vous pouvez transférer l’image à Docker Hub au moyen de la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0

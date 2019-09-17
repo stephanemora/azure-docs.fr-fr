@@ -1,25 +1,27 @@
 ---
-title: Présentation d’Azure Blockchain Workbench
-description: Présentation d’Azure Blockchain Workbench et de ses fonctionnalités.
+title: Vue d’ensemble d’Azure Blockchain Workbench (préversion)
+description: Vue d’ensemble d’Azure Blockchain Workbench (préversion) et de ses fonctionnalités.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/20/2019
+ms.date: 09/05/2019
 ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955206"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844105"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Qu’est-ce qu’Azure Blockchain Workbench ?
 
-Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçue pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Azure Blockchain Workbench fournit la génération de modèles automatique d’infrastructure pour générer des applications blockchain permettant aux développeurs de se concentrer sur la création d’une logique métier et de contrats intelligents. Il facilite aussi la création d’applications blockchain en intégrant plusieurs services et fonctionnalités Azure pour vous aider à automatiser les tâches de développement courantes.
+La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Azure Blockchain Workbench fournit la génération de modèles automatique d’infrastructure pour générer des applications blockchain permettant aux développeurs de se concentrer sur la création d’une logique métier et de contrats intelligents. Il facilite aussi la création d’applications blockchain en intégrant plusieurs services et fonctionnalités Azure pour vous aider à automatiser les tâches de développement courantes.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="create-blockchain-applications"></a>Créer des applications blockchain
 

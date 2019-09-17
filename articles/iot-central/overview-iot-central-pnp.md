@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bfdad0d81599035e7d8c270ec4e8ee8d6a45125e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997741"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858925"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Présentation d’IoT Central (fonctionnalités en préversion)
 
@@ -62,7 +62,8 @@ Cet article décrit, en ce qui concerne Azure IoT Central :
 - Les types de schémas de tableaux ne sont pas pris en charge.
 - L’exportation de modèle d’application et la copie d’application ne sont pas prises en charge.
 - Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
-- Cela n’est disponible que dans certaines régions.
+- Elle est disponible uniquement dans les régions Europe Nord et USA Centre.
+- Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
 
 ## <a name="personas"></a>Rôles
 
@@ -95,7 +96,7 @@ Ce modèle d’appareil inclut les éléments suivants :
 
 ### <a name="create-device-templates"></a>Créer des modèles d’appareils
 
-[IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils sans que vous n’ayez à écrire de code d’appareil incorporé. Au cœur d’IoT plug-and-Play est un schéma de modèle de fonctionnalité d’appareil qui décrit les fonctionnalités de l’appareil. Dans une application IoT Central en préversion, les modèles d’appareil utilisent ces modèles de fonctionnalité d’appareil IoT Plug-and-Play.
+[IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils sans que vous n’ayez à écrire de code d’appareil incorporé. Au cœur d’IoT Plug-and-Play est un schéma de modèle de fonctionnalité d’appareil qui décrit les fonctionnalités de l’appareil. Dans une application IoT Central en préversion, les modèles d’appareil utilisent ces modèles de fonctionnalité d’appareil IoT Plug-and-Play.
 
 Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 

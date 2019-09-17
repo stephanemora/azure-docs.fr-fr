@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2b68da881edd0406a85692d6e0586427a57b7806
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478857"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916435"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -35,7 +35,7 @@ Passez directement à l’[exemple de localisateur de magasin animé](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de ce tutoriel, vous devez d’abord [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et [obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey).
+Pour effectuer les étapes de ce tutoriel, vous devez d’abord [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et suivre les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
 
 ## <a name="design"></a>Conception
 
