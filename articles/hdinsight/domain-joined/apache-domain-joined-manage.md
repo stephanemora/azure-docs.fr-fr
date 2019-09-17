@@ -1,19 +1,19 @@
 ---
 title: Gérer des clusters HDInsight avec le pack Sécurité Entreprise - Azure
-description: Découvrez comment gérer des clusters HDInsight avec le pack Sécurité Entreprise.
+description: Découvrez comment gérer des clusters Azure HDInsight avec le Pack Sécurité Entreprise.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488720"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918905"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 Découvrez les utilisateurs et les rôles du pack Sécurité Entreprise (ESP) HDInsight et apprenez à gérer des clusters ESP.
@@ -34,7 +34,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Am
    
 3. Vous pouvez voir un cluster lié à l’aide de la commande **List cluster**. Vous pouvez désormais soumettre un script à ce cluster lié.
 
-   ![cluster lié](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![cluster lié](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "cluster lié")
 
 4. Vous pouvez également dissocier un cluster en entrant **HDInsight : Unlink a cluster** dans la palette de commandes.
 
@@ -43,11 +43,11 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Am
 Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : `user1@contoso.com`). 
 1. Cliquez sur **Lier un cluster** dans **Azure Explorer**.
 
-   ![menu contextuel de lien du cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![menu contextuel IntelliJ pour lier un cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Saisissez le **nom du cluster**, le **nom d’utilisateur** et le **mot de passe**. Si l’authentification a échoué, vous devez vérifier le nom d’utilisateur et le mot de passe. Si vous le souhaitez, ajoutez un compte de stockage, une clé de stockage, puis sélectionnez un conteneur dans le conteneur de stockage. Les informations de stockage concernent l’explorateur de stockage dans l’arborescence de gauche.
    
-   ![boîte de dialogue de lien du cluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![boîte de dialogue IntelliJ pour lier un cluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > Nous utilisons la clé de stockage liée, le nom d’utilisateur et le mot de passe si le cluster est à la fois connecté sur un abonnement Azure et lié à un cluster.
@@ -56,22 +56,22 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
    
 3. Si les informations d’entrée sont correctes, vous pouvez voir un cluster lié dans le nœud **HDInsight**. Vous pouvez désormais soumettre une application à ce cluster lié.
 
-   ![cluster lié](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![cluster lié IntelliJ](./media/apache-domain-joined-manage/linked-cluster-intellij.png "cluster lié IntelliJ]")
 
 4. Vous pouvez également dissocier un cluster à partir de **Azure Explorer**.
    
-   ![cluster non lié](./media/apache-domain-joined-manage/unlink.png)
+   ![cluster dissocié IntelliJ](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Utiliser Eclipse pour établir un lien avec un cluster joint à un domaine
 
 Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : `user1@contoso.com`).
 1. Cliquez sur **Lier un cluster** dans **Azure Explorer**.
 
-   ![menu contextuel de lien du cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![menu contextuel Eclipse pour lier un cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Entrez le **Nom du cluster**, le **Nom d’utilisateur** et le **Mot de passe**, puis cliquez sur le bouton OK pour lier le cluster. Si vous le souhaitez, entrez un compte de stockage, une clé de stockage, puis sélectionnez un conteneur de stockage pour que l’explorateur de stockage fonctionne avec l’arborescence de gauche.
    
-   ![boîte de dialogue de lien du cluster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![boîte de dialogue Eclipse pour lier un cluster](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > Nous utilisons la clé de stockage liée, le nom d’utilisateur et le mot de passe si le cluster est à la fois connecté sur un abonnement Azure et lié à un cluster.
@@ -79,11 +79,11 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
 
 3. Vous pouvez voir un cluster lié dans le nœud **HDInsight** après avoir cliqué sur le bouton OK, si les informations d’entrée sont correctes. Vous pouvez désormais soumettre une application à ce cluster lié.
 
-   ![cluster lié](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![cluster lié Eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. Vous pouvez également dissocier un cluster à partir de **Azure Explorer**.
    
-   ![cluster non lié](./media/apache-domain-joined-manage/unlink.png)
+   ![cluster dissocié Eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Accédez aux clusters avec Enterprise Security Package.
 

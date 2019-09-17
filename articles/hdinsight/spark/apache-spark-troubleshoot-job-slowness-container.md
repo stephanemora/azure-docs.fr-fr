@@ -1,19 +1,19 @@
 ---
-title: Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient un grand nombre de fichiers dans Azure HDInsight
+title: Lenteur d’Apache Spark lorsque le conteneur de stockage Azure contient de nombreux fichiers – HDInsight
 description: Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient un grand nombre de fichiers dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/21/2019
-ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9a4142010ef9e47a1a41e472c945b694f197f34f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899096"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885055"
 ---
-# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Scénario : Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
+# <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
 
 Cet article décrit la procédure à suivre pour résoudre les problèmes rencontrés lors de l’utilisation de composants Apache Spark dans des clusters Azure HDInsight.
 

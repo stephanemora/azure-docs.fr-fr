@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694286"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916161"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -36,10 +36,9 @@ Ce comportement est conçu afin d’éviter la collecte inutile de données pers
 
 Bien que le comportement par défaut consiste à réduire la collection de données personnelles, nous offrons toujours la possibilité de collecter et de stocker les données d’adresse IP. Avant de choisir de stocker des données personnelles comme des adresses IP, nous vous recommandons vivement de vérifier que cela ne contrevient pas aux exigences de conformité ou aux réglementations locales auxquelles vous pouvez être soumis. Pour en savoir plus sur la gestion des données personnelles dans Application Insights, consultez les [conseils relatifs aux données personnelles](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## <a name="storing-partial-ip-address-data"></a>Stockage des données partielles d’adresse IP
+## <a name="storing-ip-address-data"></a>Stockage de données d’adresses IP
 
-Pour activer la collecte et le stockage de données partielles d’adresses IP, la propriété `DisableIpMasking` du composant Application Insights doit être défini sur `true`. Cette propriété peut être définie par l’intermédiaire de modèles de Azure Resource Manager ou en appelant l’API REST. Les adresses IP seront enregistrées avec le dernier octet mis à zéro.
-
+Pour activer la collecte et le stockage de données d’adresses IP, la propriété `DisableIpMasking` du composant Application Insights doit être définie sur `true`. Cette propriété peut être définie par l’intermédiaire de modèles de Azure Resource Manager ou en appelant l’API REST. 
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
@@ -92,7 +91,7 @@ Si vous devez uniquement modifier le comportement d’une seule ressource de App
 
     Dans ce cas, aucun achat n’est effectué, nous mettons simplement à jour la configuration de la ressource Application Insights existante.
 
-6. Une fois le déploiement terminé, les nouvelles données de télémétrie sont enregistrées avec les trois premiers octets remplis avec l’adresse IP et le dernier octet mis à zéro.
+6. Une fois le déploiement terminé, les nouvelles données de télémétrie sont enregistrées.
 
     Si vous deviez sélectionner et modifier à nouveau le modèle, vous ne verrez que le modèle par défaut et vous ne verrez pas la propriété que vous venez d’ajouter et la valeur qui lui est associée. Si vous ne voyez pas les données d’adresse IP et que vous souhaitez confirmer que `"DisableIpMasking": true` est défini. Exécutez le PowerShell suivant : (Remplacez `Fabrikam-dev` par le nom de ressource et de groupe de ressources approprié.)
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Initialiseur de télémétrie
 
-Si vous devez enregistrer la totalité de l’adresse IP au lieu des trois premiers octets, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) pour copier l’adresse IP dans un champ personnalisé qui ne sera pas masqué.
+Si vous avez besoin d’une alternative plus flexible que `DisableIpMasking` pour enregistrer tout ou partie des adresses IP, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) pour copier tout ou partie de l’adresse IP dans un champ personnalisé. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

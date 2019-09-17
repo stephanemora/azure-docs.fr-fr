@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278179"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879064"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> Pour la procédure de validation croisée, les données de série chronologique peuvent enfreindre les hypothèses statistiques de base de la stratégie de validation croisée K-Fold canonique, de façon à ce que le Machine Learning automatisé implémente une procédure de validation propagée pour créer des plis de validation croisée pour les données de série chronologique. Pour utiliser cette procédure, spécifiez le paramètre `n_cross_validations` dans l’objet `AutoMLConfig`. Vous pouvez ignorer la validation et utiliser vos propres jeux de validation avec les paramètres `X_valid` et `y_valid`.
+Consultez le [notebook sur la demande d’énergie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, à savoir :
+
+* détection et personnalisation de congé
+* validation croisée d’origine
+* décalages configurables
+* Caractéristiques des agrégations des fenêtres dynamiques
 
 ### <a name="view-feature-engineering-summary"></a>Afficher le résumé de l’ingénierie des caractéristiques
 

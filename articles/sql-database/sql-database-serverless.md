@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 08/26/2019
-ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/06/2019
+ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035722"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858500"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -115,7 +115,8 @@ Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automa
 
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
-- Base de données de synchronisation utilisée dans SQL Data Sync.
+- Base de données de synchronisation utilisée dans SQL Data Sync.  Contrairement aux bases de données de synchronisation, les bases de données de hub et de membres prennent en charge la mise en pause automatique.
+- Base de données de travail utilisée dans les travaux élastiques.
 
 La mise en pause automatique est temporairement indisponible durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.  Dans ce cas, la mise en pause automatique est réactivée dès que la mise à jour du service est terminée.
 
@@ -200,7 +201,7 @@ New-AzSqlDatabase `
 L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless. Cet exemple spécifie explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `
@@ -291,7 +292,7 @@ Le volume de calcul facturé correspond à la quantité maximale de processeur e
 - **Montant facturé**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
 - **Fréquence de facturation** : À la seconde
 
-Prix unitaire d’un vCore dans le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
+Prix unitaire d’un vCore est le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
 
 Le volume de calcul facturé est exposé par les métriques suivantes :
 

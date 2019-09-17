@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605457"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885523"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -45,13 +45,13 @@ Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécuti
 
 3. Dans la boîte de dialogue **Se connecter à l’émulateur HDInsight**, entrez le mot de passe que vous avez configuré pour Ambari.
 
-    ![Capture d’écran de la boîte de dialogue avec la zone de texte pour la saisie du mot de passe en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Capture d’écran de la boîte de dialogue avec la zone de texte pour la saisie du mot de passe Ambari en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Sélectionnez **Suivant** pour continuer.
 
 4. Utilisez le champ **Mot de passe** pour entrer le mot de passe que vous avez configuré pour le compte `root`. Conservez la valeur par défaut dans les autres champs.
 
-    ![Capture d’écran de la boîte de dialogue avec la zone de texte pour la saisie du mot de passe en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Capture d’écran de la boîte de dialogue avec la zone de texte pour la saisie du mot de passe racine en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Sélectionnez **Suivant** pour continuer.
 
@@ -90,7 +90,7 @@ Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des 
 
     Vous pouvez également utiliser le menu déroulant en regard **d’Envoyer** pour sélectionner **Avancé**. Les options avancées vous permettent de spécifier des options supplémentaires lors de l’envoi du travail.
 
-    ![Capture d’écran de la boîte de dialogue Envoyer le script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Capture d’écran de la boîte de dialogue Envoyer le script dans Hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
 3. Une fois la requête envoyée, l’état du travail s’affiche. Celui-ci présente des informations sur le travail tel que Hadoop l’a traité. Le champ **État du travail** indique l’état du travail. Cet état est mis à jour régulièrement. Vous pouvez également utiliser l’icône d’actualisation pour rafraîchir l’état manuellement.
 
@@ -149,7 +149,7 @@ Contrairement à Hive qui offre un langage de type SQL pour travailler avec des 
 
     Bien que Pig n’utilise pas le même langage que Hive, le mode d’exécution des travaux via le bouton **Envoyer** est cohérent pour les deux langages. La sélection de la liste déroulante en regard de **Envoyer** permet d’afficher une boîte de dialogue Envoyer contenant des options avancées pour Pig.
 
-    ![Capture d’écran de la boîte de dialogue Envoyer le script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Capture d’écran de la boîte de dialogue Envoyer le script dans Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
 3. L’état du travail et la sortie s’affichent de la même façon que pour une requête Hive.
 
@@ -185,7 +185,7 @@ Les outils Data Lake Tools permettent également d’afficher facilement les inf
 
 Vous pouvez afficher les propriétés d’une base de données ou d’une table. La sélection de **Propriétés** affiche les détails de l’élément sélectionné dans la fenêtre Propriétés. Par exemple, examinez les informations affichées dans la capture d’écran suivante :
 
-![Capture d’écran de le fenêtre Propriétés](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Capture d’écran de le fenêtre Propriétés](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>Création d’une table
 

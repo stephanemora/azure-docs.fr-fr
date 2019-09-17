@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194599"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909783"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -359,6 +359,11 @@ Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire
 
 Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. L’attribut **organizationalUnit** n’est plus répertorié et ne doit pas être utilisé. Cette chaîne est définie par Intune dans des cas spécifiques mais n’est pas reconnue par Azure AD, donc aucun périphérique n’est ajouté aux groupes en fonction de cet attribut.
 
+> [!NOTE]
+> systemlabels est un attribut en lecture seule qui ne peut pas être défini avec Intune.
+>
+> Pour Windows 10, le format correct de l’attribut deviceOSVersion est le suivant : (device.deviceOSVersion, par exemple « 10.0 (17763) »). La mise en forme peut être validée avec la cmdlet PowerShell Get-MsolDevice.
+
 Les attributs d’appareil suivants peuvent être utilisés.
 
  Attribut d’appareil  | Valeurs | Exemples
@@ -371,7 +376,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Nom du profil d’inscription des appareils Apple ou du profil AutoPilot Windows | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Profil d’inscription d’appareil Apple, inscription d’appareil : identifiants d’appareil d’entreprise (Android - Kiosk) ou nom de profil Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3fe008d20ab43636b59861bcc5a7914ba0fca17e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478062"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910060"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ressources de variables dans Azure Automation
 
@@ -42,8 +42,8 @@ Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tabl
 Voici la liste des types de variable disponibles dans Automation :
 
 * Chaîne
-* Entier
-* Datetime
+* Integer
+* DateTime
 * Booléen
 * Null
 
@@ -60,7 +60,7 @@ Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour cr
 
 ## <a name="activities"></a>Activités
 
-Les activités dans le tableau suivant sont utilisées pour accéder aux informations d’identification dans un Runbook ou dans des configurations DSC.
+Les activités du tableau suivant sont utilisées pour accéder à des variables dans un runbook et dans des configurations DSC. La différence entre les cmdlets Get-AzureRmAutomationVariable et Get-AutomationVariable est décrite ci-dessus au début de ce document.
 
 | Activités | Description |
 |:---|:---|

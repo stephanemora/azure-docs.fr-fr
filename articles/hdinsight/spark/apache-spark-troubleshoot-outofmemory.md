@@ -1,17 +1,17 @@
 ---
 title: Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
-description: Différentes exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
+description: Différentes exceptions OutOfMemoryError pour cluster Apache Spark dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/15/2019
-ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 69f897d1f279279c067eeff30ac711f85d3bb89b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543470"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915187"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
@@ -119,11 +119,11 @@ Vous pouvez augmenter la mémoire du serveur d’historique Spark en modifiant l
 
 Pour cela, accédez à l’interface utilisateur du navigateur Ambari, puis sélectionnez la section Spark2/Config/Advanced spark2-env.
 
-![Section Advanced spark2-env](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Section Advanced spark2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 Ajoutez la propriété suivante pour que la mémoire du serveur d’historique Spark passe de 1 à 4 Go : `SPARK_DAEMON_MEMORY=4g`.
 
-![Propriété Spark](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Propriété Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Veillez à redémarrer tous les services affectés à partir d’Ambari.
 
@@ -252,6 +252,6 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
 * Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

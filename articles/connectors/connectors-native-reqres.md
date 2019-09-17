@@ -1,115 +1,238 @@
 ---
-title: Utilisation d’actions de requête et de réponse | Microsoft Docs
-description: Présentation des déclencheurs et des actions de requête et de réponse dans une application logique Azure
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+title: Répondre aux requêtes HTTP - Azure Logic Apps
+description: Répondre aux événements en temps réel via HTTP avec Azure Logic Apps
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewers: klam, LADocs
+manager: carmonm
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/06/2019
+tags: connectors
+ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538134"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914326"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
-Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
+# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Répondre aux requêtes HTTP avec Azure Logic Apps
 
-Vous pouvez par exemple :
+Avec [AzureLogicApps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête intégré ou l’action Réponse, vous pouvez créer des tâches et des flux de travail automatisés qui reçoivent et répondent en temps réel aux requêtes HTTP. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
 
-* répondre à une requête HTTP avec des données d’une base de données locale par le biais d’une application logique ;
-* déclencher une application logique à partir d’un événement webhook externe ;
-* appeler une application logique avec une action de requête et de réponse depuis une autre application logique.
+* Répondre à une requête HTTP pour des données dans une base de données locale.
+* Déclencher un flux de travail lorsqu’un événement de webhook externe se produit.
+* Appeler une application logique à partir d’une autre application logique.
 
-Pour commencer à utiliser les actions de requête et de réponse dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="use-the-http-request-trigger"></a>Utilisation d’un déclencheur de requête HTTP
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. 
-[En savoir plus sur les déclencheurs](../connectors/apis-list.md).
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-Voici un exemple de séquence de configuration d’une requête HTTP dans le concepteur d’application logique.
+* Connaissance de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](https://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
-2. Ajoutez une autre action afin d’enregistrer l’application logique.
-3. Après l’enregistrement de l'application logique, vous pouvez obtenir l’URL de la requête HTTP à partir de la carte de requête.
-4. Une requête HTTP POST (vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/)) à l’URL déclenche l’application logique.
+<a name="add-request"></a>
 
-> [!NOTE]
-> Si vous ne définissez pas une action de réponse, une réponse `202 ACCEPTED` est immédiatement renvoyée à l’appelant. Vous pouvez utiliser l’action de réponse pour personnaliser une réponse.
-> 
-> 
+## <a name="add-a-request-trigger"></a>Ajouter un déclencheur de requête
 
-![Déclencheur de réponse](./media/connectors-native-reqres/using-trigger.png)
+Ce déclencheur intégré crée un point de terminaison pouvant être appelé manuellement et pouvant recevoir une requête HTTP entrante. Lorsque cet événement se produit, le déclencheur s’active et exécute l’application logique. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur l’appel de ce déclencheur, consultez [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
 
-## <a name="use-the-http-response-action"></a>Utilisation d’une action Réponse HTTP
-L’action Réponse HTTP est uniquement valide lorsque vous l'utilisez dans un workflow déclenché par une requête HTTP. Si vous ne définissez pas une action de réponse, une réponse `202 ACCEPTED` est immédiatement renvoyée à l’appelant.  Vous pouvez ajouter une action de réponse à tout moment dans le workflow. L’application logique conserve la requête entrante ouverte pendant une minute seulement pour attendre une réponse.  Si aucune réponse n’a été envoyée après une minute depuis le workflow (et qu’une action de réponse existe dans la définition) un `504 GATEWAY TIMEOUT` est envoyé à l’appelant.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide.
 
-Voici comment ajouter une action Réponse HTTP :
+1. Une fois que le concepteur Logic Apps s’ouvre, entrez « requête HTTP » comme filtre dans la zone de recherche. Dans la liste de déclencheurs, sélectionnez le déclencheur **Quand une requête HTTP est reçue**, qui est la première étape du flux de travail de votre application logique.
 
-1. Sélectionnez le bouton **Nouvelle étape** .
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de recherche Action, tapez **response** pour répertorier l’action de réponse.
-   
-    ![Sélectionner l'action de réponse](./media/connectors-native-reqres/using-action-1.png)
-4. Ajoutez tout paramètre nécessaire au message de réponse HTTP.
-   
-    ![Exécuter l’action de réponse](./media/connectors-native-reqres/using-action-2.png)
-5. Cliquez dans le coin supérieur gauche de la barre d’outils pour enregistrer, et votre application logique est à la fois enregistrée et publiée (activation).
+   ![Sélectionner le déclencheur de requête HTTP](./media/connectors-native-reqres/select-request-trigger.png)
 
-## <a name="request-trigger"></a>Déclencheur de requête
-Voici les détails du déclencheur que ce connecteur prend en charge. Il existe un seul déclencheur de requête.
+   Le déclencheur de requête affiche les propriétés suivantes :
 
-| Déclencheur | Description |
-| --- | --- |
-| Requête |Se produit quand une requête HTTP est reçue |
+   ![Déclencheur de requête](./media/connectors-native-reqres/request-trigger.png)
 
-## <a name="response-action"></a>Action de réponse
-Voici les détails de l'action que ce connecteur prend en charge. Il existe une action de réponse unique qui est utilisable uniquement lorsqu’elle est accompagnée d’un déclencheur de requête.
+   | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
+   |---------------|--------------------|----------|-------------|
+   | **URL HTTP POST** | {aucune} | OUI | L’URL de point de terminaison générée après l’enregistrement de l’application logique et utilisée pour appeler votre application logique |
+   | **Schéma JSON du corps de la demande** | `schema` | Non | Le schéma JSON qui décrit les propriétés et les valeurs dans le corps de la requête HTTP entrante |
+   |||||
 
-| Action | Description |
-| --- | --- |
-| response |Renvoie une réponse à requête HTTP corrélée |
+1. Dans la zone **Schéma JSON du corps de la demande**, entrez éventuellement un schéma JSON qui décrit le corps de la requête HTTP dans la requête entrante, par exemple :
 
-### <a name="trigger-and-action-details"></a>Détail des déclencheurs et des actions
-Les tableaux suivants décrivent les champs d’entrée du déclencheur et de l’action, les détails de sortie correspondants.
+   ![Exemple de schéma JSON](./media/connectors-native-reqres/provide-json-schema.png)
 
-#### <a name="request-trigger"></a>Déclencheur de requête
-Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP entrante.
+   Le concepteur utilise ce schéma pour générer des jetons pour les propriétés dans la requête. De cette façon, votre application logique peut analyser, consommer et transmettre les données de la requête via le déclencheur dans votre flux de travail.
 
-| Nom complet | Nom de la propriété | Description |
-| --- | --- | --- |
-| JSON Schema (Schéma JSON) |schema |Le schéma JSON du corps de texte de la requête HTTP |
+   Voici l'exemple de schéma :
 
-<br>
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-**Détails des résultats**
+   Lorsque vous entrez un schéma JSON, le concepteur affiche un rappel pour inclure l'en-tête `Content-Type` dans votre demande et définit cette valeur d’en-tête sur `application/json`. Pour plus d’informations, consultez l’article [Gérer les types de contenu](../logic-apps/logic-apps-content-type.md).
 
-Vous trouverez ci-dessous les détails de sortie pour la requête.
+   ![Rappel pour inclure l’en-tête « Content-type »](./media/connectors-native-reqres/include-content-type.png)
 
-| Nom de la propriété | Type de données | Description |
-| --- | --- | --- |
-| headers |objet |En-têtes de requête |
-| body |objet |Objet Requête |
+   Voici à quoi ressemble cet en-tête au format JSON :
 
-#### <a name="response-action"></a>Action de réponse
-Les éléments suivants sont des champs d’entrée pour l’action Réponse HTTP. Le symbole * désigne est un champ obligatoire.
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
 
-| Nom complet | Nom de la propriété | Description |
-| --- | --- | --- |
-| Status Code (Code d’état)* |statusCode |Le code d’état HTTP |
-| headers |headers |Un objet JSON de tout en-tête de réponse à inclure |
-| body |body |Le corps de texte de la réponse |
+   Pour générer un schéma JSON basé sur la charge utile attendue (données), vous pouvez utiliser un outil tel que [JSONSchema.NET](https://jsonschema.net) ou suivre ces étapes :
+
+   1. Dans le déclencheur de requête, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
+
+      ![Générer un schéma à partir de la charge utile](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. Entrez l’exemple de charge utile, puis sélectionnez **Terminé**.
+
+      ![Générer un schéma à partir de la charge utile](./media/connectors-native-reqres/enter-payload.png)
+
+      Voici l'exemple de charge utile :
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. Pour spécifier des propriétés supplémentaires, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres que vous souhaitez ajouter.
+
+   | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Méthode** | `method` | Non | Méthode que les requêtes entrantes doivent utiliser pour appeler l’application logique |
+   | **Chemin relatif** | `relativePath` | Non | Chemin relatif pour le paramètre que l’URL de point de terminaison de l’application logique peut accepter |
+   |||||
+
+   L’exemple suivant ajoute la propriété **Méthode** :
+
+   ![Ajouter un paramètre de méthode](./media/connectors-native-reqres/add-parameters.png)
+
+   La propriété de **Méthode** apparaît dans le déclencheur afin que vous puissiez sélectionner une méthode dans la liste.
+
+   ![Sélectionner la méthode](./media/connectors-native-reqres/select-method.png)
+
+1. À présent, ajoutez une autre action comme étape suivante dans votre flux de travail. Sous le déclencheur, sélectionnez **Étape suivante** afin de trouver l’action que vous souhaitez ajouter.
+
+   Par exemple, vous pouvez répondre à la demande en [ajoutant une action Réponse](#add-response), que vous pouvez utiliser pour renvoyer une réponse personnalisée et qui est décrite plus loin dans cette rubrique.
+
+   Votre application logique garde la requête entrante ouverte seulement pendant une minute. En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
+
+1. Lorsque vous avez terminé, enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**. 
+
+   Cette étape génère l’URL à utiliser pour envoyer la requête qui déclenche l’application logique. Pour copier cette URL, sélectionnez l’icône de copie en regard de l’URL.
+
+   ![URL à utiliser pour déclencher votre application logique](./media/connectors-native-reqres/generated-url.png)
+
+1. Pour déclencher votre application logique, envoyez une requête HTTP à l’URL générée. Par exemple, vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/).
+
+### <a name="trigger-outputs"></a>Sorties du déclencheur
+
+Voici plus d’informations sur les sorties du déclencheur de requête :
+
+| Nom de la propriété JSON | Type de données | Description |
+|--------------------|-----------|-------------|
+| `headers` | Object | Objet JSON qui décrit les en-têtes de la requête |
+| `body` | Object | Objet JSON qui décrit le contenu du corps de la requête |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>Ajouter une action Réponse
+
+Vous pouvez utiliser l’action Réponse pour répondre avec une charge utile (données) à une requête HTTP entrante, mais uniquement dans une application logique qui est déclenchée par une requête HTTP. Vous pouvez ajouter l’action Réponse à n’importe quelle phase de votre workflow. Pour plus d’informations sur la définition JSON sous-jacente pour ce déclencheur, consultez [Type d’action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+
+Votre application logique garde la requête entrante ouverte seulement pendant une minute. En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
+
+1. Pour le Concepteur d'application logique, sous l’étape où vous souhaitez ajouter l'action Réponse, sélectionnez **Nouvelle étape**.
+
+   Par exemple, avec le déclencheur de requête vu plus tôt :
+
+   ![Ajouter une nouvelle étape](./media/connectors-native-reqres/add-response.png)
+
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « réponse » comme filtre, puis sélectionnez l'action **Réponse**.
+
+   ![Sélectionner l’action Réponse](./media/connectors-native-reqres/select-response-action.png)
+
+   Le déclencheur de requête est réduit dans cet exemple pour des raisons de simplicité.
+
+1. Ajoutez toutes les valeurs requises pour le message de réponse. 
+
+   Dans certains champs, cliquer dans leurs zones ouvre la liste de contenu dynamique. Vous pouvez ensuite sélectionner des jetons qui représentent les sorties disponibles à partir des étapes précédentes du workflow. Les propriétés du schéma spécifié dans l’exemple précédent apparaissent désormais dans la liste de contenu dynamique.
+
+   Par exemple, pour la zone **En-têtes**, incluez `Content-Type` comme nom de clé et définissez la valeur de clé sur `application/json` comme indiqué précédemment dans cette rubrique. Pour la zone **Corps**, vous pouvez sélectionner la sortie du corps du déclencheur dans la liste de contenu dynamique.
+
+   ![Détails de l’action Réponse](./media/connectors-native-reqres/response-details.png)
+
+   Pour afficher les en-têtes au format JSON, sélectionnez **Basculer vers la vue texte**.
+
+   ![En-têtes - Basculer vers la vue texte](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   Voici plus d’informations sur les propriétés que vous pouvez définir dans l’action Réponse. 
+
+   | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Code d’état** | `statusCode` | OUI | Code d’état HTTP à renvoyer dans la réponse |
+   | **En-têtes** | `headers` | Non | Objet JSON qui décrit un ou plusieurs en-têtes à inclure dans la réponse |
+   | **Corps** | `body` | Non | Le corps de texte de la réponse |
+   |||||
+
+1. Pour spécifier des propriétés supplémentaires, comme un schéma JSON pour le corps de la réponse, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres que vous souhaitez ajouter.
+
+1. Lorsque vous avez terminé, enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
+* [Connecteurs pour Logic Apps](../connectors/apis-list.md)

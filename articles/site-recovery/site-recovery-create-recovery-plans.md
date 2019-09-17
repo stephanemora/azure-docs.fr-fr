@@ -1,19 +1,18 @@
 ---
-title: Créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+title: Créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery
 description: Découvrez comment créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ca44ffd26e1b87dd201ed6f274791eadfeb0737
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400002"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814406"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
 

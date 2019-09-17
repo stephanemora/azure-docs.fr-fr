@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990998"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918979"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Tester une tâche Azure Stream Analytics avec des exemples de données
 
-Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local.
+Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local sur le portail Azure. Vous pouvez également tester les requêtes localement à partir de vos exemples de données locaux ou de vos données actives dans [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) et [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
 
 ## <a name="sample-incoming-data-from-input"></a>Exemple de données entrantes à partir d’une entrée
 

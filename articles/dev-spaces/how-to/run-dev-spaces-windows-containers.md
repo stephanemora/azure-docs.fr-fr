@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Découvrez comment exécuter Azure Dev Spaces sur un cluster existant avec des conteneurs Windows
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, conteneurs Windows
-ms.openlocfilehash: 2110636b331f0cf4e74c77f41726ead5bf80a64f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858610"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Utiliser Azure Dev Spaces pour interagir avec des conteneurs Windows
 
@@ -49,6 +49,9 @@ Appliquez une [teinte][using-taints] à vos nœuds Windows. La teinte sur vos n�
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
+
+> [!IMPORTANT]
+> Lorsque vous appliquez une teinte à un nœud, vous devez configurer une tolérance correspondante dans le modèle de déploiement de votre service pour exécuter celui-ci sur ce nœud. L’exemple d’application est déjà configuré avec une [tolérance correspondant][sample-application-toleration-example] à la teinte que vous avez configurée dans la commande précédente.
 
 ## <a name="run-your-windows-service"></a>Exécuter votre service Windows
 
@@ -180,8 +183,8 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
+[sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
-
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations

@@ -25,7 +25,7 @@ L’article d’introduction décrit comment utiliser la bibliothèque **sérial
 
 En conclusion, nous reverrons certains des sujets abordés dans les articles précédents, notamment la gestion des messages et des propriétés. Mais comme vous allez le voir, ces fonctionnalités fonctionnent de la même manière que celles de la bibliothèque **serializer** ou la bibliothèque **IoTHubClient**.
 
-Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **sérialiseur** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
+Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **serializer** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
 
 Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 

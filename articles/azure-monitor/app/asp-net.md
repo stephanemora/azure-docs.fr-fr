@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73f62ff8c95fae694a43df48aa99b696fb05d131
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256625"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916276"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -58,6 +58,8 @@ Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos do
  Sélectionnez **Inscription**.
 
 ![Capture d’écran de la page Inscrire votre application auprès d’Application Insights](./media/asp-net/00005-register-ed.png)
+
+ Sélectionnez **Projet** > **Gérer les packages NuGet** > **Source du package : nuget.org** > Confirmez que vous disposez de la dernière version stable du Kit de développement logiciel (SDK) Application Insights.
 
  Les données de télémétrie seront envoyées au [portail Azure](https://portal.azure.com), pendant le débogage et une fois que vous aurez publié votre application.
 > [!NOTE]

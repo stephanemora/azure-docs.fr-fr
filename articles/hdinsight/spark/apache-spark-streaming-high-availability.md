@@ -1,6 +1,6 @@
 ---
 title: Créer des travaux Spark Streaming hautement disponibles dans YARN - Azure HDInsight
-description: Guide pratique pour configurer Spark Streaming pour un scénario de haute disponibilité.
+description: Guide pratique pour configurer Apache Spark Streaming pour un scénario de haute disponibilité dans Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 79a36ad39284dc66467ba7c500a363668f78b893
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720658"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915404"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Créer des tâches Apache Spark Streaming à haute disponibilité avec YARN
 
@@ -29,7 +29,7 @@ Spark Streaming représente un flux continu de données utilisant un *flux de do
 
 Le cœur Spark utilise des *jeux de données distribués résilients* (RDD, Resilient Distributed Datasets). Les RDD distribuent les données parmi plusieurs nœuds du cluster, où chaque nœud conserve généralement ses données entièrement en mémoire pour des performances optimales. Chaque RDD représente les événements recueillis pendant un intervalle de lot. Quand l’intervalle de lot s’est écoulé, Spark Streaming génère un nouveau RDD contenant toutes les données dans cet intervalle. Cet ensemble continu de RDD est recueilli dans un DStream. Une application Spark Streaming traite les données stockées dans le RDD de chaque lot.
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Travaux Spark Structured Streaming
 

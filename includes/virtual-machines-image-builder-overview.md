@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c881c95fb860befbc978aba5a6c73375dce235fe
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669640"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919674"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -47,7 +47,7 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
-- Windows 10 RS5 Enterprize/Professional/Enterprise (entreprise/professionnel/entreprise) pour bureau virtuel 
+- Windows 10 RS5 Entreprise/Professionnel/Entreprise pour le bureau virtuel (EVD) 
 - Windows 2016
 - Windows 2019
 
@@ -73,7 +73,7 @@ Le Générateur d’images Azure est un service Azure entièrement managé acces
 
 1. Créez le modèle d’image en tant que fichier .json. Ce fichier .json contient des informations sur la source, les personnalisations et la distribution de l’image. Plusieurs exemples son disponibles dans le [référentiel GitHub du Générateur d’images Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Envoyez-le au service. Cela a pour effet de créer un artefact de modèle d’image dans le groupe de ressources que vous spécifiez. En arrière-plan, le Générateur d’images télécharge l’image ou l’ISO source et les scripts en fonction des besoins. Celles-ci sont stockées dans un groupe de ressources distinct créé automatiquement dans votre abonnement, au format suivant : IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. Une fois le modèle d’image créé, vous pouvez générer l’image. En arrière-plan, le Générateur d’images utilise le modèle et des fichiers sources pour créer une machine virtuelle, un réseau et un stockage dans le groupe de ressources IT_\<DestinationResourceGroup > _\<TemplateName >.
+1. Une fois le modèle d’image créé, vous pouvez générer l’image. En arrière-plan, le Générateur d’images utilise le modèle et des fichiers sources pour créer une machine virtuelle (D1v2), un réseau, une adresse IP publique et un stockage dans le groupe de ressources IT_\<Groupe_de_ressources_de_destination>_\<Nom_du_modèle>.
 1. Dans le cadre de la création d’image, le Générateur d’images distribue l’image en fonction du modèle, puis supprime les ressources supplémentaires dans le groupe de ressources IT_\<DestinationResourceGroup>_\<TemplateName> créé pour le processus.
 
 

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 021341406f1a7269aadf18eb3a748e539cbb5bf5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086958"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873477"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gérer IoT Central à partir d’Azure CLI
 
@@ -53,7 +53,7 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | Paramètre         | Description |
 | ----------------- | ----------- |
 | resource-group    | Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
-| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les régions **USA Est**, **USA Ouest**, **Europe Nord** et **Europe Ouest**. |
+| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **USA Est**, **USA Ouest**, **Europe Nord** et **Europe Ouest** ou **Australie**. |
 | Nom              | Nom de l’application dans le portail Azure. |
 | subdomain         | Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
 | sku               | Actuellement, la seule valeur est **S1** (niveau Standard). Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -67,6 +67,9 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | iotc-default@1.0.0       | Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
 | iotc-demo@1.0.0          | Crée une application qui comprend un modèle d’appareil déjà créé pour une machine de distribution réfrigérée. Utilisez ce modèle pour commencer à explorer Azure IoT Central. |
 | iotc-devkit-sample@1.0.0 | Crée une application avec des modèles d’appareil tout prêts qui vous permettent de connecter un appareil MXChip ou Raspberry Pi. Utilisez ce modèle si vous êtes développeur d’appareils et que vous testez l’un de ces appareils. |
+
+> [!NOTE]
+> Le modèle **Aperçu de l’application** n’est actuellement disponible que dans les régions **Europe Nord** et **USA Centre**.
 
 ## <a name="view-your-applications"></a>Afficher vos applications
 

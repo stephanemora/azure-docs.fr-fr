@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: 81e8601ac83d43bde0767e38eb387f489d76125b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165240"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873559"
 ---
 # <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Sécurité d’entreprise pour le service Azure Machine Learning
 
@@ -132,7 +132,7 @@ Pour plus d’informations sur les identités managées, consultez [Identités m
 
 Nous déconseillons aux administrateurs de révoquer l’accès de l’identité managée aux ressources mentionnées dans le tableau précédent. Vous pouvez restaurer l’accès par une opération de resynchronisation des clés.
 
-Le service Azure Machine Learning crée une application supplémentaire (dont le nom commence par `aml-`) avec l’accès de niveau contributeur dans votre abonnement pour chaque région de l’espace de travail. Par exemple, si vous avez un espace de travail dans la région USA Est et un autre espace de travail dans la région Europe Nord au sein du même abonnement, vous voyez deux de ces applications. Ces applications permettent au service Azure Machine Learning de vous aider à gérer les ressources de calcul.
+Le service Azure Machine Learning crée une application supplémentaire (dont le nom commence par `aml-` ou `Microsoft-AzureML-Support-App-`) avec l’accès de niveau contributeur dans votre abonnement pour chaque région de l’espace de travail. Par exemple, si vous avez un espace de travail dans la région USA Est et un autre espace de travail dans la région Europe Nord au sein du même abonnement, vous voyez deux de ces applications. Ces applications permettent au service Azure Machine Learning de vous aider à gérer les ressources de calcul.
 
 ## <a name="network-security"></a>Sécurité du réseau
 

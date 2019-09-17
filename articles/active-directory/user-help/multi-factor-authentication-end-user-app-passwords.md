@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088401"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914931"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
@@ -28,11 +28,9 @@ ms.locfileid: "70088401"
 
 Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
 
-- Les mots de passe d’application sont générés automatiquement et ne sont entrés qu’une seule fois par application.
+- Les mots de passe d’application sont générés automatiquement. Ils doivent être créés et entrés une fois par application.
 
 - Un utilisateur peut posséder jusqu’à 40 mots de passe. Si vous essayez de créer un mot de passe supplémentaire au-delà de cette limite, vous serez invité à supprimer un mot de passe existant avant d’être autorisé à en créer un autre.
-
-- Utilisez un mot de passe d’application par appareil, et non par application. Par exemple, créez un mot de passe unique pour toutes les applications de votre ordinateur portable, et un autre mot de passe unique pour toutes les applications de votre Bureau.
 
     >[!Note]
     >Les clients Office 2013 (y compris Outlook) prennent en charge de nouveaux protocoles d’authentification et peuvent être utilisés dans le cadre de la vérification en deux étapes. Cela signifie qu’après l’activation de la vérification en deux étapes, vous n’aurez plus besoin de mots de passe d’application pour les clients Office 2013. Pour plus d’informations, consultez l’article [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).

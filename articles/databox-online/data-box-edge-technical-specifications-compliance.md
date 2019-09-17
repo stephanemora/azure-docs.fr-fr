@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 09/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755132"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910138"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Spécifications techniques d’Azure Data Box Edge
 
@@ -36,7 +36,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## <a name="storage-specifications"></a>Spécifications de stockage
 
-Les appareils Data Box Edge ont 10 disques SSD NVMe de 2,5", chacun avec une capacité de 1,6 To. Parmi ces disques SSD, deux sont des disques de système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
+Les appareils Data Box Edge ont 9 disques SSD NVMe de 2,5", chacun avec une capacité de 1,6 To. Un de ces disques SSD est dédié au système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
 
 |     Caractéristique                          |     Valeur             |
 |--------------------------------------------|-----------------------|

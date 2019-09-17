@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309566"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918816"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -206,14 +206,21 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 
 Le partage de fichiers Standard est disponible dans toutes les régions, jusqu’à 5 Tio. Dans certaines régions, il est disponible avec une limite de 100 Tio ; ces régions sont listées dans le tableau suivant :
 
-|Région |Redondance prise en charge |Prend en charge les comptes de stockage existants |Prise en charge du portail*   |
+|Région |Redondance prise en charge |Prend en charge les comptes de stockage existants |Prise en charge du portail* |
 |-------|---------|---------|---------|
-|Australie Est  |LRS     |Non    |OUI|
-|France Centre  |LRS     |Non    |Pas encore|
-|France Sud    |LRS     |Non    |Pas encore|
-|Asie Sud-Est  |LRS, ZRS|Non    |OUI|
-|Europe Ouest     |LRS, ZRS|Non    |OUI|
-|USA Ouest 2       |LRS, ZRS|Non    |OUI|
+|Australie Est |LRS     |Non    |OUI|
+|Sud-Australie Est|LRS     |Non    |Pas encore|
+|Inde centrale  |LRS     |Non    |Pas encore|
+|USA Est        |LRS     |Non    |Pas encore|
+|France Centre |LRS, ZRS|Non    |LRS - Oui, ZRS - pas encore|
+|France Sud   |LRS     |Non    |OUI|
+|Inde Sud    |LRS     |Non    |Pas encore|
+|Asie Sud-Est |LRS, ZRS|Non    |OUI|
+|Centre-USA Ouest|LRS     |Non    |Pas encore|
+|Europe Ouest    |LRS, ZRS|Non    |OUI|
+|USA Ouest        |LRS     |Non    |Pas encore|
+|USA Ouest 2      |LRS, ZRS|Non    |OUI|
+
 
 *Pour les régions sans prise en charge du portail, vous pouvez toujours utiliser PowerShell ou l’interface de ligne de commande (CLI) Azure pour créer plus de 5 partages TiO. Vous pouvez également créer un nouveau partage via le portail sans spécifier le quota. Cette opération crée un partage avec une taille par défaut de 100 TiO, qui peut être mis à jour ultérieurement via PowerShell ou Azure CLI.
 

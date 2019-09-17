@@ -1,19 +1,19 @@
 ---
-title: Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
+title: Performances des charges de travail Apache Spark avec le cache d’E/S Azure HDInsight (préversion)
 description: Découvrez-en plus sur Azure HDInsight IO Cache et comment l’utiliser pour améliorer les performances d’Apache Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695200"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915367"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache 
 
 IO Cache est un service de mise en cache de données pour Azure HDInsight qui améliore les performances des travaux Apache Spark. IO Cache fonctionne également avec des charges de travail [Apache TEZ](https://tez.apache.org/) et [Apache Hive](https://hive.apache.org/), qui peuvent être exécutées sur des clusters [Apache Spark](https://spark.apache.org/). IO Cache utilise un composant de mise en cache open source appelé RubiX. RubiX est un cache de disque local conçu pour une utilisation avec les moteurs d’analytique du Big Data qui accèdent aux données à partir de systèmes de stockage cloud. RubiX est un système de mise en cache unique, car il utilise des disques SSD au lieu de réserver de la mémoire d’exploitation pour la mise en cache. Le service IO Cache lance et gère les serveurs de métadonnées RubiX sur chaque nœud Worker du cluster. Il configure également tous les services du cluster pour une utilisation transparente du cache RubiX.
 

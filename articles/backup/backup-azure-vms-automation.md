@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872674"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909828"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -716,6 +716,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
     ```
 
 7. Envoyez (Push) l’extension ADE.
+   Si les extensions ADE ne sont pas envoyées, les disques de données sont marqués comme non chiffrés. Les étapes ci-dessous doivent donc être impérativement exécutées :
 
    * **Pour les machines virtuelles avec Azure AD** : utilisez la commande suivante pour activer manuellement le chiffrement des disques de données.  
 
@@ -746,6 +747,8 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Veillez à supprimer manuellement les fichiers JASON créés dans le cadre du processus de restauration de disque des machines virtuelles chiffrées.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restaurer des fichiers à partir d’une sauvegarde de machine virtuelle Azure

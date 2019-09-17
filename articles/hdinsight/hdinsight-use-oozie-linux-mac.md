@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: eb6df3bfda131f00c04499dc80c47482229195a5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623914"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900566"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -510,29 +510,29 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie** > **Liens rapides** > **Interface utilisateur web Oozie**.
 
-    ![Image des menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Image des menus](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. L’interface utilisateur web Oozie affiche par défaut les travaux du workflow en cours d’exécution. Pour voir tous les travaux du workflow, sélectionnez **Tous les travaux**.
 
-    ![Tous les travaux affichés](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![Tous les travaux affichés](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. Pour afficher plus d’informations sur un travail, sélectionnez le travail.
 
-    ![Job Info](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Job Info](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. Sous l’onglet **Infos travail**, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail**, la **configuration du travail**, accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
 
    * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
 
-       ![Journal du travail](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![Journal du travail](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **DAG de la tâche** : le graphique orienté acyclique est une représentation graphique des chemins de données utilisés à travers le workflow.
 
-       ![Graphique non cyclique dirigé du travail](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![Graphique non cyclique dirigé du travail](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Si vous sélectionnez l’une des actions sous l’onglet **Infos travail**, des informations sur l’action s’affichent. Par exemple, sélectionnez l’action **RunSqoopExport**.
 
-    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. Vous pouvez voir les détails de l’action, notamment un lien vers **l’URL de la console** Utilisez ce lien pour afficher les informations de suivi pour le travail.
 
@@ -632,18 +632,18 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
 
 7. Si vous accédez à l’interface utilisateur web Oozie et sélectionnez l’onglet **Travaux du coordinateur**, vous obtenez des informations semblables à l’image suivante :
 
-    ![Onglet Travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![Onglet Travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     L’entrée **Next Materialization** (Matérialisation suivante) indique l’heure de la prochaine exécution du travail.
 
 8. De même que pour le travail de workflow précédent, si vous sélectionnez l’entrée du travail dans l’interface utilisateur web, des informations sur le travail s’affichent :
 
-    ![Informations sur le travail du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![Informations sur le travail du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour afficher les actions individuelles, sélectionnez l’une des entrées **Action**.
 
-    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Informations sur l’action du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -747,7 +747,7 @@ Dans cet article, vous avez appris comment définir un workflow Oozie et comment
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

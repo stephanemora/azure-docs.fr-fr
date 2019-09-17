@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dca329ce598a9ecbc7da71cc1c24bf7731a4c994
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703973"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885425"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 
@@ -356,7 +356,7 @@ Pour obtenir un exemple d’utilisation du SDK .NET afin d’appliquer des scrip
 
 6. Vous pouvez également sélectionner les points de suspension ( **…** ) à droite des entrées dans la section Actions de script pour effectuer des actions.
 
-    ![Actions de script, points de suspension](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![Actions de script, points de suspension](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -442,7 +442,7 @@ Vous pouvez utiliser l’interface utilisateur web d’Ambari pour afficher les 
 
 3. Recherchez les entrées comportant **run\_customscriptaction** dans la colonne **Operations**. Ces entrées sont créées lors de l’exécution des actions de script.
 
-    ![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Pour voir les sorties **STDOUT** et **STDERR**, sélectionnez l’entrée **run\customscriptaction** et suivez les différents liens. Une sortie est générée à chaque exécution du script. Elle contient des informations potentiellement utiles.
 
@@ -452,7 +452,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
 * Les journaux d’activité de stockage sont disponibles dans `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Journaux d’actions de script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 

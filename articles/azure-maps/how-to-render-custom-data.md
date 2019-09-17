@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638796"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915753"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -27,7 +27,8 @@ Pour afficher une superposition géométrique, des étiquettes et des repères p
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
-Pour accomplir les procédures de cet article, vous devez d’abord [créer un compte Azure Maps](how-to-manage-account-keys.md) dans le niveau tarifaire S1.
+Pour suivre les procédures décrites dans cet article, vous devez commencer par créer un compte Azure Maps en suivant les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
+
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Afficher des repères avec des étiquettes et une image personnalisée
 

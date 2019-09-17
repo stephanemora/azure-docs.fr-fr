@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428466"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915153"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Développer des topologies C# pour Apache Storm à l’aide de Data Lake Tools pour Visual Studio
 
@@ -566,7 +566,7 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**. Dans les propriétés du projet, modifiez le **Type de sortie** sur **Application Console**.
 
-    ![Capture d’écran des propriétés du projet, avec le type de sortie en surbrillance](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Capture d’écran des propriétés du projet, avec le type de sortie en surbrillance](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > N’oubliez pas de modifier le **Type de sortie** sur **Bibliothèque de classes** avant de déployer la topologie sur un cluster.

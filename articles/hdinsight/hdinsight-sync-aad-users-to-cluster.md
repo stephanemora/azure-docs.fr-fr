@@ -1,19 +1,19 @@
 ---
 title: Synchroniser des utilisateurs Azure Active Directory vers un cluster - Azure HDInsight
-description: Synchronisez des utilisateurs authentifiés d’Azure Active Directory vers un cluster.
+description: Synchronisez des utilisateurs authentifiés d’Azure Active Directory vers un cluster HDInsight.
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58c847f512f2db72fdca823637192c3b638b1ae
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688543"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879343"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
@@ -37,7 +37,7 @@ Pour afficher vos hôtes, ouvrez l’interface utilisateur web d’Ambari. Chaqu
 
     ![Volet Nouvel utilisateur](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Utiliser l’API REST Apache Ambari pour synchroniser les utilisateurs
 
@@ -47,7 +47,7 @@ La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’inform
 
 1. [Connectez-vous à votre cluster avec SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Dans le volet de vue d’ensemble de votre cluster dans le portail Azure, sélectionnez le bouton **Secure Shell (SSH)** .
 
-    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
+    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. Copiez la commande `ssh` affichée et collez-la dans votre client SSH. À l’invite, entrez le mot de passe d’utilisateur ssh.
 
@@ -139,7 +139,7 @@ Ouvrez [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage
 
 3. Le nouvel utilisateur doit être listé dans le tableau des utilisateurs. Le type est défini sur `LDAP` plutôt que `Local`.
 
-    ![Page Utilisateurs](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![Page Utilisateurs](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Se connecter à Ambari en tant que nouvel utilisateur
 

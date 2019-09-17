@@ -1,20 +1,20 @@
 ---
 title: Mettre à l’échelle les tailles de cluster - Azure HDInsight
-description: Mettez à l’échelle un cluster Azure HDInsight de façon élastique pour qu’il corresponde à votre charge de travail.
+description: Mettre à l’échelle un cluster Apache Hadoop de façon élastique pour qu’il corresponde à votre charge de travail dans Azure HDInsight
 author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077200"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885550"
 ---
-# <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
+# <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
 HDInsight fournit l’élasticité en vous offrant la possibilité de monter ou de descendre en puissance le nombre de nœuds de travail dans vos clusters. Cette élasticité vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 

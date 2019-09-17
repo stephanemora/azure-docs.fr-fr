@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 996a084fd653b2100d94313e8801d915b4bf2cf3
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348183"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915578"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Meilleures pratiques en matière d’utilisation du service Recherche Azure Maps
 
@@ -27,7 +27,7 @@ Le [service Recherche](https://docs.microsoft.com/rest/api/maps/search) Azure Ma
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md) (Gérer votre compte et vos clés Azure Maps).
+Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte, suivez les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
 
 > [!Tip]
 > Pour interroger le service de recherche, vous pouvez utiliser [l’application Postman](https://www.getpostman.com/apps) afin de générer des appels REST, ou vous avez la possibilité de recourir à l’environnement de développement d’API que vous préférez.

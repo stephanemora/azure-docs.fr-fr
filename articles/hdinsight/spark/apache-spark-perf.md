@@ -1,6 +1,6 @@
 ---
 title: Optimiser les performances des travaux Spark - Azure HDInsight
-description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Spark.
+description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Apache Spark dans Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476106"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885108"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
 Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  Le défi le plus courant est la sollicitation de la mémoire due à aux configurations incorrectes (en particulier les exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
 

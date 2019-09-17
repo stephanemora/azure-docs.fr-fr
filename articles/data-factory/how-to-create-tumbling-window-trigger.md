@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/11/2019
+ms.openlocfilehash: 7600398d213748bdea9da5a483a8c10d486a8048
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141548"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915543"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -25,11 +25,14 @@ Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’activ
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 
-Pour créer un déclencheur de fenêtre bascule dans le Portail Azure, sélectionnez **Déclencheur > Fenêtre bascule > Suivant**, puis configurez les propriétés qui définissent la fenêtre bascule.
+1. Pour créer un déclencheur de fenêtre bascule dans l’interface utilisateur de Data Factory, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
+1. Une fois le volet Configuration du déclencheur ouvert, sélectionnez **Fenêtre bascule**, puis définissez les propriétés du déclencheur de votre fenêtre bascule. 
+1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
 ![Création d’un déclencheur de fenêtre bascule dans le Portail Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propriétés de type de déclencheur de fenêtre bascule
+
 Une fenêtre bascule a les propriétés de type de déclencheur suivantes :
 
 ```
@@ -94,7 +97,7 @@ Le tableau suivant présente les principaux éléments JSON liés à la périodi
 | **type** | Type du déclencheur. Le type correspond à la valeur fixe « TumblingWindowTrigger ». | String | « TumblingWindowTrigger » | OUI |
 | **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque**: Cet élément est \<readOnly>. | String | « Started », « Stopped », « Disabled » | OUI |
 | **frequency** | Chaîne qui représente l’unité de fréquence (minutes ou heures) à laquelle le déclencheur doit être répété. Si les valeurs de date **startTime** sont plus précises que la valeur **frequency**, les dates **startTime** sont prises en compte quand les limites de la fenêtre sont calculées. Par exemple, si la valeur de **frequency** est horaire et que la valeur de **startTime** est 2017-09-01T10:10:10Z, la première fenêtre est (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | « minute », « hour »  | OUI |
-| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. | Integer | Entier positif. | OUI |
+| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. <br/>**Remarque**: L’intervalle d’affichage minimal est de 15 minutes. | Integer | Entier positif. | OUI |
 | **startTime**| Première occurrence, qui peut être dans le passé. Le premier intervalle de déclencheur est (**startTime**, **startTime** + **interval**). | DateTime | Valeur DateTime. | OUI |
 | **endTime**| Dernière occurrence, qui peut être dans le passé. | DateTime | Valeur DateTime. | OUI |
 | **delay** | Délai duquel différer le démarrage du traitement des données pour la fenêtre. L’exécution du pipeline est démarrée après l’heure d’exécution prévue + **delay**. **delay** définit la durée d’attente du déclencheur après l’heure d’échéance avant de déclencher une nouvelle exécution. **delay** ne modifie pas la valeur **startTime** de la fenêtre. Par exemple, une valeur **delay** de 00:10:00 indique un délai de 10 minutes. | Timespan<br/>(hh:mm:ss)  | Valeur d’intervalle de temps où la valeur par défaut est 00:00:00. | Non |

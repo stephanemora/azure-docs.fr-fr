@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f58783a4d5ce1b81e951b811dfa8d65bc2a4f926
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6c818114df436dbbd3ac1a51b6eeec00b9eec4d3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477765"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915730"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
@@ -35,7 +35,7 @@ Quand une alerte appelle un runbook, l’appel réel est une demande HTTP POST v
 
 |Alerte  |Description|Schéma de la charge utile  |
 |---------|---------|---------|
-|[Alerte courante](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Le schéma d’alerte courant qui standardise l’expérience de consommation pour les notifications d’alerte dans Azure de nos jours.|[Schéma de la charge utile d’alerte courante](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
+|[Alerte courante](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Le schéma d’alerte courant qui standardise l’expérience de consommation pour les notifications d’alerte dans Azure de nos jours.|Schéma de la charge utile d’alerte courante|
 |[Alerte du journal d’activité](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envoie une notification lorsqu’un nouvel événement du journal d’activité remplit des conditions spécifiques. Par exemple, lorsqu’une opération `Delete VM` est effectuée dans **myProductionResourceGroup** ou lorsqu’un nouvel événement Azure Service Health avec un statut **Actif** apparaît.| [Schéma de la charge utile et alerte de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
 |[Alerte de métrique quasiment en temps réel](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envoie une notification plus rapidement que des alertes de métrique lorsqu’une ou plusieurs mesures au niveau de la plateforme remplissent des conditions spécifiques. Par exemple, lorsque la valeur **CPU %** d’une machine virtuelle est supérieure à **90**, et que la valeur **Network In** est supérieure à **500 Mo** lors des 5 dernières minutes.| [Schéma de la charge utile et alerte de métrique quasiment en temps réel](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 

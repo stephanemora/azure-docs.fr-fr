@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 818285e089ab01c2c603f2b0181fbd6d9179eba1
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019799"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873452"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>En tant que fournisseur de solutions cloud, créer et gérer une application Azure IoT Central pour le compte de votre client 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>En tant que fournisseur de solutions cloud, créer et gérer une application Azure IoT Central pour le compte de votre client
 
 Le programme Fournisseur de solutions cloud Microsoft est un programme Revendeur Microsoft. Son objectif est de fournir à nos partenaires un programme clé en main pour revendre tous les services en ligne commerciaux de Microsoft. Découvrez plus d’informations sur le [programme Fournisseur de solutions cloud](https://partner.microsoft.com/cloud-solution-provider).
 
@@ -71,11 +71,14 @@ Pour plus d’informations, consultez [Abonnements Azure](https://docs.microsoft
 
 ## <a name="region"></a>Région
 
-Choisissez la région où vous voulez créer votre application Azure IoT Central. D’une façon générale, il est recommandé de choisir la région qui est physiquement la plus proche de vos appareils, de façon à obtenir des performances optimales.
+Choisissez la région ou la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez créer votre application Azure IoT Central. D’une façon générale, pour bénéficier de performances optimales, il est recommandé de choisir la région qui est physiquement la plus proche de vos appareils.
 
-Pour plus d’informations, consultez [Régions Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
+> [!NOTE]
+> Le modèle **Aperçu de l’application** n’est actuellement disponible que dans les régions **Europe Nord** et **USA Centre**.
 
-Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible dans la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+Pour plus d’informations, voir [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) et [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible dans la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central).
 
 > [!Note]
 > Une fois que vous avez choisi une région, vous ne pouvez plus déplacer votre application dans une autre région.

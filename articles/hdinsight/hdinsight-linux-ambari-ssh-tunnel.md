@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299372"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879619"
 ---
-# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur web
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur
 
 Les clusters HDInsight donnent accès à l’IU web d’Apache Ambari via Internet, mais certaines fonctionnalités nécessitent un tunnel SSH. Par exemple, l’IU web pour le service Apache Oozie n’est pas accessible via Internet sans tunnel SSH.
 
@@ -102,7 +102,7 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
    * **Dynamique** : active le routage dynamique du proxy SOCKS.
      
-     ![image des options de tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
+     ![image des options de tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. Sélectionnez **Ajouter** pour ajouter les paramètres, puis cliquez sur **Ouvrir** pour ouvrir une connexion SSH.
 
@@ -115,7 +115,7 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
 1. Configurez le navigateur pour qu’il utilise **localhost** et le port que vous avez utilisé lors de la création du tunnel en tant que proxy **SOCKS v5**. Voici comment se présentent les paramètres Firefox : si vous avez utilisé un port autre que 9876, modifiez le port par celui que vous avez utilisé :
    
-    ![image des paramètres de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
+    ![image des paramètres de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
    
    > [!NOTE]  
    > La sélection de **DNS Distant** résout les requêtes DNS à l’aide du cluster HDInsight. Ce paramètre résout les éléments DNS en utilisant le nœud principal du cluster.
@@ -133,11 +133,11 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
 2. Dans l'interface utilisateur Web Ambari, sélectionnez HDFS dans la liste située sur la gauche de la page.
 
-    ![Image avec HDFS sélectionné](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
+    ![Image avec HDFS sélectionné](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. Lorsque les informations de service HDFS s’affichent, sélectionnez **Liens rapides**. Une liste des nœuds principaux du cluster s’affiche. Sélectionnez l’un des nœuds principaux, puis **Interface utilisateur NameNode**.
 
-    ![Image avec le menu Liens rapides développé](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![Image avec le menu Liens rapides développé](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
     > [!NOTE]  
     > Lorsque vous sélectionnez __Liens rapides__, un indicateur d’attente peut apparaître. Cela peut se produire si votre connexion internet est lente. Patientez une minute ou deux pour recevoir les données du serveur, puis réessayez.
@@ -146,7 +146,7 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
 4. Une page similaire à celle ci-dessous s’affiche :
 
-    ![Image de l’interface utilisateur NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![Image de l’interface utilisateur NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
     > Notez l’URL de cette page ; elle doit être similaire à `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Cette URI utilise le nom de domaine complet (FQDN) interne du nœud et est uniquement accessible en cas d’utilisation d’un tunnel SSH.

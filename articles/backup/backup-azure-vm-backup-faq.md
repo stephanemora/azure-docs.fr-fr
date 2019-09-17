@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827572"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909801"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -120,6 +120,12 @@ Pour une machine virtuelle Azure à disque managé, la restauration dans des gro
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Comment accélérer les performances de restauration ?
 La fonctionnalité [Restauration instantanée](backup-instant-restore-capability.md) permet d’accélérer les sauvegardes et les restaurations instantanées à partir des captures instantanées.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Que se passe-t-il lorsque nous modifions les paramètres du coffre de clés pour la machine virtuelle chiffrée ?
+
+Lorsque vous modifiez les paramètres du coffre de clés pour la machine virtuelle chiffrée, les sauvegardes continuent de fonctionner avec les nouveaux paramètres, mais, en cas de restauration à partir d’un point de récupération antérieur à la modification, vous devez restaurer les secrets dans un coffre de clés avant de pouvoir créer la machine virtuelle à partir de celui-ci. Pour plus d’informations, voir cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Des opérations telles que la restauration de secret/clé ne nécessitent pas cette étape et le même coffre de clés peut être utilisé après restauration.
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

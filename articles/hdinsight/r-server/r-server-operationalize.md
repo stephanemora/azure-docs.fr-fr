@@ -1,6 +1,6 @@
 ---
 title: Rendre opérationnel ML Services sur HDInsight - Azure
-description: Découvrez comment rendre opérationnel ML Services dans Azure HDInsight.
+description: Découvrez comment faire fonctionner votre modèle de données pour faire des prédictions avec ML Services dans Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448983"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879495"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
@@ -50,31 +50,31 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
 1. Les options disponibles s’affichent. Choisissez la première option, comme illustré dans la capture d’écran suivante, pour **configurer ML Server pour l’opérationnalisation**.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![opérationnalisation à boîtier unique1](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Vous devez maintenant choisir la configuration souhaitée pour rendre opérationnel ML Server. Sélectionnez la première option en entrant **A**.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![opérationnalisation à boîtier unique2](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quand vous y êtes invité, saisissez et saisissez à nouveau le mot de passe d’un utilisateur administrateur local.
 
 1. Vous devriez voir des sorties suggérant que l’opération a réussi. Vous êtes également invité à sélectionner une autre option dans le menu. Entrez E pour revenir au menu principal.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![opérationnalisation à boîtier unique3](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Vous pouvez éventuellement effectuer des vérifications de diagnostic en exécutant un test de diagnostic, comme suit :
 
     a. Dans le menu principal, sélectionnez **6** pour exécuter les tests de diagnostic.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. Dans le menu Diagnostic Tests (Tests de diagnostic), sélectionnez **A**. Quand vous y êtes invité, entrez le mot de passe que vous avez fourni pour l’utilisateur administrateur local.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. Vérifiez que la sortie indique que l’intégrité globale est satisfaisante, comme illustré ci-dessous.
 
-    ![opérationnalisation complète](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. Dans les options de menu présentées, entrez **E** pour revenir au menu principal, puis **8** pour quitter l’utilitaire d’administration.
 
