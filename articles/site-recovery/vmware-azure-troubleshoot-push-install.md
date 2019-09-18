@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
-ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2019
+ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925577"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910636"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -240,6 +240,8 @@ Cette erreur se produit lorsque le service fournisseur VSS d’Azure Site Recove
 Cette erreur se produit lorsque la base de données de service fournisseur VSS d’Azure Site Recovery est [verrouillée](https://msdn.microsoft.com/library/ms833798.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+En cas d'échec, vérifiez si un programme antivirus ou d'autres services sont bloqués à l'état de « démarrage ». Cela pourrait maintenir le verrouillage des services de base de données. Des échecs lors l'installation du fournisseur VSS se produiront. Assurez-vous qu'aucun service n'est à l'état de « démarrage», puis réessayez l'opération ci-dessus.
 
 ### <a name="vss-exit-code-806"></a>Code de sortie VSS 806
 

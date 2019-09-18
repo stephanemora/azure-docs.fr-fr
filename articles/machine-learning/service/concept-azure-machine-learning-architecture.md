@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011642"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845009"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -129,7 +129,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ### <a name="datasets-and-datastores"></a>Jeux de données et magasins de données
 
-Les **jeux de données Azure Machine Learning** (préversion) facilitent l’accès aux données et l’utilisation de ces dernières. Les jeux de données gèrent les données dans divers scénarios tels que l’entraînement de modèles et la création de pipelines. À l’aide du SDK Azure Machine Learning, vous pouvez accéder au stockage sous-jacent, explorer et préparer des données, gérer le cycle de vie de différentes définitions de jeu de données et comparer les jeux de données utilisés dans l’entraînement et en production.
+Les **jeux de données Azure Machine Learning** (préversion) facilitent l’accès aux données et l’utilisation de ces dernières. Les jeux de données gèrent les données dans divers scénarios tels que l’entraînement de modèles et la création de pipelines. À l’aide du SDK Azure Machine Learning, vous pouvez accéder au stockage sous-jacent, explorer des données et gérer le cycle de vie de différentes définitions de jeu de données.
 
 Les jeux de données fournissent des méthodes pour manipuler des données dans des formats courants, comme l’utilisation de `from_delimited_files()` ou `to_pandas_dataframe()`.
 

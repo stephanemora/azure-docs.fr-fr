@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720998"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882434"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux d’activité Apache Hadoop
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analyser les journaux Apache Hadoop dans Azure HDInsight
 
 Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux d’activité.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Les journaux d’activité sont conservés dans le compte de stockage, même après la suppression du cluster.
 
@@ -44,7 +44,7 @@ Ces tables contiennent les champs suivants :
 * Message
 * N
 * PreciseTimeStamp
-* Rôle
+* Role
 * RowIndex
 * Locataire
 * TIMESTAMP
@@ -73,7 +73,7 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 5. Cliquez avec le bouton droit de la souris sur la table hadoopservicelog dans le volet du **navigateur** et sélectionnez **Modifier**. Vous devez voir quatre colonnes. Vous pouvez supprimer les colonnes **Clé de partition**, **Clé de ligne** et **Horodatage** en les sélectionnant, puis en cliquant sur **Supprimer les colonnes** dans les options du ruban.
 6. Cliquez sur l’icône de développement de la colonne Contenu pour choisir les colonnes que vous souhaitez importer dans la feuille de calcul Excel. Pour cette démonstration, j’ai choisi les colonnes TraceLevel et ComponentName : Elles peuvent me donner des informations de base sur les composants ayant rencontré des problèmes.
    
-    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![Les journaux HDInsight Hadoop choisissent les colonnes Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes Excel")
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
@@ -93,7 +93,7 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
    
         TraceLevel eq 'ERROR'
    
-    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![Les journaux HDInsight Hadoop choisissent les colonnes VS](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes VS")
    
     Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
@@ -120,7 +120,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
 
 * **Obtenir l’état du cluster**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **About**. Une série de détails sur l’état du cluster apparaissent, comme la mémoire totale allouée, les cœurs utilisés, l’état du gestionnaire des ressources de cluster ou la version du cluster.
   
-    ![Tableau de bord du cluster](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
+    ![Lancer le tableau de bord du cluster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Lancer le tableau de bord du cluster yarn")
 * **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
 * **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux d’activité.
 

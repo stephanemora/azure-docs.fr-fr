@@ -1,5 +1,5 @@
 ---
-title: Exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé (AutoML) sur Apache Spark dans Azure HDInsight
+title: Exécuter des charges de travail Azure Machine Learning sur Apache Spark dans Azure HDInsight
 description: Découvrez comment exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé (AutoML) sur Apache Spark dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141183"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814040"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé (AutoML) sur Apache Spark dans Azure HDInsight
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé sur Apache Spark dans HDInsight
 
 Azure Machine Learning simplifie et accélère la création, la formation et le déploiement de modèles Machine Learning. Dans Machine Learning automatisé (AutoML), vous commencez avec des données d’apprentissage comportant une fonctionnalité cible définie, puis vous itérez à travers des combinaisons d’algorithmes et de sélections de fonctionnalités pour choisir automatiquement le meilleur modèle pour vos données en fonction des scores d’apprentissage. HDInsight permet aux clients d’approvisionner des clusters avec des centaines de nœuds. AutoML exécuté sur Spark dans un cluster HDInsight permet aux utilisateurs d’utiliser la capacité de calcul sur ces nœuds afin d’exécuter des travaux d’apprentissage de manière montée en puissance et d’exécuter plusieurs travaux d’apprentissage en parallèle. Cela permet aux utilisateurs d’exécuter des expériences AutoML tout en partageant le calcul avec leurs autres charges de travail Big Data.
  

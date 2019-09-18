@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: db2457cc3e320ac413cb245f51810b654c63aa22
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/06/2019
+ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308988"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773278"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -35,7 +35,9 @@ La fonctionnalité de réplica en lecture utilise la réplication asynchrone. La
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
 
-Vous pouvez disposer d’un serveur maître dans toute [région Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles.
+Vous pouvez disposer d’un serveur maître dans toute [région Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles. L’image ci-dessous montre les régions de réplica disponibles en fonction de votre région maître.
+
+[ ![Régions des réplicas en lecture](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
 Vous pouvez toujours créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles sont les suivantes :
