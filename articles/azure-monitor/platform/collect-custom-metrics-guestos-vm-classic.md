@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129564"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844926"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
 
@@ -34,6 +34,8 @@ La procédure décrite dans cet article fonctionne uniquement avec les machines 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+
+- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Créer une machine virtuelle classique et un compte de stockage
 

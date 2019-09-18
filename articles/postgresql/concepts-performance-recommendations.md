@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907489"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764669"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL - Serveur unique
 
-**S’applique à :** Azure Database pour PostgreSQL - Serveur unique 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - Serveur unique versions 9.6, 10, 11
 
 La fonctionnalité Recommandations sur les performances analyse vos bases de données pour créer des suggestions personnalisées pour améliorer les performances. Pour produire les recommandations, l’analyse examine les différentes caractéristiques de la base de données, y compris le schéma. Activez le [Magasin des requêtes](concepts-query-store.md) sur votre serveur pour utiliser pleinement la fonctionnalité Recommandations sur les performances. Après avoir implémenté une recommandation sur les performances, vous devez tester les performances pour évaluer l’impact des changements. 
 

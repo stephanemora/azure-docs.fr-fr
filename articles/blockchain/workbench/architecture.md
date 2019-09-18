@@ -1,25 +1,25 @@
 ---
-title: Architecture Azure Blockchain Workbench
-description: Présentation de l’architecture Azure Blockchain Workbench et de ses composants.
+title: Architecture Azure Blockchain Workbench Preview
+description: Présentation de l’architecture Azure Blockchain Workbench Preview et de ses composants.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/20/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060904"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845217"
 ---
-# <a name="azure-blockchain-workbench-architecture"></a>Architecture Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-architecture"></a>Architecture Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
+Azure Blockchain Workbench Preview simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
 
 ![Architecture Blockchain Workbench](./media/architecture/architecture.png)
 

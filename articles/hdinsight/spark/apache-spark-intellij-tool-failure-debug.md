@@ -1,6 +1,6 @@
 ---
 title: 'Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion) '
-description: Obtenez des instructions étape par étape sur la façon d’utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer des applications à distance sur des clusters HDInsight via SSH
+description: Conseils d’utilisation de HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de déboguer des applications
 keywords: déboguer à distance intellij, débogage à distance intellij, ssh, intellij, hdinsight, déboguer intellij, débogage
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: aff9f0f70377ebc6e741618b22ff82bc06251521
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a07dcd58263674aa6fd360e138c0b9c999ea644e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295913"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814151"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
 
@@ -83,7 +83,7 @@ Créez une application Spark Scala/Java, puis exécutez l’application sur un c
 
 6. Vous pouvez vérifier l’ID de l’application dans la fenêtre de sortie.
    
-   ![Bouton d’exécution à distance](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
+   ![Résultat de l’exécution à distance](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
 
 ## <a name="download-failed-job-profile"></a>Téléchargez le profil de travail ayant échoué
 
@@ -91,9 +91,9 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 1. Ouvrez **Explorateur Stockage Microsoft Azure**, recherchez le compte HDInsight du cluster pour le travail ayant échoué, téléchargez les ressources de travail ayant échoué à partir de l’emplacement correspondant : **\hdp\spark2-events\\.spark-failures\\\<ID d’application>** dans un dossier local. La fenêtre **Activités** indique la progression du téléchargement.
 
-   ![échec du téléchargement du fichier](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   ![échec du téléchargement du fichier1](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
-   ![échec du téléchargement du fichier](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
+   ![échec du téléchargement du fichier2](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurez l’environnement de débogage local et déboguer en cas d’échec
 
@@ -101,13 +101,13 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 2. Dans IntelliJ IDEA, créez un fichier de configuration de **débogage d’échec Spark**, puis sélectionnez le fichier DFT dans les ressources de travail ayant échoué précédemment téléchargées pour le champ **Emplacement du contexte de l’échec du travail Spark**.
    
-   ![Bouton d’exécution à distance](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   ![créer une configuration d’échec](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
 4. Cliquez sur le bouton d’exécution local dans la barre d’outils, l’erreur s’affiche dans la fenêtre Exécuter.
    
-   ![Bouton d’exécution à distance](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   ![run-failure-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
 
-   ![Bouton d’exécution à distance](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   ![run-failure-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
 5. Définissez le point d’arrêt comme le journal l’indique, puis cliquez sur le bouton de débogage local pour effectuer le débogage local tout comme vos projets Scala/Java normaux dans IntelliJ.
 
