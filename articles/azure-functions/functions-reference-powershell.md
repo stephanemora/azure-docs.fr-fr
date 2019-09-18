@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012710"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773042"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -305,7 +305,7 @@ L’objet de requête qui est transmis dans le script est de type `HttpRequestCo
 
 | Propriété  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Objet qui contient le corps de la demande. `Body` est sérialisé dans le meilleur type en fonction des données. Par exemple, si les données sont au format JSON, il est transmis sous forme de table de hachage. Si les données sont au format chaîne, il est transmis sous forme de chaîne. | objet |
+| **`Body`**    | Objet qui contient le corps de la demande. `Body` est sérialisé dans le meilleur type en fonction des données. Par exemple, si les données sont au format JSON, il est transmis sous forme de table de hachage. Si les données sont au format chaîne, il est transmis sous forme de chaîne. | object |
 | **`Headers`** | Dictionnaire qui contient les en-têtes de requête.                | Dictionnaire<chaîne,chaîne><sup>*</sup> |
 | **`Method`** | Méthode HTTP de la demande.                                | string                    |
 | **`Params`**  | Objet qui contient les paramètres de routage de la demande. | Dictionnaire<chaîne,chaîne><sup>*</sup> |
@@ -320,7 +320,7 @@ L’objet de réponse qui doit être retourné est de type `HttpResponseContext`
 
 | Propriété      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Objet qui contient le corps de la réponse.           | objet                    |
+| **`Body`**  | Objet qui contient le corps de la réponse.           | object                    |
 | **`ContentType`** | Abréviation définissant le type de contenu pour la réponse. | string                    |
 | **`Headers`** | Objet qui contient les en-têtes de la réponse.               | Dictionnaire ou table de hachage   |
 | **`StatusCode`**  | Code d’état HTTP de la réponse.                       | chaîne ou entier             |
@@ -403,14 +403,18 @@ Vous pouvez afficher la version en imprimant `$PSVersionTable` à partir de n’
 
 ## <a name="dependency-management"></a>Gestion des dépendances
 
-Les fonctions PowerShell prennent en charge la gestion des modules Azure par le service. En modifiant le fichier host.json et en définissant la propriété activée managedDependency sur true, le fichier requirements.psd1 est traité. Les derniers modules Azure sont automatiquement téléchargés et mis à disposition de la fonction.
+Les fonctions PowerShell prennent en charge le téléchargement et la gestion des modules de [PowerShell Gallery](https://www.powershellgallery.com) via le service. En modifiant le fichier host.json et en définissant la propriété activée managedDependency sur true, le fichier requirements.psd1 est traité. Les derniers modules sont automatiquement téléchargés et mis à disposition de la fonction. 
+
+Le nombre maximal de modules actuellement pris en charge est de 10. La syntaxe prise en charge est MajorNumber.* ou la version de module exacte, comme indiqué ci-dessous. Le module Azure Az est inclus par défaut lors de la création d’une application de fonction PowerShell.
+
+Le travail de langage récupère tous les modules mis à jour au redémarrage.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-L’utilisation de vos propres modules personnalisés ou de modules de [PowerShell Gallery](https://powershellgallery.com) est légèrement différente de l’utilisation normale.
+L’utilisation de vos propres modules personnalisés est légèrement différente de l’utilisation normale.
 
 Lorsque vous installez le module sur votre ordinateur local, il est placé dans un des dossiers globalement disponibles dans votre `$env:PSModulePath`. Étant donné que votre fonction s’exécute dans Azure, vous n’avez pas accès aux modules installés sur votre machine. Le `$env:PSModulePath` pour une Function App PowerShell doit donc être différent de `$env:PSModulePath` dans un script PowerShell classique.
 
@@ -433,16 +438,19 @@ Dans Functions, `PSModulePath` contient deux chemins d’accès :
 
 ### <a name="function-app-level-modules-folder"></a>Dossier `Modules` de niveau Function App
 
-Pour utiliser des modules personnalisés ou des modules PowerShell de PowerShell Gallery, vous pouvez placer des modules dont dépendent vos fonctions dans un dossier `Modules`. Dans ce dossier, les modules sont automatiquement disponibles au runtime de Functions. Toute fonction dans Function App peut utiliser ces modules.
+Pour utiliser des modules personnalisés vous, pouvez placer les modules dont dépendent vos fonctions dans un dossier `Modules`. Dans ce dossier, les modules sont automatiquement disponibles au runtime de Functions. Toute fonction dans Function App peut utiliser ces modules. 
 
-Pour tirer parti de cette fonctionnalité, vous devez créer un dossier `Modules` à la racine de votre Function App. Enregistrez les modules que vous souhaitez utiliser dans vos fonctions à cet emplacement.
+> [!NOTE]
+> Les modules spécifiés dans le fichier requirements.psd1 sont automatiquement téléchargés et inclus dans le chemin d’accès, de sorte que vous n’avez pas besoin de les inclure dans le dossier des modules. Ceux-ci sont stockés localement dans le dossier $env:LOCALAPPDATA/AzureFunctions et dans le dossier /data/ManagedDependencies lorsqu’ils sont exécutés dans le cloud.
+
+Pour tirer parti de cette fonctionnalité de module personnalisé, vous devez créer un dossier `Modules` à la racine de votre Function App. Copiez les modules que vous souhaitez utiliser dans vos fonctions à cet emplacement.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Utilisez `Save-Module` pour enregistrer tous les modules utilisés par vos fonctions, ou copiez vos propres modules personnalisés dans le dossier `Modules`. Avec un dossier Modules, votre Function App doit avoir la structure de dossiers suivante :
+Avec un dossier Modules, votre Function App doit avoir la structure de dossiers suivante :
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 Lorsque vous démarrez votre Function App, le rôle de travail du langage PowerShell ajoute ce dossier `Modules` à `$env:PSModulePath` afin que vous puissiez vous appuyer sur le chargement automatique de module comme vous le feriez dans un script PowerShell classique.
@@ -503,17 +512,7 @@ Vous définissez cette variable d’environnement dans les [paramètres d’appl
 
 ### <a name="considerations-for-using-concurrency"></a>Considérations relatives à l’utilisation de la concurrence
 
-PowerShell est un langage de scripts _à un thread_ par défaut. Toutefois, la concurrence peut être ajoutée en utilisant plusieurs instances d’exécution de PowerShell dans le même processus. Cette fonctionnalité correspond au fonctionnement du runtime Azure Functions PowerShell.
-
-Cette approche présente certains inconvénients.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>La concurrence n’est efficace que sur la machine sur laquelle elle est exécutée
-
-Si votre Function App s’exécute sur un [plan App Service](functions-scale.md#app-service-plan) qui ne prend en charge qu’un seul cœur, la concurrence ne sera pas très utile. Ceci est dû au fait qu’il n’existe pas de cœurs supplémentaires pour équilibrer la charge. Dans ce cas, les performances peuvent varier lorsque le cœur unique doit changer de contexte entre les instances d’exécution.
-
-Le [plan de consommation](functions-scale.md#consumption-plan) s’exécute à l’aide d’un seul cœur, vous ne pouvez donc pas utiliser la concurrence. Si vous souhaitez tirer pleinement parti de la concurrence, déployez plutôt vos fonctions sur une Function App exécutée sur un plan App Service dédié comprenant suffisamment de cœurs.
-
-#### <a name="azure-powershell-state"></a>État d’Azure PowerShell
+PowerShell est un langage de scripts _à un thread_ par défaut. Toutefois, la concurrence peut être ajoutée en utilisant plusieurs instances d’exécution de PowerShell dans le même processus. La quantité d’instances d’exécution créée correspond au paramètre d’application PSWorkerInProcConcurrencyUpperBound. Le débit sera affecté par la quantité d’UC et de mémoire disponible dans le plan sélectionné.
 
 Azure PowerShell utilise des contextes _au niveau du processus_ et un état pour vous libérer d’une saisie excessive. Toutefois, si vous activez la concurrence dans votre Function App et appelez des actions qui changent l’état, vous pouvez être confronté à des conditions de concurrence. Ces conditions de concurrence sont difficiles à déboguer car un appel s’appuie sur un état donné et que l’autre appel a changé l’état.
 

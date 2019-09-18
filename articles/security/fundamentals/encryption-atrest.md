@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 78062dd92d20da365bb4f3d9c21cc4d576bae01f
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182796"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918863"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -39,7 +39,7 @@ Le chiffrement au repos fait référence à l’encodage (chiffrement) des donn�
 - Une clé de chiffrement symétrique est utilisée pour chiffrer les données au fil de leur stockage.
 - La clé de chiffrement est utilisée pour déchiffrer ces données au fil de leur préparation à une utilisation en mémoire.
 - Les données peuvent être partitionnées, et des clés différentes peuvent être utilisées pour chaque partition.
-- Les clés doivent être stockées dans un emplacement sécurisé doté du contrôle d’accès basé sur l’identité et de stratégies d’audit. Les clés de chiffrement de données sont souvent chiffrées avec un chiffrement asymétrique pour limiter davantage l’accès.
+- Les clés doivent être stockées dans un emplacement sécurisé doté du contrôle d’accès basé sur l’identité et de stratégies d’audit. Les clés de chiffrement de données sont souvent chiffrées avec une clé de chiffrement de clé dans Azure Key Vault pour limiter davantage l’accès.
 
 Dans la pratique, les scénarios de gestion et de contrôle des clés, ainsi que les garanties de scalabilité et de disponibilité, nécessitent des mécanismes supplémentaires. Les concepts et les composants du chiffrement des données au repos de Microsoft Azure sont décrits ci-dessous.
 
@@ -71,12 +71,12 @@ Les autorisations d’utiliser les clés stockées dans Azure Key Vault, pour le
 
 ### <a name="key-hierarchy"></a>Hiérarchie des clés
 
-Plusieurs clés de chiffrement sont utilisées dans une implémentation du chiffrement au repos. Un chiffrement asymétrique est utile pour établir la confiance, et une authentification est nécessaire pour l’accès et la gestion des clés. Un chiffrement symétrique est plus efficace pour le chiffrement et le déchiffrement en bloc, permettant un chiffrement plus fort et de meilleures performances. Limiter l’utilisation d’une seule clé de chiffrement réduit le risque que la clé soit compromise et le coût du rechiffrement quand une clé doit être remplacée. Les modèles de chiffrement Azure au repos utilisent une hiérarchie de clé constituée des types de clés suivants :
+Plusieurs clés de chiffrement sont utilisées dans une implémentation du chiffrement au repos. Le stockage d’une clé de chiffrement dans Azure Key Vault garantit l’accès sécurisé aux clés et la gestion centralisée des clés. Toutefois, l’accès local du service aux clés de chiffrement est plus efficace pour le chiffrement et le déchiffrement en bloc que d’interagir avec Key Vault pour chaque opération de données, ce qui permet un chiffrement renforcé et de meilleures performances. Limiter l’utilisation d’une seule clé de chiffrement réduit le risque que la clé soit compromise et le coût du rechiffrement quand une clé doit être remplacée. Les modèles de chiffrement Azure au repos utilisent une hiérarchie de clé constituée des types de clés suivants afin de répondre à tous ces besoins :
 
 - **Clé de chiffrement des données** : une clé symétrique AES256 utilisée pour chiffrer une partition ou un bloc de données.  Une même ressource peut avoir plusieurs partitions et de nombreuses clés de chiffrement des données. Le chiffrement de chaque bloc de données avec une clé différente rend les attaques d’analyse du chiffrement plus difficiles. L’accès aux clés de chiffrement des données est nécessaire au fournisseur de ressources ou à l’instance d’application qui chiffre et déchiffre un bloc spécifique. Quand une clé de chiffrement des données est remplacée par une nouvelle clé, seules les données du bloc qui y est associé doivent être rechiffrées avec la nouvelle clé.
-- **Clé de chiffrement des clés** : une clé de chiffrement asymétrique utilisée pour chiffrer les clés de chiffrement des données. L’utilisation d’une clé de chiffrement des clés permet le chiffrement et le contrôle des clés de chiffrement des données elles-mêmes. L’entité qui a accès à la clé de chiffrement des clés peut être différente de l’entité qui a besoin de la clé de chiffrement des données. Une entité peut répartir l’accès à la clé de chiffrement des clés pour limiter l’accès de chaque clé de chiffrement des clés vers une partition spécifique. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
+- **Clé de chiffrement des clés** : une clé de chiffrement utilisée pour chiffrer les clés de chiffrement des données. L’utilisation d’une clé de chiffrement des clés ne quittant jamais le coffre de clés permet le chiffrement et le contrôle des clés de chiffrement des données elles-mêmes. L’entité qui a accès à la clé de chiffrement des clés peut être différente de l’entité qui a besoin de la clé de chiffrement des données. Une entité peut répartir l’accès à la clé de chiffrement des clés pour limiter l’accès de chaque clé de chiffrement des clés vers une partition spécifique. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
 
-Les clés de chiffrement des données chiffrées avec des clés de chiffrement des clés sont stockées séparément, et seule une entité ayant accès à la clé de chiffrement des clés peut obtenir les clés de chiffrement des données chiffrées avec cette clé. Différents modèles de stockage des clés sont pris en charge. Nous allons décrire chaque modèle plus en détail plus loin, dans la section suivante.
+Les clés de chiffrement des données chiffrées avec des clés de chiffrement des clés sont stockées séparément, et seule une entité ayant accès à la clé de chiffrement des clés peut déchiffrer ces clés de chiffrement des données. Différents modèles de stockage des clés sont pris en charge. Nous allons décrire chaque modèle plus en détail plus loin, dans la section suivante.
 
 ## <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
@@ -150,7 +150,9 @@ Quand le chiffrement côté serveur avec des clés gérées par le service est u
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault
 
-Dans les scénarios où les données doivent être chiffrées au repos et les clés de chiffrement doivent être contrôlées, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé configurée comme clé racine pour toutes les opérations de chiffrement.
+Dans les scénarios où les données doivent être chiffrées au repos et les clés de chiffrement doivent être contrôlées, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé de chiffrement de la clé configurée comme clé racine pour toutes les opérations de chiffrement.
+
+La perte de clés de chiffrement de clé signifie la perte de données. Pour cette raison, les clés ne doivent pas être supprimées. Les clés doivent être sauvegardées chaque fois qu’elles sont créées ou pivotées. [La suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) doit être activée sur tout coffre stockant des clés de chiffrement de clé. Au lieu de supprimer une clé, affectez à l’activé la valeur false ou définissez la date d’expiration.
 
 ##### <a name="key-access"></a>Accès aux clés
 
@@ -266,7 +268,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |
 | Azure Stream Analytics           | OUI                | -                  | -                  |
-| Event Hubs                       | OUI                | -                  | -                  |
+| Event Hubs                       | OUI                | Préversion, toutes les longueurs RSA. | -                  |
 | Azure Analysis Services          | OUI                | -                  | -                  |
 | Azure Data Catalog               | OUI                | -                  | -                  |
 | Apache Kafka sur Azure HDInsight  | OUI                | Toutes les longueurs RSA.   | -                  |

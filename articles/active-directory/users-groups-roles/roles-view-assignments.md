@@ -8,23 +8,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf45d45481712e30d40bacec9a3c4d80d1ed56b6
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707430"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772386"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Afficher les attributions de rôles personnalisées dans Azure Active Directory
 
-Cet article explique comment afficher les rôles personnalisés que vous avez affectés dans Azure Active Directory (Azure AD). Dans Azure Active Directory (Azure AD), les rôles peuvent être affectés au niveau du répertoire ou au niveau d’une seule application. Les attributions de rôles au niveau du répertoire sont ajoutées à la liste des attributions de rôle d’application uniques, mais les attributions de rôles au niveau de l’application uniquement ne sont pas ajoutées à la liste des attributions de niveau répertoire.
+Cet article explique comment afficher les rôles personnalisés que vous avez affectés dans Azure Active Directory (Azure AD). Dans Azure Active Directory (Azure AD), les rôles peuvent être affectés au niveau de l’organisation ou d’une seule application.
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-the-azure-ad-portal"></a>Afficher les attributions d’un rôle au niveau du répertoire à l’aide du portail Azure AD
+- Les attributions de rôles au niveau de l’étendue de l’organisation sont ajoutées à et peuvent être consultées dans la liste des attributions de rôle d’application unique.
+- Les attributions de rôles au niveau d’une application unique ne sont pas ajoutées à et ne peuvent pas être affichées dans la liste des attributions à l’échelle de l’organisation.
+
+## <a name="view-role-assignments-in-the-azure-portal"></a>Afficher les attributions de rôles dans le portail Azure
+
+Cette procédure décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation.
 
 1. Connectez-vous au  [Centre d’administration Azure AD](https://aad.portal.azure.com)  à l’aide des autorisations administrateur de rôle privilégié ou administrateur d’entreprise dans l’organisation Azure AD.
 1. Sélectionnez **Azure Active Directory**, sélectionnez  **Rôles et administrateurs**, puis sélectionnez un rôle pour l’ouvrir et afficher ses propriétés.
@@ -32,9 +37,9 @@ Cet article explique comment afficher les rôles personnalisés que vous avez af
 
     ![Affichez les affectations de rôle et les autorisations lorsque vous ouvrez un rôle dans la liste](./media/roles-view-assignments/role-assignments.png)
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-azure-ad-powershell"></a>Affichez les affectations d’un rôle au niveau du répertoire à l’aide du portail Azure AD PowerShell
+## <a name="view-role-assignments-using-azure-ad-powershell"></a>Afficher les attributions de rôles à l’aide d’Azure AD PowerShell
 
-Vous pouvez automatiser l’affectation des rôles Azure AD aux comptes utilisateurs en utilisant Azure PowerShell. Cet article utilise le module [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
+Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation. Cet article utilise le module [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles). Pour afficher les attributions pour une application unique à l’aide de PowerShell, vous pouvez utiliser les applets de commande dans [Attribuer des rôles personnalisés avec PowerShell.](roles-assign-powershell.md)
 
 ### <a name="prepare-powershell"></a>Préparer PowerShell
 
@@ -71,7 +76,9 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-microsoft-graph-api"></a>Afficher les attributions d’un rôle au niveau du répertoire à l’aide de l’API Microsoft Graph
+## <a name="view-role-assignments-using-microsoft-graph-api"></a>Afficher les attributions de rôles à l’aide de l’API Microsoft Graph
+
+Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation.  Pour afficher les attributions pour une application unique à l’aide de l’API Graph, vous pouvez utiliser les opérations dans [Attribuer des rôles personnalisés avec l’API Graph.](roles-assign-graph.md)
 
 Requête HTTP pour obtenir une attribution de rôle pour une définition de rôle donnée
 
@@ -93,18 +100,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview"></a>Afficher les attributions d’un rôle au niveau d’une seule application à l’aide du portail Azure AD (préversion)
+## <a name="view-assignments-of-single-application-scope"></a>Afficher les attributions pour une application unique
+
+Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle d’une application unique. Cette fonctionnalité est actuellement disponible en préversion publique.
 
 1. Connectez-vous au  [Centre d’administration Azure AD](https://aad.portal.azure.com)  à l’aide des autorisations administrateur de rôle privilégié ou administrateur d’entreprise dans l’organisation Azure AD.
-1. Sélectionnez Azure Active Directory, puis **Inscriptions d’applications**, et sélectionnez l’inscription d’application pour afficher ses propriétés. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’inscription d’application pour afficher ses propriétés. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
 
     ![Créer ou modifier des inscriptions d’applications à partir de la page Inscriptions d’applications](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Sélectionnez  **Rôles et administrateurs**, puis sélectionnez un rôle pour afficher ses propriétés.
+1. Lors de l’inscription de l’application, sélectionnez  **Rôles et administrateurs**, puis sélectionnez un rôle pour afficher ses propriétés.
 
     ![Afficher les attributions de rôle d’inscription d’application à partir de la page Inscriptions d’applications](./media/roles-view-assignments/appreg-assignments.png)
 
-1. Sélectionnez **Affectations** pour afficher les affectations du rôle.
+1. Sélectionnez **Affectations** pour afficher les affectations du rôle. L’ouverture de la vue des attributions à partir de l’inscription de l’application vous montre les attributions limitées à cette ressource Azure AD.
 
     ![Afficher les attributions de rôle d’inscription d’application à partir des propriétés d’une inscription d’application](./media/roles-view-assignments/appreg-assignments-2.png)
 
