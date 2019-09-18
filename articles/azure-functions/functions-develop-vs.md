@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905676"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773158"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -41,6 +41,8 @@ Les autres ressources dont vous avez besoin, tel qu’un compte de stockage Azur
 
 > [!NOTE]
 > Dans Visual Studio 2017, la charge de travail de développement Azure installe Azure Functions Tools en tant qu’extension distincte. Lorsque vous mettez à jour Visual Studio 2017, vérifiez également que vous utilisez la [dernière version](#check-your-tools-version) d’Azure Functions Tools. Les sections suivantes vous montrent comment vérifier et (si besoin) mettre à jour votre extension Azure Functions Tools dans Visual Studio 2017. 
+>
+> Veuillez passer cette section si vous utilisez Visual Studio 2019.
 
 ### <a name="check-your-tools-version"></a>Vérifier la version de vos outils dans Visual Studio 2017
 

@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming dans Azure HDInsight
-description: Utilisation d’applications Spark Streaming sur des clusters HDInsight Spark
+description: Utilisation d’applications Apache Spark Streaming sur des clusters HDInsight Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711999"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813997"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
 
@@ -229,7 +229,7 @@ Après la première minute, 12 entrées sont obtenues, à savoir 6 entrées de c
 | 3 | 1497316304178
 | 4 | 1497316309204
 | 5\. | 1497316314224
-| 6\. | 1497316319243
+| 6 | 1497316319243
 | 7 | 1497316324260
 | 8 | 1497316329278
 | 9 | 1497316334293

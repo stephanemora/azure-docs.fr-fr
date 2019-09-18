@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574649"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900686"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilisation d’une action de script pour installer des packages externes Python avec les blocs-notes Jupyter dans des clusters Apache Spark sur HDInsight
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Action de script pour installer des packages externes Python avec les blocs-notes Jupyter dans Apache Spark sur HDInsight
+
 > [!div class="op_single_selector"]
 > * [À l’aide de la commande magique de cellule](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [À l’aide d’une action de script](apache-spark-python-package-installation.md)
@@ -77,7 +78,7 @@ Deux types de composant open source sont disponibles dans le service HDInsight :
     /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. Sélectionnez **Créer**.  Consultez la documentation sur [Guide d’utilisation des actions de script personnalisées](../hdinsight-hadoop-customize-cluster-linux.md).
+5. Sélectionnez **Create** (Créer).  Consultez la documentation sur [Guide d’utilisation des actions de script personnalisées](../hdinsight-hadoop-customize-cluster-linux.md).
 
 6. Attendez la fin du script.  Le volet **Actions de script** va indiquer **De nouvelles actions de script peuvent être envoyées une fois que l’opération de cluster actuelle est terminée** pendant que le script s’exécute.  Vous pouvez voir une barre de progression dans la fenêtre **Opérations en arrière-plan** de l’interface utilisateur Ambari.
 
@@ -96,7 +97,7 @@ Deux types de composant open source sont disponibles dans le service HDInsight :
 
     Le résultat ressemble à :
     
-    ![Exécution de code TensorFlow](./media/apache-spark-python-package-installation/execution.png "Exécuter le code TensorFlow")
+    ![Exécution de code TensorFlow](./media/apache-spark-python-package-installation/tensorflow-execution.png "Exécuter le code TensorFlow")
 
 > [!NOTE]  
 > Il existe deux installations de Python dans le cluster. Spark utilisera l’installation Anaconda Python située dans `/usr/bin/anaconda/bin` ainsi que l’environnement Python 2.7 par défaut. Pour utiliser Python 3.x et des packages d’installation dans le noyau PySpark3, utilisez le chemin d’accès à l’exécutable `conda` pour cet environnement et le paramètre `-n` pour spécifier l’environnement. Par exemple, la commande `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35` installe le package `ggplot` dans l’environnement Python 3.5 en utilisant le canal `conda-forge`.

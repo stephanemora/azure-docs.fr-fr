@@ -3,18 +3,18 @@ title: Demander des données en temps réel dans Azure Maps | Microsoft Docs
 description: Demandez des données en temps réel avec le service Mobility d’Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 06/05/2019
+ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329670"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914376"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Demander des données en temps réel avec le service Mobility d’Azure Maps
 
@@ -29,7 +29,7 @@ Dans cet article, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour appeler les API de transports publics Azure Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md) (Gérer votre compte et vos clés Azure Maps).
+Pour appeler les API de transports publics Azure Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte, suivez les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
 
 Cet article utilise [l’application Postman](https://www.getpostman.com/apps) pour générer des appels REST. Vous pouvez utiliser l’environnement de développement d’API que vous préférez.
 
@@ -38,7 +38,7 @@ Cet article utilise [l’application Postman](https://www.getpostman.com/apps) p
 
 Pour demander les horaires d’arrivée en temps réel à un arrêt de transport en commun particulier, vous devez envoyer une requête à l’[API Real-time Arrivals](https://aka.ms/AzureMapsMobilityRealTimeArrivals) du [service Mobility](https://aka.ms/AzureMapsMobilityService) d’Azure Maps. Vous devez indiquer les paramètres **metroID** (numéro de la ligne) et **stopID** (numéro de l’arrêt) dans la demande. Pour en savoir plus sur l’obtention de ces paramètres, consultez notre guide pratique sur les [demandes d’itinéraires des transports en commun](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
 
-Nous allons prendre comme exemple le numéro de ligne « 522 », qui dessert la zone « Seattle – Tacoma – Bellevue, WA », et le numéro d’arrêt « 2060603 », qui est l’arrêt de bus situé à l’adresse « Ne 24th St & 162nd Ave Ne, Bellevue WA ». Pour demander les horaires d’arrivée en temps réel des cinq prochains passages de bus à cet arrêt, effectuez les étapes suivantes :
+Nous allons prendre comme exemple le numéro de ligne « 522 », qui dessert la zone « Seattle – Tacoma – Bellevue, WA », et le numéro d’arrêt « 522---2060603 », qui est l’arrêt de bus situé à l’adresse « Ne 24th St & 162nd Ave Ne, Bellevue WA ». Pour demander les horaires d’arrivée en temps réel des cinq prochains passages de bus à cet arrêt, effectuez les étapes suivantes :
 
 1. Créez une collection dans laquelle stocker les demandes. Dans l’application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection puis sélectionnez le bouton **Create** (Créer).
 
@@ -49,7 +49,7 @@ Nous allons prendre comme exemple le numéro de ligne « 522 », qui dessert l
 3. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis entrez l’URL suivante pour créer une requête GET.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=2060603&transitType=bus
+    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
 4. Après une demande réussie, vous recevrez la réponse suivante.  Notez que le paramètre scheduleType définit si l’horaire d’arrivée est estimé d’après des données en temps réel ou statiques.
@@ -58,56 +58,58 @@ Nous allons prendre comme exemple le numéro de ligne « 522 », qui dessert l
     {
         "results": [
             {
-                "arrivalMinutes": 4,
+                "arrivalMinutes": 8,
                 "scheduleType": "realTime",
-                "patternId": 3860436,
+                "patternId": "522---4143196",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
-                    "direction": "forward",
-                    "agencyId": 5872,
+                    "lineId": "522---3760143",
+                    "lineGroupId": "522---666077",
+                    "direction": "backward",
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
-                    "lineNumber": "226",
-                    "lineDestination": "Bellevue Transit Center Crossroads",
+                    "lineNumber": "249",
+                    "lineDestination": "South Bellevue S Kirkland P&R",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             },
             {
-                "arrivalMinutes": 30,
-                "scheduleType": "scheduledTime",
-                "patternId": 3860436,
+                "arrivalMinutes": 25,
+                "scheduleType": "realTime",
+                "patternId": "522---3510227",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
+                    "lineId": "522---2756599",
+                    "lineGroupId": "522---666063",
                     "direction": "forward",
-                    "agencyId": 5872,
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
                     "lineNumber": "226",
                     "lineDestination": "Bellevue Transit Center Crossroads",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             }
@@ -145,10 +147,10 @@ Pour obtenir le paramètre **dockID**, envoyez une requête à l’API Get Nearb
                 "type": "bikeDock",
                 "objectDetails": {
                     "availableVehicles": 0,
-                    "vacantLocations": 30,
-                    "lastUpdated": "2019-05-21T20:06:59-04:00",
+                    "vacantLocations": 31,
+                    "lastUpdated": "2019-09-07T00:55:19Z",
                     "operatorInfo": {
-                        "id": "80",
+                        "id": "121---80",
                         "name": "Citi Bike"
                     }
                 },
@@ -188,15 +190,15 @@ Pour obtenir le paramètre **dockID**, envoyez une requête à l’API Get Nearb
 
     ```JSON
     {
-        "availableVehicles": 1,
-        "vacantLocations": 29,
+        "availableVehicles": 0,
+        "vacantLocations": 31,
         "position": {
             "latitude": 40.767128,
             "longitude": -73.962246
         },
-        "lastUpdated": "2019-05-21T20:26:47-04:00",
+        "lastUpdated": "2019-09-07T00:55:19Z",
         "operatorInfo": {
-            "id": "80",
+            "id": "121---80",
             "name": "Citi Bike"
         }
     }

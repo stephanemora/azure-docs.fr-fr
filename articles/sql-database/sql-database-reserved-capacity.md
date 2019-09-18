@@ -1,5 +1,5 @@
 ---
-title: Prépayer les vCores Azure SQL Database pour réaliser des économies | Microsoft Docs
+title: Réduire les coûts des vCores Azure SQL Database | Microsoft Docs
 description: Découvrez comment acheter une capacité réservée Azure SQL Database pour réduire vos coûts de calcul.
 services: sql-database
 ms.service: sql-database
@@ -10,22 +10,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 08/02/2019
-ms.openlocfilehash: 61b646ca1ec5a4826ac6418c1b80b88a89266012
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.date: 08/29/2019
+ms.openlocfilehash: 5ab5481a89f7bb9c74133487b01879b00b7def32
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972547"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806580"
 ---
-# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
+# <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Réduire les coûts des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
-Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial dans SQL Database, sur une période d’un an ou de trois ans, afin de bénéficier de remises importantes sur les coûts de calcul. Pour acheter une capacité réservée SQL Database, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme.
+Faites des économies avec Azure SQL Database en procédant à une réservation des ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement pour utiliser SQL Database sur une période d’un an ou de trois ans, afin de bénéficier de remises importantes sur les coûts de calcul. Pour acheter une capacité réservée SQL Database, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme.
 
 
-Vous n'êtes pas tenu d'affecter la réservation à des instances SQL Database spécifiques (bases de données uniques, pools élastiques ou instances gérées). Les instances SQL Database correspondantes, qui sont déjà en cours d’exécution ou récemment déployées, bénéficient automatiquement de cet avantage. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul SQL Database qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, ni ceux de réseau ou de stockage qui sont associés à l’instance SQL Database. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les bases de données SQL sont facturées au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Vous n'êtes pas tenu d'affecter la réservation à des instances SQL Database spécifiques (bases de données uniques, pools élastiques ou instances gérées). Les instances SQL Database correspondantes, qui sont déjà en cours d’exécution ou récemment déployées, bénéficient automatiquement de cet avantage. En achetant une réservation, vous vous engagez à payer les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul SQL Database qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, ni ceux de réseau ou de stockage qui sont associés à l’instance SQL Database. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les bases de données SQL sont facturées au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-Vous pouvez acheter une capacité réservée Azure SQL Database sur le [portail Azure](https://portal.azure.com). Pour acheter une capacité réservée SQL Database :
+Vous pouvez acheter une capacité réservée Azure SQL Database sur le [portail Azure](https://portal.azure.com). Payez la réservation [à l’avance ou par paiements mensuels](../billing/billing-monthly-payments-reservations.md). Pour acheter une capacité réservée SQL Database :
 
 - Vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.
 - Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l'abonnement.

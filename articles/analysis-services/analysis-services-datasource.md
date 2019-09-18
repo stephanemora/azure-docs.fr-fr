@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142563"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899397"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -34,7 +34,7 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 ||||
 
 <a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Une instance gérée s'exécutant au sein du réseau virtuel Azure avec une adresse IP privée, une passerelle de données locale est requise. Actuellement, Azure SQL Database Managed Instance avec point de terminaison public n’est pas pris en charge.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Comme l'instance gérée s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n'est pas activée, une passerelle de données locale est requise.    
 <a name="databricks">3</a> - Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
 <a name="gen2">4</a> - ADLS Gen2 n’est actuellement pas pris en charge.
 
@@ -76,7 +76,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |Flux OData<sup>[1](#tab1400b)</sup>     |  
 |Requête ODBC     | 
 |OLE DB     |   
-|Base de données Postgre SQL<sup>[1](#tab1400b)</sup>    | 
+|Base de données PostgreSQL<sup>[1](#tab1400b)</sup>    | 
 |Objets Salesforce<sup>[1](#tab1400b)</sup> |  
 |Rapports Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  

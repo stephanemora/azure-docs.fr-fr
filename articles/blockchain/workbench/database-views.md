@@ -1,25 +1,25 @@
 ---
-title: Vues de base de donnés dans Azure Blockchain Workbench
-description: Présentation des vues de base de données Azure Blockchain Workbench SQL DB.
+title: Vues de la base de données dans Azure Blockchain Workbench Preview
+description: Présentation des vues de base de données Azure Blockchain Workbench Preview SQL DB.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/28/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d460d0d99642d11e4eb5755730400b509e94
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399899"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845046"
 ---
-# <a name="database-views-in-azure-blockchain-workbench"></a>Vues de base de donnés dans Azure Blockchain Workbench
+# <a name="database-views-in-azure-blockchain-workbench-preview"></a>Vues de la base de données dans Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench fournit des données provenant de registres distribués à une base de données SQL DB *off-chain*. La base de données « off-chain» permet d’utiliser SQL et les outils existants, tels que [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), pour interagir avec les données de blockchain.
+Azure Blockchain Workbench Preview fournit des données provenant de registres distribués à une base de données SQL DB *off-chain*. La base de données « off-chain» permet d’utiliser SQL et les outils existants, tels que [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), pour interagir avec les données de blockchain.
 
 Azure Blockchain Workbench fournit un ensemble de vues de base de données qui permettent d’accéder aux données utiles lors de l’exécution de vos requêtes. Ces vues sont fortement dénormalisées afin de faciliter l’obtention rapide de rapports de génération et d’analyses, et le cas échéant utiliser les données de blockchain avec les outils existants sans avoir à former le personnel chargé de la base de données.
 
@@ -295,7 +295,7 @@ Cette vue fournit des détails sur les membres du consortium qui peuvent utilise
 
 | Nom               | Type          | Peut être Null | Description                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                 | int           | Non          | Identificateur unique d’un utilisateur |
+| id                 | int           | Non          | Identificateur unique d’un utilisateur |
 | ExternalID         | nvarchar(255) | Non          | Identificateur externe d’un utilisateur. Par défaut, il s’agit du GUID représentant l’ID Azure Active Directory de l’utilisateur. |
 | ProvisioningStatus | int           | Non          |Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données<br />2 : l’utilisateur est entièrement configuré |
 | FirstName          | nvarchar(50)  | OUI         | Prénom de l’utilisateur |

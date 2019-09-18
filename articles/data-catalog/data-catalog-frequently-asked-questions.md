@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736427"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898718"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -52,6 +52,15 @@ Pour obtenir la liste des sources de données actuellement prises en charge, rep
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Comment demander la prise en charge d’une autre source de données ?
 Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Pourquoi l’erreur *Catalog already exists (Ce catalogue existe déjà)* s’affiche-t-elle quand j'essaie de créer un catalogue ?
+
+Lorsque vous achetez Office 365 E5 avec une licence Power BI Pro, Microsoft crée automatiquement un catalogue par défaut dans la région de l'abonnement. Ce catalogue utilise la référence SKU gratuite. La licence utilisateur Office 365 / Power BI est gérée dans la page Administration d'Office 365. 
+
+Cependant, ce type de catalogue de données n’inclut pas d'option **Administrateur** et n'est pas visible dans le portail **Azure**. Vous ne pouvez pas supprimer ce type de catalogue de données. De même, vous n'êtes pas autorisé à renommer le catalogue de données et vous ne pouvez pas le déplacer vers une autre région. 
+
+Les comptes d’utilisateurs auxquels une licence Power BI Pro a été attribuée automatiquement ont accès au catalogue de données en raison du contrat de licence lorsqu'ils se sont inscrits à Office 365 E5 avec la licence Power BI Pro. Ce type d'utilisateur dispose d’un accès complet aux ressources du catalogue de données sans privilèges d'administration. Ce type d’utilisateur ne fait *pas* partie du rôle **Utilisateur de catalogue** dans Azure Data Catalog.
+
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Comment démarrer avec Data Catalog ?
 La meilleure façon de commencer est de consulter la section [Prise en main de Data Catalog](data-catalog-get-started.md). Cet article présente de bout en bout les fonctionnalités intégrées au service.

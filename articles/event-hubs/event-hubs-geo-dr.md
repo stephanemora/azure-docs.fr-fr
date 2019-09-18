@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611705"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773245"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -110,13 +110,19 @@ L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/s
 
 Notez les points suivants pour cette version :
 
-1. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
+1. De par sa conception, la géo-reprise d'activité après sinistre Event Hubs ne réplique pas les données, et vous ne pouvez donc pas réutiliser l'ancienne valeur de décalage de votre hub d'événements principal sur votre hub d'événements secondaire. Nous vous recommandons de redémarrer votre récepteur d'événements avec l'un des éléments suivants :
+
+- *EventPosition.FromStart()*  : pour lire toutes les données sur votre hub d'événements secondaire.
+- *EventPosition.FromEnd()*  : pour lire toutes les nouvelles données à partir de la connexion à votre hub d'événements secondaire.
+- *EventPosition.FromEnqueuedTime(dateTime)*  : pour lire toutes les données reçues dans votre hub d'événements secondaire depuis une date et une heure précises.
+
+2. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
  
-2. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
+3. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
 
-3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) au moins une fois. 
+4. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) au moins une fois. 
 
-4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
+5. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
 ## <a name="availability-zones"></a>Zones de disponibilité 
 

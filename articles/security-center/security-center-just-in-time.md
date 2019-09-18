@@ -2,31 +2,25 @@
 title: Accès Juste à temps à la machine virtuelle dans Azure Security Center | Microsoft Docs
 description: Ce document montre comment l’accès juste-à-temps à la machine virtuelle dans Azure Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: 671930b1-fc84-4ae2-bf7c-d34ea37ec5c7
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: f3e6cc0464c8f395db7cac0ebf8a16230f5ebcbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872925"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910605"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
 L’accès juste-à-temps (JIT) à la machine virtuelle peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, réduire l’exposition aux attaques et faciliter la connexion aux machines virtuelles si nécessaire.
 
 > [!NOTE]
-> La fonctionnalité juste-à-temps est disponible pour le niveau Standard de Security Center.  Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+> La fonctionnalité juste-à-temps est disponible pour le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
 
 
 > [!NOTE]
@@ -61,7 +55,7 @@ Quand un utilisateur demande l’accès à une machine virtuelle, Security Cente
 
 ## <a name="configure-jit-on-a-vm"></a>Configurer une stratégie juste-à-temps sur une machine virtuelle
 
-3 méthodes s’offrent à vous pour configurer une stratégie juste-à-temps sur une machine virtuelle :
+Trois méthodes s’offrent à vous pour configurer une stratégie juste-à-temps sur une machine virtuelle :
 
 - [Configurer un accès juste-à-temps dans Azure Security Center](#jit-asc)
 - [Configurer un accès juste-à-temps dans un panneau de machine virtuelle Azure](#jit-vm)
@@ -87,7 +81,7 @@ Dans ASC, vous pouvez configurer un accès juste-à-temps et demander l’accès
     La section **Accès juste-à-temps à la machine virtuelle** fournit des informations sur l’état de vos machines virtuelles :
 
     - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès juste-à-temps à la machine virtuelle. Les données présentées concernent la semaine qui vient de s’écouler et incluent, pour chaque machine virtuelle le nombre de requêtes approuvées, la date et l’heure du dernier accès, mais aussi le dernier utilisateur.
-    - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès juste-à-temps à la machine virtuelle, mais qui n’ont pas été configurées dans cette optique. Nous vous recommandons d’activer le contrôle d’accès juste-à-temps à la machine virtuelle pour ces machines virtuelles. 
+    - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès juste-à-temps à la machine virtuelle, mais qui n’ont pas été configurées dans cette optique. Nous vous recommandons d’activer le contrôle d’accès juste-à-temps à la machine virtuelle pour ces machines virtuelles.
     - **Aucune recommandation** : voici les raisons pour lesquelles une machine virtuelle peut ne pas être recommandée :
       - Groupe de sécurité réseau manquant : la solution juste-à-temps nécessite la présence d’un groupe de sécurité réseau.
       - Machine virtuelle classique : l’accès juste-à-temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager. Le déploiement classique n’est pas pris en charge par la solution juste-à-temps. 
@@ -117,7 +111,7 @@ Dans ASC, vous pouvez configurer un accès juste-à-temps et demander l’accès
 1. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
->Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de « refus de tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés et le pare-feu Azure. Si d’autres règles avaient été créées pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’y a aucune règle sur les ports sélectionnés, alors les nouvelles règles de « refus de tout le trafic entrant » sont prioritaires sur les groupes de sécurité réseau et le pare-feu Azure.
+>Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de « refus de tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés et le pare-feu Azure. Si d’autres règles avaient été créées pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’y a aucune règle sur les ports sélectionnés, alors les nouvelles règles de « refus de tout le trafic entrant » sont prioritaires sur les groupes de sécurité réseau et le pare-feu Azure.
 
 
 ## <a name="request-jit-access-via-asc"></a>Demander l’accès juste-à-temps via ASC
@@ -131,7 +125,7 @@ Pour demander l’accès à une machine virtuelle via ASC :
 
     - L’icône dans la colonne **Détails de la connexion** indique si l’accès juste-à-temps est activé sur le groupe de sécurité réseau ou le pare-feu. S’il est activé sur les deux, seule l’icône de pare-feu s’affiche.
 
-    - La colonne **Détails de la connexion** fournit les informations correctes nécessaires pour se connecter à la machine virtuelle, mais indique aussi les ports ouverts.
+    - La colonne **Détails de la connexion** fournit les informations nécessaires pour se connecter à la machine virtuelle et à ses ports ouverts.
 
       ![Demander l’accès juste-à-temps](./media/security-center-just-in-time/request-just-in-time-access.png)
 
@@ -191,11 +185,11 @@ Cela permet un accès juste-à-temps pour la machine virtuelle en utilisant les 
 
 - Serveurs Windows :
     - Port RDP 3389
-    - 3 heures d’accès autorisé maximum
+    - Trois heures d’accès autorisé maximum
     - L’option Adresses IP sources autorisées est définie sur Toutes
 - Serveurs Linux :
     - Port SSH 22
-    - 3 heures d’accès autorisé maximum
+    - Trois heures d’accès autorisé maximum
     - L’option Adresses IP sources autorisées est définie sur Toutes
      
 Si l’accès juste-à-temps est déjà activé sur une machine virtuelle, vous pouvez le voir quand vous accédez à sa page de configuration, et vous pouvez utiliser le lien pour ouvrir la stratégie dans Azure Security Center afin d’afficher et de changer les paramètres.
@@ -213,7 +207,7 @@ Dans le portail Azure, lorsque vous essayez de vous connecter à une machine vir
   L’accès est demandé avec les paramètres par défaut suivants :
 
   - **IP source** : « Toutes » (*) (cette valeur n’est pas modifiable)
-  - **Intervalle de temps** : 3 heures (cette valeur n’est pas modifiable)  <!--Isn't this set in the policy-->
+  - **Intervalle de temps** : Trois heures (cette valeur n’est pas modifiable) <!--Isn't this set in the policy-->
   - **Numéro de port** : port RDP 3389 pour Windows/port 22 pour Linux (cette valeur est modifiable)
 
     > [!NOTE]

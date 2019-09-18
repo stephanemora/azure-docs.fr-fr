@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191781"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883409"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Vérifier l’état de publication de votre offre de Place de marché commerciale
 
@@ -98,6 +98,9 @@ Ce rapport contient des descriptions de toutes les stratégies ayant échoué, a
 ## <a name="preview-creation"></a>Création de la préversion
 
 Lors de l’étape de **création de la préversion**, nous créons une version de votre offre accessible uniquement au public que vous avez spécifié dans la section Préversion de votre offre.
+
+>[!Note]
+> N'utilisez pas cette étape pour permettre aux personnes extérieures à votre organisation de visualiser une offre. Utilisez plutôt l'option **Private Offer (Offre privée)** . À ce stade, votre offre n'a pas encore été entièrement testée et validée, et elle n'est pas prête à être distribuée à l'extérieur.
 
 ## <a name="publisher-approval"></a>Approbation de l’éditeur
 

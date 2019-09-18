@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 677f3cbb6416086843ceb530abd07d412c8b38f0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 470152e12f3a7a0c643a147f0989a5cc72d2ed22
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275418"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813564"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -99,12 +99,12 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Texte délimité, Avro ou Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
 
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données vers et depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -143,7 +143,7 @@ Pour copier des données vers et depuis les **formats Parquet, Texte délimité,
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données depuis et vers le système de fichiers au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
+Pour copier des données depuis et vers le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -197,12 +197,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="file-system-as-source"></a>Système de fichiers en tant que source
 
-- Pour copier des données à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
+- Pour copier des données depuis d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
 
-Pour copier des données à partir des **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans la source de copie basée sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -260,7 +260,7 @@ Pour copier des données à partir des **formats Parquet, Texte délimité, Avro
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis le système de fichiers au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données depuis le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -302,12 +302,12 @@ Pour copier des données depuis le système de fichiers au **format ORC/JSON**, 
 
 ### <a name="file-system-as-sink"></a>Système de fichiers en tant que récepteur
 
-- Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, Avro ou Binaire](#format-based-sink).
-- Pour copier des données vers d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+- Pour copier des données au **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-sink).
+- Pour copier des données vers d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
 
-#### <a name="format-based-sink"></a>Récepteur au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-sink"></a> Récepteur au format Parquet, Texte délimité, JSON, Avro et binaire
 
-Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans le récepteur de copie basé sur le format :
+Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans le récepteur de copie basé sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -355,7 +355,7 @@ Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binair
 
 #### <a name="other-format-sink"></a>Autres formats de récepteur
 
-Pour copier des données vers le système de fichiers au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
+Pour copier des données vers le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

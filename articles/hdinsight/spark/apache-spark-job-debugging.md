@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707827"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814113"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight
 
@@ -54,11 +54,11 @@ Dans l’interface utilisateur Spark, vous pouvez explorer les travaux Spark gé
     ![Afficher les exécuteurs Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Cliquez sur l’onglet **Étapes** pour consulter les étapes de l’application.
    
-    ![Afficher les étapes Spark](./media/apache-spark-job-debugging/view-spark-stages.png)
+    ![Afficher les étapes Spark](./media/apache-spark-job-debugging/view-spark-stages.png "Afficher les étapes Spark")
    
     Chaque étape peut comporter plusieurs tâches dont vous pouvez afficher les statistiques d’exécution, comme illustré ci-dessous.
    
-    ![Afficher les étapes Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
+    ![Afficher les détails des étapes Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Afficher les détails des étapes Spark") 
 4. Dans la page de détails de l’étape, vous pouvez lancer la visualisation DAG. Développez le lien **DAG Visualization** (Visualisation DAG) situé en haut de la page, comme indiqué ci-dessous.
    
     ![Afficher la visualisation DAG des étapes Spark](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
@@ -87,14 +87,14 @@ Une fois qu’un travail est terminé, les informations concernant ce travail so
 
 1. Pour lancer le serveur d’historique Spark, dans le volet Vue d’ensemble, cliquez sur **Serveur d’historique Spark** sous **Tableaux de bord du cluster**.
    
-    ![Lancer le serveur d’historique Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Lancer le serveur d’historique Spark1](./media/apache-spark-job-debugging/launch-spark-history-server.png "Lancer le serveur d’historique Spark1")
    
    > [!TIP]  
    > Vous pouvez également lancer l’interface utilisateur du serveur d’historique Spark à partir de celle d’Ambari. Pour lancer l’interface utilisateur d’Ambari, depuis le volet Vue d’ensemble, cliquez sur **Accueil Ambari** sous **Tableaux de bord du cluster**. À partir de l’interface utilisateur Ambari, cliquez sur **Spark**, **Quick Links** (Liens rapides), puis cliquez sur **Spark History Server UI** (Interface utilisateur du serveur d’historique Spark).
 
 2. Les applications terminées s’affichent dans une liste. Cliquez sur un ID d’application pour obtenir plus d’informations sur l’application.
    
-    ![Lancer le serveur d’historique Spark](./media/apache-spark-job-debugging/view-completed-applications.png)
+    ![Lancer le serveur d’historique Spark2](./media/apache-spark-job-debugging/view-completed-applications.png "Lancer le serveur d’historique Spark2")
 
 ## <a name="see-also"></a>Voir aussi
 *  [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)

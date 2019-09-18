@@ -1,6 +1,6 @@
 ---
 title: Solution Azure VMware de CloudSimple - Configurer un cloud privé en tant que site de reprise d’activité à l’aide de VMware Site Recovery Manager
-description: Explique comment configurer votre cloud privé CloudSimple en tant que site de récupération d'urgence pour les charges de travail VMware locales.
+description: Explique comment configurer votre cloud privé CloudSimple en tant que site de reprise d’activité pour les charges de travail VMware locales.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972793"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846155"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurer un cloud privé en tant que cible de reprise d’activité avec VMware Site Recovery Manager
 
@@ -33,6 +33,8 @@ Pour tirer parti de la solution CloudSimple, vous devez :
 * fournir vos propres licences pour SRM lorsque le cloud privé est le site protégé. Aucune licence SRM supplémentaire n'est requise pour le site CloudSimple lorsqu'il est utilisé comme site de récupération.
 
 Avec cette solution, vous disposez d'un contrôle total sur vSphere Replication et SRM. Les interfaces UI, API et CLI vous permettent d'utiliser vos scripts et outils existants.
+
+![Déploiement de Site Recovery Manager](media/srm-deployment.png)
 
 Toutes les versions de vRA et SRM compatibles avec votre cloud privé et votre environnement local peuvent être utilisées. Les exemples fournis dans ce guide utilisent vRA 6.5 et SRM 6.5. Ces versions sont compatibles avec vSphere 6.5, qui est pris en charge par CloudSimple.
 
