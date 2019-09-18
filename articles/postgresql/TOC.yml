@@ -104,6 +104,8 @@
               href: concepts-monitoring.md
             - name: Journaux d’activité du serveur
               href: concepts-server-logs.md
+            - name: Journaux d’audit
+              href: concepts-audit.md
             - name: Magasin de requêtes
               items:
                 - name: Magasin de requêtes
