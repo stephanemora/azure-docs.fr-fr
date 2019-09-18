@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la stratégie d’indexat
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467878"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914171"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -27,8 +27,9 @@ Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement
 Azure Cosmos DB prend en charge deux modes d’indexation :
 
 - **Cohérent** : si la stratégie d’indexation d’un conteneur est défini sur Cohérent, l’index est mis à jour de façon synchrone lorsque vous créez, mettez à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera la [cohérence configurée pour le compte](consistency-levels.md).
-
 - **Aucun** : Si la stratégie d’indexation d’un conteneur est définie sur Aucun, l’indexation est effectivement désactivée sur ce conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Ceci peut également aider à accélérer les opérations d’insertion en bloc.
+
+En outre, vous devez définir la propriété **automatic** de la stratégie d’indexation sur **true**. L’affectation de la valeur true à cette propriété permet à Azure Cosmos DB d’indexer automatiquement les documents au fur et à mesure qu’ils sont écrits.
 
 ## <a name="including-and-excluding-property-paths"></a>Inclusion et exclusion de chemins de propriété
 
@@ -40,6 +41,7 @@ Une stratégie d’indexation personnalisée peut spécifier des chemins de prop
 
 En reprenant le même exemple :
 
+```
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -51,21 +53,17 @@ En reprenant le même exemple :
             { "city": "Athens" }
         ]
     }
+```
 
 - le chemin du `employees` de `headquarters` est `/headquarters/employees/?`
+
 - le chemin `country` du de `locations` est `/locations/[]/country/?`
+
 - le chemin de tout ce qui se trouve sous `headquarters` est `/headquarters/*`
 
-Lorsqu’un chemin est explicitement inclus dans la stratégie d’indexation, il doit également définir quels types d’index doivent être appliqués à ce chemin et, pour chaque type d’index, le type de données auquel il s’applique :
+Par exemple, nous pourrions inclure le chemin d’accès `/headquarters/employees/?`. Ce chemin d’accès permet de s’assurer que la propriété employees est indexée, mais sans indexer de JSON imbriqué supplémentaire au sein de cette propriété.
 
-| Type d’index | Types de données cibles autorisés |
-| --- | --- |
-| Plage | Chaîne ou nombre |
-| spatial | Point, LineString ou polygone |
-
-Par exemple, nous pourrions inclure le chemin `/headquarters/employees/?` et spécifier qu’un index `Range` soit appliqué sur ce chemin pour les deux valeurs `String` et `Number`.
-
-### <a name="includeexclude-strategy"></a>Stratégie inclure/exclure
+## <a name="includeexclude-strategy"></a>Stratégie inclure/exclure
 
 Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin inclus ou exclu.
 
@@ -76,41 +74,165 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 
 - La propriété système « etag » est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
 
-Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour des exemples de stratégies d’indexation.
+Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer les attributs suivants :
+
+- `kind` peut être `range` ou `hash`. La fonctionnalité d’index de plage fournit toutes les fonctionnalités d’un index de hachage. Nous vous recommandons donc d’utiliser un index de plage.
+
+- `precision` est un nombre est défini au niveau de l’index pour les chemins inclus. La valeur `-1` indique la précision maximale. Nous vous recommandons de toujours définir cette valeur sur `-1`.
+
+- `dataType` peut être `String` ou `Number`. Cela indique les types de propriétés JSON qui seront indexées.
+
+Lorsqu’elles ne sont pas spécifiées, ces propriétés ont les valeurs par défaut suivantes :
+
+| **Nom de la propriété**     | **Valeur par défaut** |
+| ----------------------- | -------------------------------- |
+| `kind`   | `range` |
+| `precision`   | `-1`  |
+| `dataType`    | `String` et `Number` |
+
+Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour obtenir des exemples de stratégie d’indexation pour l’inclusion et l’exclusion de chemins d’accès.
+
+## <a name="spatial-indexes"></a>Index spatiaux
+
+Lorsque vous définissez un chemin d’accès spatial dans la stratégie d’indexation, vous devez définir l’index ```type``` à appliquer à ce chemin d’accès. Les types possibles pour les index spatiaux sont les suivants :
+
+* Point
+
+* Polygon
+
+* MultiPolygon
+
+* LineString
+
+Azure Cosmos DB, par défaut, ne crée pas d’index spatial. Si vous souhaitez utiliser des fonctions intégrées SQL spatiales, vous devez créer un index spatial sur les propriétés requises. Consultez [cette section](geospatial.md) pour des exemples de stratégies d’indexation afin d’ajouter des index spatiaux.
 
 ## <a name="composite-indexes"></a>Index composites
 
-Les requêtes qui `ORDER BY` deux ou plusieurs propriétés nécessitent un index composite. Actuellement, les index composites sont uniquement utilisées par plusieurs requêtes `ORDER BY`. Par défaut, aucun index composite n’est défini. Vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) en fonction des besoins.
+Les requêtes qui ont une clause `ORDER BY` avec deux ou plusieurs propriétés nécessitent un index composite. Vous pouvez également définir un index composite pour améliorer les performances de nombreuses requêtes d’égalité et de plage. Par défaut, aucun index composite n’est défini. Vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) en fonction des besoins.
 
 Lorsque vous définissez un index composite, vous spécifiez :
 
 - deux ou plusieurs chemins de propriété ; la séquence où les chemins de propriété sont des aspects définis ;
+
 - l’ordre (croissant ou décroissant).
 
-Les considérations suivantes sont prises en compte lors de l’utilisation d’index composites :
+> [!NOTE]
+> Lors de l’ajout d’un index composite, comme avec d’autres types d’index, les requêtes peuvent retourner des résultats incohérents au fur et à mesure que l’index est mis à jour.
 
-- Si les chemins des index composites ne correspondent pas à la séquence des propriétés dans la clause ORDER BY, l’index composite ne peut pas prendre en charge la requête.
+### <a name="order-by-queries-on-multiple-properties"></a>Requêtes ORDER BY sur plusieurs propriétés :
 
-- L’ordre des chemins des index composites (croissant ou décroissant) doit également correspondre à l’ordre dans la clause ORDER BY.
+Les considérations suivantes sont utilisées lors de l’utilisation d’index composites pour les requêtes avec une clause `ORDER BY` comptant au moins deux propriétés :
 
-- L’index composite prend également en charge une clause ORDER BY dont l’ordre est inverse sur tous les chemins.
+- Si les chemins des index composites ne correspondent pas à la séquence des propriétés dans la clause `ORDER BY`, l’index composite ne peut pas prendre en charge la requête.
 
-Prenons l’exemple suivant, où un index composite est défini sur des propriétés a, b et c :
+- L’ordre des chemins des index composites (croissant ou décroissant) doit également correspondre à `order` dans la clause `ORDER BY`.
 
-| **Index composite**     | **Exemple `ORDER BY` de requête**      | **Pris en charge par l’index ?** |
+- L’index composite prend également en charge une clause `ORDER BY` dont l’ordre est inverse sur tous les chemins.
+
+Prenons l’exemple suivant, où un index composite est défini sur des propriétés name, age et _ts :
+
+| **Index composite**     | **Exemple `ORDER BY` de requête**      | **Pris en charge par l’index composite ?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
-| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
+| ```(name ASC, age ASC)```    | ```SELECT * FROM c ORDER BY c.name DESC, c.age DESC``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c ORDER BY c.name ASC, c.age DESC``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
 Vous devez personnaliser votre stratégie d’indexation afin de pouvoir servir toutes les requêtes `ORDER BY` nécessaires.
 
+### <a name="queries-with-filters-on-multiple-properties"></a>Requêtes avec des filtres sur plusieurs propriétés
+
+Si une requête a des filtres sur deux propriétés ou plus, il peut être utile de créer un index composite pour ces propriétés.
+
+Par exemple, considérez la requête suivante qui a un filtre d’égalité sur deux propriétés :
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+```
+
+Cette requête serait plus efficace, prendrait moins de temps et consommerait moins de RU, si elle est en mesure de tirer parti d’un index composite sur (name ASC, age ASC).
+
+Les requêtes avec des filtres de plage peuvent également être optimisées à l’aide d’un index composite. Toutefois, la requête ne peut avoir qu’un seul filtre de plage. Les filtres de plage incluent `>`, `<`, `<=`, `>=` et `!=`. Le filtre de plage doit être défini en dernier dans l’index composite.
+
+Considérez la requête suivante avec des filtres d’égalité et de plage :
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+```
+
+Cette requête serait plus efficace avec un index composite sur (name ASC, age ASC). Toutefois, la requête n’utiliserait pas d’index composite sur (name ASC, age ASC), car les filtres d’égalité doivent être définis en premier dans l’index composite.
+
+Les considérations suivantes sont utilisées lors de la création d’index composites pour les requêtes avec des filtres sur plusieurs propriétés
+
+- Les propriétés du filtre de la requête doivent correspondre à celles de l’index composite. Si une propriété se trouve dans l’index composite, mais qu’elle n’est pas incluse dans la requête en tant que filtre, la requête n’utilise pas l’index composite.
+- Si une requête a des propriétés supplémentaires dans le filtre qui n’ont pas été définies dans un index composite, une combinaison d’index composites et de plage sera utilisée pour évaluer la requête. Cela nécessite moins de RU que l’utilisation exclusive d’index de plage.
+- Si une propriété a un filtre de plage (`>`, `<`, `<=`, `>=` ou `!=`), cette propriété doit être définie en dernier dans l’index composite. Si une requête a plusieurs filtres de plage, elle n’utilise pas l’index composite.
+- Lors de la création d’un index composite pour optimiser des requêtes avec plusieurs filtres, `ORDER` de l’index composite n’aura aucun impact sur les résultats. Cette propriété est facultative.
+- Si vous ne définissez pas d’index composite pour une requête avec des filtres sur plusieurs propriétés, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite.
+
+Prenons les exemples suivants, où un index composite est défini sur des propriétés name, age et timestamp :
+
+| **Index composite**     | **Exemple de requête**      | **Pris en charge par l’index composite ?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+
+### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Requêtes avec un filtre et une clause ORDER BY
+
+Si une requête filtre sur une ou plusieurs propriétés et possède des propriétés différentes dans la clause ORDER BY, il peut être utile d’ajouter les propriétés du filtre à la clause `ORDER BY`.
+
+Par exemple, en ajoutant les propriétés du filtre à la clause ORDER BY, la requête suivante peut être réécrite pour tirer parti d’un index composite :
+
+Requête utilisant un index de plage :
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+```
+
+Requête utilisant un index composite :
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+```
+
+Le même modèle et les mêmes optimisations de requête peuvent être généralisés pour les requêtes avec plusieurs filtres d’égalité :
+
+Requête utilisant un index de plage :
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+```
+
+Requête utilisant un index composite :
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+```
+
+Les considérations suivantes sont utilisées lors de la création d’index composites pour optimiser une requête avec un filtre et une clause `ORDER BY` :
+
+* Si la requête filtre sur les propriétés, celles-ci doivent être incluses en premier dans la clause `ORDER BY`.
+* Si vous ne définissez pas d’index composite sur une requête avec un filtre sur une propriété et une clause `ORDER BY` distincte à l’aide d’une autre propriété, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite, en particulier si la propriété de la clause `ORDER BY` a une cardinalité élevée.
+* Toutes les considérations relatives à la création d’index composites pour les requêtes `ORDER BY` avec plusieurs propriétés, ainsi que les requêtes avec des filtres sur plusieurs propriétés, s’appliquent toujours.
+
+
+| **Index composite**                      | **Exemple `ORDER BY` de requête**                                  | **Pris en charge par l’index composite ?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 ## <a name="modifying-the-indexing-policy"></a>Modification de la stratégie d’indexation
 
-La stratégie d’indexation d’un conteneur peut être mise à jour à tout moment [à l’aide du portail Azure ou de l’un des kit de développement logiciel (SDK) pris en charge](how-to-manage-indexing-policy.md). Une mise à jour de la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). L’index de l’ancienne stratégie est transformé efficacement en nouvelle stratégie, sans affecter la disponibilité d’écriture ou le débit approvisionné sur le conteneur. La transformation d’index est une opération asynchrone. Le temps nécessaire pour l’effectuer dépend du débit approvisionné, du nombre d’éléments et de leur taille. 
+La stratégie d’indexation d’un conteneur peut être mise à jour à tout moment [à l’aide du portail Azure ou de l’un des kit de développement logiciel (SDK) pris en charge](how-to-manage-indexing-policy.md). Une mise à jour de la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). L’index de l’ancienne stratégie est transformé efficacement en nouvelle stratégie, sans affecter la disponibilité d’écriture ou le débit approvisionné sur le conteneur. La transformation d’index est une opération asynchrone. Le temps nécessaire pour l’effectuer dépend du débit approvisionné, du nombre d’éléments et de leur taille.
 
 > [!NOTE]
 > Pendant la réindexation, il est possible que les requêtes ne retournent pas tous les résultats correspondants et elles ne retourneront pas d’erreurs. Cela signifie que les résultats de la requête ne seront peut-être pas cohérentes avant la fin de la transformation de l’index. Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
@@ -129,14 +251,6 @@ Pour les scénarios où aucun chemin de propriété ne doit être indexé, mais 
 - un mode d’indexation défini sur Cohérent,
 - sans chemin d’accès inclus et avec
 - `/*` comme seul chemin exclu.
-
-## <a name="obsolete-attributes"></a>Attributs obsolètes
-
-Lorsque vous travaillez avec des stratégies d’indexation, vous pouvez rencontrer les attributs suivants, qui sont désormais obsolètes :
-
-- `automatic` est une valeur booléenne définie à la racine d’une stratégie d’indexation. Elle est désormais ignorée et peut être définie sur `true` lorsque l’outil que vous utilisez l’exige.
-- `precision` est un nombre est défini au niveau de l’index pour les chemins inclus. Elle est désormais ignorée et peut être définie sur `-1` lorsque l’outil que vous utilisez l’exige.
-- `hash` est un type d’index qui est désormais remplacé par le type de portée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

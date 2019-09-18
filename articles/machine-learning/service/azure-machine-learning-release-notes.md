@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 48da5e27184076676edb3f3b89b478bcf2fe347f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278289"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900450"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -23,12 +23,42 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2019-09-09"></a>2019-09-09
+
+### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Nouvelle expérience web pour les espaces de travail Azure Machine Learning (préversion)
+La nouvelle expérience web permet aux chercheurs de données et aux ingénieurs de données d’effectuer leur cycle de vie Machine Learning de bout en bout, de la préparation et la visualisation des données à la formation et au déploiement des modèles dans un emplacement unique. 
+
+![IU de l’espaces de travail Azure Machine Learning (préversion)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+
+**Fonctionnalités clés :**
+
+À l’aide de cette nouvelle interface Azure Machine Learning, vous pouvez désormais :
++ Gérer vos notebooks ou le lien vers Jupyter
++ [Exécuter des expériences de Machine Learning automatisé](tutorial-first-experiment-automated-ml.md)
++ [Créer des jeux de données à partir de fichiers locaux, de banques de données et de fichiers web](how-to-create-register-datasets.md)
++ Explorer et préparer les jeux de données pour la création de modèles
++ Surveiller la dérive des données pour vos modèles 
++ Afficher les ressources récentes à partir d’un tableau de bord
+
+Au moment de cette publication, les navigateurs suivants sont pris en charge : Chrome, Firefox, Safari et la préversion Microsoft Edge.
+
+**Problèmes connus :**
+
+1. Actualisez votre navigateur si vous voyez « Une erreur s’est produite ! Erreur lors du chargement des fichiers blocs » lorsque le déploiement est en cours.  
+
+1. Impossible de supprimer ou de renommer un fichier dans des notebooks et des fichiers. Pendant la préversion publique, vous pouvez utiliser le terminal ou l’interface utilisateur Jupyter sur la machine virtuelle Notebook pour effectuer les opérations de mise à jour des fichiers. Étant donné qu’il s’agit d’un système de fichiers réseau monté, toutes les modifications que vous apportez à la machine virtuelle Notebook sont immédiatement reflétées dans l’espace de travail Notebook. 
+
+1. Pour une connexion SSH à la machine virtuelle Notebook :
+   1. Recherchez les clés SSH qui ont été créées lors de la configuration de la machine virtuelle. Ou, recherchez les clés dans le portail Azure ML > ouvrez l’onglet Calcul > localisez la machine virtuelle Notebook dans la liste > ouvrez la boîte de dialogue Propriétés : copiez les clés à partir de la boîte de dialogue.
+   1. Importez ces clés SSH publiques et privées sur votre ordinateur local.
+   1. Utilisez-les pour effectuer une connexion SSH à la machine virtuelle Notebook. 
+
 ## <a name="2019-09-03"></a>2019-09-03
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.60
 
 + **Nouvelles fonctionnalités**
   + Ajout de FileDataset, qui fait référence à des fichiers uniques ou multiples dans vos magasins de fichiers ou vos URL publiques. Les fichiers peuvent être de n’importe quel format. FileDataset vous offre la possibilité de télécharger ou de monter les fichiers dans votre calcul. Pour en savoir plus sur FileDataset, consultez https://aka.ms/file-dataset.
-  + Ajout de la prise en charge du YAML de pipeline pour les étapes PythonScript, Adla, Databrick, DataTransfer et AzureBatch
+  + Ajout de la prise en charge du YAML de pipeline pour les étapes PythonScript, Adla, Databricks, DataTransfer et AzureBatch
 
 + **Résolutions de bogue et améliorations**
   + **azureml-automl-core**
@@ -39,7 +69,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
     + Les modèles AutoML retournent désormais AutoMLExceptions
     + Cette version améliore les performances d’exécution des exécutions locales de Machine Learning automatisé.
   + **azureml-core**
-    + Ajoute `Dataset.get_all()`, qui retourne un dictionnaire d'objets `TabularDataset` et `FileDataset` indexés par nom d’inscription. 
+    + Ajoute Dataset.get_all(workspace), qui retourne un dictionnaire d'objets `TabularDataset` et `FileDataset` indexés par nom d’inscription. 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -70,6 +100,12 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **azureml-train-core**
     + Détermination précoce de l’échec pour certaines erreurs de définition d’espace d’hyperparamètre directement dans le kit de développement logiciel (SDK) et non côté serveur.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1114"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.1.14
++ **Résolutions de bogue et améliorations**
+  + Activation de l’écriture dans ADLS/ADLSGen2 à l’aide du chemin d’accès brut et des informations d’identification.
+  + Correction d’un bogue à cause duquel `include_path=True` ne fonctionnait pas pour `read_parquet`.
+  + Résolution de l’échec `to_pandas_dataframe()` provoqué par l’exception « Valeur de propriété non valide : hostSecret ».
+  + Correction d’un bogue dans lequel les fichiers ne pouvaient pas être lus sur DBFS en mode Spark.
   
 ## <a name="2019-08-19"></a>19/08/2019
 
@@ -81,7 +117,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **automl-client-core-nativeclient**
     + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
     + Interface mise à jour pour créer un `RawDataContext` pour exiger uniquement les données et l’objet `AutoMLBaseSettings`.
-    +  Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+    +  Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’apprentissage lors de la prévision.
   + **azure-cli-ml**
     + Vous pouvez maintenant mettre à jour le certificat SSL pour le point de terminaison de score déployé sur le cluster AKS pour les certificats générés par Microsoft et par le client.
   + **azureml-automl-core**
@@ -92,7 +128,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
     + Lors de l’exécution de l’ensemble d’itération pour le type d’apprentissage de validation croisée, si nous avons rencontré un problème lors du téléchargement des modèles formés sur l’ensemble du jeu de données, nous avons une incohérence entre la pondération des modèles et les modèles qui ont été intégrés à l’ensemble de vote.
     + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
     + Résolution du problème lié aux tâches de prévision quand Aucune a été trouvé dans les colonnes booléennes des tables d’entrée.
-    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’apprentissage lors de la prévision.
   + **azureml-core**
     + Correction du problème de classement du paramètre blob_cache_timeout.
     + Ajout des types d’exceptions d’ajustement externe et de transformation aux erreurs système.
@@ -268,7 +304,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **azureml-explain-model**
     + Correction de l’argument des transformations pour l’explicatif LIME pour l’importance des caractéristiques brutes dans le package azureml-contrib-explain-model
     + Ajout d’une prise en charge partielle de SciPy pour LimeExplainer
-    + Ajout d’un wrapper explicatif linéaire SHAP et d’un autre niveau à l’explicatif tabulaire pour l’explication des modèles linéaires
+    + Ajout d’un wrapper explicatif linéaire de forme et d’un autre niveau à l’explicatif tabulaire pour l’explication des modèles linéaires
     + Pour l’explicatif d’imitation dans la bibliothèque de modèles d’explication, correction de l’erreur avec include_local = false pour l’entrée de données éparses
     + Ajout des valeurs attendues à la sortie automl
     + Correction de l’importance des caractéristiques par permutation quand l’argument des transformations est fourni pour bénéficier de l’importance des caractéristiques brutes
@@ -405,7 +441,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
 + **Résolutions de bogue et améliorations**
   + Dépendance paramiko supprimée de azureml-core. Ajout d’avertissements d’obsolescence pour les méthodes d’attache cible de calcul héritées.
   + Amélioration des performances de run.create_children
-  + Dans un explicatif mimique avec classifieur binaire, résolution de l’ordre des probabilités lorsque la probabilité de professeur est utilisée pour la mise à l’échelle des valeurs de forme
+  + Dans un explicatif mimique avec classifieur binaire, résolution de l’ordre des probabilités lorsque la probabilité de professeur est utilisée pour la mise à l’échelle des valeurs de forme.
   + Amélioration de la gestion des erreurs et des messages pour l’apprentissage automatique. 
   + Résolution du problème de délai d’attente d’itération pour l’apprentissage automatique.
   + Amélioration des performances de transformation de séries chronologiques pour l’apprentissage automatique.
