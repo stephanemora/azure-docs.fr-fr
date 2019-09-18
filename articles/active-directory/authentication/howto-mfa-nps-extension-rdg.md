@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf9188502dd2b17bcd898e2655138b06cfe5cebf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64873422"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898552"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -178,7 +178,7 @@ Pour utiliser le script, spécifiez l’extension avec vos informations d’iden
 
 Dans cette section, configurez des stratégies d’autorisation des connexions de passerelle des services Bureau à distance et d’autres paramètres de RADIUS.
 
-Le flux d’authentification nécessite que les messages RADIUS soient échangés entre la passerelle des services Bureau à distance et le serveur NPS où est installé le serveur NPS. Cela signifie que vous devez configurer les paramètres des clients RADIUS sur la passerelle des services Bureau à distance et le serveur NPS où est installée l’extension du serveur NPS.
+Le flux d’authentification nécessite que les messages RADIUS soient échangés entre la passerelle des services Bureau à distance et le serveur NPS où est installée l’extension NPS. Cela signifie que vous devez configurer les paramètres des clients RADIUS sur la passerelle des services Bureau à distance et le serveur NPS où est installée l’extension du serveur NPS.
 
 ### <a name="configure-remote-desktop-gateway-connection-authorization-policies-to-use-central-store"></a>Configurer des stratégies de l’autorisation des connexions de passerelle des services Bureau à distance pour utiliser le Store central
 

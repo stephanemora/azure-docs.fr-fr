@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972617"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845473"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -108,7 +108,7 @@ Pour plus d'informations, voir [Réseaux privés virtuels](https://docs.vmware.c
 
 Les étapes suivantes montrent comment récupérer l'ID du routeur logique de l'instance de routeur logique Tier0 DR pour les services IPsec et L2VPN. L'ID du routeur logique sera nécessaire plus tard lors de l'implémentation de L2VPN.
 
-1. Connectez-vous à NSX-T Manager (https://nsx-t-manager-ip-address) et sélectionnez **Networking (Mise en réseau)**  > **Routers (Routeurs)**  > **Provider-LR** > **Overview (Vue d’ensemble)** ). Pour le **mode Haute disponibilité**, sélectionnez **Actif / passif**. Cette action ouvre une fenêtre contextuelle qui affiche la machine virtuelle Edge sur laquelle le routeur Tier0 est actuellement actif.
+1. Connectez-vous à NSX-T Manager https://*nsx-t-manager-ip-address*, puis sélectionnez **Networking (Mise en réseau)**  > **Routers (Routeurs)**  > **Provider-LR** > **Overview (Vue d’ensemble)** . Pour le **mode Haute disponibilité**, sélectionnez **Actif / passif**. Cette action ouvre une fenêtre contextuelle qui affiche la machine virtuelle Edge sur laquelle le routeur Tier0 est actuellement actif.
 
     ![Sélectionner Actif / passif](media/l2vpn-fetch01.png)
 

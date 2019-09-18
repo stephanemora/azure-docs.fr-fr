@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/30/2019
-ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/06/2019
+ms.openlocfilehash: a80e1d0e4aa243d46efa79173af3fc5d774eb46f
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208345"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806595"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -191,6 +191,9 @@ Si votre application utilise une instance gérée comme couche Données, suivez 
 
   Pour garantir une connectivité ininterrompue à l’instance principale après le basculement automatique, les instances principale et secondaire doivent se trouver dans la même zone DNS. Cela garantit que le même certificat multidomaine (SAN) peut être utilisé pour authentifier les connexions clientes avec les deux instances du groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance principale. Pour cela, vous pouvez spécifier un paramètre `DNS Zone Partner` facultatif à l’aide du portail Azure, de PowerShell ou de l’API REST. 
 
+> [!IMPORTANT]
+> La première instance créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.   
+
   Pour plus d’informations sur la création de l’instance secondaire dans la même zone DNS que l’instance principale, consultez [Créer une instance managée secondaire](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Activer le trafic de réplication entre deux instances**
@@ -237,6 +240,10 @@ Si votre application utilise une instance gérée comme couche Données, suivez 
 
   > [!IMPORTANT]
   > Utilisez le basculement de groupe manuel pour redéplacer les bases de données primaires à leur emplacement d’origine. Lorsque la panne ayant provoqué le basculement est résolue, vous pouvez déplacer vos bases de données primaires vers leur emplacement d’origine. Pour ce faire, vous devez effectuer le basculement manuel du groupe.
+
+- **Reconnaître les limites connues des groupes de basculement**
+
+  Les opérations consistant à renommer la base de données et à redimensionner des instances ne sont pas prises en charge pour les instances d’un groupe de basculement. Vous devrez supprimer temporairement le groupe de basculement pour pouvoir effectuer ces actions.
 
 ## <a name="failover-groups-and-network-security"></a>Groupes de basculement et sécurité réseau
 

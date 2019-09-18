@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907419"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764409"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL - Serveur unique versions 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - Serveur unique versions 9.6, 10, 11
 
 La fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données nommée **azure_sys** dans l’instance Azure Database pour PostgreSQL.
 
@@ -160,7 +160,7 @@ Cette vue retourne les données des événements d’attente du Magasin des requ
 |query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
 |event_type |text       ||Type d’événement pour lequel le backend est en attente|
 |événement  |text       ||Nom de l’événement d’attente si le backend est actuellement en attente|
-|calls  |Entier        ||Nombre du même événement capturé|
+|calls  |Integer        ||Nombre du même événement capturé|
 
 
 ### <a name="functions"></a>Fonctions

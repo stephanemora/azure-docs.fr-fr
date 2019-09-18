@@ -4,14 +4,14 @@ description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479287"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914190"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 
@@ -25,6 +25,7 @@ Chaque fois qu’un élément est stocké dans un conteneur, son contenu est pro
 
 Par exemple, tenez compte de cet élément :
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -36,6 +37,7 @@ Par exemple, tenez compte de cet élément :
             { "city": "Athens" }
         ]
     }
+```
 
 Il serait représenté par l’arborescence suivante :
 
@@ -70,13 +72,13 @@ Le type d’index **plage** est utilisé pour les types de requête suivants :
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - Requêtes de plage :
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   (fonctionne pour `>`, `<`, `>=`, `<=`, `!=`)
 
 - Requêtes `ORDER BY` :
@@ -107,15 +109,27 @@ Le type d’index **spatial** est utilisé pour les types de requête suivants 
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-Les index spatiaux sont utilisables sur des objets [GeoJSON](geospatial.md) correctement formatés . Les points, les LineStrings et les polygones sont actuellement pris en charge.
+Les index spatiaux sont utilisables sur des objets [GeoJSON](geospatial.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge.
 
 Le type d’index **plage** est utilisé pour les types de requête suivants :
 
-- Requêtes `ORDER BY` sur plusieurs propriétés : 
+- Requêtes `ORDER BY` sur plusieurs propriétés :
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Requêtes avec un filtre et `ORDER BY`. Ces requêtes peuvent utiliser un index composite si la propriété de filtre est ajoutée à la clause `ORDER BY`.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Les requêtes avec un filtre sur deux ou plusieurs propriétés où au moins une propriété est un filtre d'égalité
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## <a name="querying-with-indexes"></a>Interrogation avec des index
 
@@ -126,7 +140,7 @@ Considérez la requête suivante : `SELECT location FROM location IN company.lo
 ![Mise en correspondance d’un chemin d’accès spécifique au sein d’une arborescence](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Une clause `ORDER BY` qui commande par une seule propriété a *toujours* besoin d’un index plage et échouera si le chemin d’accès qu’elle référence n’en a pas. De même, une requête multi `ORDER BY` nécessite *toujours* un index composite.
+> Une clause `ORDER BY` qui commande par une seule propriété a *toujours* besoin d’un index plage et échouera si le chemin d’accès qu’elle référence n’en a pas. De même, une requête `ORDER BY` qui commande selon plusieurs propriétés nécessite *toujours* un index composite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

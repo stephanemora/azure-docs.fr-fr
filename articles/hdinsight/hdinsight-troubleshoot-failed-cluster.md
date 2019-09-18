@@ -1,6 +1,6 @@
 ---
 title: Détecter un problème de travail lent ou défaillant sur un cluster HDInsight - Azure HDInsight
-description: Diagnostiquer et résoudre les problèmes d’un cluster HDInsight défaillant ou lent.
+description: Diagnostiquer et dépanner un problème de travail lent ou défaillant sur un cluster HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573643"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900176"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -54,7 +54,7 @@ Voici quelques informations importantes à propos du cluster :
 
 Le portail Azure peut fournir les informations suivantes :
 
-![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) :
 

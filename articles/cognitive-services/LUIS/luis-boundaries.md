@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883955"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844804"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -29,6 +29,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 |Domaine|Limite|
 |--|:--|
 | [Nom de l’application][luis-get-started-create-app] | \* Nombre maximum de caractère par défaut |
+| APPLICATIONS| 500 applications par ressource de création Azure |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
 | Liste explicite | 50 par application|
 | Entités externes | sans limite |
@@ -44,7 +45,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
 | [Énoncé][utterances] | 500 caractères|
 | [Énoncés][utterances] | 15 000 par application, il n’existe aucune limite du nombre d’énoncés par intention|
-| [Versions](luis-concept-version.md)| aucune limite |
+| [Versions](luis-concept-version.md)| 100 versions par application |
 | [Nom de version][luis-how-to-manage-versions] | 10 caractères restreints à l’alphanumérique et point (.) |
 
 \* 50 caractères par défaut maximum. 
@@ -64,19 +65,24 @@ N’utilisez pas les caractères suivants dans les noms suivants.
 
 Language Understanding possède des clés séparées, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
 
-## <a name="key-limits"></a>Limites de clés
+<a name="key-limits"></a>
 
-La clé de création a différentes limites pour la création et le point de terminaison. La clé de point de terminaison de service LUIS n’est valide que pour les requêtes de point de terminaison.
+## <a name="resource-key-limits"></a>Limités de clés de ressources
 
+Les clés de ressources ont différentes limites pour la création et le point de terminaison. La clé de point de terminaison de requête de prédiction LUIS n’est valide que pour les requêtes de point de terminaison. 
+
+* 500 applications par ressource de création Azure 
 
 |Clé|Création|Point de terminaison|Objectif|
 |--|--|--|--|
-|Création/Starter Language Understanding|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
-|[Abonnement][pricing] Language Understanding - F0 - Niveau gratuit |non valide|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
-|[Abonnement][pricing] Language Understanding - S0 - Niveau De base|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
-|[Abonnement][pricing] Cognitive Services - S0 - Niveau Standard|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
-|[Intégration de l’analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valide|aucun frais|Ajout d’informations sur les sentiments, y compris l’extraction de données de phrases clés |
-|[Intégration de Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|non valide|5,50 USD/1 000 requêtes de point de terminaison|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
+|Starter|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
+|F0 - Niveau gratuit |1 000 000/mois, 5/seconde|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
+|S0 - Niveau de base|-|50/seconde|Interrogation de votre point de terminaison LUIS|
+|S0 - Niveau Standard|-|50/seconde|Interrogation de votre point de terminaison LUIS|
+|[Intégration de l’analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|L'ajout d'informations sur les sentiments, y compris l'extraction de données de phrases clés, est fourni sans nécessiter une autre ressource Azure. |
+|[Intégration de Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 000 requêtes de point de terminaison pour coût unitaire|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
+
+[Apprenez-en davantage sur la tarification.][pricing]
 
 ## <a name="keyboard-controls"></a>Commandes du clavier
 

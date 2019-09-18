@@ -4,21 +4,24 @@ description: Apprenez à configurer les paramètres de Baidu pour un hub de noti
 services: notification-hubs
 author: jwargo
 manager: patniko
-editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
-ms.openlocfilehash: 9942b1d4d8b5d538f5150a36e596753282039be7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9feb5f66c5ae979a239c3349b2b1347ad307ce49
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60234259"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884647"
 ---
-# <a name="configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres de Baidu Cloud Push pour un hub de notification sur le portail Azure
-Cet article explique comment configurer les paramètres de Baidu Cloud Push pour un hub de notification Azure à l'aide du portail Azure. 
+# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Déconseillé : Configurer les paramètres de Baidu Cloud Push pour un hub de notification sur le portail Azure
+
+Cet article explique comment configurer les paramètres de Baidu Cloud Push pour un hub de notification Azure à l'aide du portail Azure.
+
+> [!IMPORTANT]
+> Ce didacticiel est déconseillé. 
 
 ## <a name="prerequisites"></a>Prérequis
 Si vous n’avez pas déjà créé de hub de notification, créez-en un maintenant. Pour plus d’informations, consultez [Créer un hub de notification Azure dans le portail Azure](create-notification-hub-portal.md). 

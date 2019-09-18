@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004471"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772268"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -30,7 +30,7 @@ Cette page explique les concepts clés des domaines, zones DNS, enregistrements 
 
 DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement «  **.**  ».  Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ».  Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Dans une hiérarchie DNS, les domaines sont distribués et hébergés par des serveurs de noms situés dans le monde entier.
 
-Un bureau d’enregistrement de noms de domaine est une organisation permettant d’acheter un nom de domaine tel que « contoso.com ».  L’achat d’un nom de domaine vous autorise à contrôler la hiérarchie DNS sous ce nom, par exemple à diriger le nom « www.contoso.com » vers le site web de votre organisation. Le bureau d’enregistrement peut héberger le domaine sur ses propres serveurs de noms en votre nom, ou vous autoriser À spécifier d’autres serveurs de noms.
+Un bureau d’enregistrement de noms de domaine est une organisation permettant d’acheter un nom de domaine tel que « contoso.com ».  L’achat d’un nom de domaine vous autorise à contrôler la hiérarchie DNS sous ce nom, par exemple à diriger le nom www.contoso.com vers le site web de votre organisation. Le bureau d’enregistrement peut héberger le domaine sur ses propres serveurs de noms en votre nom, ou vous autoriser À spécifier d’autres serveurs de noms.
 
 Le DNS Azure fournit une infrastructure de serveurs de noms à haute disponibilité répartie dans le monde entier, que vous pouvez utiliser pour héberger votre domaine. En hébergeant vos domaines dans le DNS Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes éléments que vos autres services Azure : informations d’identification, API, outils, facturation et support.
 

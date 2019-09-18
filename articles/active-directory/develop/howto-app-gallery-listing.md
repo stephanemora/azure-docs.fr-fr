@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/04/2019
+ms.date: 09/06/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477059"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898514"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -52,8 +52,8 @@ Cet article montre comment répertorier une application dans la galerie d’appl
 
 - Vous avez besoin d’un compte permanent pour les tests avec au moins 2 utilisateurs inscrits.
 
->[!NOTE]
->Nous travaillons avec un nombre élevé de requêtes de connecteur SCIM. Nous avons donc arrêté de prendre de nouvelles requêtes sur notre portail. Merci de patienter avant d’effectuer de nouvelles requêtes, et ce, jusqu’à nouvel ordre. Veuillez nous excuser pour ce retard et pour les désagréments occasionnés.
+> [!NOTE]
+> Nous travaillons avec un nombre élevé de requêtes de connecteur SCIM. Nous avons donc arrêté de prendre de nouvelles requêtes sur notre portail. Merci de patienter avant d’effectuer de nouvelles requêtes, et ce, jusqu’à nouvel ordre. Veuillez nous excuser pour ce retard et pour les désagréments occasionnés.
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256974"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844869"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Utilisation de clés de ressources de création et de runtime
 
@@ -72,6 +72,38 @@ Lorsque vous êtes prêt à publier votre point de terminaison de prédiction, c
     |Niveau tarifaire du runtime|Le niveau tarifaire détermine le nombre maximal de transactions par seconde et par mois.|
 
     Une fois les deux ressources créées, attribuez-les dans le portail LUIS.
+
+## <a name="create-resources-in-azure-cli"></a>Créer des ressources dans Azure CLI
+
+Utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour créer chaque ressource individuellement. 
+
+Ressource `kind` :
+
+* Création : `LUIS.Authoring`
+* Prédiction : `LUIS` 
+
+1. Connectez-vous à Azure CLI :
+
+    ```console
+    az login
+    ```
+
+    Cette action ouvre un navigateur qui vous permet de sélectionner le bon compte et de fournir une authentification.
+
+1. Créez une **ressource de création LUIS**, de type `LUIS.Authoring`, nommée `my-luis-authoring-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Créez une **ressource de point de terminaison de prédiction LUIS**, de type `LUIS`, nommée `my-luis-prediction-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. Si vous recherchez un débit plus élevé que le niveau gratuit, passez de `F0` à `S0`. En savoir plus sur les [niveaux tarifaires et le débit](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > Ces clés ne sont **pas** utilisées par le portail LUIS tant qu’elles n’ont pas été attribuées dans le portail LUIS via le menu **Gérer -> Ressources Azure**.
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Affecter une ressource de création dans le portail LUIS pour toutes les applications
 
@@ -186,6 +218,6 @@ Ajout d’une alerte de métrique pour le **nombre total d’appels** pendant un
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez [comment utiliser des versions](luis-how-to-manage-versions.md) pour contrôler le cycle de vie de votre application.
-* Découvrez les concepts de [ressource de création](/luis-concept-keys.md#authoring-key) et de [contributeurs](luis-concept-keys.md#contributions-from-other-authors).
+* Découvrez les concepts de [ressource de création](luis-concept-keys.md#authoring-key) et de [contributeurs](luis-concept-keys.md#contributions-from-other-authors).
 * Découvrez [comment créer](luis-how-to-azure-subscription.md) des ressources de création et de runtime.
 * Migrez vers la nouvelle [ressource de création](luis-migration-authoring.md). 

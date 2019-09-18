@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706521"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845450"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
@@ -83,10 +83,10 @@ Quand vous exécutez la commande `Get-LogicAppTemplate` avec cet outil, la comma
 
 ### <a name="generate-template-with-powershell"></a>Générer un modèle avec PowerShell
 
-Pour générer votre modèle après l’installation du module LogicAppTemplate, exécutez la commande PowerShell :
+Pour générer votre modèle après l’installation du module LogicAppTemplate et [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), exécutez la commande PowerShell :
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 Pour suivre la recommandation relative à la redirection dans un jeton à partir de l’[outil client Azure Resource Manager](https://github.com/projectkudu/ARMClient), exécutez cette commande à l’emplacement dans lequel `$SubscriptionId` est votre ID d’abonnement Azure :

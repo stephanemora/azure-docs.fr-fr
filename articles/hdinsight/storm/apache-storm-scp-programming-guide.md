@@ -8,14 +8,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7bb26cd35daf67a3337907aded18e3302b19d81
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692470"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813865"
 ---
-# <a name="scp-programming-guide"></a>Guide de programmation SCP
+# <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guide de programmation SCP pour Apache Storm dans Azure HDInsight
+
 SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](https://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](https://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
 
 Le projet SCP ne se contente pas de faire migrer Storm sur Windows : il permet également d'étendre et de personnaliser l'écosystème Windows. Ses extensions améliorent l’expérience des développeurs .NET et les bibliothèques, tandis que sa capacité de personnalisation permet un déploiement basé sur Windows. 

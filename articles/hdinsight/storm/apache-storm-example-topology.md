@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483788"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813858"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemples de topologies et de composants Apache Storm pour Apache Storm sur HDInsight
 
@@ -31,7 +31,6 @@ Voici une liste d’exemples créés et gérés par Microsoft à utiliser avec [
 | [Extraction, transformation et chargement (ETL) à partir d’Azure Event Hubs dans Apache HBase, à l’aide d’Apache Storm sur HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Modèle de projet de topologie Storm C# pour l’utilisation des services Azure à partir d’Apache Storm sur HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |
 | [Tests d’extensibilité pour la lecture de données à partir d’Azure Event Hubs à l’aide d’Apache Storm sur HDInsight][d6c540e3] |Débit des messages, Event Hubs, SQL Database |C#, Java |
-| [Utiliser Python avec Apache Storm sur HDInsight](apache-storm-develop-python-topology.md) |Composants de Python avec une topologie Flux |Python |
 | [Utiliser Apache Kafka avec Apache Storm sur HDInsight](../hdinsight-apache-storm-with-kafka.md) | Lecture et écriture Apache Storm dans Apache Kafka | Java |
 
 > [!WARNING]  
@@ -39,7 +38,11 @@ Voici une liste d’exemples créés et gérés par Microsoft à utiliser avec [
 >
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure.
 
-### <a name="next-steps"></a>Étapes suivantes
+## <a name="python-only"></a>Python uniquement
+
+Voir [Utiliser Python avec Apache Storm sur HDInsight](apache-storm-develop-python-topology.md) pour obtenir un exemple de composants Python avec une topologie Flux.
+
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et surveiller une topologie Apache Storm dans Azure HDInsight à votre projet](./apache-storm-quickstart.md)
 * [Découvrez comment déployer et gérer des topologies Apache Storm avec Apache Storm sur HDInsight][6eb0d3b8]

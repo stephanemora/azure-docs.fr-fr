@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fb4d953f575dcf6582f9f1c8c2a725971134159
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856260"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882035"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
-Le Machine Learning automatisé, également appelé autoML, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle.
+Le Machine Learning automatisé, également appelé autoML, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle. L’apprentissage automatique automatisé se base sur une innovation de notre [division Microsoft Research](https://arxiv.org/abs/1705.05355).
 
 Le développement de modèle Machine Learning traditionnel consomme beaucoup de ressources, nécessitant une connaissance significative du domaine et du temps pour produire et comparer des dizaines de modèles. Appliquez le Machine Learning automatisé lorsque vous souhaitez qu’Azure Machine Learning effectue l’apprentissage d’un modèle et le règle à votre place à l’aide de la métrique cible que vous spécifiez. Le service effectue ensuite des itérations dans les algorithmes de Machine Learning associés aux sélections de fonctionnalités, où chaque itération produit un modèle avec un score d’apprentissage. Plus le score est élevé, plus le modèle est considéré comme « adapté » à vos données.
 
@@ -47,7 +47,7 @@ Les scientifiques des données, analystes et développeurs de différents secteu
 
 1. **Configurer la cible de calcul pour l’apprentissage du modèle** : [ordinateur local, calculs Azure Machine Learning, machines virtuelles à distance ou Azure Databricks](how-to-set-up-training-targets.md).  Apprenez-en davantage sur l’apprentissage automatisé [sur une ressource distante](how-to-auto-train-remote.md).
 
-1. **Configurer les paramètres de Machine Learning automatisé** qui déterminent le nombre d’itérations sur les différents modèles, les réglages d’hyperparamètre, le prétraitement et la personnalisation avancés, ainsi que les métriques à examiner lors du choix du meilleur modèle.  Vous pouvez configurer les paramètres de l’expérience d’apprentissage automatique [dans le portail Azure](how-to-create-portal-experiments.md) ou [avec le Kit de développement logiciel (SDK)](how-to-configure-auto-train.md).
+1. **Configurer les paramètres de Machine Learning automatisé** qui déterminent le nombre d’itérations sur les différents modèles, les réglages d’hyperparamètre, le prétraitement et la personnalisation avancés, ainsi que les métriques à examiner lors du choix du meilleur modèle.  Vous pouvez configurer les paramètres de l’expérience d’apprentissage automatique dans le [portail Azure](how-to-create-portal-experiments.md), [la page d’accueil de l’espace de travail (préversion)](https://ml.azure.com) ou [avec le Kit de développement logiciel (SDK)](how-to-configure-auto-train.md). 
 
 1. **Lancer l’exécution de l’apprentissage.**
 
@@ -98,7 +98,12 @@ L’établissement de prévisions fait partie intégrante de toute entreprise, q
 
 Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Contrairement aux méthodes de série chronologique classiques, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Le Machine Learning automatisé effectue l’apprentissage d’un modèle unique, mais souvent ramifié en interne, pour tous les éléments du jeu de données et les horizons de prédiction. Plus de données sont ainsi disponibles pour estimer les paramètres du modèle et la généralisation en séries invisibles devient possible.
 
-Apprenez-en davantage et découvrez un exemple de [Machine Learning automatisé pour la prévision de série chronologique](how-to-auto-train-forecast.md).
+Apprenez-en davantage et découvrez un exemple de [Machine Learning automatisé pour la prévision de série chronologique](how-to-auto-train-forecast.md). Ou consultez le [notebook sur la demande d’énergie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, à savoir :
+
+* détection et personnalisation de congé
+* validation croisée d’origine
+* décalages configurables
+* caractéristiques des agrégations des fenêtres dynamiques
 
 ## <a name="ensemble"></a> Modèles ensemblistes
 
@@ -133,7 +138,7 @@ Consultez les exemples et découvrez comment générer des modèles à l’aide 
 + Suivez le [Didacticiel : Entraîner automatiquement un modèle de régression avec le Machine Learning Azure automatisé](tutorial-auto-train-models.md).
 
 + Configurez les paramètres pour l’expérience d’apprentissage automatique :
-  + Dans l’interface du portail Azure, [procédez comme suit](how-to-create-portal-experiments.md).
+  + Dans l'interface du portail Azur ou la page d'accueil de l'espace de travail (préversion), [procédez comme suit](how-to-create-portal-experiments.md).
   + Avec le Kit de développement logiciel (SDK) Python, [procédez comme suit](how-to-configure-auto-train.md).
 
 + Découvrez comment effectuer l’apprentissage automatique à l’aide de données de série chronologique [en procédant comme suit](how-to-auto-train-forecast.md).

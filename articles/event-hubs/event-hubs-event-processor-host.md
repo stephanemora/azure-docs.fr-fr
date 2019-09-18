@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277378"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772154"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
 
@@ -184,6 +184,10 @@ Nous déconseillons les cas d’usage où vous créez un récepteur avec époque
 - Si un récepteur a déjà été créé avec une époque e1 et reçoit activement des événements, et qu’un nouveau récepteur est créé sans époque, la création du nouveau récepteur échoue. Les récepteurs avec époque sont toujours prioritaires dans le système.
 - S’il existait déjà un récepteur avec une époque e1 qu’il a été déconnecté, et qu’un récepteur est créé sans époque sur un nouveau MessagingFactory, la création du nouveau récepteur réussit. Il existe ici un inconvénient : notre système détectera la « déconnexion du récepteur » après environ 10 minutes.
 - Si un ou plusieurs récepteurs ont été créés sans époque, et qu’un destinataire est créé avec l’époque e1, tous les anciens récepteurs sont déconnectés.
+
+
+> [!NOTE]
+> Nous recommandons d'utiliser différents groupes de consommateurs pour les applications qui utilisent des époques et pour celles qui n'en utilisent pas afin d'éviter les erreurs. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

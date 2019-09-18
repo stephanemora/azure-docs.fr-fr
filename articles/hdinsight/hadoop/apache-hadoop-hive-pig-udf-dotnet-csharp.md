@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 31738c43756da14ba6c2c92afbcb2882561c8001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722876"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882267"
 ---
-# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
 Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur HDInsight.
 
@@ -161,7 +161,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 4. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte __(compte de stockage par défaut)__ est répertoriée.
 
-    ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * Si cette entrée peut être développée, vous utilisez un __compte de stockage Azure__ en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le __(conteneur par défaut)__ .
 
@@ -171,7 +171,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
    * Si vous utilisez un __compte de stockage Azure__, cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** pour le projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
-       ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ouvrir**.
 

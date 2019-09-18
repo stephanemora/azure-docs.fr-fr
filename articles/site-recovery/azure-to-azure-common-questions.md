@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875660"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861393"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -41,7 +41,15 @@ L'équipe Site Recovery travaille avec l'équipe de gestion de la capacité Azur
 ## <a name="replication"></a>Réplication
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>Puis-je répliquer des machines virtuelles activées via le chiffrement de disque Azure ?
-Oui, vous pouvez les répliquer. Consultez l’article [Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure](azure-to-azure-how-to-enable-replication-ade-vms.md). Actuellement, Azure Site Recovery prend uniquement en charge des machines virtuelles Azure exécutant le système d’exploitation Windows et pour lesquelles le chiffrement est activé avec l’application Azure Active Directory (Azure AD).
+
+Oui, Site Recovery prend en charge la récupération d’urgence des machines virtuelles avec chiffrement de disque Azure (ADE) activé. Lorsque vous activez la réplication, toutes les clés de chiffrement de disque et tous les secrets requis sont copiés de la région source vers la région cible dans le contexte utilisateur. Si vous n'avez pas les autorisations requises, un script prêt à l'emploi peut être remis à l'administrateur de la sécurité afin de copier les clés et les secrets.
+
+- Site Recovery prend en charge ADE pour les machines virtuelles Azure exécutant Windows.
+- Site Recovery prend en charge ADE version 0.1, avec un schéma utilisant Azure Active Directory (AAD), et la version 1.1, sans AAD. [Plus d’informations](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)
+- ADE version 1.1, les machines virtuelles Windows doivent être installées sur des disques managés.
+- [En savoir plus](azure-to-azure-how-to-enable-replication-ade-vms.md) sur l’activation de la réplication pour les machines virtuelles chiffrées.
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Puis-je répliquer des machines virtuelles vers un autre abonnement ?
 Oui, vous pouvez répliquer des machines virtuelles Azure vers un autre abonnement du même locataire Azure AD.

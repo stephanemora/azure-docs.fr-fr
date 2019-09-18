@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 09/06/2019
 ms.author: spelluru
-ms.openlocfilehash: 11ac4e10cbd116ed204a8a11274408f5a5a9b4d9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183130"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773098"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Créer et gérer des machines virtuelles avec DevTest Labs à l’aide de l’interface de ligne de commande Azure
 Ce guide de démarrage rapide vous montre pas à pas comment créer, démarrer, vous connecter à, mettre à jour et nettoyer une machine de développement dans votre lab. 
@@ -123,15 +123,31 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ]
 ```
 
-Listez les artefacts disponibles dans le laboratoire.
-```azurecli
-az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
+### <a name="list-artifacts-available-in-the-lab"></a>Lister les artefacts disponibles dans le laboratoire
+
+Pour lister les artefacts disponibles dans une machine virtuelle d'un laboratoire, exécutez les commandes suivantes.
+
+**Cloud Shell - PowerShell** : notez l’utilisation de l’accent grave (\`) devant $ dans $expand (`$expand) :
+
+```azurecli-interactive
+az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
+
+**Cloud Shell - Bash** : notez l’utilisation du caractère barre oblique (\\) devant $ dans la commande. 
+
+```azurecli-interactive
+az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
+```
+
+Exemple de sortie : 
+
 ```json
-{
-  "artifactId": "/subscriptions/abcdeftgh1213123/resourceGroups/lisalab123RG822645/providers/Microsoft.DevTestLab/labs/lisalab123/artifactSources/public repo/artifacts/linux-install-nodejs",
-  "status": "Succeeded"
-}
+[
+  {
+    "artifactId": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DevTestLab/labs/<lab name>/artifactSources/public repo/artifacts/windows-7zip",
+    "status": "Succeeded"
+  }
+]
 ```
 
 ## <a name="stop-and-delete-the-virtual-machine"></a>Arrêter et supprimer la machine virtuelle    

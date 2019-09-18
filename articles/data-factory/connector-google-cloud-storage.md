@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: fba6feb035e47cfdfbe830ea628fc91cb483a907
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: fcfdf7de3d121030e0ceb345829b153235a52703
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840278"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813511"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copier des données à partir de Google Cloud Storage avec Azure Data Factory
 
@@ -84,12 +84,12 @@ Voici un exemple :
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
 
-Pour copier des données depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Pour copier des données depuis les **formats Parquet, Texte délimité et Binai
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données à partir de Google Cloud Storage au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge :
+Pour copier des données à partir de Google Cloud Storage au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -183,12 +183,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage comme source
 
-- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
+- Pour copier des données depuis d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
 
-Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -247,7 +247,7 @@ Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Bi
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données à partir de Google Cloud Storage au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données à partir de Google Cloud Storage au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

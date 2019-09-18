@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68779060"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873412"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
 
 > [!NOTE]
-> Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+> Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md).
 >
 >
 
@@ -45,7 +45,7 @@ Le **niveau Gratuit** vous permet de voir l’état de sécurité de vos ressour
 Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports sur l’attribution des menaces. Vous pouvez démarrer une version d’évaluation Standard. Pour effectuer la mise à niveau, sélectionnez [Niveau tarifaire](https://docs.microsoft.com/azure/security-center/security-center-pricing) dans la stratégie de sécurité. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Comment puis-je suivre qui a effectué des modifications de niveau tarifaire dans Azure Security Center dans mon organisation
-Dans la mesure où un abonnement Azure peut avoir plusieurs administrateurs disposant d’autorisations pour modifier le niveau tarifaire, un utilisateur peut souhaiter savoir qui a effectué la modification du niveau tarifaire. Pour ce faire, il est possible d’utiliser le journal d’activité Azure. Consultez les instructions [ici](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+Dans la mesure où un abonnement Azure peut avoir plusieurs administrateurs disposant d’autorisations pour modifier le niveau tarifaire, un utilisateur peut souhaiter savoir qui a effectué la modification du niveau tarifaire. Pour ce faire, il est possible d’utiliser le journal d’activité Azure. Cliquez [ici](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) pour plus d’instructions
 
 ## <a name="permissions"></a>Autorisations
 Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
@@ -63,7 +63,7 @@ Non. Les espaces de travail créés par Security Center, bien qu’ils soient co
 - **Niveau Gratuit** : Security Center active la solution « SecurityCenterFree » sur l’espace de travail par défaut. Vous n’êtes pas facturé pour le niveau gratuit.
 - **Niveau Standard** : Security Center active la solution « Security » sur l’espace de travail par défaut.
 
-Pour plus d’informations sur la tarification, consultez la page de [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/). La page de tarification traite les modifications apportées à la facturation au prorata et au stockage des données de sécurité à partir de juin 2017.
+Pour plus d’informations sur la tarification, consultez la page de [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Le niveau tarifaire Log Analytics des espaces de travail créés par Security Center n’affecte pas la facturation Security Center.
@@ -161,7 +161,7 @@ Vous pouvez désactiver l’approvisionnement automatique pour vos abonnements d
 Vous pouvez souhaiter refuser le provisionnement automatique si les points suivants s’appliquent à vous :
 
 - L’installation automatique de l’agent par Security Center s’applique à l’ensemble de l’abonnement.  Vous ne pouvez pas appliquer l’installation automatique à un sous-ensemble de machines virtuelles. Si des machines virtuelles critiques ne peuvent pas être installées avec Microsoft Monitoring Agent, vous devez refuser le provisionnement automatique.
-- L’installation de l’extension Microsoft Monitoring Agent (MMA) met à jour la version de l’agent. Cela s’applique à un agent direct et un agent SCOM (dans le dernier cas, les bibliothèques SCOM et MMA partagent des bibliothèques runtime communes, qui sont mises à jour dans le processus). Si l’agent SCOM installé est en version 2012 et qu’il est mis à niveau, les fonctionnalités de facilité de gestion peuvent être perdues quand le serveur SCOM est également en version 2012. Vous devez envisager de refuser le provisionnement automatique si l’agent SCOM installé est en version 2012.
+- L’installation de l’extension Microsoft Monitoring Agent (MMA) met à jour la version de l’agent. Cela s’applique à un agent direct et un agent SCOM (dans le dernier cas, les bibliothèques SCOM et MMA partagent des bibliothèques runtime communes, qui sont mises à jour dans le processus). Si l’agent SCOM installé est en version 2012 et qu’il est mis à niveau, les fonctionnalités de facilité de gestion peuvent être perdues quand le serveur SCOM est également en version 2012. Vous pouvez refuser le provisionnement automatique si l’agent SCOM installé est en version 2012.
 - Si vous disposez d’un espace de travail personnalisé externe à l’abonnement (un espace de travail centralisé), vous devez refuser le provisionnement automatique. Vous pouvez installer manuellement l’extension Microsoft Monitoring Agent et la connecter à votre espace de travail sans que Security Center ne remplace la connexion.
 - Si vous souhaitez éviter de créer plusieurs espaces de travail par abonnement et que vous disposez de votre propre espace de travail personnalisé dans l’abonnement, deux options s’offrent à vous :
 
@@ -329,7 +329,7 @@ La latence dans les analyses de Security Center à la recherche de vulnérabilit
 Généralement, Security Center analyse les nouvelles données toutes les heures et actualise les suggestions en conséquence. 
 
 > [!NOTE]
-> Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+> Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md).
 >
 >
 

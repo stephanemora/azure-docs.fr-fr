@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 4d76578de0c80570e67db03046c42985500ddcdb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033144"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914728"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Préversion - Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -34,7 +34,7 @@ Azure CLI 2.0.66 (ou version ultérieure) doit être installé et configuré. Ex
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour créer des clusters AKS qui utilisent des zones de disponibilité, vous avez besoin de l’extension de l’interface CLI *aks-preview* 0.4.1 ou version supérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour créer des clusters AKS qui utilisent des zones de disponibilité, vous avez besoin de l’extension de l’interface CLI *aks-preview* 0.4.12 ou version supérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>Inscrire des indicateurs de fonctionnalité pour votre abonnement
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Enregistrer l’indicateur de fonctionnalité AvailabilityZonePreview pour votre abonnement
 
-Afin de créer un cluster AKS pour des zones de disponibilité, commencez par activer des indicateurs de fonctionnalité sur votre abonnement. Les clusters utilisent un groupe de machines virtuelles identiques pour gérer le déploiement et la configuration des nœuds Kubernetes. La référence SKU *standard* de l'équilibreur de charge Azure est également requise pour assurer la résilience des composants réseau afin de diriger le trafic vers votre cluster. Inscrivez les indicateurs de fonctionnalité *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer* et *VMSSPreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Afin de créer un cluster AKS pour des zones de disponibilité, commencez par activer l’indicateur de fonctionnalité *AvailabilityZonePreview* sur votre abonnement. Enregistrez l’indicateur de fonctionnalité *AvailabilityZonePreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 > [!CAUTION]
 > Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
@@ -90,7 +86,7 @@ Les limitations suivantes s'appliquent lorsque vous créez un cluster AKS à l'a
 * Les clusters avec des zones de disponibilité activées nécessitent l'utilisation d'équilibreurs de charge Standard Azure pour la distribution entre les zones.
 * Vous devez utiliser Kubernetes version 1.13.5 ou supérieure pour déployer des équilibreurs de charge Standard.
 
-Les clusters AKS qui emploient des zones de disponibilité doivent utiliser la référence SKU *Standard* de l’équilibreur de charge Azure. La référence SKU *De base* de l'équilibreur de charge Azure ne prend pas en charge la distribution entre les zones de disponibilité. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la préversion de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
+Les clusters AKS qui emploient des zones de disponibilité doivent utiliser la référence SKU *Standard* de l’équilibreur de charge Azure. La référence SKU *De base* de l'équilibreur de charge Azure ne prend pas en charge la distribution entre les zones de disponibilité. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitations des disques Azure
 
@@ -125,7 +121,7 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --generate-ssh-keys \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
     --node-zones 1 2 3

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236529"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814215"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utiliser le cluster HDInsight Spark pour lire et écrire des données dans une base de données Azure SQL
 
@@ -95,7 +95,7 @@ Dans cette section, vous lisez des données à partir d’une table (par exemple
    
     Le résultat ressemble à ce qui suit :
 
-    ![Donnez un nom au bloc-notes](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "Donnez un nom au bloc-notes")
+    ![sortie de schéma](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "sortie de schéma")
 
 1. Vous pouvez également effectuer des opérations telles que la récupération des 10 premières lignes.
 
@@ -148,11 +148,11 @@ Dans cette section, nous utilisons un exemple de fichier CSV disponible sur le c
 
     a. Démarrez SSMS et connectez-vous à la base de données Azure SQL en fournissant les informations de connexion comme indiqué dans la capture d’écran ci-dessous.
 
-    ![Se connecter à la base de données SQL à l’aide de SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Se connecter à la base de données SQL à l’aide de SSMS")
+    ![Se connecter à la base de données SQL à l’aide de SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Se connecter à la base de données SQL à l’aide de SSMS1")
 
     b. À partir de l’Explorateur d’objets, développez la base de données Azure SQL et le nœud Table pour voir la table **dbo.hvactable** créée.
 
-    ![Se connecter à la base de données SQL à l’aide de SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Se connecter à la base de données SQL à l’aide de SSMS")
+    ![Se connecter à la base de données SQL à l’aide de SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Se connecter à la base de données SQL à l’aide de SSMS2")
 
 1. Exécutez une requête dans SSMS pour voir les colonnes de la table.
 

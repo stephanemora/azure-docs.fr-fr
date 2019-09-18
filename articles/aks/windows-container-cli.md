@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898713"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914893"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -42,7 +42,7 @@ Vous devez ajouter un pool de nœuds supplémentaire après avoir créé votre c
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser des conteneurs Windows Server, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour utiliser des conteneurs Windows Server, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.12 ou version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
-* Plusieurs pools de nœuds sont disponibles pour les clusters créés une fois que vous avez enregistré *WindowsPreview*. Plusieurs pools de nœuds sont également disponibles si vous enregistrez les fonctionnalités *MultiAgentpoolPreview* et *VMSSPreview* pour votre abonnement. Vous ne pouvez pas ajouter ni gérer de pools de nœuds avec un cluster AKS existant créé avant l’enregistrement de ces fonctionnalités.
+* Plusieurs pools de nœuds sont disponibles pour les clusters créés une fois que vous avez enregistré *WindowsPreview*. Plusieurs pools de nœuds sont également disponibles si vous enregistrez la fonctionnalité *MultiAgentpoolPreview* pour votre abonnement. Vous ne pouvez pas ajouter ni gérer de pools de nœuds avec un cluster AKS existant créé avant l’enregistrement de cette fonctionnalité.
 * Vous ne pouvez pas supprimer le premier pool de nœuds.
 
 Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
@@ -121,8 +121,11 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
-  * Le cluster est configuré avec un seul nœud
+  * Le cluster est configuré avec deux nœuds
   * Les paramètres *windows-admin-password* et *windows-admin-username* définissent les informations d’identification administrateur pour les conteneurs Windows Server créés sur le cluster.
+
+> [!NOTE]
+> Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
 
 Fournissez votre propre *PASSWORD_WIN* sécurisé (n’oubliez pas que les commandes dans cet article sont entrées dans un interpréteur de commandes BASH) :
 
@@ -132,13 +135,13 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
@@ -184,7 +187,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Vérifiez que l’état du nœud est *Ready* :
+L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l’état de tous les nœuds est *Prêt* :
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

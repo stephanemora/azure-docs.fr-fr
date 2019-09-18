@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566686"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773203"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
@@ -37,7 +37,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|
 |Rétention des sauvegardes|7 jours|35 jours|35 jours|
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
-|Débit d’E/S (approximatif) |2,5 IOPS par DTU| 2,5 IOPS par DTU | 48 IOPS par DTU|
+|Débit d’E/S (approximatif) |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
 |Indexation Columnstore |N/A|S3 et supérieur|Pris en charge|
 |OLTP en mémoire|N/A|N/A|Pris en charge|

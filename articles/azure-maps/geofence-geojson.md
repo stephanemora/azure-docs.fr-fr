@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723576"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735138"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
@@ -34,11 +34,11 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Date et heure de début de la période de validité. |
 | endTime   | Datetime  | true |  Date et heure de fin de la période de validité. |
-| recurrenceType | chaîne | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
+| recurrenceType | string | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
 | businessDayOnly | Boolean | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
 
 
-* Toutes les valeurs des coordonnées sont représentées sous forme [latitude, longitude] définies dans `WGS84`.
+* Toutes les valeurs des coordonnées sont représentées sous forme [longitude, latitude] définies dans `WGS84`.
 * Pour chaque fonctionnalité, qui contient `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, les propriétés sont appliquées à tous les éléments. Par exemple : Tous les points dans `MultiPoint` utiliseront le même rayon pour former une limite géographique à plusieurs cercles.
 * Dans un scénario de cercle à points, une géométrie cercle peut être représentée à l’aide un objet geometry `Point` avec des propriétés développés dans [Extension des géométries GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

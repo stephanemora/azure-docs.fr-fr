@@ -2,24 +2,19 @@
 title: Gérer les incidents de sécurité dans Azure Security Center | Microsoft Docs
 description: Ce document est conçu pour vous aider à utiliser d’Azure Security Center pour gérer les incidents de sécurité.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047629"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873372"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gérer les incidents de sécurité dans Azure Security Center
 
@@ -41,7 +36,7 @@ Dans le Centre de sécurité, un incident de sécurité est un regroupement de t
 
     ![Répondre aux incidents de sécurité dans Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. Pour obtenir plus d’informations sur chaque alerte, cliquez dessus. La correction suggérée par Security Center dépend de l’alerte de sécurité. La correction suggérée par Security Center dépend de l’alerte de sécurité. 
+1. Pour obtenir plus d’informations sur chaque alerte, cliquez dessus. La correction suggérée par Security Center dépend de l’alerte de sécurité.
 
    > [!NOTE]
    > Une même alerte peut s’afficher dans le cadre d’un incident, mais également apparaître sous la forme d’une alerte autonome.

@@ -6,14 +6,14 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934177"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883064"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Azure Key Vault et l’interface de ligne de commande Azure 
 
@@ -67,7 +67,7 @@ La gestion des clés de compte de stockage à l’aide de Key Vault comporte qua
 
 1. Obtenez un compte de stockage existant.
 1. Récupérez un coffre de clés existant.
-1. Ajoutez un compte de stockage managé Key Vault au coffre. Définissez `key1` en tant que clé active avec une période de régénération de 180 jours.
+1. Ajoutez un compte de stockage managé Key Vault au coffre. Définissez `key1` en tant que clé active avec une période de régénération de 90 jours.
 1. Utilisez `key1` pour définir un contexte de stockage pour le compte de stockage spécifié.
 
 > [!NOTE]

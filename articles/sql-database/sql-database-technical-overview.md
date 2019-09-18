@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: d7cb473c54dc9cf735e43c65bc079fb4f21e4c97
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279894"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913988"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
@@ -26,6 +26,8 @@ Avec la stratégie orientée cloud de Microsoft, les dernières fonctionnalités
 
 > [!NOTE]
 > Pour connaître la signification des termes dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
+
+## <a name="deployment-models"></a>Modèles de déploiement
 
 Azure SQL Database fournit les options de déploiement suivantes pour une base de données Azure SQL :
 
@@ -51,11 +53,19 @@ Vous pouvez créer votre première application dans une petite base de données 
 
 La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt. Une base de données unique prend en charge l’extensibilité dynamique manuelle, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels. Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une base de données unique. Pour obtenir un exemple, consultez [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modèles d’achat, niveaux de service, tailles de calcul et quantités de stockage
+### <a name="purchasing-models"></a>Modèles d’achat
 
 SQL Database est disponible en deux modèles d’achat :
-- Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Le modèle d’achat vCore vous permet également d’utiliser [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) afin de réduire les coûts. Pour en savoir plus sur Azure Hybrid Benefit, consultez le [forum aux questions](#sql-database-frequently-asked-questions-faq).
+- Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Le modèle d’achat vCore vous permet également d’utiliser **[Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)** afin de réduire les coûts. Pour en savoir plus sur Azure Hybrid Benefit, consultez le [forum aux questions](#sql-database-frequently-asked-questions-faq).
 - Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d’E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, tant légères qu’importantes. Les tailles de calcul de chaque niveau fournissent une combinaison différente de ces ressources, auxquelles vous pouvez ajouter d’autres ressources de stockage.
+- Le [modèle serverless](sql-database-serverless.md) met automatiquement à l’échelle les calculs en fonction de la demande de charge de travail et des factures pour la quantité de calculs utilisée chaque seconde. Le niveau de calcul serverless met aussi automatiquement en pause les bases de données pendant les périodes d’inactivité, quand seul le stockage est facturé, et reprend leur exécution automatiquement avec l’activité.
+
+### <a name="service-tiers"></a>Niveaux de service
+
+Azure SQL Database offre trois niveaux de services conçus pour différents types d'applications :
+- [Usage général/Standard](sql-database-service-tier-general-purpose.md) : adapté aux charges de travail courantes. Offre des options de calcul et de stockage équilibrées et économiques.
+- [Critique pour l'entreprise/Premium](sql-database-service-tier-business-critical.md) : adapté aux applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.
+- [HyperScale](sql-database-service-tier-hyperscale.md) : adapté aux très grandes bases de données OLTP, avec capacité de mise à l'échelle automatique du stockage et calcul de mise à l'échelle de manière fluide. 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 

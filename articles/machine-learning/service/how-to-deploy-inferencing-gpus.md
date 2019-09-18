@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011516"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844987"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser Azure Machine Learning service pour déplo
 L’inférence, ou notation de modèle, est la phase au cours de laquelle le modèle déployé est utilisé pour effectuer des prédictions. L’utilisation de GPU au lieu d’UC offre des avantages en termes de performances pour le calcul hautement parallélisable.
 
 > [!IMPORTANT]
-> L’inférence GPU est uniquement prise en charge sur Azure Kubernetes Service.
+> Pour les déploiements de service web, l’inférence GPU est uniquement prise en charge sur Azure Kubernetes Service. Pour l'inférence à l’aide d’un __pipeline d'apprentissage machine__, les GPU sont uniquement pris en charge sur Azure Machine Learning Compute. Pour plus d’informations sur l’utilisation des pipelines d’apprentissage machine, voir [Exécuter des prédictions par lot](how-to-run-batch-predictions.md). 
 
 > [!TIP]
 > Bien que les extraits de code de cet article utilisent un modèle TensorFlow, vous pouvez appliquer les informations à n’importe quel framework Machine Learning qui prend en charge les GPU.

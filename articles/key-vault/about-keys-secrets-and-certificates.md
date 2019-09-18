@@ -3,18 +3,18 @@ title: À propos des clés, des secrets et des certificats Azure Key Vault - Az
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés, les secrets et les certificats.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8ea7fc5a318775b05c03166df3d9b457ec004273
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703921"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773127"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
@@ -85,7 +85,7 @@ Où :
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques lors de l’implémentation du coffre de clés. Par exemple, l’importation de clés avec l’empaquetage spécifique au fournisseur HSM permet de sécuriser le transport des clés susceptibles d’être utilisées uniquement dans les modules HSM Key Vault.  
 
 - **Clés « logicielles »**  : clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos avec une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC (Elliptic Curve) existante ou demander à Key Vault d’en générer une.
-- **Clés « matérielles »**  : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.
+- **Clés « matérielles »**  : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut key_hsm à la JWK pour le transport du matériel de clé HSM.
 
      Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 

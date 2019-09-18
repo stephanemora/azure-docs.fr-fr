@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932716"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735048"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
 
@@ -80,7 +80,7 @@ L’ajout d’exemples d’énoncés doit être effectué par une personne qui 
 
 * a un degré élevé de compréhension de ce que sont les énoncés dans les différentes intentions.
 * sait comment les énoncés dans une intention peuvent être confondus avec une autre intention.
-* est capable de décider si deux intentions qui sont souvent confondues doivent être rassemblées en une intention unique et si les données différentes doivent être extraites avec les entités.
+* est capable de décider si deux intentions qui sont souvent confondues doivent être rassemblées en une intention unique. Dans ce cas, les données différentes doivent être extraites avec les entités.
 
 ### <a name="patterns-and-phrase-lists"></a>Modèles et listes d’expressions
 

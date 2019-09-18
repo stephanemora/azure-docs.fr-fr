@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827231"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900322"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -63,7 +63,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Émirats arabes unis Nord |20 juillet 2019 |Complete |
 | Sud du Royaume-Uni |Disponible |En cours |
 | Ouest du Royaume-Uni |Disponible |En cours |
-| Centre-USA Ouest |1er septembre 2019 |1er octobre 2019|
+| Centre-USA Ouest |1er novembre 2019 |1er décembre 2019|
 | Europe Ouest |Disponible |Complete |
 | USA Ouest |Disponible |Complete |
 | USA Ouest 2 |Disponible |Complete |

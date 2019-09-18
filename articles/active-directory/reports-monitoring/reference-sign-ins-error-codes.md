@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989591"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383168"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -153,6 +153,8 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |70018|Le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée.|
 |70019|Le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter.|
 |70037|La réponse donnée à la question de vérification est incorrecte. La session d’authentification à distance a été refusée.|
+|70043|La gestion des sessions d'accès conditionnel Azure force l'expiration de la session|
+|70044|La gestion des sessions d'accès conditionnel Azure force l'expiration de la session|
 |75001|Une erreur s’est produite lors de la liaison de message SAML.|
 |75003|L’application a renvoyé une erreur relative à une liaison non prise en charge (impossible d’envoyer une réponse de protocole SAML via des liaisons autres que HTTP POST). Contactez le propriétaire de l’application.|
 |75005|Azure AD ne prend pas en charge les demandes SAML envoyées par l’application pour l’authentification unique. Contactez le propriétaire de l’application.|

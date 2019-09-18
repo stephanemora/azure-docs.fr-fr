@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096050"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773053"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser `localhost` pour faire référence à une fonction au sein 
 
  
 >[!Note]  
->Si votre fonction utilise des niveaux d’autorisation de *fonction, administrateur ou système*, vous devez fournir le code et l’ID client, conformément à l’URL d’origine de la fonction. Dans ce cas, la référence doit ressembler à : `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>Si votre fonction utilise des niveaux d’autorisation de *fonction, administrateur ou système*, vous devez fournir le code et l’ID client, conformément à l’URL d’origine de la fonction. Dans ce cas, la référence doit ressembler à : `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Nous recommandons de stocker ces clés dans les [paramètres de l’application] et de les référencer dans vos proxies. Cela évite de stocker des secrets dans votre code source. 
 
 ### <a name="request-parameters"></a>Référencement des paramètres de la demande
 

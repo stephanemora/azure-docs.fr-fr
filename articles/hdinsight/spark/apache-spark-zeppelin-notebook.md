@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 219cdeea228ae3e334213a0f0654f904592cb09e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448741"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813977"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -92,7 +92,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 6. Sélectionnez l'icône **Graphique à barres** pour modifier l'affichage.  **paramètres**, qui apparaît une fois que vous avez sélectionné **Graphique à barres**, vous permet de choisir les **Clés** et les **Valeurs**.  La capture d’écran qui suit présente le résultat.
 
-    ![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
+    ![Exécuter une instruction Spark SQL à l’aide du bloc-notes1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes1")
 
 7. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L'extrait suivant montre comment définir la variable `Temp` dans la requête avec les valeurs d'interrogation possibles. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
 
@@ -110,7 +110,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
      La capture d’écran qui suit présente le résultat.
 
-     ![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
+     ![Exécuter une instruction Spark SQL à l’aide du bloc-notes2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes2")
 
 9. Redémarrez l’interpréteur Livy pour quitter l’application. Pour ce faire, ouvrez les paramètres de l'interpréteur en sélectionnant le nom de l'utilisateur connecté dans le coin supérieur droit, puis sélectionnez **Interpréteur**.  
 
@@ -131,11 +131,11 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https:
 
 2. Accédez à **livy**, puis sélectionnez **modifier**.
 
-    ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifier les paramètres de l’interpréteur")
+    ![Modifier les paramètres de l’interpréteur1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifier les paramètres de l’interpréteur1")
 
 3. Ajoutez une nouvelle clé appelée `livy.spark.jars.packages` et définissez sa valeur au format `group:id:version`. Par conséquent, si vous souhaitez utiliser le package [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), vous devez définir la valeur de la clé sur `com.databricks:spark-csv_2.10:1.4.0`.
 
-    ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modifier les paramètres de l’interpréteur")
+    ![Modifier les paramètres de l’interpréteur2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modifier les paramètres de l’interpréteur2")
 
     Sélectionnez **Enregistrer**, puis redémarrez l'interpréteur Livy.
 

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 8524a315228601adbb30a5def383f7b54a8f1495
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076041"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773216"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -34,7 +34,7 @@ Sélectionnez votre type d'offre :
 | :------------------- | :-------------------|
 | Appareil | Offre impliquant la production ou la vente de matériel d'un fabricant d'appareils. |
 | IP | Applications ou autres matériaux protégés par une licence et destinés à l'usage du client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
-| Service | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
+| de diffusion en continu | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
 | Service managé | Compétences pratiques pour un projet basé sur le cloud, généralement sur une base continue. Par exemple :  fournir une plateforme et des outils pour exécuter une base de données en ligne, la gestion en continu étant assurée par le fournisseur du service managé. |
 
 ## <a name="solution-areas"></a>Domaines fonctionnels
@@ -47,10 +47,10 @@ Les domaines fonctionnels permettent de définir les scénarios pour lesquels vo
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles suivants : <br> <ul> <li> [Modèle d'une page Microsoft Azure](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Modèle d'une page Microsoft Dynamics 365](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Modèle d'une page Office 365](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Modèle d'une page Windows 10](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d'une page Office 365 </li> <li> Modèle d'une page Windows 10 </li> </ul>
  |
-| *Présentation client* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Pour plus d'informations, consultez le [modèle de présentation client](https://aka.ms/GTMServices_CustomerPresentation).|
-| *Étude de cas client* | Ces informations montrent à un client potentiel que Microsoft et vous avez déjà déployé cette solution avec succès chez d'autres clients. <br> <br> Pour plus d'informations, consultez le [modèle d'étude de cas](https://aka.ms/GTM_Case_Study_Template). |
+| *Présentation client* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires.|
+| *Étude de cas client* | Ces informations montrent à un client potentiel que Microsoft et vous avez déjà déployé cette solution avec succès chez d'autres clients. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires. |
 | *Succès clients vérifiables (facultatif)* | Exemples concrets de succès clients découlant du déploiement de votre solution. |
 | *Jeu de diapositives destiné aux partenaires (facultatif)* | Jeu de diapositives contenant des informations qui aideront les revendeurs partenaires à en savoir plus sur votre solution et à préparer leurs équipes commerciales à la vente de votre offre. Il comprend généralement un argumentaire éclair, des informations sur la clientèle visée, les questions à poser aux clients, des points de discussion et des liens vers des vidéos, de la documentation et des informations de support. |
 | *Diagrammes de l'architecture de référence* | Document présentant le modèle correspondant à l'adresse IP créée par le partenaire, ainsi que sa relation avec les services cloud Microsoft, et comment il répond aux exigences techniques du programme « IP Co-sell ». |

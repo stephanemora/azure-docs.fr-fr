@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 45eebe5bce819fa59f2ed6779e845afa6b3efaa5
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276859"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883645"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -125,7 +125,10 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Le protocole HTTP pour la corrélation déclare également l’en-tête `Correlation-Context`. Toutefois, il est omis ici par souci de simplicité.
 
 ## <a name="queue-instrumentation"></a>Instrumentation des files d’attente
-Bien qu’il existe un [protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) pour transmettre les détails de la corrélation avec la requête HTTP, chaque protocole de file d’attente doit définir la façon dont ces détails seront transmis à travers le message de file d’attente. Certains protocoles de file d’attente (par exemple, AMQP) autorisent la transmission de métadonnées supplémentaires, tandis que d’autres (tels que la file d'attente Stockage Azure) nécessitent le contexte à encoder dans la charge utile de message.
+Bien qu’il existe une norme [W3C Trace Context](https://www.w3.org/TR/trace-context/) et un [protocole HTTP pour la corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) pour transmettre les détails de la corrélation avec la requête HTTP, chaque protocole de file d’attente doit définir la façon dont ces détails seront transmis à travers le message de file d’attente. Certains protocoles de file d’attente (par exemple, AMQP) autorisent la transmission de métadonnées supplémentaires, tandis que d’autres (tels que la file d'attente Stockage Azure) nécessitent le contexte à encoder dans la charge utile de message.
+
+> [!NOTE]
+> * **Le suivi de plusieurs composants n’est pas encore pris en charge pour les files d’attente** Avec HTTP, si votre producteur et votre consommateur envoient des données de télémétrie à différentes ressources Application Insights, Transaction Diagnostics Experience et Application Map affichent les transactions et le mappage de bout en bout. En cas de files d'attente, cette fonctionnalité n'est pas encore prise en charge. 
 
 ### <a name="service-bus-queue"></a>File d’attente Service Bus
 Application Insights effectue le suivi des appels de la messagerie Service Bus avec le nouveau [client Microsoft Azure ServiceBus pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 et versions ultérieures.
@@ -142,7 +145,8 @@ public async Task Enqueue(string payload)
     // StartOperation is a helper method that initializes the telemetry item
     // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
-    operation.Telemetry.Type = "Queue";
+    
+    operation.Telemetry.Type = "Azure Service Bus";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
@@ -179,7 +183,7 @@ public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
     // It might also make sense to get the name from the message.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
@@ -228,7 +232,7 @@ L’opération `Enqueue` est l’enfant d’une opération parent (par exemple, 
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
-    operation.Telemetry.Type = "Queue";
+    operation.Telemetry.Type = "Azure queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
     // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
@@ -274,38 +278,18 @@ Pour réduire la quantité de données de télémétrie que votre application si
 #### <a name="dequeue"></a>Dequeue (Enlever de la file d’attente)
 Comme avec `Enqueue`, une requête HTTP réelle à la file d’attente de stockage est automatiquement suivie par Application Insights. Toutefois, l’opération `Enqueue` se produit vraisemblablement dans le contexte parent, par exemple un contexte de demande entrant. Les kits SDK d’Application Insights mettent automatiquement en corrélation cette opération (et sa partie HTTP) avec la demande parent et d’autres données de télémétrie signalées dans le même cadre.
 
-L’opération `Dequeue` est compliquée. Le kit SDK d’Application Insights effectue automatiquement le suivi des demandes HTTP. Toutefois, il ne connait pas le contexte de corrélation avant que le message ne soit analysé. Il n’est pas possible de mettre en corrélation la requête HTTP afin d’obtenir le message avec le reste des données de télémétrie.
-
-Dans de nombreux cas, il peut être utile de mettre en corrélation la requête HTTP adressée à la file d’attente avec d’autres traces également. L’exemple suivant illustre son fonctionnement :
+L’opération `Dequeue` est compliquée. Le kit SDK d’Application Insights effectue automatiquement le suivi des demandes HTTP. Toutefois, il ne connait pas le contexte de corrélation avant que le message ne soit analysé. Il n’est pas possible de mettre en corrélation la requête HTTP afin d’obtenir le message avec le reste des données de télémétrie, surtout lorsque plusieurs messages ont été reçus.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
-    var telemetry = new DependencyTelemetry
-    {
-        Type = "Queue",
-        Name = "Dequeue " + queue.Name
-    };
-
-    telemetry.Start();
-
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>("dequeue " + queue.Name);
+    operation.Telemetry.Type = "Azure queue";
+    operation.Telemetry.Data = "Dequeue " + queue.Name;
+    
     try
     {
         var message = await queue.GetMessageAsync();
-
-        if (message != null)
-        {
-            var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
-
-            // If there is a message, we want to correlate the Dequeue operation with processing.
-            // However, we will only know what correlation ID to use after we get it from the message,
-            // so we will report telemetry after we know the IDs.
-            telemetry.Context.Operation.Id = payload.RootId;
-            telemetry.Context.Operation.ParentId = payload.ParentId;
-
-            // Delete the message.
-            return payload;
-        }
     }
     catch (StorageException e)
     {
@@ -317,8 +301,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     finally
     {
         // Update status code and success as appropriate.
-        telemetry.Stop();
-        telemetryClient.TrackDependency(telemetry);
+        telemetryClient.StopOperation(operation);
     }
 
     return null;
@@ -333,7 +316,8 @@ Dans l’exemple suivant, un message entrant est tracé de la même façon qu’
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
+    
     // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
@@ -368,8 +352,15 @@ Lors de l’instrumentation d’une suppression de message, assurez-vous de déf
 - Arrêtez `Activity`.
 - Utilisez `Start/StopOperation` ou appelez manuellement la télémétrie `Track`.
 
+### <a name="dependency-types"></a>Types de dépendances
+
+Application Insights utilise un type de dépendance pour personnaliser les expériences d’interface utilisateur. Pour les files d'attente, il reconnaît les types suivants de `DependencyTelemetry` qui améliorent [l'expérience de diagnostic des transactions](/azure-monitor/app/transaction-diagnostics) :
+- `Azure queue` pour les files d’attente Stockage Azure
+- `Azure Event Hubs` pour les concentrateurs d’événements Azure
+- `Azure Service Bus` pour Azure Service Bus
+
 ### <a name="batch-processing"></a>Traitement par lots
-Avec des files d’attente, vous pouvez retirer plusieurs messages de la file d’attente avec une seule demande. Le traitement de ces messages est vraisemblablement indépendant et appartient à différentes opérations logiques. Dans ce cas, il n’est pas possible de mettre en corrélation l’opération `Dequeue` avec un traitement de message particulier.
+Avec des files d’attente, vous pouvez retirer plusieurs messages de la file d’attente avec une seule demande. Le traitement de ces messages est vraisemblablement indépendant et appartient à différentes opérations logiques. Il n’est pas possible de mettre en corrélation l’opération `Dequeue` avec un traitement de message particulier.
 
 Chaque traitement de message doit être traité dans son propre flux de contrôle asynchrone. Pour plus d’informations, consultez la section [Suivi des dépendances sortantes](#outgoing-dependencies-tracking).
 
@@ -495,6 +486,7 @@ Chaque opération Application Insights (requête ou dépendance) implique `Activ
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les bases de la [corrélation de télémétrie](correlation.md) dans Application Insights.
+- Découvrez comment les données corrélées sous-tendent l’[expérience de diagnostic des transactions](/azure-monitor/app/transaction-diagnostics) et [Application Map](/azure-monitor/app/app-map).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
 - Signalez les [événements et métriques](../../azure-monitor/app/api-custom-events-metrics.md) à Application Insights .
 - Découvrez la [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard de la collection de propriétés de contexte.

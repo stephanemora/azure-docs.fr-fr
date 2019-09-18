@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ceaefffaf04a3ab266cde300e8c4b93a5e804796
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595456"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861083"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -50,6 +50,9 @@ Pour créer un graphique de métrique, à partir de votre ressource, groupe de r
 Par défaut, le graphique affiche les dernières 24 heures de données de métriques. Utilisez le panneau du **sélecteur d’heure** pour modifier l’intervalle de temps, effectuer un zoom avant ou arrière sur votre graphique. 
 
 ![Modifier le panneau d’intervalle de temps](./media/metrics-getting-started/time-picker.png)
+
+> [!NOTE]
+> Utilisez l’outil **Balayage temporel** pour étudier une zone intéressante du graphique (pic ou baisse). Placez le pointeur de la souris au début de la zone, cliquez et maintenez le bouton gauche de la souris enfoncé, faites-le glisser de l'autre côté de la zone, puis relâchez le bouton. Cet intervalle de temps sera agrandi dans le graphique. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Appliquer des filtres de dimension et un fractionnement
 

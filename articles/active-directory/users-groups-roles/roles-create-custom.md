@@ -1,6 +1,6 @@
 ---
-title: Créer une définition de rôle personnalisé dans un contrôle d'accès basé sur un rôle Azure AD – Azure Active Directory | Microsoft Docs
-description: Créez des rôles Azure AD personnalisés avec l’étendue des ressources sur les ressources Azure Active Directory.
+title: Créer et attribuer un rôle personnalisé dans un contrôle d'accès basé sur un rôle Azure AD – Azure Active Directory | Microsoft Docs
+description: Créez et attribuez des rôles Azure AD personnalisés avec l’étendue des ressources sur les ressources Azure Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,25 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1166839608c709db9aa052d6d0db5221fa15354
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880745"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382824"
 ---
-# <a name="create-a-custom-role-and-assign-at-resource-scope-in-azure-active-directory"></a>Créer un rôle personnalisé et l’affecter à l’étendue des ressources dans Azure Active Directory
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Créer et attribuer un rôle personnalisé dans Azure Active Directory
 
-Cet article explique comment créer des rôles personnalisés dans Azure Active Directory (Azure AD). Vous pouvez créer des rôles personnalisés sous l’onglet [Rôles et administrateurs](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) de la page vue d’ensemble de Azure AD. Le rôle peut être affecté soit au niveau de l’étendue au niveau du répertoire, soit à une étendue de ressource d’inscription d’application uniquement.
+Cet article explique comment créer des rôles personnalisés dans Azure Active Directory (Azure AD). Pour connaître les principes de base des rôles personnalisés, consultez la [vue d’ensemble des rôles personnalisés](roles-custom-overview.md). Le rôle peut être affecté soit au niveau de l’étendue au niveau du répertoire, soit à une étendue de ressource d’inscription d’application uniquement.
 
-Pour plus d’informations, consultez [Vue d’ensemble des rôles personnalisés](roles-custom-overview.md) pour les principes de base des rôles personnalisés.
+Vous pouvez créer des rôles personnalisés sous l’onglet [Rôles et administrateurs](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) de la page vue d’ensemble de Azure AD.
 
-## <a name="using-the-azure-ad-portal"></a>Utilisation du portail Azure AD
+## <a name="create-a-role-in-the-azure-portal"></a>Créer un rôle dans le portail Azure
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Créer un rôle personnalisé pour accorder l’accès pour gérer les inscriptions des applications
 
@@ -49,22 +49,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des rôles personnalisé
 
 Votre rôle personnalisé s’affiche dans la liste des rôles disponibles à affecter.
 
-## <a name="assign-a-role-scoped-to-a-resource"></a>Affecter un rôle étendu à une ressource
-
-À l’instar des rôles intégrés, les rôles personnalisés peuvent être affectés au niveau de l’étendue de l’organisation pour accorder l’accès à toutes les inscriptions d’applications. Toutefois, des rôles personnalisés peuvent également être affectés au niveau de l’étendue des ressources. Cela vous permet de donner à l’intervenant l’autorisation de mettre à jour les informations d’identification et les propriétés de base d’une application unique sans avoir à créer un deuxième rôle personnalisé.
-
-1. Si ce n’est pas déjà fait, connectez-vous au  [centre d’administration Azure AD](https://aad.portal.azure.com) avec les autorisations de développeur d’applications dans l’organisation Azure AD.
-1. Sélectionnez **Inscriptions d’applications**.
-1. Sélectionnez l’inscription d’application à laquelle vous accordez l’accès à gérer. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
-
-    ![Sélectionner l’inscription d’application en tant qu’étendue de ressource pour une attribution de rôle](./media/roles-create-custom/appreg-all-apps.png)
-
-1. Dans inscription d’application, sélectionnez **Rôles et administrateurs**. Si vous n’en avez encore jamais créé, vous trouverez des instructions dans la [procédure précédente](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
-
-1. Sélectionnez le rôle pour ouvrir la page **Affectations**.
-1. Sélectionnez **Ajouter une affectation** pour ajouter un utilisateur. Aucune permission n’est accordée à l’utilisateur sur l’inscription d’une application autre que celle sélectionnée.
-
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Créer un rôle personnalisé à l’aide de Azure AD PowerShell
+## <a name="create-a-role-using-powershell"></a>Créer un rôle avec PowerShell
 
 ### <a name="prepare-powershell"></a>Préparer PowerShell
 
@@ -125,7 +110,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-custom-role-using-microsoft-graph-api"></a>Créer un rôle personnalisé à l’aide de l’API Microsoft Graph
+## <a name="create-a-role-with-graph-api"></a>Créer un rôle avec l’API Graph
 
 1. Créez la définition de rôle.
 
@@ -175,6 +160,21 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Affecter un rôle personnalisé étendu à une ressource
+
+Tout comme les rôles intégrés, les rôles personnalisés sont attribués par défaut à l'échelle de l'entreprise pour accorder des permissions d'accès à toutes les inscriptions d’applications de votre organisation. Mais contrairement aux rôles intégrés, les rôles personnalisés peuvent également être attribués à une seule ressource AD Azure. Cela vous permet de donner à l’utilisateur l’autorisation de mettre à jour les informations d’identification et les propriétés de base d’une application unique sans avoir à créer un deuxième rôle personnalisé.
+
+1. Connectez-vous au  [centre d’administration Azure AD](https://aad.portal.azure.com) avec les autorisations de développeur d’applications dans l’organisation Azure AD.
+1. Sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez l’inscription d’application à laquelle vous accordez l’accès à gérer. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
+
+    ![Sélectionner l’inscription d’application en tant qu’étendue de ressource pour une attribution de rôle](./media/roles-create-custom/appreg-all-apps.png)
+
+1. Dans inscription d’application, sélectionnez **Rôles et administrateurs**. Si vous n’en avez encore jamais créé, vous trouverez des instructions dans la [procédure précédente](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+
+1. Sélectionnez le rôle pour ouvrir la page **Affectations**.
+1. Sélectionnez **Ajouter une affectation** pour ajouter un utilisateur. L'utilisateur se verra accorder toutes les autorisations pour l’inscription d’application sélectionnée seulement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

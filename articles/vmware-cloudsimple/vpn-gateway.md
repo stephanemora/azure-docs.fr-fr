@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972605"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845364"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurer des passerelles VPN sur le réseau CloudSimple
 
@@ -56,7 +56,7 @@ Une passerelle VPN de point à site vous permet de définir une stratégie d’a
     > [!WARNING]
     > L’activation de la haute disponibilité nécessite que votre périphérique VPN local prenne en charge la connexion à deux adresses IP. Cette option ne peut pas être désactivée une fois la passerelle VPN déployée.
 
-5. Créez la première connexion à partir de votre réseau local, puis cliquez sur **Suivant**
+5. Créez la première connexion à partir de votre réseau local, puis cliquez sur **Suivant**.
 
     * Entrez un nom pour identifier la connexion.
     * Pour l’adresse IP de l’homologue, entrez l’adresse IP publique de votre passerelle VPN locale.

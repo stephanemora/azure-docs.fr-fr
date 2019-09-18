@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567812"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845607"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -142,7 +142,7 @@ Les points de terminaison de service vous permettent d’exposer vos ressources 
 
 #### <a name="reserved-ips"></a>IP réservées
 
-Vous pouvez également provisionner des [adresses IP réservées](../virtual-network/virtual-networks-reserved-public-ip.md) pour vos machines virtuelles, et mettre en liste verte ces adresses IP de machines virtuelles spécifiques dans les paramètres de pare-feu du serveur. En affectant des adresses IP réservées, vous évitez de devoir mettre à jour les règles du pare-feu en cas de changement des adresses IP.
+Vous pouvez également provisionner des [adresses IP réservées](../virtual-network/virtual-networks-reserved-public-ip.md) pour vos machines virtuelles, et ajouter ces adresses IP de machines virtuelles spécifiques dans les paramètres de pare-feu du serveur. En affectant des adresses IP réservées, vous évitez de devoir mettre à jour les règles du pare-feu en cas de changement des adresses IP.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Sur quel port dois-je me connecter à SQL Database
 

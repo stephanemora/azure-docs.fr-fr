@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797519"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858486"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Activer InfiniBand avec SR-IOV
 
-La façon la plus simple et recommandée de configurer votre image de machine virtuelle personnalisée avec InfiniBand (IB) consiste à ajouter l’extension de machine virtuelle InfiniBandDriverLinux ou InfiniBandDriverWindows à votre déploiement.
+La façon la plus simple et recommandée de commencer à utiliser des machines virtuelles IaaS pour HPC consiste à utiliser l'image du système d’exploitation de machine virtuelle CentOS-HPC 7.6. Si vous utilisez votre image de machine virtuelle personnalisée, la façon la plus simple de la configurer avec InfiniBand (IB) consiste à ajouter l’extension de machine virtuelle InfiniBandDriverLinux ou InfiniBandDriverWindows à votre déploiement.
 Découvrez comment utiliser ces extensions de machine virtuelle avec [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) et [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
 Pour configurer manuellement InfiniBand sur des machines virtuelles compatibles SR-IOV (actuellement les séries HB et HC), suivez les étapes ci-dessous. Ces étapes concernent uniquement RHEL/CentOS. Pour Ubuntu (16.04 et 18.04) et SLES (12 SP4 et 15), les pilotes de la boîte de réception fonctionnent bien.

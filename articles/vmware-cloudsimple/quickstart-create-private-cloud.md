@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fdf1fc14eb4ab1458c25b484bae6cd84ecec6d7f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575493"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845498"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
@@ -46,7 +46,7 @@ Les clouds privés sont managés via le portail CloudSimple. Ils ont leur serveu
 9. Cliquez sur **Suivant : Options avancées**.
 10. Entrez la plage CIDR pour les sous-réseaux vSphere/vSAN. Assurez-vous que la plage CIDR ne chevauche pas votre réseau local, d’autres sous-réseaux Azure (réseaux virtuels) ou le sous-réseau de la passerelle.
 
-    **Options de la plage CIDR :** /24, /23, /22 ou /21. Une plage CIDR /24 prend en charge jusqu'à neuf nœuds, une plage /23 jusqu'à 41 nœuds et une plage /22 ou /21 jusqu'à 64 nœuds (le nombre maximal de nœuds dans un cloud privé).
+    **Options de la plage CIDR :** /24, /23, /22 ou /21. Une plage CIDR /24 prend en charge jusqu'à 26 nœuds, une plage /23 jusqu'à 58 nœuds et une plage /22 ou /21 64 nœuds (le nombre maximal de nœuds dans un cloud privé).  Pour en savoir plus sur les réseaux locaux virtuels et les sous-réseaux, voir [Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux](cloudsimple-vlans-subnets.md).
 
       > [!IMPORTANT]
       > L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé.  N’utilisez pas d’adresses IP de cette plage pour les machines virtuelles.

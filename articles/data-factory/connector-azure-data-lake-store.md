@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d64a8431cb0331b58afc635bf8cf9d0fe0f1f225
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276042"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813466"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -163,12 +163,12 @@ Dans Azure Data Factory, vous n’avez pas besoin de spécifier des propriétés
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Texte délimité, Avro ou Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
 
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge.
+Pour copier des données vers et depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge.
 Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `location` du jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
@@ -209,7 +209,7 @@ Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données depuis et vers Azure Data Lake Store Gen1 au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
+Pour copier des données depuis et vers Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -261,12 +261,12 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store en tant que source
 
-- Pour copier des données à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
+- Pour copier des données depuis d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
 
-Pour copier des données à partir des **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -324,7 +324,7 @@ Pour copier des données à partir des **formats Parquet, Texte délimité, Avro
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis Azure Data Lake Store Gen1 au **format ORC ou JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données depuis Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -366,12 +366,12 @@ Pour copier des données depuis Azure Data Lake Store Gen1 au **format ORC ou JS
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store en tant que récepteur
 
-- Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, Avro ou Binaire](#format-based-sink).
+- Pour copier des données au **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-sink).
 - Pour copier des données vers d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
 
-#### <a name="format-based-sink"></a>Récepteur au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-sink"></a> Récepteur au format Parquet, Texte délimité, JSON, Avro et binaire
 
-Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
+Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -419,7 +419,7 @@ Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binair
 
 #### <a name="other-format-sink"></a>Autres formats de récepteur
 
-Pour copier des données vers Azure Data Lake Store Gen1 au **format ORC ou JSON**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
+Pour copier des données vers Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

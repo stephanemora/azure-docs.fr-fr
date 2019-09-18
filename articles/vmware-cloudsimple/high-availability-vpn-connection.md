@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972775"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845328"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurer une connexion haute disponibilité entre un site local et une passerelle VPN CloudSimple
 
@@ -50,7 +50,7 @@ Par défaut, les passerelles VPN CloudSimple sont configurées en mode IKEv1 ave
 
 Avant de configurer le pare-feu local, accomplissez les tâches suivantes.
 
-1. Vérifiez que votre organisation a [acheté](create-nodes.md) les nœuds requis et créé au moins un cloud privé CloudSimple.
+1. Vérifiez que votre organisation a [approvisionné](create-nodes.md) les nœuds requis et créé au moins un cloud privé CloudSimple.
 2. [Configurez une passerelle VPN de site à site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre votre réseau local et votre cloud privé CloudSimple.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Configurer un pare-feu Cisco ASA local

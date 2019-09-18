@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 09/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919784"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883083"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimiser son environnement Active Directory avec la solution Active Directory Health Check dans Azure Monitor
 
@@ -42,18 +42,18 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 ## <a name="prerequisites"></a>Prérequis
 
-* La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 Operations Manager et Operations Manager 2012 R2, ainsi qu’Azure Monitor.
+* La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé l’agent Log Analytics pour Windows (également appelé Microsoft Monitoring Agent (MMA)).  Cet agent est utilisé par System Center 2016 Operations Manager, Operations Manager 2012 R2 et Azure Monitor.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.
-* Un espace de travail Log Analytics pour ajouter la solution Active Directory Health Check à partir de la Place de marché Azure dans le portail Azure.  Aucune configuration supplémentaire n’est requise.
+* Un espace de travail Log Analytics pour ajouter la solution Active Directory Health Check à partir de la Place de marché Azure dans le portail Azure. Aucune configuration supplémentaire n'est requise.
 
   > [!NOTE]
   > Une fois que vous avez ajouté la solution, le fichier AdvisorAssessment.exe est ajouté aux serveurs comportant des agents. Les données de configuration sont lues, puis envoyées à Azure Monitor dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données.
   >
   >
 
-Pour qu’un contrôle d’intégrité soit possible par rapport aux contrôleurs de domaine membres du domaine à évaluer, ces derniers ont besoin d’un agent et d’une connectivité à Azure Monitor suivant l’une de ces méthodes prises en charge :
+Pour qu’un contrôle d’intégrité soit possible par rapport aux contrôleurs de domaine membres du domaine à évaluer, chaque contrôleur de domaine dans ce domaine a besoin d’un agent et d’une connectivité à Azure Monitor suivant l’une de ces méthodes prises en charge :
 
-1. Installez [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Installez l’[agent Log Analytics pour Windows](../../azure-monitor/platform/agent-windows.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. S’il est surveillé avec System Center 2016 Operations Manager ou Operations Manager 2012 R2 et que le groupe d’administration n’est pas intégré à Azure Monitor, le contrôleur de domaine peut être en hébergement multiple avec Azure Monitor pour collecter des données et les transférer au service, tout en restant surveillé par Operations Manager.  
 3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) après avoir activé la solution dans votre espace de travail.  
 
@@ -78,9 +78,11 @@ Active Directory Health Check collecte les données provenant des sources suivan
 Les données sont collectées sur le contrôleur de domaine et transmises à Azure Monitor tous les sept jours.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Hiérarchisation des recommandations
+
 Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les 10 recommandations les plus importantes sont affichées.
 
 ### <a name="how-weights-are-calculated"></a>Calcul des pondérations
+
 Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
 
 * La *probabilité* qu’une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
@@ -90,6 +92,7 @@ Les pondérations sont des agrégations de valeurs basées sur trois facteurs cl
 La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l’implémentation de cette recommandation augmente votre score global de sécurité et conformité de 5 %.
 
 ### <a name="focus-areas"></a>Domaines
+
 **Sécurité et conformité** : ce domaine présente les recommandations relatives aux menaces de sécurité potentielles et violations de stratégies d’entreprise, ainsi qu’aux exigences techniques, juridiques et réglementaires.
 
 **Disponibilité et continuité d’activité** : ce domaine présente les recommandations relatives à la disponibilité du service, la résilience de votre infrastructure et la protection de votre activité.
@@ -99,27 +102,37 @@ La pondération de chaque recommandation est exprimée en pourcentage du score t
 **Mise à niveau, migration et déploiement** : ce domaine présente des recommandations pour vous aider à mettre à niveau, migrer et déployer Active Directory dans votre infrastructure existante.
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Faut-il viser un score de 100 % dans chaque domaine ?
+
 Pas nécessairement. Les recommandations sont basées sur les connaissances et l'expérience que les ingénieurs de Microsoft ont acquises au contact de milliers de visiteurs. Toutefois, chaque infrastructure de serveur étant différente, certaines recommandations peuvent être plus ou moins adaptées à votre système. Par exemple, il se peut que certaines recommandations de sécurité soient moins appropriées si vos ordinateurs virtuels ne sont pas connectés à Internet. Certaines recommandations de disponibilité peuvent être moins pertinentes pour les services qui fournissent des rapports et des données ad hoc de faible priorité. Les problèmes importants pour une entreprise bien établie peuvent l'être moins pour une start-up. Nous vous conseillons donc d'identifier tout d'abord vos domaines prioritaires, puis d'observer l'évolution de vos résultats au fil du temps.
 
 Chaque recommandation inclut une justification de son importance. Servez-vous de cette explication pour évaluer si la mise en œuvre de la recommandation est importante pour vous, en fonction de la nature de vos services informatiques et des besoins de votre organisation.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Utilisation des recommandations des domaines Health Check
+
 Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la vignette Health Check de la page de solution dans le portail Azure.
 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
+
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 1. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Active Directory Health Check**.
-1. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
-1. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations Health Check](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-1. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
+
+2. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
+
+3. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.
+
+    ![image des recommandations Health Check](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+
+4. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
+
 Si vous souhaitez ignorer certaines recommandations, vous pouvez créer un fichier texte qui permettra à Azure Monitor de les empêcher d’apparaître dans les résultats de l’évaluation.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Pour identifier les recommandations que vous ignorerez
+
 [!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
 Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
@@ -128,19 +141,26 @@ Utilisez la requête suivante pour répertorier les recommandations qui ont éch
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Voici une capture d’écran de la requête de journal :<br><br> ![recommandations ayant échoué](media/ad-assessment/ad-failed-recommendations.png)
+Voici une capture d’écran de la requête de journal :<
+
+![recommandations ayant échoué](media/ad-assessment/ad-failed-recommendations.png)
 
 Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Pour créer et utiliser un fichier texte IgnoreRecommendations.txt
+
 1. Créez un fichier nommé IgnoreRecommendations.txt.
+
 2. Collez ou tapez la valeur RecommendationId de chaque recommandation qu’Azure Monitor devra ignorer sur une ligne distincte, puis enregistrez et fermez le fichier.
+
 3. Placez le fichier dans le dossier suivant sur tous les ordinateurs pour lesquels Azure Monitor devra ignorer les recommandations.
+
    * Sur les ordinateurs avec Microsoft Monitoring Agent (connectés directement ou avec Operations Manager) : *lecteur_système*:\Program Files\Microsoft Monitoring Agent\Agent
    * Sur le serveur d’administration Operations Manager 2012 R2 : *lecteur_système*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Sur le serveur d’administration Operations Manager 2016 : *lecteur_système*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Pour vérifier que les recommandations sont ignorées
+
 Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut tous les sept jours, les recommandations spécifiées sont marquées comme *Ignorées* et n’apparaissent pas dans le tableau de bord.
 
 1. Vous pouvez utiliser les requêtes de journal suivantes pour lister toutes les recommandations ignorées.
@@ -152,6 +172,7 @@ Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut 
 2. Si vous décidez ultérieurement d’afficher les recommandations ignorées, supprimez tous les fichiers IgnoreRecommendations.txt, ou supprimez les valeurs RecommendationID de ces fichiers.
 
 ## <a name="ad-health-check-solutions-faq"></a>Questions fréquentes (FAQ) sur la solution AD Health Check
+
 *Quelle est la fréquence d’exécution d’un contrôle d’intégrité ?*
 
 * Le contrôle s’exécute tous les sept jours.
@@ -189,4 +210,5 @@ Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [requête de journal Azure Monitor](../log-query/log-query-overview.md) pour apprendre à analyser les données et recommandations détaillées d’AD Health Check.
+
+Utilisez les [requête de journal Azure Monitor](../log-query/log-query-overview.md) pour apprendre à analyser les données et recommandations détaillées d’AD Health Check.

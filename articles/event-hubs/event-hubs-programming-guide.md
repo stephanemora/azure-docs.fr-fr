@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679104"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913974"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
@@ -140,7 +140,10 @@ La classe [EventProcessorHost][] implémente également un mécanisme de point d
 
 ## <a name="publisher-revocation"></a>Révocation de l’éditeur
 
-Outre les fonctionnalités d’exécution avancées de [EventProcessorHost][], les hubs d’événements permettent la révocation de l’éditeur pour empêcher certains éditeurs d’envoyer des événements à un concentrateur d’événements. Ces fonctionnalités sont utiles si le jeton d’un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+Outre les fonctionnalités d’exécution avancées de l’hôte du processeur d’événements, le service Hubs d’événements permet la [révocation de l’éditeur](/rest/api/eventhub/revoke-publisher) pour empêcher certains éditeurs d’envoyer des événements à un concentrateur d’événements. Ces fonctionnalités sont utiles si le jeton d’un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+
+> [!NOTE]
+> Actuellement, seule l'API REST prend en charge cette fonctionnalité ([révocation de l'éditeur](/rest/api/eventhub/revoke-publisher)).
 
 Pour plus d’informations sur la révocation de l’éditeur et l’envoi vers des concentrateurs d’événements en tant qu’éditeur, consultez l’exemple [Publication sécurisée à grande échelle des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

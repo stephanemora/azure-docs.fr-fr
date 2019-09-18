@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f9cb82abd5bc0823f5e7bc23fe437007bccc8e0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123282"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873578"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -52,7 +52,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     3. Désactivez l’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) si vous souhaitez que les étudiants définissent leurs propres mots de passe. Cette étape est **facultative**. 
 
         Un enseignant peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du laboratoire ou d’autoriser les étudiants à des mots de passe pour leurs machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images Windows et Linux, à l’exception d’Ubuntu. Lorsque vous sélectionnez une machine virtuelle **Ubuntu**, ce paramètre est désactivé. Les étudiants sont ainsi invités à définir un mot de passe lorsqu’ils se connectent à la machine virtuelle pour la première fois.
-    1. Sélectionnez **Créer**. 
+    1. Sélectionnez **Create** (Créer). 
 
         ![Définition des informations d’identification](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. Sur la page **Configurer le modèle**, vous pouvez consulter l’état du processus de création de laboratoire. La création du modèle dans le laboratoire prend jusqu'à 20 minutes. Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire.  
@@ -91,13 +91,15 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle  
 
-| Taille | Cœurs | RAM | Description | 
+| Size | Cœurs | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Petite | 2 | 3,5 Go | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | 4 | 7 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse | 
 | Moyenne (virtualisation imbriquée) | 4 | 16 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. Cette taille prend également en charge la virtualisation imbriquée. <p>Cette taille peut être utilisée dans des scénarios où chaque étudiant a besoin de plusieurs machines virtuelles. Les enseignants peuvent utiliser la virtualisation imbriquée pour configurer quelques machines virtuelles imbriquées de petite taille dans la machine virtuelle. </p> |
 | grand | 8 | 32 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. Cette taille prend également en charge la virtualisation imbriquée |  
-| GPU | 12 | 112 Go | Cette taille est idéale pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs | 
+| GPU de petite taille (visualisation) | 6 | 56 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
+| GPU de petite taille (calcul) | 6 | 56 Go | Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l'intelligence artificielle et les applications d'apprentissage approfondi (Deep Learning). | 
+| GPU de taille moyenne (visualisation) | 12 | 112 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
 
 ## <a name="view-all-classroom-labs"></a>Afficher tous les laboratoires de classe
 1. Accédez au [portail Azure Lab Services](https://labs.azure.com).
