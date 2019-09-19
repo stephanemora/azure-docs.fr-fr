@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/05/2019
 ms.author: raynew
-ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972173"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383206"
 ---
 # <a name="monitor-the-process-server"></a>Surveiller le serveur de traitement.
 
@@ -57,10 +57,12 @@ Le serveur de processus génère un certain nombre d’alertes d’intégrité, 
 ![Avertissement][yellow] | L’utilisation du processeur a été supérieure à 80 % durant les 15 dernières minutes.
 ![Avertissement][yellow] | L’utilisation de la mémoire a été supérieure à 80 % durant les 15 dernières minutes.
 ![Avertissement][yellow] | Espace libre du dossier cache < 30 % durant les 15 dernières minutes.
+![Avertissement][yellow] | Site Recovery supervise les données en attente/sortantes toutes les cinq minutes et estime que les données présentes dans le cache de serveur de processus ne peuvent pas être chargées dans Azure dans les 30 minutes.
 ![Avertissement][yellow] | Les services du serveur de processus n’ont pas fonctionné durant les 15 dernières minutes.
 ![Critique][red] | L’utilisation du processeur a été supérieure à 95 % durant les 15 dernières minutes.
 ![Critique][red] | L’utilisation de la mémoire a été supérieure à 95 % durant les 15 dernières minutes.
 ![Critique][red] | L’espace libre du dossier de cache a été supérieur à 25 % durant les 15 dernières minutes.
+![Critique][red] | Site Recovery supervise les données en attente/sortantes toutes les cinq minutes et estime que les données présentes dans le cache de serveur de processus ne peuvent pas être chargées dans Azure dans les 45 minutes.
 ![Critique][red] | Le serveur de processus n’a émis aucune pulsation pendant 15 minutes.
 
 ![Clé de table](./media/vmware-physical-azure-monitor-process-server/table-key.png)

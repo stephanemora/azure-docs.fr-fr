@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559673"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802522"
 ---
 # <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
 
-Après avoir chargé et inspecté les données, évalué la précision et formé un modèle personnalisé, vous pouvez déployer un point de terminaison personnalisé à utiliser avec vos applications, outils et produits. Dans ce document, vous allez apprendre à créer et à déployer un point de terminaison à l’aide du portail Custom Speech.
+Après avoir chargé et inspecté les données, évalué la précision et formé un modèle personnalisé, vous pouvez déployer un point de terminaison personnalisé à utiliser avec vos applications, outils et produits. Dans ce document, vous allez apprendre à créer et à déployer un point de terminaison à l’aide du [portail Custom Speech](https://speech.microsoft.com/customspeech).
 
 ## <a name="create-a-custom-endpoint"></a>Créer un point de terminaison personnalisé
 
-Pour créer un nouveau point de terminaison personnalisé, sélectionnez **Déploiement** dans le menu Custom Speech en haut de la page. S’il s’agit de votre première exécution, vous remarquerez que la table ne contient aucun point de terminaison. Une fois que vous avez créé un point de terminaison, vous utiliserez cette page pour effectuer le suivi de chaque point de terminaison déployé.
+Pour créer un point de terminaison personnalisé, connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech), puis sélectionnez **Déploiement** dans le menu Custom Speech en haut de la page. S’il s’agit de votre première exécution, vous remarquerez que la table ne contient aucun point de terminaison. Une fois que vous avez créé un point de terminaison, vous utiliserez cette page pour effectuer le suivi de chaque point de terminaison déployé.
 
 Ensuite, sélectionnez **Ajouter un point de terminaison** et entrez un **nom** et une **description** pour votre point de terminaison personnalisé. Puis sélectionnez le modèle personnalisé que vous souhaitez associer à ce point de terminaison. À partir de cette page, vous pouvez également activer la journalisation. La journalisation vous permet de surveiller le trafic du point de terminaison. Si elle est désactivée, le trafic ne sera pas enregistré.
 
@@ -49,5 +49,5 @@ Les données de journalisation sont disponibles au téléchargement sous **Point
 * [Préparer et tester les données](how-to-custom-speech-test-data.md)
 * [Inspecter les données](how-to-custom-speech-inspect-data.md)
 * [Évaluer les données](how-to-custom-speech-evaluate-data.md)
-* [Former votre modèle](how-to-custom-speech-train-model.md)
-* [Déployer votre modèle](how-to-custom-speech-deploy-model.md)
+* [Entraîner un modèle](how-to-custom-speech-train-model.md)
+* [Déployer un modèle](how-to-custom-speech-deploy-model.md)

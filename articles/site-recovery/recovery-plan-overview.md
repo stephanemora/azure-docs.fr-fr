@@ -1,19 +1,19 @@
 ---
-title: Utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+title: Utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery
 description: Découvrez comment utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514566"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814428"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 

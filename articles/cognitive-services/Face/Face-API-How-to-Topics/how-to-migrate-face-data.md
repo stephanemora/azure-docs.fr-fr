@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516857"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859160"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
-Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement API Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre plusieurs régions en vue d’une opération à grande échelle.
+Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement API Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre des abonnements dans différentes régions en vue d’une opération à grande échelle.
 
 Cette même stratégie de migration s’applique également aux objets LargePersonGroup et LargeFaceList. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans le guide [Concepts de reconnaissance faciale](../concepts/face-recognition.md). Ce guide utilise la bibliothèque cliente .NET de l’API Visage en C#.
 
@@ -41,7 +41,9 @@ Ce guide utilise une application console simple pour exécuter la migration des 
 
 ## <a name="create-face-clients"></a>Créer des instances FaceClient
 
-Dans la méthode **Main** dans *Program.cs*, créez deux instances [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) pour vos abonnements source et cible. Cet exemple utilise un abonnement API Visage dans la région Asie Est comme source et un autre abonnement dans la région USA Ouest comme cible. Cet exemple montre comment migrer des données d’une région Azure vers une autre. Si vos abonnements se trouvent dans des régions différentes, modifiez les chaînes `Endpoint`.
+Dans la méthode **Main** dans *Program.cs*, créez deux instances [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) pour vos abonnements source et cible. Cet exemple utilise un abonnement API Visage dans la région Asie Est comme source et un autre abonnement dans la région USA Ouest comme cible. Cet exemple montre comment migrer des données d’une région Azure vers une autre. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

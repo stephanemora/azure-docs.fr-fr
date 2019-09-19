@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 08/08/2019
 ms.author: larryfr
-ms.openlocfilehash: 7b42ac110fffc0397d75138155ddfb84f0a00098
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b9520e0ba7b8a80a40bb60dab351029f04ce3868
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912354"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390572"
 ---
 > [!IMPORTANT]
-> Utilisez uniquement les modèles que vous créez ou que vous obtenez auprès d’une source approuvée. Les modèles sérialisés doivent être traités en tant que code, car des failles de sécurité ont été détectées dans plusieurs formats courants. En outre, des modèles peuvent être entraînés intentionnellement avec des intentions malveillantes pour fournir des sorties biaisées ou inexactes.
+> Utilisez uniquement les modèles que vous créez ou que vous obtenez auprès d’une source approuvée. Vous devez traiter les modèles sérialisés en tant que code, car des failles de sécurité ont été détectées dans plusieurs formats courants. En outre, des modèles peuvent être entraînés intentionnellement avec des intentions malveillantes pour fournir des sorties biaisées ou inexactes.

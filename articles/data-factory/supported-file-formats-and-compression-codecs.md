@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277089"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812315"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -87,6 +87,9 @@ Pour utiliser un caractère `escapeChar` au lieu de `quoteChar`, remplacez la li
 * Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début, qui ne contiennent ni données, ni informations d’en-tête. Spécifiez le paramètre `skipLineCount` pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier `firstRowAsHeader`. Si les paramètres `skipLineCount` et `firstRowAsHeader` sont tous deux spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée.
 
 ## <a name="json-format"></a>Format JSON
+
+>[!NOTE]
+>Data Factory a introduit un nouveau jeu de données au format JSON. Pour plus d’informations, consultez l’article sur le format [JSON](format-json.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir d’Azure Cosmos DB**, consultez la section Importation/exportation de documents JSON de l’article [Déplacer des données vers et depuis Azure Cosmos DB](connector-azure-cosmos-db.md).
 

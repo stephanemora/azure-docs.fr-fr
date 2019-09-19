@@ -1,53 +1,51 @@
 ---
-title: Désactiver Azure Active Directory Domain Services | Microsoft Docs
-description: Désactiver Azure Active Directory Domain Services à l’aide du portail Azure
+title: Désactiver Azure Active Directory Domain Services | Microsoft Docs'
+description: Découvrez comment désactiver Azure Active Directory Domain Services à partir du portail Azure
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 09/04/2019
 ms.author: iainfou
-ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473543"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842614"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Désactiver Azure Active Directory Domain Services à l’aide du portail Azure
-Cet article explique comment utiliser le portail Azure et désactiver Azure Active Directory (AD) Domain Services pour votre annuaire Azure AD.
+
+Si vous n’avez plus besoin d’un domaine managé, vous pouvez supprimer une instance Azure Active Directory Domain Services (Azure AD DS). Il n’existe aucune option permettant de désactiver de façon provisoire ou définitive un domaine managé Azure AD DS. La suppression du domaine managé Azure AD DS ne supprime ni n’impacte défavorablement le locataire Azure AD. Cet article explique comment supprimer un domaine managé Azure AD DS à partir du portail Azure.
 
 > [!WARNING]
 > **La suppression est définitive et ne peut pas être annulée.**
-> Agissez avec précaution ! Lorsque vous supprimez le domaine managé :
+> Quand vous supprimez un domaine managé Azure AD DS, voici ce qu’il se passe :
 >   * Les contrôleurs de domaine pour le domaine managé sont déprovisionnés et supprimés du réseau virtuel.
->   * Les données sur le domaine managé sont supprimées définitivement. Cela inclut les unités d’organisation personnalisées, les stratégies de groupe, les enregistrements DNS personnalisés, les principaux de service, les GMSA, etc. que vous avez créés sur le domaine managé.
+>   * Les données sur le domaine managé sont supprimées définitivement. Ces données incluent les unités d’organisation personnalisées, les stratégies de groupe, les enregistrements DNS personnalisés, les principaux de service, les GMSA, etc. que vous avez créés.
 >   * Les machines jointes au domaine managé perdent leur relation d’approbation avec ce domaine et doivent être disjointes de celui-ci.
->   * Vous ne pouvez pas vous connecter à ces machines en utilisant les informations d’identification AD (Active Directory) de l’entreprise. Utilisez à la place les informations d’identification du compte d’administrateur local de la machine.
-> La suppression du domaine managé ne supprime pas votre annuaire Azure AD ni n’a d’impact négatif sur celui-ci.
+>       * Vous ne pouvez pas vous connecter à ces machines en utilisant des informations d’identification AD. Pour cela, vous devez utiliser les informations d’identification de l’administrateur local de la machine.
 
-Suivez les étapes décrites ici pour supprimer votre domaine managé Azure AD Domain Services :
-1. Accédez à l’[extension Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
-2. Cliquez sur le nom de votre domaine managé.
+## <a name="delete-the-managed-domain"></a>Supprimer le domaine managé
 
-    ![Sélectionnez le domaine à supprimer.](./media/getting-started/domain-services-delete-select-domain.png)
+Pour supprimer un domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-3. Dans la page **Vue d’ensemble**, cliquez sur le bouton **Supprimer**.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
+1. Sélectionnez le nom de votre domaine managé Azure AD DS, par exemple *contoso.com*.
+1. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. Pour confirmer la suppression, tapez à nouveau le nom du domaine managé, puis sélectionnez **Supprimer**.
 
-    ![Suppression du domaine](./media/getting-started/domain-services-delete-domain.png)
+La suppression du domaine managé Azure AD DS peut prendre entre 15 et 20 minutes, voire plus.
 
-4. Pour confirmer la suppression, tapez le nom de domaine DNS du domaine managé. Lorsque c’est fait, cliquez sur le bouton **Supprimer**.
+## <a name="next-steps"></a>Étapes suivantes
 
-    ![Confirmation de la suppression du domaine](./media/getting-started/domain-services-delete-domain-confirm.png)
+N’hésitez pas à [faire part de vos commentaires][feedback] concernant les fonctionnalités que vous aimeriez voir dans Azure AD DS.
 
-Il faut compter 15 à 20 minutes environ pour la suppression du domaine managé.
+Si vous voulez redémarrer avec Azure AD DS, consultez [Créer et configurer une instance Azure Active Directory Domain Services][create-instance].
 
-Pensez à [partager vos commentaires](contact-us.md) pour nous aider à comprendre quelles fonctionnalités vous aideraient à choisir les services de domaine Azure AD à l’avenir. Ces commentaires nous permettent de faire évoluer le service pour mieux répondre à vos besoins et cas d’utilisation de déploiement.
+<!-- INTERNAL LINKS -->
+[feedback]: contact-us.md
+[create-instance]: tutorial-create-instance.md

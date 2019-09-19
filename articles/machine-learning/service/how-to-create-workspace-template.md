@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 34522c9a672de51cfa53ce52c5a6a6506fcd5454
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873163"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390510"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning service
 
@@ -55,6 +55,11 @@ L’exemple de modèle possède deux paramètres :
 * Le **nom de l’espace de travail**, qui est le nom convivial de l’espace de travail Azure Machine Learning.
 
     Le nom des autres services est généré de façon aléatoire.
+
+> [!TIP]
+> Le modèle associé à ce document crée un registre de conteneurs Azure, mais vous pouvez également créer un espace de travail sans créer de registre de conteneurs. Si aucun registre de conteneurs n’est présent dans l’espace de travail, toute opération nécessitant un registre de conteneurs en crée un. C’est par exemple ce qui se passe lors de l’entraînement ou du déploiement d’un modèle.
+>
+> Vous pouvez également référencer un registre de conteneurs ou un compte de stockage existant dans le modèle Azure Resource Manager au lieu d’en créer un.
 
 Pour plus d’informations sur les modèles, voir les articles suivants :
 

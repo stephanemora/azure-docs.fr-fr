@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997919"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858885"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -34,7 +34,7 @@ Options de configuration disponibles dans le machine learning automatisé :
 * Explorer les métriques du modèle
 * Inscrire et déployer un modèle
 
-Si vous préférez une expérience sans code, vous pouvez également [Créer vos expériences d’apprentissage automatique dans le portail Azure](how-to-create-portal-experiments.md).
+Si vous préférez une expérience sans code, vous pouvez également [créer vos expériences de Machine Learning automatisé dans le portail Azure](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Sélectionner le type de votre expérience
 
@@ -553,13 +553,13 @@ Il y a deux façons de générer l’importance des caractéristiques.
     print(per_class_summary)
     ```
 
-Vous pouvez visualiser le graphique d’importance des caractéristiques dans votre espace de travail du portail Azure. Affichez l’URL à l’aide de l’objet run :
+Affichez l’URL pour voir l’importance de la caractéristique à l’aide de l’objet run :
 
 ```
 automl_run.get_portal_url()
 ```
 
-Vous pouvez visualiser le graphique d’importance des caractéristiques dans votre espace de travail du portail Azure. Le graphique apparaît également quand vous utilisez le [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` dans un notebook. Pour en savoir plus sur les graphiques, consultez [Comprendre les résultats du machine learning automatisé](how-to-understand-automated-ml.md).
+Vous pouvez visualiser le graphique d’importance des caractéristiques dans le portail Azure ou à partir de la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com). Le graphique apparaît également quand vous utilisez le [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` dans un notebook. Pour en savoir plus sur les graphiques, consultez [Comprendre les résultats du machine learning automatisé](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

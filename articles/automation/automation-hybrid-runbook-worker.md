@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970438"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743797"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -24,7 +24,7 @@ L’image suivante illustre cette fonctionnalité :
 
 ![Vue d’ensemble des Runbook Worker hybrides](media/automation-hybrid-runbook-worker/automation.png)
 
-Chaque Runbook Worker hybride est membre d'un groupe de Runbooks Workers hybrides que vous spécifiez lorsque vous installez l'agent. Un groupe peut inclure un seul agent, mais vous pouvez installer plusieurs agents dans un groupe pour une haute disponibilité.
+Chaque Runbook Worker hybride est membre d'un groupe de Runbooks Workers hybrides que vous spécifiez lorsque vous installez l'agent. Un groupe peut inclure un seul agent, mais vous pouvez installer plusieurs agents dans un groupe pour une haute disponibilité. Chaque ordinateur peut héberger un seul worker hybride associé à un seul compte Automation.
 
 Lorsque vous démarrez un Runbook sur un Runbook Worker hybride, vous spécifiez le groupe sur lequel il s’exécute. Chaque worker du groupe interroge Azure Automation pour voir si des travaux sont disponibles. Si un travail est disponible, le premier worker qui le reçoit s’en occupe. Le temps de traitement de la file d’attente des travaux varie selon la charge et le profil matériel du Worker hybride. Vous ne pouvez pas spécifier un worker en particulier. Les Runbook Workers hybrides ne partagent pas la plupart des limites propres aux bacs à sable Azure. Ils n’ont pas les mêmes limites d’espace disque, de mémoire ou de sockets réseau. Les Runbook Workers hybrides ne sont pas limités par les ressources sur le Runbook Worker hybride lui-même. En outre, les Runbook Workers hybrides ne partagent pas la limite de 180 minutes pour la [répartition de charge équilibrée](automation-runbook-execution.md#fair-share) des bacs à sable Azure. Pour en savoir plus sur les limites de service des bacs à sable Azure et des Runbook Workers hybrides, consultez la page sur les [limites](../azure-subscription-service-limits.md#automation-limits) du travail.
 

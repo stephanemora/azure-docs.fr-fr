@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231091"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860544"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 
 Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
-Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure CLI, le portail Azure ou l’extension Azure Machine Learning VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
+Vous pouvez créer et gérer une cible de calcul avec le kit SDK Azure Machine Learning, le portail Azure, la page d’accueil de votre espace de travail (préversion), Azure CLI ou l’extension Azure Machine Learning pour VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
  
 Cet article explique comment utiliser les différentes cibles de calcul pour l’entraînement des modèles.  Pour toutes les cibles de calcul, le flux de travail est identique :
 1. __Créez__ une cible de calcul si vous n’en avez pas encore.
@@ -45,9 +45,9 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 
 ## <a name="whats-a-run-configuration"></a>Qu’est une configuration de série de tests ?
 
-Lors de l’apprentissage, il est courant de commencer par exécuter le script d’apprentissage sur l’ordinateur local, avant de l’exécuter sur une autre cible de calcul. Avec Azure Machine Learning service, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à le modifier. 
+Lors de l’apprentissage, il est courant de commencer par exécuter le script d’apprentissage sur l’ordinateur local, avant de l’exécuter sur une autre cible de calcul. Avec Azure Machine Learning service, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à le modifier.
 
-Il vous suffit de définir l’environnement pour chaque cible de calcul dans une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci. Pour plus d’informations sur la spécification d’un environnement et la liaison de celui-ci à une configuration de série de tests, voir [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md).
+Il vous suffit de définir l’environnement pour chaque cible de calcul dans une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci. Pour plus d’informations sur la spécification d’un environnement et la liaison de celui-ci à une configuration d’exécution, consultez [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md).
 
 Pour en savoir plus, voir [Envoi d’expériences](#submit) à la fin de cet article.
 
@@ -278,6 +278,7 @@ Vous pouvez accéder aux cibles de calcul associées à votre espace de travail 
 * [Créer une cible de calcul](#portal-create) dans votre espace de travail
 * [Joindre une cible de calcul](#portal-reuse) créée en dehors de l'espace de travail
 
+
 Après avoir créé une cible et l’avoir attachée à votre espace de travail, vous allez l’utiliser dans votre configuration de série de tests avec un objet `ComputeTarget` : 
 
 ```python
@@ -290,7 +291,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Pour consulter les cibles de calcul de votre espace de travail, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail. 
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail. Les images ci-dessous montrent le portail Azure, mais vous pouvez également accéder à ces mêmes étapes dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
+ 
 1. Sous __Applications__, sélectionnez __Capacité de calcul__.
 
     [![Onglet 	Voir le computing](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
@@ -403,11 +405,20 @@ Basculez la même expérience pour qu’elle s’exécute sur une autre cible de
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> Cet exemple utilise par défaut un seul nœud de la cible de calcul pour l’entraînement. Pour utiliser plusieurs nœuds, définissez le `node_count` de la configuration d’exécution avec le nombre de nœuds souhaité. Par exemple, le code suivant définit quatre nœuds pour l’entraînement :
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Vous pouvez également :
 
 * Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 * Soumettre une série de tests HyperDrive pour un [réglage d’hyperparamètre](how-to-tune-hyperparameters.md).
 * Soumettre une expérience via l’[extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
+
+Pour plus d’informations, consultez la documentation sur [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) et [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py).
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Créer une configuration de série de tests et soumettre une série de tests à l’aide de l’interface de ligne de commande d’Azure Machine Learning
 
@@ -436,7 +447,7 @@ Le fichier de configuration de série de tests au format YAML comprend les secti
  * Référence de données et détails du magasin de données.
  * Détails de configuration spécifiques de Capacité de calcul Machine Learning pour la création d’un cluster.
 
-### <a name="create-an-experiment"></a>Créer une expérience
+### <a name="create-an-experiment"></a>Création d'une expérience
 
 Commencez par créer une expérience pour vos séries de tests
 

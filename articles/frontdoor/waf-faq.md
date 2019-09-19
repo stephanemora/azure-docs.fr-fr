@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849174"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375343"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Forum aux questions sur le pare-feu d’applications web Azure
 
@@ -53,12 +53,6 @@ Le déploiement global d’une stratégie de pare-feu d’applications web prend
 
 Une fois intégré au service Front Door, le pare-feu d’applications web constitue une ressource globale. La même configuration s’applique à tous les emplacements Front Door.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Comment limiter l’accès à mon serveur back-end au service Front Door uniquement ?
-
-Vous pouvez configurer une liste de contrôle d’accès dans votre back-end pour n’autoriser que les plages d’adresses IP sortantes de Front Door et refuser tout accès direct depuis Internet. Les balises de service sont prises en charge pour une utilisation sur votre réseau virtuel. De plus, vous pouvez vérifier que le champ de l’en-tête HTTP X-Forwarded-Host est valide pour votre application web.
-
-
-
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Quelles options de pare-feu d’applications web Azure dois-je choisir ?
 
@@ -72,6 +66,9 @@ Actuellement, les règles ModSec CRS 2.2.9 et CRS 3.0 sont uniquement prises en 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>La protection DDoS est-elle intégrée à Front Door ? 
 
 Distribué mondialement aux périphéries réseau d’Azure, Azure Front Door peut absorber et isoler géographiquement d’importants volumes d’attaques. Vous pouvez créer une stratégie de pare-feu d’applications web personnalisée pour bloquer automatiquement et limiter le débit des attaques http(s) aux signatures connues. De plus, vous pouvez activer la protection DDos standard sur le réseau virtuel où vos back-ends sont déployés. Les clients de la protection DDos standard d’Azure profitent d’avantages supplémentaires dont la protection du coût, la garantie SLA et l’accès à des experts de l’équipe spécialisée en attaques DDoS, pour une aide immédiate en cas d’attaque. 
+
+Nous vous recommandons de verrouiller vos back-ends dans un environnement de production, de façon à réduire la surface d’attaque DDoS. Consultez [Comment restreindre l’accès à mon back-end uniquement à Azure Front Door ?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

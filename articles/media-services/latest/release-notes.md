@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856306"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801389"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -34,6 +34,10 @@ Pour vous informer des développements les plus récents, cet article détaille 
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="september-2019"></a>Septembre 2019
+
+Media Services v3 annonce la préversion de 24 heures x 365 jours d’encodage linéaire en direct des événements en direct.
+ 
 ## <a name="august-2019"></a>Août 2019
 
 ### <a name="south-africa-regional-pair-is-open-for-media-services"></a>La paire régionale d’Afrique du Sud est ouverte pour Media Services 

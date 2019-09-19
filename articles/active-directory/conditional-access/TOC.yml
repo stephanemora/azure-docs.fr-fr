@@ -19,10 +19,10 @@
 - name: Concepts
   expanded: false
   items:
-    - name: Adoption de l’accès conditionnel
-      href: howto-conditional-access-adoption-kit.md
     - name: Stratégies d’accès conditionnel courantes
       href: concept-conditional-access-policy-common.md
+    - name: Composants des stratégies d’accès conditionnel
+      href: concept-conditional-access-policies.md
     - name: Conditions
       href: conditions.md
     - name: Conditions d’emplacement

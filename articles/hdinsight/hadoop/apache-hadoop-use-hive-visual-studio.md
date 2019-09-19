@@ -1,5 +1,5 @@
 ---
-title: Apache Hive avec les outils Data Lake (Apache Hadoop) pour Visual Studio - Azure HDInsight
+title: Apache Hive avec Data Lake Tools pour Visual Studio - Azure HDInsight
 description: Découvrez comment utiliser les outils Data Lake pour Visual Studio pour exécuter des requêtes Apache Hive avec Apache Hadoop sur Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861594"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917477"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Apache Hive à l’aide des outils Data Lake pour Visual Studio
 
@@ -59,7 +59,7 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
 6. Pour exécuter la même requête dans le mode **Batch**, utilisez la liste déroulante pour passer de **Interactive** à **Batch**. Notez que le bouton d’exécution **Exécuter** devient **Envoyer**.
 
-    ![Capture d’écran de soumission d’une requête Hive](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+    ![Capture d’écran de soumission d’une requête Hive](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
     L’éditeur Hive prend en charge IntelliSense. Data Lake Tools pour Visual Studio prend en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, si vous tapez `SELECT * FROM`, IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, IntelliSense répertorie les noms de colonne. Les outils prennent en charge la plupart des instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive. IntelliSense propose uniquement les métadonnées du cluster sélectionné dans la barre d’outils HDInsight.
 
@@ -71,7 +71,7 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
    Si vous sélectionnez l’option d’envoi avancé, configurez les éléments **Nom de la tâche**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’état** pour le script :
 
-    ![Capture d’écran de la Requête HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Soumettre des requêtes")
+    ![Capture d’écran de la Requête HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Soumettre des requêtes")
 
 ### <a name="hive-application"></a>Application Hive
 
@@ -115,11 +115,11 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
 6. Dans la barre d’outils, sélectionnez le **cluster HDInsight** que vous souhaitez utiliser pour cette requête. Sélectionnez **Envoyer** pour exécuter les instructions en tant que tâche Hive.
 
-   ![Barre d’envoi](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Barre d’envoi](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. Le **résumé de tâche Hive** apparaît et affiche des informations sur la tâche en cours d’exécution. Utilisez le lien **Actualiser** pour actualiser les informations sur la tâche, jusqu’à ce que l’**état de la tâche** passe à **Terminé**.
 
-   ![résumé de tâche affichant un travail terminé](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![résumé de tâche affichant un travail terminé](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
 8. Utilisez le lien **Sortie de la tâche** pour afficher la sortie de cette tâche. Il affiche `[ERROR] 3`, soit la valeur retournée par cette requête.
 

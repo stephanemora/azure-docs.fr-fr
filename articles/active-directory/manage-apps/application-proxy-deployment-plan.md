@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879910"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812833"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -85,7 +85,7 @@ Pour des informations détaillées, consultez [KCD pour l’authentification uni
 
    * La **publication et l’administration d’applications** nécessitent le rôle d’*administrateur d’application*. Les administrateurs d’application peuvent gérer toutes les applications dans l’annuaire, y compris les inscriptions, les paramètres d’authentification unique, les licences et les affectations d’utilisateurs et de groupes, les paramètres du proxy d’application et le consentement. Il n’accorde pas la possibilité de gérer l’accès conditionnel. L’*administrateur d’application cloud* dispose des mêmes droits que l’administrateur d’application, sauf qu’il ne peut pas gérer les paramètres du proxy d’application.
 
-* **Licences**. Le proxy d’application est disponible via l’abonnement Azure AD Basic. Pour obtenir la liste complète des options et des fonctionnalités de chaque licence, reportez-vous à la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
+* **Licences**. Le proxy d’application est disponible via l’abonnement Azure AD Premium. Pour obtenir la liste complète des options et des fonctionnalités de chaque licence, reportez-vous à la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
 
 ### <a name="application-discovery"></a>Découverte des applications
 

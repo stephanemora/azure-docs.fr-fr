@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/08/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b0a71e8b3ffff822521a23aafd6764bcce9bd4d4
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e1fc58db8f933ae122801f492fbbafdb905c7dda
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303932"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910401"
 ---
 # <a name="encoding-with-media-services"></a>Encodage avec Media Services
 
@@ -25,12 +25,12 @@ Le terme encodage dans Media Services s’applique au processus de conversion de
 
 Les vidéos sont généralement fournies aux appareils et aux applications par [téléchargement progressif](https://en.wikipedia.org/wiki/Progressive_download) ou par le biais de [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-* Pour le téléchargement progressif, vous pouvez utiliser Azure Media Services afin de convertir un fichier multimédia numérique (mezzanine) en fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) qui contient la vidéo encodée avec le codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) et le son encodé avec le codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Ce fichier MP4 est écrit dans un actif multimédia dans votre compte de stockage. Vous pouvez utiliser les API ou les kits SDK Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md), le [SDK JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé l’actif multimédia de sortie avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Pour le téléchargement progressif, vous pouvez utiliser Azure Media Services afin de convertir un fichier multimédia numérique (mezzanine) en fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) qui contient la vidéo encodée avec le codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) et le son encodé avec le codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Ce fichier MP4 est écrit dans un actif multimédia dans votre compte de stockage. Vous pouvez utiliser les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé l’actif multimédia de sortie avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * Pour préparer le contenu pour une diffusion en streaming à débit adaptatif, le fichier mezzanine doit être encodé à plusieurs débits (du plus élevé au plus faible). Pour garantir une transition appropriée de la qualité, le débit et la résolution de la vidéo sont réduits en parallèle. Il en résulte ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de débits (voir [Échelle de débit adaptatif générée automatiquement](autogen-bitrate-ladder.md)). Vous pouvez utiliser Media Services pour encoder vos fichiers mezzanine à plusieurs débits. Vous obtenez ainsi un ensemble de fichiers MP4, et des fichiers de configuration de streaming associés, écrits dans un actif multimédia dans votre compte de stockage. Vous pouvez ensuite utiliser la fonctionnalité d’[empaquetage dynamique](dynamic-packaging-overview.md) dans Media Services pour diffuser la vidéo par le biais de protocoles de streaming tels que [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) et [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Vous devrez pour cela créer un [localisateur de streaming](streaming-locators-concept.md) et générer des URL de streaming correspondant aux protocoles pris en charge, qui peuvent ensuite être remises aux appareils/applications en fonction de leurs fonctionnalités.
 
 Le diagramme suivant illustre le workflow d’encodage à la demande avec l’empaquetage dynamique.
 
-![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
 
@@ -119,7 +119,7 @@ Lorsque vous créez des préréglages personnalisés, les considérations suivan
 
 ### <a name="customizing-presets"></a>Personnalisation des préréglages
 
-Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les préréglages afin de répondre à vos exigences et vos besoins spécifiques de codage. Pour obtenir des exemples qui illustrent comment personnaliser des préréglages d’encodeur, consultez :
+Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les présélections afin de répondre à vos exigences et vos besoins spécifiques de codage. Pour obtenir des exemples qui illustrent comment personnaliser des préréglages d’encodeur, consultez :
 
 #### <a name="examples"></a>Exemples
 
@@ -129,7 +129,7 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 ## <a name="preset-schema"></a>Schéma de préréglage
 
-Dans Media Services v3, les préréglages sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 

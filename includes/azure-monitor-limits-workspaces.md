@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305278"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70392906"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -35,35 +35,34 @@ ms.locfileid: "67305278"
 
 **Portail Azure**
 
-| Catégorie | limites | Commentaires |
+| Category | limites | Commentaires |
 |:---|:---|:---|
 | Nombre maximum d’enregistrements retournés par une requête de journal | 10 000 | Réduisez les résultats à l’aide d’une étendue de requête, d’un intervalle de temps et de filtres dans la requête. |
 
 
 **API de collecte de données**
 
-| Catégorie | limites | Commentaires |
+| Category | limites | Commentaires |
 |:---|:---|:---|
 | Taille maximale d’une publication | 30 Mo | Fractionner les volumes plus importants en plusieurs publications. |
 | Taille maximale des valeurs de champ  | 32 Ko | Les champs de plus de 32 Ko de champs sont tronqués. |
 
 **API Recherche**
 
-| Catégorie | limites | Commentaires |
+| Category | limites | Commentaires |
 |:---|:---|:---|
-| Nombre maximum d’enregistrements retournés pour des données non agrégées | 5 000 | |
-| Nombre maximum d’enregistrements pour des données agrégées | 500 000 | La recherche de données agrégées inclut la commande `summarize`. |
+| Nombre maximal d’enregistrements retournés dans une requête | 500 000 | |
 | Taille maximale des données retournées | 64 000 000 octets (~ 61 Mio)| |
 | Durée maximale d’exécution de requête | 10 minutes | Consultez [Délais d’expiration](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) pour plus d’informations.  |
 | Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur AAD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
 
 **Limites d’espace de travail général**
 
-| Catégorie | limites | Commentaires |
+| Category | limites | Commentaires |
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
-| Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite est prévue pour être traitée d’ici fin septembre 2019. |
+| Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite devrait être traitée d’ici à la fin du mois d’octobre 2019. |
 | Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
 
 >[!NOTE]

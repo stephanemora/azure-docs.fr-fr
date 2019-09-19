@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946065"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390266"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
-Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  
+Cet article illustre l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer une entité de liste 
@@ -37,7 +37,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!Tip]
 > Si vous n’avez pas encore d’abonnement, vous pouvez vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/).
 
-Tout le code de ce tutoriel est disponible dans le [dépôt GitHub d’exemples Azure](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Tout le code de cet article est disponible dans le [dépôt GitHub d’exemples Azure](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Utiliser l’application HomeAutomation
 L’application HomeAutomation vous donne le contrôle d’appareils tels que l’éclairage, les systèmes de divertissement, mais aussi de l’environnement comme le chauffage et la climatisation. Ces systèmes ont plusieurs noms différents, dont les noms du fabricant, les surnoms, les acronymes et les noms familiers. 
@@ -59,7 +59,7 @@ L’entité HomeAutomation.Device est idéale pour un petit nombre d’appareils
 
 Une **entité de liste** est un bon choix pour ce scénario, car l’ensemble de termes pour un appareil dans un immeuble ou un campus est connu, même s’il est important. En utilisant une entité de liste, LUIS peut recevoir n’importe quelle valeur possible dans l’ensemble pour le thermostat, et le réduire à l’appareil unique « thermostat ». 
 
-Ce didacticiel va créer une entité de liste avec le thermostat. Les noms possibles d’un thermostat dans ce didacticiel sont : 
+Cet article va créer une liste d’entités avec le thermostat. Les noms possibles d’un thermostat dans cet article sont : 
 
 |noms possibles pour thermostat|
 |--|

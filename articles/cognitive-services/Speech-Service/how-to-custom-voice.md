@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 10d76bc1dd52f04cceb9f0952a755c55d90c6896
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562792"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881481"
 ---
 # <a name="get-started-with-custom-voice"></a>Bien démarrer avec Custom Voice
 
-Custom Voice est un ensemble d’outils en ligne qui vous permet de créer une voix unique reconnaissable entre toutes pour votre marque. Pour commencer, vous n’avez besoin que de quelques fichiers audio et des transcriptions associées. Suivez les liens ci-dessous pour commencer à créer une expérience de synthèse vocale personnalisée.
+[Custom Voice](https://aka.ms/customvoice) est un ensemble d’outils en ligne qui vous permettent de créer une voix unique reconnaissable entre toutes pour votre marque. Pour commencer, vous n’avez besoin que de quelques fichiers audio et des transcriptions associées. Suivez les liens ci-dessous pour commencer à créer une expérience de synthèse vocale personnalisée.
 
 ## <a name="whats-in-custom-voice"></a>Qu’y a-t-il dans Custom Voice ?
 
 Avant de commencer avec Custom Speech, vous aurez besoin d’un compte Azure et d’un abonnement Speech Services. Une fois que vous aurez créé un compte, vous pourrez préparer vos données, entraîner et tester vos modèles, évaluer la qualité de la voix et en dernier lieu déployer votre modèle vocal personnalisé.
 
-Le schéma ci-dessous présente les étapes à suivre pour créer un modèle vocal personnalisé à partir du portail Custom Voice. Suivez les liens pour en savoir plus.
+Le diagramme ci-dessous présente les étapes à suivre pour créer un modèle vocal personnalisé à partir du [portail Custom Voice](https://aka.ms/customvoice). Suivez les liens pour en savoir plus.
 
 ![Schéma de l’architecture Custom Voice](media/custom-voice/custom-voice-diagram.png)
 

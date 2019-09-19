@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306926"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390703"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -42,6 +42,10 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 | nom_ressource ou identificateur_ressource |OUI |string |Identificateur unique pour la ressource. |
 | apiVersion |OUI |string |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
 | functionValues |Non |object | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
+
+### <a name="valid-uses"></a>Utilisations valides
+
+Les fonctions list peuvent être utilisées uniquement dans les propriétés d’une définition de ressource et dans la section outputs d’un modèle ou d’un déploiement. Quand elles sont utilisées avec une [itération de propriété](resource-group-create-multiple.md#property-iteration), vous pouvez utiliser les fonctions list pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas les utiliser avec `count`, car le nombre doit être déterminé avant que la fonction list ne soit résolue.
 
 ### <a name="implementations"></a>Implémentations
 

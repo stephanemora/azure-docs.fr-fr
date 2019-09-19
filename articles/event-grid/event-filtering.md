@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305052"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390172"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -61,23 +61,40 @@ Pour filtrer sur des valeurs dans les champs de données et spécifier l’opér
 * clé : champ des données d’événement que vous utilisez pour le filtrage. Ce peut être un nombre, une valeur booléenne ou une chaîne.
 * valeur ou valeurs : valeur ou valeurs à comparer à la clé.
 
-La syntaxe JSON pour utiliser des filtres avancés est la suivante :
+Si vous spécifiez un seul filtre avec plusieurs valeurs, une opération **OU** est effectuée : la valeur du champ clé doit donc être une de ces valeurs. Voici un exemple :
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+Si vous spécifiez plusieurs filtres différents, une opération **ET** est effectuée : chaque condition du filtre doit donc être satisfaite. Voici un exemple : 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### <a name="operator"></a>Operator
@@ -107,7 +124,7 @@ Aucune des comparaisons de chaînes n’est sensible à la casse.
 
 Pour les événements dans le schéma Event Grid, utilisez les valeurs suivantes pour la clé :
 
-* ID
+* id
 * Rubrique
 * Objet
 * Type d’événement
@@ -129,8 +146,8 @@ Pour le schéma d’entrée personnalisé, utilisez les champs de données d’�
 Les valeurs peuvent être les suivantes :
 
 * number
-* chaîne
-* booléenne
+* string
+* boolean
 * array
 
 ### <a name="limitations"></a>Limites

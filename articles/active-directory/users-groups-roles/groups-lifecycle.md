@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837925"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844303"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -35,7 +35,7 @@ Une fois que vous avez défini l’expiration d’un groupe :
 Une seule stratégie d’expiration peut être configurée pour les groupes Office 365 sur un même locataire.
 
 > [!NOTE]
-> La configuration et l’utilisation de la stratégie d’expiration pour les groupes Office 365 nécessite que vous disposiez de licences Azure AD Premium pour les membres de tous les groupes auxquels la stratégie d’expiration est appliquée.
+> La configuration et l’utilisation de la stratégie d’expiration pour les groupes Office 365 vous impose de posséder (mais pas forcément d’attribuer) des licences Azure AD Premium pour les membres de tous les groupes auxquels la stratégie d’expiration est appliquée.
 
 Pour plus d’informations sur le téléchargement et l’installation des applets de commande Azure AD PowerShell, consultez [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -69,8 +69,11 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
   - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 > [!NOTE]
-> Quand vous définissez l’expiration pour la première fois, les groupes qui sont plus anciens que l’intervalle d’expiration bénéficient d’un délai de 30 jours avant expiration. La première notification par e-mail est envoyée dans la journée qui suit. Par exemple, le groupe A a été créé il y a 400 jours et l’intervalle d’expiration est défini sur 180 jours. Lorsque vous appliquez la stratégie d’expiration, il reste 30 jours au groupe A avant qu’il ne soit supprimé, sauf si le propriétaire le renouvelle.
+> Quand vous définissez l’expiration pour la première fois, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 30 jours avant expiration, à moins que le propriétaire les renouvelle. La première notification par e-mail est envoyée dans la journée qui suit.
+>
 > Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un nouveau groupe et complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
+>
+> Les avis d’expiration pour les groupes utilisés dans Teams s’affichent dans le flux Propriétaires Teams.
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 

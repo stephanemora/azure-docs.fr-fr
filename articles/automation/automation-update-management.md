@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061816"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743832"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -75,8 +75,7 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)|.NET Framework 4.5.1 ou version ultérieure est requis. ([Télécharger .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité.  ([Télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)|**Évaluations de mises à jour** : Pris en charge<br><br>**Mise à jour corrective** : Exige un runbook Worker hybride. Consultez [Exigences du runbook Worker hybride](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
@@ -138,7 +137,7 @@ Si votre groupe d’administration System Center Operations Manager est connect�
 * Pack d’administration du déploiement des mises à jour
 
 > [!NOTE]
-> Si vous avez un groupe d’administration Operations Manager 1807 avec des agents configurés au niveau du groupe d’administration à associer à un espace de travail, la solution actuelle pour qu’ils s’affichent consiste à remplacer **IsAutoRegistrationEnabled** par **True** dans la règle **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
+> Si vous avez un groupe d’administration Operations Manager 1807 ou 2019 avec des agents configurés au niveau du groupe d’administration à associer à un espace de travail, la solution actuelle pour qu’ils s’affichent consiste à remplacer **IsAutoRegistrationEnabled** par **True** dans la règle **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
 
 Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager aux journaux Azure Monitor](../azure-monitor/platform/om-agents.md).
 

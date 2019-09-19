@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856213"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860501"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning service ?
 
@@ -36,7 +36,7 @@ Le diagramme montre les composants d’un espace de travail suivants :
 + Lorsque vous créez l’espace de travail, les [ressources associées](#resources) sont également créées à votre place.
 + Les [expériences](concept-azure-machine-learning-architecture.md#experiments) sont des exécutions d’entraînement qui vous permettent de créer vos modèles.  Vous pouvez créer et exécuter des expériences avec
     + Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + La section relative aux [expériences Machine Learning automatisées (préversion)](how-to-create-portal-experiments.md) dans le portail Azure.
+    + La section relative aux [expériences de Machine Learning automatisé (préversion)](how-to-create-portal-experiments.md) dans le Portail Azure ou dans la page d’arrivée de votre espace de travail (préversion).
     + L’[interface visuelle (préversion)](ui-concept-visual-interface.md).
 + Les [pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) sont des flux de travail réutilisables destinés à l’entraînement et la reformation de votre modèle.
 + Les [jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores) facilitent la gestion des données que vous utilisez pour l’entraînement des modèles et la création de pipelines.
@@ -49,6 +49,7 @@ Vous pouvez interagir avec votre espace de travail comme suit :
 
 + Sur le web :
     + [Portail Azure](https://portal.azure.com)
+    + [Page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com)
     + [Interface visuelle (préversion)](ui-concept-visual-interface.md)
 + Dans Python à l’aide du [kit de développement logiciel (SDK)](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) Azure Machine Learning
 + Sur la ligne de commande avec l’[extension CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) Azure Machine Learning :

@@ -1,6 +1,6 @@
 ---
-title: Configurer la sauvegarde et la réplication Apache HBase et Apache Phoenix - Azure HDInsight
-description: Configurer la sauvegarde et de réplication pour HBase et Phoenix
+title: Sauvegarde et réplication pour Apache HBase et Apache Phoenix sur Azure HDInsight
+description: Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur Azure HDInsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3674ce1a2882fb87b79f69a98c643c73653cddc4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696379"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810465"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur HDInsight
 

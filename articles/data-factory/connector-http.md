@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: cdd7cfcb9d835c2ccac1dc367b9a1b34b509e8cf
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 880f5624af03e08e3a91ec5b230e593025d979a5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276430"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812998"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -166,12 +166,12 @@ Si vous utilisez **certThumbprint** pour l’authentification et que le certific
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
+- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Texte délimité, Avro ou Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données vers et à partir des **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété    | Description                                                  | Obligatoire |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -212,7 +212,7 @@ Pour copier des données vers et depuis les **formats Parquet, Texte délimité 
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données depuis HTTP au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
+Pour la copie de données à partir de HTTP au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -274,12 +274,12 @@ Pour obtenir la liste complète des sections et des propriétés permettant de d
 
 ### <a name="http-as-source"></a>HTTP en tant que source
 
-- Pour copier des données à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour copier des données à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -336,7 +336,7 @@ Pour copier des données à partir des **formats Parquet, Texte délimité et Bi
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis HTTP au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour la copie de données à partir de HTTP au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

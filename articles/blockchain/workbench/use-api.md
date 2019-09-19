@@ -1,25 +1,25 @@
 ---
-title: Utilisation de l’API REST Azure Blockchain Workbench
-description: Scénarios d’utilisation de l’API REST Azure Blockchain Workbench
+title: Utilisation de l’API REST d’Azure Blockchain Workbench Preview
+description: Scénarios d’utilisation de l’API REST d’Azure Blockchain Workbench Preview
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60896037"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843815"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilisation de l’API REST Azure Blockchain Workbench
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilisation de l’API REST d’Azure Blockchain Workbench Preview
 
-L’API REST Azure Blockchain Workbench permet aux développeurs et aux professionnels de l’information pour créer des intégrations riches aux applications blockchain. Ce document vous guide dans l’utilisation de l’API REST Workbench à l’aide de plusieurs méthodes clés. Par exemple, supposons qu’un développeur souhaite créer un client blockchain personnalisé. Ce client blockchain permet aux utilisateurs connectés d’afficher les applications blockchain qui leur sont affectées et d’interagir avec celles-ci. Ce client permet aux utilisateurs d’afficher les instances du contrat et d’intervenir sur les contrats intelligents. Le client utilise l’API REST Workbench dans le contexte de l’utilisateur connecté pour effectuer les actions suivantes :
+L’API REST d’Azure Blockchain Workbench Preview permet aux développeurs et aux professionnels de l’information de créer des intégrations riches à des applications blockchain. Ce document vous guide dans l’utilisation de l’API REST Workbench à l’aide de plusieurs méthodes clés. Par exemple, supposons qu’un développeur souhaite créer un client blockchain personnalisé. Ce client blockchain permet aux utilisateurs connectés d’afficher les applications blockchain qui leur sont affectées et d’interagir avec celles-ci. Ce client permet aux utilisateurs d’afficher les instances du contrat et d’intervenir sur les contrats intelligents. Le client utilise l’API REST Workbench dans le contexte de l’utilisateur connecté pour effectuer les actions suivantes :
 
 * Liste des applications
 * Répertorier les flux de travail d’une application

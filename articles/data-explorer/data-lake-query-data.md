@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950138"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383375"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer (préversion)
 
@@ -50,6 +50,7 @@ Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Stora
     > * En règle générale, un partitionnement plus granulaire améliore le niveau de performance. Par exemple, les requêtes sur des tables externes avec partitions quotidiennes offrent un meilleur niveau de performance que les requêtes sur des tables partitionnées mensuellement.
     > * Lorsque vous définissez une table externe avec des partitions, la structure de stockage doit être identique.
 Par exemple, si la table est définie avec une partition DateTime au format aaaa/mm/jj (par défaut), le chemin d’accès au fichier de stockage URI doit être *container1/aaaa/mm/jj/all_exported_blobs*. 
+    > * Si la table externe est partitionnée par une colonne DateHeure, ajoutez toujours à votre requête un filtre de temps définissant une plage fermée. Par exemple, la requête `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` offrira de meilleurs résultats que la requête `ArchivedProducts | where Timestamp > ago(1h)` (avec plage ouverte). 
 
 1. La table externe est visible dans le volet gauche de l’interface utilisateur web
 

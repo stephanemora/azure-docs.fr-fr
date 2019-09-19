@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c831fc7ab1a646d41c0dc08d0e1a66380fe1232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824731"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812689"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -108,7 +108,7 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 13. Sélectionnez **Enregistrer** sur l’écran de **mappage d’attributs**. 
 
 >[!IMPORTANT] 
-> L’enregistrement d’un nouveau filtre d’étendue déclenche une nouvelle synchronisation complète pour l’application, avec une comparaison de tous les utilisateurs dans le système source par rapport au nouveau filtre d’étendue. Si un utilisateur dans l’application répondait précédemment aux exigences d’un approvisionnement, mais que ce n’est plus le cas maintenant, son compte est désactivé ou déprovisionné dans l’application.
+> L’enregistrement d’un nouveau filtre d’étendue déclenche une nouvelle synchronisation complète pour l’application, avec une comparaison de tous les utilisateurs dans le système source par rapport au nouveau filtre d’étendue. Si un utilisateur dans l’application répondait précédemment aux exigences d’un approvisionnement, mais que ce n’est plus le cas maintenant, son compte est désactivé ou déprovisionné dans l’application. Pour remplacer ce comportement par défaut, consultez [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](skip-out-of-scope-deletions.md).
 
 
 ## <a name="related-articles"></a>Articles connexes

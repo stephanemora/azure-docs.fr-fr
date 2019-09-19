@@ -1,27 +1,29 @@
 ---
-title: Déployer Azure Blockchain Workbench
-description: Comment déployer Azure Blockchain Workbench
+title: Déployer Azure Blockchain Workbench Preview
+description: Guide pratique pour déployer Azure Blockchain Workbench Preview
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/06/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea18c784c6b5cf61013c131360d20349e67b1e5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154654"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845282"
 ---
-# <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
+# <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench est déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle simplifie le déploiement des composants nécessaires à la création d’applications blockchain. Une fois déployé, Blockchain Workbench permet d’accéder aux applications clientes afin de créer et gérer les utilisateurs et les applications blockchain.
+Azure Blockchain Workbench Preview est déployé avec un modèle de solution dans la Place de marché Azure. Ce modèle simplifie le déploiement des composants nécessaires à la création d’applications blockchain. Une fois déployé, Blockchain Workbench permet d’accéder aux applications clientes afin de créer et gérer les utilisateurs et les applications blockchain.
 
 Pour plus d’informations sur les composants Blockchain Workbench, consultez [Architecture Azure Blockchain Workbench](architecture.md).
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="prepare-for-deployment"></a>Préparation du déploiement
 
@@ -36,7 +38,7 @@ Blockchain Workbench vous permet de déployer un registre blockchain, ainsi qu�
 * Compte de stockage Azure (LRS standard)
 * Groupe de machines virtuelles identiques avec capacité de 1
 * Groupe de ressources de réseau virtuel (avec Load Balancer, groupe de sécurité réseau, adresse IP publique, réseau virtuel)
-* Facultatif : Azure Blockchain Service (valeur par défaut BO de base)
+* Azure Blockchain Service. Si vous utilisez un déploiement Blockchain Workbench précédent, envisagez de redéployer Azure Blockchain Workbench pour utiliser Azure Blockchain Service.
 
 Voici un exemple de déploiement créé dans le groupe de ressources **myblockchain**.
 
@@ -65,7 +67,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
     ![Résultats de recherche de la Place de marché](media/deploy/marketplace-search-results.png)
 
-5. Sélectionnez **Créer**.
+5. Sélectionnez **Create** (Créer).
 6. Renseignez les paramètres de base.
 
     ![Créer Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
@@ -79,9 +81,9 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | SSH | Utilisez une clé publique RSA au format ligne unique et commençant par **ssh-rsa** ou utilisez le format PEM multiligne. Vous pouvez générer des clés SSH à l’aide de `ssh-keygen` sur Linux et OS X, ou à l’aide de PuTTYGen sur Windows. Pour plus d’informations sur les clés SSH, consultez [Comment utiliser des clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Mot de passe de base de données et de Blockchain | Spécifiez le mot de passe à utiliser pour accéder à la base de données créée dans le cadre du déploiement. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;) |
     | Région du déploiement | Spécifiez où déployer les ressources Blockchain Workbench. Pour une disponibilité optimale, cette région doit correspondre au paramètre **Emplacement**. |
-    | Abonnement | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
+    | Subscription | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
     | Groupes de ressources | Créez un groupe de ressources en sélectionnant **Créer** et donnez un nom unique au groupe de ressources. |
-    | Lieu | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
+    | Location | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
 
 7. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
 

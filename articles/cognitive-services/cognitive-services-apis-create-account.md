@@ -9,83 +9,108 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697912"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743848"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
-Utilisez ce guide de démarrage rapide pour commencer à utiliser Azure Cognitive Services à l’aide du portail Azure. Les services Cognitive Services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure que vous créez dans votre abonnement Azure. Après avoir créé la ressource, utilisez les clés et le point de terminaison générés pour authentifier vos applications. 
+Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Cognitive Services. Après avoir créé une ressource Cognitive Services dans le portail Azure, vous obtenez un point de terminaison et une clé pour authentifier vos applications.
 
-## <a name="prerequisites"></a>Prérequis
-
-* Un abonnement Azure valide : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
+
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Créer une ressource Azure Cognitive Services
 
-Avant de créer une ressource Cognitive Services, vous devez disposer d’un groupe de ressources Azure pour contenir la ressource. Quand vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
+1. Crée une ressource.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
-
-    ![Sélectionner API Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. Vous pouvez trouver les services cognitifs disponibles en procédant comme suit :
-    * Utilisez la barre de recherche et entrez le nom du service auquel vous voulez vous abonner.
-        * Pour créer une ressource pour un abonnement multiservice, entrez **Cognitive Services** dans la barre de recherche, puis sélectionnez la ressource **Cognitive Services**.
-
-        ![Rechercher Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    * Pour afficher tous les services cognitifs disponibles, sélectionnez **IA + Machine Learning** sous **Place de marché Azure**. Si vous ne voyez pas le service qui vous intéresse, cliquez sur **Tout afficher** et faites défiler jusqu'à **Cognitive Services**. Cliquez sur **Plus** pour afficher la totalité du catalogue d’API Cognitive Services.
+    #### <a name="multi-service-resourcetabmultiservice"></a>[Ressource multiservice](#tab/multiservice)
     
-        ![Sélectionner API Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
+    La ressource multiservice est nommée **Cognitive Services** dans le portail. [Créez une ressource Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    
+    À ce stade, la ressource multiservice permet d’accéder aux services Cognitive Services suivants :
+    
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Vision par ordinateur  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Analyse de texte   |
+    | Translator Text  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
+    | Vérification orthographique Bing |                                                      |                    |                               |                  |
+    
+    #### <a name="single-service-resourcetabsingleservice"></a>[Ressource monoservice](#tab/singleservice)
+
+    Utilisez les liens ci-dessous afin de créer une ressource pour les services Cognitive Services disponibles :
+
+    | Vision                      | Speech                  | Langage                          | Décision             | Recherche                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [Vision par ordinateur](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Services Speech](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lecteur immersif](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Détecteur d’anomalies](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [API Recherche Bing V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Service Custom Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Reconnaissance de l’orateur](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Recherche personnalisée Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Visage](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Recherche d’entités Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggestion automatique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+    ***
 
 3. Sur la page **Créer**, renseignez les informations suivantes :
 
-    > [!IMPORTANT]
-    > Retenez votre emplacement Azure, car vous pourriez en avoir besoin lors de l’appel à Azure Cognitive Services.
+    #### <a name="multi-service-resourcetabmultiservice"></a>[Ressource multiservice](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple *MyCognitiveServicesAccount*. |
+    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple, *MyCognitiveServicesResource*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
-    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
+    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. Retenez votre emplacement Azure, car vous pourriez en avoir besoin lors de l’appel à Azure Cognitive Services. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
-    | **Groupe de ressources** | [Groupe de ressources Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) comprenant votre ressource Cognitive Services. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
+    | **Groupe de ressources** | Groupe de ressources Azure comprenant votre ressource Cognitive Services. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
+
+    ![Écran Création de ressources](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+
+    Cliquez sur **Créer**.
+
+    #### <a name="single-service-resourcetabsingleservice"></a>[Ressource monoservice](#tab/singleservice)
+
+    |    |    |
+    |--|--|
+    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple, *TextAnalyticsResource*. |
+    | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
+    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. Retenez votre emplacement Azure, car vous pourriez en avoir besoin lors de l’appel à Azure Cognitive Services. |
+    | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
+    | **Groupe de ressources** | Groupe de ressources Azure comprenant votre ressource Cognitive Services. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
 
     ![Écran Création de ressources](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
+    Cliquez sur **Créer**.
+
+    ***
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 
-Après avoir créé votre ressource, vous pouvez y accéder à partir du tableau de bord Azure, si vous l’y avez épinglée. Sinon, vous pouvez y accéder dans **Groupes de ressources**. Après avoir sélectionné votre ressource, vous pouvez obtenir les clés en sélectionnant **Clés** sous **Gestion des ressources**.
+1. Une fois votre ressource déployée avec succès, cliquez sur **Accéder à la ressource** sous **Étapes suivantes**.
+
+    ![Rechercher Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
+
+2. Dans le volet de démarrage rapide qui s’ouvre, vous pouvez accéder à votre clé et à votre point de terminaison.
+
+    ![Obtenir la clé et le point de terminaison](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="pricing-tiers-and-billing"></a>Niveaux tarifaires et facturation
-
-Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de transactions que vous envoyez à l’aide de vos informations d’authentification. Chaque niveau tarifaire spécifie :
-* le nombre maximal de transactions par seconde (TPS) autorisées ;
-* les fonctionnalités de service activées dans le niveau tarifaire ;
-* le coût d’un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
-
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également toutes les autres ressources se trouvant dans le groupe.
-
-Pour supprimer un groupe de ressources dans le portail Azure :
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources supprime également toutes les autres ressources se trouvant dans le groupe.
 
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources** pour afficher la liste de vos groupes de ressources.
-2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton Plus (...) se trouvant à droite de la liste.
-3. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
+2. Localisez le groupe de ressources contenant la ressource à supprimer.
+3. Cliquez avec le bouton droit sur la liste des groupes de ressources. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
 
 ## <a name="see-also"></a>Voir aussi
 
 * [Authentifier des requêtes auprès d’Azure Cognitive Services](authentication.md)
-* [Présentation d’Azure Cognitive Services](Welcome.md)
+* [Qu’est-ce qu’Azure Cognitive Services ?](Welcome.md)
 * [Prise en charge en langage naturel](language-support.md)
 * [Prise en charge des conteneurs Docker](cognitive-services-container-support.md)

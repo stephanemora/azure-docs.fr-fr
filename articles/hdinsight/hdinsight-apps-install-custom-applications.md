@@ -1,6 +1,6 @@
 ---
 title: Installer vos applications Apache Hadoop personnalisées sur Azure HDInsight
-description: Découvrez comment installer des applications Hadoop sur des applications HDInsight.
+description: Découvrez comment installer des applications HDInsight sur les clusters Apache Hadoop dans Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 372ff752f27360058c4a2c2722e24efe15202dd8
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445501"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916685"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop personnalisées sur Azure HDInsight
 
@@ -45,7 +45,7 @@ Fichiers nécessaires pour le déploiement de cette application (Hue) :
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     Ce bouton ouvre un modèle Resource Manager sur le portail Azure.  Le modèle Resource Manager se trouve à l’emplacement [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Pour découvrir comment écrire ce modèle Resource Manager, consultez [MSDN : installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 2. À partir du panneau **Paramètres** , saisissez les informations suivantes :
@@ -60,7 +60,7 @@ Fichiers nécessaires pour le déploiement de cette application (Hue) :
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     Ce bouton ouvre un modèle Resource Manager sur le portail Azure.  Le modèle Resource Manager se trouve à l’emplacement [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Pour découvrir comment écrire ce modèle Resource Manager, consultez [MSDN : installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Suivez les instructions pour créer le cluster et installer Hue. Pour plus d’informations sur la création de clusters HDInsight, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
@@ -88,12 +88,12 @@ En cas d’échec de l’installation d’une application, des messages d’erre
 
     Ouvrez le cluster à partir du portail, puis cliquez sur Applications dans le panneau Paramètres :
 
-    ![Erreur d’installation des applications hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+    ![Erreur d’installation des applications hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
 * Action de script HDInsight : si le message d’erreur des applications HDInsight indique un échec d’action de script, le volet Actions de script affichera davantage de détails sur l’échec de script.
 
     Dans le panneau Paramètres, cliquez sur Actions de script. L’historique des actions de script affiche les messages d’erreur
 
-    ![Erreur de l’action de script des applications hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    ![Erreur de l’action de script des applications hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
 * Interface utilisateur web d’Ambari : si le script d’installation était à l’origine de l’échec, utilisez l’interface utilisateur web d’Ambari pour consulter les journaux d’activité complets des scripts d’installation.
 
     Pour plus d’informations, consultez la page [Dépannage](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).

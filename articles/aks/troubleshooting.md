@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533526"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844264"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -132,3 +132,12 @@ Selon la sortie de l’état du cluster :
 * Si le cluster est dans un autre état de provisionnement que *Opération réussie* ou *En échec*, attendez que l’opération (*mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration*) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
 
 * Si la mise à niveau du cluster a échoué, suivez les étapes décrites dans [Je reçois des erreurs qui indiquent que mon cluster est en état d’échec et que la mise à niveau ou la mise à l’échelle n’aboutira pas tant que ce problème n’aura pas été résolu](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Je reçois des erreurs indiquant que mon principal de service est introuvable quand j’essaie de créer un cluster sans passer un principal de service existant.
+
+Lors de la création d’un cluster AKS, un principal de service doit créer des ressources en votre nom. AKS offre la possibilité de créer un nouveau principal de service au moment de la création du cluster, mais cela nécessite qu’Azure Active Directory propage entièrement le nouveau principal de service dans un délai raisonnable afin que le cluster puisse être créé. Si ce processus de propagation prend trop de temps, la validation de la création du cluster échoue, car il ne trouve pas de principal de service disponible. 
+
+Essayez les solutions de contournement suivantes :
+1. Utilisez un principal de service existant qui a déjà été propagé dans les régions et qui puisse être passé dans AKS au moment de la création du cluster.
+2. Si vous utilisez des scripts d’automatisation, augmentez les délais entre la création du principal de service et la création du cluster AKS.
+3. Si vous utilisez le portail Azure, revenez aux paramètres du cluster au moment de la création, puis recommencez la page de validation après quelques minutes.

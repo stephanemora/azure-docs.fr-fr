@@ -1,105 +1,96 @@
 ---
-title: 'Azure Active Directory Domain Services : Synchronisation étendue | Microsoft Docs'
-description: Configurer la synchronisation étendue depuis Azure AD vers vos domaines managés
+title: Synchronisation délimitée pour Azure AD Domain Services | Microsoft Docs
+description: Découvrez comment configurer une synchronisation délimitée (scoped) entre Azure AD et un domaine managé Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5fe19d3800883782187ae15c0a6fc0cd9709f0e9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617114"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842670"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurer la synchronisation étendue depuis Azure AD vers votre domaine managé
-Cet article vous montre comment configurer uniquement des comptes utilisateurs spécifiques à synchroniser depuis votre annuaire Azure AD vers votre domaine managé Azure AD Domain Services.
+# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurer une synchronisation délimitée entre Azure AD et Azure Active Directory Domain Services
 
+Pour assurer des services d’authentification, Azure Active Directory Domain Services (Azure AD DS) synchronise les utilisateurs et les groupes à partir d’Azure AD. Dans un environnement hybride, les utilisateurs et les groupes d’un environnement Active Directory Domain Services (AD DS) local peuvent d’abord être synchronisés avec Azure AD via Azure AD Connect, puis avec Azure AD DS. Par défaut, tous les utilisateurs et groupes d’un annuaire Azure AD sont synchronisés avec un domaine managé Azure AD DS. Si vous avez des besoins spécifiques, vous pouvez opter pour la synchronisation d’un ensemble défini d’utilisateurs.
 
-## <a name="group-based-scoped-synchronization"></a>Synchronisation étendue basée sur les groupes
-Par défaut, tous les utilisateurs et groupes dans votre annuaire Azure AD sont synchronisés avec votre domaine managé. Si seuls quelques utilisateurs utilisent le domaine managé, vous pouvez synchroniser uniquement ces comptes. C’est ce que vous permet de faire la synchronisation étendue basée sur le groupe. Après configuration, seuls les comptes utilisateurs appartenant aux groupes que vous avez spécifiés sont synchronisées au domaine managé.
+Cet article vous montre comment créer un domaine managé Azure AD DS qui utilise la synchronisation délimitée et comment modifier ou désactiver l’ensemble des utilisateurs visés.
 
-Le tableau suivant vous permet de déterminer comment utiliser la synchronisation étendue :
+## <a name="scoped-synchronization-overview"></a>Vue d’ensemble de la synchronisation délimitée
 
-| **État actuel** | **État souhaité** | **Configuration requise** |
+Par défaut, tous les utilisateurs et groupes d’un annuaire Azure AD sont synchronisés avec un domaine managé Azure AD DS. Si seuls quelques utilisateurs ont besoin d’accéder au domaine managé, vous pouvez synchroniser uniquement ces comptes d’utilisateurs. Cette synchronisation délimitée est basée sur les groupes. Quand vous configurez la synchronisation délimitée basée sur les groupes, seuls les comptes d’utilisateurs qui appartiennent aux groupes que vous spécifiez sont synchronisés avec le domaine managé Azure AD DS.
+
+Le tableau suivant indique dans les grandes lignes comment utiliser la synchronisation délimitée :
+
+| État actuel | État souhaité | Configuration nécessaire |
 | --- | --- | --- |
-| Votre domaine managé existant est configuré pour synchroniser tous les comptes et groupes utilisateurs. | Vous souhaitez synchroniser uniquement les comptes utilisateur appartenant à des groupes spécifiques de votre domaine managé. | [Supprimez le domaine managé existant](delete-aadds.md). Ensuite, suivez les instructions de cet article pour le recréer avec la synchronisation étendue configurée. |
-| Vous ne disposez pas d’un domaine managé existant. | Vous souhaitez créer un nouveau domaine managé et synchroniser uniquement les comptes utilisateur appartenant à des groupes spécifiques. | Suivez les instructions de cet article pour créer un domaine managé avec la synchronisation étendue configurée. |
-| Votre domaine managé existant est configuré pour synchroniser uniquement quelques comptes appartenant à des groupes spécifiques. | Vous souhaitez modifier la liste des groupes dont les utilisateurs doivent être synchronisés au domaine de gestion. | Suivez les instructions de cet article pour modifier la synchronisation étendue. |
+| Un domaine managé existant est configuré pour synchroniser tous les comptes et groupes d’utilisateurs. | Or, vous souhaitez synchroniser uniquement les comptes d’utilisateurs qui appartiennent à certains groupes. | Vous ne pouvez pas passer d’une synchronisation de tous les utilisateurs à une utilisation de la synchronisation délimitée. [Supprimez le domaine managé existant](delete-aadds.md), puis suivez les étapes de cet article pour recréer un domaine managé Azure AD DS avec la synchronisation délimitée configurée. |
+| Aucun domaine managé existant. | Vous souhaitez créer un nouveau domaine managé et synchroniser uniquement les comptes utilisateur appartenant à des groupes spécifiques. | Suivez les étapes de cet article pour créer un domaine managé Azure AD DS avec la synchronisation délimitée configurée. |
+| Un domaine managé existant est configuré pour synchroniser uniquement les comptes qui appartiennent à certains groupes. | Vous voulez modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec le domaine managé Azure AD DS. | Suivez les étapes de cet article pour modifier la synchronisation délimitée. |
+
+Vous utilisez le portail Azure ou PowerShell pour configurer les paramètres de la synchronisation délimitée :
+
+| Action | | |
+|--|--|--|
+| Créer un domaine managé Azure AD DS et configurer la synchronisation délimitée | [Portail Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modifier la synchronisation délimitée | [Portail Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Désactiver la synchronisation délimitée | [Portail Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> **Modifier l’étendue de la synchronisation entraîne la resynchronisation de votre domaine managé.**
+> La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données.
 > 
->  * Lorsque vous modifiez l’étendue de synchronisation d’un domaine managé, une resynchronisation complète est déclenchée.
->  * Les objets qui ne sont plus requis dans le domaine managé sont supprimés. De nouveaux objets sont créés dans le domaine managé.
->  * La resynchronisation peut prendre un certain temps, en fonction du nombre d’objets (utilisateurs, groupes et appartenances aux groupes) dans votre domaine managé et votre annuaire Azure AD. Pour les annuaires volumineux avec plusieurs centaines de milliers d’objets, la resynchronisation peut prendre quelques jours.
+>  * Quand vous modifiez l’étendue de synchronisation d’un domaine managé Azure AD DS, une resynchronisation complète se produit.
+>  * Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés. De nouveaux objets sont créés dans le domaine managé.
+>  * La resynchronisation peut prendre un certain temps. La durée de cette opération varie en fonction du nombre d’objets (utilisateurs, groupes et appartenances aux groupes) présents dans le domaine managé Azure AD DS et l’annuaire Azure AD. Pour les annuaires volumineux avec plusieurs centaines de milliers d’objets, la resynchronisation peut prendre quelques jours.
 
+## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Activer la synchronisation délimitée à partir du portail Azure
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Créer un domaine managé et activer la synchronisation étendue basée sur les groupes avec le portail Azure
+1. Suivez le [tutoriel pour créer et configurer une instance Azure AD DS](tutorial-create-instance.md). Respectez tous les prérequis et effectuez toutes les étapes de déploiement en dehors de celles prévues pour l’étendue de la synchronisation.
+1. Choisissez **Inclus dans l’étendue** à l’étape de synchronisation, puis sélectionnez les groupes Azure AD à synchroniser avec l’instance Azure AD DS.
 
-1. Suivez le guide de [Prise en main](tutorial-create-instance.md) pour créer un domaine géré.
-2. Choisissez **étendue** lors de la sélection de style de synchronisation dans l’Assistant de création dans Azure AD Domain Services.
+Le déploiement du domaine managé Azure AD DS peut prendre jusqu’à une heure. Sur le portail Azure, la page **Vue d’ensemble** de votre domaine managé Azure AD DS indique l’état actuel tout au long de cette phase de déploiement.
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Créer un domaine managé et activer la synchronisation étendue basée sur les groupes avec PowerShell
-Utilisez PowerShell pour cette procédure. Consultez les instructions pour [activer Azure Active Directory Domain Services à l’aide de PowerShell](powershell-create-instance.md). Certaines étapes de cet article sont légèrement modifiées pour configurer la synchronisation étendue.
+Une fois que le portail Azure a indiqué que le provisionnement du domaine managé Azure AD DS était terminé, voici les tâches qu’il convient d’effectuer :
 
-Procédez comme suit pour configurer la synchronisation étendue basée sur les groupes pour votre domaine managé :
+* Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
+    * Pour configure le DNS, sélectionnez votre domaine managé Azure AD DS dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
+* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
-1. Effectuez les tâches suivantes :
-   * [Tâche 1 : Installer les modules PowerShell nécessaires](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
-   * [Tâche 2 : Créer le principal du service requis dans votre annuaire Azure AD](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Tâche 3 : Créez et configurez le groupe « AAD DC Administrators »]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-   * [Tâche 4 : Inscrire le fournisseur de ressources Azure AD Domain Services](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-   * [Tâche 5 : Créer un groupe de ressources](powershell-create-instance.md#task-5-create-a-resource-group).
-   * [Tâche 6 : Créer et configurer le réseau virtuel](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
+## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Modifier la synchronisation délimitée à partir du portail Azure
 
-2. Sélectionnez les groupes que vous souhaitez synchroniser et fournissez le nom d’affichage des groupes que vous souhaitez synchroniser à votre domaine managé.
+Pour modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec le domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-3. Enregistrez le [script de la section suivante](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) dans un fichier appelé ```Select-GroupsToSync.ps1```. Exécuter le script comme suit :
+1. Sur le portail Azure, sélectionnez votre instance Azure AD DS, par exemple *contoso.com*.
+1. Sélectionnez **Synchronisation** dans le menu de gauche.
+1. Pour ajouter un groupe, choisissez **+ Sélectionner des groupes** dans la partie supérieure, puis choisissez les groupes à ajouter.
+1. Pour supprimer un groupe de l’étendue de la synchronisation, sélectionnez-le dans la liste des groupes actuellement synchronisés et choisissez **Supprimer les groupes**.
+1. Une fois que toutes les modifications ont été apportées, sélectionnez **Enregistrer l’étendue de la synchronisation**.
 
-   ```powershell
-   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-   ```
+La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données. Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés, et la resynchronisation peut prendre un certain temps.
 
-   > [!WARNING]
-   > **N’oubliez pas d’inclure le groupe « AAD DC Administrators ».**
-   >
-   > Vous devez inclure le groupe « AAD DC Administrators » dans la liste des groupes configurés pour la synchronisation étendue. Si vous n’incluez pas de ce groupe, le domaine managé sera inutilisable.
-   >
+## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Désactiver la synchronisation délimitée à partir du portail Azure
 
-4. Créez ensuite le domaine managé et activez la synchronisation étendue basée sur les groupes pour le domaine managé. Incluez la propriété ```"filteredSync" = "Enabled"``` dans le paramètre ```Properties```. Par exemple, consultez le fragment de script suivant, copié à partir de [Tâche 7 : Provisionner un domaine managé par Azure AD Domain Services](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+Pour désactiver la synchronisation délimitée basée sur les groupes pour un domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-   ```powershell
-   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
-   $ResourceGroupName = "ContosoAaddsRg"
-   $VnetName = "DomainServicesVNet_WUS"
-   $AzureLocation = "westus"
+1. Sur le portail Azure, sélectionnez votre instance Azure AD DS, par exemple *contoso.com*.
+1. Sélectionnez **Synchronisation** dans le menu de gauche.
+1. Faites passer la définition de la synchronisation de **Inclus dans l’étendue** à **Tout**, puis sélectionnez **Enregistrer l’étendue de la synchronisation**.
 
-   # Enable Azure AD Domain Services for the directory.
-   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-   -Location $AzureLocation `
-   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-   -ApiVersion 2017-06-01 -Force -Verbose
-   ```
+La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données. Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés, et la resynchronisation peut prendre un certain temps.
 
-   > [!TIP]
-   > N’oubliez pas d’inclure ```"filteredSync" = "Enabled"``` dans le paramètre ```-Properties```, afin d’activer la synchronisation étendue pour le domaine managé.
+## <a name="powershell-script-for-scoped-synchronization"></a>Script PowerShell pour la synchronisation délimitée
 
+Pour configurer la synchronisation délimitée à l’aide de PowerShell, commencez par enregistrer le script suivant dans un fichier nommé `Select-GroupsToSync.ps1`. Ce script configure Azure AD DS de façon à synchroniser les groupes sélectionnés à partir d’Azure AD. Tous les comptes d’utilisateurs qui font partie des groupes spécifiés sont synchronisés avec le domaine managé Azure AD DS.
 
-## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Script pour sélectionner les groupes à synchroniser avec le domaine managé (Select-GroupsToSync.ps1)
-Enregistrez le script suivant dans un fichier (```Select-GroupsToSync.ps1```). Ce script configure Azure AD Domain Services de façon à synchroniser les groupes sélectionnés au domaine managé. Tous les comptes utilisateurs appartenant aux groupes spécifiés sont synchronisées au domaine managé.
+Ce script est utilisé dans les étapes supplémentaires de cet article.
 
 ```powershell
 param (
@@ -178,33 +169,87 @@ foreach ($id in $newGroupIds)
 Write-Output "****************************************************************************`n"
 ```
 
+## <a name="enable-scoped-synchronization-using-powershell"></a>Activer la synchronisation délimitée à partir de PowerShell
 
-## <a name="modify-group-based-scoped-synchronization"></a>Modifier la synchronisation étendue basée sur les groupes
-Pour modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec votre domaine managé, exécutez de nouveau le [script PowerShell](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) et spécifiez la nouvelle liste de groupes. N’oubliez pas de toujours spécifier le groupe « AAD DC Administrators » dans cette liste.
+Utilisez PowerShell pour cette procédure. Consultez les instructions pour [activer Azure Active Directory Domain Services à l’aide de PowerShell](powershell-create-instance.md). Certaines étapes de cet article sont légèrement modifiées pour configurer la synchronisation étendue.
+
+1. Effectuez les tâches de l’article ci-dessous pour activer Azure AD DS à l’aide de PowerShell. Arrêtez-vous à l’étape où le domaine managé est réellement créé. Vous devez configurer la synchronisation délimitée après avoir créé le domaine managé AD DS.
+
+   * [Installez les modules PowerShell nécessaires](powershell-create-instance.md#prerequisites).
+   * [Créez le principal du service et le groupe Azure AD nécessaires à l’accès administratif](powershell-create-instance.md#create-required-azure-ad-resources).
+   * [Créez des ressources Azure complémentaires comme un réseau virtuel et des sous-réseaux](powershell-create-instance.md#create-supporting-azure-resources).
+
+1. Identifiez-y les groupes et les utilisateurs que vous souhaitez synchroniser à partir d’Azure AD. Dressez une liste des noms complets des groupes à synchroniser avec Azure AD DS.
+
+1. Exécutez le [script de la section précédente](#powershell-script-for-scoped-synchronization) et utilisez le paramètre *-groupsToAdd* pour transmettre la liste des groupes à synchroniser.
+
+   > [!WARNING]
+   > Vous devez inclure le groupe *AAD DC Administrators* dans la liste des groupes configurés pour la synchronisation délimitée. Si vous n’incluez pas ce groupe, le domaine managé Azure AD DS est inutilisable.
+
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
+
+1. Créez ensuite le domaine managé Azure AD DS et activez la synchronisation délimitée basée sur les groupes. Incluez *"filteredSync" = "Enabled"* dans le paramètre *-Properties*.
+
+    Définissez votre ID d’abonnement Azure, puis fournissez un nom pour le domaine managé, par exemple *contoso.com*. Vous pouvez obtenir votre ID d’abonnement à l’aide de l’applet de commande [Get-AzSubscription][Get-AzSubscription]. Définissez le nom du groupe de ressources, le nom du réseau virtuel et la région en reprenant les valeurs utilisées dans les étapes précédentes où vous avez créé les ressources Azure complémentaires :
+
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso.com"
+   $ResourceGroupName = "myResourceGroup"
+   $VnetName = "myVnet"
+   $AzureLocation = "westus"
+
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
+   -Force -Verbose
+   ```
+
+Créer la ressource et retourner le contrôle à l’invite PowerShell prend quelques minutes. Le provisionnement du domaine managé Azure AD DS se poursuit en arrière-plan, et le déploiement peut prendre jusqu’à une heure. Sur le portail Azure, la page **Vue d’ensemble** de votre domaine managé Azure AD DS indique l’état actuel tout au long de cette phase de déploiement.
+
+Une fois que le portail Azure a indiqué que le provisionnement du domaine managé Azure AD DS était terminé, voici les tâches qu’il convient d’effectuer :
+
+* Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
+    * Pour configure le DNS, sélectionnez votre domaine managé Azure AD DS dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
+* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
+
+## <a name="modify-scoped-synchronization-using-powershell"></a>Modifier la synchronisation délimitée à partir de PowerShell
+
+Pour modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec votre domaine managé Azure AD DS, réexécutez le [script PowerShell](#powershell-script-for-scoped-synchronization) et spécifiez la nouvelle liste de groupes. Dans l’exemple suivant, les groupes à synchroniser n’incluent plus *GroupName2*, mais incluent maintenant *GroupName3*.
 
 > [!WARNING]
-> **N’oubliez pas d’inclure le groupe « AAD DC Administrators ».**
->
-> Vous devez inclure le groupe « AAD DC Administrators » dans la liste des groupes configurés pour la synchronisation étendue. Si vous n’incluez pas de ce groupe, le domaine managé sera inutilisable.
->
-
-
-## <a name="disable-group-based-scoped-synchronization"></a>Désactiver la synchronisation étendue basée sur les groupes
-Utilisez le script PowerShell suivant pour désactiver la synchronisation étendue basée sur les groupes pour votre domaine géré :
+> Vous devez inclure le groupe *AAD DC Administrators* dans la liste des groupes configurés pour la synchronisation délimitée. Si vous n’incluez pas ce groupe, le domaine managé Azure AD DS est inutilisable.
 
 ```powershell
-// Login to your Azure AD tenant
-Login-AzAccount
+.\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
+```
 
-// Retrieve the Azure AD Domain Services resource.
+La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données. Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés, et la resynchronisation peut prendre un certain temps.
+
+## <a name="disable-scoped-synchronization-using-powershell"></a>Désactiver la synchronisation délimitée à partir de PowerShell
+
+Pour désactiver la synchronisation délimitée basée sur les groupes pour un domaine managé Azure AD DS, définissez *"filteredSync" = "Disabled"* sur la ressource Azure AD DS, puis mettez à jour le domaine managé. À l’issue de cette opération, l’ensemble des utilisateurs et des groupes sont définis pour être synchronisés à partir d’Azure AD.
+
+```powershell
+// Retrieve the Azure AD DS resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
+// Update the Azure AD DS resource
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
+La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données. Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés, et la resynchronisation peut prendre un certain temps.
+
 ## <a name="next-steps"></a>Étapes suivantes
-* [Comprendre la synchronisation pour les services de domaine Azure AD](synchronization.md)
-* [Activer Azure Active Directory Domain Services à l’aide de PowerShell](powershell-create-instance.md)
+
+Pour en savoir plus sur le processus de synchronisation, consultez [Comprendre la synchronisation dans Azure AD Domain Services](synchronization.md).
+
+<!-- EXTERNAL LINKS -->
+[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription

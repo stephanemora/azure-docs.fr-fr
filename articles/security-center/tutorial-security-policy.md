@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314915"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910374"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -96,7 +96,7 @@ Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, 
 
 ## <a name="disable-security-policies"></a>Désactiver des stratégies de sécurité
 Si la stratégie de sécurité par défaut génère une suggestion qui n’est pas adaptée à votre environnement, vous pouvez l’arrêter en désactivant la définition de stratégie qui envoie la suggestion.
-Pour en savoir plus sur les suggestions, voir [Gestion des recommandations de sécurité](security-center-recommendations.md).
+Pour plus d’informations sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
 1. Dans la section **Politique et conformité** de Security Center, cliquez sur **Stratégie de sécurité**.
 
@@ -131,7 +131,7 @@ Concepts importants utilisés dans Azure Policy :
 
 - Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
 
-Security Center dispose d’une initiative intégrée qui inclut toutes ses stratégies de sécurité. Afin d’évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.  
+Security Center dispose d’une initiative intégrée qui inclut toutes ses stratégies de sécurité. Afin d’évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.
 
 L’initiative intégrée a toutes les stratégies de Security Center activées par défaut. Vous pouvez choisir de désactiver certaines stratégies de l’initiative intégrée. Par exemple, vous pouvez appliquer toutes les stratégies de Security Center à l’exception du **pare-feu d’applications web** en définissant la valeur du paramètre d’effet de la stratégie sur **Désactivé**. 
 

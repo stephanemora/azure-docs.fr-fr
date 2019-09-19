@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69cc625500af60a753ad8e7db0363954088f3307
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 637adba89445e6974e83486f0641576225ccd268
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659447"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812616"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Créer un locataire Azure pour une application multilocataire  
 
@@ -25,7 +25,7 @@ Pour fournir l’accès à votre application mutualisée, vous devez créer un l
 
 ## <a name="costs-of-hosting-a-multi-tenant-application"></a>Coûts d’hébergement d'une application mutualisée
 
-Azure Active Directory est disponible dans trois références (SKU), Gratuit, De base et Premium. [Consultez la comparaison détaillée des fonctionnalités](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory est disponible dans plusieurs éditions. [Consultez la comparaison détaillée des fonctionnalités](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Vous pouvez créer votre abonnement Azure et Azure Active Directory gratuitement et utiliser les fonctionnalités de base.
 

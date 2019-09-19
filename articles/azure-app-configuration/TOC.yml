@@ -83,6 +83,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: Kit SDK Python Azure
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
+        - name: Kit SDK JavaScript Azure
+          href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestion des fonctionnalités

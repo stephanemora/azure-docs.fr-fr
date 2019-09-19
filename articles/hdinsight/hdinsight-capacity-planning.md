@@ -1,6 +1,6 @@
 ---
 title: Planification de la capacité de cluster dans Azure HDInsight
-description: Découvrez comment spécifier un cluster HDInsight pour la capacité et les performances.
+description: Identifiez les principales questions relatives à la planification de la capacité et des performances d’un cluster Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207159"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916557"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -96,9 +96,6 @@ Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin qu
 
 Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud worker unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *Personnalisé (taille, paramètres, applications)* et utilisez la valeur 1 pour *Nombre de nœuds Worker* dans la section **Taille du cluster** lors du provisionnement d’un nouveau cluster dans le portail.
 
-Vous pouvez également installer un environnement de développement à nœud unique sur votre ordinateur local et y tester la solution. Hortonworks fournit un environnement de développement local à nœud unique pour les solutions Hadoop qui est utile pour le développement initial, la preuve de concept et les tests. Pour plus d’informations, consultez [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Pour identifier le problème sur un cluster local à nœud unique, vous pouvez réexécuter les travaux ayant échoué et ajuster les données d’entrée, ou utiliser des jeux de données plus petits. Le mode d’exécution de ces travaux dépend de la plateforme et du type d’application.
 
 ## <a name="quotas"></a>Quotas
 

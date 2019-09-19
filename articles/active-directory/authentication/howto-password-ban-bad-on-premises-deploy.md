@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953008"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389773"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -295,7 +295,7 @@ Lorsqu’une version plus récente du logiciel proxy de protection par mot de pa
 
 Il n’est pas nécessaire de désinstaller la version actuelle du logiciel proxy : le programme d’installation effectuera une mise à niveau sur place. Aucun redémarrage n’est nécessaire lors de la mise à niveau du logiciel proxy. La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
-L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande Set-AzureADPasswordProtectionProxyConfiguration. Le paramètre actuel peut être interrogé à l'aide de la cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft recommande de laisser la mise à niveau automatique activée.
+L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`. Pour connaître le paramétrage actuel, vous pouvez utiliser l’applet de commande `Get-AzureADPasswordProtectionProxyConfiguration`. Microsoft recommande de laisser la mise à niveau automatique activée.
 
 L'applet de commande `Get-AzureADPasswordProtectionProxy` peut être utilisée pour interroger la version logicielle de tous les agents proxy actuellement installés dans une forêt.
 

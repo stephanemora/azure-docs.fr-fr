@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: aebcefadf4dfdb9301a01b0b4117e8aa2e429898
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e11c6d23e93701e1608e1c444deb47c80543789e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276519"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813298"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -25,7 +25,8 @@ ms.locfileid: "70276519"
 
 Cet article explique comment copier des données depuis Amazon Simple Storage Service (Amazon S3). Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
-Pour le scénario de migration de données d’Amazon S3 vers le stockage Azure, consultez [Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure](data-migration-guidance-s3-azure-storage.md) pour en savoir plus.
+>[!TIP]
+>Pour le scénario de migration de données d’Amazon S3 vers le stockage Azure, consultez [Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure](data-migration-guidance-s3-azure-storage.md) pour en savoir plus.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -100,12 +101,12 @@ Voici un exemple :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Avro, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
+- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Avro, Texte délimité et Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour effectuer une copie à partir d’Amazon S3 dans les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de donées basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour effectuer une copie à partir d’Amazon S3 au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -147,7 +148,7 @@ Pour effectuer une copie à partir d’Amazon S3 dans les **formats Parquet, Tex
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données depuis Amazon S3 au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
+Pour la copie de données à partir d’Amazon S3 au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -229,12 +230,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 en tant que source
 
-- Pour effectuer une copie à partir des **formats Parquet, Avro, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
+- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a> Source aux formats Parquet, Avro, Texte délimité et Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour effectuer une copie à partir d’Amazon S3 dans les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `storeSettings` dans la source de copie basée sur le format :
+Pour effectuer une copie à partir d’Amazon S3 au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -293,7 +294,7 @@ Pour effectuer une copie à partir d’Amazon S3 dans les **formats Parquet, Tex
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour la copie de données depuis Amazon S3 au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour la copie de données à partir d’Amazon S3 au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

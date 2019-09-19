@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019309"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860355"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -29,7 +29,7 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 
 Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un billet sur le [Forum MSDN sur Azure Media Services]. 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>Problèmes connus
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
 
 | Problème | Description |
@@ -41,6 +41,7 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 | Quand vous interrogez des entités, il existe une limite de 1000 entités retournées simultanément, car l’API REST version 2 publique limite les résultats des requêtes à 1000 résultats. |Utilisez Skip et Take (.NET)/ top (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
 | Les objets du kit SDK Media Services .NET ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec le cache Azure pour Redis. |Si vous essayez de sérialiser l’objet AssetCollection du SDK pour l’ajouter au cache Azure pour Redis, une exception est levée. |
+|L’API REST répond avec un message d’erreur indiquant que le filtre n’est pas accessible par cette version de l’API REST lors de la tentative d’obtention d’un filtre au niveau de l’actif multimédia ou du compte.|Le filtre a été créé ou modifié avec une version d’API plus récente que celle utilisée pour essayer d’obtenir le filtre. Cela peut se produire si deux versions d’API sont utilisées par le code ou les outils employés par le client.  La meilleure solution ici consiste à mettre à niveau le code ou les outils pour utiliser la version plus récente ou les deux versions d’API.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].

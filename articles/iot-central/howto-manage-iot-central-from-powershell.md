@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: bfda4f4ebe8990a16853bdfe40065a7501de5275
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 85afb69a7656e96e2f7163ded5cb23ac1b2560ea
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086886"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70380970"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
 
@@ -80,6 +80,9 @@ Le script crée d’abord un groupe de ressources dans la région USA Est pour l
 |iotc-default@1.0.0 |Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
 |iotc-demo@1.0.0    |Crée une application qui comprend un modèle d’appareil déjà créé pour une machine de distribution réfrigérée. Utilisez ce modèle pour commencer à explorer Azure IoT Central. |
 |iotc-devkit-sample@1.0.0 |Crée une application avec des modèles d’appareil tout prêts qui vous permettent de connecter un appareil MXChip ou Raspberry Pi. Utilisez ce modèle si vous êtes développeur d’appareils et que vous testez l’un de ces appareils. |
+
+> [!NOTE]
+> Le modèle **Aperçu de l’application** n’est actuellement disponible que dans les régions **Europe Nord** et **USA Centre**.
 
 ## <a name="view-your-iot-central-applications"></a>Afficher les applications IoT Central
 

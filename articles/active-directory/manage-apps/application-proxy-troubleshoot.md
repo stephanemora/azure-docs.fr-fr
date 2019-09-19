@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cf5b6d4cadf4592fbaa19c89a969b20e9eb69b6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424269"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812730"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 
@@ -82,7 +82,7 @@ Cette liste comprend des erreurs que vos utilisateurs finaux peuvent rencontrer 
 | Le site web ne peut pas afficher la page. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si l’application est une application OWA. La raison peut en être l’une des suivantes :<br><li>Le SPN défini pour cette application est incorrect. Assurez-vous que le SPN configuré pour cette application est correct.</li><li>L’utilisateur qui a tenté d’accéder à l’application utilise un compte Microsoft au lieu du compte d’entreprise approprié pour se connecter, ou bien l’utilisateur est un utilisateur invité. Assurez-vous que l’utilisateur se connecte en utilisant son compte d’entreprise qui correspond au domaine de l’application publiée. Les utilisateurs d’un compte Microsoft et les invités ne peuvent pas accéder aux applications avec l’authentification Windows intégrée.</li><li>L’utilisateur qui a tenté d’accéder à l’application n’est pas défini correctement pour cette application du côté local. Assurez-vous que cet utilisateur a les autorisations appropriées, telles qu’elles sont définies pour cette application back-end sur l’ordinateur local. |
 | Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Veillez à affecter à l’utilisateur un accès à cette application. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée s’il utilise des comptes Microsoft plutôt que son compte d’entreprise pour se connecter. Les utilisateurs invités peuvent également obtenir cette erreur. Les utilisateurs d’un compte Microsoft et les invités ne peuvent pas accéder aux applications avec l’authentification Windows intégrée. Assurez-vous que l’utilisateur se connecte en utilisant son compte d’entreprise qui correspond au domaine de l’application publiée.<br><br>Vous n’avez peut-être pas affecté cette application à l’utilisateur. Accédez à l’onglet **Application** et, sous **Utilisateurs et groupes**, affectez cet utilisateur ou ce groupe d’utilisateurs à cette application. |
 | Cette application d’entreprise n’est pas accessible pour l’instant. Réessayez ultérieurement... Le connecteur a dépassé le délai d’expiration. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée s’il n’est pas correctement défini pour cette application du côté local. Assurez-vous que votre utilisateur a les autorisations appropriées, telles qu’elles sont définies pour cette application back-end sur l’ordinateur local. |
-| Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Assurez-vous que l’utilisateur a une licence pour Azure Active Directory Premium ou Basic. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si l’administrateur de l’abonné ne lui a pas assigné explicitement une licence De base/Premium. Accédez à l’onglet **Licences** Active Directory de l’abonné et assurez-vous qu’une licence De base ou Premium est affectée à cet utilisateur ou à ce groupe. |
+| Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Vérifiez que l’utilisateur possède une licence Azure Active Directory Premium. | Il se peut que votre utilisateur obtienne cette erreur en tentant d’accéder à l’application que vous avez publiée si l’administrateur de l’abonné ne lui a pas assigné explicitement une licence Premium. Accédez à l’onglet **Licences** Active Directory de l’abonné et vérifiez qu’une licence Premium est affectée à cet utilisateur ou à ce groupe. |
 | Impossible de trouver un serveur avec le nom d’hôte spécifié. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si le domaine personnalisé de l’application n’est pas configuré correctement. Assurez-vous d’avoir chargé un certificat pour le domaine et configuré correctement l’enregistrement DNS en suivant les étapes décrites dans [Utilisation des domaines personnalisés dans le proxy d'application Azure AD](application-proxy-configure-custom-domain.md) |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mon erreur n’était pas répertoriée ici

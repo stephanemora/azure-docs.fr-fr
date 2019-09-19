@@ -1,18 +1,18 @@
 ---
 title: Analytics pour la Place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment accéder aux rapports analytiques pour surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché.
-author: mattwojo
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 09/09/2019
+ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619683"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880199"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
@@ -26,6 +26,7 @@ Pour accéder aux outils d'analyse de l'Espace partenaires, ouvrez le tableau de
 |[Commandes](#orders-dashboard)|Informations relatives à vos commandes dans un format graphique et téléchargeable|
 |[Clients](#customer-dashboard)|Informations sur vos clients, y compris les tendances de croissance, présentées dans un format graphique et téléchargeable|
 |[Téléchargements](#downloads-dashboard)|Liste de vos requêtes de téléchargement durant les 30 derniers jours|
+|[Évaluations et avis](#ratings-and-reviews)| Informations sur les évaluations et les avis laissés par vos clients pour les offres qu’ils ont acquises.
 
 ## <a name="summary-dashboard"></a>Tableau de bord Résumé
 
@@ -56,11 +57,11 @@ La section **Totaux** affiche le nombre de commandes créées ou de clients acqu
 
 ### <a name="customers-by-geography"></a>Clients par zone géographique
 
-La carte thermique **Clients par zone géographique** affiche un nombre de clients sur une carte du monde. 
+La carte thermique **Clients par zone géographique** affiche un nombre de clients sur une carte du monde.
 
-- Vous pouvez déplacer la carte pour afficher l'emplacement exact. 
-- Vous pouvez zoomer sur un emplacement spécifique. 
-- La carte thermique dispose d'une grille supplémentaire pour afficher les détails en termes de nombre de clients (ou de [nombre de commandes](#orders-by-geography)) d'un emplacement spécifique. 
+- Vous pouvez déplacer la carte pour afficher l'emplacement exact.
+- Vous pouvez zoomer sur un emplacement spécifique.
+- La carte thermique dispose d'une grille supplémentaire pour afficher les détails en termes de nombre de clients (ou de [nombre de commandes](#orders-by-geography)) d'un emplacement spécifique.
 - Vous pouvez rechercher et sélectionner un pays de la grille pour zoomer sur un emplacement de la carte. Pour revenir à la vue d’origine, appuyez sur le bouton **Accueil** de la carte.
 - Un **nouveau** client a acheté une de vos offres pour la première fois au cours du mois compris dans la plage de dates sélectionnée.
 
@@ -122,7 +123,7 @@ La carte thermique **Commandes par zone géographique** affiche le nombre de vos
 
 Le graphique en anneau **Commandes actives par offres** organise l’ensemble de vos commandes actives en fonction de leurs noms d'offres.
 
-- Les 4 meilleures offres s'affichent dans le graphique et les autres offres sont regroupées sous « Rest All ».
+- Les quatre meilleures offres s’affichent dans le graphique et les autres offres sont regroupées sous « Autres offres ».
 - Vous pouvez sélectionner des offres spécifiques dans la légende pour afficher uniquement ces offres dans le graphique. 
 - Placez le curseur sur une tranche du graphique pour afficher le nombre de commandes et le pourcentage de cette offre par rapport au nombre total de vos commandes pour toutes les offres.
 - **Tendance des commandes par offres** affiche les tendances de croissance mois par mois. La colonne du mois représente le nombre de commandes par nom d'offre. Le graphique en courbes affiche la tendance du pourcentage de croissance tracée sur un axe z.
@@ -285,3 +286,38 @@ Vous recevez une notification contextuelle et un e-mail contenant un lien vers l
 | Nom du fournisseur| Client| Nom du fournisseur impliqué dans la relation entre Microsoft et le client final. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP.|
 | SKU| Ordre| Nom de la référence SKU, tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU, mais une référence SKU ne peut être associée qu’à une seule offre.||
 | Date de fin d'essai| Ordre| La date de fin de la période d’essai de cette commande approche ou est dépassée.||
+
+## <a name="ratings-and-reviews"></a>Évaluations et avis
+
+Quand les clients parcourent, recherchent et achètent des offres dans les deux places de marché, ils peuvent laisser des évaluations et des avis pour les offres qu’ils ont acquises. Ils peuvent soumettre de nouveaux avis ou évaluations, et mettre à jour ou supprimer ceux qu’ils ont déjà soumis. Les avis sont publiés dans la Place de marché Azure ou AppSource sous l’onglet Avis de la page d’affichage du produit de l’offre. Les clients peuvent inclure leur nom pour les évaluations ou les avis, ou publier de manière anonyme.  
+
+> [!NOTE]
+> Les clients ne peuvent apporter des modifications qu’à leurs propres évaluations et avis.
+
+Le **tableau de bord des évaluations et avis** affiche les tendances et les insights des activités des clients. Il fournit des représentations graphiques des éléments suivants :
+
+- Évaluations et avis  
+- Commentaires d’évaluation
+
+### <a name="marketplace-storefront-tabs"></a>Onglets des vitrines des places de marché
+
+Les éditeurs peuvent voir les métriques de leurs offres séparément dans les onglets AppSource et Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez **Offre** dans la liste déroulante :
+
+![Liste déroulante des offres du menu Analyser de l’Espace partenaires](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Récapitulatif des évaluations et avis
+
+La section Récapitulatif des évaluations et avis montre les métriques ci-dessous pour une plage de dates sélectionnée :
+
+- **Évaluation moyenne :** Évaluation (étoiles) moyenne pondérée de toutes les évaluations soumises par les clients pour l’offre sélectionnée.
+- **Détails des évaluations :** Détails des évaluations (étoiles) par le nombre de clients ayant soumis des évaluations. Le graphique à barres est empilé avec des évaluations réelles et révisées (nombre d’évaluations mis à jour).
+- **Total des évaluations :** Nombre total des évaluations soumises. Ce nombre comprend également les évaluations avec et sans avis.
+- **Évaluations avec avis :** Nombre d’avis soumis.
+
+![Récapitulatif des évaluations et avis du menu Analyser de l’Espace partenaires](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Commentaires d’évaluation
+
+Les avis sont affichés dans l’ordre chronologique de leur publication. La vue par défaut montre tous les avis. Vous pouvez filtrer les avis selon l’évaluation (étoiles) à l’aide du **filtre** dans le menu déroulant. Vous pouvez également rechercher les mots clés qui s’affichent dans l’avis.  
+
+![Commentaires d’évaluation du menu Analyser de l’Espace partenaires](./media/analyze-reviews.png)

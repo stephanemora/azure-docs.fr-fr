@@ -1,64 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation relative à Ansible sur Azure
+summary: Découvrez comment automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications avec Ansible.
 metadata:
-  title: "Documentation relative à Ansible sur Azure\_: didacticiels, exemples, référence et ressources"
-  description: 'Découvrez comment automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications avec Ansible.'
-  ms.service: azure
-  keywords: 'ansible, azure, devops, didacticiels, exemples, référence'
-  author: tomarchermsft
-  manager: jeconnoc
-  ms.author: tarcher
+  title: Documentation relative à Ansible sur Azure
+  description: Découvrez comment automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications avec Ansible.
+  services: azure
+  ms.service: ansible
   ms.topic: landing-page
-  ms.date: 04/22/2019
-abstract:
-  description: 'Utilisez <a href="https://www.ansible.com">Ansible</a> pour automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Installez Ansible et utilisez-le pour créer et gérer des machines virtuelles Linux dans Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/media/index/azure_dev-9.svg
-            text: Installer Ansible
-            href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-          - image:
-              src: /azure/media/index/VirtualMachine.svg
-            text: Configurer une machine virtuelle Linux
-            href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-          - image:
-              src: /azure/media/index/VirtualMachine.svg
-            text: Gérer une machine virtuelle Linux
-            href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment créer et gérer une infrastructure réseau, de calcul et de stockage avec Ansible.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Création d’un environnement de machine virtuelle Linux complète dans Azure avec Ansible</a>
-          - html: <a href="./ansible-run-playbook-in-cloudshell">Exécuter Ansible avec Bash dans Azure Cloud Shell.</a>
-          - html: <a href="./ansible-manage-azure-dynamic-inventories">Création et gestion d’un stock dynamique de ressources Azure.</a>
-          - html: <a href="./ansible-create-configure-vmss">Création et gestion de groupes de machines virtuelles identiques dans Azure.</a>
-          - html: <a href="./ansible-deploy-app-vmss">Déploiement d’applications dans des groupes de machines virtuelles identiques dans Azure.</a>
-          - html: <a href="./ansible-create-configure-aks">Création et gestion de clusters Azure Kubernetes Service.</a>
-          - html: <a href="./ansible-create-configure-application-gateway">Gérer le trafic web avec une passerelle Azure Application Gateway.</a>
-          - html: <a href="./ansible-auto-scale-vmss">Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques dans Azure avec Ansible.</a>
-          - html: <a href="./ansible-scale-azure-web-apps">Mettre à l’échelle des applications web Azure App Service avec Ansible</a>
-          - html: '<a href="./ansible-create-configure-route-table">Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Rôles de playbook
-            html: '<p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>'
-          - title: Composants et fonctionnalités
-            html: <p><a href="./ansible-matrix.md">Matrice de fonctionnalités des modules et rôles</a></p>
-          - title: Outils
-            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Extension de Visual Studio Code pour Ansible</a></p>'
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 09/11/2019
+  ms.openlocfilehash: 8a33d1b9661ef84294a35c51ecd42a59dde68f23
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71075058"
+landingContent:
+- title: À propos d’Ansible sur Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos d’Ansible sur Azure
+      url: ansible-overview.md
+  - linkListType: architecture
+    links:
+    - text: Matrice de version et module Ansible
+      url: ansible-matrix.md
+- title: Installer et configurer Ansible
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Déployer un modèle de solution Ansible sur CentOS
+      url: ansible-deploy-solution-template.md
+    - text: Installer Ansible sur des machines virtuelles Linux
+      url: /azure/virtual-machines/linux/ansible-install-configure
+    - text: Exécuter des playbooks dans Cloud Shell
+      url: ansible-run-playbook-in-cloudshell.md
+  - linkListType: tutorial
+    links:
+    - text: Configurer un inventaire dynamique
+      url: ansible-manage-azure-dynamic-inventories.md
+  - linkListType: download
+    links:
+    - text: Extension de Visual Studio Code pour Ansible
+      url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+- title: Gérer les machines virtuelles
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurer des machines virtuelles Linux
+      url: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+    - text: Gérer des machines virtuelles Linux
+      url: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+- title: Gérer des groupes de machines virtuelles identiques
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurer des groupes de machines virtuelles identiques
+      url: ansible-create-configure-vmss.md
+    - text: Déployer des applications dans des groupes de machines virtuelles identiques
+      url: ansible-deploy-app-vmss.md
+    - text: Mettre automatiquement à l’échelle des groupes de machines virtuelles identiques
+      url: ansible-auto-scale-vmss.md
+    - text: Mettre à jour une image personnalisée
+      url: ansible-vmss-update-image.md
+- title: Gérer des réseaux virtuels
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurer le peering
+      url: ansible-vnet-peering-configure.md
+    - text: Configurer des tables de routage
+      url: ansible-create-configure-route-table.md
+- title: Gérer AKS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurer des clusters AKS
+      url: ansible-create-configure-aks.md
+    - text: Configurer le réseau Azure CNI
+      url: ansible-aks-configure-cni-networking.md
+    - text: Configurer le réseau kubenet
+      url: ansible-aks-configure-kubenet-networking.md
+    - text: Configurer des rôles RBAC dans un cluster AKS
+      url: ansible-aks-configure-rbac.md

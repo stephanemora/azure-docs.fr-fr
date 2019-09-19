@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065942"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886032"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -87,7 +87,7 @@ Vous pouvez utiliser les balises de service suivantes dans les [règles de group
 * **Sql*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse des services Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse. Si vous spécifiez *Sql* pour la valeur, le trafic vers Sql est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à Sql dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : Sql.[nom_région]. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise est recommandée pour la règle de sécurité sortante. 
 * **SqlManagement** *(Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés de SQL. Si vous spécifiez *SqlManagement* comme valeur, le trafic vers SqlManagement est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante/sortante. 
 * **Stockage*** (Resource Manager uniquement) : Cette balise désigne l’espace d’adressage IP pour le service Stockage Azure. Si vous spécifiez *Storage* pour la valeur, le trafic est autorisé ou refusé vers le stockage. Si vous souhaitez uniquement autoriser l’accès au stockage dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : Stockage.[nom_région]. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour le mode classique) : cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou les réseaux virtuels connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) et les préfixes d’adresse utilisés sur les [routes définies par l’utilisateur](virtual-networks-udr-overview.md). N’oubliez pas que cette balise peut contenir une route par défaut. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour le mode classique) : cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) et les préfixes d’adresse utilisés sur les [routes définies par l’utilisateur](virtual-networks-udr-overview.md). N’oubliez pas que cette balise peut contenir une route par défaut. 
 
 > [!NOTE]
 > Les balises des services Azure indiquent les préfixes d’adresse du cloud spécifique utilisé. 

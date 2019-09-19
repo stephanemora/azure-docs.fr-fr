@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 93f01513841d1174fea796f1615ab05df0a41af4
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150377"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802254"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
@@ -50,7 +50,7 @@ Le tableau suivant compare les fonctionnalités des types d’événements en di
 | Fréquence d’images maximale de la vidéo d’entrée|60 images/seconde|Standard ou Premium1080p - 30 images/seconde|
 | Protocoles d’entrée|RTMP, MP4 fragmenté (Smooth Streaming)|RTMP, MP4 fragmenté (Smooth Streaming)|
 | Prix|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|
-| Durée maximale| 24 hrs x 365 jours, direct linéaire | Jusqu’à 24 heures|
+| Durée maximale| 24 hrs x 365 jours, direct linéaire | 24 heures x 365 jours, linéaire en direct (préversion)|
 | Capacité à transmettre directement les données des sous-titres CEA 608/708 intégrées|OUI|OUI|
 | Prise en charge de l’insertion d’ardoises|Non|Non|
 | Prise en charge de la signalisation des annonces via l’API| Non|Non|

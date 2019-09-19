@@ -1,23 +1,23 @@
 ---
-title: Dépannage Azure Blockchain Workbench
-description: Guide de dépannage d’une application Azure Blockchain Workbench.
+title: Résolution des problèmes d’Azure Blockchain Workbench Preview
+description: Guide de dépannage d’une application Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510086"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844025"
 ---
-# <a name="azure-blockchain-workbench-troubleshooting"></a>Dépannage Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Résolution des problèmes d’Azure Blockchain Workbench Preview
 
 Un script PowerShell est disponible pour aider le développeur avec les activités de débogage ou de support technique. Le script génère un résumé et collecte les journaux d’activité détaillés pour le dépannage. Les journaux d’activité détaillés sont relatifs aux éléments suivants :
 
@@ -27,6 +27,8 @@ Un script PowerShell est disponible pour aider le développeur avec les activit�
 * Surveillance Azure (journaux Azure Monitor)
 
 Vous pouvez utiliser les informations pour identifier la procédure à suivre et déterminer la cause racine des problèmes.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="troubleshooting-script"></a>Script de dépannage
 

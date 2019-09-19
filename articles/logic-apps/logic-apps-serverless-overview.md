@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68385363"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Vue d’ensemble : Offres sans serveur dans Azure avec Azure Logic Apps et Azure Functions
@@ -40,7 +40,7 @@ Pour commencer à utiliser Azure Functions, commencez par [créer votre premièr
 
 ## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Comment créer et déployer des applications sans serveur dans Azure ?
 
-Azure fournit des outils riches pour le développement, le déploiement et la gestion d’applications sans serveur. Vous pouvez créer des applications directement dans le portail Azure, avec les [outils de Visual Studio](logic-apps-serverless-get-started-vs.md), ou [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). Après avoir créé votre application, vous pouvez [déployer cette application rapidement avec les modèles Azure Resource Manager](logic-apps-deploy-azure-resource-manager-templates.md).Après avoir créé votre application, vous pouvez [déployer cette application rapidement avec les modèles Azure Resource Manager](logic-apps-deploy-azure-resource-manager-templates.md). Azure fournit également une supervision, à laquelle vous pouvez accéder via la Portail Azure, via l’API ou les kits de développement logiciel (SDK), ou avec des outils intégrés aux journaux Azure Monitor et à Application Insights.
+Azure fournit des outils riches pour le développement, le déploiement et la gestion d’applications sans serveur. Vous pouvez créer des applications directement dans le portail Azure, avec les [outils de Visual Studio](logic-apps-serverless-get-started-vs.md) ou avec [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). Après avoir créé votre application, vous pouvez [déployer cette application rapidement avec les modèles Azure Resource Manager](logic-apps-deploy-azure-resource-manager-templates.md). Azure fournit également une supervision, à laquelle vous pouvez accéder via la Portail Azure, via l’API ou les kits de développement logiciel (SDK), ou avec des outils intégrés aux journaux Azure Monitor et à Application Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

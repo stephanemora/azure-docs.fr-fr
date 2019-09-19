@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876454"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736396"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -72,24 +72,24 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    --- | --- | ---
    Asie Est | 52.175.17.132 | 13.94.47.61
    Asie Sud-Est | 52.187.58.193 | 13.76.179.223
-   Inde Centre | 52.172.187.37 | 104.211.98.185
+   Inde centrale | 52.172.187.37 | 104.211.98.185
    Inde Sud | 52.172.46.220 | 104.211.224.190
-   USA Centre Nord | 23.96.195.247 | 168.62.249.226
+   Centre-Nord des États-Unis | 23.96.195.247 | 168.62.249.226
    Europe Nord | 40.69.212.238 | 52.169.18.8
    Europe Ouest | 52.166.13.64 | 40.68.93.145
-   East US | 13.82.88.226 | 104.45.147.24
+   USA Est | 13.82.88.226 | 104.45.147.24
    USA Ouest | 40.83.179.48 | 104.40.26.199
-   USA Centre Sud | 13.84.148.14 | 104.210.146.250
+   États-Unis - partie centrale méridionale | 13.84.148.14 | 104.210.146.250
    USA Centre | 40.69.144.231 | 52.165.34.144
    USA Est 2 | 52.184.158.163 | 40.79.44.59
    Japon Est | 52.185.150.140 | 138.91.1.105
-   Japon Ouest | 52.175.146.69 | 138.91.17.38
+   OuJapon Est | 52.175.146.69 | 138.91.17.38
    Brésil Sud | 191.234.185.172 | 23.97.97.36
    Australie Est | 104.210.113.114 | 191.239.64.144
-   Australie Sud-Est | 13.70.159.158 | 191.239.160.45
+   Sud-Australie Est | 13.70.159.158 | 191.239.160.45
    Centre du Canada | 52.228.36.192 | 40.85.226.62
    Est du Canada | 52.229.125.98 | 40.86.225.142
-   USA Centre-Ouest | 52.161.20.168 | 13.78.149.209
+   Centre-USA Ouest | 52.161.20.168 | 13.78.149.209
    USA Ouest 2 | 52.183.45.166 | 13.66.228.204
    Ouest du Royaume-Uni | 51.141.3.203 | 51.141.14.113
    Sud du Royaume-Uni | 51.140.43.158 | 51.140.189.52
@@ -113,7 +113,11 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    Chine Nord 2 | 40.73.35.193 | 40.73.33.230
    Chine orientale | 42.159.205.45 | 42.159.132.40
    Chine orientale 2 | 40.73.118.52| 40.73.100.125
-  
+   Allemagne Nord| 51.116.208.58| 51.116.58.128
+   Allemagne Centre-Ouest | 51.116.156.176 | 51.116.154.192
+   Suisse Ouest | 51.107.231.223| 51.107.154.128
+   Suisse Nord | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
@@ -149,7 +153,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
+   USA Est | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 

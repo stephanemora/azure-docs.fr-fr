@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946383"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858722"
 ---
-# <a name="log-metrics-during-training-runs"></a>Consigner les métriques pendant les exécutions d’entraînement
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Suivre les métriques d’entraînement de Machine Learning avec Azure Machine Learning
 
-Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques. Dans cet article, découvrez comment ajouter la journalisation à votre script d’entraînement, soumettre une exécution d’expérience, surveiller l’exécution et afficher les résultats d’une exécution dans le service Azure Machine Learning.
+Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques. Dans cet article, découvrez comment ajouter du code de journalisation à votre script d’entraînement, soumettre une exécution d’expérience, superviser cette exécution et inspecter les résultats dans Azure Machine Learning service.
 
 > [!NOTE]
-> Azure Machine Learning service peut aussi consigner des informations d’autres sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+> Azure Machine Learning service peut aussi consigner des informations provenant d’autres sources pendant l’entraînement, notamment les exécutions du Machine Learning automatisé ou le conteneur Docker qui exécute le travail d’entraînement. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
-## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
+## <a name="available-metrics-to-track"></a>Métriques pouvant être suivies
 
 Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur l’exécution de la classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -43,7 +43,7 @@ Les métriques suivantes peuvent être ajoutées à une exécution pendant l’e
 > [!NOTE]
 > Les métriques pour les valeurs scalaires, listes, lignes et tables peuvent être de type float, integer ou string.
 
-## <a name="start-logging-metrics"></a>Démarrer les métriques de journalisation
+## <a name="choose-a-logging-option"></a>Choisir une option de journalisation
 
 Si vous souhaitez suivre ou superviser votre expérimentation, vous devez ajouter du code pour démarrer la journalisation quand vous envoyez l’exécution. Voici comment déclencher l’envoi d’exécution :
 * __Run.start_logging__ : ajoutez des fonctions de journalisation à votre script d’entraînement et démarrez une session de journalisation interactive dans l’expérimentation spécifiée. **start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
@@ -273,7 +273,7 @@ L’entraînement et la supervision du modèle se produisent en arrière-plan af
 Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Vous pouvez désormais obtenir toutes les métriques qui ont été consignées dans l’exemple ci-dessus pour déterminer le meilleur modèle.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Afficher l’expérimentation dans le portail Azure
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Voir l’expérience dans le portail Azure ou dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com)
 
 Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Vous pouvez accéder à l’historique de deux manières :
 

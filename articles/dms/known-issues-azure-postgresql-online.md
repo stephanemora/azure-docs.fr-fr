@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855012"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743550"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
 
@@ -88,6 +88,8 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 - **Limitation** : En l’absence de clé primaire sur les tables, la synchronisation continue échouera.
 
     **Solution de contournement** : définissez temporairement une clé primaire pour la table afin de poursuivre la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+
+- **Limitation** : Type de données JSONB non pris en charge pour la migration.
 
 ## <a name="lob-limitations"></a>Limitations relatives aux objets LOB
 

@@ -1,34 +1,34 @@
 ---
 title: Mise hors service de fonctionnalités de Security Center (juillet 2019) | Microsoft Docs
-description: Cet article décrit les fonctionnalités de Security Center qui seront mises hors service le 31 juillet 2019.
+description: Cet article décrit les fonctionnalités de Security Center qui ont été mises hors service le 31 juillet 2019.
 services: security-center
-author: yoavfrancis
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.date: 4/16/2019
-ms.author: yoafr
-ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876512"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910568"
 ---
 > [!NOTE]
-> Ce document détaille la liste des fonctionnalités qui ont été supprimées d’Azure Security Center le 31 juillet 2019.
+> Ce document détaille la liste des fonctionnalités qui ont été supprimées d’Azure Security Center le 31 juillet 2019.
 >
 >
 
 
 # <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
 
-Nous avons apporté plusieurs [améliorations](https://azure.microsoft.com/updates/?product=security-center) à Azure Security Center au cours des six derniers mois.
-Suite à ces améliorations de fonctionnalités, le 31 juillet 2019, nous allons retirer du Security Center certaines fonctionnalités aujourd’hui redondantes, ainsi que leurs API connexes.  
+Nous avons apporté plusieurs [améliorations](https://azure.microsoft.com/updates/?product=security-center) à Azure Security Center au cours des six mois précédant juillet 2019.
+Suite à ces améliorations de fonctionnalités, le 31 juillet 2019, nous avons retiré de Security Center certaines fonctionnalités aujourd’hui redondantes ainsi que leurs API connexes.
 
 La plupart de ces fonctionnalités mises hors service seront remplacées par une nouvelle fonctionnalité dans Azure Security Center ou Azure Log Analytics. D’autres fonctionnalités peuvent être implémentées en utilisant [Azure Sentinel (préversion)](https://azure.microsoft.com/services/azure-sentinel/).
 
-Voici une liste des fonctionnalités de Security Center que nous mettrons hors service :
+Les fonctionnalités de Security Center mises hors service sont notamment :
 
 - [Tableau de bord des événements](#menu_events)
 - [Entrée de menu Rechercher](#menu_search)
@@ -46,7 +46,7 @@ Cet article fournit des informations détaillées pour chaque fonctionnalité mi
 
 Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines. Il stocke ces événements dans vos espaces de travail. Le [tableau de bord des événements](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) vous permet d’afficher ces données et vous donne un point d’entrée vers Log Analytics.
 
-Nous avons décidé de supprimer le tableau de bord des événements qui s’affiche lorsque vous sélectionnez un espace de travail :
+Nous avons supprimé le tableau de bord des événements qui s’affichait lorsque vous sélectionniez un espace de travail :
 
 ![Tableau de bord des événements][2]
 
@@ -60,7 +60,7 @@ Si vous avez créé des événements notables personnalisés dans Security Cente
 
 ## Entrée de menu Rechercher<a name="menu_search"></a>
 
-Azure Security Center utilise actuellement la recherche de Journaux Azure Monitor pour récupérer et analyser vos données de sécurité. Cet écran sert de fenêtre pour la page de recherche de Log Analytics. Il permet aux utilisateurs d’exécuter des requêtes de recherche sur l’espace de travail qu’ils sélectionnent. Si vous souhaitez en savoir plus, veuillez consulter l’article [Recherche Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-search). Nous allons mettre hors service cette fenêtre de recherche :
+Azure Security Center utilise actuellement la recherche de Journaux Azure Monitor pour récupérer et analyser vos données de sécurité. Cet écran sert de fenêtre pour la page de recherche de Log Analytics. Il permet aux utilisateurs d’exécuter des requêtes de recherche sur l’espace de travail qu’ils sélectionnent. Si vous souhaitez en savoir plus, veuillez consulter l’article [Recherche Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-search). Nous avons mis hors service cette fenêtre de recherche :
 
 ![Page de recherche][4]
 
@@ -86,7 +86,7 @@ L’ancienne expérience utilisateur Identité et accès dans Security Center af
 
    ![Tableau de bord de la page Identité][8]
 
-Nous allons mettre hors service les trois écrans présentés précédemment. Vos données restent disponibles dans la solution de sécurité Log Analytics. Elle ne seront ni modifiées ni supprimées.
+Nous avons mis hors service les trois écrans présentés précédemment. Vos données restent disponibles dans la solution de sécurité Log Analytics. Elle n’ont été ni modifiées ni supprimées.
 
 ### <a name="classic-identity--access-preview---the-new-experience"></a>Nouvelle expérience utilisateur pour l’ancienne version d’Identité et accès (préversion)
 
@@ -100,19 +100,19 @@ Vous pouvez accéder à toutes les fonctionnalités du tableau de bord **Identit
 
 Security Center fournit une [Carte des événements de sécurité](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) pour vous aider à identifier les menaces de sécurité. Le bouton **Accéder à la carte des événements de sécurité** dans cette carte ouvre un tableau de bord qui vous permet de consulter les événements de sécurité bruts sur l’espace de travail sélectionné.
 
-Nous allons retirer le bouton **Accéder à la carte des événements de sécurité** ainsi qu’à son tableau de bord, selon votre espace de travail.
+Nous avons retiré le bouton **Accéder à la carte des événements de sécurité** ainsi que le tableau de bord par espace de travail.
 
 ![Bouton pour accéder à la carte des alertes de sécurité][10]
 
-Lorsque vous sélectionnez bouton **Accéder à la carte des événements de sécurité**, vous ouvrez le tableau de bord Informations sur les menaces. Nous allons mettre hors service le tableau de bord Informations sur les menaces.  
+Lorsque vous sélectionnez bouton **Accéder à la carte des événements de sécurité**, vous ouvrez le tableau de bord Informations sur les menaces. Nous avons retiré le tableau de bord Threat Intelligence.
 
 ![Tableau de bord Informations sur les menaces][11]
 
-Lorsque vous sélectionnez un espace de travail pour afficher son tableau de bord Informations sur les menaces, vous ouvrez l’écran Carte des alertes de sécurité (préversion) dans Log Analytics. Nous allons retirer cet écran.
+Lorsque vous sélectionnez un espace de travail pour afficher son tableau de bord Informations sur les menaces, vous ouvrez l’écran Carte des alertes de sécurité (préversion) dans Log Analytics. Nous avons mis hors service cet écran.
 
 ![Carte d’alertes de sécurité dans Log Analytics][12]
 
-Vos données existantes restent disponibles dans la solution Log Analytics. Elles ne seront ni modifiées ni supprimées.
+Vos données existantes restent disponibles dans la solution de sécurité Log Analytics. Elle n’ont été ni modifiées ni supprimées.
 
 ### <a name="security-events-map---the-new-experience"></a>Nouvelle expérience utilisateur pour la carte des événements de sécurité
 
@@ -120,10 +120,10 @@ Nous vous conseillons d’utiliser la fonctionnalité de carte des alertes inté
 
 ## Règles des alertes personnalisées (préversion)<a name="menu_customalerts"></a>
 
-Nous avons [retiré l’expérience utilisateur des alertes personnalisées](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) depuis le 30 juin 2019, car nous avons mis hors service son infrastructure sous-jacente. En attendant, vous pouvez modifier les règles des alertes personnalisées existantes, mais vous ne pouvez pas en ajouter d’autres. Depuis la date de notre retrait, toutes les alertes personnalisées définies ne prennent plus effet. Les alertes de sécurité basées sur ces règles ne sont plus générés.
+Nous avons [retiré les alertes personnalisées](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) le 30 juin 2019, car nous avons mis hors service leur infrastructure sous-jacente. Après la date de mise hors service, les alertes de sécurité personnalisées ne sont plus générées.
 Nous vous recommandons d’activer [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) et de recréer vos alertes personnalisées. Vous pouvez également créer vos alertes en utilisant avec les alertes de journal d’Azure Monitor.
 
-Pour conserver vos alertes existantes et les créer avec Azure Sentinel :
+Pour créer des alertes personnalisées avec Azure Sentinel :
 
 1. [Ouvrez Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) et sélectionnez l’espace de travail où sont stockés vos alertes personnalisées.
 1. Sélectionnez **Analytics** dans le menu.
@@ -137,30 +137,30 @@ Si vous souhaitez en savoir plus sur la mise hors service des alertes personnali
 
 ## Examen des alertes de sécurité<a name="menu_investigate"></a>
 
-[La fonctionnalité Examen](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center vous aide à trier un incident de sécurité éventuel. Cette fonctionnalité vous permet de comprendre l’étendue d’un incident et de repérer sa cause racine. Nous allons retirer cette fonctionnalité de Security Center, car nous l’avons remplacée par une expérience utilisateur améliorée dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+[La fonctionnalité Examen](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center vous aide à trier un incident de sécurité éventuel. Cette fonctionnalité vous permet de comprendre l’étendue d’un incident et de repérer sa cause racine. Nous avons retiré cette fonctionnalité de Security Center, car nous l’avons remplacée par une expérience améliorée dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Incident de sécurité][14]
 
-Lorsque vous sélectionnez le bouton **Examiner** à partir d’un écran d’**incident de sécurité**, le tableau de bord Examen (préversion) s’affiche dans Log Analytics. Nous allons mettre hors service le tableau de bord Examen.  
+Lorsque vous sélectionnez le bouton **Examiner** à partir d’un écran d’**incident de sécurité**, le tableau de bord Examen (préversion) s’affiche dans Log Analytics. Nous avons mis hors service le tableau de bord d’investigation.
 
-Vos données existantes restent disponibles dans la solution Log Analytics. Elles ne seront ni modifiées ni supprimées.
+Vos données existantes restent disponibles dans la solution de sécurité Log Analytics. Elle n’ont été ni modifiées ni supprimées.
 
 ![Tableau de bord Examen dans Log Analytics][15]
 
 ### <a name="investigation---the-new-experience"></a>Nouvelle expérience utilisateur de la fonctionnalité Examen
 
-Nous vous conseillons de migrer vers [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) pour améliorer votre expérience utilisateur d’examen. Azure Sentinel fournit des outils puissants dédiés à la recherche et la création de requêtes pour repérer les menaces de sécurité dans les sources de données de votre organisation.  
+Nous vous conseillons de migrer vers [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) pour améliorer votre expérience utilisateur d’examen. Azure Sentinel fournit des outils puissants dédiés à la recherche et la création de requêtes pour repérer les menaces de sécurité dans les sources de données de votre organisation.
 
 ## Sous-ensemble de solutions de sécurité<a name="menu_solutions"></a>
 
-Security Center peut activer des [solutions de sécurité intégrées dans Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Nous allons mettre hors service les solutions de partenaires suivantes dans Security Center. Ces solutions sont activées dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) ainsi qu’un nombre de sources de données supplémentaires.
+Security Center peut activer des [solutions de sécurité intégrées dans Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Nous avons mis hors service les solutions de partenaires suivantes dans Security Center. Ces solutions sont activées dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) ainsi qu’un nombre de sources de données supplémentaires.
 
 - [Prochaine génération de pare-feu et de solutions de pare-feu pour application web](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Intégration de solutions de sécurité qui prennent en charge le format d’événement courant (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Après la mise hors service, vous ne pourrez ajouter ou modifier un des types de solutions mentionnées dans la liste précédente, à partir de l’interface utilisateur ou de l’API. Azure Security Center ne découvrira plus de nouvelles instances des solutions de partenaires mentionnées ci-dessus.
+Après la mise hors service, vous ne pouvez ajouter ni modifier aucun des types de solutions mentionnés dans la liste précédente, à partir de l’interface utilisateur ou de l’API. Azure Security Center ne découvrira plus de nouvelles instances de ces solutions de partenaires.
 
 Si vous disposez de solutions connectées, nous vous conseillons de migrer vers Azure Sentinel.
 
@@ -170,7 +170,7 @@ Si vous disposez de solutions connectées, nous vous conseillons de migrer vers 
 
 Azure Security Center supervise les configurations de sécurité en appliquant un ensemble de [plus de 150 règles recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour renforcer le système d’exploitation. Ces règles concernent les pare-feux, l’audit, les stratégies de mot de passe et bien plus encore. Si une configuration vulnérable est identifiée sur un ordinateur, Security Center génère une recommandation de sécurité. L’écran [Modification des paramètres de configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permet aux clients de personnaliser la configuration de sécurité par défaut de leur système d’exploitation dans Security Center.
 
-Nous allons mettre hors service cette fonctionnalité en préversion. Si, après la date de mise hors service, vous souhaitez réinitialiser vos configurations de sécurité à leurs valeurs par défaut, vous pouvez le faire via l’API ou Powershell en suivant [ces instructions](https://aka.ms/ascresetsecurityconfigurations)
+Nous avons mis hors service cette fonctionnalité en préversion. Si vous voulez réinitialiser vos configurations de sécurité à leurs valeurs par défaut après la date de mise hors service, vous pouvez le faire via l’API ou Powershell en suivant les [instructions suivantes](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Modifier les configurations de la sécurité][17]
 
@@ -180,7 +180,7 @@ Nous souhaitons permettre à Security Center de prendre en charge l’[agent Gue
 
 ## Tableau de bord Sécurité et audit pour les espaces de travail Log Analytics<a name="menu_securityomsdashboard"></a>
 
-Le tableau de bord Sécurité et audit était originellement utilisé dans le portail OMS. Dans Log Analytics, le tableau de bord fournit une vue d’ensemble des événements de sécurité notables et des menaces pour chaque espace de travail, une carte d’informations sur les menaces et une évaluation de l’identité et de l’accès des événements de sécurité enregistrés dans l’espace de travail. Nous allons mettre hors service ce tableau de bord. Comme nous avons déjà recommandé dans l’IU du tableau de bord, nous vous conseillons de migrer vers Azure Security Center.
+Le tableau de bord Sécurité et audit était originellement utilisé dans le portail OMS. Dans Log Analytics, le tableau de bord fournit une vue d’ensemble des événements de sécurité notables et des menaces pour chaque espace de travail, une carte d’informations sur les menaces et une évaluation de l’identité et de l’accès des événements de sécurité enregistrés dans l’espace de travail. Nous avons supprimé le tableau de bord. Comme nous l’avons déjà recommandé dans l’interface utilisateur du tableau de bord, nous vous conseillons de passer à Azure Security Center.
 
 ![Tableau de bord de sécurité Log Analytics][18]
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208338"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743917"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -338,7 +338,7 @@ Oui. La mise à niveau du mode de gestion de léger à complet est prise en char
 
 Non. La rétrogradation du mode de gestion de l’extension IaaS SQL Server n’est pas prise en charge. Le mode de gestion SQL ne peut pas être rétrogradé du mode complet vers le mode léger ou sans agent, ni du mode léger vers le mode sans agent. 
 
-Pour modifier le mode de gestion à partir de la gestion complète, supprimez l’extension IaaS SQL Server. Ensuite, supprimez la ressource Microsoft. SqlVirtualMachine et réinscrivez la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL.
+Pour modifier le mode de gestion à partir de la gestion complète, supprimez l’extension IaaS SQL Server. Ensuite, supprimez la ressource Microsoft.SqlVirtualMachine et réinscrivez la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL.
 
 **Puis-je m’inscrire auprès du fournisseur de ressources de machine virtuelle SQL à partir du portail Azure ?**
 

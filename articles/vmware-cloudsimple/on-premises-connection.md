@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240708"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910548"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Connecter un réseau local à CloudSimple à l’aide d’ExpressRoute
 
@@ -32,7 +32,7 @@ Un bloc d’ adresses réseau **/29** est requis pour établir une connexion Glo
 
 ## <a name="scenarios"></a>Scénarios
 
-La connexion de votre réseau local à votre réseau de cloud privé vous permet d’utiliser le cloud privé de différentes façons, notamment pour :
+La connexion de votre réseau local à votre réseau de cloud privé vous permet d’utiliser le cloud privé de différentes façons, notamment pour :
 
 * Accéder à votre réseau de cloud privé sans créer de connexion VPN de site à site.
 * Utiliser votre annuaire Active Directory local en tant que source d’identité sur votre cloud privé.
@@ -43,6 +43,7 @@ La connexion de votre réseau local à votre réseau de cloud privé vous permet
 ## <a name="connecting-expressroute-circuits"></a>Connexion de circuits ExpressRoute
 
 Pour établir la connexion ExpressRoute, vous devez créer une autorisation sur votre circuit ExpressRoute et fournir les informations d’autorisation à CloudSimple.
+
 
 ### <a name="create-expressroute-authorization"></a>Créer l’autorisation ExpressRoute
 
@@ -70,6 +71,11 @@ Pour établir la connexion ExpressRoute, vous devez créer une autorisation sur 
     * Sous-type de problème : **Créer une connexion ExpressRoute au réseau local**
     * Indiquez l’ID de ressource et la clé d’autorisation que vous avez copiés et enregistrés dans le volet d’informations.
     * Fournissez un espace d’adressage réseau /29 pour le réseau de transit.
+    * Envoyez-vous la route par défaut par le biais d’ExpressRoute ?
+    * Le trafic de cloud privé doit-il utiliser la route par défaut envoyée par le biais d’ExpressRoute ?
+
+    > [!IMPORTANT]
+    > L’envoi d’une route par défaut vous permet d’envoyer tout le trafic Internet à partir d’un cloud privé à l’aide de votre connexion Internet locale.  Pour désactiver la route par défaut configurée sur le cloud privé et utiliser la route par défaut de la connexion locale, fournissez des informations détaillées dans le ticket de support.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

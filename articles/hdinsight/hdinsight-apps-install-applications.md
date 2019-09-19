@@ -1,6 +1,6 @@
 ---
 title: Installer des applications tierces sur Azure HDInsight
-description: Découvrez comment installer des applications Hadoop tierces sur Azure HDInsight.
+description: Découvrez comment installer des applications Apache Hadoop tierces sur Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873363"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917002"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -59,7 +59,7 @@ La procédure suivante montre comment installer des applications HDInsight dans 
     ![Applications HDInsight - menu du portail](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Dans le menu, sélectionnez **+Ajouter**. La liste des applications disponibles s’affiche.  Si l’option **+Ajouter** est grisée, cela signifie qu’il n’existe aucune application pour cette version du cluster HDInsight.
    
-    ![Applications HDInsight - applications disponibles](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![Applications HDInsight - applications disponibles](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. Sélectionnez l’une des applications disponibles, puis suivez les instructions pour accepter les conditions légales.
 
 Vous pouvez vérifier l’état de l’installation de l’application dans les notifications du portail (sélectionnez l’icône en forme de cloche en haut du portail). L’application installée s’affiche dans la liste Applications installées.

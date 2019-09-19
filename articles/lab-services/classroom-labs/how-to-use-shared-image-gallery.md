@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 8d8b6fffe197d4180b091518dcd1615d0e0b9d19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65cc2d9ac2b96822f2c1b740f3180ba1d9eaf98c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65412849"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389970"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Utiliser une galerie d’images partagées dans Azure Lab Services
 Cet article explique comment les administrateurs de laboratoire/enseignants peuvent enregistrer une image de modèle de machine virtuelle pour qu’elle puisse être réutilisée par d’autres personnes. Ces images sont enregistrées dans une [galerie d’images partagées](../../virtual-machines/windows/shared-image-galleries.md) Azure. Dans un premier temps, l’administrateur de laboratoire associe une galerie d’images partagées existante au compte de laboratoire. Une fois la galerie d’images partagées associée, les laboratoires créés dans le compte de laboratoire peuvent enregistrer des images dans la galerie d’images partagées. D’autres enseignants peuvent sélectionner cette image à partir de la galerie d’images partagées pour créer un modèle pour leurs classes. 
@@ -29,10 +29,22 @@ Cet article explique comment les administrateurs de laboratoire/enseignants peuv
 
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Enregistrer une image dans la galerie d’images partagées
-Une fois qu’une galerie d’images partagées est associée, un enseignant peut enregistrer ou charger une image dans la galerie d’images partagées pour qu’elle puisse être réutilisée par d’autres professeurs. Pour obtenir des instructions sur le téléchargement d’une image dans la galerie d’images partagées, consultez [Create a shared image gallery with Azure PowerShell](../../virtual-machines/windows/shared-images.md) (Créer une galerie d’images partagées avec Azure PowerShell). 
+Une fois qu’une galerie d’images partagées est associée, un administrateur de compte lab ou un enseignant peut enregistrer une image dans la galerie d’images partagées, afin qu’elle puisse être réutilisée par d’autres enseignants. 
 
-> [!NOTE]
-> Actuellement, l’interface utilisateur des laboratoires de salle de classe ne prend pas en charge l’enregistrement d’une image de laboratoire dans la galerie d’images partagées. 
+1. Dans la page d’accueil du lab, sélectionnez **Enregistrer l’image** sur la vignette dans la section **Modèle**.
+
+    ![Bouton Enregistrer l’image](../media/how-to-use-shared-image-gallery/save-image-button.png)
+2.  Dans la fenêtre **Enregistrer l’image de machine virtuelle**, entrez un nom pour l’image, puis sélectionnez **Enregistrer**. 
+
+    ![Fenêtre Enregistrer l’image de machine virtuelle](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
+3. Vérifiez l’état sur la vignette du lab. 
+
+    ![État de l’opération d’enregistrement de l’image](../media/how-to-use-shared-image-gallery/save-image-status.png)
+4. Vérifiez que l’opération a réussi.
+
+    ![L’opération d’enregistrement de l’image a réussi](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+
+Vous pouvez aussi charger une image dans la galerie d’images partagées en dehors du contexte d’un lab. Pour plus d’informations, consultez [Vue d’ensemble de la galerie d’images partagées](../../virtual-machines/windows/shared-images.md). 
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Utiliser une image de la galerie d’images partagées
 Un enseignant/professeur peut choisir une image personnalisée disponible dans la galerie d’images partagées pour le modèle pendant la création d’un laboratoire.

@@ -11,21 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: de4e9fb4b15f4c346926fe46f23255c668204c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f16baccd3a4980ee9dbe410cb2a95878b346d4
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413887"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390023"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Joindre ou détacher une galerie d’images partagées dans Azure Lab Services
 L’administrateur du laboratoire ou des enseignants peuvent enregistrer un modèle d’image de machine virtuelle dans une [galerie d’images partagées](../../virtual-machines/windows/shared-image-galleries.md), afin qu’il puisse être réutilisé par d’autres utilisateurs. Dans un premier temps, l’administrateur de laboratoire joint associe une galerie d’images partagées existante au compte de laboratoire. Une fois la galerie d’images partagées associée, les laboratoires créés dans le compte de laboratoire peuvent enregistrer des images dans la galerie d’images partagées. D’autres enseignants peuvent sélectionner cette image à partir de la galerie d’images partagées pour créer un modèle pour leurs classes. 
 
 Cet article vous montre comment joindre ou détacher une galerie d’images partagées pour un compte de laboratoire. 
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création de comptes de laboratoire
+> [!NOTE]
+> Pour plus d’informations sur les coûts associés au service Galerie d’images partagées, consultez [Facturation pour la Galerie d’images partagées](../../virtual-machines/windows/shared-image-galleries.md#billing).
+
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création du compte lab
 Lorsque vous créez un compte de laboratoire, vous pouvez joindre une galerie d’images partagées au compte de laboratoire. Vous pouvez sélectionner une galerie d’images partagées existante dans la liste déroulante ou en créer une. Pour créer et joindre une galerie d’images partagées pour le compte de laboratoire, sélectionnez **Créer**, entrez un nom pour la galerie, puis saisissez **OK**. 
 
 ![Configurer la galerie d’images partagées lors de la création du compte de laboratoire](../media/how-to-use-shared-image-gallery/new-lab-account.png)
@@ -76,12 +79,6 @@ La procédure suivante vous montre comment joindre une galerie d’images partag
     Une identité Azure Lab Services est ajoutée en tant que contributeur à la galerie d’images partagées qui est jointe au laboratoire. Cela permet aux enseignants ou à l’administrateur informatique d’enregistrer les images de machines virtuelles dans la galerie d’images partagées. Tous les laboratoires créés avec ce compte de laboratoire ont accès à la galerie d’images partagées jointe. 
 
     Toutes les images de la galerie d’images partagées jointe sont activées par défaut. Vous pouvez activer ou désactiver les images sélectionnées en les choisissant dans la liste et en utilisant le bouton **Activer les images sélectionnées** ou **Désactiver les images sélectionnées**. 
-
-## <a name="save-an-image-to-the-shared-image-gallery"></a>Enregistrer une image dans la galerie d’images partagées
-Une fois qu’une galerie d’images partagées est associée, un administrateur de laboratoire ou un enseignant peut enregistrer ou charger une image dans la galerie d’images partagées, afin qu’elle puisse être réutilisée par d’autres enseignants. Pour obtenir des instructions sur le chargement d’une image dans la galerie d’images partagées, consultez la [présentation de la galerie d’images partagées](../../virtual-machines/windows/shared-images.md). 
-
-> [!NOTE]
-> Actuellement, l’interface utilisateur des laboratoires de salle de classe ne prend pas en charge l’enregistrement d’une image de laboratoire dans la galerie d’images partagées. 
 
 ## <a name="detach-a-shared-image-gallery"></a>Détacher une galerie d’images partagées
 Une seule galerie d’images partagées peut être jointe à un laboratoire. Si vous souhaitez en joindre une autre, commencez par détacher la galerie existante. Pour détacher une galerie d’images partagées de votre laboratoire, sélectionnez l’option **Détacher** de la barre d’outils, puis confirmez l’opération de détachement. 

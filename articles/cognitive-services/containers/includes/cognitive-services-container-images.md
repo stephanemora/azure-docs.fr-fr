@@ -1,18 +1,27 @@
 ---
-ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+title: Images et référentiels de conteneurs
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: Deux tableaux représentant les registres de conteneurs, les dépôts et les noms d’images pour toutes les offres Cognitive Services.
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/06/2019
+ms.author: dapine
+ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051239"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775849"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
 Les tableaux ci-dessous sont une liste complète des images de conteneur offertes par Azure Cognitive Services.
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>Public (registre de conteneurs : `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Public « non contrôlé » (registre de conteneurs : `mcr.microsoft.com`)
 
-Le registre de conteneurs Microsoft héberge tous les conteneurs en disponibilité générale (GA) pour Cognitive Services.
+Le Registre de conteneurs Microsoft héberge tous les conteneurs « non contrôlés » disponibles publiquement pour Cognitive Services.
 
 | de diffusion en continu | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|
@@ -21,9 +30,9 @@ Le registre de conteneurs Microsoft héberge tous les conteneurs en disponibilit
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Préversion publique (registre de conteneurs : `containerpreview.azurecr.io`)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Préversion « contrôlée » publique (registre de conteneurs : `containerpreview.azurecr.io`)
 
-Le registre Container Preview héberge tous les conteneurs en « préversion publique » pour Cognitive Services qui ne sont pas encore en disponibilité générale (GA). Ces conteneurs doivent faire l’objet d’une demande formelle d’accès pour pouvoir être utilisés.
+Le registre des conteneurs en préversion héberge tous les conteneurs « contrôlés » disponibles publiquement pour Cognitive Services. Ces conteneurs doivent faire l’objet d’une demande formelle d’accès pour pouvoir être utilisés.
 
 | de diffusion en continu | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|

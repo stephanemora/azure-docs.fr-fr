@@ -1,21 +1,21 @@
 ---
 title: Référence de configuration Azure Blockchain Workbench
-description: Vue d’ensemble de la configuration d’application Azure Blockchain Workbench.
+description: Vue d’ensemble de la configuration de l’application Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578978"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845100"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -81,7 +81,7 @@ Types de données pris en charge.
 | int      | Type de données Integer. |
 | money    | Type de données Money. |
 | state    | État du workflow. |
-| chaîne  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
+| string  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
 | user     | Adresse de type user. |
 | time     | Type de données Time. |
 |`[ Application Role Name ]`| N’importe quel nom spécifié dans le rôle d’application. Limite les utilisateurs à ce type de rôle. |

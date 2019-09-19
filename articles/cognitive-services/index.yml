@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/12/2019
-  ms.openlocfilehash: 2bb26de076096ff47d38ddb12b1bc17f4aeafb34
-  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.date: 09/16/2019
+  ms.openlocfilehash: f762586bf04ceab8cd0c81880a86df7d43507038
+  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2019
-  ms.locfileid: "70965456"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71087551"
 highlightedContent:
   items:
   - title: Présentation de Cognitive Services
@@ -53,7 +53,7 @@ conceptualContent:
       text: Face
     - url: ./form-recognizer/index.yml
       itemType: overview
-      text: Reconnaissance de format (préversion)
+      text: Form Recognizer (préversion)
     - url: ./ink-recognizer/index.yml
       itemType: overview
       text: Ink Recognizer (préversion)
@@ -93,7 +93,7 @@ conceptualContent:
     - url: ./translator-speech/overview.md
       itemType: overview
       text: Traduction de conversation Translator Speech (mise hors service)
-  - title: Services de décision
+  - title: Décision
     summary: Créez des applications qui fournissent des recommandations pour une prise de décision éclairée et efficace.
     links:
     - url: ./anomaly-detector/index.yml
@@ -138,12 +138,12 @@ conceptualContent:
     - url: ./bing-web-search/index.yml
       itemType: overview
       text: Recherche Web
-  - title: Containers
+  - title: Conteneurs Cognitive Services
     summary: La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure et offre le choix de l’emplacement de déploiement et de stockage des services fournis avec les conteneurs Docker.
     links:
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Conteneurs pour Cognitive Services
+      text: Conteneurs Cognitive Services
     - url: ./containers/container-reuse-recipe.md
       itemType: overview
       text: Créer des conteneurs à réutiliser

@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: Configurer des ports à haute disponibilité pour l’équilibrage de charge interne
       href: load-balancer-configure-ha-ports.md
+    - name: Passer d’une région à l’autre
+      items:
+        - name: Équilibreur de charge externe - Portail
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: Équilibreur de charge externe - PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: Équilibreur de charge interne - PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: Résolution des problèmes
       items:
         - name: Résoudre les problèmes liés à Azure Load Balancer

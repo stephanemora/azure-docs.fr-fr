@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872986"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744588"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives. La surveillance peut s’effectuer directement à partir d’un cluster AKS ou porter sur tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’Azure Container Instances est également possible lorsque vous surveillez un cluster AKS spécifique.
@@ -118,18 +118,18 @@ Azure Monitor pour conteneurs prend également en charge Azure Monitor [Metrics 
 
 Dans Metrics Explorer, vous pouvez afficher les métriques agrégées d’utilisation de pod et de nœud d’Azure Monitor pour conteneurs. Le tableau suivant récapitule les détails pour vous aider à comprendre comment utiliser les graphiques de métrique pour visualiser les métriques des conteneurs.
 
-|Espace de noms | Métrique |
-|----------|--------|
+|Espace de noms | Métrique | Description | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Mesure agrégée de l’utilisation du processeur sur le cluster. Il s’agit d’un cœur de processeur divisé en 1 000 unités (millisecondes = 1000). Utilisé pour déterminer l’utilisation des cœurs dans un conteneur où de nombreuses applications peuvent utiliser un seul cœur.| 
+| | cpuUsagePercentage | Utilisation du processeur moyenne agrégée, mesurée en pourcentage sur le cluster.|
+| | memoryRssBytes | Mémoire RSS du conteneur utilisée, en octets.| 
+| | memoryRssPercentage | Mémoire RSS du conteneur utilisée, en pourcentage.|
+| | memoryWorkingSetBytes | Mémoire de plage de travail du conteneur utilisée.| 
+| | memoryWorkingSetPercentage | Mémoire de plage de travail du conteneur utilisée, en pourcentage. | 
+| | nodesCount | Nombre de nœuds fournis par Kubernetes.|
 | insights.container/pods | |
-| | PodCount |
+| | PodCount | Nombre de pods fournis par Kubernetes.|
 
 Vous pouvez [fractionner](../platform/metrics-charts.md#apply-splitting-to-a-chart) une métrique pour l’afficher par dimension et comparer différents segments de celui-ci. Pour un nœud, vous pouvez segmenter le graphique par la dimension *hôte*. À partir d’un pod, vous pouvez le segmenter par les dimensions suivantes :
 
@@ -170,7 +170,7 @@ Les nœuds virtuels Azure Container Instances qui exécutent le système d’exp
 
 Sélectionnez des contrôleurs ou des conteneurs en haut de la page pour examiner l’état et l’utilisation des ressources pour ces objets. Pour afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%* , qui est une valeur de type données numérique représentant une valeur non définie ou non représentable.
 
-La **plage de travail de la mémoire** montre la mémoire résidente et la mémoire virtuelle (cache) incluses, et représente le total de ce que l’application utilise. **Mémoire RSS** montre seulement la mémoire principale, qui est la mémoire résidente. Cette métrique montre la capacité réelle de la mémoire disponible.
+La **plage de travail de la mémoire** montre la mémoire résidente et la mémoire virtuelle (cache) incluses, et représente le total de ce que l’application utilise. **RSS mémoire** montre uniquement la mémoire principale (qui, en d’autres termes, n’est rien d’autre que la mémoire résidente). Cette métrique montre la capacité réelle de la mémoire disponible.
 
 ![Affichage des performances des nœuds d’un conteneur](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 

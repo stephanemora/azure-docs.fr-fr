@@ -1,6 +1,6 @@
 ---
 title: Optimiser les configurations de cluster avec Apache Ambari - Azure HDInsight
-description: Utilisez l’interface utilisateur web d’Apache Ambari pour configurer et optimiser les clusters HDInsight.
+description: Utilisez l’interface utilisateur web d’Apache Ambari pour configurer et optimiser les clusters Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60698822"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880270"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
 
@@ -49,11 +49,11 @@ Pour modifier la taille du tas Java NameNode :
 
 1. Tapez la nouvelle valeur dans la zone de texte, puis appuyez sur **Entrée** pour enregistrer la modification.
 
-    ![Modifier la taille du tas Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Modifier la taille du tas Java NameNode - 1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
 1. La taille du tas Java NameNode passe de 2 Go à 1 Go.
 
-    ![Taille du tas Java NodeName modifiée](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Taille du tas Java NameNode modifiée - 2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
 1. Enregistrez vos modifications en cliquant sur le bouton **Save (Enregistrer)** vert en haut de l’écran de configuration.
 
@@ -146,7 +146,7 @@ Par défaut, Hive suit un ensemble de règles pour trouver le plan d’exécutio
 
 Pour activer CBO, accédez à l’onglet **Configs (Configurations)** de Hive, recherchez `parameter hive.cbo.enable`, puis réglez le bouton bascule sur **On (Activé)** .
 
-![Configuration de CBO](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![Configuration de CBO](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 Les paramètres de configuration supplémentaires suivants augmentent les performances de traitement des requêtes dans Hive lorsque CBO est activé :
 
@@ -365,7 +365,7 @@ Le nombre de réducteurs est calculé en fonction du paramètre `pig.exec.reduce
 
 La configuration [d’Apache HBase](https://hbase.apache.org/) est modifiable dans l’onglet **Configurations de HBase**. Les sections suivantes décrivent certains paramètres de configuration importants qui affectent les performances de HBase.
 
-### <a name="set-hbaseheapsize"></a>Définir HBASE_HEAPSIZE
+### <a name="set-hbase_heapsize"></a>Définir HBASE_HEAPSIZE
 
 La taille de tas HBase spécifie la quantité maximale de tas à utiliser en mégaoctets par les serveurs de *région* et *maîtres*. La valeur par défaut est 1 000 Mo. Elle doit être adaptée à la charge de travail du cluster.
 

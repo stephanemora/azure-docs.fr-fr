@@ -1,63 +1,85 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation relative à Terraform sur Azure
+summary: Découvrez comment utiliser Terraform pour provisionner de manière fiable les machines virtuelles et autres infrastructures dans Azure.
 metadata:
-  title: "Documentation relative à Terraform sur Azure\_: didacticiels, exemples, référence et ressources"
+  title: 'Documentation relative à Terraform sur Azure : didacticiels, exemples, référence et ressources'
   description: Découvrez comment utiliser Terraform pour provisionner de manière fiable les machines virtuelles et autres infrastructures dans Azure.
-  services: terraform
-  ms.service: azure
-  keywords: 'terraform, azure, devops, didacticiels, exemples, référence'
-  author: tomarchermsft
-  manager: jeconnoc
-  ms.author: tarcher
+  services: azure
+  ms.service: terraform
   ms.topic: landing-page
-  ms.date: 08/31/2018
-abstract:
-  description: 'Utilisez Terraform dans une version fiable et créez une infrastructure sur Azure. Découvrez comment créer des ressources, utiliser les modules Azure Terraform, et mettre à jour votre infrastructure avec un code à l’aide de nos didacticiels et guides de démarrage rapide.'
-sections:
-  - title: Démarrages rapides
-    items:
-      - type: paragraph
-        text: Configurez Terraform et utilisez-le pour créer une machine virtuelle Linux dans Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/azure_dev-9.svg'
-            text: Installer et configurer Terraform
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/VirtualMachine.svg'
-            text: Créer une machine virtuelle Linux
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment créer une infrastructure réseau et de calcul Azure à partir d’un code avec Terraform.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Créer un cluster Kubernetes avec AKS</a>.
-          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Créer un cluster Kubernetes avec Application Gateway comme contrôleur d’entrée avec AKS</a>.
-          - html: <a href="/azure/terraform/terraform-vm-msi">Créer une machine virtuelle Terraform avec le paramètre d’authentification MSI activé à l’aide d’une image Place de marché Azure</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Créez un cluster de machine virtuelle à charge équilibrée à l’aide des modules Azure Terraform</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Créez un cluster de machine virtuelle à charge équilibrée dans Azure Cloud Shell</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configurer un groupe de machines virtuelles identiques avec réseau et stockage</a>
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionner un groupe de machines virtuelles identiques d’une image personnalisée Packer</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: Exemples de modèles de configuration pour les tâches de déploiement courantes.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Modules Azure Terraform
-            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM pour la base de données</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM pour l’équilibrage de charge</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Groupe de calcul Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Réseau Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Calcul Azure RM</a></p>'
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 09/12/2019
+  ms.openlocfilehash: 9195595a36fd5ff09afaf61169fb2bc1c3eb2533
+  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71086497"
+landingContent:
+- title: À propos de Terraform sur Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos de Terraform sur Azure
+      url: terraform-overview.md
+  - linkListType: architecture
+    links:
+    - text: Terraform Azure Provider
+      url: https://aka.ms/terraform
+- title: Installer et configurer Terraform
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Installer et configurer Terraform
+      url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+    - text: Créer une configuration Terraform pour Azure
+      url: terrafom-quickstart.md
+    - text: Installer l’extension Terraform Visual Studio Code
+      url: terraform-vscode-extension.md
+    - text: Créer un modèle de base Terraform à l’aide de Yeoman
+      url: terraform-vscode-module-generator.md
+    - text: Tester des modules Terraform à l’aide de Terratest
+      url: terratest-in-terraform-modules.md
+- title: Gérer AKS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer un cluster Kubernetes avec AKS
+      url: terraform-create-k8s-cluster-with-tf-and-aks.md
+    - text: Créer un cluster Kubernetes avec Application Gateway
+      url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+- title: Gérer l’infrastructure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une machine virtuelle Linux
+      url: /azure/virtual-machines/linux/terraform-create-complete-vm?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+  - linkListType: tutorial
+    links:
+    - text: Créer une machine virtuelle Terraform avec le paramètre MSI activé
+      url: terraform-vm-msi.md
+    - text: Créer un cluster de machines virtuelles avec des modules Terraform
+      url: terraform-create-vm-cluster-module.md
+    - text: Créer un cluster de machines virtuelles avec Terraform et HCL
+      url: terraform-create-vm-cluster-with-infrastructure.md
+    - text: Provisionner des groupes de machines virtuelles identiques avec infrastructure
+      url: terraform-create-vm-scaleset-network-disks-hcl.md
+    - text: Provisionner des groupes de machines virtuelles identiques d’une image personnalisée Packer
+      url: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+- title: Gérer les réseaux
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Créer une topologie hub-and-spoke
+      url: terraform-hub-spoke-introduction.md
+    - text: 2. Créer un réseau virtuel local
+      url: terraform-hub-spoke-on-prem.md
+    - text: 3. Créer un réseau virtuel de hub
+      url: terraform-hub-spoke-hub-network.md
+    - text: 4. Créer une appliance de réseau virtuel de hub
+      url: terraform-hub-spoke-hub-nva.md
+    - text: 5. Créer un réseau spoke
+      url: terraform-hub-spoke-spoke-network.md
+    - text: 6. Valider la connectivité de la topologie réseau
+      url: terraform-hub-spoke-validation.md

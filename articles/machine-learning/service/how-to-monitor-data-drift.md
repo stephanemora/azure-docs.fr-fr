@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128279"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858712"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 
@@ -134,6 +134,7 @@ Il existe plusieurs manières d’afficher les métriques de la dérive :
 * Utilisez le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Utilisez la fonction [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) sur tout objet d’exécution `datadrift`.
 * Affichez les métriques dans le portail Azure sur votre modèle.
+* Affichez les métriques dans la section **Modèles** de la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
 
 L’exemple Python suivant montre comment représenter les métriques de dérive de données pertinentes. Vous pouvez utiliser les métriques retournées pour générer des visualisations personnalisées :
 
@@ -158,15 +159,17 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configuration du détecteur de dérive de données peut être consultée dans la page de détails du modèle dans le portail Azure.
+La configuration du détecteur de dérive de données peut être consultée dans la page de détails du modèle dans le portail Azure ou dans la page d’accueil de votre espace de travail (préversion).
 
 ![Configuration de la dérive de données du portail Azure](media/how-to-monitor-data-drift/drift_config.png)
 
 ## <a name="view-results-in-azure-portal"></a>Afficher les résultats dans le portail Azure
 
-Pour afficher les résultats dans votre espace de travail dans le [portail Azure](https://portal.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Un onglet « Dérive de données (préversion) » est désormais disponible pour visualiser les métriques de dérive de données. 
+Pour afficher les résultats dans votre espace de travail dans le [portail Azure](https://portal.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Vous pouvez désormais visualiser les métriques de dérive de données sous l’onglet « Dérive des données (préversion) ». 
 
 ![Dérive de données du portail Azure](media/how-to-monitor-data-drift/drift_ui.png)
+
+Les résultats sont également disponibles dans les détails du modèle dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Réception d’alertes dérive
 

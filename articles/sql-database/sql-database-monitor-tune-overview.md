@@ -1,5 +1,5 @@
 ---
-title: Surveillance et optimisation des performances - Azure SQL Database | Microsoft Docs
+title: Supervision et optimisation des performances - Azure SQL Database | Microsoft Docs
 description: Conseils pour le réglage des performances dans Azure SQL Database par le biais de l’évaluation et de l’amélioration.
 services: sql-database
 ms.service: sql-database
@@ -11,109 +11,120 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: ee4bd9d61856ef4ea1afdd027d6f39e730b92d78
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129218"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910525"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
-Azure SQL Database fournit des outils et des méthodes vous permettant de superviser facilement l’utilisation d’une base de données, d’y ajouter ou d’en supprimer des ressources (processeur, mémoire, E/S), de détecter ses problèmes potentiels et de faire des suggestions pour améliorer ses performances. Azure SQL Database possède des fonctionnalités qui permettent de résoudre automatiquement les problèmes dans les bases de données. Le réglage automatique permet à une base de données de s’adapter à la charge de travail et d’optimiser automatiquement les performances. Cependant, quelques problèmes personnalisés peuvent nécessiter plus particulièrement votre attention. Cet article passe en revue quelques outils et bonnes pratiques que vous pouvez utiliser pour résoudre les problèmes de performance.
+Azure SQL Database fournit des outils et des méthodes qui vous permettent de superviser facilement l’utilisation d’une base de données, d’y ajouter ou d’en supprimer des ressources (processeur, mémoire ou E/S), de détecter ses problèmes potentiels et de faire des suggestions pour améliorer ses performances. Les fonctionnalités fournies dans Azure SQL Database peuvent résoudre automatiquement les problèmes dans les bases de données. 
 
-Deux activités principales permettent de vérifier le bon fonctionnement de votre base de données :
-- La [supervision des performances de votre base de données](#monitoring-database-performance), pour vérifier que les ressources affectées à la base de données peuvent gérer la charge de travail. Si vous constatez qu’une base de données atteint ses limites en termes de ressources, envisagez les opérations suivantes :
-   - identifier et optimiser les principales requêtes consommatrices de ressources.
-   - ajouter plus de ressources en mettant à niveau le niveau de service.
-- La [résolution des problèmes de performances](#troubleshoot-performance-issues), pour identifier la raison pour laquelle un problème potentiel s’est produit, identifier la cause initiale du problème. Une fois la cause racine déterminée, mettez en œuvre les étapes nécessaires pour résoudre le problème.
+Le réglage automatique permet à une base de données de s’adapter à la charge de travail et d’optimiser automatiquement les performances. Cependant, certains problèmes particuliers peuvent nécessiter votre attention. Cet article passe en revue plusieurs bonnes pratiques et outils qui vous seront utiles pour résoudre les problèmes de performances.
 
-## <a name="monitoring-database-performance"></a>Supervision des performances de la base de données
+S’assurer du bon fonctionnement d’une base de données passe par ces deux activités :
+- La [supervision des performances de votre base de données](#monitor-database-performance), pour vérifier que les ressources affectées à la base de données peuvent gérer la charge de travail. Si la base de données atteint ses limites de ressources, envisagez les opérations suivantes :
+   - Identifier et optimiser les principales requêtes consommatrices de ressources.
+   - Ajouter plus de ressources par une [mise à niveau du niveau de service](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources).
+- La [résolution des problèmes de performances](#troubleshoot-performance-problems), pour identifier la raison pour laquelle un problème potentiel s’est produit ainsi que la cause initiale du problème. Après avoir identifié la cause initiale, prenez les mesures nécessaires pour résoudre le problème.
 
-La supervision des performances d’une base de données SQL dans Azure démarre par la supervision des ressources utilisées par rapport au niveau de performances sélectionné pour la base de données. Supervisez les ressources suivantes :
- - **Utilisation du processeur** : vérifiez si la base de données utilise 100 % du processeur sur une longue période. Une utilisation élevée du processeur peut indiquer que les requêtes qui utilisent le plus de puissance de calcul doivent être identifiées et réglées. Ou, une utilisation élevée du processeur peut indiquer que la base de données ou l’instance doit être mise à niveau vers un niveau de service supérieur. 
- - **Statistiques d’attente** : utilisez [sys.dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) pour déterminer l’attente subie par les requêtes. Les requêtes peuvent subir des attentes sur les ressources, des attentes sur la file d’attente ou des attentes externes. 
- - **Utilisation de l’E/S** : vérifiez si la base de données atteint les limites d’E/S du stockage sous-jacent.
- - **Utilisation de la mémoire** : la quantité de mémoire disponible pour la base de données ou l’instance étant proportionnelle au nombre de vCores. Vérifiez que la mémoire est suffisante pour la charge de travail. L’espérance de vie d’une page est l’un des paramètres pouvant indiquer à quelle vitesse les pages sont supprimées de la mémoire.
+## <a name="monitor-database-performance"></a>Surveiller les performances de la base de données
 
-Le service Azure SQL Database **comprend des outils et des ressources pour vous aider à résoudre les éventuels problèmes de performances**. Vous pouvez identifier les opportunités d’amélioration et d’optimisation des performances des requêtes sans changer les ressources, et ce en passant en revue les [recommandations en matière de réglage des performances](sql-database-advisor.md). Des index manquants et des requêtes optimisées de manière incorrecte sont souvent à l’origine de performances de base de données limitées. Vous pouvez appliquer ces recommandations en matière de réglage pour améliorer les performances de la charge de travail. Vous pouvez également laisser la base de données Azure SQL [optimiser automatiquement les performances des requêtes](sql-database-automatic-tuning.md) en appliquant toutes les recommandations identifiées et en vérifiant qu’elles améliorent les performances de la base de données.
+Pour superviser les performances d’une base de données SQL dans Azure, commencez par superviser les ressources utilisées par rapport au niveau de performances choisi pour la base de données. Supervisez les ressources suivantes :
+ - **Utilisation du processeur** : vérifiez si la base de données utilise 100 pour cent du processeur sur une longue période. Une utilisation élevée du processeur peut être le signe que vous devez identifier et optimiser les requêtes qui consomment le plus de puissance de calcul. Elle peut également indiquer que la base de données ou l’instance doit être mise à niveau vers un niveau de service supérieur. 
+ - **Statistiques d’attente** : utilisez [sys.dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) pour déterminer la durée d’attente des requêtes. Les requêtes peuvent subir des attentes sur les ressources, des attentes sur la file d’attente ou des attentes externes. 
+ - **Utilisation d’E/S** : vérifiez si la base de données atteint les limites d’E/S du stockage sous-jacent.
+ - **Utilisation de la mémoire** : la quantité de mémoire disponible pour la base de données ou l’instance est proportionnelle au nombre de vCores. Assurez-vous que la mémoire est suffisante pour la charge de travail. L’espérance de vie d’une page est l’un des paramètres pouvant indiquer à quelle vitesse les pages sont supprimées de la mémoire.
 
-Les options suivantes sont disponibles pour la supervision et la résolution des problèmes de performances des bases de données :
+Le service Azure SQL Database comprend des outils et des ressources pour vous aider à détecter et résoudre les éventuels problèmes de performances. Vous pouvez identifier les opportunités d’amélioration et d’optimisation des performances des requêtes sans changer les ressources, grâce aux [recommandations de réglage des performances](sql-database-advisor.md). 
 
-- Dans le [Portail Azure](https://portal.azure.com), cliquez sur **Bases de données SQL**, sélectionnez la base de données, puis utilisez le graphique de supervision pour rechercher les ressources proches de leur utilisation maximale. Consommation de DTU est affichée par défaut. Cliquez sur **Modifier** pour modifier l’intervalle de temps et les valeurs affichées.
-- Des outils tels que SQL Server Management Studio fournissent de nombreux rapports utiles, tels qu’un [Tableau de bord des performances](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) pour superviser l’utilisation des ressources et identifier les requêtes consommant le plus de ressources. Un [Magasin de données des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) peut être utilisé pour identifier les requêtes dont les performances diminuent.
-- Utilisez [Query Performance Insight](sql-database-query-performance.md) dans le [portail Azure](https://portal.azure.com) pour identifier les requêtes consommant la plupart des ressources. Cette fonctionnalité est uniquement disponible dans la base de données unique et les pools élastiques.
-- Utilisez [SQL Database Advisor](sql-database-advisor-portal.md) pour obtenir des recommandations concernant la création et la suppression d’index, le paramétrage des requêtes et la résolution des problèmes de schéma. Cette fonctionnalité est uniquement disponible dans la base de données unique et les pools élastiques.
-- Utilisez [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) pour superviser automatiquement les performances des bases de données. Si un problème de performances est détecté, un journal de diagnostic est généré avec les détails correspondants et une analyse de la cause première du problème. Des recommandations sur l’amélioration des performances sont fournies quand cela est possible.
-- [Activez le réglage automatique](sql-database-automatic-tuning-enable.md) et laissez la base de données Azure SQL corriger automatiquement les problèmes de performances identifiés.
-- Utilisez des [vues de gestion dynamique (DMV)](sql-database-monitoring-with-dmvs.md), des [événements étendus](sql-database-xevent-db-diff-from-svr.md) et le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour savoir comment corriger les problèmes de performances.
+Des index manquants et des requêtes optimisées de manière incorrecte sont souvent à l’origine de performances de base de données limitées. Vous pouvez appliquer les recommandations de réglage pour améliorer les performances de la charge de travail. Vous pouvez aussi laisser Azure SQL Database [optimiser automatiquement les performances des requêtes](sql-database-automatic-tuning.md) en appliquant toutes les recommandations identifiées. Il vous suffit ensuite de vérifier que les recommandations ont amélioré les performances de la base de données.
+
+> [!NOTE]
+> L’indexation est disponible uniquement dans la base de données unique et les pools élastiques. Elle n’est pas disponible dans une instance managée.
+
+Vous avez le choix des options suivantes pour superviser les performances de la base de données et résoudre les problèmes rencontrés :
+
+- Dans le [portail Azure](https://portal.azure.com), sélectionnez **Bases de données SQL** et sélectionnez la base de données. Dans le graphique **Supervision**, recherchez les ressources qui atteignent presque leur utilisation maximale. Consommation de DTU est affichée par défaut. Sélectionnez **Modifier** pour changer l’intervalle de temps et les valeurs affichées.
+- Des outils tels que SQL Server Management Studio fournissent de nombreux rapports utiles, comme le [tableau de bord Performances](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard). Exploitez ces rapports pour superviser l’utilisation des ressources et identifier les principales requêtes consommatrices de ressources. Vous pouvez utiliser le [Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) pour identifier les requêtes dont les performances ont régressé.
+- Dans le [portail Azure](https://portal.azure.com), utilisez [Query Performance Insight](sql-database-query-performance.md) pour identifier les requêtes qui consomment la plupart des ressources. Cette fonctionnalité est disponible uniquement dans la base de données unique et les pools élastiques.
+- Utilisez [SQL Database Advisor](sql-database-advisor-portal.md) pour voir des recommandations destinées à vous aider à créer et supprimer des index, paramétrer des requêtes et résoudre des problèmes de schéma. Cette fonctionnalité est disponible uniquement dans la base de données unique et les pools élastiques.
+- Utilisez [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) pour superviser automatiquement les performances de la base de données. Quand un problème de performances est détecté, un journal de diagnostic est généré. Le journal fournit des détails et une analyse de la cause racine du problème. Une recommandation d’amélioration des performances est faite quand cela est possible.
+- [Activez le réglage automatique](sql-database-automatic-tuning-enable.md) pour laisser Azure SQL Database corriger automatiquement les problèmes de performances.
+- Utilisez des [vues de gestion dynamiques (DMV)](sql-database-monitoring-with-dmvs.md), des [événements étendus](sql-database-xevent-db-diff-from-svr.md) et le [Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour avoir des informations d’aide plus détaillées sur la correction des problèmes de performances.
 
 > [!TIP]
-> Consultez les [conseils sur les performances](sql-database-performance-guidance.md) pour connaître les techniques que vous pouvez utiliser afin d’améliorer les performances d’Azure SQL Database après avoir identifié l’origine du problème de performances au moyen de l’une des méthodes ci-dessus.
+> Après avoir identifié un problème de performances, consultez nos [conseils sur les performances](sql-database-performance-guidance.md) pour trouver des moyens d’améliorer les performances d’Azure SQL Database.
 
-## <a name="troubleshoot-performance-issues"></a>Résoudre les problèmes de performances
+## <a name="troubleshoot-performance-problems"></a>Résoudre les problèmes de performances
 
-Pour diagnostiquer et résoudre les problèmes de performances, vous devez d’abord connaître l’état de chaque requête active et les conditions qui entraînent des problèmes de performances pour chaque état de la charge de travail. Pour améliorer les performances d’Azure SQL Database, il faut comprendre que chaque demande de requête active effectuée à partir de l’application est dans un état En cours d’exécution ou En attente. Lors du dépannage d’un problème de performances dans Azure SQL Database, gardez à l’esprit le graphique suivant pour diagnostiquer et résoudre les problèmes de performances.
+Pour diagnostiquer et résoudre les problèmes de performances, commencez par déterminer l’état de chaque requête active ainsi que les conditions qui causent des problèmes de performances pour chaque état de la charge de travail. Pour améliorer les performances d’Azure SQL Database, vous devez savoir que chaque demande de requête active effectuée à partir de l’application est dans l’un de ces états : En cours d’exécution ou En attente. Quand vous résolvez un problème de performances dans Azure SQL Database, gardez en tête le diagramme ci-dessous.
 
 ![États de la charge de travail](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-Pour une charge de travail, les problèmes de performances peuvent être dus à une contention de l’UC (une condition **liée à l’exécution**) ou à des requêtes individuelles en attente de quelque chose (une condition **liée à l’attente**).
+Un problème de performances dans une charge de travail peut être causé par une contention du processeur (une condition *liée à l’exécution*) ou par des requêtes individuelles qui attendent quelque chose (une condition *liée à l’attente*).
 
-Les causes ou les problèmes **liés au fonctionnement** peuvent être :
-- Des **problèmes de compilation** : L’optimiseur de requête SQL peut produire un plan sous-optimal en raison de statistiques périmées, d’une estimation incorrecte du nombre de lignes qui seront traitées ou de la mémoire requise. Si vous savez que la requête a été exécutée plus rapidement dans le passé ou sur d’autres instances (instance gérée ou instance SQL Server), prenez les plans d’exécution réels et comparez-les pour voir s’ils diffèrent. Essayez d’appliquer des indices de requête ou de reconstruire des statistiques ou des index pour obtenir le meilleur plan. Activez la correction automatique des plans dans Azure SQL Database pour atténuer automatiquement ces problèmes.
-- **Problèmes d’exécution** : si le plan de requête est optimal, il atteint probablement des limites de ressource dans la base de données comme le débit d’écriture des journaux ou il utilise des index fragmentés qui doivent être reconstruits. Un grand nombre de requêtes simultanées ayant besoin des mêmes ressources peut également être à l’origine de problèmes d’exécution. Les problèmes **liés à l’attente** sont dans la plupart des cas liés aux problèmes d’exécution, car les requêtes qui ne s’exécutent pas efficacement sont probablement en attente de certaines ressources.
+Les problèmes liés à l’exécution peuvent être provoqués par :
+- Des **problèmes de compilation** : l’optimiseur de requête SQL peut produire un plan non optimal à cause de statistiques périmées ou bien d’une estimation incorrecte du nombre de lignes à traiter ou de la mémoire requise. Si vous savez que la requête a été exécutée plus rapidement dans le passé ou sur une autre instance (instance managée ou instance SQL Server), comparez les plans d’exécution réels pour voir s’ils diffèrent. Essayez d’appliquer des indicateurs de requête ou de regénérer des statistiques ou des index pour obtenir le meilleur plan. Activez la correction automatique des plans dans Azure SQL Database pour atténuer automatiquement ces problèmes.
+- Des **problèmes d’exécution** : si le plan de requête est optimal, il atteint probablement les limites de ressources de la base de données, comme le débit d’écriture des journaux. Il est possible aussi qu’il utilise des index fragmentés nécessitant d’être regénérés. Des problèmes d’exécution peuvent également se produire quand de nombreuses requêtes simultanées ont besoin des mêmes ressources. Les *problèmes liés à l’attente* sont généralement liés à des problèmes d’exécution, car les requêtes qui ne s’exécutent pas efficacement sont probablement en attente de certaines ressources.
 
-Les causes des problèmes **liés à l’attente** peuvent être les suivantes :
-- **Blocage** : une requête peut contenir le verrou de certains objets de la base de données alors que d’autres essaient d’accéder aux mêmes objets. Vous pouvez facilement identifier les requêtes de blocage à l’aide de DMV ou d’outils de supervision.
-- **Problèmes d’IO** : les requêtes peuvent attendre que les pages soient écrites dans les fichiers de données ou les fichiers journaux. Dans ce cas, examinez les statistiques d’attente `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG` ou `PAGEIOLATCH_*` dans le DMV.
-- **Problèmes de TempDB** : si la charge de travail utilise des tables temporaires ou que vous constatez des déversements de TempDB dans vos plans vos requêtes, les requêtes peuvent avoir un problème avec le débit de TempDB. 
-- **Problèmes liés à la mémoire** : il se peut qu’il n’y ait pas assez de mémoire pour la charge de travail, entraînant alors la diminution de l’espérance de vie des pages, ou que les requêtes reçoivent moins de mémoire que nécessaire. Dans certains cas, l’intelligence intégrée dans Query Optimizer résoudra ces problèmes.
+Les problèmes liés à l’attente peuvent être provoqués par :
+- Un **blocage** : une requête peut maintenir le verrou sur certains objets de la base de données pendant que d’autres requêtes essaient d’accéder aux mêmes objets. Vous pouvez identifier les requêtes bloquantes à l’aide des vues de gestion dynamiques (DMV) ou des outils de supervision.
+- Des **problèmes d’E/S** : les requêtes peuvent attendre que les pages soient écrites dans les fichiers de données ou les fichiers journaux. Dans ce cas, examinez les statistiques d’attente `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG` ou `PAGEIOLATCH_*` dans la DMV.
+- Des **problèmes avec TempDB** : si la charge de travail utilise des tables temporaires ou s’il y a des dépassements de TempDB dans les plans, les requêtes ont peut-être un problème avec le débit de TempDB. 
+- Des **problèmes de mémoire** : si la charge de travail n’a pas assez de mémoire, l’espérance de vie des pages peut diminuer, ou les requêtes risquent de ne pas obtenir toute la mémoire dont elles ont besoin. Dans certains cas, l’intelligence intégrée dans l’optimiseur de requête résoudra les problèmes de mémoire.
  
- Dans les sections suivantes, nous expliquerons comment identifier et résoudre certains de ces problèmes.
+Les sections suivantes expliquent comment identifier et résoudre certains types de problèmes.
 
-## <a name="running-related-performance-issues"></a>Problèmes de performances liés à l’exécution
+## <a name="performance-problems-related-to-running"></a>Problèmes de performances liés à l’exécution
 
-En règle générale, si l’utilisation du processeur est constamment d’au moins 80 %, il y a un problème de performances lié à l’exécution. Ce problème peut-être dû à des ressources processeur insuffisantes ou à l’une des conditions suivantes :
+En règle générale, si l’utilisation du processeur est régulièrement égale ou supérieure à 80 pour cent, le problème de performances rencontré est lié à l’exécution. Un problème lié à l’exécution peut être dû à des ressources processeur insuffisantes. Il peut également être lié à l’une des conditions suivantes :
 
 - Trop de requêtes en cours d’exécution
 - Trop de requêtes en cours de compilation
-- Une ou plusieurs requêtes en cours d’exécution utilisent un plan de requête qui n’est pas le plan optimal
+- Une ou plusieurs requêtes en cours d’exécution qui utilisent un plan de requête non optimal
 
-Si vous avez identifié un problème de performances lié à l’exécution, vous devez alors identifier le problème exact à l’aide d’une ou plusieurs méthodes. Les méthodes les plus courantes pour identifier les problèmes liés à l’exécution sont les suivantes :
+Si vous détectez un problème de performances lié à l’exécution, vous devez alors identifier le problème exact à l’aide d’une ou plusieurs méthodes. Les méthodes suivantes sont les plus courantes pour identifier les problèmes liés à l’exécution :
 
-- Utilisez le [portail Azure](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) pour surveiller le pourcentage d’utilisation de l’UC.
-- Utilisez les [vues de gestion dynamique](sql-database-monitoring-with-dmvs.md) suivantes :
+- Utilisez le [portail Azure](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) pour surveiller le pourcentage d’utilisation du processeur.
+- Utilisez ces [vues de gestion dynamiques](sql-database-monitoring-with-dmvs.md) (DMV) :
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourne la consommation du processeur, des opérations E/S et de la mémoire pour une base de données Azure SQL Database. Il existe une ligne pour chaque intervalle de 15 secondes, même s’il n’existe aucune activité dans la base de données. L’historique des données est conservé pendant une heure.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourne les données d’utilisation de l’UC et les données sur le stockage pour une base de données Azure SQL Database. Les données sont collectées et agrégées par intervalles de cinq minutes.
+  - La DMV [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourne la consommation du processeur, des E/S et de la mémoire pour une base de données SQL. Il y a une ligne pour chaque intervalle de 15 secondes, même s’il n’existe aucune activité dans la base de données. L’historique des données est conservé pendant une heure.
+  - La DMV [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourne les données d’utilisation du processeur et les données sur le stockage pour Azure SQL Database. Les données sont collectées et agrégées par intervalles de cinq minutes.
 
 > [!IMPORTANT]
-> Pour les requêtes T-SQL utilisant les vues de gestion dynamique sys.dm_db_resource_stats et sys.resource_stats pour résoudre les problèmes d’utilisation du processeur, consultez [Identifier les problèmes de performances d’UC](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+> Pour résoudre les problèmes d’utilisation du processeur avec des requêtes T-SQL qui utilisent les DMV sys.dm_db_resource_stats et sys.resource_stats, consultez [Identifier les problèmes de performances de processeur](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="ParamSniffing"></a>Détecter les problèmes des requêtes relatifs aux plans d’exécution des requêtes sensible aux paramètres
+### <a name="ParamSniffing"></a> Requêtes présentant des problèmes de plan sensible aux paramètres
 
-Le problème de plan sensible aux paramètres fait référence à un scénario dans lequel l’optimiseur de requête génère un plan d’exécution optimal pour une valeur de paramètre spécifique (ou un ensemble de valeurs) et le plan mis en cache est ensuite non optimal pour les valeurs de paramètre utilisées dans des exécutions consécutives. Les plans non optimaux peuvent conduire à des problèmes de performances de requête et à une dégradation du débit de charge de travail globale. Pour plus d’informations sur le reniflage des paramètres et le traitement des requêtes, voir le [ Guide de l’architecture de traitement des requêtes](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
+Un problème de plan sensible aux paramètres se produit quand l’optimiseur de requête génère un plan d’exécution de requête qui est optimal uniquement pour une valeur de paramètre (ou un ensemble de valeurs) spécifique. Le plan mis en cache n’est donc pas optimal pour les valeurs de paramètre qui sont utilisées dans des exécutions consécutives. Les plans non optimaux peuvent alors provoquer des problèmes de performances des requêtes et entraîner une dégradation du débit global de la charge de travail. 
 
-Plusieurs solutions s’offrent à vous pour atténuer les problèmes, chacune présentant des inconvénients et des avantages :
+Pour plus d’informations sur la détection des paramètres et le traitement des requêtes, consultez le [Guide de l’architecture de traitement des requêtes](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
-- Utilisez l’indicateur de requête [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) à chaque exécution de la requête. Cette solution compense la durée de compilation et augmente l’UC pour un plan de meilleure qualité. L’utilisation de l’option `RECOMPILE` n’est souvent pas possible pour les charges de travail exigeant un débit élevé.
-- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réel par une valeur de paramètre classique qui produit un plan suffisamment adapté pour la plupart des possibilités de valeur de paramètre.   Cette option nécessite une bonne compréhension des valeurs de paramètre optimal et des caractéristiques du plan associé.
-- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réel en échange de l’utilisation de la moyenne de vecteur de densité. Pour effectuer cette opération, vous pouvez également capturer les valeurs de paramètre entrant dans des variables locales, puis utiliser les variables locales dans des prédicats plutôt que les paramètres en eux-mêmes. La densité moyenne doit être *suffisante* avec ce correctif particulier.
-- Désactivez entièrement la détection de paramètres avec l’indicateur de requête [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
-- Utilisez l’indicateur de requête [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour empêcher les recompilations pendant la mise en cache. Cette solution suppose que le plan courant *suffisamment adapté* est celui se trouvant déjà dans le cache. Vous pouvez également désactiver les mises à jour automatiques des statistiques, afin de réduire le risque d’exclusion du plan adapté et de compilation d’un plan inadapté.
-- Forcez le plan en utilisant explicitement l’indicateur de requête [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) (en spécifiant explicitement, en définissant un plan spécifique à l’aide de Magasin de données des requêtes ou en activant le [réglage automatique](sql-database-automatic-tuning.md)).
+Plusieurs solutions de contournement peuvent atténuer les problèmes de plan sensible aux paramètres. Chaque solution de contournement présente des avantages et des inconvénients :
+
+- Utilisez l’indicateur de requête [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) à chaque exécution de la requête. Cette solution compense la durée de compilation et augmente l’UC pour un plan de meilleure qualité. L’option `RECOMPILE` n’est souvent pas possible pour les charges de travail exigeant un débit élevé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par une valeur de paramètre standard qui produit un plan suffisant pour la plupart des possibilités de valeurs de paramètre. Cette option nécessite une bonne compréhension des valeurs de paramètre optimal et des caractéristiques du plan associé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par la moyenne du vecteur de densité. Pour effectuer cette opération, vous pouvez également capturer les valeurs de paramètres entrantes dans des variables locales, puis utiliser ces variables locales dans des prédicats à la place des paramètres. Pour cette correction, la densité moyenne doit être *suffisante*.
+- Désactivez entièrement la détection de paramètres en spécifiant l’indicateur de requête [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
+- Utilisez l’indicateur de requête [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour empêcher les recompilations dans le cache. Cette solution de contournement suppose que le plan courant suffisant est celui qui se trouve déjà dans le cache. Vous pouvez également désactiver les mises à jour de statistiques automatiques afin de réduire le risque d’éviction du plan suffisant et de compilation d’un plan insuffisant.
+- Forcez le plan en spécifiant explicitement l’indicateur de requête [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) dans le texte de la requête. Ou définissez un plan spécifique en utilisant le Magasin des requêtes ou en activant le [réglage automatique](sql-database-automatic-tuning.md).
 - Remplacez la procédure unique par un ensemble imbriqué de procédures, qui peuvent être utilisées en fonction d’une logique conditionnelle et des valeurs de paramètre associées.
 - Créez des alternatives d’exécution de chaîne dynamique sur une définition de procédure statique.
 
-Pour plus d’informations sur la résolution de ces types de problèmes, consultez les billets de blog :
+Pour plus d’informations sur la résolution des problèmes de plan sensible aux paramètres, consultez ces billets de blog :
 
 - [I smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
-- [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
-- [SQL Query Optimization Techniques in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
+- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [SQL query optimization techniques in SQL Server: Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
-### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Résolution des problèmes de l’activité de compilation en raison d’un paramétrage incorrect
+### <a name="compile-activity-caused-by-improper-parameterization"></a>Compilations provoquées par un paramétrage incorrect
 
-Lorsqu’une requête contient des littéraux, le moteur de base de données choisit de paramétrer automatiquement l’instruction, ou un utilisateur peut explicitement la paramétrer afin de réduire le nombre de compilations. Un nombre élevé de compilations pour une requête utilisant le même modèle mais différentes valeurs littérales peut entraîner une augmentation de l’utilisation d’UC. De même, si vous ne paramétrez que partiellement une requête qui continue à avoir des littéraux, le moteur de base de données ne la paramètre pas davantage.  Vous trouverez ci-dessous un exemple de requête partiellement paramétrable :
+Lorsqu’une requête contient des littéraux, le moteur de base de données paramètre automatiquement l’instruction, ou un utilisateur paramètre explicitement l’instruction pour réduire le nombre de compilations. Un nombre élevé de compilations pour une requête utilisant le même modèle mais différentes valeurs littérales peut entraîner une augmentation de l’utilisation du processeur. De même, si vous ne paramétrez que partiellement une requête qui garde des littéraux, le moteur de base de données ne paramètre pas davantage la requête.  
+
+Voici un exemple de requête partiellement paramétrée :
 
 ```sql
 SELECT * 
@@ -121,9 +132,9 @@ FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-Dans l’exemple précédent, `t1.c1` prend `@p1` mais `t2.c2` continue de prendre GUID comme littéral. Dans ce cas, si vous modifiez la valeur de `c2`, la requête est traitée comme une requête différente et une nouvelle compilation se produit. Pour réduire les compilations dans l’exemple précédent, la solution consiste également à paramétrer le GUID.
+Dans cet exemple, `t1.c1` prend la valeur `@p1`, mais `t2.c2` garde un GUID comme littéral. Dans ce cas, si vous changez la valeur de `c2`, la requête est traitée comme une requête différente, ce qui engendre une nouvelle compilation. Pour réduire le nombre de compilations dans cet exemple, vous pouvez également paramétrer le GUID.
 
-La requête suivante affiche le nombre de requêtes par hachage de requête pour déterminer si une requête est correctement paramétrable ou non :
+La requête suivante affiche le nombre de requêtes par hachage de requête pour déterminer si une requête est correctement paramétrée :
 
 ```sql
 SELECT  TOP 10  
@@ -145,99 +156,103 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
-### <a name="factors-influencing-query-plan-changes"></a>Facteurs influant sur les changements de plan de requête
 
-Une recompilation du plan d’exécution d’une requête peut aboutir à un plan de requête généré qui diffère de ce qui était initialement mis en cache. Il y a plusieurs raisons pour lesquelles un plan original existant peut être automatiquement recompilé :
-- Modifications du schéma référencé par la requête
-- Modifications des données des tables référencées par la requête 
-- Modifications des options de contexte de requête 
+### <a name="factors-that-affect-query-plan-changes"></a>Facteurs impactant les changements de plan de requête
 
-Un plan compilé peut être éjecté du cache pour diverses raisons, y compris le redémarrage des instances, les changements de configuration de la base de données, la pression mémoire et les demandes explicites d’effacement du cache. De plus, l’utilisation d’un indicateur (hint) RECOMPILE signifie qu’un plan ne sera pas mis en cache.
+Une recompilation du plan d’exécution de requête peut aboutir à un plan de requête généré qui diffère du plan initial mis en cache. Un plan initial existant peut être automatiquement recompilé pour diverses raisons :
+- Des modifications dans le schéma sont référencées par la requête.
+- Des modifications de données dans les tables sont référencées par la requête. 
+- Des options de contexte de requête ont été changées.
 
-Une recompilation (ou une nouvelle compilation après expulsion du cache) peut toujours aboutir à la génération d’un plan d’exécution de requête identique à celui observé à l’origine.  S’il y a des changements au plan par rapport au plan précédent ou original, les explications suivantes sont les plus courantes pour expliquer pourquoi un plan d’exécution de requête a changé :
+Un plan compilé peut être supprimé du cache pour plusieurs raisons. Par exemple :
 
-- **Modification d’étude de réalisation**. Par exemple, de nouveaux index ont été créés pour couvrir plus efficacement les exigences d’une requête. Les nouveaux index peuvent être utilisés sur une nouvelle compilation si l’optimiseur de requête décide qu’il est plus optimal d’utiliser ce nouvel index que la structure de données initialement sélectionnée pour la première version de l’exécution de la requête.  Toute modification de réalisation des objets référencés peut entraîner un nouveau choix de plan au moment de la compilation.
+- Redémarrages d’instance.
+- Changements de configuration à l’échelle de la base de données.
+- Sollicitation de la mémoire.
+- Requêtes explicites d’effacement du cache.
 
-- **Différences au niveau des ressources du serveur**. Dans un scénario où un plan diffère entre le « système A » et le « système B » : la disponibilité des ressources, comme le nombre de processeurs disponibles, peut influer sur le plan généré.  Par exemple, si un système a un nombre plus élevé de processeurs, un plan parallèle peut être choisi. 
+Si vous utilisez un indicateur RECOMPILE, le plan n’est pas mis en cache.
 
-- **Statistiques différentes**. Les statistiques associées aux objets référencés ont changé ou sont matériellement différentes des statistiques du système original.  Si les statistiques changent et qu’une recompilation a lieu, l’optimiseur de requêtes utilisera les statistiques à partir de ce moment précis. Les statistiques révisées peuvent avoir des distributions et des fréquences de données différentes de celles dans la compilation initiale.  Ces changements servent à estimer les estimations de cardinalité (nombre de lignes qui devraient passer dans l’arbre logique des requêtes).  Les changements apportés aux estimations de cardinalité peuvent nous amener à choisir différents opérateurs physiques et l’ordre d’opération associé.  Même des modifications mineures apportées aux statistiques peuvent entraîner une modification du plan d’exécution de la requête.
+Une recompilation (ou une nouvelle compilation après éviction du cache) peut toujours aboutir à la génération d’un plan d’exécution de requête identique au plan initial. Quand le plan change par rapport au plan précédent ou au plan initial, cela s’explique généralement par l’une des raisons suivantes :
 
-- **Modification du niveau de compatibilité de la base de données ou de la version de l’estimateur de cardinalité**.  Les modifications apportées au niveau de compatibilité de la base de données peuvent donner lieu à de nouvelles stratégies et caractéristiques qui peuvent entraîner un plan d’exécution des requêtes différent.  Au-delà du niveau de compatibilité de la base de données, la désactivation ou l’activation de l’indicateur de trace 4199 ou la modification de l’état de la configuration de la base de données étendue QUERY_OPTIMIZER_HOTFIXES peuvent également influencer les choix du plan d’exécution des requêtes lors de la compilation.  Les indicateurs de trace 9481 (forcer le CE hérité) et 2312 (forcer le CE par défaut) sont également affectés par le plan. 
+- **Modification de la conception physique** : par exemple, de nouveaux index créés couvrent plus efficacement les exigences d’une requête. Les nouveaux index peuvent être utilisés sur une nouvelle compilation si l’optimiseur de requête juge que l’utilisation des nouveaux index aboutit à un plan plus optimal que l’utilisation de la structure de données qui avait été initialement sélectionnée pour la première version de l’exécution de la requête.  Toute modification physique des objets référencés peut entraîner un nouveau choix de plan au moment de la compilation.
+
+- **Différences au niveau des ressources serveur** : quand un plan d’un système diffère du plan d’un autre système, la disponibilité des ressources, comme le nombre de processeurs disponibles, peut déterminer le choix du plan généré.  Par exemple, si un système a davantage de processeurs, un plan parallèle peut être choisi. 
+
+- **Statistiques différentes** : les statistiques associées aux objets référencés ont peut-être changé ou sont peut-être matériellement différentes par rapport aux statistiques du système initiales.  Si les statistiques changent et qu’une recompilation a lieu, l’optimiseur de requête utilise les statistiques à partir du changement. Les fréquences et distributions de données indiquées dans les statistiques révisées peuvent différer de celles de la compilation initiale.  Ces changements sont utilisés pour estimer la cardinalité. (Les *estimations de cardinalité* correspondent au nombre de lignes qui sont supposées être transmises dans l’arborescence de requêtes logique.) Les changements apportés aux estimations de cardinalité peuvent vous amener à choisir des opérateurs physiques et ordres d’opérations associés différents.  Même des modifications mineures apportées aux statistiques peuvent entraîner une modification du plan d’exécution de la requête.
+
+- **Changement du niveau de compatibilité de la base de données ou de la version de l’estimateur de cardinalité** :  un changement du niveau de compatibilité de la base de données peut donner lieu à de nouvelles stratégies et caractéristiques qui peuvent entraîner un plan d’exécution de requête différent.  Au-delà du niveau de compatibilité de la base de données, l’activation ou la désactivation d’un indicateur de trace 4199 ou bien un changement d’état de l’indicateur QUERY_OPTIMIZER_HOTFIXES de configuration à l’échelle de la base de données peuvent également impacter les choix de plan d’exécution de requête au moment de la compilation.  Les indicateurs de trace 9481 (forcer le CE hérité) et 2312 (forcer le CE par défaut) impactent également le choix du plan. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Résoudre les requêtes de problème ou fournir davantage de ressources
 
-Une fois que vous avez identifié le problème, vous pouvez soit optimiser les requêtes associées, ou bien mettre à niveau la taille de calcul ou le niveau de service de façon à augmenter la capacité de votre base de données Azure SQL pour absorber les besoins en ressources de processeur. Pour plus d’informations sur la mise à l’échelle des ressources pour les bases de données uniques, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et, pour la mise à l’échelle des ressources pour les pools élastiques, consultez [Mettre à l’échelle des ressources de pool élastique dans Azure SQL Database](sql-database-elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance gérée, consultez [Limites de ressources au niveau d’une instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Après avoir identifié le problème, vous pouvez soit optimiser les requêtes posant problème, soit changer la taille de calcul ou le niveau de service de façon à augmenter la capacité de votre base de données SQL pour répondre aux besoins en ressources de processeur. 
 
-### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Déterminer si les problèmes d’exécution sont dus à l’augmentation du volume de charge de travail
+Pour plus d’informations, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et [Mettre à l’échelle un pool élastique dans Azure SQL Database](sql-database-elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance managée, consultez [Limites de ressources au niveau de l’instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 
-Une augmentation de la charge de travail et du trafic d’application peut expliquer l’augmentation de l’utilisation de l’UC, mais vous devez veiller à diagnostiquer correctement ce problème. Dans un scénario avec une UC élevée, répondez aux questions suivantes pour déterminer si une augmentation de l’UC est effectivement due à des modifications du volume de charge de travail :
+### <a name="performance-problems-caused-by-increased-workload-volume"></a>Problèmes de performances dus à une hausse du volume de la charge de travail
 
-1. Les requêtes de l’application sont-elles à l’origine du problème d’UC élevée ?
-2. Pour les principales requêtes de consommation d’UC (qui peuvent être identifiées) :
+Une hausse du trafic d’application et du volume de la charge de travail peut entraîner une plus forte sollicitation du processeur. Prenez toutefois le temps de bien diagnostiquer ce problème. Si vous constatez un problème d’utilisation intensive du processeur, posez-vous ces questions pour déterminer si la hausse est due à une variation du volume de la charge de travail :
 
-   - Déterminez s’il y a plusieurs plans d’exécution associés à la même requête. Le cas échéant, déterminez pourquoi.
-   - Pour les requêtes avec le même plan d’exécution, déterminez si les durées d’exécution sont cohérentes et si le nombre d’exécutions a augmenté. Si oui, il existe probablement des problèmes de performances en raison d’une augmentation de charge de travail.
+- Les requêtes de l’application sont-elles à l’origine du problème d’utilisation intensive du processeur ?
+- Pour les requêtes qui sont les plus grosses consommatrices du processeur, analysez les points suivants :
 
-Pour résumer, si le plan d’exécution de requête ne s’est pas exécuté de façon différente, mais que l’utilisation de l’UC a augmenté avec le nombre d’exécutions, il existe probablement un problème de performances en lien avec une augmentation de charge de travail.
+   - Y avait-il plusieurs plans d’exécution associés à la même requête ? Le cas échéant, pour quelle raison ?
+   - Entre les requêtes ayant le même plan d’exécution, les temps d’exécution étaient-ils similaires ? Y a-t-il eu davantage d’exécutions ? Si c’est le cas, la hausse de la charge de travail est probablement à l’origine des problèmes de performances.
 
-Il est souvent difficile d’arriver à la conclusion qu’une modification de charge de travail est à l’origine d’un problème d’UC.   Facteurs à prendre en considération : 
+En résumé, si le plan d’exécution de requête s’est exécuté de la même manière, mais que l’utilisation du processeur a augmenté en même temps que le nombre d’exécutions, le problème de performances est probablement lié à une hausse de la charge de travail.
 
-- **Modification de l’utilisation des ressources**
+Il est souvent difficile d’identifier qu’une variation du volume de la charge de travail est à l’origine d’un problème d’utilisation du processeur. Tenez compte de ces facteurs : 
 
-  Par exemple, imaginez un scénario où l’UC a enregistré une augmentation de 80 % pendant une période de temps prolongée.  L’utilisation de l’UC uniquement ne signifie pas que le volume de charge de travail a été modifié.  Des modifications de la distribution des données et des régressions du plan d’exécution de requête peuvent également contribuer à une utilisation plus élevée des ressources, même si l’application exécute la même charge de travail.
+- **Changement dans l’utilisation des ressources** : par exemple, imaginez un scénario où l’utilisation du processeur a enregistré une hausse de 80 pour cent durant une période prolongée.  Cela ne suffit pas pour conclure à une variation du volume de la charge de travail. Des régressions dans le plan d’exécution de requête et des changements dans la distribution des données peuvent également entraîner une plus grande utilisation des ressources, même si l’application exécute la même charge de travail.
 
-- **Une nouvelle requête est apparue**
+- **Apparence d’une nouvelle requête** : une application peut exécuter un nouvel ensemble de requêtes à des moments différents.
 
-   Une application peut exécuter un nouvel ensemble de requêtes à des moments différents.
+- **Augmentation ou diminution du nombre de requêtes** : ce scénario constitue la mesure la plus évidente de la charge de travail. Le nombre de requêtes ne correspond pas toujours à une augmentation de l’utilisation des ressources. Toutefois, cette mesure est toujours un signal important, qui suppose que d’autres facteurs restent inchangés.
 
-- **Le nombre de requêtes a augmenté ou diminué**
+## <a name="waiting-related-performance-problems"></a>Problèmes de performances liés à l’attente 
 
-   Ce scénario est la mesure la plus évidente de charge de travail. Le nombre de requêtes ne correspond pas toujours à une augmentation de l’utilisation des ressources. Toutefois, cette mesure est toujours un signal important, qui suppose que d’autres facteurs restent inchangés.
+Si vous êtes sûr que votre problème de performances n’est pas lié à une utilisation intensive du processeur ou à l’exécution, le problème est lié à l’attente. Autrement dit, vos ressources processeur ne sont pas utilisées efficacement, car le processeur est en attente d’une autre ressource. Dans ce cas, identifiez quelles ressources attend le processeur. 
 
-## <a name="waiting-related-performance-issues"></a>Problèmes de performances liés à l’attente
+Ces méthodes sont couramment utilisées pour afficher les principales catégories de types d’attentes :
 
-Après vous être assuré qu’il ne s’agit pas d’un problème de performances lié à l’exécution, avec une utilisation intensive de l’UC, vous êtes confronté à un problème de performances lié à l’attente. Autrement dit, vos ressources de processeur ne sont pas utilisées efficacement car le processeur est en attente d’une autre ressource. Dans ce cas, l’étape suivante consiste à identifier ce qu’attendent vos ressources de processeur. Les méthodes les plus courantes pour visualiser les catégories des types d’attentes les plus longues sont les suivantes :
+- Utilisez le [Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour avoir des statistiques sur les attentes par requête dans le temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Vous pouvez consulter une table de mappage des catégories d’attentes avec les types d’attentes dans [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Utilisez [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) pour retourner des informations sur toutes les attentes rencontrées par les threads exécutés pendant l’opération. Vous pouvez utiliser cette vue agrégée pour diagnostiquer les problèmes de performances avec Azure SQL Database, ainsi qu’avec des requêtes et des lots spécifiques.
+- Utilisez [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) pour retourner des informations sur la file d’attente des tâches qui sont en attente de certaines ressources.
 
-- Le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fournit des statistiques sur les attentes par requête au fil du temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Le mappage des catégories d’attentes au types d’attentes est disponible dans [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retourne des informations sur toutes les attentes rencontrées par les threads exécutés pendant l’opération. Vous pouvez utiliser cette vue agrégée pour diagnostiquer les problèmes de performances avec Azure SQL Database, ainsi qu’avec des requêtes et des lots spécifiques.
-- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retourne des informations sur la file d’attente des tâches qui sont en attente de certaines ressources.
+Dans les scénarios d’utilisation intensive du processeur, le Magasin des requêtes et les statistiques d’attente ne reflètent pas forcément l’utilisation du processeur dans les cas suivants :
 
-Dans les scénarios avec une UC élevée, le Magasin de données des requêtes et les statistiques d’attente ne reflètent pas toujours l’utilisation de l’UC pour deux raisons :
+- Des requêtes grandes consommatrices de ressources processeur sont toujours en cours d’exécution.
+- Les requêtes consommant beaucoup de ressources processeur étaient en cours d’exécution au moment d’un basculement.
 
-- Des requêtes de consommation élevée d’UC peuvent toujours être en cours d’exécution et les requêtes non terminées
-- Les requêtes consommant beaucoup d’UC étaient en cours d’exécution quand un basculement s’est produit
+Les vues de gestion dynamiques qui font le suivi des données du Magasin des requêtes et des statistiques d’attente affichent des résultats uniquement pour les requêtes terminées avec succès et les requêtes ayant expiré. Elles n’affichent pas de données ayant trait aux instructions en cours d’exécution tant que ces instructions ne sont pas terminées. Utilisez la vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) pour suivre les requêtes en cours d’exécution et la durée du worker associé.
 
-Le Magasin de données des requêtes et les vues de gestion dynamique du suivi des statistiques d’attente affichent uniquement des résultats pour les requêtes ayant expiré ou ayant été complètement terminées, et n’affichent pas de données pour les instructions en cours d’exécution (tant qu’elles ne sont pas terminées). La vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vous permet de suivre les requêtes en cours d’exécution et la durée du rôle de travail associé.
-
-Comme illustré dans le graphique précédent, les attentes les plus courantes sont :
+Comme le montre le graphique au début de cet article, les attentes les plus fréquentes sont les suivantes :
 
 - Verrous (blocage)
 - E/S
-- Contention liée à `tempdb`
+- Contention liée à TempDB
 - Attentes d’allocation de mémoire
 
 > [!IMPORTANT]
-> Pour obtenir un ensemble de requêtes T-SQL utilisant ces vues de gestion dynamique pour résoudre ces problèmes d’attente, consultez les sections suivantes :
+> Pour voir les requêtes T-SQL qui utilisent des vues de gestion dynamiques pour résoudre les problèmes liés à l’attente, consultez :
 >
 > - [Identifier les problèmes de performances d’E/S](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
-> - [Identifier les problèmes de performances `tempdb`](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identifier les attentes d’allocation de mémoire](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-> - [TigerToolbox : attentes et verrous](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-> - [TigerToolbox : usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> - [Attentes et verrous TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
-## <a name="improving-database-performance-with-more-resources"></a>Amélioration des performances de base de données avec davantage de ressources
+## <a name="improve-database-performance-with-more-resources"></a>Améliorer les performances de la base de données avec davantage de ressources
 
-Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Attribuez davantage de ressources en modifiant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données unique, ou augmenter les eDTU d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), changez le niveau de service ou augmentez les ressources allouées à votre base de données.
+Si aucun des éléments actionnables ne réussit à améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Attribuez davantage de ressources en changeant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données unique. Vous pouvez aussi augmenter les eDTU d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), changez le niveau de service ou augmentez les ressources allouées à votre base de données.
 
-1. Pour les bases de données uniques, vous pouvez [changer les niveaux de service](sql-database-single-database-scale.md) et les [ressources de calcul](sql-database-single-database-scale.md) à la demande afin d’améliorer les performances.
-2. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
+Pour les bases de données uniques, vous pouvez [changer les niveaux de service ou les tailles de calcul](sql-database-single-database-scale.md) à la demande afin d’améliorer leurs performances. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Régler et refactoriser le code d’une application ou d’une base de données
 
-Vous pouvez modifier le code d’une application pour optimiser l’utilisation de la base de données, modifier des index, forcer des plans ou utiliser des conseils afin d’adapter manuellement la base de données à votre charge de travail. Pour obtenir des directives et des conseils sur le réglage manuel et la réécriture du code, consultez la [rubrique de conseils de performances](sql-database-performance-guidance.md).
+Vous pouvez optimiser le code d’application pour la base de données, modifier des index, forcer des plans, ou appliquer des conseils afin d’adapter manuellement la base de données à votre charge de travail. Pour plus d’informations sur le réglage manuel et la réécriture du code, consultez les [conseils de réglage des performances](sql-database-performance-guidance.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour activer le réglage automatique dans Azure SQL Database et permettre à cette fonction de gérer entièrement votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).
-- Pour utiliser le réglage manuel, vous pouvez consulter les [recommandations de réglage dans le portail Azure](sql-database-advisor-portal.md) et appliquer manuellement les recommandations qui amélioreront les performances de vos requêtes.
-- Modifier les ressources disponibles dans votre base de données en changeant les [niveaux de service Azure SQL Database](sql-database-performance-guidance.md)
+- Pour activer le réglage automatique dans Azure SQL Database et laisser cette fonctionnalité gérer entièrement votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).
+- Pour utiliser le réglage manuel, passez en revue les [recommandations de réglage dans le portail Azure](sql-database-advisor-portal.md). Appliquez manuellement les recommandations qui améliorent les performances de vos requêtes.
+- Modifiez les ressources disponibles dans votre base de données en changeant les [niveaux de service Azure SQL Database](sql-database-performance-guidance.md).

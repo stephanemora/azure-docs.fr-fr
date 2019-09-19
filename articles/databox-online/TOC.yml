@@ -51,7 +51,9 @@
           href: data-box-edge-contact-microsoft-support.md
     - name: Notes de publication
       items:
-        - name: 1905 - À jour
+        - name: 1906 - Actuel
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
           href: data-box-gateway-1905-release-notes.md
         - name: Disponibilité générale
           href: data-box-gateway-release-notes.md
@@ -115,7 +117,9 @@
           href: data-box-edge-return-device.md
     - name: Notes de publication
       items:
-        - name: 1905 - À jour
+        - name: 1906 - Actuel
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
           href: data-box-gateway-1905-release-notes.md
         - name: Disponibilité générale
           href: data-box-gateway-release-notes.md

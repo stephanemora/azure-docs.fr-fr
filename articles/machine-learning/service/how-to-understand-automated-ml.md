@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062135"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860563"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
 
@@ -30,10 +30,10 @@ Pour en savoir plus :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
-* Créez une expérience Machine Learning automatisée, soit avec le kit de développement logiciel (SDK), soit dans le Portail Microsoft Azure.
+* Créez une expérience de Machine Learning automatisé à l’aide du kit SDK, du portail Azure ou de la page d’accueil de votre espace de travail (préversion).
 
     * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
-    * Utilisez le [Portail Microsoft Azure](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en téléchargeant les données appropriées.
+    * Utilisez [le portail Azure ou la page d’accueil de votre espace de travail (préversion)](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
 
 ## <a name="view-the-run"></a>Afficher l’exécution
 
@@ -102,7 +102,7 @@ weighted_accuracy|La précision pondérée est la précision où le poids donné
 
 Une matrice de confusion décrit les performances d’un modèle de classification. Chaque ligne affiche les instances de la classe true, et chaque colonne représente les instances de la classe prévue. La matrice de confusion montre les étiquettes bien et mal classées pour un modèle donné.
 
-Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, le ML automatisé affiche les étiquettes bien classées en vert, et les étiquettes mal classées en rouge. La taille du cercle représente le nombre d’échantillons dans cet emplacement. En outre, la fréquence de chaque étiquette prévue et chaque étiquette true est fournie dans les graphiques à barres adjacents. 
+Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, l’apprentissage automatique automatisé présente la fréquence de chaque étiquette prédite et chaque intersection d’étiquette vraie. Plus la couleur est sombre, plus le nombre dans cette partie de la matrice est élevé. Idéalement, les couleurs les plus sombres se trouvent le long de la diagonale de la matrice. 
 
 Exemple 1 : Modèle de classification avec précision médiocre ![Modèle de classification avec précision médiocre](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

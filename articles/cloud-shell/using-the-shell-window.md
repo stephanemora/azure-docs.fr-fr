@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
-ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200610"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860326"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Utilisation de la fenêtre Azure Cloud Shell
 
@@ -48,7 +48,7 @@ Cliquez sur l’icône des paramètres en haut à gauche de la fenêtre, puis po
 Dans le coin supérieur gauche de la fenêtre, cliquez sur l’icône Charger/Télécharger des fichiers, puis sélectionnez Charger ou Télécharger.  
 ![Charger/Télécharger des fichiers](media/using-the-shell-window/uploaddownload.png)
 * Pour télécharger des fichiers, utilisez la fenêtre contextuelle pour accéder au fichier sur votre ordinateur local, sélectionnez le fichier souhaité et cliquez sur le bouton « Ouvrir ».  Le fichier sera téléchargé dans le répertoire `/home/user`.
-* Pour télécharger des fichiers, entrez le chemin d’accès complet dans la fenêtre contextuelle, puis sélectionnez le bouton « Télécharger ».  
+* Pour télécharger le fichier, entrez le chemin complet du fichier dans la fenêtre contextuelle (c’est-à-dire en fait un chemin sous le répertoire `/home/user` qui s’affiche par défaut), puis sélectionnez le bouton « Télécharger ».  
 > [!NOTE] 
 > Les noms de fichiers et les chemins d’accès complets respectent la casse dans Cloud Shell. Vérifiez soigneusement votre emploi des minuscules/majuscules lorsque vous tapez le chemin d’accès d’un fichier.
 

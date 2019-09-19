@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 8b4b6549f9553773cc44c311f49befbb3eec9dc9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8de464a00867dd397f28de1dc35cf264244f6905
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233095"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743259"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurer votre application App Service pour utiliser une connexion Azure Active Directory
 
@@ -81,6 +81,9 @@ Lorsque vous créez une inscription d’application manuellement, notez les troi
     |ID d'émetteur| Utilisez `https://login.microsoftonline.com/<tenant-id>` et remplacez *\<tenant-id>* par l'**ID de l'annuaire (locataire)** de l'inscription de l'application. |
     |Clé secrète client (facultative)| Utilisez la clé secrète client que vous avez générée lors de l’inscription de l’application.|
     |Audiences de jeton autorisées| S’il s’agit d'une application *back-end* et que vous souhaitez autoriser les jetons d’authentification à partir d’une application frontale, ajoutez l'**URI d'ID d'application** du *serveur frontal* ici. |
+
+    > [!NOTE]
+    > L’**ID client** configuré est *toujours* implicitement considéré comme étant une audience autorisée, quelle que soit la façon dont vous avez configuré les **audiences de jeton autorisées**.
 1. Sélectionnez **OK**, puis cliquez sur **Enregistrer**.
 
 Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentification dans votre application App Service.

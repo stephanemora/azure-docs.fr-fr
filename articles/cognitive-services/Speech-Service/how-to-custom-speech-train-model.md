@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562821"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801470"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 
@@ -37,13 +37,14 @@ Si vous rencontrez des problèmes de reconnaissance avec votre modèle, l’util
 
 La première étape pour entraîner un modèle consiste à charger des données d’entraînement. Consultez [Préparer et tester les données](how-to-custom-speech-test-data.md) pour préparer des transcriptions étiquetées à la main et du texte associé (énoncés et prononciations) en suivant des instructions pas à pas. Après avoir chargé des données d’entraînement, suivez ces instructions pour commencer à entraîner votre modèle :
 
-1. Accédez à **Speech-to-text > Custom Speech > Training**.
-2. Cliquez sur **Train model**.
-3. Ensuite, nommez et décrivez votre entraînement dans les champs **Name** et **Description**.
-4. À partir du menu déroulant **Scenario and Baseline model** (Scénario et modèle de référence), sélectionnez le scénario qui correspond le mieux à votre domaine. Si vous ne savez pas quel scénario choisir, sélectionnez **General**. Le modèle de référence est le point de départ de votre entraînement. Si vous n’avez pas de préférence, vous pouvez utiliser la dernière version.
-5. Dans la page **Select training data** (Sélectionner les données d’entraînement), choisissez le ou les jeux de données de transcriptions audio + étiquetées à la main à utiliser pour l’entraînement.
-6. Une fois l’entraînement terminé, vous pouvez choisir d’effectuer le test de précision sur le modèle nouvellement entraîné. Cette étape est facultative.
-7. Sélectionnez **Create** pour générer votre modèle personnalisé.
+1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
+2. Accédez à **Speech-to-text > Custom Speech > Training**.
+3. Cliquez sur **Train model**.
+4. Ensuite, nommez et décrivez votre entraînement dans les champs **Name** et **Description**.
+5. À partir du menu déroulant **Scenario and Baseline model** (Scénario et modèle de référence), sélectionnez le scénario qui correspond le mieux à votre domaine. Si vous ne savez pas quel scénario choisir, sélectionnez **General**. Le modèle de référence est le point de départ de votre entraînement. Si vous n’avez pas de préférence, vous pouvez utiliser la dernière version.
+6. Dans la page **Select training data** (Sélectionner les données d’entraînement), choisissez le ou les jeux de données de transcriptions audio + étiquetées à la main à utiliser pour l’entraînement.
+7. Une fois l’entraînement terminé, vous pouvez choisir d’effectuer le test de précision sur le modèle nouvellement entraîné. Cette étape est facultative.
+8. Sélectionnez **Create** pour générer votre modèle personnalisé.
 
 La table Training (Entraînement) comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état :  Processing, Succeeded, Failed (En cours de traitement, Réussite, Échec).
 

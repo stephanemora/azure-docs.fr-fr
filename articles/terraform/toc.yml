@@ -1,17 +1,17 @@
 - name: Documentation relative à Terraform sur Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Terraform sur Azure
       href: terraform-overview.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une application multiservice
-      href: terrafom-quickstart.md
     - name: Installer et configurer Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: Créer une application multiservice
+      href: terrafom-quickstart.md
     - name: Créer une machine virtuelle Linux
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -67,10 +67,6 @@
   items:
     - name: Modèles de configuration
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Concepts
-  items:
-    - name: Intégration d’Azure Cloud Shell
-      href: terraform-cloud-shell.md
 - name: Guides pratiques
   items:
     - name: Stocker un état dans Stockage Azure
@@ -79,7 +75,7 @@
   items:
     - name: Registre du module Azure
       href: 'https://registry.terraform.io/modules/Azure'
-    - name: Référence de Terraform
+    - name: Terraform Azure Provider
       href: 'https://aka.ms/terraform'
 - name: Ressources
   items:

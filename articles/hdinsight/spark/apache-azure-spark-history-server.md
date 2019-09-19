@@ -1,19 +1,19 @@
 ---
-title: Utiliser le serveur d’historique Spark étendu pour déboguer et diagnostiquer des applications Spark - Azure HDInsight
+title: Serveur d’historique Spark étendu pour déboguer des applications Spark - Azure HDInsight
 description: Utilisez le serveur d’historique Spark étendu pour déboguer et diagnostiquer des applications Spark – Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377246"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736470"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -300,7 +300,7 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
 
 **Pour utiliser le fichier Bash sur le Portail Azure**
 
-1. Lancez le [Portail Azure](https://ms.portal.azure.com), puis sélectionnez votre cluster.
+1. Lancez le [portail Azure](https://ms.portal.azure.com), puis sélectionnez votre cluster.
 2. Cliquez sur **Actions de script**, puis **Soumettre une nouvelle action de script**. Remplissez le formulaire **Soumettre une action de script**, puis cliquez sur le bouton **Créer**.
     
     + **Type de script** : sélectionnez **Personnalisé**.

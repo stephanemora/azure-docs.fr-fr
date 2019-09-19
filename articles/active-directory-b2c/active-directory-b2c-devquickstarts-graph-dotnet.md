@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88b1d05a47f4a8267ab936a922ac190a925bd5ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510177"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880095"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
 
@@ -42,13 +42,15 @@ Une fois que vous avez un locataire B2C, vous devez inscrire votre application �
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD B2C en sélectionnant votre compte dans le coin supérieur droit de la page.
-3. Dans le volet de navigation de gauche, choisissez **Tous les services**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Ajouter**.
+3. Dans le volet de navigation de gauche, choisissez **Tous les services**, cliquez sur **Inscriptions des applications**, puis sur **Nouvelle inscription**.
 4. Suivez les invites et créez une application. 
-    1. Sélectionnez **Application web/API** en tant que Type d’application.    
-    2. Fournissez **n’importe quelle URL de connexion** (par exemple, `https://B2CGraphAPI`), cela n’a pas d’importance dans cet exemple.  
+    1. Ajouter un nom approprié
+    2. Sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
+    3. Sélectionnez **Web** comme type d’application et indiquez n’importe quelle **URL de connexion** (par exemple, `https://B2CGraphAPI`), car cela n’a pas d’importance dans cet exemple.  
+    4. Cliquez sur S’inscrire.
 5. L’application va maintenant s’afficher dans la liste des applications. Cliquez sur celle-ci pour obtenir l’**ID de l’application** (également appelé ID client). Copiez-le, car vous en aurez besoin dans une section ultérieure.
-6. Dans le menu Paramètres, cliquez sur **Clés**.
-7. Dans la section **Mots de passe**, saisissez la description de la clé, sélectionnez une durée, puis cliquez sur **Enregistrer**. Copiez la valeur de clé (également appelé Clé secrète client) pour l’utiliser dans une section ultérieure.
+6. Dans le menu Paramètres, cliquez sur **Certificats et secrets**.
+7. Dans la section **Secrets client**, cliquez sur **Nouveau secret client**, fournissez une description pour le secret, sélectionnez une durée, puis cliquez sur **Ajouter**. Copiez la valeur du secret (également appelé Secret client) pour l’utiliser dans une prochaine section.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurer les autorisations Créer, Lire et Mettre à jour pour votre application
 Vous devez maintenant configurer votre application pour obtenir toutes les autorisations requises pour créer, lire, mettre à jour et supprimer des utilisateurs.

@@ -1,7 +1,7 @@
 ---
-title: Utiliser ML automatisé pour créer et déployer des modèles Machine Learning
+title: Utiliser l’interface de ML automatisé d’Azure pour entraîner et déployer des modèles
 titleSuffix: Azure Machine Learning service
-description: Créez, gérez et déployez des expériences Machine Learning automatisé dans le portail Azure
+description: Créez, gérez et déployez des expériences de Machine Learning automatisé dans la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
-ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 09/09/2019
+ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990587"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910415"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Créez, explorez et déployez des expériences Machine Learning automatisé dans le portail Azure (préversion)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion)
 
- Dans cet article, vous allez apprendre à créer, explorer et déployer des expériences Machine Learning automatisé dans le portail Azure, sans la moindre ligne de code. Le Machine Learning automatisé automatise le processus de sélection de l'algorithme le plus adapté à vos données, et vous permet de générer rapidement un modèle Machine Learning. [Apprenez-en davantage sur Machine Learning automatisé](concept-automated-ml.md).
+ Dans cet article, vous allez apprendre à créer, explorer et déployer des expériences de Machine Learning automatisé dans la page d’accueil de l’espace de travail Azure Machine Learning, sans la moindre ligne de code. Le Machine Learning automatisé automatise le processus de sélection de l'algorithme le plus adapté à vos données, et vous permet de générer rapidement un modèle Machine Learning. [Apprenez-en davantage sur Machine Learning automatisé](concept-automated-ml.md).
 
  Si vous préférez une expérience basée sur du code, vous pouvez également [configurer vos expériences Machine Learning dans Python](how-to-configure-auto-train.md) avec le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -32,21 +32,26 @@ ms.locfileid: "68990587"
 
 ## <a name="get-started"></a>Prise en main
 
-Accédez au volet gauche de votre espace de travail. Sélectionnez Machine Learning automatisé sous la section Création (préversion).
 
-![Volet de navigation du portail Azure](media/how-to-create-portal-experiments/nav-pane.png)
+1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/workspaceportal/). 
 
- S’il s’agit de vos premières expériences, vous verrez l’écran **Bienvenue dans le Machine Learning automatisé**. 
+1. Sélectionnez votre abonnement et votre espace de travail. 
+
+1. Accédez au volet gauche. Sélectionnez **Automated ML** (ML automatisé) sous la section **Authoring** (Création).
+
+[![Volet de navigation du portail Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ S’il s’agit de vos premières expériences, l’écran **Get started** (Démarrer) s’affiche. 
 
 Sinon, votre tableau de bord **Machine Learning automatisé** s’affiche, offrant une vue d’ensemble de toutes vos expériences Machine Learning automatisé, dont celles créées avec le kit SDK. Là, vous pouvez filtrer et explorer vos exécutions par date, nom d'expérience et état d’exécution.
 
-## <a name="create-an-experiment"></a>Création d'une expérience
+## <a name="create-and-run-experiment"></a>Créer et exécuter une expérience
 
-Sélectionnez **Créer une expérience** et remplissez le formulaire **Create a new automated machine learning experiment** (Créer une expérience Machine Learning automatisé).
+1. Sélectionnez **Create Experiment** (Créer une expérience) et remplissez le formulaire.
 
 1. Entrez un nom d’expérience unique.
 
-1. Sélectionnez un calcul pour le profilage de données et le travail de formation. Vos calculs existants sont disponibles dans la liste déroulante. Pour créer un nouveau calcul, suivez les instructions de l’étape 3.
+1. Sélectionnez un calcul pour le profilage de données et le travail de formation. Vos calculs existants sont disponibles dans la liste déroulante. Pour créer un calcul, suivez les instructions de l’étape 4.
 
 1. Sélectionnez **Créer un nouveau calcul** afin de configurer votre contexte de calcul pour cette expérience.
 
@@ -55,32 +60,40 @@ Sélectionnez **Créer une expérience** et remplissez le formulaire **Create a 
     Nom du calcul| Entrez un nom unique qui identifie votre contexte de calcul.
     Taille de la machine virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.
     Paramètres supplémentaires| *Nœuds min* : Entrez le nombre minimal de nœuds pour votre calcul. Le nombre minimal de nœuds pour un calcul AML est 0. Pour activer le profilage des données, vous devez disposer d'un nœud minimum. <br> *Nœuds max* : Entrez le nombre maximal de nœuds pour votre calcul. La valeur par défaut est de 6 nœuds pour un calcul AML.
+    
+    Sélectionnez **Create** (Créer). La création d’un calcul peut prendre quelques minutes.
 
-      Sélectionnez **Créer**. La création d’un calcul peut prendre quelques minutes.
+    >[!NOTE]
+    > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d’informations, consultez la section sur le [profilage des données](#profile)).
 
-      >[!NOTE]
-      > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d'informations sur le profilage des données, consultez la section 7b).
+1. Sélectionnez un jeu de données de votre conteneur de stockage ou créez-en un en chargeant un fichier de votre ordinateur local sur le conteneur. La préversion publique prend uniquement en charge les chargements de fichiers locaux et les comptes de stockage d’objets blob Azure.
 
-1. Sélectionnez un compte de stockage pour vos données. 
-
-1. Sélectionnez un conteneur de stockage.
-
-1. Sélectionnez un fichier de données de votre conteneur de stockage ou chargez un fichier de votre ordinateur local vers le conteneur. La préversion publique prend uniquement en charge les chargements de fichiers locaux et les comptes Stockage Blob Azure.
     >[!Important]
     > Configuration requise pour les données de formation :
     >* Les données doivent être sous forme tabulaire.
     >* La valeur que vous souhaitez prédire (colonne cible) doit être présente dans les données.
 
-    [![Sélectionner le fichier de données](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. Pour créer un jeu de données à partir d’un fichier sur votre ordinateur local, sélectionnez **Browse** (Parcourir), puis sélectionnez le fichier. 
 
-1. Utilisez les onglets Aperçu et Profil pour configurer plus précisément les données pour cette expérience.
+    1. Donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
 
-    1. Sous l’onglet **Aperçu**, indiquez si vos données incluent des en-têtes et sélectionnez les caractéristiques (colonnes) pour l’entraînement à l’aide du bouton bascule **Inclus** de chaque colonne de caractéristiques.
+    1. Sélectionnez **Next** (Suivant) pour le charger dans le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou choisissez un conteneur de stockage à utiliser pour l’expérience. 
 
-    1. Sous l’onglet **Profil**, vous pouvez afficher le [profil de données](#profile) par caractéristique, ainsi que la distribution, le type et un résumé des statistiques (moyennes, médianes, max/min, etc.) de chacune.
+    1. Vérifiez l’exactitude du formulaire **Settings and preview** (Paramètres et aperçu). Le formulaire est rempli intelligemment en fonction du type de fichier. 
 
-        >[!NOTE]
-        > Le message d’erreur suivant s'affiche si le profilage de votre contexte de calcul n'est **pas** activé : *Le profilage des données est disponible uniquement pour les cibles de calcul déjà en cours d’exécution*.
+        Champ| Description
+        ----|----
+        Format de fichier| Définit la disposition et le type des données stockées dans un fichier.
+        Délimiteur| Un ou plusieurs caractères utilisés pour spécifier la limite entre des régions indépendantes et séparées dans du texte brut ou d’autres flux de données.
+        Encodage| Identifie la table de schéma bits/caractères à utiliser pour lire votre jeu de données.
+        En-têtes de colonne| Indique la façon dont les éventuels en-têtes du jeu de données sont traités.
+        Ignorer les lignes | Indique le nombre éventuel de lignes ignorées dans le jeu de données.
+    
+        Sélectionnez **Suivant**.
+
+    1. Le formulaire **Schéma** est rempli intelligemment en fonction des sélections effectuées dans le formulaire **Paramètres et aperçu**. Ici, configurez le type de données pour chaque colonne, passez en revue les noms des colonnes et sélectionnez celles à **ne pas inclure** dans votre expérience. 
+            
+        Sélectionnez **Next** (Suivant).
 
 1. Sélectionnez le type de travail de formation : classification, régression ou prévisions.
 
@@ -91,7 +104,7 @@ Sélectionnez **Créer une expérience** et remplissez le formulaire **Create a 
 
     1. Sélectionnez l'horizon de prévision : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
 
-1. (Facultatif) Paramètres avancés : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation.
+1. (Facultatif) Paramètres avancés : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
 
     Paramètres avancés|Description
     ------|------
@@ -162,7 +175,7 @@ Dans le cadre des travaux de formation, l'exécution de chaque pipeline peut né
 
 Explorez les modèles de sortie pour afficher les détails de l’exécution, tels que les métriques de performances et les graphiques de distribution. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
 
-![Détails d'itération](media/how-to-create-portal-experiments/iteration-details.png)
+[![Détails de l’itération](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Déployer votre modèle
 
@@ -175,7 +188,8 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
     + Option 1 : Pour déployer le meilleur modèle selon les critères de métrique que vous avez définis, sélectionnez Déployer le meilleur modèle dans la page Détails de l’exécution.
 
     + Option 2 : Pour déployer une itération de modèle spécifique à partir de cette expérience, explorez le modèle pour ouvrir sa page Détails de l’exécution, puis sélectionnez Déployer le modèle.
-1. Renseignez le volet **Déployer le modèle**.
+
+1. Renseignez le volet **Deploy Model** (Déployer le modèle).
 
     Champ| Valeur
     ----|----

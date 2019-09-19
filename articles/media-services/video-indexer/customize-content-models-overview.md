@@ -1,6 +1,6 @@
 ---
 title: Personnalisation des modèles de contenu dans Azure Media Services Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Cet article fournit des liens vers des articles conceptuels qui expliquent les avantages de chaque type de personnalisation. Il contient également des liens vers des guides pratiques qui montrent comment implémenter la personnalisation de chaque modèle.
 services: media-services
 author: anikaz
@@ -10,19 +10,23 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9abf9b791cc986bcce49bbd0cf8136a573a149a3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878817"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860207"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Personnalisation des modèles de contenu dans Video Indexer
 
 Video Indexer vous permet de personnaliser certains de ses modèles afin de les adapter à vos propres cas d’usage. Ces modèles incluent les [marques](customize-brands-model-overview.md), la [langue](customize-language-model-overview.md) et la [personne](customize-person-model-overview.md). Vous pouvez facilement personnaliser ces modèles à l’aide de l’API ou du site web Video Indexer.
 
-Cet article fournit des liens vers des articles conceptuels qui expliquent les avantages de chaque type de personnalisation. Il contient également des liens vers des guides pratiques qui montrent comment implémenter la personnalisation de chaque modèle.
- 
+Cet article fournit des liens vers des articles qui expliquent les avantages de chaque type de personnalisation. Il contient également des liens vers des guides pratiques qui montrent comment implémenter la personnalisation de chaque modèle.
+
+## <a name="animated-characters"></a>Personnages animés
+
+* [Détection de personnages animés](animated-characters-recognition.md)
+
 ## <a name="brands-model"></a>Modèle de marques
 
 * [Vue d’ensemble de la personnalisation du modèle de marques](customize-brands-model-overview.md)

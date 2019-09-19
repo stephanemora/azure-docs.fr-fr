@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562865"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801547"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
 
@@ -51,11 +51,12 @@ Si vous souhaitez tester la qualité du modèle de reconnaissance vocale de réf
 
 Pour évaluer des modèles côte à côte :
 
-1. Accédez à **Reconnaissance vocale > Custom Speech > Tests**.
-2. Cliquez sur **Ajouter un test**.
-3. Sélectionnez **Évaluer la précision**. Donnez au test un nom et une description et sélectionnez votre jeu de données de transcription audio + étiquetées à la main.
-4. Sélectionnez jusqu'à deux modèles à tester.
-5. Cliquez sur **Créer**.
+1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
+2. Accédez à **Speech-to-text > Custom Speech > Testing**.
+3. Cliquez sur **Ajouter un test**.
+4. Sélectionnez **Évaluer la précision**. Donnez au test un nom et une description et sélectionnez votre jeu de données de transcription audio + étiquetées à la main.
+5. Sélectionnez jusqu'à deux modèles à tester.
+6. Cliquez sur **Créer**.
 
 Une fois votre test créé, vous pouvez comparer les résultats côte à côte.
 

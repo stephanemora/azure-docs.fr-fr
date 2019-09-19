@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884102"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736037"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de support pour la réplication de machines virtuelles Azure d'une région vers une autre
 
@@ -53,6 +53,7 @@ Australie   | Australie Est, Australie Sud-Est, Australie Centre, Australie Cent
 Azure Government    | Gouvernement des États-Unis - Virginie, Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Arizona, Gouvernement des États-Unis - Texas, US DoD Est, US DoD Centre 
 Allemagne | Centre de l’Allemagne, Nord-Est de l’Allemagne
 Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
+Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Allemagne Nord réservée pour les clients Allemagne Centre-Ouest, Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre 
 
 >[!NOTE]
 >

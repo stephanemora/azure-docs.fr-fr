@@ -1,20 +1,20 @@
 ---
 title: Déployer le module de stockage Blob Azure sur des appareils - Azure IoT Edge | Microsoft Docs
 description: Déployez un module de stockage Blob Azure sur votre appareil IoT Edge pour stocker des données en périphérie.
-author: kgremban
-ms.author: kgremban
+author: arduppal
+ms.author: arduppal
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.reviewer: kgremban
+ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 089c90abb999751db77bbe1d89d1d118ae712b52
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: e5420bbe7f65dcef4997d909b3bc4ede00dd9902
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947077"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844227"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 
@@ -93,7 +93,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
      > [!IMPORTANT]
      > Ne modifiez pas la deuxième moitié de la valeur de montage de stockage, qui pointe vers un emplacement spécifique dans le module. Le montage de stockage doit toujours se terminer par **:/blobroot** pour les conteneurs Linux et **:C:/BlobRoot** pour les conteneurs Windows.
 
-1. Définissez les propriétés [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) de votre module en copiant le code JSON suivant et en le collant dans la zone **Définir les propriétés souhaitées du jumeau de module**. Configurez chaque propriété avec une valeur appropriée, enregistrez vos choix et poursuivez le déploiement.
+1. Définissez les propriétés [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) de votre module en copiant le code JSON suivant et en le collant dans la zone **Définir les propriétés souhaitées du jumeau de module**. Configurez chaque propriété avec une valeur appropriée, enregistrez vos choix et poursuivez le déploiement. Si vous utilisez le simulateur IoT Edge, définissez les valeurs sur les variables d’environnement associées pour ces propriétés, que vous trouverez dans la section Explication de [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [ deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    {
@@ -207,7 +207,7 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
      > [!IMPORTANT]
      > Ne modifiez pas la deuxième moitié de la valeur de montage de stockage, qui pointe vers un emplacement spécifique dans le module. Le montage de stockage doit toujours se terminer par **:/blobroot** pour les conteneurs Linux et **:C:/BlobRoot** pour les conteneurs Windows.
 
-1. Configurez les propriétés [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) de votre module en ajoutant le code JSON suivant au fichier *deployment.template.json*. Configurez chaque propriété avec une valeur appropriée et enregistrez le fichier.
+1. Configurez les propriétés [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) de votre module en ajoutant le code JSON suivant au fichier *deployment.template.json*. Configurez chaque propriété avec une valeur appropriée et enregistrez le fichier. Si vous utilisez le simulateur IoT Edge, définissez les valeurs sur les variables d’environnement associées pour ces propriétés, que vous trouverez dans la section Explication de [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [ deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    "<your azureblobstorageoniotedge module name>":{

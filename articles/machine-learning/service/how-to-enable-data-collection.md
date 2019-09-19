@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227941"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860521"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
@@ -109,7 +109,7 @@ Pour l’activer, vous devez :
 
 Si vous disposez déjà d’un service avec les dépendances installées dans votre **fichier d’environnement** et votre **fichier de scoring**, activez la collecte de données en effectuant les étapes suivantes :
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accédez au [Portail Azure](https://portal.azure.com).
 
 1. Ouvrez votre espace de travail.
 
@@ -144,6 +144,8 @@ Vous pouvez arrêter la collecte de données à tout moment. Pour désactiver la
 
   1. Sélectionnez **Mettre à jour** pour appliquer la modification.
 
+  Vous pouvez également accéder à ces paramètres dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
+
 + Option 2 : utiliser Python pour désactiver la collecte de données :
 
   ```python 
@@ -172,7 +174,7 @@ Pour accéder rapidement aux données à partir de votre objet blob :
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Analyse des données de modèle via Power BI
 
-1. Téléchargez [PowerBI Desktop](https://www.powerbi.com), puis ouvrez-le.
+1. Télécharger et ouvrir [Power BI Desktop](https://www.powerbi.com)
 
 1. Sélectionnez **Obtenir des données** et cliquez sur [**Stockage Blob Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 

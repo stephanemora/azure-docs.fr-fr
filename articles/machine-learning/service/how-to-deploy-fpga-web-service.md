@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278197"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860467"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
 
@@ -319,7 +319,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>Déployer dans le cloud
 
-Pour déployer votre modèle en tant que service web de production à grande échelle, utilisez Azure Kubernetes Service (AKS). Vous pouvez créer un en utilisant le kit SDK Azure Machine Learning, l’interface CLI ou le portail Azure.
+Pour déployer votre modèle en tant que service web de production à grande échelle, utilisez Azure Kubernetes Service (AKS). Vous pouvez en créer un en utilisant le kit SDK Azure Machine Learning, l’interface CLI, le [Portail Azure](https://portal.azure.com) ou la [page d’arrivée de l’espace de travail (préversion)](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

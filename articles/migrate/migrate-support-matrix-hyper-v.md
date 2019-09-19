@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279569"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376092"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -82,7 +82,7 @@ Pour l’évaluation, Azure Migrate exécute une appliance légère pour découv
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
-| **Étapes de déploiement d’appliance**   |  Vous déployez l’appliance en tant que machine virtuelle Hyper-V.<br/> La machine virtuelle de l’appliance fournie par Azure Migrate est la version 5.0 de la machine virtuelle Hyper-V.<br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> L’hôte a besoin de suffisamment d'espace pour allouer 16 Go de RAM, 8 processeurs virtuels et 1 commutateur externe à la machine virtuelle de l'appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
+| **Étapes de déploiement d’appliance**   |  Vous déployez l’appliance en tant que machine virtuelle Hyper-V.<br/> La machine virtuelle de l’appliance fournie par Azure Migrate est la version 5.0 de la machine virtuelle Hyper-V.<br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> L’hôte a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
 | **Projet Azure Migrate**  |  Une appliance peut être associée à un seul projet.<br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines virtuelles par projet.
 | **Hôtes Hyper-V**          | Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
 | **Découverte**              | Une seule appliance peut découvrir jusqu’à 5000 machines virtuelles.

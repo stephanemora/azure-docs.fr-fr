@@ -584,6 +584,8 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: Copie delta depuis une base de données
           href: solution-template-delta-copy-with-control-table.md
+        - name: Migrer des données d’Amazon S3 vers Stockage Azure
+          href: solution-template-migration-s3-azure.md
         - name: Déplacer des fichiers
           href: solution-template-move-files.md
         - name: Transformer des données avec Databricks

@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686490"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914007"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Tester des requêtes Stream Analytics localement avec Visual Studio
 
-Vous pouvez utiliser Azure Stream Analytics Tools pour Visual Studio pour tester vos tâches Stream Analytics localement à l’aide d’exemples de données.
+Vous pouvez utiliser les outils Azure Stream Analytics pour Visual Studio pour tester vos travaux Stream Analytics localement avec des exemples de données ou des [données actives](stream-analytics-live-data-local-testing.md). 
 
 Utilisez ce [Démarrage rapide](stream-analytics-quick-create-vs.md) pour apprendre à créer une tâche Stream Analytics à l’aide de Visual Studio.
 
@@ -74,7 +74,9 @@ Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)
+
 * [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio](stream-analytics-quick-create-vs.md)
+* [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)
 * [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l'aide d'Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Intégrer et développer en continu avec les outils Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

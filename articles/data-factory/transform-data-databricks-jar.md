@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860982"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812793"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Jar dans Azure Databricks
 
@@ -58,13 +58,16 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |:--|---|:-:|
-|Nom|Nom de l'activité dans le pipeline.|OUI|
+|name|Nom de l'activité dans le pipeline.|OUI|
 |description|Texte décrivant l’activité.|Non|
 |Type|Pour l’activité Databricks Jar, le type d’activité est DatabricksSparkJar.|OUI|
 |linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Jar. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|
 |mainClassName|Nom complet de la classe contenant la méthode principale à exécuter. Cette classe doit être contenue dans un fichier JAR fourni en tant que bibliothèque.|OUI|
 |parameters|Paramètres qui sont transmis à la méthode principale.  C’est un tableau de chaînes.|Non|
 |libraries|Liste de bibliothèques à installer sur le cluster qui exécute la tâche. Il peut s’agir d’un tableau de < chaîne, objet >|Oui (au moins une contenant la méthode mainClassName)|
+
+> [!NOTE]
+> **Problème connu** : quand vous utilisez le même [cluster interactif](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) pour exécuter simultanément plusieurs activités Databricks Jar (sans redémarrage du cluster), vous pouvez rencontrer un problème connu avec Databricks. En effet, dans ce cas, les paramètres de la première activité sont également utilisés par les activités suivantes. Des paramètres incorrects sont alors transmis aux travaux suivants. Pour limiter ce risque, utilisez plutôt un [cluster de travail](compute-linked-services.md#example---using-new-job-cluster-in-databricks). 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliothèques prises en charge pour les activités Databricks
 

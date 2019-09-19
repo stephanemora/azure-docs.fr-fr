@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 05182b42be232ade4c4206abb9c68e632ad31c03
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa9caca103efb138ca6e188f8dcb6a377e06f3a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275978"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813256"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -85,12 +85,12 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
+- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="format-based-dataset"></a>Jeu de données au format Parquet, Texte délimité, Avro ou Binaire
+### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
+Pour copier des données vers et à partir des **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Pour copier des données vers et depuis les **formats Parquet, Texte délimité,
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données depuis et vers Stockage Fichier Azure au **format ORC/JSON**, les propriétés suivantes sont prises en charge :
+Pour la copie de données vers et à partir de Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -184,12 +184,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="azure-file-storage-as-source"></a>Stockage Fichier Azure en tant que source
 
-- Pour copier des données à partir du **format Parquet, Texte délimité, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
 
-#### <a name="format-based-source"></a>Source au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour copier des données à partir des **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
+Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -247,7 +247,7 @@ Pour copier des données à partir des **formats Parquet, Texte délimité, Avro
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis Stockage Fichier Azure au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour la copie de données à partir de Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -289,12 +289,12 @@ Pour copier des données depuis Stockage Fichier Azure au **format ORC/JSON**, l
 
 ### <a name="azure-file-storage-as-sink"></a>Stockage Fichier Azure en tant que récepteur
 
-- Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, Avro ou Binaire](#format-based-sink).
-- Pour copier des données vers d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+- Pour copier des données au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Récepteur au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-sink).
+- Pour copier des données vers d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
 
-#### <a name="format-based-sink"></a>Récepteur au format Parquet, Texte délimité, Avro ou Binaire
+#### <a name="format-based-sink"></a> Récepteur au format Parquet, de texte délimité, JSON, Avro ou binaire
 
-Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
+Pour copier des données au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -342,7 +342,7 @@ Pour copier des données aux **formats Parquet, Texte délimité, Avro et Binair
 
 #### <a name="other-format-sink"></a>Autres formats de récepteur
 
-Pour copier des données vers Stockage Fichier Azure au **format ORC/JSON**, les propriétés suivantes sont prises en charge dans la section **récepteur**:
+Pour la copie de données vers Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

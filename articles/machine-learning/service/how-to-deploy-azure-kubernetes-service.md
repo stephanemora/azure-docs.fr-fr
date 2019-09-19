@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 7afa96c3c4d1a163e323aa0bb50ec361ff74aac3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278692"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858735"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -30,7 +30,7 @@ Découvrez comment utiliser Azure Machine Learning service pour déployer un mod
 
 Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un cluster AKS qui est __connecté à votre espace de travail__. Il existe deux façons de connecter un cluster AKS à votre espace de travail :
 
-* Créez le cluster AKS à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning service, de l’interface de ligne de commande Machine Learning ou du Portail Azure. Ce processus connecte automatiquement le cluster à l’espace de travail.
+* Créez le cluster AKS à l’aide du kit SDK Azure Machine Learning service, de l’interface de ligne de commande Machine Learning, du [Portail Azure](https://portal.azure.com) ou de la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com). Ce processus connecte automatiquement le cluster à l’espace de travail.
 * Attachez un cluster AKS existant à votre espace de travail Azure Machine Learning service. Un cluster peut être attaché au moyen du Kit de développement logiciel (SDK) Azure Machine Learning service, de l’interface de ligne de commande Machine Learning ou du Portail Azure.
 
 > [!IMPORTANT]

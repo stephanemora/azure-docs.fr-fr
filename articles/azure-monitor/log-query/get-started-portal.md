@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348087"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899516"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Prise en main de Log Analytics dans Azure Monitor
 
@@ -162,7 +162,7 @@ Sur un graphique temporel, s’il existe un pic ou une chute brutal dans vos don
 ![Smart Diagnostics](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
-Pour épingler un diagramme ou une table à l’un de vos tableaux de bord Azure partagés, cliquez sur l’icône en forme d’épingle.
+Pour épingler un diagramme ou une table à l’un de vos tableaux de bord Azure partagés, cliquez sur l’icône en forme d’épingle. Notez que cette icône a été déplacée vers le haut de la fenêtre de Log Analytics, différente de la capture d’écran ci-dessous.
 
 ![Épingler au tableau de bord](media/get-started-portal/pin-dashboard.png)
 

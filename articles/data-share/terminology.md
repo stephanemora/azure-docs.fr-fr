@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424221"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844701"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Concepts d’Azure Data Share en préversion 
 
@@ -53,7 +53,9 @@ Un consommateur de données a la possibilité de participer à cette planificati
 
 Un fournisseur de données peut inviter plusieurs destinataires à son partage de données. Pour ce faire, il peut ajouter des destinataires au partage de données. Les invitations peuvent également être ajoutées après la création d’un partage de données. 
 
-Un fournisseur de données peut supprimer une invitation après qu’elle a été envoyée. Notez que si un fournisseur de données supprime une invitation après qu’elle a été acceptée, le consommateur de données continue à avoir un abonnement de partage actif. Si le fournisseur de données supprime une invitation qui n’a pas encore été acceptée, le consommateur de données ne sera pas en mesure de l’accepter. 
+Un fournisseur de données peut supprimer une invitation après son envoi si elle n’a pas été acceptée. Si le fournisseur de données supprime une invitation qui n’a pas encore été acceptée, le consommateur de données ne sera pas en mesure de l’accepter. 
+
+Les invitations peuvent être renvoyées jusqu’à 5 fois par jour. 
 
 ## <a name="recipient"></a>Recipient
 

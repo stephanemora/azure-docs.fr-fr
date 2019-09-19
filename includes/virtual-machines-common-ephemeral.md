@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669639"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775847"
 ---
 Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  
@@ -175,7 +175,7 @@ Vous pouvez déployer une machine virtuelle avec un disque de système d’explo
 
 
 ## <a name="reimage-a-vm-using-rest"></a>Réinitialiser une machine virtuelle à l’aide de REST
-Actuellement, la réinitialisation d’une instance de machine virtuelle avec un disque de système d’exploitation éphémère ne peut se faire que par le biais de l’API REST. Pour les groupes identiques, cette opération est déjà disponible via Powershell, l’interface CLI et le Portail.
+Vous pouvez réinitialiser une instance de machine virtuelle avec un disque de système d’exploitation éphémère à l’aide d’une API REST (comme décrit ci-dessous) et à partir du portail Azure en accédant au volet Vue d’ensemble de la machine virtuelle. Pour les groupes identiques, cette opération est déjà disponible via Powershell, l’interface CLI et le Portail.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

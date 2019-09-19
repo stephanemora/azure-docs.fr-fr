@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 76b3807727f4b5c9ab0a2c2bc21c45af1f713b83
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242443"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390799"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
@@ -23,6 +23,7 @@ Lorsque vous souhaitez exécuter un extrait de code au sein de votre application
 * S’exécute dans JavaScript. D’autres langues seront bientôt disponibles.
 * S’exécute en cinq secondes maximum.
 * Gère les données dont la taille ne dépasse pas 50 Mo.
+* Ne nécessite pas l’utilisation des [actions de **Variables**](../logic-apps/logic-apps-create-variables-store-values.md), qui ne sont pas encore prises en charge.
 * Utilise Node.js version 8.11.1. Pour en savoir plus, voir [Objets globaux standards (par catégorie)](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]

@@ -1,19 +1,19 @@
 ---
 title: 'Erreur « watchdog: BUG: soft lockup - CPU » d’un cluster Azure HDInsight'
-description: 'L’erreur « watchdog: BUG: soft lockup - CPU » apparaît dans les journaux syslogs du noyau'
+description: 'L’erreur « watchdog: BUG: soft lockup - CPU » apparaît dans les journaux syslogs de noyau du cluster Azure HDInsight'
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 9278c174d96cb6b1823c8dbfdcba197b7a3c05cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 618a871bee762900d4c99700cde42d759506b4b9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828869"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810585"
 ---
-# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : erreur « watchdog: BUG: soft lockup - CPU » d’un cluster Azure HDInsight
+# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : Erreur « watchdog: BUG: soft lockup - CPU » sur un cluster Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
@@ -21,11 +21,11 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Les journaux syslogs du noyau contiennent le message d’erreur : `watchdog: BUG: soft lockup - CPU`.
 
-## <a name="cause"></a>Cause
+## <a name="cause"></a>Cause :
 
 Un [bogue](https://bugzilla.kernel.org/show_bug.cgi?id=199437) dans le noyau Linux est à l’origine de verrouillages logiciels du processeur.
 
-## <a name="resolution"></a>Résolution
+## <a name="resolution"></a>Résolution :
 
 Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Linux et redémarre les machines à différents moments au cours des 24 heures. Exécutez l’action de script dans deux lots. Le premier lot se trouve sur tous les nœuds, à l’exception du nœud principal. Le deuxième lot est sur le nœud principal. Ne s’exécute pas sur le nœud principal et d’autres nœuds en même temps.
 
@@ -45,7 +45,7 @@ Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Lin
 
     Sélectionnez **Conservez cette action de script...**  si vous souhaitez exécuter le script lorsque des nœuds sont ajoutés.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Attendez que l’exécution aboutisse.
 

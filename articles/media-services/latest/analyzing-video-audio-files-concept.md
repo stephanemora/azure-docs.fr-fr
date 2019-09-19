@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689369"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376200"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analyser des fichiers vidéo et audio
 
@@ -66,7 +66,7 @@ La sortie inclut un fichier JSON (insights.json) contenant tous les insights tro
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
-|Langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
+|langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
 |instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
 Exemple :
@@ -105,7 +105,7 @@ Exemple :
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
 |confidence|Degré de confiance de la reconnaissance.|
-|Langage|Langue de l’OCR.|
+|langage|Langue de l’OCR.|
 |instances|Liste des intervalles de temps au cours desquels cette OCR est apparue (la même OCR peut apparaître plusieurs fois).|
 
 ```json
@@ -297,7 +297,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 |---|---|
 |id|ID de l’étiquette.|
 |Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
-|Langage|Langue du nom de l’étiquette (si traduction). BCP-47|
+|langage|Langue du nom de l’étiquette (si traduction). BCP-47|
 |instances|Liste des intervalles de temps au cours desquels cette étiquette est apparue (une étiquette peut apparaître plusieurs fois). Chaque instance possède un champ de confiance. |
 
 
@@ -357,7 +357,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
 |confidence|Degré de confiance de la reconnaissance du mot clé.|
-|Langage|Langue du mot clé (si traduction).|
+|langage|Langue du mot clé (si traduction).|
 |instances|Liste des intervalles de temps pendant lesquels ce mot clé est apparu (un mot clé peut apparaître plusieurs fois).|
 
 ```json

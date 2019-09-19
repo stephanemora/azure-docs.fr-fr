@@ -1,6 +1,6 @@
 ---
 title: Surveiller les performances du cluster - Azure HDInsight
-description: Découvrez comment surveiller la capacité et les performances d’un cluster HDInsight.
+description: Découvrez comment superviser l’intégrité et les performances des clusters Apache Hadoop dans Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393410"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879699"
 ---
-# <a name="monitor-cluster-performance"></a>Surveiller les performances du cluster
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Superviser les performances des clusters dans Azure HDInsight
 
 La surveillance de l’intégrité et des performances d’un cluster HDInsight est essentielle à l’optimisation continue des performances et de l’utilisation des ressources. La surveillance peut également vous aider à détecter et résoudre les erreurs de configuration du cluster ainsi que les problèmes de code utilisateur.
 
@@ -68,7 +68,7 @@ Pour obtenir une vue d’ensemble plus détaillée de vos files d’attente, dan
 
 Dans l’interface utilisateur Resource Manager, sélectionnez **Scheduler** (Planificateur) à partir du menu de gauche. La liste de vos files d’attente s’affiche sous *Application Queues* (Files d’attente d’application). Cette zone présente la capacité utilisée pour chacune de vos files d’attente, ainsi que l’efficacité de la répartition des travaux entre ces files d’attente, et indique si des travaux sont limités en ressources.
 
-![Lien du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitation du stockage
 

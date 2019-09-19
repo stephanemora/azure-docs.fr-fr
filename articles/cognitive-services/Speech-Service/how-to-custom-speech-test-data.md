@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663596"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802520"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -31,15 +31,15 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | OUI<br>Utilisé pour évaluer la précision | 0,5 – 5 heures de contenu audio | OUI | 1 – 1 000 heures de contenu audio |
 | [Texte associé](#related-text-data-for-training) | Non | n/a | OUI | 1 – 200 Mo de texte associé |
 
-Les fichiers doivent être regroupés par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
+Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
 ## <a name="upload-data"></a>Télécharger des données
 
-Une fois que vous êtes prêt à charger vos données, cliquez sur **Upload data** (Charger des données) pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
+Une fois que vous êtes prêt à charger vos données, accédez au [portail Custom Speech](https://speech.microsoft.com/customspeech), puis cliquez sur **Upload data** (Charger des données) pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
 
 ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-select-audio.png)
 
-Chaque jeu de données que vous chargez doit respecter les exigences associées au type de données choisi. Il est important de bien formater les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
+Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Il est important de bien formater les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
 
 Une fois que votre jeu de données est chargé, vous disposez de plusieurs options :
 
@@ -96,7 +96,7 @@ Pour résoudre les problèmes comme la suppression ou la substitution de mots, u
 
 Les transcriptions doivent être en texte normalisé pour pouvoir être traitées par le système. Une normalisation importante doit toutefois être effectuée par l’utilisateur _avant_ de charger les données dans Custom Speech Service. Pour savoir quelle langue utiliser pour la préparation de vos transcriptions, consultez [Guide pratique pour créer une transcription étiquetée à la main](how-to-custom-speech-human-labeled-transcriptions.md).
 
-Une fois que vous avez collecté vos fichiers audio et les transcriptions correspondantes, vous devez les empaqueter dans un même fichier .zip avant de charger ce dernier sur le portail Custom Speech. Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
+Une fois que vous avez collecté vos fichiers audio et les transcriptions correspondantes, vous devez les empaqueter dans un même fichier .zip avant de charger ce dernier vers le [portail Custom Speech](https://speech.microsoft.com/customspeech). Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
 
 ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Si vous voulez faire en sorte que des noms de produits ou des fonctionnalités u
 | Énoncés et/ou phrases | Peuvent améliorer la précision de la reconnaissance des noms de produits ou du jargon d’un domaine spécifique dans le contexte d’une phrase. |
 | Prononciations | Peuvent améliorer la prononciation des termes peu communs, des acronymes ou d’autres mots dont la prononciation n’est pas définie. |
 
-Les énoncés peuvent être fournis dans un ou plusieurs fichiers texte. Plus les données texte seront proches de ce qui est prononcé, plus il est probable que la précision s’améliorera. Les prononciations doivent être fournies sous forme de fichier texte unique. L’ensemble peut être empaqueté dans un même fichier zip et chargé sur le portail Custom Speech.
+Les énoncés peuvent être fournis dans un ou plusieurs fichiers texte. Plus les données texte seront proches de ce qui est prononcé, plus il est probable que la précision s’améliorera. Les prononciations doivent être fournies sous forme de fichier texte unique. L’ensemble peut être empaqueté dans un même fichier zip et chargé vers le [portail Custom Speech](https://speech.microsoft.com/customspeech).
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>Recommandations pour créer un fichier d’énoncés
 

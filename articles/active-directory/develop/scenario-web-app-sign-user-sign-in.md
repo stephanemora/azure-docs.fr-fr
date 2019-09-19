@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562202"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812401"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Application web qui connecte des utilisateurs - connexion
 
@@ -28,7 +28,8 @@ Découvrez comment ajouter une connexion au code de votre application web pour c
 
 ## <a name="sign-in"></a>Connexion
 
-Le code que nous avons vu dans l’article précédent ([Configuration du code de l’application](scenario-web-app-sign-user-app-configuration.md)) est la seule chose que vous devez implémenter pour la déconnexion. Une fois que l’utilisateur est connecté à votre application, vous devez leur donner la possibilité de se déconnecter. ASP.NET Core gère la déconnexion pour vous.
+Le code que nous avons passé en revue dans l’article précédent [Configuration du code de l’application](scenario-web-app-sign-user-app-configuration.md) est tout ce dont vous avez besoin pour implémenter la connexion.
+Une fois que l’utilisateur est connecté à votre application, vous devez leur donner la possibilité de se déconnecter. ASP.NET Core gère la déconnexion pour vous.
 
 ## <a name="what-sign-out-involves"></a>Implications de la déconnexion
 

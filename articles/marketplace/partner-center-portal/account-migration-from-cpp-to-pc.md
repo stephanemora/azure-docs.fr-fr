@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8c7680896507cd3738fa3bce0d30a516d08509c4
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208098"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383285"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migration de compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -43,17 +43,17 @@ Si votre compte Portail Cloud Partner n'a pas d'ID Microsoft Partner Network ou 
 La migration ne doit être effectuée qu’une seule fois pour un compte donné. Lorsqu'un partenaire a migré le compte, tous les Propriétaires verront ce comportement sur leur page Profil d'éditeur :
 
 1. Vous voyez la page Paramètre du partenaire dans Microsoft Partner Network, où vous pouvez désormais gérer les paramètres du compte. 
-2. Une bannière jaune sur la page de votre profil d’éditeur dans le portail Cloud Partner s’affiche pour les utilisateurs qui ont le rôle Propriétaire, en leur demandant de gérer leurs paramètres de compte dans l’Espace partenaires. 
-3. La page des paramètres de compte dans le portail Cloud Partner passe en mode lecture seule. 
+2. Une bannière jaune sur la page de votre profil d’éditeur dans le portail Cloud Partner s’affiche pour les utilisateurs qui ont le rôle Propriétaire, en leur demandant de gérer leurs paramètres de compte dans l’Espace partenaires.
+3. La page des paramètres de compte dans le portail Cloud Partner passe en mode lecture seule.
 
 ## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Déplacer des solutions basées sur Dynamics 365 vers l’Espace partenaires
 
 Si vous avez créé des solutions Dynamics 365 for Customer Engagement ou Dynamics 365 for Finance and Operations dans le portail One Commercial Partner GTM, **ces solutions doivent désormais être gérées dans l’Espace partenaires**.
 
-**Si vous n’avez pas déplacé vos solutions avant le 31 août 2019**, effectuez les étapes ci-dessous dès que possible. Tant que vous n’avez pas procédé à cette opération : 
+**Si vous n’avez pas déplacé vos solutions avant le 31 août 2019**, effectuez les étapes ci-dessous dès que possible. Tant que vous n’avez pas procédé à cette opération :
 - Les éditeurs de logiciels indépendants n’ont pas accès aux avantages marketing
 - La co-vente en priorité va perdre son état
-- Ceux qui nécessitent Cloud Embed ne sont pas conformes
+- Ceux qui nécessitent Cloud Embed ne seront pas conformes après le 15 octobre 2019
 
 > [!NOTE]
 > Si votre compte d’appartenance MPN a été initialement créé dans Partner Membership Center (PMC), connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) pour vérifier que ce compte a été migré avant d’effectuer les étapes ci-dessous. Si vous voyez un écran de profil avec votre ID MPN, vous pouvez continuer. Si ce n’est pas le cas, vous devez démarrer la migration de votre compte en suivant les invites affichées dans [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Si vous avez besoin d’aide pour cette étape, consultez la page de [support](https://partner.microsoft.com/support?issueid=100-0077).

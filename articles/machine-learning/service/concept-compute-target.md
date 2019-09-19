@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: a7944b284a9c1c0424af54874554d05d49ad4b20
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806041"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860589"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning service ? 
 
@@ -48,14 +48,14 @@ Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-
 
 Une ressource de calcul managée est créée et managée par Azure Machine Learning service. Ce calcul est optimisé pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule ressource de calcul managée à partir du 30 mai 2019. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
 
-Vous pouvez utiliser la capacité de calcul Azure Machine Learning pour l’apprentissage et pour l’inférence par lots (préversion).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
+Vous pouvez utiliser la capacité de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (préversion).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
 
 * Cluster unique ou à plusieurs nœuds
 * Mises à l’échelle automatique chaque fois que vous envoyez une exécution 
 * Gestion des clusters et planification automatiques des travaux 
 * Prise en charge des ressources UC et GPU
 
-Vous pouvez créer des instances de calcul Azure Machine Learning dans le Portail Azure, avec le SDK ou avec l’interface CLI. Une fois l’instance créée, elle fait automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
+Vous pouvez créer des instances de capacité de calcul Azure Machine Learning dans le portail Azure ou dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com), avec le SDK ou avec l’interface CLI. Une fois l’instance créée, elle fait automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 

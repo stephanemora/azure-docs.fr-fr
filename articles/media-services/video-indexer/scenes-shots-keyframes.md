@@ -1,6 +1,6 @@
 ---
-title: Scènes, captures et images clés Video Indexer - Azure
-titlesuffix: Azure Media Services
+title: Scènes, plans et images clés Video Indexer
+titleSuffix: Azure Media Services
 description: Cette rubrique offre une vue d'ensemble des scènes, captures et images clés Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815655"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860226"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -39,6 +39,30 @@ Video Indexer détermine quand une capture change dans la vidéo selon des signa
 Sélectionne les images représentant au mieux la capture. Les images clés sont des images représentatives sélectionnées à partir de la vidéo complète, en fonction des propriétés esthétiques (par exemple, contraste et stabilité). Video Indexer récupère une liste d’ID d’images clés faisant partie des métadonnées de la capture, en fonction des clients pouvant extraire la miniature de l’image clé. 
 
 Les images clés sont associées à des captures dans la sortie JSON. 
+
+## <a name="editorial-shot-type-detection"></a>Détection du type de plan éditorial
+
+Le type de plan associé à un plan individuel dans les insights JSON représente son type éditorial. Vous pouvez trouver ces caractéristiques de type de plan utiles lors de la modification de vidéos dans des clips ou bandes-annonces, ou lors de la recherche d’un style spécifique d’image clé à des fins artistiques. Les différents types sont déterminés en fonction de l’analyse de la première image clé de chaque plan. Les plans sont identifiés par l’échelle, la taille et l’emplacement des visages apparaissant dans leur première image clé. 
+
+La taille et l’échelle du plan sont déterminées en fonction de la distance entre l’appareil photo et les visages apparaissant dans l’image. À l’aide de ces propriétés, Video Indexer détecte les types de plans suivants :
+
+* Large : montre le corps tout entier d’une personne.
+* Moyen : montre le haut du corps et le visage d’une personne.
+* Gros plan : montre principalement le visage d’une personne.
+* Très gros plan : montre le visage d’une personne qui remplit l’écran. 
+
+Les types de plans peuvent également être déterminés par l’emplacement des personnages par rapport au centre de l’image. Cette propriété définit les types de plans suivants dans Video Indexer :
+
+* Visage à gauche : une personne apparaît sur la gauche de l’image.
+* Visage au centre : une personne apparaît dans la partie centrale de l’image.
+* Visage à droite : une personne apparaît sur la droite de l’image.
+* Extérieur : une personne apparaît dans un décor extérieur.
+* Intérieur : une personne apparaît dans un décor intérieur.
+
+Caractéristiques supplémentaires :
+
+* Deux plans : montre les visages de taille moyenne de deux personnes.
+* Plusieurs visages : plus de deux personnes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

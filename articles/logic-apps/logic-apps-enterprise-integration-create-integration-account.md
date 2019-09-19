@@ -11,12 +11,12 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982925"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801291"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Créer et gérer des comptes d’intégration pour les solutions B2B à l’aide d’Azure Logic Apps
 
@@ -80,7 +80,7 @@ Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes 
 
 ## <a name="link-to-logic-app"></a>Créer un lien vers l’application logique
 
-Pour donner à vos applications logiques l’accès à un compte d’intégration contenant vos artefacts B2B, vous devez d’abord lier votre compte d’intégration à votre application logique. L’application logique et le compte d’intégration doivent être présents dans la même région. Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes de cette section.
+Pour donner à vos applications logiques l’accès à un compte d’intégration contenant vos artefacts B2B, vous devez d’abord lier votre compte d’intégration à votre application logique. L’application logique et le compte d’intégration doivent être présents dans la même région. Pour effectuer cette tâche, vous pouvez utiliser le portail Azure. Si vous utilisez Visual Studio et que votre application logique se trouve dans un [projet Azure Resource Group](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), vous pouvez [lier votre application logique à un compte d’intégration avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
 

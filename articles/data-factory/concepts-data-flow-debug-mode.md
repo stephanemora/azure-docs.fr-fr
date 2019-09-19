@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/06/2019
+ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991924"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801705"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -20,16 +20,17 @@ ms.locfileid: "69991924"
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Le mode débogage de la fonctionnalité de mappage de flux de données d’Azure Data Factory peut être activé à l’aide du bouton « Data Flow Debug » (Débogage de flux de données) situé en haut de l’aire de conception. En activant le mode débogage au moment de la conception de flux de données, vous pouvez suivre de manière interactive la transformation de la forme des données à mesure que vous générez et déboguez vos flux de données. La session de débogage peut être utilisée dans des sessions de conception de flux de données et lors d’exécution de débogage de flux de données dans un pipeline.
+Le mode de débogage du flux de données de mappage d’Azure Data Factory permet de suivre de manière interactive la transformation de la forme des données à mesure que vous générez et déboguez vos flux de données. La session de débogage peut être utilisée dans des sessions de conception de flux de données et lors de l’exécution du débogage de flux de données dans un pipeline. Pour activer le mode de débogage, utilisez le bouton « Débogage de flux de données » en haut de l’aire de conception.
 
-![Bouton de débogage](media/data-flow/debugbutton.png "Bouton de débogage")
+![Curseur de débogage](media/data-flow/debugbutton.png "Curseur de débogage")
+
+Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant huit cœurs de calcul général avec une durée de vie de 60 minutes est lancé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de flux de données](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+
+![Sélection du runtime d’intégration pour le débogage](media/data-flow/debugbutton2.png "Sélection du runtime d’intégration pour le débogage")
 
 Lorsque le mode débogage est activé, vous allez générer de manière interactive votre flux de données avec un cluster Spark actif. La session se ferme dès que vous désactivez le débogage dans Azure Data Factory. Prenez connaissance des frais horaires engendrés par Azure Databricks pendant la durée d’activation de la session de débogage.
 
 Dans la plupart des cas, nous vous recommandons de créer vos flux de données en mode débogage pour que vous puissiez valider votre logique métier et afficher vos transformations de données avant de publier votre travail dans Azure Data Factory. Utilisez le bouton « Débogage » sur le panneau du pipeline pour tester votre flux de données dans un pipeline.
-
-> [!NOTE]
-> Tant que la lumière du mode débogage est verte dans la barre d’outils Data Factory, vous êtes facturé au taux de débogage de flux de données de 8 cœurs par heure de calcul général, avec une durée de vie de 60 minutes. 
 
 ## <a name="cluster-status"></a>État du cluster
 
@@ -81,7 +82,7 @@ Une fois que vous avez sélectionné une modification, l’aperçu des données 
 
 ### <a name="data-profiling"></a>Profilage des données
 
-En sélectionnant une colonne sous l’onglet d’aperçu des données et en cliquant sur **Statistiques** dans la barre d’outils de l’aperçu des données, un graphique s’affiche à l’extrême droite de votre grille de données avec des statistiques détaillées sur chaque champ. Azure Data Factory détermine le type de graphique à afficher en fonction de l’échantillonnage des données. Les champs à cardinalité élevée affichent par défaut des graphiques NULL/NOT NULL tandis que les données catégoriques et numériques à cardinalité faible affichent des graphiques à barres indiquant la fréquence des valeurs de données. Les champs suivants sont également disponibles : longueur max/len des chaînes, valeurs min/max dans les champs numériques, écart type, centiles, comptes et moyenne.
+Quand vous sélectionnez une colonne sous l’onglet d’aperçu des données et cliquez sur **Statistiques** dans la barre d’outils de l’aperçu des données, un graphique s’affiche à l’extrême droite de votre grille de données avec des statistiques détaillées sur chaque champ. Azure Data Factory détermine le type de graphique à afficher en fonction de l’échantillonnage des données. Les champs à cardinalité élevée affichent par défaut des graphiques NULL/NOT NULL tandis que les données catégoriques et numériques à cardinalité faible affichent des graphiques à barres indiquant la fréquence des valeurs de données. Les champs suivants sont également disponibles : longueur max/len des chaînes, valeurs min/max dans les champs numériques, écart type, centiles, comptes et moyenne.
 
 ![Statistiques de colonnes](media/data-flow/stats.png "Statistiques de colonnes")
 

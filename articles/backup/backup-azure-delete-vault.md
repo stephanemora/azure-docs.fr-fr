@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d6d374b6e516180ec488fe4de1317a3c99a7f7c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a49449f799696ce6962afea6bdc212f658c660bd
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050113"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860369"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
@@ -99,8 +99,6 @@ Commencez par lire la section **[Avant de commencer](#before-you-start)** pour c
 4. Cochez la case de consentement, puis sélectionnez **Supprimer**.
 
 
-
-
 5. Vérifiez l’icône **Notification** de ![suppression des données de sauvegarde](./media/backup-azure-delete-vault/messages.png). Une fois l’opération terminée, le service affiche le message suivant : *Arrêt de la sauvegarde et suppression des données de sauvegarde pour « Élément de sauvegarde ».* *L’opération s’est terminée correctement.*
 6. Sélectionnez **Actualiser** dans le menu **Éléments de sauvegarde** pour vous assurer que l’élément de sauvegarde est supprimé.
 
@@ -175,6 +173,148 @@ Une fois les éléments de sauvegarde locaux supprimés, effectuez les étapes s
 
 4. Sélectionnez **Oui** pour confirmer la suppression du coffre. Le coffre est supprimé. Le portail revient au menu de service **Nouveau**.
 
+## <a name="delete-the-recovery-services-vault-by-using-powershell"></a>Supprimer le coffre Recovery Services à l’aide de PowerShell
+
+Commencez par lire la section **[Avant de commencer](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
+
+Pour arrêter la protection et supprimer les données de sauvegarde :
+
+- Si vous utilisez SQL dans la sauvegarde de machines virtuelles Azure et que vous activez la protection automatique pour les instances SQL, désactivez d’abord la protection automatique.
+
+    ```PowerShell
+        Disable-AzRecoveryServicesBackupAutoProtection 
+           [-InputItem] <ProtectableItemBase> 
+           [-BackupManagementType] <BackupManagementType> 
+           [-WorkloadType] <WorkloadType> 
+           [-PassThru] 
+           [-VaultId <String>] 
+           [-DefaultProfile <IAzureContextContainer>] 
+           [-WhatIf] 
+           [-Confirm] 
+           [<CommonParameters>] 
+    ```
+
+  [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sur la façon de désactiver la protection d’un élément protégé par la Sauvegarde Azure 
+
+- Arrêtez la protection et supprimez les données de tous les éléments protégés par la sauvegarde dans le cloud (par exemple, une machine virtuelle laaS, un partage de fichiers Azure, etc.) :
+
+    ```PowerShell
+       Disable-AzRecoveryServicesBackupProtection 
+       [-Item] <ItemBase> 
+       [-RemoveRecoveryPoints] 
+       [-Force] 
+       [-VaultId <String>] 
+       [-DefaultProfile <IAzureContextContainer>] 
+       [-WhatIf] 
+       [-Confirm] 
+       [<CommonParameters>] 
+    ```
+    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) sur la désactivation de la protection d’un élément protégé par la Sauvegarde. 
+
+- Pour les fichiers et dossiers locaux protégés à l’aide de la sauvegarde Azure Backup Agent (MARS) sur Azure, utilisez la commande PowerShell suivante pour supprimer les données sauvegardées de chaque module PowerShell MARS :
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Après quoi l’invite suivante s’affiche :
+     
+    *Sauvegarde Microsoft Azure  Voulez-vous vraiment supprimer cette stratégie de sauvegarde ? Les données de sauvegarde supprimées sont conservées pendant 14 jours. Après ce délai, les données de sauvegarde sont supprimées définitivement. <br/> [O] Oui [T] Oui pour tout [N] Non [R] Non pour tout [I] Interrompre [ ?] Aide (la valeur par défaut est « O ») :*
+
+
+- Pour les machines locales protégées à l’aide de MABS (Microsoft Azure Backup Server) ou de DPM sur Azure (System Center Data Protection Manager), utilisez la commande suivante pour supprimer les données sauvegardées dans Azure.
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```
+
+    Après quoi l’invite suivante s’affiche : 
+         
+   *Sauvegarde Microsoft Azure  Voulez-vous vraiment supprimer cette stratégie de sauvegarde ? Les données de sauvegarde supprimées sont conservées pendant 14 jours. Après ce délai, les données de sauvegarde sont supprimées définitivement. <br/> [O] Oui [T] Oui pour tout [N] Non [R] Non pour tout [I] Interrompre [ ?] Aide (la valeur par défaut est « O ») :*
+
+Après avoir supprimé les données sauvegardées, annulez l’inscription de tous les conteneurs et serveurs d’administration locaux. 
+
+- Pour les fichiers et dossiers locaux protégés à l’aide de la sauvegarde Azure Backup Agent (MARS) sur Azure :
+
+    ```PowerShell
+    Unregister-AzRecoveryServicesBackupContainer 
+              [-Container] <ContainerBase> 
+              [-PassThru] 
+              [-VaultId <String>] 
+              [-DefaultProfile <IAzureContextContainer>] 
+              [-WhatIf] 
+              [-Confirm] 
+              [<CommonParameters>] 
+    ```
+    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sur l’annulation de l’inscription d’un conteneur Windows Server ou d’un autre conteneur auprès du coffre. 
+
+- Pour les machines locales protégées à l’aide de MABS (Serveur de sauvegarde Microsoft Azure) ou de DPM sur Azure (System Center Data Protection Manager) :
+
+    ```PowerShell
+        Unregister-AzRecoveryServicesBackupManagementServer
+          [-AzureRmBackupManagementServer] <BackupEngineBase>
+          [-PassThru]
+          [-VaultId <String>]
+          [-DefaultProfile <IAzureContextContainer>]
+          [-WhatIf]
+          [-Confirm]
+          [<CommonParameters>]
+    ```
+
+    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sur l’annulation de l’inscription d’un conteneur de gestion de la Sauvegarde auprès du coffre.
+
+Après avoir supprimé définitivement des données sauvegardées et annulé l’inscription de tous les conteneurs, supprimez le coffre. 
+
+Pour supprimer un coffre Recovery Services : 
+
+   ```PowerShell
+       Remove-AzRecoveryServicesVault 
+      -Vault <ARSVault> 
+      [-DefaultProfile <IAzureContextContainer>] 
+      [-WhatIf] 
+      [-Confirm] 
+      [<CommonParameters>]        
+   ```
+
+[En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sur la suppression d’un coffre Recovery Services. 
+
+## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Supprimer le coffre Recovery Services à l’aide de l’interface de ligne de commande (CLI)
+
+Commencez par lire la section **[Avant de commencer](#before-you-start)** pour comprendre le processus de suppression des dépendances et du coffre.
+
+> [!NOTE]
+> Actuellement, l’interface de ligne de commande (CLI) de la Sauvegarde Azure prend en charge la gestion des sauvegardes de machines virtuelles Azure uniquement. Par conséquent, la commande suivante destinée à supprimer le coffre fonctionne seulement si le coffre contient des sauvegardes de machines virtuelles Azure. Vous ne pouvez pas supprimer un coffre à l’aide de l’interface CLI de la Sauvegarde Azure si le coffre contient un élément de sauvegarde d’un type autre que des machines virtuelles Azure. 
+
+Pour supprimer un coffre Recovery Services existant, effectuez les opérations suivantes : 
+
+- Pour arrêter la protection et supprimer les données de sauvegarde 
+
+    ```CLI
+    az backup protection disable --container-name 
+                             --item-name 
+                             [--delete-backup-data {false, true}] 
+                             [--ids] 
+                             [--resource-group] 
+                             [--subscription] 
+                             [--vault-name] 
+                             [--yes] 
+    ```
+
+    Pour plus d’informations, reportez-vous à  [cet article](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable.). 
+
+- Supprimez un coffre Recovery Services existant : 
+
+    ```CLI
+    az backup vault delete [--force] 
+                       [--ids] 
+                       [--name] 
+                       [--resource-group] 
+                       [--subscription] 
+                       [--yes] 
+    ```
+
+    Pour plus d’informations, reportez-vous à cet  [article](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest). 
+
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager
 
 Cette option de suppression du coffre Recovery Services est recommandée uniquement si toutes les dépendances sont supprimées alors que vous obtenez toujours le *message d’erreur de suppression du coffre*. Essayez l’une ou l’ensemble des astuces suivantes :
@@ -182,8 +322,6 @@ Cette option de suppression du coffre Recovery Services est recommandée uniquem
 - Dans le volet **Essentials** du menu du coffre, vérifiez qu’il n’y a pas d’éléments de sauvegarde, de serveurs de gestion de sauvegarde ou d’éléments répliqués listés. S’il existe des éléments de sauvegarde, reportez-vous à la section [Avant de commencer](#before-you-start).
 - Réessayez de [supprimer le coffre du portail](#delete-the-recovery-services-vault).
 - Si toutes les dépendances sont supprimées et que vous recevez toujours le *message d’erreur de suppression du coffre*, utilisez l’outil ARMClient pour effectuer les étapes suivantes (après la remarque).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Accédez à [chocolatey.org](https://chocolatey.org/) pour télécharger et installer Chocolatey. Ensuite, installez ARMClient en exécutant la commande suivante :
 

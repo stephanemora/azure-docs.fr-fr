@@ -666,6 +666,8 @@
           href: how-to-configure-change-feed-start-time.md
         - name: Utilisation de l’estimateur de flux de modification
           href: how-to-use-change-feed-estimator.md
+        - name: Migrer depuis la bibliothèque du processeur de flux de modification
+          href: how-to-migrate-from-change-feed-library.md
     - name: Analytique intégrée à Apache Spark
       items:
         - name: Connecteur Azure Databricks Spark

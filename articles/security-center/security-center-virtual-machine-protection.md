@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907969"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910559"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Azure Security Center analyse l’état de la sécurité de vos ressources Azure, de vos serveurs non-Azure et de vos machines virtuelles. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
@@ -108,7 +108,6 @@ Cette liste contient quatre types d’icônes :
 L’icône qui s’affiche sous chaque recommandation vous aide à identifier rapidement la machine virtuelle et l’ordinateur qui requièrent votre attention, ainsi que le type de recommandation. Vous pouvez également utiliser les filtres pour rechercher dans la liste par **Type de ressource** et **Gravité**.
 
 Pour explorer au niveau du détail les suggestions de sécurité pour chaque machine virtuelle, cliquez sur celle-ci.
-Ce panneau comporte des informations détaillées sur la sécurité de la machine virtuelle ou de l’ordinateur. L’action recommandée et le niveau de gravité de chaque problème sont affichés en bas.
 ![Services cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Services cloud
@@ -125,7 +124,7 @@ Pour voir une explication plus normative concernant cette recommandation, clique
 ![Mettre à jour la version du système d’exploitation](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>App Services
-Vous devez activer App Service dans votre abonnement pour afficher les informations App Service. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
+Pour afficher les informations App Service, vous devez activer App Service dans votre abonnement. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
 [!NOTE]
 > La surveillance d’App Service est uniquement disponible en préversion, au niveau Standard du Security Center.
 
@@ -170,7 +169,7 @@ Pour installer Microsoft Monitoring Agent :
 
    ![Installer MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Si vous souhaitez définir de nouveaux groupes identiques pour installer automatiquement Microsoft Monitoring Agent :
+Pour définir de nouveaux groupes identiques afin d’installer automatiquement Microsoft Monitoring Agent :
 1. Accédez à Azure Policy et cliquez sur **Définitions**.
 2. Recherchez la stratégie **Déployer un agent Log Analytics pour des groupes de machines virtuelles identiques Windows**, puis cliquez sur celle-ci.
 3. Cliquez sur **Affecter**.

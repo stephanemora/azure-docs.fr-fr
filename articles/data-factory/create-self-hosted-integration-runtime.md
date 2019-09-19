@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446219"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383354"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -80,6 +80,9 @@ Voici un flux de données global résumant les étapes de copie avec un runtime 
 - Si l’ordinateur hôte est en veille prolongée, le runtime d’intégration autohébergé ne répond pas à la demande de données. Configurez un plan d’alimentation approprié sur l’ordinateur avant d’installer le runtime d’intégration auto-hébergé. L’installation du runtime d’intégration autohébergé ouvre un message si l’ordinateur est configuré pour la mise en veille prolongée.
 - Vous devez être administrateur sur la machine pour installer et configurer le runtime d’intégration autohébergé avec succès.
 - L’activité de copie s’exécute selon une fréquence spécifique. L’utilisation des ressources (UC, mémoire) sur la machine suit le même modèle avec des périodes de pointe et d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs travaux sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe.
+- Les tâches peuvent échouer lors de l’extraction de données au format Parquet, ORC ou Avro. La création de fichiers s’effectue sur la machine d’intégration auto-hébergée et nécessite que les éléments prérequis ci-après fonctionnent correctement (consultez [Format Parquet dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+    - [Package redistribuable Visual C++ 2010 (x64)](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe)
+    - Java Runtime Environment (JRE) version 8 provenant d’un fournisseur JRE comme [Adopt OpenJDK](https://adoptopenjdk.net/), assurant la définition de la variable d’environnement `JAVA_HOME`
 
 ## <a name="installation-best-practices"></a>Bonnes pratiques d’installation
 Vous pouvez installer le runtime d’intégration auto-hébergé en téléchargeant un package de configuration MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Pour des instructions pas à pas, consultez l’article [Déplacement de données entre des sources locales et le cloud](tutorial-hybrid-copy-powershell.md).
@@ -139,7 +142,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | GenerateBackupFile "`<filePath>`" "`<password>`"            | Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données | Non       |
 | ImportBackupFile "`<filePath>`" "`<password>`"              | Restaurer le nœud à partir d’un fichier de sauvegarde                          | Non       |
 | Redémarrer                                                     | Redémarrer le service hôte Integration Runtime (auto-hébergé)   | Non       |
-| Démarrer                                                       | Démarrer le service hôte Integration Runtime (auto-hébergé)     | Non       |
+| Start                                                       | Démarrer le service hôte Integration Runtime (auto-hébergé)     | Non       |
 | Arrêter                                                        | Arrêter le service de mise à jour d’Integration Runtime (auto-hébergé)        | Non       |
 | StartUpgradeService                                         | Démarrer le service de mise à jour d’Integration Runtime (auto-hébergé)       | Non       |
 | StopUpgradeService                                          | Arrêter le service de mise à jour d’Integration Runtime (auto-hébergé)        | Non       |

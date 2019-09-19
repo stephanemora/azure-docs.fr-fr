@@ -1,6 +1,6 @@
 ---
 title: Utiliser Apache Hadoop Hive avec Curl dans HDInsight - Azure
-description: Découvrez comment transmettre à distance des tâches Apache Pig vers HDInsight à l’aide de Curl.
+description: Découvrez comment transmettre à distance des tâches Apache Pig vers Azure HDInsight à l’aide de Curl.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 334d7b886aa4e2130a12f0c8a7919986fdac55d1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508125"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736082"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de REST
 
@@ -31,17 +31,17 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Ap
 
 ## <a name="base-uri-for-rest-api"></a>URI de base pour l’API Rest
 
-L’URI (Uniform Resource Identifier) de base pour l’API REST sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse**.  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) ne respecte pas la casse, au contraire des autres occurrences dans l’URI.
+L’URI (Uniform Resource Identifier) de base pour l’API REST sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse**.  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
 
 ## <a name="authentication"></a>Authentication
 
 Lorsque vous utilisez cURL ou toute autre communication REST avec WebHCat, vous devez authentifier les requêtes en fournissant le nom d’utilisateur et le mot de passe de l’administrateur du cluster HDInsight. L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Pour aider à vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur, procédez toujours aux requêtes via le protocole HTTP sécurisé (HTTPS).
 
 ### <a name="setup-preserve-credentials"></a>Programme d’installation (conservez vos informations d’identification)
-Conservez vos informations d’identification pour éviter de devoir les saisir à nouveau pour chaque exemple.  Le nom du cluster est conservé lors d’une étape distincte.
+Conservez vos informations d’identification pour éviter de devoir les entrer pour chaque exemple.  Le nom du cluster est conservé lors d’une étape distincte.
 
 **A. Bash**  
-Modifiez le script ci-dessous en remplaçant `PASSWORD` par votre mot de passe réel.  Ensuite, saisissez la commande.
+Modifiez le script ci-dessous en remplaçant `PASSWORD` par votre mot de passe réel.  Ensuite, entrez la commande.
 
 ```bash
 export password='PASSWORD'
@@ -56,7 +56,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>Identifier le nom de cluster présentant la bonne casse
 La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé.  Les étapes suivantes indiquent la casse réelle, avant de la stocker dans une variable pour tous les exemples suivants.
 
-Modifiez les scripts ci-dessous, en remplaçant `CLUSTERNAME` par le nom de votre cluster. Ensuite, saisissez la commande. (Le nom du cluster pour le nom de domaine complet ne respecte pas la casse).
+Modifiez les scripts ci-dessous, en remplaçant `CLUSTERNAME` par le nom de votre cluster. Ensuite, entrez la commande. (Le nom du cluster pour le nom de domaine complet ne respecte pas la casse).
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')

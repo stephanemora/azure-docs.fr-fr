@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 192c5c7a2d4c671aec0dcf72bef78abd1845b1ea
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946078"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387941"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
 
@@ -26,11 +26,11 @@ LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](lu
 
 * Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-concept-keys.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Ce tutoriel commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Cet article commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installez la dernière version de Node.js avec NPM. Téléchargez-la [ici](https://nodejs.org/en/download/).
 * **[Recommandé]**  Visual Studio Code pour IntelliSense et le débogage, à télécharger gratuitement [ici](https://code.visualstudio.com/).
 
-Tout le code utilisé dans ce didacticiel est disponible dans le [dépôt GitHub Azure-Samples Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+Tout le code utilisé dans cet article est disponible dans le [dépôt GitHub d’exemples Azure Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mapper des données préexistantes à des intentions et à des entités
 Même si vous envisagez un système qui n’a pas été créé avec LUIS, s’il contient des données textuelles mappées à différentes choses que les utilisateurs souhaitent faire, vous pouvez parvenir à mapper des catégories existantes d’entrées d’utilisateurs à des intentions dans LUIS. Si vous pouvez identifier des mots ou des expressions importantes dans ce que les utilisateurs disent, ces mots peuvent être mappés à des entités.

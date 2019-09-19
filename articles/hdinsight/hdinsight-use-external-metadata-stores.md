@@ -1,6 +1,6 @@
 ---
 title: Utiliser des magasins de métadonnées externes - Azure HDInsight
-description: Utilisez des magasins de métadonnées externes avec les clusters HDInsight.
+description: Utilisez des magasins de métadonnées externes avec les clusters Azure HDInsight et suivez les bonnes pratiques.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e922dfd879c7323d467dca8c4017c5ede2c8659
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298875"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916540"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -70,6 +70,7 @@ Voici certaines des meilleures pratiques pour les metastores Hive dans HDInsight
 - Surveillez les performances et la disponibilité de votre metastore à l’aide des outils de surveillance d’Azure SQL Database, tels que le Portail Microsoft Azure ou les journaux Azure Monitor.
 - Lorsqu’une nouvelle version d’Azure HDInsight plus élevée est créée sur une base de données de metastore personnalisée existante, le système met à niveau le schéma du metastore, qui est irréversible sans restaurer la base de données à partir de la sauvegarde.
 - Si vous partagez un metastore sur plusieurs clusters, assurez-vous que tous les clusters utilisent la même version de HDInsight. Différentes versions d’Hive utilisent différents schémas de base de données de metastore. Par exemple, vous ne pouvez pas partager un metastore sur les clusters Hive versions 1.2 et 2.1. 
+- Dans HDInsight 4.0, Spark et Hive utilisent des catalogues indépendants pour accéder aux tables SparkSQL ou Hive. Les tables créées par Spark résident dans le catalogue Spark. Les tables créées par Hive résident dans le catalogue Hive. Dans HDInsight 3.6, Hive et Spark partageaient le même catalogue. L’intégration de Hive et Spark à HDInsight 4.0 s’appuie sur le connecteur Hive Warehouse Connector (HWC). Le connecteur HWC sert de pont entre Spark et Hive. [En savoir plus sur le connecteur Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
 
 ##  <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 
