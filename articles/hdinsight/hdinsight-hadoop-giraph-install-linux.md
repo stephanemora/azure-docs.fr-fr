@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1ca536ffa2166df4ef6cf51654b7b410e72ea66
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697599"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962070"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation d’Apache Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
@@ -111,7 +111,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données peuvent ressembler au schéma ci-après :
 
-    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. Pour enregistrer le fichier, utilisez **Ctrl+X**, puis **Y**, et enfin **Entrée** pour accepter le nom de fichier.
 
@@ -161,7 +161,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     En visualisant ces données, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l’ID 1 et tous les autres objets. Le chemin le plus court entre ID 1 et ID 4 est 5. La valeur correspond à la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
 
-    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

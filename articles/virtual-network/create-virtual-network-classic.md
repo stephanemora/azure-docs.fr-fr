@@ -4,7 +4,7 @@ description: Découvrez comment créer un réseau virtuel (Classic) comprenant p
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202868"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059009"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -51,7 +51,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     |Espace d’adressage|10.0.0.0/16|
     |Nom du sous-réseau|Public|
     |Plage d’adresses de sous-réseau|10.0.0.0/24|
-    |Groupe de ressources|Laissez l’option **Créer** activée, puis entrez **myResourceGroup**.|
+    |Resource group|Laissez l’option **Créer** activée, puis entrez **myResourceGroup**.|
     |Abonnement et emplacement|Sélectionnez votre abonnement et son emplacement.
 
     Si vous débutez avec Azure, apprenez-en davantage sur les [groupes de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), les [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) et les [emplacements](https://azure.microsoft.com/regions) (également appelés *régions*).

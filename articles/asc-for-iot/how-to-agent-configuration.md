@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596325"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933882"
 ---
 # <a name="tutorial-configure-security-agents"></a>Didacticiel : Configurer des agents de sécurité
 
@@ -87,28 +87,28 @@ Pour utiliser une valeur de propriété par défaut, supprimez la propriété de
 
 1. Dans votre IoT Hub, recherchez et sélectionnez l’appareil que vous souhaitez modifier.
 
-2. Cliquez sur votre appareil, puis sur le module **azureiotsecurity**.
+1. Cliquez sur votre appareil, puis sur le module **azureiotsecurity**.
 
-3. Cliquez sur **Jumeau d’identité de module**.
+1. Cliquez sur **Jumeau d’identité de module**.
 
-4. Modifiez les propriétés que vous souhaitez changer dans le module sécurité.
+1. Modifiez les propriétés que vous souhaitez changer dans le module sécurité.
    
    Par exemple, pour configurer les événements de connexion sur une priorité élevée et collecter les événements de haute priorité toutes les 7 minutes, utilisez la configuration suivante.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="using-a-default-value"></a>Avec une valeur par défaut
 

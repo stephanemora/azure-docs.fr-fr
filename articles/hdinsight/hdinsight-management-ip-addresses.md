@@ -3,16 +3,17 @@ title: Adresses IP de gestion Azure HDInsight
 description: Découvrez les adresses IP à partir desquelles vous devez autoriser le trafic entrant afin de configurer correctement les groupes de sécurité réseau et itinéraires définis par l’utilisateur pour la mise en réseau virtuelle avec Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479206"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076629"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -71,7 +72,7 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | États-Unis | USA Centre | 13.89.171.122</br>13.89.171.124 | \*:443 | Trafic entrant |
 | &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | \*:443 | Trafic entrant |
 | &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | \*:443 | Trafic entrant |
-| &nbsp; | Centre-USA Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
+| &nbsp; | USA Centre-Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Trafic entrant |
 

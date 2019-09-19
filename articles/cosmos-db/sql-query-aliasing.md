@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e532fb7180af8a21de6ae9a2e4d798abd9e93e7b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343112"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002083"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Attribution d’alias dans Azure Cosmos DB
 
@@ -45,6 +45,6 @@ Les résultats sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clause SELECT](sql-query-select.md)
 - [Clause FROM](sql-query-from.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 2bfc22346c1dd43d7d3c2937ffc286e48ae774d0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343113"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003605"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Requêtes paramétrables dans Azure Cosmos DB
 
@@ -50,10 +50,10 @@ L’exemple suivant définit l’argument TOP avec une requête paramétrable :
     }
 ```
 
-Les valeurs de paramètres peuvent être n’importe quel format JSON valide : chaînes, nombres, valeurs booléennes, Null, même des tableaux ou des valeurs JSON imbriquées. Cosmos DB étant sans schéma, les paramètres ne sont pas validés par rapport à un type.
+Les valeurs de paramètres peuvent être n’importe quel format JSON valide : chaînes, nombres, booléens, Null, même des tableaux ou des valeurs JSON imbriquées. Cosmos DB étant sans schéma, les paramètres ne sont pas validés par rapport à un type.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Modéliser des données de document](modeling-data.md)

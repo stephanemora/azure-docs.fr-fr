@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0dd53689f7528e73845ab47a9791f062e0f2cb0c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258968"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962781"
 ---
 # <a name="register-in-dev-center"></a>S’inscrire dans le centre de développement  
 Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome Incognito pour vérifier que vous n’êtes pas connecté à un compte de navigateur personnel.  
@@ -144,7 +144,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
   > Un compte de Centre de développement est nécessaire pour que Microsoft puisse facturer le type de liste Transact au client pour le compte de l’éditeur. L’enregistrement d’un compte de Centre de développement permet à Microsoft de valider les informations juridiques, fiscales et bancaires de votre société. Cliquez [ici](https://docs.microsoft.com/azure/marketplace/become-publisher) pour en savoir plus.
 
 * **Comment procéder à l’inscription au Centre de développement ?**
-  > Pour éviter une duplication, vérifiez que votre entreprise ne dispose pas déjà d’un compte de Centre de développement. Vous devez être connecté avec le compte Microsoft que vous souhaitez associer à votre compte de développeur. Si vous n’avez pas de compte Microsoft, vous pouvez créer un compte [ici](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1). (exemple : contoso_marketplace@live.com) Pour se connecter et s’inscrire, accédez à https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > Pour éviter une duplication, vérifiez que votre entreprise ne dispose pas déjà d’un compte de Centre de développement. Vous devez être connecté avec le compte Microsoft que vous souhaitez associer à votre compte de développeur. Si vous n’avez pas de compte Microsoft, vous pouvez créer un compte [ici](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1). (exemple : contoso_marketplace@live.com) Pour se connecter et s’inscrire, accédez à https://dev.windows.com/registration?accountProgram=Azure
   > <br>Pour en savoir plus sur le processus d’inscription, cliquez [ici.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 * **Quel type de compte choisir, « Individuel » ou « Société » ?**

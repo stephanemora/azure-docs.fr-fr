@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d0a12bde119e9dae3f950603fac4bce060bb5f91
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172264"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057742"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Déboguer les problèmes d’application de proxy d’application 
 
@@ -42,11 +42,11 @@ Cet organigramme vous guide tout au long des étapes de débogage des problèmes
 |  | Action | Description | 
 |---------|---------|---------|
 |1 | Ouvrez un navigateur, accédez à l’application et entrez vos informations d’identification | Essayez d’utiliser vos informations d’identification pour vous connecter à l’application et consultez les éventuelles erreurs liées à l'utilisateur comme [Impossible d'accéder à cet application d'entreprise](application-proxy-sign-in-bad-gateway-timeout-error.md). |
-|2 | Vérifiez l’affectation d'utilisateurs à l'application | Assurez-vous que votre compte d’utilisateur est autorisé à accéder à l’application à partir du réseau d’entreprise, puis effectuez un test de signature en suivant la procédure [Tester l’application](application-proxy-add-on-premises-application.md#test-the-application). Si les problèmes de connexion persistent, consultez [Résoudre les erreurs de connexion](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors).  |
+|2 | Vérifiez l’affectation d'utilisateurs à l'application | Assurez-vous que votre compte d’utilisateur est autorisé à accéder à l’application à partir du réseau d’entreprise, puis effectuez un test de signature en suivant la procédure [Tester l’application](application-proxy-add-on-premises-application.md#test-the-application). Si les problèmes de connexion persistent, consultez [Résoudre les erreurs de connexion](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
 |3 | Ouvrez un navigateur et essayez d’accéder à l’application | Si une erreur s’affiche immédiatement, vérifiez que le service Proxy d’application est correctement configuré. Pour plus d'informations sur des messages d'erreur spécifiques, consultez [Résoudre les problèmes liés au service Proxy d'application et les messages d'erreur](application-proxy-troubleshoot.md).  |
 |4 | Vérifiez la configuration de votre domaine personnalisé ou corrigez l’erreur | Si la page ne s’affiche pas, vérifiez que votre domaine personnalisé est correctement configuré en consultant [Utilisation des domaines personnalisés](application-proxy-configure-custom-domain.md).<br></br>Si la page ne se charge et qu'un message d’erreur s'affiche, corrigez l’erreur en consultant [Résoudre les problèmes liés au service Proxy d'application et les messages d’erreur](application-proxy-troubleshoot.md). <br></br>Si un message d'erreur met plus de 20 secondes à s'afficher, il peut s'agir d'un problème de connectivité. Consultez l'article [Déboguer les connecteurs Proxy d'application](application-proxy-debug-connectors.md).  |
 |5\. | Si les problèmes persistent, procédez au débogage du connecteur | Il peut s'agir d'un problème de connectivité entre le proxy et le connecteur ou le connecteur et le serveur principal. Consultez l'article [Déboguer les connecteurs Proxy d'application](application-proxy-debug-connectors.md). |
-|6\. | Publiez toutes les ressources, vérifiez les outils de développement du navigateur et corrigez les liens | Assurez-vous que le chemin de publication inclut l’ensemble des images, scripts et feuilles de style nécessaires à votre application. Pour plus d'informations, consultez [Ajouter une application locale à Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Utilisez les outils de développement du navigateur (F12 dans Internet Explorer ou Microsoft Edge) et vérifiez s'il existe d'éventuels problèmes de publication, comme décrit dans [La page d'application ne s'affiche pas correctement](application-proxy-page-appearance-broken-problem.md). <br></br>Pour plus d'informations sur la résolution des liens rompus, consultez [Les liens de la page ne fonctionnent pas](application-proxy-page-links-broken-problem.md). |
+|6 | Publiez toutes les ressources, vérifiez les outils de développement du navigateur et corrigez les liens | Assurez-vous que le chemin de publication inclut l’ensemble des images, scripts et feuilles de style nécessaires à votre application. Pour plus d'informations, consultez [Ajouter une application locale à Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Utilisez les outils de développement du navigateur (F12 dans Internet Explorer ou Microsoft Edge) et vérifiez s'il existe d'éventuels problèmes de publication, comme décrit dans [La page d'application ne s'affiche pas correctement](application-proxy-page-appearance-broken-problem.md). <br></br>Pour plus d'informations sur la résolution des liens rompus, consultez [Les liens de la page ne fonctionnent pas](application-proxy-page-links-broken-problem.md). |
 |7 | Vérifiez la latence du réseau | Si la page se charge lentement, découvrez comment réduire la latence du réseau dans [Considérations relatives à la réduction de la latence](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
 |8 | Consultez l'aide ayant trait à la résolution de problèmes supplémentaires | Si les problèmes persistent, recherchez d’autres articles de résolution des problèmes dans la [documentation de résolution des problèmes liés au service Proxy d'application](application-proxy-page-appearance-broken-problem.md). |
 

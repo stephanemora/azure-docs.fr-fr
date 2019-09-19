@@ -1,6 +1,6 @@
 ---
 title: 'Exemple d’interface visuelle n°3 : régression pour évaluer les prix et comparer les algorithmes'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Cet article vous montre comment créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code. Découvrez comment effectuer l’apprentissage de plusieurs modèles de régression et comment les comparer pour prédire le prix d’une voiture en fonction de fonctionnalités techniques
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990003"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997103"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison
 

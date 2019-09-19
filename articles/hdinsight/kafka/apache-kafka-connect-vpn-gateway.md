@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: ab5f8c35334b6b6c56b0ebe8714d04ad5c7c8084
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402784"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960443"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Apache Kafka sur HDInsight via un réseau virtuel Azure
 
@@ -252,7 +252,7 @@ Par défaut, Apache Zookeeper retourne le nom de domaine des répartiteurs Kafka
 
 3. Pour afficher la configuration Kafka, sélectionnez __Configurations__ en haut et au centre de la page.
 
-    ![Liens vers les configurations Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Liens vers les configurations Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. Pour trouver la configuration __kafka-env__, entrez `kafka-env` dans le champ __Filtre__ situé en haut à droite.
 
@@ -274,7 +274,7 @@ Par défaut, Apache Zookeeper retourne le nom de domaine des répartiteurs Kafka
 
 8. Utilisez le bouton __Enregistrer__ pour enregistrer les modifications apportées à la configuration. Entrez un message texte décrivant les modifications. Sélectionnez __OK__ une fois les modifications apportées.
 
-    ![Bouton pour enregistrer la configuration](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Bouton pour enregistrer la configuration](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Pour éviter des erreurs lors du redémarrage de Kafka, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Activer le mode de maintenance__. Sélectionnez OK pour terminer cette opération.
 
@@ -282,7 +282,7 @@ Par défaut, Apache Zookeeper retourne le nom de domaine des répartiteurs Kafka
 
 10. Pour redémarrer Kafka, utilisez le bouton __Redémarrer__ et sélectionnez __Restart All Affected__ (Redémarrer tous les éléments affectés). Confirmez le redémarrage, puis utilisez le bouton __OK__ une fois l’opération terminée.
 
-    ![Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. Pour désactiver le mode de maintenance, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Désactiver le mode de maintenance__. Sélectionnez **OK** pour terminer cette opération.
 

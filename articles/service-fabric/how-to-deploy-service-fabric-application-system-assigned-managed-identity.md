@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640700"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968236"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système (préversion)
 
@@ -93,15 +93,9 @@ Cette propriété déclare, pour Azure Resource Manager, et l’identité manag�
     Il s’agit du mappage équivalent d’une identité à un service, comme décrit ci-dessus, mais du point de vue de la définition de service. L’identité est référencée ici par son nom convivial (`WebAdmin`), comme déclaré dans le manifeste de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 * Vérifier [la prise en charge des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
-
 * [Déployer un nouveau](./configure-new-azure-service-fabric-enable-managed-identity.md) cluster Azure Service Fabric avec une prise en charge d’identité managée 
-
 * [Activer une identité managée](./configure-existing-cluster-enable-managed-identity-token-service.md) dans un cluster Azure Service Fabric existant
-
 * Tirer parti de l’identité managée d’une [application Service fabric à partir du code source](./how-to-managed-identity-service-fabric-app-code.md)
-
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par un utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
 * [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)

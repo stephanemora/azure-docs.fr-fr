@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899952"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091948"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
@@ -107,7 +107,7 @@ Pour plus d'informations sur le processus d’authentification dans d’autres s
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>L'utilisateur gère ses informations d’identification Windows Hello Entreprise
 
-Le [service de réinitialisation de code confidentiel de Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) est une fonctionnalité d'Azure AD qui permet aux utilisateurs de réinitialiser leur code confidentiel, si besoin. À l'aide d'une stratégie de groupe, Microsoft Intune ou d'un GPM compatible, un administrateur peut configurer les appareils Windows 10 de sorte qu'ils utilisent, en toute sécurité, le service de réinitialisation du code confidentiel qui permet aux utilisateurs de réinitialiser leur code confidentiel oublié via les paramètres ou l'écran de verrouillage ci-dessus, sans devoir procéder à une nouvelle inscription.
+Le [service de réinitialisation de code confidentiel de Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) est une fonctionnalité d'Azure AD qui permet aux utilisateurs de réinitialiser leur code confidentiel, si besoin. À l'aide d'une stratégie de groupe, Microsoft Intune ou d'un GPM compatible, un administrateur peut configurer les appareils Windows 10 de sorte qu'ils utilisent, en toute sécurité, le service de réinitialisation du code confidentiel qui permet aux utilisateurs de réinitialiser leur code confidentiel oublié via les paramètres ou l'écran de verrouillage ci-dessus, sans devoir procéder à une nouvelle inscription.
 
 Les utilisateurs doivent parfois recourir aux mots de passe. La [réinitialisation de mot de passe en libre-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) est une fonctionnalité d’Azure Active Directory qui permet aux utilisateurs de réinitialiser leurs mots de passe, sans devoir contacter le service informatique. Les utilisateurs doivent s’inscrire ou être inscrits à ce service avant de l’utiliser. Pendant l’inscription, l’utilisateur choisit une ou plusieurs méthodes d’authentification activées par son organisation. SSPR permet aux utilisateurs de rapidement débloquer leur compte et de continuer à travailler, quels que soient l’heure ou l’endroit où ils se trouvent. En permettant aux utilisateurs de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés pour les problèmes les plus courants liés aux mots de passe.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726759"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999167"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Bonnes pratiques pour la sécurisation des applications mobiles et web PaaS avec le Stockage Azure
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du Stockage Azure pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
@@ -71,7 +71,7 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Utiliser le chiffrement côté client pour les données de valeur élevée
 Avec le chiffrement côté client, vous pouvez chiffrer par programmation des données en transit avant leur chargement dans le Stockage Azure et déchiffrer des données par programmation quand vous les récupérez. Ce dispositif fournit le chiffrement des données en transit, mais également le chiffrement des données au repos. Le chiffrement côté client est la méthode de chiffrement des données la plus sûre, mais il vous oblige à effectuer des modifications par programmation dans votre application et à mettre en place des processus de gestion des clés.
 
-Le chiffrement côté client vous permet également d’avoir un contrôle exclusif de vos clés de chiffrement. Vous pouvez créer et gérer vos propres clés de chiffrement. Il utilise une technique d’enveloppe où la bibliothèque cliente du Stockage Azure génère une clé de chiffrement de contenu (CEK) qui est ensuite incluse dans un wrapper (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans [Azure Key Vault](/azure/key-vault/key-vault-whatis).
+Le chiffrement côté client vous permet également d’avoir un contrôle exclusif de vos clés de chiffrement. Vous pouvez créer et gérer vos propres clés de chiffrement. Il utilise une technique d’enveloppe où la bibliothèque cliente du Stockage Azure génère une clé de chiffrement de contenu (CEK) qui est ensuite incluse dans un wrapper (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 Le chiffrement côté client est intégré aux bibliothèques clientes de stockage Java et .NET. Pour plus d’informations sur le chiffrement de données dans les applications clientes, et sur la génération et la gestion de vos propres clés de chiffrement, consultez [Chiffrement côté client et Azure Key Vault pour le Stockage Microsoft Azure](/azure/storage/common/storage-client-side-encryption).
 

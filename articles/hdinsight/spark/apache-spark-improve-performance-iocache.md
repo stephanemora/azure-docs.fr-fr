@@ -4,14 +4,15 @@ description: Découvrez-en plus sur Azure HDInsight IO Cache et comment l’util
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f3f171d4dfd3642dc71724afbe084c3fcbf8beaa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915367"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091068"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache 
 

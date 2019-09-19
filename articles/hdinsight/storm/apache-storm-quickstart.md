@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 12001aef970d3b465a7f5c8e0c7af072b8f4ec80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428457"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018574"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Démarrage rapide : Créer et surveiller une topologie Apache Storm dans Azure HDInsight
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple du projet Apache [s
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache Storm sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** pour le **Type de cluster**.
+* Un cluster Apache Storm sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** pour le **Type de cluster**.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -51,7 +51,7 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 2. Sous **Résumé de la topologie**, sélectionnez l’entrée **Statistiques** située dans la colonne **Nom**. Vous obtenez plus d’informations sur la topologie.
 
-    ![Tableau de bord Storm avec les informations sur la topologie WordCount storm-starter.](./media/apache-storm-quickstart/topology-summary.png)
+    ![Tableau de bord Storm avec les informations sur la topologie WordCount storm-starter.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     Cette nouvelle page fournit les informations suivantes :
 
@@ -68,7 +68,7 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 3. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtenez des informations relatives au composant sélectionné.
 
-    ![Tableau de bord Storm avec des informations sur les composants sélectionnés.](./media/apache-storm-quickstart/component-summary.png)
+    ![Tableau de bord Storm avec des informations sur les composants sélectionnés.](./media/apache-storm-quickstart/hdi-component-summary.png)
 
     Cette nouvelle page affiche les informations suivantes :
 

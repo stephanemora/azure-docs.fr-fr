@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310668"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994356"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -31,7 +31,7 @@ Extrayez des images à partir d’un registre de conteneur Azure pour différent
 * Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris de [Kubernetes](https://kubernetes.io/docs/), [du contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/) et de [Docker Swarm](https://docs.docker.com/swarm/).
 * Des **services Azure** qui prennent en charge la création et l’exécution des applications à grande échelle, y compris [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) et d’autres services.
 
-Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, vous pouvez cibler un registre de conteneurs à partir d’un outil de livraison et d’intégration continue comme [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou [Jenkins](https://jenkins.io/).
+Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, vous pouvez cibler un registre de conteneurs à partir d’un outil de livraison et d’intégration continue comme [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) ou [Jenkins](https://jenkins.io/).
 
 Configurez ACR Tasks pour recréer automatiquement des images d’application lorsque leurs images de base sont mises à jour, ou automatisez la génération d’images lorsque votre équipe valide le code dans un dépôt Git. Créez des tâches à plusieurs étapes pour automatiser la création, le test et la correction de plusieurs images conteneur en parallèle dans le cloud.
 

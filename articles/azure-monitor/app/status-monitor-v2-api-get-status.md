@@ -3,7 +3,7 @@ title: 'Référence sur l’API Azure Status Monitor v2 : Obtenir l’état | M
 description: Référence sur l’API Azure Status Monitor v2. Get-ApplicationInsightsMonitoringStatus. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424131"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058252"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API Status Monitor v2 : Get-ApplicationInsightsMonitoringStatus
 
-Cet article décrit une applet de commande appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Description
 
@@ -30,7 +30,7 @@ Utilisez ce cmdlet pour analyser l’état de l’analyse, la version du module 
 Cette applet de commande signale les informations de version et les informations sur les fichiers de clés nécessaires à la supervision.
 
 > [!IMPORTANT] 
-> Cette applet de commande requiert une session PowerShell avec des autorisations d’administrateur.
+> Cette cmdlet requiert une session PowerShell avec des autorisations d’administrateur.
 
 ## <a name="examples"></a>Exemples
 

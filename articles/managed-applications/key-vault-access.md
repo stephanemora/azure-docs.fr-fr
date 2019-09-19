@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a87066425845a7f1043576a858a361e601ba9cc8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588234"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003416"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Accéder à un secret dans le coffre de clés lors du déploiement d’applications managées Azure
 
-Lorsque vous avez besoin de passer une valeur sécurisée (par exemple, un mot de passe) comme paramètre au cours du déploiement, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../key-vault/key-vault-whatis.md). Pour accéder au coffre de clés lors du déploiement d’applications managées, vous devez accorder l’accès au principal de service du **fournisseur de ressources d’appliance**. Le service Applications managées utilise cette identité pour exécuter des opérations. Pour pouvoir récupérer une valeur dans un coffre de clés pendant le déploiement, le principal de service doit avoir accès à ce coffre.
+Lorsque vous avez besoin de passer une valeur sécurisée (par exemple, un mot de passe) comme paramètre au cours du déploiement, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../key-vault/key-vault-overview.md). Pour accéder au coffre de clés lors du déploiement d’applications managées, vous devez accorder l’accès au principal de service du **fournisseur de ressources d’appliance**. Le service Applications managées utilise cette identité pour exécuter des opérations. Pour pouvoir récupérer une valeur dans un coffre de clés pendant le déploiement, le principal de service doit avoir accès à ce coffre.
 
 Cet article décrit comment configurer le coffre de clés pour l’utiliser avec les applications managées.
 

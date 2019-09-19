@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136525"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087595"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -33,7 +33,7 @@ Les services Azure prenant en charge les identités managées pour les ressource
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION | 
-| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | PRÉVERSION | PRÉVERSION |
+| Attribuée par l'utilisateur | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des machines virtuelles Azure (dans les régions où elles sont disponibles) :
 
@@ -48,7 +48,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION |
-| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | PRÉVERSION | PRÉVERSION |
+| Attribuée par l'utilisateur | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des groupes Azure Virtual Machine Scale Sets (dans les régions où ils sont disponibles) :
 
@@ -210,7 +210,7 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | PRÉVERSION |
+| Azure Global | `https://eventhubs.azure.net` | Disponible |
 | Azure Government |  | Non disponible |
 | Azure Germany |   | Non disponible |
 | Azure China 21Vianet |  | Non disponible |
@@ -219,8 +219,8 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | PRÉVERSION |
-| Azure Government |  | Non disponible |
+| Azure Global | `https://servicebus.azure.net`  | Disponible |
+| Azure Government |  | Disponible |
 | Azure Germany |   | Non disponible |
 | Azure China 21Vianet |  | Non disponible |
 

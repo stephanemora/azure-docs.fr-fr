@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873897"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101673"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -60,7 +60,7 @@ Les étapes suivantes détaillent la création d’une instance managée.
 
    ![Formulaire d’instance managée](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Pour utiliser l’instance managée en tant que groupe de basculement d’instances secondaire, activez la case à cocher de l’option et spécifiez l’instance managée DnsAzurePartner. Cette fonctionnalité est en préversion et ne figure pas dans la capture d’écran suivante.
+5. Pour utiliser l’instance managée en tant que groupe de basculement d’instances secondaire, activez la case à cocher de l’option et spécifiez l’instance managée DnsAzurePartner. 
 6. Sélectionnez **Niveau tarifaire** pour dimensionner les ressources de calcul et de stockage, ainsi que pour examiner les options de niveau tarifaire. Le niveau tarifaire Usage général avec 32 Go de mémoire et 16 vCores est la valeur par défaut.
 7. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores.
 8. Quand vous avez terminé, sélectionnez **Appliquer** pour enregistrer votre sélection. 

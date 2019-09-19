@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879177"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037424"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurer votre cloud privé CloudSimple comme site de reprise d’activité pour les charges de travail VMware locales
 
 Vous pouvez configurer votre cloud privé CloudSimple en tant que site de récupération pour les applications locales afin d’assurer la continuité des activités en cas de sinistre. La solution de récupération est basée sur Zerto Virtual Replication comme plateforme de réplication et d’orchestration. Les machines virtuelles d’infrastructure et d’applications critiques peuvent être répliquées en continu de votre vCenter local vers votre cloud privé. Vous pouvez utiliser votre cloud privé pour tester le basculement et garantir la disponibilité de votre application en cas de sinistre. Vous pouvez adopter une approche similaire pour configurer le cloud privé en tant que site principal protégé par un site de récupération à un autre emplacement.
 
 > [!NOTE]
-> Pour obtenir des instructions sur le dimensionnement de votre environnement de reprise d’activité après sinistre, reportez-vous au document Zerto intitulé [Sizing Considerations For Zerto Virtual Replication](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) (Considérations relatives au dimensionnement pour Zerto Virtual Replication).
+> Pour obtenir des instructions sur le dimensionnement de votre environnement de reprise d’activité après sinistre, reportez-vous au document Zerto intitulé [Sizing Considerations For Zerto Virtual Replication](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) (Considérations relatives au dimensionnement pour Zerto Virtual Replication).
 
 La solution CloudSimple :
 
@@ -41,7 +41,7 @@ La figure suivante illustre l’architecture de la solution Zerto.
 
 Les sections suivantes expliquent comment déployer une solution de reprise d’activité à l’aide de Zerto Virtual Replication dans votre cloud privé.
 
-1. [Prérequis](#prerequisites)
+1. [Composants requis](#prerequisites)
 2. [Configuration facultative sur le cloud privé CloudSimple](#optional-configuration-on-your-private-cloud)
 3. [Configurer ZVM et VRA sur le cloud privé CloudSimple](#set-up-zvm-and-vra-on-your-private-cloud)
 4. [Configurer le groupe de protection virtuel Zerto](#set-up-zerto-virtual-protection-group)

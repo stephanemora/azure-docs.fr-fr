@@ -4,17 +4,15 @@ description: Montre comment créer une application managée Azure destinée aux 
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b8c5a99a74446fcd126606b34135bba315ca1473
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840622"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995408"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publier une définition d’application managée Azure
 
@@ -34,7 +32,7 @@ Pour créer un groupe de ressources, utilisez la commande suivante :
 az group create --name appDefinitionGroup --location westcentralus
 ```
 
-## <a name="create-the-managed-application-definition"></a>Créer la définition d’application managée
+## <a name="create-the-managed-application-definition"></a>Créer la définition d’application gérée
 
 Lors de la définition de l’application managée, vous sélectionnez un utilisateur, un groupe ou une application qui gère les ressources pour le consommateur. Cette identité dispose d’autorisations sur le groupe de ressources managé en fonction du rôle attribué. En général, vous créez un groupe Azure Active Directory pour gérer les ressources. Toutefois, pour cet article, utilisez votre propre identité.
 
@@ -61,7 +59,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$userid:$roleid" \
-  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
 
 Une fois la commande terminée, vous avez une définition de l’application managée dans votre groupe de ressources. 

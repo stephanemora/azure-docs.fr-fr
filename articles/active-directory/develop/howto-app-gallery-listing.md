@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2019
+ms.date: 09/16/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898514"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033750"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -48,12 +48,7 @@ Cet article montre comment répertorier une application dans la galerie d’appl
 
 - Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique soit effectué comme prévu.
 
-- Pour les demandes d’attribution automatique d’utilisateurs, l’application doit être répertoriée dans la galerie avec une fonctionnalité d’authentification unique activée utilisant SAML 2.0/WS-Fed. Vous pouvez demander l’authentification unique et l’attribution d’utilisateur ensemble sur le portail, si elles ne sont pas répertoriées.
-
 - Vous avez besoin d’un compte permanent pour les tests avec au moins 2 utilisateurs inscrits.
-
-> [!NOTE]
-> Nous travaillons avec un nombre élevé de requêtes de connecteur SCIM. Nous avons donc arrêté de prendre de nouvelles requêtes sur notre portail. Merci de patienter avant d’effectuer de nouvelles requêtes, et ce, jusqu’à nouvel ordre. Veuillez nous excuser pour ce retard et pour les désagréments occasionnés.
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 

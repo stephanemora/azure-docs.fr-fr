@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934568"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998948"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric gère les difficultés du développement et de la gestion des applications cloud. C’est pourquoi les développeurs et administrateurs peuvent éviter les problèmes d’infrastructure complexes et se concentrer sur l’implémentation de charges de travail stratégiques et astreignantes qui sont scalables et fiables.
@@ -132,7 +132,7 @@ Configurez la sécurité client à nœud à l’aide de ClientIdentities. Vous d
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Gérer les secrets dans les applications Service Fabric
 Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut.
 
-Vous pouvez utiliser [Azure Key Vault](../../key-vault/key-vault-whatis.md) pour gérer les clés et les secrets. Toutefois, l’utilisation de secrets dans une application ne repose pas sur une plateforme cloud spécifique. Vous pouvez déployer des applications sur un cluster qui est hébergé n’importe où. Ce flux comprend quatre étapes principales :
+Vous pouvez utiliser [Azure Key Vault](../../key-vault/key-vault-overview.md) pour gérer les clés et les secrets. Toutefois, l’utilisation de secrets dans une application ne repose pas sur une plateforme cloud spécifique. Vous pouvez déployer des applications sur un cluster qui est hébergé n’importe où. Ce flux comprend quatre étapes principales :
 
 1.  Obtenez un certificat de chiffrement de données.
 2.  Installez le certificat dans votre cluster.

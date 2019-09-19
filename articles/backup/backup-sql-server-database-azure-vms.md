@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872905"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934849"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -36,8 +36,7 @@ Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critère
 1. Identifiez ou créez un [coffre Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) dans la même région ou avec les mêmes paramètres régionaux que la machine virtuelle qui héberge l’instance SQL Server.
 2. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Assurez-vous que les bases de données SQL Server respectent les [instructions de nommage pour Sauvegarde Azure](#database-naming-guidelines-for-azure-backup).
-4. Pour SQL 2008 et 2008 R2, [ajoutez une clé de Registre](#add-registry-key-to-enable-registration) pour activer l’inscription du serveur. Cette étape ne sera plus requise une fois que la fonctionnalité sera mise à la disposition générale.
-5. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
+4. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
 
 > [!NOTE]
 > Vous pouvez activer Sauvegarde Azure pour une machine virtuelle Azure et une base de données SQL Server s’exécutant sur la machine virtuelle sans conflit.
@@ -98,22 +97,6 @@ Utiliser un proxy HTTP | Le contrôle granulaire dans le proxy sur les URL de st
 
 L’utilisation d’alias est possible, bien que déconseillée, pour les caractères non pris en charge. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
-### <a name="add-registry-key-to-enable-registration"></a>Ajoutez une clé de Registre pour activer l’inscription
-
-1. Ouvrez Regedit
-2. Créez le répertoire de Registre suivant : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (vous devrez créer la clé TestHook sous WorkloadBackup qui, lui-même, doit être créé sous Microsoft).
-3. Sous le chemin d’accès du répertoire du Registre, créez une nouvelle valeur chaîne avec le nom chaîne **AzureBackupEnableWin2K8R2SP1** et la valeur : **True**
-
-    ![Regedit pour l’activation de l’inscription](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-Vous pouvez également automatiser cette étape en exécutant le fichier .reg avec la commande suivante :
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -261,18 +244,6 @@ Pour créer une stratégie de sauvegarde :
     - Sur le serveur principal, Sauvegarde Azure utilise la compression de sauvegarde native SQL.
 
 14. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**.
-
-
-### <a name="modify-policy"></a>Modifier la stratégie
-Dans la stratégie, modifiez la fréquence de sauvegarde ou la plage de rétention.
-
-> [!NOTE]
-> Toute modification de la période de rétention sera appliquée rétroactivement à tous les anciens points de récupération ainsi qu’aux nouveaux.
-
-Dans le tableau de bord du coffre, accédez à **Gérer** > **Stratégies de sauvegarde** et choisissez la stratégie que vous souhaitez modifier.
-
-  ![Gérer la stratégie de sauvegarde](./media/backup-azure-sql-database/modify-backup-policy.png)
-
 
 ## <a name="enable-auto-protection"></a>Activer la protection automatique  
 

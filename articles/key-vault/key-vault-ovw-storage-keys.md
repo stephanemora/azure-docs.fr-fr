@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 68c9279333e9ee92cbca1034f70801c153b6cdb8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883064"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000553"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Azure Key Vault et l’interface de ligne de commande Azure 
 
@@ -158,7 +158,7 @@ Il existe trois façons de s’authentifier auprès de Key Vault :
 - Utiliser un principal de service et un certificat. 
 - Utiliser un principal de service et un mot de passe. Cette approche est déconseillée.
 
-Pour plus d’informations, consultez [Azure Key Vault : concepts de base](key-vault-whatis.md#basic-concepts).
+Pour plus d’informations, consultez [Azure Key Vault : concepts de base](basic-concepts.md).
 
 L’exemple suivant montre comment récupérer des jetons de signature d’accès partagé. Vous pouvez récupérer les tokens après avoir créé une définition de signature d’accès partagé. 
 

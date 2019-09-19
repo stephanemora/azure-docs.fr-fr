@@ -4,14 +4,15 @@ description: Obtenez les réponses aux questions courantes sur l’utilisation d
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573712"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076569"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
@@ -33,27 +34,27 @@ Dans cet exemple, la capacité de deux files d’attente existantes (**default**
 
 1. Cliquez sur l’icône **Vues Ambari**, puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
 
-    ![Cliquer sur l’icône Vues Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Cliquer sur l’icône Vues Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Sélectionnez la file d’attente **default** (par défaut).
 
-    ![Sélectionner la file d’attente default](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Sélectionner la file d’attente default](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Modifiez la valeur **Capacity** (Capacité) de 50 % à 25 % pour la file d’attente **default** (par défaut) et faites de **même** pour la file d’attente **thriftsvr** .
 
-    ![Définir la capacité sur 25 % pour les files d’attente default et thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Définir la capacité sur 25 % pour les files d’attente default et thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Cliquez sur **Add Queue** (Ajouter une file d’attente) pour créer une file d’attente.
 
-    ![Sélectionner Add Queue](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Sélectionner Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Nommez la nouvelle file d’attente.
 
-    ![Indiquer Spark comme nom de file d’attente](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Indiquer Spark comme nom de file d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Conservez la valeur de **capacité** de 50 %, puis cliquez sur le bouton **Actions**.
 
-    ![Cliquer sur le bouton Actions](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Cliquer sur le bouton Actions](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Sélectionnez **Save and Refresh Queues** (Enregistrer et actualiser les files d’attente).
 
-    ![Sélectionner Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Sélectionner Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Ces modifications se répercutent immédiatement sur l’interface utilisateur du planificateur YARN.
 
@@ -139,6 +140,6 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 - Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-- Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+- Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
 - Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883981"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966943"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
 
@@ -44,8 +44,6 @@ Une fois que votre modèle a été publié, vous pouvez récupérer les informat
 
 ![L’onglet Performances s’affiche avec un rectangle rouge autour de la valeur de l’URL de prédiction pour l’utilisation d’un fichier image et la valeur de Prediction-Key.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> Votre __Prediction-Key__ figure également sur la page du [portail Azure](https://portal.azure.com) pour la ressource Azure Custom Vision associée à votre projet, sous le volet __Clés__.
 
 Dans ce guide, vous utiliserez une image locale, aussi copiez l’URL sous **Si vous avez un fichier image** à un emplacement temporaire. Copiez aussi la valeur __Prediction-Key__ correspondante.
 

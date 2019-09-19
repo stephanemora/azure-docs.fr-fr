@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 292fe858b85faef69b9df2dbdf54e7061ed56fa2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a3499637fb5320afe80bf4eefa634173db31f1b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142505"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931868"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Activité de fonction Azure dans Azure Data Factory
 
@@ -62,7 +62,7 @@ L’activité de fonction Azure prend également en charge les **requêtes**. Un
 
 Azure Functions expire après 230 secondes, quel que soit le paramètre `functionTimeout` que vous ayez configuré dans les paramètres. Pour plus d’informations, consultez [cet article](../azure-functions/functions-versions.md#timeout). Pour contourner ce comportement, appliquez un modèle asynchrone ou utilisez Durable Functions. L’avantage de Durable Functions que cette option utilise son propre mécanisme de suivi de l’état, donc vous n’aurez pas à implémenter le vôtre.
 
-Plus d’informations sur Durable Functions dans [cet article](../azure-functions/durable/durable-functions-overview.md). Vous pouvez configurer une activité de fonction Azure pour appeler la fonction Durable Functions, qui renvoie une réponse avec un autre URI, comme dans [cet exemple](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Étant donné que `statusQueryGetUri` retourne l’état HTTP 202 pendant que la fonction est en cours d’exécution, vous pouvez interroger l’état de la fonction avec une activité web. Définissez simplement une activité web avec la valeur `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` dans le champ `url`. Lorsque la fonction Durable Functions est terminée, la sortie de la fonction sera la sortie de l’activité web.
+Plus d’informations sur Durable Functions dans [cet article](../azure-functions/durable/durable-functions-overview.md). Vous pouvez configurer une activité de fonction Azure pour appeler la fonction Durable Functions, qui renvoie une réponse avec un autre URI, comme dans [cet exemple](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Étant donné que `statusQueryGetUri` retourne l’état HTTP 202 pendant que la fonction est en cours d’exécution, vous pouvez interroger l’état de la fonction avec une activité web. Définissez simplement une activité web avec la valeur `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` dans le champ `url`. Lorsque la fonction Durable Functions est terminée, la sortie de la fonction sera la sortie de l’activité web.
 
 
 ## <a name="sample"></a>Exemple

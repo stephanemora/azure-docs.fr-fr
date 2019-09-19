@@ -4,15 +4,16 @@ description: Obtenez les réponses aux questions courantes sur l’utilisation d
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 143a941b8266734a8415c71daafc07681bc13b80
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8931f9b09836d30f95e25cee245932475c3cf64c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049559"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018372"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Spark à l’aide d’Azure HDInsight
 
@@ -26,49 +27,49 @@ Les valeurs de configuration Spark peuvent être paramétrées afin d’éviter 
 
 1. Accédez à **Spark2** > **Configs**.
 
-    ![Sélectionnez l’onglet Configurations](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Sélectionnez l’onglet Configurations](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. Dans la liste des configurations, sélectionnez et développez **Custom-spark2-defaults**.
 
 1. Recherchez le paramètre de valeur que vous avez besoin d’ajuster, par exemple **spark.executor.memory**. Dans le cas présent, la valeur de **9728m** est trop élevée.
 
-    ![Sélectionnez custom-spark-defaults](./media/apache-troubleshoot-spark/update-config-4.png)
+    ![Sélectionnez custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Définissez la valeur sur le paramètre recommandé. La valeur **2048m** est recommandée pour ce paramètre.
 
 1. Enregistrez la valeur, puis la configuration. Sélectionnez **Enregistrer**.
 
-    ![Remplacez la valeur par 2048m](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![Remplacez la valeur par 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     Notez les modifications apportées à la configuration, puis sélectionnez **Enregistrer**.
 
-    ![Saisissez une note concernant les modifications apportées](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![Saisissez une note concernant les modifications apportées](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
     Si des configurations requièrent votre attention, un message s’affiche. Notez les éléments, puis sélectionnez **Proceed Anyway** (Continuer).
 
-    ![Sélectionnez Proceed Anyway (Continuer)](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Sélectionnez Proceed Anyway (Continuer)](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
 1. À chaque fois que vous enregistrez une configuration, vous êtes invité à redémarrer le service. Sélectionnez **Redémarrer**.
 
-    ![Sélectionnez Redémarrer](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![Sélectionnez Redémarrer](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     Confirmez le redémarrage.
 
-    ![Sélectionnez Confirm Restart All (Confirmer le redémarrage)](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Sélectionnez Confirm Restart All (Confirmer le redémarrage)](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     Vous pouvez examiner les processus en cours d’exécution.
 
-    ![Examinez les processus en cours d’exécution](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![Examinez les processus en cours d’exécution](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
 1. Vous pouvez ajouter des configurations. Dans la liste des configurations, sélectionnez **Custom-spark2-defaults**, puis **Ajouter une propriété**.
 
-    ![Sélectionnez Ajouter une propriété](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Sélectionnez Ajouter une propriété](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Définissez une nouvelle propriété. Vous pouvez définir une propriété unique via une boîte de dialogue de paramètres spécifiques tels que le type de données. Vous pouvez également définir plusieurs propriétés en utilisant une définition par ligne.
 
     Dans cet exemple, la propriété **spark.driver.memory** est définie avec une valeur de **4g**.
 
-    ![Définissez une nouvelle propriété](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![Définissez une nouvelle propriété](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
 1. Enregistrez la configuration et redémarrez le service en suivant la procédure décrite aux étapes 6 et 7.
 
@@ -110,6 +111,6 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
 * Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

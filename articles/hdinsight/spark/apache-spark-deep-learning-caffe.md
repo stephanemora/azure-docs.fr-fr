@@ -3,16 +3,17 @@ title: Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie �
 description: Utilisez Caffe sur Azure Spark pour une formation approfondie échelonnée dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814193"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995620"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée
 
@@ -65,7 +66,7 @@ La seconde étape consiste à télécharger, compiler et installer protobuf 2.5.
 
 Pour démarrer, vous pouvez exécuter cette action de script sur l’ensemble des nœuds worker et principaux de votre cluster (pour HDInsight 3.5). Vous pouvez exécuter les actions de script sur un cluster existant ou les utiliser lors de la création du cluster. Pour plus d’informations sur les actions de script, consultez la documentation [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-![Actions de script dédiées à l’installation des dépendances](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![Actions de script dédiées à l’installation des dépendances](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Étape 2 : Génération de Caffe sur Apache Spark pour HDInsight sur le nœud principal
@@ -175,7 +176,8 @@ Pour cet exemple, dans la mesure où vous avez préféré UC à GPU, vous devez 
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Configuration de Caffe1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Configuration de Caffe1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 Au besoin, vous pouvez modifier d’autres lignes.
 
@@ -184,7 +186,7 @@ Le second fichier (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) déf
 - Remplacez file:/Users/mridul/bigml/demodl/mnist_train_lmdb par wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb
 - Remplacez file:/Users/mridul/bigml/demodl/mnist_test_lmdb/ par wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb
 
-![Configuration de Caffe2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Configuration de Caffe2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 Pour plus d’informations sur la définition du réseau, consultez la [documentation Caffe sur le jeu de données MNIST](https://caffe.berkeleyvision.org/gathered/examples/mnist.html).
 
@@ -204,15 +206,15 @@ Si vous ne souhaitez pas savoir ce qui est arrivé, il vous suffira de récupér
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![Interface utilisateur Yarn](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![Interface utilisateur Yarn](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 Vous pouvez découvrir le nombre de ressources allouées pour cette application spécifique. Si vous cliquez sur le lien « Scheduler », vous verrez que neuf conteneurs sont exécutés pour cette application. Vous demandez à YARN de fournir huit exécuteurs ; un autre conteneur est dédié au processus du pilote. 
 
-![Planificateur YARN](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![Planificateur YARN](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 Peut-être voulez-vous vérifier l’absence de défaillances dans les journaux d’activité de conteneurs et de pilotes. Pour les journaux d’activité de pilotes, vous pouvez cliquer sur l’ID d’application dans l’interface utilisateur YARN, puis sur le bouton dédié aux journaux d’activité. Les journaux d’activité des pilotes sont écrits en stderr.
 
-![Interface utilisateur YARN 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![Interface utilisateur YARN 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 Par exemple, vous pouvez identifier certaines des erreurs ci-dessous dans les journaux d’activité de pilotes. Le cas échéant, elles indiquent que vous avez alloué un nombre trop important d’exécuteurs.
 

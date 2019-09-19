@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884448"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962853"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
 
@@ -36,7 +36,7 @@ Le processus de création d’une nouvelle offre diffère considérablement entr
 
 *Version d’évaluation* est une fonctionnalité de la place de marché qui propose aux clients une option de démonstration avec essai avant achat pour chaque offre ainsi activée.  La fonctionnalité Version d'évaluation est limitée au sous-ensemble de types d'offre suivant : [applications Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 pour la finance et les opérations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ applications SaaS](./saas-app/cpp-saas-offer.md), et [machines virtuelles](./virtual-machine/cpp-virtual-machine-offer.md).  Cette fonctionnalité implique que l'éditeur crée un modèle Version d'évaluation personnalisé pour son offre.  Pour plus d’informations, consultez la section [Version d'évaluation](./test-drive/what-is-test-drive.md).
 
-Vous pouvez parcourir les offres de la place de marché proposant des démonstrations Version d'évaluation en appliquant le [filtre version d'évaluation](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+Vous pouvez parcourir les offres de la place de marché proposant des démonstrations Version d'évaluation en appliquant le [filtre version d'évaluation](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Types d’offre de la Place de marché Microsoft Azure et d’AppSource

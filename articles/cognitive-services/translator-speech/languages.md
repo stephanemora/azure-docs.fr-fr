@@ -3,20 +3,20 @@ title: Langues prises en charge - API de traduction de conversation Translator S
 titlesuffix: Azure Cognitive Services
 description: Découvrez les langues prises en charge par l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2f5b48f2dbc2d109c03613676c6a119fd971603b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446927"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965438"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Langues prises en charge par l’API de traduction de conversation Translator Speech
 
@@ -30,7 +30,7 @@ Les langues prises en charge pour la traduction vocale sont les suivantes. Si le
 | Portugais brésilien     |
 | Chinois (mandarin)      |
 | Anglais      |
-| Anglais      |
+| Français      |
 | Allemand      |
 | Italien      |
 | Japonais      |
@@ -59,7 +59,7 @@ L’API de traduction de conversation Translator Speech prend en charge les lang
 | Fidjien      | `fj`          |
 | Filipino      | `fil`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098458"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097659"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -49,7 +49,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 * Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 300 Mo par défaut, mais vous pouvez l’augmenter jusqu’à 2 Go.
 * Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
-* Le [streaming des journaux](troubleshoot-diagnostic-logs.md#streamlogs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.
+* Le [streaming des journaux](troubleshoot-diagnostic-logs.md#stream-logs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.
 * Dans le magasin de contenu partagé, la structure des dossiers _LogFiles_ et _Data_ change pour les applications qui utilisent le cache local. Ces dossiers contiennent maintenant des sous-dossiers dont le nom est formé d’un « identificateur unique » et d’un horodatage. Chaque sous-dossier correspond à une instance de machine virtuelle sur laquelle l’application est en cours d’exécution ou s’est exécutée.
 * Les autres dossiers de _D:\home_ restent dans le cache local et ne sont pas copiés dans le magasin de contenu partagé.
 * Le déploiement d’applications par n’importe quelle méthode prise en charge publie directement dans le magasin de contenu partagé durable. Pour actualiser les dossiers _D:\home\site_ et _D:\home\siteextensions_ dans le cache local, l’application doit être redémarrée. vous pouvez rendre le cycle de vie transparent. Pour plus d’informations, consultez la suite de cet article.

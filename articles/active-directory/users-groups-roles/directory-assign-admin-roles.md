@@ -14,11 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e0648ff9aab12ad6a579fc7f6e45b98a9d6d03
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70861162"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
@@ -78,12 +78,6 @@ Le rôle d’administrateur d’authentification est actuellement en préversion
 * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
 * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
 * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
-
-### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Administrateur Azure DevOps](#azure-devops-administrator-permissions)
-
-Les utilisateurs disposant de ce rôle peuvent gérer la stratégie Azure DevOps pour restreindre la création d’une nouvelle organisation Azure DevOps à un ensemble d’utilisateurs/groupes AAD configurables. Les utilisateurs de ce rôle peuvent gérer cette stratégie via n’importe quelle organisation Azure DevOps sauvegardée par l’instance Azure AD de l’entreprise.
-
-À l’avenir, toutes les stratégies Azure DevOps d’entreprise seront gérées par les utilisateurs de ce rôle.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Administrateur Azure Information Protection](#azure-information-protection-administrator-permissions)
 
@@ -497,19 +491,6 @@ Permet d’afficher, de définir et de réinitialiser les informations de métho
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 | microsoft.directory/users/password/update | Mettez à jour les mots de passe de tous les utilisateurs de l’organisation Office 365. Pour plus d’informations, consultez la documentation en ligne. |
-
-### <a name="azure-devops-administrator-permissions"></a>Autorisations de l’administrateur Azure DevOps
-
-Peut gérer la stratégie et les paramètres de l’organisation Azure DevOps.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la [description des rôles](#azure-devops-administrator) ci-dessus.
->
->
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.devOps/allEntities/allTasks | Lisez et configurez Azure DevOps. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Autorisations d’administrateur Azure Information Protection
 
@@ -1515,7 +1496,6 @@ DisplayName Graph | Nom d’affichage du portail Azure | directoryRoleTemplateId
 Administrateur d’application | Administrateur d’application | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Développeur d’applications | Développeur d’applications | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Administrateur Azure DevOps | Administrateur Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrateur Azure Information Protection | Administrateur Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrateur de flux d’utilisateurs B2C | Administrateur de flux d’utilisateurs B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrateur d’attributs de flux d’utilisateurs B2C | Administrateur d’attributs de flux d’utilisateurs B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

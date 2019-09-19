@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9549e40ea3b79c356867c2fe36dc336e69795c8b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688955"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962838"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Faites la promotion de votre entreprise avec Microsoft
 
@@ -28,7 +28,7 @@ Afin de promouvoir votre offre ou application, et pour accéder à plus d’avan
 
 | Avantages | Ressources |
 |:--- |:--- |
-| Utiliser vos avantages fondamentaux | Dans le cadre de Microsoft Partner Network, vous recevez un ensemble d’avantages fondamentaux vous permettant de gagner du temps et d’économiser de l’argent. Les avantages peuvent vous aider à <ul> <li> renforcer vos capacités, </li> <li> mieux servir les clients et </li> <li> créer des connexions pour atteindre pleinement votre potentiel commercial. </li> </ul> Pour plus d’informations sur les avantages principaux, consultez [Avantages fondamentaux et configuration requise](https://partner.microsoft.com/en-US/membership/core-benefits#tab-content-1). |
+| Utiliser vos avantages fondamentaux | Dans le cadre de Microsoft Partner Network, vous recevez un ensemble d’avantages fondamentaux vous permettant de gagner du temps et d’économiser de l’argent. Les avantages peuvent vous aider à <ul> <li> renforcer vos capacités, </li> <li> mieux servir les clients et </li> <li> créer des connexions pour atteindre pleinement votre potentiel commercial. </li> </ul> Pour plus d’informations sur les avantages principaux, consultez [Avantages fondamentaux et configuration requise](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Obtenir votre compétence Cloud Platform | L’obtention d’une compétence vous aide à <ul> <li> Vous distinguer au sein des partenaires Microsoft </li> <li> Montrer l’expertise technique et la réussite du client sur le marché </li> </ul> La compétence fait également partie des conditions nécessaires pour accéder à de nombreux programmes partenaires clés, comme Co-Sell. Consultez [Compétence de plateforme cloud](https://partner.microsoft.com/reach-customers/selling-with-microsoft) pour plus d’informations. |
 | Adhérer au programme IP Co-Sell Ready | Vous êtes peut-être éligible au programme IP Co-Sell Ready.  Ce programme vous permet de : <ul> <li> Collaborer directement avec les commerciaux et autres partenaires Microsoft concernant des opportunités de clientèle cible ou la planification des comptes. </li> <li> Rendre votre solution visible pour les vendeurs Microsoft dans leurs catalogues de solutions. </li> <li> Les vendeurs Microsoft sont récompensés pour leur collaboration et réussite avec vous. </li> </ul> Pour plus d’informations, notamment sur les conditions d’éligibilité, consultez [le programme Co-Sell Ready et les détails de la promotion de votre entreprise](https://partner.microsoft.com/reach-customers/selling-with-microsoft). |
 

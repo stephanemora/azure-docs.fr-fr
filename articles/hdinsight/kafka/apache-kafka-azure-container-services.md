@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446457"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960572"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -113,7 +113,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 3. Pour afficher la configuration Kafka, sélectionnez __Configurations__ en haut et au centre de la page.
 
-    ![Liens vers les configurations Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    ![Liens vers les configurations Kafka](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. Pour trouver la configuration __kafka-env__, entrez `kafka-env` dans le champ __Filtre__ situé en haut à droite.
 
@@ -135,7 +135,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 8. Utilisez le bouton __Enregistrer__ pour enregistrer les modifications apportées à la configuration. Entrez un message texte décrivant les modifications. Sélectionnez __OK__ une fois les modifications apportées.
 
-    ![Bouton pour enregistrer la configuration](./media/apache-kafka-azure-container-services/save-button.png)
+    ![Bouton pour enregistrer la configuration](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. Pour éviter des erreurs lors du redémarrage de Kafka, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Activer le mode de maintenance__. Sélectionnez OK pour terminer cette opération.
 
@@ -143,7 +143,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 10. Pour redémarrer Kafka, utilisez le bouton __Redémarrer__ et sélectionnez __Restart All Affected__ (Redémarrer tous les éléments affectés). Confirmez le redémarrage, puis utilisez le bouton __OK__ une fois l’opération terminée.
 
-    ![Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance](./media/apache-kafka-azure-container-services/restart-button.png)
+    ![Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance](./media/apache-kafka-azure-container-services/restart-required-button.png)
 
 11. Pour désactiver le mode de maintenance, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Désactiver le mode de maintenance__. Sélectionnez **OK** pour terminer cette opération.
 
@@ -212,7 +212,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 11. Ouvrez un navigateur web et entrez l’adresse IP externe pour le service. Vous accédez à une page similaire à l’image ci-dessous :
 
-    ![Image de la page web](./media/apache-kafka-azure-container-services/test-web-page.png)
+    ![Image de la page web](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. Entrez le texte dans le champ, puis sélectionnez le bouton __Envoyer__. Les données sont envoyées à Kafka. Ensuite, le consommateur Kafka dans l’application lit le message et l’ajoute à la section __Messages à partir de Kafka__.
 

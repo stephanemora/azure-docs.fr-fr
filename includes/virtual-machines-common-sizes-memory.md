@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c8ffa7b65e4f97fa537299bf542ba377da026064
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 09/16/2019
 ms.locfileid: "70174615"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
@@ -147,7 +147,7 @@ Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’
 
 <sup>1</sup> Ces machines virtuelles de taille importante nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> Les machines virtuelles de série Mv2 sont de la [2e génération](/azure/virtual-machines/linux/generation-2) uniquement. Si vous utilisez Linux, consultez la section suivante pour savoir comment rechercher et sélectionner une image SUSE Linux.
+<sup>2</sup> Les machines virtuelles de série Mv2 sont de la 2e génération uniquement. Si vous utilisez Linux, consultez la section suivante pour savoir comment rechercher et sélectionner une image SUSE Linux.
 
 #### <a name="find-a-suse-image"></a>Rechercher une image SUSE
 

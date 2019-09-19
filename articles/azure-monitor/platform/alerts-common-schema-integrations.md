@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f431e5e5f4537d1a5f889457eb81b881e47ee178
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734889"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091783"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Comment intégrer le schéma d’alerte courant à Logic Apps
 
@@ -21,7 +21,7 @@ Cet article explique comment créer une application logique qui s’appuie sur l
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Le [schéma d'alerte courant](https://aka.ms/commonAlertSchemaDocs) fournit un schéma JSON standardisé et extensible pour tous vos différents types d'alerte. Le schéma d'alerte courant est plus utile lorsqu'il est exploité par programmation, via des webhooks, des runbooks et des applications logiques. Dans cet article, nous montrons comment une simple application logique peut être créée pour gérer toutes vos alertes. Les mêmes principes peuvent être appliqués à d'autres méthodes programmatiques. L'application logique décrite dans cet article crée des variables bien définies pour les champs [« essentiels »](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), et comment gérer une logique spécifique de type [alerte](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields).
+Le [schéma d'alerte courant](https://aka.ms/commonAlertSchemaDocs) fournit un schéma JSON standardisé et extensible pour tous vos différents types d'alerte. Le schéma d'alerte courant est plus utile lorsqu'il est exploité par programmation, via des webhooks, des runbooks et des applications logiques. Dans cet article, nous montrons comment une simple application logique peut être créée pour gérer toutes vos alertes. Les mêmes principes peuvent être appliqués à d'autres méthodes programmatiques. L'application logique décrite dans cet article crée des variables bien définies pour les champs [« essentiels »](alerts-common-schema-definitions.md#essentials), et comment gérer une logique spécifique de type [alerte](alerts-common-schema-definitions.md#alert-context).
 
 
 ## <a name="prerequisites"></a>Prérequis 
@@ -125,7 +125,7 @@ Pour suivre cet article, le lecteur doit être familiarisé avec les concepts su
 
     ![Expression d’application logique](media/alerts-common-schema-integrations/logic-app-expressions.png "Expression d’application logique")
     
-     Le [champ 'monitoringService'](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) permet d’identifier de manière unique le type d’alerte à partir duquel vous pouvez créer la logique conditionnelle.
+     Le [champ 'monitoringService'](alerts-common-schema-definitions.md#alert-context) permet d’identifier de manière unique le type d’alerte à partir duquel vous pouvez créer la logique conditionnelle.
 
     
     Par exemple, l’extrait de code ci-dessous vérifie si l'alerte est une alerte de journal basée sur Application Insights et, le cas échéant, imprime les résultats de la recherche. Sinon, il imprime « NA » (non disponible).

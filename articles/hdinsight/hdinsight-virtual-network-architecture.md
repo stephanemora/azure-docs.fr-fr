@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252847"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960630"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architecture de réseau virtuel Azure HDInsight
 
@@ -36,7 +36,7 @@ Les clusters Azure HDInsight présentent différents types de machines virtuelle
 
 Le diagramme suivant illustre le placement des nœuds HDInsight et des ressources réseau dans Azure.
 
-![Diagramme des entités HDInsight créées dans un réseau virtuel Azure personnalisé](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagramme des entités HDInsight créées dans un réseau virtuel Azure personnalisé](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 Les ressources présentes par défaut lors du déploiement de HDInsight dans un réseau virtuel Azure incluent les types de nœuds de cluster mentionnés dans le tableau précédent, ainsi que les périphériques réseau qui prennent en charge la communication entre le réseau virtuel et les réseaux extérieurs.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d97ca91466516b8722ecca77d19078399a258f7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814096"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001762"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
 
@@ -51,17 +51,19 @@ L’interface utilisateur web du serveur d’historique Spark ressemble à ce qu
 ![Serveur d’historique HDInsight Spark](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
 
 ## <a name="open-the-yarn-ui"></a>Ouvrir l’interface utilisateur YARN
+
 Vous pouvez utiliser l’interface utilisateur YARN pour surveiller les applications en cours d’exécution sur le cluster Spark.
 
 1. À partir du [portail Azure](https://portal.azure.com/), ouvrez le cluster Spark. Pour plus d’informations, voir [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. À partir de **Liens rapides**, cliquez sur **Tableaux de bord du cluster**, puis sur **YARN**.
 
-    ![Lancer l’interface utilisateur Yarn](./media/apache-spark-resource-manager/launch-yarn-ui.png)
+    ![Lancer l’interface utilisateur Yarn](./media/apache-spark-resource-manager/hdi-launch-apache-yarn.png)
 
    > [!TIP]  
    > Vous pouvez également lancer l’interface utilisateur de YARN à partir de celle d’Ambari. Pour lancer l’interface utilisateur d’Ambari, cliquez sur **Tableau de bord du cluster**, puis sur **Tableau de bord de cluster HDInsight**. À partir de l’interface utilisateur d’Ambari, cliquez successivement sur **YARN**, **Quick Links** (Liens rapides), le Gestionnaire des ressources actif et **ResourceManager UI** (IU de ResourceManager).
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optimiser les clusters pour les applications Spark
+
 Les trois paramètres clés pouvant être utilisés pour la configuration de Spark selon la configuration requise pour l’application sont `spark.executor.instances`, `spark.executor.cores` et `spark.executor.memory`. Un exécuteur est un processus lancé pour une application Spark. Il s’exécute sur le nœud de travail et est chargé d’effectuer les tâches de l’application. Le nombre d’exécuteurs par défaut et les tailles d’exécuteur de chaque cluster sont calculés en fonction du nombre de nœuds de travail et de leur taille. Ces informations sont stockées dans `spark-defaults.conf` sur les nœuds principaux du cluster.
 
 Les trois paramètres de configuration peuvent être configurés au niveau du cluster (pour toutes les applications qui s’exécutent sur le cluster) ou spécifiés pour chaque application.
@@ -76,7 +78,7 @@ Les trois paramètres de configuration peuvent être configurés au niveau du cl
 
 3. Cliquez sur **Save (Enregistrer)** pour enregistrer les modifications de la configuration. En haut de la page, vous êtes invité à redémarrer tous les services concernés. Cliquez sur **Restart (Redémarrer)** .
 
-    ![Redémarrer les services](./media/apache-spark-resource-manager/restart-services.png)
+    ![Redémarrer les services](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Modifier les paramètres d’une application exécutée dans un bloc-notes Jupyter
 Pour les applications exécutées dans le bloc-notes Jupyter, vous pouvez utiliser la commande magique `%%configure` pour procéder aux modifications de la configuration. Dans l’idéal, vous devez apporter ces modifications au début de l’application, avant d’exécuter la première cellule de code. Ainsi, la configuration est appliquée à la session Livy au moment de sa création. Si vous souhaitez modifier la configuration ultérieurement dans l’application, vous devez utiliser le paramètre `-f` . Néanmoins, en procédant ainsi, toute la progression de l’application est perdue.
@@ -135,21 +137,21 @@ En raison de l’allocation dynamique de Spark, les seules ressources consommée
 ## <a name="restart-the-jupyter-service"></a>Redémarrer le service Jupyter
 Lancez l’interface utilisateur web d’Ambari comme indiqué au début de l’article. Dans le volet de navigation gauche, cliquez sur **Jupyter**, sur **Actions de service**, puis sur **Redémarrer tout**. Cela démarre le service Jupyter sur tous les nœuds principaux.
 
-![Redémarrer Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Redémarrer Jupyter")
+![Redémarrer Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Redémarrer Jupyter")
 
 ## <a name="monitor-resources"></a>Surveiller les ressources
 Lancez l’interface utilisateur Yarn comme indiqué au début de l’article. Dans la table des mesures de Cluster située en haut de l’écran, vérifiez les valeurs des colonnes **Mémoire utilisée** et **Mémoire totale**. Si les deux valeurs sont proches, le nombre de ressources ne sera peut-être pas suffisant pour démarrer l’application suivante. Cela s’applique également aux colonnes **VCores utilisés** et **Total des VCores**. En outre, dans la vue principale, si une application est restée dans l’état **ACCEPTÉ** et n’est pas passée à l’état **EN COURS D’EXÉCUTION** ou **Échec**. Cela peut également indiquer que le nombre de ressources est insuffisant pour démarrer.
 
-![Limite des ressources](./media/apache-spark-resource-manager/resource-limit.png "Limite des ressources")
+![Limite des ressources](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Limite des ressources")
 
 ## <a name="kill-running-applications"></a>Arrêter les applications en cours d’exécution
 1. Dans l’interface utilisateur Yarn, dans le volet gauche, cliquez sur **En cours d’exécution**. Dans la liste des applications en cours d’exécution, déterminez l’application à arrêter, puis cliquez sur l’**ID**.
 
-    ![Arrêter App1](./media/apache-spark-resource-manager/kill-app1.png "Arrêter App1")
+    ![Arrêter App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Arrêter App1")
 
 2. Cliquez sur **Arrêter l’application** dans le coin supérieur droit, puis cliquez sur **OK**.
 
-    ![Arrêter App2](./media/apache-spark-resource-manager/kill-app2.png "Arrêter App2")
+    ![Arrêter App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Arrêter App2")
 
 ## <a name="see-also"></a>Voir aussi
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

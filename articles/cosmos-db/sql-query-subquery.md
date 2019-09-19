@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 4181a44e87d59d35d424a51c8fedc89523223f90
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343186"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003479"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requêtes SQL pour Azure Cosmos DB
 
@@ -40,8 +40,8 @@ Les requêtes SQL dans Azure Cosmos DB retournent toujours une seule colonne (un
 
 Les sous-requêtes multivaleurs retournent un ensemble de documents et sont toujours utilisées dans la clause FROM. Elles sont utilisées pour :
 
-* Optimiser les expressions JOIN 
-* Évaluer les expressions coûteuses une seule fois et les référencer plusieurs fois
+* Optimiser les expressions JOIN. 
+* Évaluer les expressions coûteuses une seule fois et les référencer plusieurs fois.
 
 ## <a name="optimize-join-expressions"></a>Optimiser les expressions JOIN
 
@@ -126,13 +126,13 @@ Par exemple, considérez ce jeu de données de référence :
 
 | **Unité** | **Nom**            | **Multiplicateur** | **Unité de base** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogram            | 1,00E-09       | Gram          |
-| µg       | Microgram           | 1,00E-06       | Gram          |
-| mg       | Milligram           | 1,00E-03       | Gram          |
-| g        | Gram                | 1,00E+00       | Gram          |
-| kg       | Kilogram            | 1,00E+03       | Gram          |
-| Mg       | Megagram            | 1,00E+06       | Gram          |
-| Gg       | Gigagram            | 1,00E+09       | Gram          |
+| ng       | Nanogram            | 1,00E-09       | Gramme          |
+| µg       | Microgram           | 1,00E-06       | Gramme          |
+| mg       | Milligram           | 1,00E-03       | Gramme          |
+| g        | Gramme                | 1,00E+00       | Gramme          |
+| kg       | Kilogram            | 1,00E+03       | Gramme          |
+| Mg       | Megagram            | 1,00E+06       | Gramme          |
+| Gg       | Gigagram            | 1,00E+09       | Gramme          |
 | nJ       | Nanojoule           | 1,00E-09       | Joule         |
 | µJ       | Microjoule          | 1,00E-06       | Joule         |
 | mJ       | Millijoule          | 1,00E-03       | Joule         |
@@ -368,7 +368,7 @@ SELECT EXISTS (SELECT undefined)
 
 La sous-requête inclut dans un objet la liste des valeurs de la liste sélectionnée. Si la liste sélectionnée n’a aucune valeur, la sous-requête retourne la valeur unique « {} ». Cette valeur étant définie, EXISTS a la valeur true.
 
-### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Exemple : réécriture d’ARRAY_CONTAINS et JOIN avec EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemple : réécriture d’ARRAY_CONTAINS et JOIN avec EXISTS
 
 Un cas d’usage courant d’ARRAY_CONTAINS consiste à filtrer un document en fonction de l’existence d’un élément dans un tableau. Dans ce cas, nous vérifions si le tableau tags contient un élément nommé « orange ».
 
@@ -519,5 +519,5 @@ Sortie de la requête :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Modéliser des données de document](modeling-data.md)

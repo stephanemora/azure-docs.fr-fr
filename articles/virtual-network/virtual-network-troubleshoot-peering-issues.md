@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901393"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091097"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Résoudre les problèmes d’appairage de réseaux virtuels
 
@@ -58,7 +58,7 @@ Pour plus d’informations, voir [la configuration requise et les contraintes](h
 Pour configurer l’appairage de réseaux virtuels se trouvant dans des abonnements ou locataires Active Directory différents, suivez les étapes décrites dans [créer un appairage dans des abonnements différents pour Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Pour configurer l’appairage de réseaux, vous devez disposer des autorisations **Contributeur de réseaux** dans les deux abonnements. Pour plus d’informations, voir [Autorisations d’appairage](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> Pour configurer l’appairage de réseaux, vous devez disposer des autorisations **Contributeur de réseaux** dans les deux abonnements. Pour plus d’informations, voir [Autorisations d’appairage](virtual-network-manage-peering.md#permissions).
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Scénario 2 : Configurer l’appairage de réseaux virtuels avec une topologie hub-and-spoke qui utilise des ressources locales
 
@@ -104,7 +104,7 @@ Pour en savoir plus sur les exigences et les contraintes d’un appairage mondia
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>Scénario 4 : Je rencontre un problème de connectivité entre deux réseaux virtuels appairés
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte disposant des [rôles et autorisations](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions) nécessaires. Sélectionnez le réseau virtuel, sélectionnez **Appairage**, puis vérifiez le champ **État**. Qu’est-ce que l’état ?
+Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte disposant des [rôles et autorisations](virtual-network-manage-peering.md#permissions) nécessaires. Sélectionnez le réseau virtuel, sélectionnez **Appairage**, puis vérifiez le champ **État**. Qu’est-ce que l’état ?
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>Type de connexion 1 : L’état d’appairage est « Connecté »
 

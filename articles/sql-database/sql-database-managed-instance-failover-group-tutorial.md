@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04802b8b25ca21cc0099874e5a9ea69748868f6e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103075"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103213"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement
 
@@ -31,7 +31,7 @@ Ajoutez une instance managée SQL Database à un groupe de basculement. Dans cet
   > [!NOTE]
   > - Ce didacticiel explique comment configurer vos ressources dans le respect des [conditions préalables à la configuration de groupes de basculement pour une instance managée](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La création d’une instance gérée peut prendre beaucoup de temps. En conséquence, ce didacticiel peut prendre plusieurs heures. Pour plus d’informations sur les délais d’approvisionnement, consultez [Opérations de gestion des instances gérées](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > - L’utilisation de groupes de basculement avec des instances gérées est actuellement en préversion. 
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -94,7 +94,7 @@ Pour créer un réseau virtuel, procédez comme suit :
 ## <a name="3---create-a-secondary-managed-instance"></a>3 - Créer une instance managée secondaire
 Lors de cette étape, vous allez créer une instance gérée secondaire dans le portail Azure, ce qui configurera également la mise en réseau entre les deux instances managées. 
 
-Votre deuxième instance managée doit :
+Votre deuxième instance gérée doit :
 - Être vide. 
 - Avoir un sous-réseau et une plage d’adresses IP différents de ceux de l’instance managée principale. 
 

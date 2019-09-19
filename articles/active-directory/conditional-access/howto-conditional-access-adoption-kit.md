@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc4ff5fb528760be8c910f3da7d5691a6aae0d8
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387067"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075272"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adoption de l’accès conditionnel Azure AD
 
 Dans les environnements mobiles et cloud, les utilisateurs peuvent accéder aux ressources de votre organisation en utilisant différents appareils et applications, n’importe où. Par conséquent, contrôler les personnes autorisées à accéder à une ressource ne suffit plus. Vous pouvez contrôler qui a accès aux ressources et identifier l’emplacement de l’utilisateur, ainsi que l’appareil utilisé, entre autres choses.
 
-Pour fournir ce contrôle, **l’accès conditionnel Azure Active Directory (AD)** vous permet de spécifier les conditions que tous les utilisateurs doivent remplir pour accéder à une application, telles que Multi-Factor Authentication (MFA). Avec des stratégies d’accès conditionnel, vous contrôlez la manière dont les utilisateurs autorisés (utilisateurs autorisés à accéder à une application cloud) accèdent aux applications cloud dans des conditions spécifiques. Pour plus d’informations, consultez [Qu’est-ce que l’accès conditionnel ?](overview.md#conditional-access-policies).
+Pour fournir ce contrôle, **l’accès conditionnel Azure Active Directory (AD)** vous permet de spécifier les conditions que tous les utilisateurs doivent remplir pour accéder à une application, telles que Multi-Factor Authentication (MFA). Avec des stratégies d’accès conditionnel, vous contrôlez la manière dont les utilisateurs autorisés (utilisateurs autorisés à accéder à une application cloud) accèdent aux applications cloud dans des conditions spécifiques. Pour plus d’informations, consultez [Qu’est-ce que l’accès conditionnel ?](overview.md).
 
 ## <a name="key-benefits"></a>Principaux avantages
 
