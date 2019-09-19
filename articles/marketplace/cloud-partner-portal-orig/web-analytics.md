@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943157"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962894"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -71,7 +71,7 @@ Voici un exemple :
     2.  URL de la page d’accueil = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. L’utilisateur clique sur le lien \"essayer mon produit\" et accède à AppSource.
     1. URL de référence =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL de la Page d’accueil (**vérifiez que l’URL comporte utm\_campaign et utm\_source**, dans le format suivant) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL de la Page d’accueil (**vérifiez que l’URL comporte utm\_campaign et utm\_source**, dans le format suivant) = [ https://appsource.microsoft.com/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Comment évaluer la réussite d’une campagne
 -----------------------------------------

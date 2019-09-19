@@ -164,7 +164,7 @@
           href: sql-database-reserved-capacity.md
         - name: Migrer à partir du niveau de service Premium RS
           href: sql-database-service-tiers-prs.md
-    - name: Capacité de calcul et stockage
+    - name: Niveaux de service
       items:
         - name: Vue d'ensemble
           href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -302,6 +302,8 @@
                   href: sql-database-vnet-service-endpoint-rule-overview.md
                 - name: Points de terminaison du service Réseau virtuel - PowerShell
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Liaison privée
+              href: sql-database-private-endpoint-overview.md
         - name: Contrôle d’accès
           items:
             - name: Contrôle d’accès

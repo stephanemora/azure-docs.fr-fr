@@ -51,7 +51,7 @@ Conditions préalables pour commencer à utiliser Microsoft Security Code Analys
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installation de l’extension Microsoft Security Code Analysis
 
-1. Une fois l’extension partagée avec votre organisation Azure DevOps, accédez à la page de votre organisation Azure DevOps. http://dev.azure.com/contoso est un exemple d’URL pour une telle page.
+1. Une fois l’extension partagée avec votre organisation Azure DevOps, accédez à la page de votre organisation Azure DevOps. [http://dev.azure.com/contoso](http://dev.azure.com/contoso ) est un exemple d’URL pour une telle page.
 1. Sélectionnez l’icône de panier d’achat en haut à droite à côté de votre nom, puis **Gérer les extensions**.
 1. Sélectionnez l’extension Microsoft Security Code Analysis, puis ouvrez l’Assistant Interface utilisateur d’Azure DevOps pour démarrer l’installation.
 1. Dans la liste déroulante, choisissez l’organisation Azure DevOps sur laquelle installer l’extension.

@@ -3,20 +3,20 @@ title: Bien démarrer avec l’API Reconnaissance vocale Bing en JavaScript | Mi
 titlesuffix: Azure Cognitive Services
 description: L’API Reconnaissance vocale Bing de Cognitive Services permet de développer des applications qui convertissent continuellement du contenu vocal en texte.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eef1a4885b77ae94f11d3d5bda5ded9b70ed63a4
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515211"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965810"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Bien démarrer avec l’API Reconnaissance vocale en JavaScript
 
@@ -42,7 +42,7 @@ Cette section vous indique comment charger un exemple de page HTML. L’exemple 
 
 ### <a name="open-the-sample-directly"></a>Ouvrir l’exemple directement
 
-Obtenez une clé d’abonnement comme décrit ci-dessus. Ouvrez le [lien vers l’exemple](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). La page est chargée dans votre navigateur par défaut (restituée à l’aide [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Obtenez une clé d’abonnement comme décrit ci-dessus. Ouvrez le [lien vers l’exemple](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). La page est chargée dans votre navigateur par défaut (restituée à l’aide [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Ouvrir l’exemple à partir d’une copie locale
 

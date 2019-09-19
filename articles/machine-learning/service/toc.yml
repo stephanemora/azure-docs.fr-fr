@@ -152,6 +152,9 @@
         - name: Ajouter et inscrire des jeux de données
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Entraîner avec des jeux de données
+          displayName: 'data, dataset'
+          href: how-to-train-with-datasets.md
     - name: Entraîner des modèles
       items:
         - name: Configurer des environnements d’entraînement

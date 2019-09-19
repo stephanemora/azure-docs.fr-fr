@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>Utilisez une base de données unique gérée par un serveur SQL Database pour vos applications SaaS et microservices qui nécessitent une seule base de données avec des performances prévisibles.</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: Instance gérée
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Utilisez des pools d’instances managées comme solution simple et économique pour déployer plusieurs instances managées qui partagent des ressources et évoluent rapidement.</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: Pool d’instances
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
@@ -102,7 +107,7 @@ sections:
             title: Le portail Azure
           - image:
               src: media/index/cli.svg
-            title: D’Azure CLI
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: Créer un pool d’instances
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: Tutoriels pas à pas et supports d’apprentissage
     items:
       - type: paragraph
