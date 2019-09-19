@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fad2c83138f211e83e9462182d33f6169cbdb833
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736470"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968064"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -47,23 +47,23 @@ Sélectionnez l’ID tâche, puis cliquez sur **Données** dans le menu Outil po
 
 + Consultez les **Entrées**, **Sorties** et **Opérations de table** en sélectionnant les onglets séparément.
 
-    ![Onglets Données](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![Onglets Données](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + Copiez toutes les lignes en cliquant sur le bouton **Copier**.
 
-    ![Copie de données](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Copie de données](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + Enregistrez toutes les données dans un fichier CSV en cliquant sur le bouton **CSV**.
 
-    ![Sauvegarde de données](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![Sauvegarde de données](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + Entrez des mots clés dans le champ **Rechercher** : le résultat de la recherche s’affiche immédiatement.
 
-    ![Recherche de données](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![Recherche de données](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + Cliquez sur l’en-tête de colonne pour trier la table, sur le signe plus pour développer une ligne et afficher plus de détails, ou sur le signe moins pour réduire une ligne.
 
-    ![Table de données](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![Table de données](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + Téléchargez un seul fichier en cliquant sur le bouton **Téléchargement partiel** qui se trouve à droite : le fichier sélectionné sera téléchargé vers l’ordinateur local ; s’il n’existe plus, un nouvel onglet s’ouvrira pour afficher les messages d’erreur.
 
@@ -75,7 +75,7 @@ Sélectionnez l’ID tâche, puis cliquez sur **Données** dans le menu Outil po
 
 + Cliquez sur le chiffre sous le tableau pour parcourir les pages quand il y a trop de lignes pour les afficher sur une seule page. 
 
-    ![Page de données](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![Page de données](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + Placez le curseur sur le point d’interrogation sous Données pour afficher l’info-bulle, ou cliquez sur le point d’interrogation pour obtenir plus d’informations.
 
@@ -93,7 +93,7 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
 
 + Par défaut, il affiche tous les travaux ; vous pouvez le filtrer par **ID tâche**.
 
-    ![ID tâche du graphique](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![ID tâche du graphique](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + Par défaut, **En cours** est sélectionné ; l’utilisateur peut consulter le flux de données en sélectionnant **Lu/Écrit** dans la liste déroulante **Affichage**.
 
@@ -211,15 +211,15 @@ Pour revenir à la version Communauté, suivez les étapes ci-dessous :
 5. La propriété est maintenant définie sur **false**.
 6. Pour enregistrer la configuration, cliquez sur **Enregistrer**.
 
-    ![Désactivation de la fonctionnalité](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![Désactivation de la fonctionnalité](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. Cliquez sur **Spark2** dans le volet gauche ; dans l’onglet **Résumé**, cliquez sur **Serveur d’historique Spark2**.
 
-    ![Redémarrer le serveur 1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![Redémarrer le serveur 1](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. Redémarrez le serveur d’historique en cliquant sur **Redémarrer** sur le **Serveur d’historique Spark2**.
 
-    ![Redémarrer le serveur 2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![Redémarrer le serveur 2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Actualisez l’interface utilisateur web du serveur d’historique Spark : il reviendra à la version Communauté.
 
@@ -236,7 +236,7 @@ Si vous rencontrez une erreur de serveur d’historique, suivez ces étapes pour
 
 3. Indiquez le titre et la description de l’erreur, faites glisser le fichier zip dans le champ d’édition, puis cliquez sur **Soumettre un nouveau problème**.
 
-    ![Entrer un problème](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![Entrer un problème](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Mettre à niveau un fichier jar dans un scénario de correctif logiciel
@@ -314,7 +314,7 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
    + Regardez sur **Principal** et **Travail**.
    + **Paramètres** : définissez les paramètres suivant l’utilisation de l’interpréteur de commandes.
 
-     ![Charger des journaux ou mettre à niveau le correctif logiciel](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Charger des journaux ou mettre à niveau le correctif logiciel](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## <a name="known-issues"></a>Problèmes connus

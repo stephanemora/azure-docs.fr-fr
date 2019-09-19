@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811545"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000099"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 
@@ -58,7 +58,7 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
 
         b. Définissez **Options** sur **Générer** et donnez un nom à la clé.
 
-        ![Générer le nom de la clé](./media/apache-kafka-byok/kafka-create-a-key.png "Générer le nom de la clé")
+        ![Générer le nom de la clé](./media/apache-kafka-byok/apache-kafka-create-key.png "Générer le nom de la clé")
 
         c. Sélectionnez la clé que vous avez créée dans la liste des clés.
 
@@ -103,7 +103,7 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
 
    Pour procéder à la rotation des clés, vous devez disposer de l’URL complète de la nouvelle clé (voir l’étape 3 de [Configurer Key Vault et les clés](#setup-the-key-vault-and-keys)). Une fois que vous avez effectué cette opération, accédez à la section Propriétés du cluster Kafka dans le portail, puis cliquez sur **Changer de clé** sous **URL de la clé de chiffrement de disque**. Entrez la nouvelle URL de clé et envoyez-la pour effectuer la rotation.
 
-   ![Rotation de la clé de chiffrement du disque dans Kafka](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Rotation de la clé de chiffrement du disque dans Kafka](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Questions fréquentes (FAQ) sur BYOK pour Apache Kafka
 
@@ -146,5 +146,5 @@ Si le cluster ne peut plus accéder à la clé, des avertissements s’affichent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault](../../key-vault/key-vault-whatis.md) ?
+* Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault](../../key-vault/key-vault-overview.md) ?
 * Pour démarrer avec Azure Key Vault, consultez [Bien démarrer avec Azure Key Vault](../../key-vault/key-vault-overview.md).
