@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6a942e48ffea7785fe971cc2f8fa66e8569ed672
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343162"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003463"
 ---
 # <a name="where-clause"></a>Clause WHERE
 
@@ -109,5 +109,5 @@ Vous pouvez également utiliser des références de propriété dans les requêt
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Prise en main](sql-query-getting-started.md)
-- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clause FROM](sql-query-from.md)

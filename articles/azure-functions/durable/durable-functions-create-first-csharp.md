@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e34d000f77ca5a5ac75fadab61b4280d528c6805
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735290"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933971"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
@@ -144,4 +144,4 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 Vous avez utilisé Visual Studio pour créer et publier une application de fonction durable C#.
 
 > [!div class="nextstepaction"]
-> [Découvrez maintenant les modèles courants de fonctions durables.](durable-functions-concepts.md)
+> [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-overview.md#application-patterns)

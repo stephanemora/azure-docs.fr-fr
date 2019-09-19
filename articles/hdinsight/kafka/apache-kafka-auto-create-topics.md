@@ -3,16 +3,17 @@ title: Activer la création automatique de rubriques dans Apache Kafka - Azure H
 description: Découvrez comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement. Vous pouvez configurer Kafka en définissant auto.create.topics.enable sur true par le biais d’Ambari ou pendant la création du cluster par le biais de PowerShell ou de modèles Resource Manager.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900419"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960657"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement
 
@@ -34,11 +35,11 @@ Pour activer la création automatique de rubriques sur un cluster existant par l
 
 3. Sélectionnez le service Kafka dans la liste à gauche de la page.
 
-    ![Liste de services](./media/apache-kafka-auto-create-topics/service-list.png)
+    ![Liste de services](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. Sélectionnez Configs au milieu de la page.
 
-    ![Onglet de la configuration du service](./media/apache-kafka-auto-create-topics/service-config.png)
+    ![Onglet de la configuration du service](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
 5. Dans le champ Filter (Filtrer), entrez la valeur `auto.create`. 
 

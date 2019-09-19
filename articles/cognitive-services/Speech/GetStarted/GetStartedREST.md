@@ -3,20 +3,20 @@ title: Bien démarrer avec l’API Reconnaissance vocale Bing à l’aide de RES
 titlesuffix: Azure Cognitive Services
 description: Utilisez REST pour accéder à l’API Reconnaissance vocale dans Microsoft Cognitive Services afin de convertir du contenu vocal en texte.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e962a12c6c27737f95e78e80036e51bac41147d5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515132"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965781"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Démarrage rapide : Utiliser l’API REST de reconnaissance vocale Bing
 

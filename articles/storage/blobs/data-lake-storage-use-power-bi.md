@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991578"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984956"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen2 à l’aide de Power BI
 
@@ -28,7 +28,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 > * Un compte de stockage doté d’un espace de noms hiérarchique. Pour créer un test, suivez [ces](data-lake-storage-quickstart-create-account.md) instructions.
 > Cet article suppose que vous avez déjà créé un compte nommé `myadlsg2`.
 > * Un exemple de fichier de données nommé `Drivers.txt`, situé dans votre compte de stockage.
-> Vous pouvez télécharger cet exemple à partir du [Référentiel Azure Data Lake Git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt), puis charger ce fichier dans votre compte de stockage.
+> Vous pouvez télécharger cet exemple à partir du [Référentiel Azure Data Lake Git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt), puis charger ce fichier dans votre compte de stockage.
 > * **Power BI Desktop**. Vous pouvez le télécharger à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Création d’un rapport dans Power BI Desktop

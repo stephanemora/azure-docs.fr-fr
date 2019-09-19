@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034376"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002891"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
 
@@ -89,31 +89,6 @@ Personalizer est basé sur la science et la recherche de pointe dans le domaine 
 * Caractéristiques et ton du bot : pour les bots pouvant varier le ton, la verbosité et le style d’écriture, envisagez de personnaliser ces caractéristiques.
 * Contenu des notifications et alertes : choisissez le texte à utiliser pour les alertes afin d’impliquer davantage les utilisateurs.
 * Minutage des notifications et alertes : personnalisez l’apprentissage du moment opportun pour envoyer des notifications aux utilisateurs afin de les impliquer davantage.
-
-## <a name="checklist-for-applying-personalizer"></a>Liste de contrôle pour l’application de Personalizer
-
-Vous pouvez appliquer Personalizer dans les situations où :
-
-* Vous avez un objectif métier ou d’utilisabilité pour votre application.
-* Il y a un endroit dans votre application où une décision contextuelle de ce qu’il faut montrer aux utilisateurs va améliorer cet objectif.
-* Le meilleur choix peut et doit être appris du comportement collectif des utilisateurs et du score de récompense total.
-* L’utilisation du Machine Learning pour la personnalisation suit une série de [consignes et de choix d’utilisation responsable](ethics-responsible-use.md) pour votre équipe.
-* La décision peut être exprimée sous la forme d’un classement de la meilleure option ([action](concepts-features.md#actions-represent-a-list-of-options)) parmi un ensemble limité de choix.
-* Votre logique métier peut calculer l’opportunité de ce choix en mesurant un aspect du comportement des utilisateurs et en l’exprimant sous la forme d’une valeur comprise entre -1 et 1.
-* Le score de récompense n’apporte pas trop de facteurs confondants ou externes. Singulièrement, la durée de l’expérience est suffisamment courte pour que le score de récompense puisse être calculé pendant la période de temps où il reste pertinent.
-* Vous pouvez exprimer le contexte pour le classement sous la forme d’un dictionnaire d’au moins 5 caractéristiques dont vous pensez qu’elles peuvent aider à faire le bon choix, qui n’incluent pas d’informations d’identification personnelles.
-* Vous disposez d’informations sur chaque action sous la forme d’un dictionnaire d’au moins 5 attributs ou caractéristiques dont vous pensez qu’ils peuvent aider Personalizer à opérer le bon choix.
-* Vous pouvez conserver des données sur une période suffisamment longue pour compiler un historique d’au moins 100 000 interactions.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Considérations sur le machine learning pour l’application de Personalizer
-
-Personalizer est basé sur un apprentissage par renforcement, une approche du Machine Learning basée sur votre retour d’expérience. 
-
-Personalizer fait un meilleur apprentissage dans les situations où :
-* Il existe suffisamment d’événements pour continuer à obtenir une personnalisation optimale si le problème se déplace au fil du temps (comme des préférences quant à des actualités ou à la mode). Personalizer s’adaptera aux changements continus du monde réel, mais les résultats ne seront pas optimaux s’il n’y pas suffisamment de données et d’événements servant de base à l’apprentissage pour découvrir et décider de nouveaux modèles. Vous devez choisir un cas d’utilisation qui se produit suffisamment souvent. Recherchez des cas d’utilisation qui se produisent au moins 500 fois par jour.
-* Le contexte et les actions ont suffisamment de caractéristiques pour faciliter l’apprentissage.
-* Il y a moins de 50 actions à classer par appel.
-* Vos paramètres de conservation des données permettent à Personalizer de collecter suffisamment de données pour effectuer des évaluations hors connexion et l’optimisation de la stratégie. Ceci représente généralement au moins 50 000 points de données.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Comment utiliser Personalizer dans une application web
 
