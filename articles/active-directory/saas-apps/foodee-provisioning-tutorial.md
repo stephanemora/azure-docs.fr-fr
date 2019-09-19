@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: e444d6254b575ead4b5d436a4b92f960c61b1d1c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 171a1141670e55814474390c59ae8d514491edbd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802660"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088089"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Didacticiel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Food
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * Un locataire Azure AD.
-* [Un locataire Foodee](https://Foodee.com/pricing/).
+* [Un locataire Foodee](https://www.food.ee/about/).
 * Un compte d’utilisateur dans Foodee avec des autorisations d’administration.
 
 ## <a name="assigning-users-to-foodee"></a>Affectation d’utilisateurs à Foodee 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811944"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018740"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu (préversion)
 
@@ -63,7 +63,8 @@ Dans l’écran **Ajouter une collection de règles d’application**, procédez
    | **Nom** | **Adresse source** | **Protocole:Port** | **Noms de domaine complets cibles** | **Remarques** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Autorise les activités de connexion Windows |
-   | Rule_3 | * | https:443,http:80 | <nom_compte_stockage.blob.core.windows.net> | Si votre cluster s’appuie sur WASB, ajoutez une règle pour WASB. Pour utiliser UNIQUEMENT les connexions https, assurez-vous que l’option [« Transfert sécurisé requis »](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activée sur le compte de stockage. |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | Autorise les activités de connexion Windows |
+   | Rule_4 | * | https:443,http:80 | <nom_compte_stockage.blob.core.windows.net> | Si votre cluster s’appuie sur WASB, ajoutez une règle pour WASB. Pour utiliser UNIQUEMENT les connexions https, assurez-vous que l’option [« Transfert sécurisé requis »](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activée sur le compte de stockage. |
 
 1. Cliquez sur **Add**.
 

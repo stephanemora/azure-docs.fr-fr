@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a2189b2012f598542725acd2d5ebe3a7586bafd9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 88a8258a91237c7b3eadccc32a30c3fe8149eca5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880823"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064633"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -147,7 +147,7 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 
 ## <a name="upload-your-updated-custom-policy"></a>Téléchargement de votre stratégie personnalisée mise à jour
 
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
 1. Cliquez sur **Toutes les stratégies**.

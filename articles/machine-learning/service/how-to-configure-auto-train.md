@@ -1,6 +1,6 @@
 ---
 title: Créer des expériences de machine learning automatisé
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Le machine learning automatisé choisit un algorithme pour vous et génère un modèle prêt pour le déploiement. Découvrez les options que vous pouvez utiliser pour configurer les expériences de machine learning automatisé.
 author: nacharya1
 ms.author: nilesha
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858885"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035029"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
