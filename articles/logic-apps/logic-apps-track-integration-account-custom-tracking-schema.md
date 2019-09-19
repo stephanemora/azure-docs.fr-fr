@@ -60,14 +60,14 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | --- | --- | --- | --- |
 | sourceType | OUI |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. |
 | source | OUI |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. |
-| systemId | OUI | Chaîne | ID système d’application logique. |
-| runId | OUI | Chaîne | ID d’exécution d’application logique. |
-| operationName | OUI | Chaîne | Nom de l’opération (par exemple action ou déclencheur). |
-| repeatItemScopeName | OUI | Chaîne | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. |
-| repeatItemIndex | OUI | Entier | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
-| trackingId | Non | Chaîne | ID de suivi permettant de corréler les messages. |
-| correlationId | Non | Chaîne | ID de corrélation permettant de corréler les messages. |
-| clientRequestId | Non | Chaîne | Le client peut remplir ce champ pour corréler les messages. |
+| systemId | OUI | String | ID système d’application logique. |
+| runId | OUI | String | ID d’exécution d’application logique. |
+| operationName | OUI | String | Nom de l’opération (par exemple action ou déclencheur). |
+| repeatItemScopeName | OUI | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. |
+| repeatItemIndex | OUI | Integer | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
+| trackingId | Non | String | ID de suivi permettant de corréler les messages. |
+| correlationId | Non | String | ID de corrélation permettant de corréler les messages. |
+| clientRequestId | Non | String | Le client peut remplir ce champ pour corréler les messages. |
 | eventLevel | OUI |   | Niveau de l’événement. |
 | eventTime | OUI |   | Heure de l’événement au format UTC AAAA-MM-JJTHH:MM:SS.00000Z. |
 | recordType | OUI |   | Type de l’enregistrement de suivi. La valeur autorisée est **Custom**. |
