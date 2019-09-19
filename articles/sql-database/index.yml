@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>Utilisez des pools d’instances managées comme solution simple et économique pour déployer plusieurs instances managées qui partagent des ressources et évoluent rapidement.</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: Pool d’instances
   - title: "Démarrages en 5\_minutes"
     items:
@@ -107,7 +107,7 @@ sections:
             title: Le portail Azure
           - image:
               src: media/index/cli.svg
-            title: Azure CLI
+            title: D’Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell

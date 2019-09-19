@@ -260,9 +260,9 @@
         - name: Groupes de sécurité réseau - PowerShell
           href: move-across-regions-nsg-powershell.md
         - name: Réseaux virtuels - Portail
-          href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+          href: move-across-regions-vnet-portal.md
         - name: Réseaux virtuels - PowerShell
-          href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+          href: move-across-regions-vnet-powershell.md
         - name: Adresses IP publiques - Portail
           href: move-across-regions-publicip-portal.md
         - name: Adresses IP publiques - PowerShell
