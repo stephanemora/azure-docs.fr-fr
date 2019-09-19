@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736021"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003174"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurer les paramètres d’Apache Spark
 
@@ -44,11 +44,11 @@ Apache Spark a trois emplacements de configuration système :
 Quand vous sélectionnez une version particulière de Spark, votre cluster comprend les paramètres de configuration par défaut.  Vous pouvez modifier la configuration par défaut de Spark à l’aide d’un fichier de configuration Spark personnalisé.  Voici un exemple.
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Il s’agit du codec de compression, de la taille de fractionnement minimale Apache Hadoop MapReduce, des tailles de bloc parquet, de la partition Spark SQL et des valeurs par défaut de la taille des fichiers ouverts.  Ces modifications de configuration sont choisies, car les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité peut être améliorée à l’aide de ces paramètres de configuration personnalisés.
@@ -63,7 +63,7 @@ L’interface utilisateur web d’Apache Ambari s’ouvre sur un tableau de bord
 
 Pour afficher les valeurs de configuration pour Apache Spark, sélectionnez **Config History** (Historique de la configuration), puis sélectionnez **Spark2**.  Sélectionnez l’onglet **Configs** (Configurations), puis le lien `Spark` (ou `Spark2`, selon votre version) dans la liste des services.  Une liste de valeurs de configuration pour votre cluster apparaît :
 
-![Configurations de Spark](./media/apache-spark-settings/spark-config.png)
+![Configurations de Spark](./media/apache-spark-settings/spark-configurations.png)
 
 Pour afficher et changer des valeurs de configuration de Spark spécifiques, sélectionnez un lien dont le titre contient le mot « spark ».  Les configurations de Spark incluent des valeurs de configuration personnalisées et avancées dans les catégories suivantes :
 
@@ -82,7 +82,7 @@ Si vous créez un ensemble de valeurs de configuration autre qu’un ensemble pa
 
 Le diagramme suivant montre les objets Spark clés : le programme de pilote et son contexte Spark associé, ainsi que le gestionnaire de cluster et ses *n* nœuds Worker.  Chaque nœud Worker inclut un Exécuteur, un cache et *n* instances de tâches.
 
-![Objets de cluster](./media/apache-spark-settings/spark-arch.png)
+![Objets de cluster](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 Les travaux Spark utilisent des ressources Worker, notamment de la mémoire ; il est donc courant d’ajuster les valeurs de configuration de Spark pour les Exécuteurs des nœuds Worker.
 
@@ -93,7 +93,7 @@ Trois paramètres clés souvent ajustés pour paramétrer les configurations de 
 
 Une autre source d’informations sur les ressources utilisées par les Exécuteurs Spark est l’interface utilisateur d’application Spark.  Dans l’interface utilisateur Spark, sélectionnez l’onglet **Executors** (Exécuteurs) pour afficher les vues Summary (Résumé) et Detail (Détails) de la configuration et des ressources utilisées par les Exécuteurs.  Ces vues peuvent vous aider à déterminer s’il faut changer les valeurs par défaut des Exécuteurs Spark pour l’ensemble du cluster ou un ensemble spécifique d’exécutions de travail.
 
-![Exécuteurs Spark](./media/apache-spark-settings/spark-executors.png)
+![Exécuteurs Spark](./media/apache-spark-settings/apache-spark-executors.png)
 
 Ou bien, vous pouvez utiliser l’API REST d’Ambari pour vérifier par programmation les paramètres de configuration de cluster HDInsight et Spark.  Pour plus d’informations, voir [Informations de référence sur l’API Apache Ambari sur GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -105,7 +105,7 @@ En fonction de votre charge de travail Spark, vous pouvez déterminer qu’une c
 
 Voici un exemple de deux nœuds Worker avec des valeurs de configuration différentes :
 
-![Configurations à deux nœuds](./media/apache-spark-settings/executor-config.png)
+![Configurations à deux nœuds](./media/apache-spark-settings/executor-configuration.png)
 
 La liste suivante affiche les paramètres de mémoire clés des exécuteurs Spark.
 
@@ -116,7 +116,7 @@ La liste suivante affiche les paramètres de mémoire clés des exécuteurs Spar
 
 YARN contrôle la somme maximale de mémoire utilisée par les conteneurs sur chaque nœud Spark. Le diagramme suivant montre les relations par nœud entre les objets de configuration YARN et les objets Spark.
 
-![Gestion de la mémoire Spark avec YARN](./media/apache-spark-settings/yarn-spark-memory.png)
+![Gestion de la mémoire Spark avec YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Changer des paramètres d’une application exécutée dans un bloc-notes Jupyter
 
@@ -136,8 +136,8 @@ Pour les applications exécutées dans le bloc-notes Jupyter, utilisez la comman
 Le code ci-dessous montre comment changer la configuration d’une application exécutée dans un bloc-notes Jupyter.
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>Conclusion
