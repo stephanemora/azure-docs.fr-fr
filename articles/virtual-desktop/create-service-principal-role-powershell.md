@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: a9b5eecd97b078c9446e28d971f900c4cf65130f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845535"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985004"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
@@ -92,6 +92,7 @@ Get-RdsTenant
 Quand vous trouvez le nom du locataire pour lequel vous souhaitez créer une attribution de rôle, utilisez ce nom dans l’applet de commande suivante :
 
 ```powershell
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 

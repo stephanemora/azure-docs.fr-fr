@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e6839443a75376224fe6a1007802b6b948a395
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989463"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **URL de connexion**, collez la valeur d’**URL de réponse** renseignée automatiquement par chargement du fichier de métadonnées du fournisseur de services.
 
-5. L’application Cisco Webex s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+5. L’application Cisco Webex s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 

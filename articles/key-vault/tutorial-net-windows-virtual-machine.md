@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e2e730c623b6ee802938b930c4874f6c4920cc64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934399"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003311"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET
 
@@ -33,7 +33,7 @@ Ce didacticiel explique les procédures suivantes :
 > * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la machine virtuelle.
 > * Attribuez des autorisations à l’identité de machine virtuelle.
 
-Avant de continuer, lisez les [concepts de base de Key Vault](key-vault-whatis.md#basic-concepts). 
+Avant de continuer, lisez les [concepts de base de Key Vault](basic-concepts.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -47,7 +47,7 @@ Pour Windows, Mac et Linux :
 
 Azure Key Vault stocke les informations d’identification de manière sécurisée, de façon à ce qu’elles n’apparaissent pas dans votre code. Toutefois, vous devez vous authentifier auprès d’Azure Key Vault pour récupérer vos clés. Pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un dilemme de démarrage classique. Managed Service Identity (MSI) résout ce problème en fournissant une _identité de démarrage_.
 
-Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance. 
+Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](basic-concepts.md). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance. 
 
 ![MSI](media/MSI.png)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/01/2018
-ms.author: rosh
-ms.openlocfilehash: 8ee5dbe546b78557dde70868d01ec09ae33bee07
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: bdada613ef46881bbf051144efded541ac3d0974
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906324"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996684"
 ---
 # <a name="what-is-bing-local-business-search"></a>Présentation de Recherche d’entreprises locales Bing
 L’API Recherche d’entreprises locales Bing est un service RESTful permettant à vos applications de rechercher des informations sur des entreprises locales à l’aide de requêtes. Par exemple, `q=<business-name> in Redmond, Washington` ou `q=Italian restaurants near me`. 

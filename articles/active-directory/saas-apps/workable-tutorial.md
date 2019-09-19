@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087000"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Didacticiel : intégration d’Azure Active Directory à Workable
 
@@ -142,7 +142,7 @@ Pour activer l’authentification unique dans Workable, contactez votre responsa
 
 3. URL de déconnexion
 
-Une fois l’authentification unique activée, votre responsable de compte Workable vous contactera et vous pourrez utiliser la [page d’authentification unique de Workable](https://id.workable.com/sso/signin) pour vous connecter à l’aide de votre sous-domaine de compte Workable.
+Une fois l’authentification unique activée, votre responsable de compte Workable vous contactera et vous pourrez utiliser la [page d’authentification unique de Workable](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) pour vous connecter à l’aide de votre sous-domaine de compte Workable.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

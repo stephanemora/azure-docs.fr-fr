@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: 75860e5f53c8a8539632d27dd6202c7fa53ad76a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: fdb4ddc43c1fcde55da8186bd2c09b709eb41374
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047977"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055230"
 ---
 ## <a name="use-azure-cloud-shell"></a>Utiliser Azure Cloud Shell
 
@@ -19,9 +19,9 @@ Pour lancer Azure Cloud Shell :
 
 | Option | Exemple/Lien |
 |-----------------------------------------------|---|
-| Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code. La sélection de **Essayer** ne copie pas automatiquement le code dans Cloud Shell. | ![Exemple Essayer pour Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Accédez à [https://shell.azure.com](https://shell.azure.com) ou sélectionnez le bouton **Lancer Cloud Shell** pour ouvrir Cloud Shell dans votre navigateur. | [![Lancer Cloud Shell dans une nouvelle fenêtre](media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
-| Sélectionnez le bouton **Cloud Shell** dans la barre de menus en haut à droite du [portail Azure](https://portal.azure.com). | ![Bouton Cloud Shell du portail Azure](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code. La sélection de **Essayer** ne copie pas automatiquement le code dans Cloud Shell. | ![Exemple Essayer pour Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Accédez à [https://shell.azure.com](https://shell.azure.com) ou sélectionnez le bouton **Lancer Cloud Shell** pour ouvrir Cloud Shell dans votre navigateur. | [![Lancer Cloud Shell dans une nouvelle fenêtre](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Sélectionnez le bouton **Cloud Shell** dans la barre de menus en haut à droite du [portail Azure](https://portal.azure.com). | ![Bouton Cloud Shell du portail Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 Pour exécuter le code de cet article dans Azure Cloud Shell :
 

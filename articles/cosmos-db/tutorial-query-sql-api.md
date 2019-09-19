@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c6bd2040cb90f7a837efdf11d33a6e6999bc944
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965496"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932794"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
@@ -61,7 +61,7 @@ L’exemple de document suivant est utilisé pour les interrogations SQL de cet 
 Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données dans le portail Azure, via l’[API REST et Kits de développement logiciel (SDK) ](sql-api-sdk-dotnet.md)et même l’[interface de requête](https://www.documentdb.com/sql/demo), qui exécute des requêtes sur un ensemble d’exemples de données existant.
 
 Pour plus d’informations sur les requêtes SQL, consultez :
-* [Requête SQL et syntaxe SQL](how-to-sql-query.md)
+* [Requête SQL et syntaxe SQL](sql-query-getting-started.md)
 
 ## <a name="prerequisites"></a>Prérequis
 

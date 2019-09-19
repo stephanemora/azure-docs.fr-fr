@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967222"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104381"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>Didacticiel : Intégrer Apptio à Azure Active Directory
 
@@ -85,14 +85,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **Identificateur**, tapez la valeur : `urn:federation:apptio`
 
-5. Votre application Apptio s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+5. Votre application Apptio s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Cliquez [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) pour savoir comment configurer un **rôle** dans Azure AD.
 
-6. En plus de ce qui précède, l’application Apptio s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue Attributs utilisateur, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous : 
+6. En plus de ce qui précède, l’application Apptio s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue Attributs utilisateur, effectuez les étapes suivantes pour ajouter le jeton SAML, comme indiqué dans le tableau ci-dessous : 
 
     | Nom |  Attribut source|
     | -------------- | -------------------- |
@@ -156,7 +156,7 @@ Pour configurer l’authentification unique côté **Apptio**, vous devez envoye
 
 ### <a name="create-apptio-test-user"></a>Créer un utilisateur de test Apptio
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Contactez l’ [équipe du support technique Apptio](https://www.apptio.com/about/contact) pour ajouter des utilisateurs à la plateforme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Collaborez avec l’[équipe du support technique Apptio](https://www.apptio.com/about/contact) pour ajouter des utilisateurs dans la plate-forme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

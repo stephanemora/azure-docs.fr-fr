@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b002a9d5385d6cee3f22da7a1ddcf1f0864311ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989034"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP NetWeaver
 
@@ -163,7 +163,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > ``` 
     > Vous devez d’abord définir l’ID d’objet ServicePrincipal ou le passer également ici.
 
-1. L’application SAP NetWeaver attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+1. L’application SAP NetWeaver attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 

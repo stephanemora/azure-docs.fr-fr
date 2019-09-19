@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885179"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003636"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
 
@@ -46,7 +46,7 @@ Le bloc-notes [Jupyter Notebook](https://jupyter.org/) que vous avez créé dans
 
     Le résultat se présente ainsi :
 
-    ![Afficher les tables dans Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Afficher les tables dans Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     Si vous avez fermé le bloc-notes avant de commencer ce didacticiel, `hvactemptable` est nettoyée et n’est donc pas incluse dans la sortie.  Seules les tables Hive qui sont stockées dans le metastore (colonne **isTemporary** définie sur **False**) sont accessibles à partir des outils décisionnels. Dans ce didacticiel, vous vous connectez à la table **hvac** que vous avez créée.
 
@@ -59,7 +59,7 @@ Le bloc-notes [Jupyter Notebook](https://jupyter.org/) que vous avez créé dans
 
     Le résultat se présente ainsi :
 
-    ![Afficher les lignes de la table hvac dans Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Afficher les lignes de la table hvac dans Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. Dans le menu **Fichier** du Notebook, sélectionnez **Fermer et interrompre**. Arrêtez le bloc-notes pour libérer les ressources.
 
@@ -127,31 +127,32 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 Le service Power BI vous permet de partager des rapports et tableaux de bord dans toute votre organisation. Dans cette section, vous publiez tout d’abord le jeu de données et le rapport. Ensuite, vous épinglez le rapport à un tableau de bord. Les tableaux de bord sont généralement utilisés pour se concentrer sur un sous-ensemble de données dans un rapport ; vous avez une seule visualisation dans votre rapport, mais elle est quand même utile pour exécuter la procédure.
 
 1. Ouvrez Power BI Desktop.
-2. À partir de l’ongle **Accueil**, cliquez sur **Publier**.
+
+1. À partir de l’ongle **Accueil**, cliquez sur **Publier**.
 
     ![Publier à partir de Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publier à partir de Power BI Desktop")
 
-2. Sélectionnez l’espace de travail sur lequel vous souhaiter publier vos jeu de données et rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
+1. Sélectionnez l’espace de travail sur lequel vous souhaiter publier vos jeu de données et rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
 
     ![Sélectionner l’espace de travail sur lequel publier le jeu de données et le rapport](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Sélectionner l’espace de travail sur lequel publier le jeu de données et le rapport") 
 
-3. Une fois la publication réussie, cliquez sur **Ouvrir 'BuildingTemperature.pbix' dans Power BI**.
+1. Une fois la publication réussie, cliquez sur **Ouvrir 'BuildingTemperature.pbix' dans Power BI**.
 
     ![Publication réussie, cliquer pour entrer les informations d’identification](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publication réussie, cliquer pour entrer les informations d’identification") 
 
-4. Dans le service Power BI, cliquez sur **Entrer les informations d’identification**.
+1. Dans le service Power BI, cliquez sur **Entrer les informations d’identification**.
 
     ![Entrer les informations d’identification dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Entrer les informations d’identification dans le service Power BI")
 
-5. Cliquez sur **Modifier les informations d’identification**.
+1. Cliquez sur **Modifier les informations d’identification**.
 
     ![Modifier les informations d’identification dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Modifier les informations d’identification dans le service Power BI")
 
-6. Entrez les informations du compte de connexion HDInsight, puis cliquez sur **Se connecter**. Le nom du compte par défaut est *administrateur*.
+1. Entrez les informations du compte de connexion HDInsight, puis cliquez sur **Se connecter**. Le nom du compte par défaut est *administrateur*.
 
     ![Se connecter au cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Se connecter au cluster Spark")
 
-7. Dans le volet gauche, accédez à **Espace de travail** > **Mon espace de travail** > **RAPPORTS**, puis cliquez sur **BuildingTemperature**.
+1. Dans le volet gauche, accédez à **Espace de travail** > **Mon espace de travail** > **RAPPORTS**, puis cliquez sur **BuildingTemperature**.
 
     ![Rapport répertorié sous Rapports dans le volet gauche](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport répertorié sous Rapports dans le volet gauche")
 
@@ -159,15 +160,15 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
     Le visuel que vous avez créé dans Power BI Desktop est désormais disponible dans le service Power BI. 
 
-8. Pointez votre curseur sur la visualisation, puis cliquez sur l’icône d’épingle dans le coin supérieur droit.
+1. Pointez votre curseur sur la visualisation, puis cliquez sur l’icône d’épingle dans le coin supérieur droit.
 
     ![Rapport dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Rapport dans le service Power BI")
 
-9. Sélectionnez « Nouveau tableau de bord », entrez le nom `Building temperature`, puis cliquez sur **Épingler**.
+1. Sélectionnez « Nouveau tableau de bord », entrez le nom `Building temperature`, puis cliquez sur **Épingler**.
 
     ![Épingler au nouveau tableau de bord](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Épingler au nouveau tableau de bord")
 
-10. Dans le rapport, cliquez sur **Accéder au tableau de bord**. 
+1. Dans le rapport, cliquez sur **Accéder au tableau de bord**.
 
 Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres visuels au rapport et les épingler au même tableau de bord. Pour plus d’informations sur les rapports et les tableaux de bord, consultez [Rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) et [Tableaux de bord dans le service Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
