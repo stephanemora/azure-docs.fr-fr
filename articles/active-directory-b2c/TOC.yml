@@ -5,6 +5,8 @@
     - name: À propos d’Azure AD B2C
       expanded: true
       href: active-directory-b2c-overview.md
+    - name: Vue d’ensemble technique et des fonctionnalités
+      href: technical-overview.md
 - name: Démarrages rapides
   expanded: true
   items:

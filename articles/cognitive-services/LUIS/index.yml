@@ -1,113 +1,133 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Language Understanding (LUIS)
+### YamlMime:Landing
+title: Documentation de Language Understanding (LUIS)
+summary: Découvrez comment utiliser le service Language Understanding pour permettre à votre application de comprendre ce qu’une personne souhaite avec ses propres mots.
 metadata:
-  document_id: null
-  title: 'Language Understanding (LUIS) - Tutoriels, démarrages rapides, référence de l’API'
-  description: Découvrez comment utiliser le service Language Understanding pour permettre à votre application de comprendre ce qu’une personne souhaite avec ses propres mots.
+  ms.topic: landing-page
+  ms.date: 09/19/2019
+  ms.author: nitinme
   author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: language-understanding
-  ms.topic: landing-page
-  ms.date: 01/23/2019
-  ms.author: nitinme
-abstract:
+  services: cognitive-services
+  title: Documentation Language Understanding (LUIS)
+  titleSuffix: Azure Cognitive Services
   description: Le service Language Understanding (LUIS) permet à votre application de comprendre ce qu’une personne souhaite avec ses propres mots. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/luis-landing-page-video.png
-      width: 250
-    title: 'Nouveautés de LUIS (18:28)'
-    href: 'https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/luis/what-is-luis
-            html: <p>Découvrez plus d’informations sur LUIS (Language Understanding Service).</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Présentation de LUIS
-          - href: /azure/cognitive-services/luis/luis-how-plan-your-app
-            html: <p>Préparez un plan des intentions et des entités pertinentes pour votre application.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Planifier votre application LUIS
-          - href: /azure/cognitive-services/luis/luis-concept-best-practices
-            html: <p>Utilisez ces bonnes pratiques lors de la création d’une application LUIS.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Bonnes pratiques pour une application LUIS
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo_csharp.svg
-          - image:
-              src: media/index/logo_java.svg
-          - image:
-              src: media/index/logo_nodejs.svg
-          - image:
-              src: media/index/logo_python.svg
-        rows:
-          - title: API de point de terminaison
-            values:
-              - href: luis-get-started-cs-get-intent
-              - href: luis-get-started-java-get-intent
-              - href: luis-get-started-node-get-intent
-              - href: luis-get-started-python-get-intent
-          - title: Création d’API
-            values:
-              - href: luis-get-started-cs-add-utterance
-              - href: luis-get-started-java-add-utterance
-              - href: luis-get-started-node-add-utterance
-              - href: luis-get-started-python-add-utterance
-  - title: Didacticiels pas à pas
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="luis-quickstart-intents-only">Générer une application pour le domaine des ressources humaines</a>
-          - html: <a href="luis-tutorial-prebuilt-intents-entities">Ajouter des intentions et des entités prédéfinies</a>
-          - html: <a href="luis-quickstart-intents-regex-entity">Ajouter une entité d’expression régulière</a>
-          - html: <a href="luis-quickstart-intent-and-list-entity">Ajouter une entité de liste</a>
-          - html: <a href="tutorial-entity-roles">Utiliser des rôles d’entité</a>
-          - html: <a href="luis-quickstart-primary-and-secondary-data">Ajouter une entité simple et une liste d’expressions</a>
-          - html: <a href="luis-quickstart-intent-and-key-phrase">Ajouter une entité keyPhrase</a>
-          - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Ajouter l’analyse des sentiments</a>
-  - title: Exemples
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://aka.ms/luis-code-samples">Exemples sur GitHub</a><br/>'
-  - title: Videos
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >Azure Friday à Build 2018 - Cognitive Services - Langage (LUIS)</a>'
-          - html: '<a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST v2
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092356">API de point de terminaison</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087">Création d’API</a></p>'
-          - title: Kits SDK
-            html: '<p><a href="https://aka.ms/luis-endpoint-sdk">SDK du point de terminaison .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk">SDK de création .NET</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: Interface de ligne de commande
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Interface de ligne de commande Azure</a></p>'
+  ms.openlocfilehash: 2191d2b3efebe1439f9f6180540929dc83027846
+  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71129260"
+landingContent:
+- title: À propos de Language Understanding (LUIS)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Language Understanding ?
+      url: what-is-luis.md
+    - text: Nouveautés
+      url: whats-new.md
+    - text: Portail LUIS
+      url: https://www.luis.ai
+  - linkListType: concept
+    links:
+    - text: Planifier votre application
+      url: luis-how-plan-your-app.md
+    - text: Le cycle de création de votre application
+      url: luis-concept-app-iteration.md
+  - linkListType: video
+    links:
+    - text: 'Tournée d’intelligence artificielle : LUIS'
+      url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+- title: Créer des intentions, des entités et des fonctionnalités
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Intentions
+      url: luis-concept-intent.md
+    - text: Entités
+      url: luis-concept-entity-types.md
+    - text: Un bon exemple d’énoncé
+      url: luis-concept-utterance.md
+    - text: Fonctionnalités de listes d’expressions
+      url: luis-concept-feature.md
+  - linkListType: quickstart
+    links:
+    - text: 'Portail : Créer une application LUIS'
+      url: get-started-portal-build-app.md
+    - text: Utilisation du SDK C#
+      url: sdk-python-quickstart-authoring-app.md
+    - text: Utilisation du SDK Python
+      url: sdk-python-quickstart-authoring-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une application LUIS
+      url: luis-how-to-start-new-app.md
+    - text: Ajouter une intention avec des exemples d’énoncés
+      url: luis-how-to-add-intents.md
+    - text: Ajouter des entités
+      url: luis-how-to-add-example-utterances.md
+    - text: Ajouter une fonctionnalité de liste d’expressions
+      url: luis-how-to-add-features.md
+- title: Version, entraînement, test et publication
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Contrôle de version
+      url: luis-concept-version.md
+    - text: Test interactif
+      url: luis-concept-test.md
+    - text: Test par lot
+      url: luis-concept-batch-test.md
+  - linkListType: quickstart
+    links:
+    - text: 'Portail : Déployer l’application sur le point de terminaison de prédiction'
+      url: get-started-portal-deploy-app.md
+    - text: Utilisation du SDK C#
+      url: sdk-python-quickstart-authoring-app.md#train-the-app
+    - text: Utilisation du SDK Python
+      url: sdk-python-quickstart-authoring-app.md#train-the-app
+  - linkListType: how-to-guide
+    links:
+    - text: Contrôle de version de votre application
+      url: luis-how-to-manage-versions.md
+    - text: Test interactif
+      url: luis-interactive-test.md
+    - text: Test par lot
+      url: luis-how-to-batch-test.md
+    - text: Entrainement de votre application
+      url: luis-how-to-train.md
+    - text: Publier pour utiliser le point de terminaison de prédiction
+      url: luis-how-to-publish-app.md
+- title: Obtenir une prédiction du point de terminaison
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Avec le SDK .NET C#
+      url: sdk-csharp-quickstart-query-prediction-endpoint.md
+  - linkListType: quickstart
+    links:
+    - text: Avec C# utilisant REST
+      url: luis-get-started-cs-get-intent.md
+    - text: Avec Go utilisant REST
+      url: luis-get-started-go-get-intent.md
+    - text: Avec Java utilisant REST
+      url: luis-get-started-java-get-intent.md
+    - text: Avec Node.js utilisant REST
+      url: luis-get-started-node-get-intent.md
+    - text: Avec Python utilisant REST
+      url: luis-get-started-python-get-intent.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Ressources pour les développeurs
+      url: developer-reference-resource.md
+    - text: Limites d’application
+      url: luis-boundaries.md
+    - text: Entités prédéfinies
+      url: luis-reference-prebuilt-entities.md
+    - text: Entités personnalisées
+      url: luis-concept-entity-types.md#types-of-entities
+    - text: Domaines prédéfinis
+      url: luis-reference-prebuilt-domains.md

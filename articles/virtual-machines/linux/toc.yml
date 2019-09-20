@@ -103,6 +103,8 @@
           href: sizes-hpc.md
         - name: Générations précédentes
           href: sizes-previous-gen.md
+        - name: Tailles isolées
+          href: isolation.md
         - name: Unités de calcul Azure (ACU)
           href: acu.md
         - name: Quotas de processeurs virtuels

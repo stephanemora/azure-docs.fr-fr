@@ -195,7 +195,7 @@
           href: howto-data-in-replication.md
         - name: Créer des réplicas en lecture dans le portail Azure
           href: howto-read-replicas-portal.md
-        - name: Créer des réplicas en lecture dans Azure CLI
+        - name: 'Créer des réplicas en lecture avec Azure CLI, l’API REST'
           href: howto-read-replicas-cli.md
     - name: Résolution des problèmes
       items:

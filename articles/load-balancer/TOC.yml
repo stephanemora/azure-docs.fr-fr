@@ -129,6 +129,8 @@
           href: move-across-regions-external-load-balancer-portal.md
         - name: Équilibreur de charge externe - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
+        - name: Équilibreur de charge interne - Portail
+          href: move-across-regions-internal-load-balancer-portal.md
         - name: Équilibreur de charge interne - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Résolution des problèmes
