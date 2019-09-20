@@ -59,19 +59,19 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
-| receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
-| senderQualifier | Chaîne | Qualificateur du partenaire d’envoi. (obligatoire) |
-| senderIdentifier | Chaîne | Identificateur du partenaire d’envoi. (obligatoire) |
-| receiverQualifier | Chaîne | Qualificateur du partenaire de réception. (obligatoire) |
-| receiverIdentifier | Chaîne | Identificateur du partenaire de réception. (obligatoire) |
-| agreementName | Chaîne | Nom du contrat X12 dans lequel les messages sont résolus. (facultatif) |
+| senderPartnerName | String | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
+| receiverPartnerName | String | Nom de partenaire du destinataire du message X12. (facultatif) |
+| senderQualifier | String | Qualificateur du partenaire d’envoi. (obligatoire) |
+| senderIdentifier | String | Identificateur du partenaire d’envoi. (obligatoire) |
+| receiverQualifier | String | Qualificateur du partenaire de réception. (obligatoire) |
+| receiverIdentifier | String | Identificateur du partenaire de réception. (obligatoire) |
+| agreementName | String | Nom du contrat X12 dans lequel les messages sont résolus. (facultatif) |
 | direction | Enum | Direction du flux de messages (envoi ou réception). (obligatoire) |
-| interchangeControlNumber | Chaîne | Numéro de contrôle de l’échange. (facultatif) |
-| functionalGroupControlNumber | Chaîne | Numéro de contrôle fonctionnel. (facultatif) |
-| transactionSetControlNumber | Chaîne | Numéro de contrôle de document informatisé. (facultatif) |
-| CorrelationMessageId | Chaîne | ID de message de corrélation. Correspond à {AgreementName} *{GroupControlNumber}* {TransactionSetControlNumber}. (facultatif) |
-| messageType | Chaîne | Type de document ou de document informatisé. (facultatif) |
+| interchangeControlNumber | String | Numéro de contrôle de l’échange. (facultatif) |
+| functionalGroupControlNumber | String | Numéro de contrôle fonctionnel. (facultatif) |
+| transactionSetControlNumber | String | Numéro de contrôle de document informatisé. (facultatif) |
+| CorrelationMessageId | String | ID de message de corrélation. Correspond à {AgreementName} *{GroupControlNumber}* {TransactionSetControlNumber}. (facultatif) |
+| messageType | String | Type de document ou de document informatisé. (facultatif) |
 | isMessageFailed | Boolean | Indique si le message X12 a échoué. (obligatoire) |
 | isTechnicalAcknowledgmentExpected | Boolean | Indique si l’accusé de réception technique est configuré dans le contrat X12. (obligatoire) |
 | isFunctionalAcknowledgmentExpected | Boolean | Indique si l’accusé de réception fonctionnel est configuré dans le contrat X12. (obligatoire) |
