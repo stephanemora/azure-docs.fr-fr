@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910113"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128685"
 ---
 ::: zone target="chromeless"
 
@@ -89,11 +89,7 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 3. Collez l’étiquette sur le colis. 
 4. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japan-koreatabin-japan-korea"></a>[Au Japon, en Corée](#tab/in-japan-korea)
-
-Voici les instructions d’enlèvement pour le Japon et la Corée.
-
-#### <a name="pick-up-in-japan"></a>Enlèvement au Japon
+### <a name="in-japantabin-japan"></a>[Au Japon](#tab/in-japan)
 
 1. Écrivez le nom et l’adresse de votre entreprise dans la partie du bordereau de réexpédition réservée à l’expéditeur.
 2. Envoyez un courrier à Quantium Solutions en utilisant le modèle d’e-mail suivant.
@@ -118,9 +114,9 @@ Voici les instructions d’enlèvement pour le Japon et la Corée.
 Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langue japonaise) dont les coordonnées sont les suivantes : 
 
 - E-mail ：Customerservice.JP@quantiumsolutions.com 
-- Téléphone : 03-5755-0150 
+- Téléphone：+81 3 57 55 01 50 
 
-#### <a name="pick-up-in-korea"></a>Enlèvement en Corée
+### <a name="in-koreatabin-korea"></a>[En Corée](#tab/in-korea)
 
 1. Veillez à inclure le bordereau de réexpédition.
 2. Pour demander un enlèvement lorsque le bordereau de réexpédition est présent :
