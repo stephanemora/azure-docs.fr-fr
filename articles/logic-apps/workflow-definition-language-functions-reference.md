@@ -181,7 +181,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 | Fonction mathématique | Tâche |
 | ------------- | ---- |
-| [ajouter](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourne le résultat de l’addition de deux nombres. |
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourne le résultat de l’addition de deux nombres. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Renvoyer le résultat de la division de deux nombres. |
 | [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Renvoyer la valeur la plus élevée d’un ensemble de nombres ou d’un tableau. |
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourne la plus petite valeur d’un ensemble de nombres ou d’un tableau. |
