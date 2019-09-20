@@ -79,7 +79,7 @@ Voici la structure générale d’une définition de paramètre :
 
 | Attribut | Obligatoire | Type | Description |
 |-----------|----------|------|-------------|
-| <*parameter-name*> | OUI | Chaîne | Le nom du paramètre que vous voulez définir |
+| <*parameter-name*> | OUI | String | Le nom du paramètre que vous voulez définir |
 | <*parameter-type*> | OUI | int, float, string, bool, array, object, securestring, secureobject <p><p>**Remarque**: Pour tous les mots de passe, les clés et les secrets, utilisez les types `securestring` et `secureobject` car l'opération `GET` ne renvoie pas ces types. Pour plus d’informations sur la sécurisation des paramètres, consultez [Recommandations de sécurité pour les paramètres d’action et d’entrée](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Type du paramètre |
 | <*default-parameter-value*> | OUI | Identique à `type` | La valeur par défaut du paramètre quand aucune valeur n’est spécifiée lors de l’instanciation du flux de travail. L’attribut `defaultValue` est requis pour que le concepteur d’applications logiques puisse afficher correctement le paramètre, mais vous pouvez spécifier une valeur vide. |
 | <*array-with-permitted-parameter-values*> | Non | Array | Tableau regroupant les valeurs que le paramètre peut accepter |
