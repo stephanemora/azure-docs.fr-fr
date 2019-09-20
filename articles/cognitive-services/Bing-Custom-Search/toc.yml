@@ -31,6 +31,8 @@
               href: sdk-csharp-quick-start.md
             - name: Utilisation de Python
               href: sdk-python-quickstart.md
+            - name: Utilisation de Java
+              href: sdk-java-quickstart.md
 - name: Tutoriels
   items:
     - name: Créer une page web Recherche personnalisée

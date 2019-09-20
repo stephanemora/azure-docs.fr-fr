@@ -92,6 +92,10 @@
           href: create-certificate-scenarios.md
 - name: Guides pratiques
   items:
+    - name: Sécurité
+      items:
+        - name: Recommandations
+          href: security-recommendations.md
     - name: "Utiliser une identité managée App\_Service"
       href: managed-identity.md
     - name: Journalisation d’Azure Key Vault
