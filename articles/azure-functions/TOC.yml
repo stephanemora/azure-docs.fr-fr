@@ -271,7 +271,7 @@
           href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
     - name: Référence des paramètres d’application
       href: functions-app-settings.md
-    - name: Liaisons
+    - name: Déclencheurs et liaisons
       items:
         - name: Stockage d'objets blob
           href: functions-bindings-storage-blob.md
