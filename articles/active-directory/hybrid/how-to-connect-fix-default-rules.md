@@ -49,7 +49,7 @@ Les personnalisations courantes pour les règles par défaut sont les suivantes�
 
 Avant de modifier une règle :
 
-- Désactivez le planificateur de synchronisation. Par défaut, le planificateur s’exécute toutes les 30 minutes. Faites attention à ce qu’il ne démarre pas pendant que vous effectuez les modifications et que vous résolvez les problèmes de vos nouvelles règles. Pour désactiver temporairement le planificateur, démarrez PowerShell et exécutez `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+- Désactivez le planificateur de synchronisation. Par défaut, le planificateur s’exécute toutes les 30 minutes. Veillez à ce qu’il ne démarre pas pendant que vous effectuez les modifications et que vous résolvez les problèmes de vos nouvelles règles. Pour désactiver temporairement le planificateur, démarrez PowerShell et exécutez `Set-ADSyncScheduler -SyncCycleEnabled $false`.
  ![Commandes PowerShell pour désactiver le planificateur de synchronisation](media/how-to-connect-fix-default-rules/default3.png)
 
 - La modification du filtre d’étendue peut entraîner la suppression des objets dans le répertoire cible. Soyez prudent avant d’apporter des modifications dans l’étendue des objets. Nous vous recommandons d’apporter des modifications à un serveur intermédiaire avant d’apporter des modifications sur le serveur actif.
@@ -71,7 +71,7 @@ Si les extensions ne fonctionnent pas pour vous, essayez d’ajouter deux nouvel
 
 
 #### <a name="add-an-inbound-sync-rule"></a>Ajouter une règle de synchronisation entrante
-Une règle de synchronisation entrante signifie que la source de l’attribut est un espace de connecteur et la cible est le métaverse. Par exemple, pour avoir un nouveau flux d’attribut à partir d’Active Directory local vers Azure Active Directory, créez une nouvelle règle de synchronisation entrante. Lancer **l’éditeur de règles de synchronisation**, sélectionnez la direction **Entrante**, puis sélectionnez **Ajouter une nouvelle règle**. 
+Une règle de synchronisation entrante signifie que la source de l’attribut est un espace de connecteur et la cible est le métaverse. Par exemple, pour avoir un nouveau flux d’attribut à partir d’Active Directory local vers Azure Active Directory, créez une nouvelle règle de synchronisation entrante. Lancez **l’éditeur de règles de synchronisation**, sélectionnez la direction **Entrante**, puis sélectionnez **Ajouter une nouvelle règle**. 
 
  !Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
 
@@ -89,7 +89,7 @@ Laissez le champ **Filtre d’étendue** vide. Cela signifie que la règle s’a
 
 Laissez le champ **Règles de jointure** vide. Cela signifie que cette règle utilise la condition de jointure définie dans la règle par défaut standard. Il s’agit d’une autre raison pour ne pas désactiver ou supprimer la règle par défaut standard. S’il n’existe aucune condition de jointure, l’attribut ne circulera pas. 
 
-Ajoutez les transformations appropriées pour votre attribut. Vous pouvez affecter une constante, pour qu’une valeur constante circule vers votre attribut cible. Vous pouvez utiliser un mappage direct entre l’attribut source ou cible. Ou bien, vous pouvez utiliser une expression pour l’attribut. Voici différents [fonctions d’expression](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que vous pouvez utiliser.
+Ajoutez les transformations appropriées pour votre attribut. Vous pouvez affecter une constante, pour qu’une valeur constante circule vers votre attribut cible. Vous pouvez utiliser un mappage direct entre l’attribut source ou cible. Ou bien, vous pouvez utiliser une expression pour l’attribut. Voici différentes [fonctions d’expression](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que vous pouvez utiliser.
 
 #### <a name="add-an-outbound-sync-rule"></a>Ajouter une règle de synchronisation sortante
 Pour lier l’attribut au répertoire cible, vous devez créer une règle sortante. Cela signifie que la source est le métaverse et la cible est le système connecté. Pour créer une règle sortante, démarrez **l’éditeur de règles de synchronisation**, réglez **Direction** sur **Sortant**, puis sélectionnez **Ajouter une nouvelle règle**. 
