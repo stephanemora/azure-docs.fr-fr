@@ -47,12 +47,12 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction du point 
 | ResourceType | `Servers` |
 | ResourceId | URI de ressource |
 | Ressource | Nom du serveur |
-| Catégorie | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Niveau de journalisation, par exemple : LOG, ERROR, NOTICE |
 | Message | Message de journal principal | 
-| Domaine | Version du serveur, par exemple : postgres-10 |
-| Détails | Message du journal secondaire (le cas échéant) |
+| Domain | Version du serveur, par exemple : postgres-10 |
+| Detail | Message du journal secondaire (le cas échéant) |
 | ColumnName | Nom de la colonne (le cas échéant) |
 | SchemaName | Nom du schéma (le cas échéant) |
 | DatatypeName | Nom du type de données (le cas échéant) |
