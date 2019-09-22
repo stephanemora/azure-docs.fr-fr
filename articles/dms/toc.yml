@@ -47,6 +47,7 @@
     - name: Faire migrer des packages SSIS vers une instance managée d’Azure SQL Database
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Ressources
+  expanded: true
   items:
     - name: État du scénario de migration d’une base de données
       href: resource-scenario-status.md
