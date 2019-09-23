@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 09/12/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: db029cee6edcd14d29c83964e5bf75aa45077e7e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029947"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966503"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Démarrage rapide : Utiliser MetaMask pour vous connecter et déployer un contrat intelligent
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser MetaMask pour vous conne
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Créer un membre Azure Blockchain](create-member.md)
+* Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md)
 * Installer l’[extension de navigateur MetaMask](https://metamask.io)
 * Générer un [portefeuille](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time) MetaMask
 
@@ -39,7 +39,7 @@ Vous avez besoin de l’adresse du point de terminaison Azure Blockchain Service
     ![Sélectionner le nœud de transaction par défaut](./media/connect-metamask/transaction-nodes.png)
 
 1. Sélectionnez **Chaînes de connexion > Clés d’accès**.
-1. Copiez l’adresse du point de terminaison située sous **HTTPS (Clé d’accès 1)**. Vous aurez besoin de cette adresse pour la section suivante.
+1. Copiez l’adresse du point de terminaison située sous **HTTPS (Clé d’accès 1)** . Vous aurez besoin de cette adresse pour la section suivante.
 
     ![Chaîne de connexion](./media/connect-metamask/connection-string.png)
 
@@ -62,20 +62,13 @@ Vous avez besoin de l’adresse du point de terminaison Azure Blockchain Service
 Remix est un environnement de développement Solidity basé sur le navigateur. L’utilisation conjointe de MetaMask et de Remix vous permet de déployer des contrats intelligents et d’effectuer des actions relatives à ces contrats.
 
 1. Dans votre navigateur, accédez à `https://remix.ethereum.org`.
-1. Sélectionnez **Exécuter**. 
-
-    MetaMask définit votre **environnement** sur **Injected Web3**, puis définit votre **compte** sur votre réseau.
-
-    ![Onglet Run](./media/connect-metamask/injected-web3.png)
-
-1. Sélectionnez **Create new file**.
+1. Sélectionnez **Nouveau fichier** sous l’onglet **Accueil** sous **Fichier**.
 
     Nommez le nouveau fichier `simple.sol`.
 
     ![Créer un fichier](./media/connect-metamask/create-file.png)
 
     Sélectionnez **OK**.
-
 1. Dans l’éditeur Remix, collez le code du **contrat intelligent Simple** ci-dessous.
 
     ```solidity
@@ -99,14 +92,18 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
     ```
 
     Le **contrat Simple** déclare une variable d’état nommée **balance**. Deux fonctions sont définies. La fonction **add** ajoute un nombre à **balance**. La fonction **get** retourne la valeur de **balance**.
-
-1. Pour compiler le contrat, sélectionnez **Compile > Start to compile**. En cas de réussite, le nom du contrat s’affiche dans un rectangle vert.
+1. Pour compiler le contrat, commencez par sélectionner le volet du compilateur Solidity, puis sélectionnez **Compile simple.sol** (Compiler simple.sol). 
 
     ![Compiler](./media/connect-metamask/compile.png)
 
-1. Pour exécuter le contrat, sélectionnez l’onglet **Run**. Sélectionnez le contrat **Simple**, puis sélectionnez **Deploy**.
+1. Sélectionnez le volet **Deploy & Run** (Déployer & exécuter), puis définissez **Environment** (Environnement) sur **Injected Web3** (Web3 injecté) pour vous connecter via MetaMask à votre membre blockchain.
 
-    ![Custom RPC](./media/connect-metamask/deploy.png)
+    ![Onglet Run](./media/connect-metamask/injected-web3.png)
+
+1. Sélectionnez le contrat **Simple**, puis sélectionnez **Deploy**.
+
+    ![Déployer](./media/connect-metamask/deploy.png)
+
 
 1. Une notification MetaMask vous informe que les fonds ne sont pas suffisants pour effectuer la transaction.
 
@@ -125,13 +122,13 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
 
     Deux actions **add** et **get** correspondent aux fonctions définies dans le contrat.
 
-1. Pour effectuer une transaction **add** dans la blockchain, entrez un nombre à ajouter, puis sélectionnez **add**.
+1. Pour effectuer une transaction **add** dans la blockchain, entrez un nombre à ajouter, puis sélectionnez **add**. Vous pouvez recevoir de Remix un message d’échec de l’évaluation du gaz. Vous envoyez la transaction à une blockchain privée qui ne nécessite pas de gaz. Sélectionnez **Send Transaction** (Envoyer la transaction) pour forcer la transaction.
 1. Comme lorsque vous avez déployé le contrat, une notification MetaMask vous informe que les fonds ne sont pas suffisants pour effectuer la transaction.
 
     Dans la mesure où il s’agit d’un réseau privé de consortium, vous pouvez définir le prix du gaz sur zéro.
 
 1.  Sélectionnez **Gas Fee > Edit > Advanced**, définissez **Gas Price** sur 0, puis sélectionnez **Save**.
-1. Sélectionnez **Confirm** pour effectuer la transaction dans la blockchain.
+1. Sélectionnez **Confirm** (Confirmer) pour envoyer la transaction à la blockchain.
 1. Sélectionnez l’action **get**. Il s’agit d’un appel pour interroger les données de nœud. Aucune transaction n’est nécessaire.
 1. Dans le volet de débogage de Remix, vous pouvez voir des informations détaillées sur les transactions de la blockchain.
 
@@ -144,7 +141,7 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé l’extension de navigateur MetaMask pour vous connecter à un nœud de transaction Azure Blockchain Service, pour déployer un contrat intelligent et pour envoyer une transaction à la blockchain. Testez le tutoriel suivant pour déployer et envoyer une transaction à l’aide de Truffle.
+Dans ce guide de démarrage rapide, vous avez utilisé l’extension de navigateur MetaMask pour vous connecter à un nœud de transaction Azure Blockchain Service, pour déployer un contrat intelligent et pour envoyer une transaction à la blockchain. Essayez le tutoriel suivant pour utiliser le kit de développement Azure Blockchain pour Ethereum et Truffle, afin de créer, générer, déployer et exécuter une fonction de contrat intelligent via une transaction.
 
 > [!div class="nextstepaction"]
-> [Envoyer une transaction](send-transaction.md)
+> [Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents](send-transaction.md)

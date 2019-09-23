@@ -64,7 +64,7 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | runId | OUI | String | ID d’exécution d’application logique. |
 | operationName | OUI | String | Nom de l’opération (par exemple action ou déclencheur). |
 | repeatItemScopeName | OUI | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. |
-| repeatItemIndex | OUI | Integer | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
+| repeatItemIndex | OUI | Entier | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
 | trackingId | Non | String | ID de suivi permettant de corréler les messages. |
 | correlationId | Non | String | ID de corrélation permettant de corréler les messages. |
 | clientRequestId | Non | String | Le client peut remplir ce champ pour corréler les messages. |
