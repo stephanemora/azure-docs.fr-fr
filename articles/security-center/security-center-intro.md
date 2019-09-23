@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882848"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984912"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -38,7 +38,7 @@ Azure Security Center traite les trois problèmes de sécurité les plus urgents
 
 Pour vous aider à vous protéger contre ces problèmes, Security Center vous offre les outils nécessaires pour :
 
--   **Renforcer la posture de sécurité** : Security Center évalue votre environnement et vous permet de comprendre l’état de vos ressources, c’est-à-dire si elles sont sécurisées ou non.
+-   **Renforcer la posture de sécurité** : Security Center évalue votre environnement. Il vous permet de comprendre l’état de vos ressources et de savoir si elles sont sécurisées.
 
 -   **Vous protéger contre les menaces** : Security Center évalue vos charges de travail et émet des recommandations de prévention contre les menaces et des alertes pour détecter ces dernières.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 5985d0d82341c76993ee91b8dff6927edd1ed8b4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 587c730dfa436760d42e614c2dabee117f3b61d3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332140"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018819"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -25,6 +25,10 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="246"></a>2.4.6
+
+- Cette version offre une parité avec les fonctionnalités du service Azure Cosmos à partir de juillet 2019, avec les exceptions indiquées dans [Développer localement avec l’émulateur Azure Cosmos](local-emulator.md). Elle résout aussi plusieurs bogues liés à l’arrêt de l’émulateur quand il est appelé via la ligne de commande et les remplacements d’adresses IP internes pour les clients SDK utilisant une connectivité en mode direct.
 
 ### <a name="243"></a>2.4.3
 

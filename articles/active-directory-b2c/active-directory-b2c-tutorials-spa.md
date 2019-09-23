@@ -10,16 +10,16 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 06ac81105ad8871c934715c18cd5f78fc3ea05f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 06bb71b27edf97f9b7e3333aef93af7bd0e0529e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858521"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064798"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application monopage à l’aide d’Azure Active Directory B2C
 
-Ce tutoriel vous montre comment utiliser Azure Active Directory (Azure AD) B2C pour connecter et inscrire des utilisateurs dans une application monopage. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes de réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
+Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour connecter et inscrire des utilisateurs dans une application monopage. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes de réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -49,7 +49,7 @@ De plus, vous devez disposer des éléments suivants dans votre environnement de
 Au cours du deuxième tutoriel que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application web dans Azure AD B2C. Pour permettre la communication avec l’exemple de ce tutoriel, vous devez ajouter un URI de redirection à l’application dans Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Sélectionnez **Tous les services** en haut à gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications**, puis l’application *webapp1*.
 1. Sous **URL de réponse**, ajoutez `http://localhost:6420`.

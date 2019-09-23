@@ -26,7 +26,7 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
-        - name: Régression (données NYC Taxi)
+        - name: Régression avec ML automatisé (données des taxis de New York)
           items:
             - name: Former automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
@@ -44,7 +44,7 @@
         - name: 2. Déployer un modèle de régression
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
-    - name: Machine learning automatisé
+    - name: ML automatisé (interface)
       items:
         - name: Classification (données bancaires)
           displayName: 'automl, automated, auto ml, portal, ui'
@@ -107,13 +107,13 @@
         - name: Utilisation d’un modèle Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Configurer l’environnement de développement
+    - name: Configurer votre environnement
       items:
         - name: Configurer des environnements de développement
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Gérer l’environnement logiciel
-          displayName: 'pip, Conda'
+        - name: Configurer des environnements logiciels
+          displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
         - name: Activation de la journalisation
           displayName: 'troubleshoot, log, files, tracing'

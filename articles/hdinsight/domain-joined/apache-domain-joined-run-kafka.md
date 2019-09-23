@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885943"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037169"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -36,7 +36,7 @@ Un [cluster Kafka HDInsight avec le Pack Sécurité Entreprise](./apache-domain-
 
 2. Connectez-vous avec vos informations d’identification d’administrateur Azure Active Directory. Les informations d’identification administrateur Azure AD ne sont pas les mêmes que celles du cluster HDInsight ou que celles du protocole SSH du nœud HDInsight Linux.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>Créer des utilisateurs du domaine
 
@@ -183,7 +183,7 @@ En fonction des stratégies Ranger configurées, **sales_user** peut produire/co
 
 9. Consultez les événements d’accès de l’audit à partir de l’interface utilisateur de Ranger.
 
-   ![Audit de stratégie de l’interface utilisateur de Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Événements d’accès d’audit de stratégie de l’interface utilisateur Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

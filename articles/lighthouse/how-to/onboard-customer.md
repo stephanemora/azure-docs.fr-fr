@@ -4,15 +4,15 @@ description: Découvrez comment intégrer un client à la gestion des ressources
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165042"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105272"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -20,7 +20,7 @@ Cet article explique comment, en tant que fournisseur de services, vous pouvez i
 
 Vous pouvez répéter ce processus si vous gérez des ressources pour plusieurs clients. Ensuite, quand un utilisateur autorisé se connecte à votre locataire, il peut être autorisé à accéder aux étendues de location des clients pour effectuer des opérations de gestion sans avoir à se connecter individuellement à chaque locataire du client.
 
-Vous pouvez associer votre ID Microsoft Partner Network (MPN) avec vos abonnements intégrés pour suivre votre impact sur les engagements client et recevoir une reconnaissance. Pour plus d’informations, voir [Lier un ID partenaire à vos comptes Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Notez que vous devez effectuer cette association séparément pour chaque locataire client dans lequel vous gérez des ressources. 
+Vous pouvez associer votre ID Microsoft Partner Network (MPN) avec vos abonnements intégrés pour suivre votre impact sur les engagements client et recevoir une reconnaissance. Pour plus d’informations, voir [Lier un ID partenaire à vos comptes Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Notez que vous devez effectuer cette association dans le locataire de votre fournisseur de services.
 
 > [!NOTE]
 > Des clients peuvent être intégrés automatiquement quand ils achètent une offre de services managés (publics ou privés) que vous avez publiée sur la Place de marché Azure. Pour plus d’informations, voir [Publier des offres de services managés sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici avec une offre publiée sur la Place de marché Azure.

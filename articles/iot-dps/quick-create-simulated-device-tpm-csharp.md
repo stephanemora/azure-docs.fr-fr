@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56d41d92b77ea6ef536f1e371a825b775a780bef
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901580"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993886"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
@@ -27,6 +27,7 @@ Cet exemple de code utilise le simulateur de module de plateforme sécurisée Wi
 Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
 
 Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
+
 - [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
 - [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
 
@@ -42,18 +43,16 @@ Cet article présente les inscriptions individuelles.
 1. Assurez-vous que l’élément `git` est installé sur votre machine et est ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash**, l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
 
 1. Ouvrez une invite de commandes ou Git Bash. Clonez les échantillons Azure IoT pour le référentiel C# GitHub :
-    
+
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Approvisionner l’appareil simulé
 
-
 1. Connectez-vous au portail Azure. Cliquez sur le bouton **Toutes les ressources** dans le menu de gauche, puis ouvrez votre service Device Provisioning. À partir du panneau **Vue d’ensemble**, notez la valeur **_ID Scope_** (Étendue de l’ID).
 
     ![Comment copier l’étendue d’ID du service d’approvisionnement depuis le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
-
 
 2. Dans une invite de commandes, accédez au répertoire du projet contenant l’exemple d’approvisionnement d’appareil TPM.
 
@@ -67,9 +66,9 @@ Cet article présente les inscriptions individuelles.
     dotnet run <IDScope>
     ```
 
-    Cette commande lancera le simulateur de puce TPM dans une invite de commandes distincte.  
+    Cette commande lancera le simulateur de puce TPM dans une invite de commandes distincte. Sur Windows, vous pouvez rencontrer une alerte de sécurité Windows qui vous demande si vous voulez autoriser Simulator.exe à communiquer sur des réseaux publics. Dans le cadre de cet exemple, vous pouvez annuler la demande.
 
-1. La fenêtre de commande affiche la **_paire de clés de type EK (Endorsement Key)_**, **_l’ID d’inscription_** et un **_ID d’appareil_** nécessaires à l’inscription de l’appareil. Prenez note de ces valeurs. Vous utiliserez ces valeurs pour créer une inscription individuelle dans votre instance de Device Provisioning Service. 
+1. La fenêtre de commande affiche la **_paire de clés de type EK (Endorsement Key)_** , **_l’ID d’inscription_** et un **_ID d’appareil_** nécessaires à l’inscription de l’appareil. Prenez note de ces valeurs. Vous utiliserez ces valeurs pour créer une inscription individuelle dans votre instance de Device Provisioning Service. 
    > [!NOTE]
    > Ne confondez pas la fenêtre contenant la sortie de la commande avec la fenêtre contenant la sortie du simulateur TPM Vous devrez peut-être cliquer sur la fenêtre de commande pour l’amener au premier plan.
 
@@ -89,14 +88,13 @@ Cet article présente les inscriptions individuelles.
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 
-6. Appuyez sur Entrée dans la fenêtre de commande (qui affichait la **_paire de clés de type EK (Endorsement Key)_**, **_l’ID d’inscription_** et un **_ID d’appareil_**) pour inscrire l’appareil simulé. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
+6. Appuyez sur Entrée dans la fenêtre de commande (qui affichait la **_paire de clés de type EK (Endorsement Key)_** , **_l’ID d’inscription_** et un **_ID d’appareil_** ) pour inscrire l’appareil simulé. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
 
 1. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
-
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

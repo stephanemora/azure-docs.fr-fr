@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 805f9178cb77241b8332fb78687a8409206e5c05
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231581"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000906"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes
 
@@ -74,7 +74,7 @@ Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensui
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
-Si une condition est évaluée par rapport à vos ressources existantes et génère la valeur true, ces ressources sont marquées comme non conformes à la stratégie. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant. Même si vous ne voyez pas la logique d’évaluation dans le portail Azure, les résultats d’état de conformité sont affichés. Le résultat d’état de conformité est soit conforme, soit non conforme.
+Si une condition est évaluée par rapport à vos ressources existantes et génère la valeur true, ces ressources sont marquées comme non conformes à la stratégie. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant. Même si vous ne voyez pas la logique d’évaluation dans le portail Azure, les résultats de l’état de conformité sont affichés. Le résultat d’état de conformité est soit conforme, soit non conforme.
 
 | **État de la ressource** | **Effet** | **Évaluation de la stratégie** | **État de conformité** |
 | --- | --- | --- | --- |

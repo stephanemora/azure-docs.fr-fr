@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076896"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098822"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -88,6 +88,24 @@ R.  Vous pouvez suivre l’état de la commande de disques Data Box dans le port
 
 ### <a name="q-how-do-i-return-the-disks"></a>Q. Comment faire pour renvoyer les disques ? 
 R.  Microsoft inclut une étiquette d’expédition dans le colis contenant les disques Data Box. Collez l’étiquette sur la boîte d’envoi et déposez le paquet scellé chez votre livreur. Si vous avez endommagé ou perdu l’étiquette, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d'expédition** et télécharger une nouvelle étiquette d’expédition.
+
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Puis-je récupérer ma commande Data Box Disk moi-même ? Puis-je retourner les disques via un transporteur de mon choix ?
+R. Oui. Microsoft propose également des expéditions autogérées dans la région US Gov uniquement. Quand vous commandez le Data Box Disk, vous pouvez choisir l’option d’expédition autogérée. Pour récupérer votre commande Data Box Disk, effectuez les étapes suivantes :
+    
+1. Une fois la commande passée, elle est traitée et les disques sont préparés. Vous êtes averti par e-mail que votre commande est prête et que vous pouvez la récupérer. 
+2. Une fois la commande prête à être récupérée, accédez à votre commande dans le portail Azure et accédez au panneau **Vue d’ensemble**. 
+3. Vous voyez une notification avec un code dans le portail Azure. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) et fournissez-lui le code. L’équipe vous indique alors l’emplacement et planifie une date et une heure pour la récupération. Vous devez appeler l’équipe dans les 5 jours ouvrables suivant la réception de la notification par e-mail.
+
+Une fois la copie et la validation des données terminées, effectuez les étapes suivantes pour renvoyer votre disque :
+
+1. Une fois que la validation des données est terminée, déconnectez les disques. Débranchez les câbles de connexion.
+2. Emballez tous les disques et les câbles de connexion dans du papier à bulles et placez le tout dans la boîte d’envoi. Des frais peuvent s’appliquer si les accessoires sont manquants.
+
+    - Réutilisez l’emballage de la première expédition. Nous vous recommandons d’emballer les disques avec du papier bulle pour les protéger.
+    - Vérifiez qu’ils sont suffisamment serrés dans la boîte pour éviter qu’ils ne bougent.
+3. Accédez au **panneau Vue d’ensemble** de votre commande dans le portail Azure. Vous devez voir une notification avec un code.
+4. Utilisez ce code, et envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) en lui fournissant ce code. Ils vous indiqueront où et quand déposer les disques.
+
 
 ## <a name="migrate-data"></a>Migration des données
 

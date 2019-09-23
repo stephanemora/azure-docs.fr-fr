@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4b70ddfe6ea2baf42227cc83ed0cc14969b3e92
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 75469d4522cea2914e0f69d5aa1850e468cb0d50
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508094"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064849"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
-Ce didacticiel vous montre comment appeler une ressource d’API web Node.js protégée par Azure Active Directory (Azure AD) B2C depuis une application de bureau Windows Presentation Foundation (WPF).
+Ce didacticiel vous montre comment appeler une ressource d’API web Node.js protégée par Azure Active Directory B2C (Azure AD B2C) à partir d’une application de bureau Windows Presentation Foundation (WPF).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -37,10 +37,10 @@ Effectuez les étapes et les prérequis du [Tutoriel : Activer l’authentifica
 
 ## <a name="add-a-web-api-application"></a>Ajouter une application d’API web
 
-Les ressources d’API web doivent être inscrites auprès de votre locataire pour pouvoir accepter et répondre aux requêtes de ressources protégées émanant des applications clientes qui présentent un jeton d’accès. 
+Les ressources d’API web doivent être inscrites auprès de votre locataire pour pouvoir accepter et répondre aux requêtes de ressources protégées émanant des applications clientes qui présentent un jeton d’accès.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.
@@ -76,14 +76,14 @@ Un utilisateur s’authentifie auprès d’Azure AD B2C pour utiliser l’applic
 
 ## <a name="configure-the-sample"></a>Configurer l'exemple
 
-Maintenant que l’API web est inscrite et que les étendues sont définies, vous devez configurer le code de l’API web pour utiliser votre locataire Azure AD B2C. Dans ce tutoriel, vous allez configurer un exemple d’application web Node.js que vous pouvez télécharger à partir de GitHub. 
+Maintenant que l’API web est inscrite et que les étendues sont définies, vous devez configurer le code de l’API web pour utiliser votre locataire Azure AD B2C. Dans ce tutoriel, vous allez configurer un exemple d’application web Node.js que vous pouvez télécharger à partir de GitHub.
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
-L’exemple d’API web Node.js utilise la bibliothèque Passport.js pour activer Azure AD B2C afin de protéger les appels vers l’API. 
+L’exemple d’API web Node.js utilise la bibliothèque Passport.js pour activer Azure AD B2C afin de protéger les appels vers l’API.
 
 1. Ouvrez le fichier `index.js` .
 2. Configurez l’exemple avec les informations d’inscription des locataires Azure AD B2C. Modifiez les lignes de code suivantes :
@@ -111,7 +111,7 @@ L’exemple d’API web Node.js utilise la bibliothèque Passport.js pour active
 1. Ouvrez la solution **active directory b2c wpf** dans Visual Studio.
 2. Appuyez sur **F5** pour exécuter l’application de bureau.
 3. Connectez-vous à l’aide de l’adresse e-mail et du mot de passe utilisés dans le [didacticiel Activer l’authentification d’application de bureau avec des comptes à l’aide d’Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
-4. Cliquez sur le bouton **Appel d’API**. 
+4. Cliquez sur le bouton **Appel d’API**.
 
 L’application de bureau envoie une requête à l’API web et obtient une réponse avec le nom d’affichage de l’utilisateur connecté. L’application de bureau que vous avez protégée appelle l’API web protégée dans votre locataire Azure AD B2C.
 

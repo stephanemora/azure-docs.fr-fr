@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/14/2019
-ms.openlocfilehash: 29b2a9378abaaa697d2d869145d5e912d6c06d6c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811603"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076359"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Qu'est-ce qu'Interactive Query dans Azure HDInsight
 
@@ -28,6 +28,9 @@ Vous pouvez accéder au service Hive dans le cluster Interactive Query uniquemen
 ## <a name="create-an-interactive-query-cluster"></a>Créer un cluster Interactive Query
 
 Pour obtenir des informations sur la création d’un cluster HDInsight, consultez [Créer des clusters Apache Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choisissez le type de cluster Interactive Query.
+
+> [!IMPORTANT]
+> La taille minimale du nœud principal pour les clusters Interactive Query est Standard_D13_v2. Pour plus d’informations, consultez le [Tableau de dimensionnement des machines virtuelles Azure](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Exécuter des requêtes Apache Hive à partir du cluster Interactive Query
 

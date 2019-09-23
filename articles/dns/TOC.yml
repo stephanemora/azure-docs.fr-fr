@@ -9,12 +9,22 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Résolution de noms - portail
-      href: dns-getstarted-portal.md
-    - name: Résolution de noms - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: Résolution de noms - CLI
-      href: dns-getstarted-cli.md
+    - name: DNS public
+      items:
+        - name: Créer une zone publique - portail
+          href: dns-getstarted-portal.md
+        - name: Créer une zone publique - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: Créer une zone publique - CLI
+          href: dns-getstarted-cli.md
+    - name: DNS privé
+      items:
+        - name: Créer une zone privée - portail
+          href: private-dns-getstarted-portal.md
+        - name: Créer une zone privée - CLI
+          href: private-dns-getstarted-cli.md
+        - name: Créer une zone privée - PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: Tutoriels
   items:
     - name: DNS public
@@ -29,13 +39,9 @@
           href: tutorial-alias-pip.md
         - name: Enregistrements d’alias pour les enregistrements de zone
           href: tutorial-alias-rr.md
-    - name: DNS privé
-      items:
-        - name: Créer une zone DNS privée et un enregistrement
-          href: private-dns-portal.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -63,12 +69,6 @@
           href: private-dns-scenarios.md
 - name: Procédures
   items:
-    - name: DNS privé
-      items:
-        - name: Créer une zone privée - CLI
-          href: private-dns-getstarted-cli.md
-        - name: Créer une zone privée - PowerShell
-          href: private-dns-getstarted-powershell.md
     - name: DNS public
       items:
         - name: Enregistrements d’alias pour les applications web à équilibrage de charge
@@ -79,7 +79,7 @@
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: dns-operations-dnszones-cli.md
         - name: Gestion des enregistrements DNS
           items:
@@ -87,7 +87,7 @@
               href: dns-operations-recordsets-portal.md
             - name: Azure PowerShell
               href: dns-operations-recordsets.md
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: dns-operations-recordsets-cli.md
         - name: Gérer des enregistrements DNS inversés
           items:
@@ -139,7 +139,7 @@
           href: /azure/templates/microsoft.network/dns-allversions
     - name: DNS privé
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: /cli/azure/network/private-dns
         - name: Azure PowerShell
           href: /powershell/module/az.PrivateDns

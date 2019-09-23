@@ -192,6 +192,8 @@
           href: functions-deployment-slots.md
         - name: Générer et déployer avec Azure Pipelines
           href: functions-how-to-azure-devops.md
+        - name: Créer et déployer à l’aide d’actions GitHub
+          href: functions-how-to-github-actions.md
         - name: Déploiement Zip
           href: deployment-zip-push.md
         - name: Exécuter à partir du package

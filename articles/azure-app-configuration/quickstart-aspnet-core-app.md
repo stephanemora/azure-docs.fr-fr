@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326625"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076309"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -57,9 +57,9 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 ## <a name="add-secret-manager"></a>Ajouter Secret Manager
 
-Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) à votre projet. L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source.
+Pour utiliser Secret Manager, ajoutez un élément `UserSecretsId` à votre fichier  *.csproj*.
 
-- Ouvrez le fichier  *.csproj*. Ajoutez un élément `UserSecretsId` comme indiqué ici, et remplacez sa valeur par la vôtre, qui est généralement un GUID. Enregistrez le fichier .
+- Ouvrez le fichier  *.csproj*. Ajoutez un élément `UserSecretsId` comme indiqué ici. Vous pouvez utiliser le même GUID ou remplacer cette valeur par votre propre valeur. Enregistrez le fichier .
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -77,11 +77,13 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
     </Project>
     ```
 
+L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source. Pour plus d’informations sur Secret Manager, consultez [Stockage sécurisé des secrets d’application en développement dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet :
 
@@ -94,6 +96,9 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+
+    > [!IMPORTANT]
+    > Certains interpréteurs de commandes tronquent la chaîne de connexion, à moins qu’elle soit placée entre guillemets. Vérifiez que la sortie de la commande `dotnet user-secrets` affiche la chaîne de connexion complète. Si ce n’est pas le cas, réexécutez la commande en plaçant la chaîne de connexion entre guillemets.
 
     Secret Manager est utilisé uniquement pour tester l’application web localement. Une fois l’application déployée sur [Azure App Service](https://azure.microsoft.com/services/app-service/web), par exemple, vous utilisez un paramètre d’application **Chaînes de connexion** dans App Service au lieu de Secret Manager pour stocker la chaîne de connexion.
 
@@ -182,7 +187,7 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et l’avez utilisé avec une application web ASP.NET Core par l’intermédiaire du [fournisseur d’App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Pour en savoir plus sur la façon d’utiliser App Configuration, passez au tutoriel suivant et découvrez l’authentification.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et l’avez utilisé avec une application web ASP.NET Core par l’intermédiaire du [fournisseur d’App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Pour en savoir plus sur l’utilisation d’App Configuration, passez au tutoriel suivant qui montre comment configurer votre application web pour actualiser de manière dynamique les paramètres de configuration.
 
 > [!div class="nextstepaction"]
-> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)
+> [Utiliser la configuration dynamique dans une application ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

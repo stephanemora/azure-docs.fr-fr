@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369304"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064689"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
 
-Ce tutoriel vous montre comment appeler une ressource d’API web ASP.NET Core protégée par Azure Active Directory (Azure AD) B2C dans une application monopage.
+Ce tutoriel vous montre comment appeler une ressource d’API web ASP.NET Core protégée par Azure Active Directory B2C (Azure AD B2C) dans une application monopage.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -41,7 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Les ressources d’API web doivent être inscrites auprès de votre locataire pour pouvoir accepter et répondre aux requêtes de ressources protégées émanant des applications clientes qui présentent un jeton d’accès.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications**, puis **Ajouter**.
 1. Entrez un nom pour l’application. Par exemple, *webapi1*.

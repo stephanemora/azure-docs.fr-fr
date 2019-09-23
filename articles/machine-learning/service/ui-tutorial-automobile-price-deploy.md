@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment créer une solution d’analyse prédictive dans l’interface visuelle du service Azure Machine Learning. Entraînez, évaluez et déployez un modèle Machine Learning à l’aide de modules de type glisser-déplacer. Ce tutoriel constitue la deuxième partie d’une série en deux volets sur la prédiction des prix de véhicules automobiles au moyen d’une régression linéaire.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment créer une solution d’analyse prédictive dans l’interface visuelle d’Azure Machine Learning. Entraînez, évaluez et déployez un modèle Machine Learning à l’aide de modules de type glisser-déplacer. Ce tutoriel constitue la deuxième partie d’une série en deux volets sur la prédiction des prix de véhicules automobiles au moyen d’une régression linéaire.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858634"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997010"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle
 
@@ -105,7 +105,7 @@ Accédez à l’onglet **API Doc** pour plus de détails d’API.
 
 ## <a name="manage-models-and-deployments"></a>Gérer les modèles et les déploiements
 
-Les modèles et les déploiements du service web que vous créez dans l’interface visuelle peuvent aussi être gérés à partir de l’espace de travail du service Azure Machine Learning.
+Les modèles et les déploiements de services web que vous créez dans l’interface visuelle peuvent également être gérés à partir de l’espace de travail Azure Machine Learning.
 
 1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).  
 

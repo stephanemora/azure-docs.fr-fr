@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164850"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966984"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Java
 
@@ -106,7 +106,7 @@ Les classes et interfaces suivantes gèrent certaines des principales fonctionna
 |Nom|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Cette classe est nécessaire pour toutes les fonctionnalités de Vision par ordinateur. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Cette classe provient de l’objet client et gère directement toutes les opérations d’image, telles que l’analyse d’image, la détection de texte et la génération de miniatures.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Cette classe provient de l’objet client et gère directement toutes les opérations d’image, telles que l’analyse d’image, la détection de texte et la génération de miniatures.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Cette énumération définit les différents types d’analyse d’image qui peuvent être effectués dans le cadre d’une opération d’analyse standard. Vous spécifiez un ensemble de valeurs VisualFeatureTypes en fonction de vos besoins. |
 
 ## <a name="code-examples"></a>Exemples de code
@@ -176,13 +176,13 @@ Le code suivant obtient l’ensemble d’étiquettes détectées dans l’image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>Obtenir des visages
+### <a name="detect-faces"></a>Détecter des visages
 
 Le code suivant retourne les visages détectés dans l’image avec les coordonnées de leur rectangle et sélectionne les attributs du visage. Pour plus d’informations, consultez [Détection des visages](../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>Obtenir du contenu osé ou pour adultes
+### <a name="detect-adult-or-racy-content"></a>Détecter du contenu osé ou pour adulte
 
 Le code suivant imprime la présence détectée de contenu osé ou pour adultes dans l’image. Pour plus d’informations, consultez [Contenu pour adultes et osé](../concept-detecting-adult-content.md).
 
@@ -205,6 +205,12 @@ Le code suivant analyse des données relatives aux célébrités détectées dan
 Le code suivant analyse des données relatives aux monuments détectés dans l’image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### <a name="get-the-image-type"></a>Obtenir le type d’image
+
+Le code suivant affiche des informations sur le type d’image, qu’il s’agisse d’une image clipart ou d’un dessin au trait.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## <a name="run-the-application"></a>Exécution de l'application
 

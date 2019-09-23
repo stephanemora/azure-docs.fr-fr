@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner, évaluer et déployer un modèle Machine Learning à l’aide d’une interface visuelle de type glisser-déplacer. Ce tutoriel constitue la première partie d’une série en deux volets sur la prédiction des prix de véhicules automobiles au moyen d’une régression linéaire.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891643"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996776"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle
 
-Dans ce tutoriel en deux parties, vous allez apprendre à utiliser l’interface visuelle d’Azure Machine Learning service pour développer et déployer une solution d’analytique prédictive qui prédit le prix de n’importe quel véhicule. 
+Dans ce tutoriel en deux parties, vous allez apprendre à utiliser l’interface visuelle d’Azure Machine Learning pour développer et déployer une solution d’analytique prédictive qui permet de prédire le prix d’un véhicule. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -41,11 +41,11 @@ Pour le trouver, sélectionnez **Ajouter nouveau** dans la **page Expériences**
 
 ## <a name="create-a-new-experiment"></a>Création d'une expérience
 
-Pour créer une expérience d’interface visuelle, vous avez besoin d’un espace de travail Azure Machine Learning service. Dans cette section, vous allez apprendre à créer ces deux ressources.
+Pour créer une expérience d’interface visuelle, vous avez besoin tout d’abord d’un espace de travail Azure Machine Learning service. Dans cette section, vous allez apprendre à créer ces deux ressources.
 
 ### <a name="create-a-new-workspace"></a>Créer un espace de travail
 
-Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la section suivante.
+Si vous avez un espace de travail Azure Machine Learning, passez à la section suivante.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -241,7 +241,7 @@ Les statistiques suivantes s’affichent pour votre modèle :
 
 * **Erreur absolue moyenne** : moyenne des erreurs absolues (une erreur correspond à la différence entre la valeur prédite et la valeur réelle).
 * **Racine carrée de l’erreur quadratique moyenne** : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-* **Erreur d’absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+* **Erreur absolue relative**: la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
 * **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
 * **Coefficient de détermination** : aussi nommé valeur R au carré, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 

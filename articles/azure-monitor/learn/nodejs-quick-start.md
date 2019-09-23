@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
+title: 'Démarrage rapide : Superviser avec Azure Application Insights'
 description: Fournit des instructions permettant de configurer rapidement une application web Node.js pour l’analyse avec Application Insights.
 services: application-insights
 keywords: ''
@@ -7,15 +7,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f7c8e4e240d4278257da9df5cea67a7e55eb1019
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 3312822d3e4f74a2db39712d61880c8dd0dd8d5e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543075"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001168"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Démarrer l’analyse de votre application web Node.js
 
@@ -56,7 +56,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | **Type d’application** | Application Node.js | Type de l’application que vous analysez |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
-2. Sélectionnez **Créer**.
+2. Sélectionnez **Create** (Créer).
 
 ## <a name="configure-app-insights-sdk"></a>Configurer le Kit de développement logiciel (SDK) Application Insights
 

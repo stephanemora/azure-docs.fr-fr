@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310450"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057496"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -75,7 +75,7 @@ Les commandes de cette suite de didacticiels sont formatées pour l’interprét
 
 Maintenant que vous avez enregistré le code source sur votre machine, exécutez cette procédure pour créer un registre de conteneurs et générer l’image conteneur avec ACR Tasks.
 
-Pour simplifier l’exécution des exemples de commandes, les didacticiels de cette suite utilisent les variables d’environnement de l’interpréteur de commandes. Exécutez la commande suivante pour définir la variable `ACR_NAME`. Remplacez **\<registry-name\>** par un nom unique à associer à votre nouveau registre de conteneurs. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Les autres ressources créées dans ce didacticiel étant basées sur ce nom, vous devriez avoir besoin de modifier uniquement cette première variable.
+Pour simplifier l’exécution des exemples de commandes, les didacticiels de cette suite utilisent les variables d’environnement de l’interpréteur de commandes. Exécutez la commande suivante pour définir la variable `ACR_NAME`. Remplacez **\<registry-name\>** par un nom unique à associer à votre nouveau registre de conteneurs. Le nom de registre doit être unique dans Azure et contenir uniquement des lettres minuscules et entre 5 et 50 caractères alphanumériques. Les autres ressources créées dans ce didacticiel étant basées sur ce nom, vous devriez avoir besoin de modifier uniquement cette première variable.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>

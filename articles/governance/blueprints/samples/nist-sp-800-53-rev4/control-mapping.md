@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7b2b0686ae884ca2273730c2947091e525359daf
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6d0b9202cdece44378964ee98d63a126162849fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918619"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003040"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4
 
@@ -25,7 +25,7 @@ Les mappages suivants concernent les contrôles **NIST SP 800-53 (Rév. 4)** . U
 
 ## <a name="ac-2-account-management"></a>AC-2 Gestion des comptes
 
-Ce blueprint vous aide à passer en revue les comptes qui peuvent ne pas être conformes aux exigences en matière de gestion des comptes de votre organisation. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
+Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conformes aux exigences de votre organisation en matière de gestion de comptes. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
@@ -197,7 +197,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestion des authentificateurs | Authentification basée sur mot de passe
 
-Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe , vous pouvez prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
+Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe, vous pouvez prendre des mesures correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
 
 - \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 - \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours

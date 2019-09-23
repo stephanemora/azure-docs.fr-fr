@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Entraîner des modèles'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment entraîner un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python à l’aide du service Azure Machine Learning. Ce tutoriel est le premier d’une série de deux.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment entraîner un modèle de classification d’images avec scikit-learn dans un notebook Python Jupyter à l’aide d’Azure Machine Learning. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cf639a290067e71b562e0df844ee01d018a7557
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5c7396baa745196e054c6cb49d349bf7684cd899
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170571"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001659"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Didacticiel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
 
-Dans ce tutoriel, vous allez entraîner un modèle Machine Learning sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et d’entraînement pour le service Azure Machine Learning dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
+Dans ce tutoriel, vous allez entraîner un modèle Machine Learning sur des ressources de calcul distantes. Vous allez utiliser le workflow d’entraînement et de déploiement pour Azure Machine Learning dans un notebook Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
-Ce tutoriel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec Azure Machine Learning service. MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28 x 28 pixels, représentant un nombre de zéro à neuf. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée.
+Ce tutoriel montre comment effectuer l’entraînement d’une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec Azure Machine Learning. MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28 x 28 pixels, représentant un nombre de zéro à neuf. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée.
 
 Découvrez comment effectuer les actions suivantes :
 
@@ -33,7 +33,7 @@ Découvrez comment effectuer les actions suivantes :
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.57.
@@ -436,7 +436,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel sur Azure Machine Learning service, vous avez utilisé Python pour effectuer les tâches suivantes :
+Dans ce tutoriel sur Azure Machine Learning, vous avez utilisé Python pour les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer l’environnement de développement

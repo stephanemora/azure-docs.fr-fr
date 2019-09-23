@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Entraîner votre premier modèle ML'
-titleSuffix: Azure Machine Learning service
-description: Ce didacticiel décrit les modèles de conception fondamentaux dans Azure Machine Learning service et la manière d’effectuer l’apprentissage d’un modèle scikit-learn simple basé sur le jeu de données diabetes.
+titleSuffix: Azure Machine Learning
+description: Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux d’Azure Machine Learning et comment effectuer l’entraînement d’un modèle scikit-learn simple basé sur le jeu de données diabetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241296"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004032"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Didacticiel : Entraîner votre premier modèle ML
 
-Ce tutoriel est le **deuxième d’une série de deux**. Dans le didacticiel précédent, [vous avez créé un espace de travail et choisi un environnement de développement](tutorial-1st-experiment-sdk-setup.md). Ce didacticiel décrit les modèles de conception fondamentaux dans Azure Machine Learning service et la manière d’effectuer l’apprentissage d’un modèle scikit-learn simple basé sur le jeu de données diabetes. À l’issue de ce didacticiel, vous aurez acquis une connaissance pratique du Kit de développement logiciel (SDK) permettant de monter en puissance pour passer au développement d’expériences et de flux de travail plus complexes.
+Ce tutoriel est le **deuxième d’une série de deux**. Dans le didacticiel précédent, [vous avez créé un espace de travail et choisi un environnement de développement](tutorial-1st-experiment-sdk-setup.md). Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux d’Azure Machine Learning et comment effectuer l’entraînement d’un modèle scikit-learn simple basé sur le jeu de données diabetes. À l’issue de ce didacticiel, vous aurez acquis une connaissance pratique du Kit de développement logiciel (SDK) permettant de monter en puissance pour passer au développement d’expériences et de flux de travail plus complexes.
 
 Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
 
@@ -197,7 +197,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Ignorez cette section si vous prévoyez de suivre d’autres didacticiels Azure Machine Learning service.
+Sautez cette section si vous prévoyez d’exécuter d’autres tutoriels Azure Machine Learning.
 
 ### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 

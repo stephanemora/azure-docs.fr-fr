@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel sur un modèle de régression : ML automatisé'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment générer un modèle Machine Learning à l’aide du machine learning automatisé. Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final doit ensuite être déployé avec Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment générer un modèle Machine Learning à l’aide du machine learning automatisé. Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final est ensuite déployé avec Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036247"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003986"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Didacticiel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
-Dans ce tutoriel, vous utilisez le machine learning automatisé dans le service Azure Machine Learning pour créer un modèle de régression dans le but de prédire les prix des courses de taxi à New York. Ce processus accepte les données d'apprentissage et les paramètres de configuration, et itère automatiquement via des combinaisons de méthodes et de modèles de normalisation/standardisation de fonctionnalités et des paramètres hyperparamètres afin d'obtenir le meilleur modèle.
+Dans ce tutoriel, vous utilisez le machine learning automatisé d’Azure Machine Learning pour créer un modèle de régression permettant de prédire les prix des courses de taxi à New York. Ce processus accepte les données d'apprentissage et les paramètres de configuration, et itère automatiquement via des combinaisons de méthodes et de modèles de normalisation/standardisation de fonctionnalités et des paramètres hyperparamètres afin d'obtenir le meilleur modèle.
 
 ![Diagramme de flux](./media/tutorial-auto-train-models/flow2.png)
 
@@ -27,14 +27,14 @@ Dans ce didacticiel, vous avez appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Télécharger, transformer et nettoyer des données avec Azure Open Datasets
-> * Entraîner un modèle de régression Machine Learning automatisé
+> * Effectuer l'apprentissage d'un modèle de régression Machine Learning automatisé
 > * Calculer la précision du modèle
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante](https://aka.ms/AMLFree) du service Azure Machine Learning.
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante](https://aka.ms/AMLFree) d’Azure Machine Learning dès aujourd’hui.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Effectuez le [tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas encore d’espace de travail du service Azure Machine Learning ou de machine virtuelle de notebook.
+* Effectuez le [tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas encore d’espace de travail Azure Machine Learning ou de machine virtuelle de notebook.
 * Une fois le tutoriel d’installation terminé, ouvrez le notebook **tutorials/regression-automated-ml.ipynb** à l’aide du même serveur de notebook.
 
 Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’exécuter dans votre propre [environnement local](how-to-configure-environment.md#local). Exécutez `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` pour vous procurer les packages requis.
@@ -928,7 +928,7 @@ automl_config = AutoMLConfig(task='regression',
 ```
 
 > [!NOTE]
-> Les étapes de prétraitement du Machine Learning automatisé (normalisation des caractéristiques, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
+> Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
 
 ### <a name="train-the-automatic-regression-model"></a>Entraîner le modèle de régression automatique
 
@@ -1057,7 +1057,7 @@ Le processus traditionnel de développement des modèles d’entraînement est t
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Ignorez cette section si vous prévoyez de suivre d’autres didacticiels Azure Machine Learning service.
+Sautez cette section si vous prévoyez d’exécuter d’autres tutoriels Azure Machine Learning.
 
 ### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 
@@ -1088,4 +1088,4 @@ Dans ce tutoriel sur le machine learning automatisé, vous avez effectué les t�
 > * Entraînement à l’aide d’un modèle de régression automatisé local avec des paramètres personnalisés
 > * Exploration et analyse des résultats de l’entraînement
 
-[Déployez votre modèle](tutorial-deploy-models-with-aml.md) avec le service Azure Machine Learning.
+[Déployez votre modèle](tutorial-deploy-models-with-aml.md) avec Azure Machine Learning.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443848"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074136"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python
 
@@ -38,7 +38,7 @@ Avant toute chose, vous avez besoin d’un jeu de données d’entraînement dan
 
 Pour entraîner un modèle Form Recognizer à l’aide des documents de votre conteneur d’objets blob Azure, appelez l’API **Train (Entraîner)** en exécutant le code Python ci-dessous. Avant d’exécuter le code, apportez les modifications suivantes :
 
-1. Remplacez `<Endpoint>` par l’URL du point de terminaison de la ressource Form Recognizer de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
+1. Remplacez `<Endpoint>` par l’URL du point de terminaison pour votre ressource Form Recognizer.
 1. Remplacez `<Subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 1. Remplacez `<SAS URL>` par l’URL de signature d’accès partagé (SAS) du conteur de stockage Azure Blob. Pour récupérer l’URL SAS, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 

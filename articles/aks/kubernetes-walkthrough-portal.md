@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 90ccd6c827371d9bf72391e2b24c7dcef31f36c9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844635"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996984"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide du portail Azure
 
@@ -52,7 +52,7 @@ Pour créer un cluster AKS, exécutez les étapes suivantes :
    - Créez un principal de service en laissant dans le champ **Principal du Service** **(nouveau) le principal du service par défaut**. Ou vous pouvez choisir *Configurer un principal du service* pour utiliser un principal existant. Si vous utilisez un principal du service existant, vous devez indiquer l’ID client SPN et le secret associés.
    - Activez l’option pour les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces options fournissent un contrôle plus précis sur l’accès aux ressources Kubernetes déployées dans votre cluster AKS.
 
-    Par défaut, le réseau *De base* est utilisé et Azure Monitor pour conteneurs est activé. Cliquez sur **Vérifier + créer**, puis **Créer** lorsque la validation est terminée.
+Par défaut, le réseau *De base* est utilisé et Azure Monitor pour conteneurs est activé. Cliquez sur **Vérifier + créer**, puis **Créer** lorsque la validation est terminée.
 
 La création du cluster AKS ne prend que quelques minutes. Une fois votre déploiement terminé, cliquez sur **Accédez à la ressource** ou accédez au groupe de ressources du cluster AKS, par exemple *myResourceGroup*, puis sélectionnez la ressource AKS, par exemple *myAKSCluster*. Le tableau de bord du cluster AKS s’affiche, comme dans l’exemple suivant :
 
@@ -236,7 +236,7 @@ Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illu
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Pour visualiser les journaux d’activité relatifs au pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux d’activité de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour visualiser les journaux relatifs au pod `azure-vote-front`, sélectionnez **Afficher les journaux du conteneur** dans la liste déroulante de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
 ![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

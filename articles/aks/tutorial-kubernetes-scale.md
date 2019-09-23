@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019187"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965128"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation du processeur dépasse 50 %, l’outil de mise à l’échelle automatique augment le nombre de pods jusqu’à un maximum de *10* instances. Un minimum de *3* instances est ensuite défini pour le déploiement :
+L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation moyenne du processeur sur tous les pods dépasse 50 % de l’utilisation demandée, l’outil de mise à l’échelle automatique (ou « autoscaler ») fait passer le nombre de pods à *10* instances, au maximum. Un minimum de *3* instances est ensuite défini pour le déploiement :
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

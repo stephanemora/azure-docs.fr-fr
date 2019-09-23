@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882875"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067700"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Personalizer pour Python
 
@@ -37,7 +37,7 @@ Découvrez comment utiliser la bibliothèque de client Personalizer pour Python.
 
 ### <a name="create-a-personalizer-azure-resource"></a>Créer une ressource Azure Personalizer
 
-Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Personalizer en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
+Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Personalizer en utilisant le [portail Azure](https://portal.azure.com/) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Pour plus d’informations, consultez [Guide pratique pour créer une ressource Cognitive Services en utilisant le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Vous pouvez également :
 
 * Obtenir une [clé d’évaluation](https://azure.microsoft.com/try/cognitive-services) valide pendant 7 jours gratuitement. Une fois l’inscription terminée, elle sera disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).

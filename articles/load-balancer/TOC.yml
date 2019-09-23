@@ -18,7 +18,7 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Créer un équilibrage de charge standard - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Créer un équilibreur de charge Standard - modèle Azure Resource Manager
+    - name: Créer un équilibreur de charge standard - modèle
       displayName: ARM
       href: quickstart-load-balancer-standard-public-template.md
 - name: Tutoriels

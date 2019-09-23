@@ -1,7 +1,7 @@
 ---
 title: Exemples de notebooks Jupyter
-titleSuffix: Azure Machine Learning service
-description: Recherchez des exemples de notebooks Jupyter pour explorer le SDK Python d’Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Recherchez et utilisez des exemples de notebooks Jupyter pour explorer le kit SDK Azure Machine Learning pour Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860382"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997060"
 ---
-# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explorer Azure Machine Learning service avec des notebooks Jupyter
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
 L’[exemple de dépôt Azure Machine Learning Notebooks](https://github.com/azure/machinelearningnotebooks) contient les derniers exemples du Kit de développement logiciel (SDK) Python Azure Machine Learning. Ces notebooks Jupyter sont conçus pour vous aider à explorer le SDK et servent de modèles pour vos propres projets Machine Learning.
 
@@ -55,7 +55,7 @@ La machine virtuelle DSVM (Data Science Virtual Machine) est une image de machin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les [exemples de notebooks](https://aka.ms/aml-notebooks) pour voir ce que permet de faire Azure Machine Learning Service, ou essayez l’un de ces tutoriels :
+Explorez les [exemples de notebooks](https://aka.ms/aml-notebooks) pour découvrir ce que permet de faire Azure Machine Learning, ou essayez ces tutoriels :
 
 - [Entraîner un modèle de classification d’images avec MNIST](tutorial-train-models-with-aml.md)
 

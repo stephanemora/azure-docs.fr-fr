@@ -1,7 +1,7 @@
 ---
 title: Qu’est-il arrivé à Machine Learning Workbench ?
-titleSuffix: Azure Machine Learning service
-description: Découvrez ce qui est arrivé à l’application Machine Learning Workbench, ce qui a changé dans le service Azure Machine Learning et la chronologie du support.
+titleSuffix: Azure Machine Learning
+description: Découvrez ce qui est arrivé à l’application Machine Learning Workbench, ce qui a changé dans Azure Machine Learning et la chronologie du support.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3d7a4ed5ae3bf2c9015625f41ea9cdb10fa1bba
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 724e120a8ed92f71ff2e7f2bdda7d1884d80bc10
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860435"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997146"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -24,23 +24,23 @@ L’application Azure Machine Learning Workbench et d’autres fonctionnalités 
 
 Pour améliorer votre expérience, la version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires. Les fonctionnalités principales qui englobent les exécutions expérimentales jusqu’au déploiement de modèles n’ont pas changé. Toutefois, maintenant, vous pouvez utiliser le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> robuste et l’interface [Azure CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et pipelines de machine learning.
 
-La plupart des artefacts créés dans la version précédente du service Azure Machine Learning sont stockés dans votre propre stockage local ou cloud. Ces artefacts ne disparaîtront jamais.
+La plupart des artefacts créés dans la version précédente d’Azure Machine Learning sont stockés dans votre propre stockage local ou cloud. Ces artefacts ne disparaîtront jamais.
 
 Dans cet article, vous découvrez ce qui a changé et comment cela affecte votre travail préexistant avec Azure Machine Learning Workbench et ses API.
 
 >[!Warning]
->Cet article ne concerne pas les utilisateurs d’Azure Machine Learning Studio. Il est destiné aux clients du service Azure Machine Learning qui ont installé l’application Workbench (préversion) et/ou qui ont des comptes de préversion de gestion des modèles et d’expérimentation.
+>Cet article ne concerne pas les utilisateurs d’Azure Machine Learning Studio. Il est destiné aux clients d’Azure Machine Learning qui ont installé l’application Workbench (préversion) et/ou qui ont des comptes de préversion de gestion des modèles et d’expérimentation.
 
 
 ## <a name="what-changed"></a>Qu’est ce qui a changé ?
 
-La dernière version du service Azure Machine Learning comprend les fonctionnalités suivantes :
+La dernière version d’Azure Machine Learning comprend les fonctionnalités suivantes :
 + Un [modèle de ressources Azure simplifié](concept-azure-machine-learning-architecture.md).
 + Une [nouvelle interface utilisateur du portail](how-to-track-experiments.md) pour gérer vos expériences et vos cibles de calcul.
 + Un nouveau <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> Python plus complet.
 + Une nouvelle [extension Azure CLI](reference-azure-machine-learning-cli.md) enrichie pour le machine learning.
 
-L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail pour le service Azure Machine Learning](concept-workspace.md). Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](how-to-manage-workspace.md). Avec un espace de travail, plusieurs utilisateurs peuvent stocker des cibles de calcul d’entraînement et de déploiement, des expériences de modèle, des images Docker, des modèles déployés, etc.
+L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail Azure Machine Learning](concept-workspace.md). Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](how-to-manage-workspace.md). Avec un espace de travail, plusieurs utilisateurs peuvent stocker des cibles de calcul d’entraînement et de déploiement, des expériences de modèle, des images Docker, des modèles déployés, etc.
 
 Bien que la version actuelle comprenne de nouveaux clients CLI et SDK améliorés, l’application Workbench de bureau elle-même a été mise hors service. Les expériences peuvent être gérées dans le [tableau de bord de l’espace de travail dans le portail Azure](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Utilisez le tableau de bord pour obtenir l’historique de vos expériences, gérer les cibles de calcul attachées à votre espace de travail, gérer vos modèles et images Docker, voire déployer des services web.
 
@@ -62,7 +62,7 @@ Le tableau de bord d’espace de travail du portail est pris en charge uniquemen
 
 [![Portail en ligne](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Commencez à entraîner vos modèles et à effectuer le suivi des historiques d’exécutions à l’aide de la nouvelle interface CLI et du nouveau SDK. Pour découvrir comment faire, consultez le [Tutoriel : Entraîner des modèles avec le service Azure Machine Learning](tutorial-train-models-with-aml.md).
+Commencez à entraîner vos modèles et à effectuer le suivi des historiques d’exécutions à l’aide de la nouvelle interface CLI et du nouveau SDK. Pour découvrir comment faire, consultez [Tutoriel : Entraîner des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="can-i-still-prep-data"></a>Puis-je toujours préparer les données ?
 
@@ -72,7 +72,7 @@ Avec des jeux de données de toute taille, vous pouvez utiliser le [package de p
 
 ## <a name="will-projects-persist"></a>Les projets existeront-ils toujours ?
 
-Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets sont des entités de cloud avec un répertoire local. Dans la dernière version, vous attachez des répertoires locaux à l’espace de travail du service Azure Machine Learning en utilisant un fichier config local. Consultez un [diagramme de l’architecture la plus récente](concept-azure-machine-learning-architecture.md).
+Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets sont des entités de cloud avec un répertoire local. Dans la version la plus récente, vous attachez des répertoires locaux à l’espace de travail Azure Machine Learning à l’aide d’un fichier de configuration local. Consultez un [diagramme de l’architecture la plus récente](concept-azure-machine-learning-architecture.md).
 
 La majorité du contenu de projet est déjà sur votre ordinateur local. Vous devez simplement créer un fichier config dans ce répertoire et le référencer dans votre code pour vous connecter à votre espace de travail. Pour continuer à utiliser le répertoire local contenant vos fichiers et scripts, spécifiez le nom du répertoire dans la commande Python [« experiment.submit »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou à l’aide de la commande CLI `az ml project attach`.  Par exemple :
 ```python
@@ -96,13 +96,13 @@ Dans la dernière version, les modèles sont déployés en tant que services web
 
 Pour en savoir plus, consultez les articles suivants :
 + [Où et comment déployer des modèles ?](how-to-deploy-and-where.md)
-+ [Tutoriel : Déployer des modèles avec le service Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Tutoriel : Déployer des modèles avec Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>Qu’en est-il de l’ancien kit SDK et de l’ancienne interface CLI ?
 
 Consultez la [chronologie](#timeline) précédente. Nous vous recommandons de commencer à créer vos modèles et expériences avec le dernier SDK et/ou la dernière interface CLI.
 
-En utilisant le nouveau SDK Python de la dernière version, vous pouvez interagir avec le service Azure Machine Learning dans n’importe quel environnement Python. Découvrez comment installer le dernier <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">kit SDK</a>. Vous pouvez également utiliser l’[extension CLI d’Azure Machine Learning](reference-azure-machine-learning-cli.md) mise à jour avec les nombreuses commandes `az ml` pour interagir avec le service dans n’importe quel environnement de ligne de commande, dont Azure Cloud Shell.
+En utilisant le nouveau SDK Python dans la dernière version, vous pouvez interagir avec Azure Machine Learning dans n’importe quel environnement Python. Découvrez comment installer le dernier <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">kit SDK</a>. Vous pouvez également utiliser l’[extension CLI d’Azure Machine Learning](reference-azure-machine-learning-cli.md) mise à jour avec les nombreuses commandes `az ml` pour interagir avec le service dans n’importe quel environnement de ligne de commande, dont Azure Cloud Shell.
 
 ## <a name="what-about-visual-studio-code-tools-for-ai"></a>Qu’en est-il de Visual Studio Code Tools for AI ?
 
@@ -116,10 +116,10 @@ Les packages de domaine pour la vision par ordinateur, l’analyse de texte et l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus d’informations sur la [dernière architecture du service Azure Machine Learning](concept-azure-machine-learning-architecture.md).
+Découvrez plus d’informations sur la [dernière architecture d’Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md).
+Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce qu’Azure Machine Learning ?](overview-what-is-azure-ml.md).
 
 Créez votre première expérience avec le tutoriel en deux parties pour [configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) et [entraîner votre premier modèle](tutorial-1st-experiment-sdk-train.md)
 
-Pour obtenir une expérience plus approfondie de ce workflow, suivez le [tutoriel complet](tutorial-train-models-with-aml.md) qui explique les étapes détaillées pour l’entraînement et le déploiement de modèles avec le service Azure Machine Learning.
+Pour obtenir une expérience plus approfondie de ce workflow, suivez le [tutoriel complet](tutorial-train-models-with-aml.md) qui explique les étapes détaillées pour l’entraînement et le déploiement de modèles avec Azure Machine Learning.

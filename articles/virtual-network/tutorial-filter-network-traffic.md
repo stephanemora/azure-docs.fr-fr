@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242734"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984901"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
@@ -51,7 +51,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     | Espace d’adressage           | 10.0.0.0/16                                        |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Créer** et entrez *myResourceGroup*. |
-    | Lieu                | Sélectionnez **USA Est**.                                |
+    | Location                | Sélectionnez **USA Est**.                                |
     | Nom du sous-réseau            | mySubnet                                           |
     | Plage d’adresses du sous-réseau  | 10.0.0.0/24                                        |
 
@@ -66,18 +66,18 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
     | Nom           | myAsgWebServers                                               |
-    | Abonnement   | Sélectionnez votre abonnement.                                     |
-    | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Lieu       | USA Est                                                       |
+    | Subscription   | Sélectionnez votre abonnement.                                     |
+    | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
+    | Location       | USA Est                                                       |
 
 4. Répétez l’étape 3 en spécifiant les valeurs suivantes :
 
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
     | Nom           | myAsgMgmtServers                                              |
-    | Abonnement   | Sélectionnez votre abonnement.                                     |
-    | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Lieu       | USA Est                                                       |
+    | Subscription   | Sélectionnez votre abonnement.                                     |
+    | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
+    | Location       | USA Est                                                       |
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
@@ -88,9 +88,9 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     |Paramètre|Valeur|
     |---|---|
     |Nom|myNsg|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Lieu|USA Est|
+    |Location|USA Est|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associer le groupe de sécurité réseau au sous-réseau
 
@@ -113,7 +113,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | ---------               | ---------                                                                                                       |
     | Destination             | Sélectionnez **Groupe de sécurité d’application**, puis **myAsgWebServers** pour **Groupe de sécurité d’application**.  |
     | Plages de ports de destination | Entrer 80 et 443                                                                                                    |
-    | Protocole                | Sélectionner TCP                                                                                                      |
+    | Protocol                | Sélectionner TCP                                                                                                      |
     | Nom                    | Allow-Web-All                                                                                                   |
 
 3. Répétez l’étape 2 en utilisant les valeurs suivantes :
@@ -122,7 +122,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | ---------               | ---------                                                                                                       |
     | Destination             | Sélectionnez **Groupe de sécurité d’application**, puis **myAsgMgmtServers** pour **Groupe de sécurité d’application**. |
     | Plages de ports de destination | Entrer 3389                                                                                                      |
-    | Protocole                | Sélectionner TCP                                                                                                      |
+    | Protocol                | Sélectionner TCP                                                                                                      |
     | Priorité                | Entrer 110                                                                                                       |
     | Nom                    | Allow-RDP-All                                                                                                   |
 
@@ -140,27 +140,29 @@ Créez deux machines virtuelles dans le réseau virtuel.
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**.
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
+3. Entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
 
     |Paramètre|Valeur|
     |---|---|
+    |Subscription| Sélectionnez votre abonnement.|
+    |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
     |Nom|myVmWeb|
+    |Location| Sélectionnez **USA Est**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Abonnement| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Lieu| Sélectionnez **USA Est**.|
+
+   
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
-5. Sous **Paramètres**, sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis cliquez sur **OK** :
+5. Sous **Réseau**, sélectionnez les valeurs suivantes, puis acceptez les autres valeurs par défaut :
 
     |Paramètre|Valeur|
     |---|---|
-    |Réseau virtuel |Sélectionner **myVirtualNetwork**|
-    |Groupe de sécurité réseau | Sélectionnez **Advanced (Avancé)** .|
-    |Groupe de sécurité réseau (pare-feu)| Sélectionnez **(nouveau) myVmWeb-nsg**, puis sous **Choisir un groupe de sécurité réseau**, sélectionnez **Aucun**. |
+    |Réseau virtuel |Sélectionnez **myVirtualNetwork**.|
+    |Groupe de sécurité réseau de la carte réseau |Sélectionnez **Advanced (Avancé)** .|
+    |Ports d’entrée publics|Sélectionnez **Aucun**. |
 
-6. Sous **Créer** dans le **résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+6. Sélectionnez **Vérifier + créer** en bas à gauche, puis sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 

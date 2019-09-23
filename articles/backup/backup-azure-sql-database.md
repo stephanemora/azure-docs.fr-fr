@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23c10fbed751e05fea2a95030c720f622e195f40
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 875db0d34932dca1c7eae7e3650acf01856c6413
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534223"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934424"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Cette solution exploite les API natives de SQL pour effectuer des sauvegardes de
 
 * Une fois que vous avez spécifié la machine virtuelle SQL Server que vous voulez protéger et dont vous voulez interroger des bases de données, le service Sauvegarde Azure installe une extension de sauvegarde de charge de travail sur la machine virtuelle nommée `AzureBackupWindowsWorkload`.
 * Cette extension se compose d’un coordinateur et d’un plug-in SQL. Alors que le coordinateur est responsable du déclenchement des flux de travail pour diverses opérations, comme le configuration de la sauvegarde, la sauvegarde et la restauration, le plug-in est responsable du flux de données réel.
-* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md).
+* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#set-vm-permissions).
 * Lorsque vous déclenchez la configuration de la protection sur les bases de données sélectionnées, le service de sauvegarde configure le coordinateur avec les planifications de sauvegarde et d’autres détails de stratégie, ce que l’extension met en cache localement sur la machine virtuelle.
 * À l’heure planifiée, le coordinateur communique avec le plug-in et démarre le streaming des données de sauvegarde à partir du serveur SQL avec l’infrastructure VDI.  
 * Le plug-in envoie les données directement au coffre Recovery Services, ce qui élimine la nécessité d’un emplacement intermédiaire. Les données sont chiffrées et stockées par le service de Sauvegarde Azure dans des comptes de stockage.
@@ -58,8 +58,7 @@ Sauvegarde Azure a récemment annoncé la prise en charge des serveurs [EOS SQL 
 2. .NET Framework 4.5.2 et versions ultérieures à installer sur la machine virtuelle
 3. La sauvegarde pour l’ICF et les bases de données miroir n’est pas prise en charge
 
-Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Nous vous invitons à consulter les [prérequis](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2 qui incluent la définition de la [clé de registre](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (cette étape ne sera pas nécessaire quand la fonctionnalité sera généralement disponible).
-
+Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Prenez connaissance des [prérequis](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2.
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Déployer des modèles'
-titleSuffix: Azure Machine Learning service
-description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le deuxième d’une série de deux.
+titleSuffix: Azure Machine Learning
+description: Ce tutoriel montre comment utiliser Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python. Ce tutoriel est le deuxième d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57d34bb170c0ff86f3d3c42a25184d8af71c0270
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6e5ab17a04c994f09bccc0f51f11749ee8590b1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036217"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003069"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 
@@ -23,7 +23,7 @@ Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel préc
 
 Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un service web est une image, dans le cas présent une image Docker. Elle encapsule la logique de scoring et le modèle proprement dit. 
 
-Dans cette partie du tutoriel, vous utilisez Azure Machine Learning service pour effectuer les tâches suivantes :
+Dans cette partie du tutoriel, vous utilisez Azure Machine Learning pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer votre environnement de test
@@ -378,7 +378,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Découvrez toutes les [options de déploiement pour Azure Machine Learning service](how-to-deploy-and-where.md).
++ Découvrez toutes les [options de déploiement d’Azure Machine Learning](how-to-deploy-and-where.md).
 + Découvrez comment [créer des clients pour le service web](how-to-consume-web-service.md).
 +  [Effectuez des prédictions sur de grandes quantités de données](how-to-run-batch-predictions.md) de façon asynchrone.
 + Supervisez vos modèles Azure Machine Learning avec [Application Insights](how-to-enable-app-insights.md).

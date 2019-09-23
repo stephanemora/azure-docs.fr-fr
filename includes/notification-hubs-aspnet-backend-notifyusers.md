@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227803"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934099"
 ---
 ## <a name="create-the-webapi-project"></a>Création du projet WebAPI
 
@@ -185,6 +185,9 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
         }
     }
     ```
+    > [!IMPORTANT]
+    > Entrez le **nom** et la **DefaultFullSharedAccessSignature** de votre hub avant de continuer. 
+    
 7. Ensuite, créez un contrôleur nommé **RegisterController**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, sélectionnez **Ajouter**, puis **Contrôleur**.
 
 8. Sélectionnez **Contrôleur API 2 web - Vide**, puis **Ajouter**.
@@ -389,7 +392,7 @@ Ensuite, vous déployez l’application sur un site web Azure afin de la rendre
 
 3. Dans la fenêtre **Créer App Service**, sélectionnez votre compte Azure. Sélectionnez **Modifier le type** > **Application web**. Conservez le **nom de l’application web** par défaut et sélectionnez l’**abonnement**, le **groupe de ressources** et le **plan App Service**.
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 
 5. Notez la valeur de la propriété **URL du site** dans la section **Résumé**. Cette URL constitue le *point de terminaison de votre serveur principal* plus loin dans ce didacticiel.
 

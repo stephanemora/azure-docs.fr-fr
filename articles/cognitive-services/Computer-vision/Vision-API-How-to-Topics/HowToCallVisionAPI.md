@@ -1,7 +1,7 @@
 ---
-title: 'Exemple : Appeler l’API d’analyse d’image - Vision par ordinateur'
+title: Appeler l’API Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment appeler l’API Vision par ordinateur à l’aide de REST dans Azure Cognitive Services.
+description: Découvrez comment appeler l’API Vision par ordinateur avec l’API REST dans Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,53 +11,61 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 386503a7089c910b52a87cca8d9f2f2203ae0cad
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 417ff7ac345b9a83b3d3f4c50e9fd141d74bc99c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859056"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103541"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
+# <a name="call-the-computer-vision-api"></a>Appeler l’API Vision par ordinateur
 
-Ce guide montre comment appeler l’API Vision par ordinateur à l’aide de REST. Les exemples sont écrits en C# avec la bibliothèque de client d’API Vision par ordinateur et en tant qu’appels HTTP POST/GET. Nous expliquerons en particulier :
+Cet article explique comment appeler l’API Vision par ordinateur avec l’API REST. Les exemples sont écrits en C# avec la bibliothèque de client d’API Vision par ordinateur et en tant qu’appels HTTP POST ou GET. Cet article se concentre sur les points suivants :
 
-- Comment obtenir les étiquettes, la description et les catégories.
-- Comment obtenir les informations d’un domaine spécifique (« celebrities », dans notre cas).
+- Obtention d’étiquettes, d’une description et de catégories
+- Obtention d’informations spécifique à un domaine, ou « celebrities » (célébrités)
 
 ## <a name="prerequisites"></a>Prérequis
 
-- URL d’image ou chemin de l’image stockée localement.
-- Méthodes d’entrée prises en charge : image Raw binaire sous forme de flux application/octet ou d’URL d’image
-- Formats d’image pris en charge : JPEG, PNG, GIF, BMP
-- Taille du fichier image : moins de 4 Mo
-- Dimensions de l’image : plus de 50 x 50 pixels
+- Une URL d’image ou un chemin vers l’image stockée localement
+- Méthodes d’entrée prises en charge : image raw binaire sous forme de flux application/octet ou une URL d’image
+- Formats de fichier d’image pris en charge : JPEG, PNG, GIF et BMP
+- Taille du fichier image : 4 Mo ou moins
+- Dimensions de l’image : 50 &times; 50 pixels ou plus
   
-Les exemples ci-dessous illustrent les fonctionnalités suivantes :
+Les exemples de cet article illustrent les fonctionnalités suivantes :
 
-1. Analyse d’une image et obtention en retour d’un tableau d’étiquettes et d’une description.
-2. Analyse d’une image avec un modèle spécifique à un domaine (ici, le modèle « celebrities ») et obtention du résultat correspondant au format JSON.
+* Analyse d’une image pour retourner un tableau d’étiquettes et une description
+* Analyse d’une image avec un modèle spécifique à un domaine (ici, le modèle « celebrities ») pour retourner le résultat correspondant au format JSON
 
-Les fonctionnalités sont présentées en deux options :
+Les fonctionnalités offrent les options suivantes :
 
-- **Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
-- **Option 2 :** Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
+- **Option 1** : Analyse délimitée - Analyser seulement un modèle spécifié
+- **Option 2** : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une [taxonomie de 86 catégories](../Category-Taxonomy.md)
   
 ## <a name="authorize-the-api-call"></a>Autoriser l’appel d’API
 
-Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête.
+Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé peut être passée via un paramètre de chaîne de requête ou spécifiée dans l’en-tête de la demande.
 
-Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+Pour obtenir une clé d’évaluation gratuite, effectuez une des actions suivantes :
+* Accédez à la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). 
+* Accédez à la page [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur.
 
-1. La clé d’abonnement est passée par le biais d’une chaîne de requête, comme dans l’exemple suivant d’API Vision par ordinateur :
+Vous pouvez passer la clé d’abonnement de l’une des façons suivantes :
 
-    ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+* Passez-la via une chaîne de requête, comme dans cet exemple de l’API Vision par ordinateur :
 
-1. La clé d’abonnement peut également être passée en la spécifiant dans l’en-tête de requête HTTP :
+  ```
+  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  ```
 
-    ```ocp-apim-subscription-key: <Your subscription key>```
+* Spécifiez-la dans l’en-tête de requête HTTP :
 
-1. Quand vous utilisez la bibliothèque de client, la clé d’abonnement est transmise par le biais du constructeur de ComputerVisionClient et la région est spécifiée dans une propriété du client :
+  ```
+  ocp-apim-subscription-key: <Your subscription key>
+  ```
+
+* Quand vous utilisez la bibliothèque de client, passez la clé via le constructeur de ComputerVisionClient et spécifiez la région dans une propriété du client :
 
     ```
     var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
@@ -66,13 +74,13 @@ Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](h
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Charger une image dans le service API Vision par ordinateur et obtenir en retour les étiquettes, les descriptions et les noms des célébrités
+## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Charger une image sur le service API Vision par ordinateur
 
-La façon la plus simple d’effectuer l’appel d’API Vision par ordinateur est en chargeant une image directement. Cette méthode consiste à envoyer une requête « POST » avec le type de contenu application/octet-stream en même temps que les données lues à partir de l’image. Pour les étiquettes et la description, cette méthode de chargement est la même pour tous les appels d’API Vision par ordinateur. La seule différence concerne les paramètres de requête spécifiés par l’utilisateur. 
+La façon la plus simple d’effectuer l’appel de l’API Vision par ordinateur est de charger une image directement pour retourner des étiquettes, une description et des « célébrités ». Pour cela, vous envoyez une demande de « POST » avec l’image binaire dans le corps HTTP ainsi que les données lues à partir de l’image. La méthode de chargement est la même pour tous les appels de l’API Vision par ordinateur. La seule différence concerne les paramètres de requête que vous spécifiez. 
 
-Voici comment obtenir les étiquettes (« Tags ») et la « Description » d’une image :
+Pour une image spécifiée, obtenez des étiquettes et une description en utilisant une des options suivantes :
 
-**Option 1 :** Obtenir la liste des étiquettes et une description
+### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Option 1 : Obtenir une liste d’étiquettes et une description
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -92,16 +100,16 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-**Option 2** : Obtenir uniquement la liste des étiquettes ou uniquement la description :
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Option 2 : Obtenir seulement une liste d’étiquettes ou seulement une description
 
-###### <a name="tags-only"></a>Étiquettes seulement :
+Pour les étiquettes seulement, exécutez :
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
-###### <a name="description-only"></a>Description uniquement :
+Pour une description seulement, exécutez :
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
@@ -111,9 +119,9 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>Obtenir une analyse spécifique au domaine (célébrités)
+## <a name="get-domain-specific-analysis-celebrities"></a>Obtenir une analyse spécifique au domaine (célébrités)
 
-**Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -126,17 +134,17 @@ GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models
 var models = await visionClient.ListModelsAsync();
 ```
 
-**Option 2 :** Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Option 2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une taxonomie de 86 catégories
 
-Dans les applications où vous souhaitez obtenir une analyse d’image générique en plus des détails issus d’un ou de plusieurs modèles spécifiques à un domaine, nous étendons l’API v1 avec le paramètre de requête « models ».
+Dans les applications où vous voulez obtenir une analyse d’image générique en plus des détails issus d’un ou plusieurs modèles spécifiques à un domaine, étendez l’API v1 avec le paramètre de requête « models ».
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
 ```
 
-Quand cette méthode est appelée, nous devons d’abord appeler le classifieur de 86 catégories. Si aucune des catégories ne correspond à celle d’un modèles connu ou correspondant, une deuxième session d’appels du classifieur est effectuée. Par exemple, si nous avons « details=all » ou si « details » inclut « celebrities », nous devons appeler le modèle celebrities après l’appel du classifieur de 86 catégories et l’obtention du résultat incluant la personne de la catégorie. Cela augmente la latence pour les utilisateurs intéressés par les célébrités, par rapport à l’option 1.
+Quand vous appelez cette méthode, vous appelez d’abord le classifieur [86-category](../Category-Taxonomy.md) (86 catégories). Si aucune des catégories ne correspond à celle d’un modèle connu ou correspondant, une deuxième passe d’appels du classifieur est effectuée. Par exemple, si "details=all" ou "details" inclut "celebrities", vous appelez le modèle « celebrities » après avoir appelé le classifieur de 86 catégories. Le résultat inclut la catégorie person. Contrairement à l’option 1, cette méthode augmente la latence pour les utilisateurs qui sont intéressés par les célébrités.
 
-Tous les paramètres de requête v1 ont le même comportement dans ce cas.  Si « visualFeatures=categories » n’est pas spécifié, il est implicitement activé.
+Dans ce cas, tous les paramètres de requête v1 se comportent de la même façon. Si vous ne spécifiez pas visualFeatures=categories, il est activé implicitement.
 
 ## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Récupérer et comprendre la sortie JSON pour l’analyse
 
@@ -171,19 +179,19 @@ Voici un exemple :
 
 Champ | Type | Contenu
 ------|------|------|
-Balises  | `object` | Objet de premier niveau pour le tableau d’étiquettes
-tags[].Name | `string`  | Mot clé d’un classifieur d’étiquettes
+Balises  | `object` | Objet de plus haut niveau pour un tableau d’étiquettes.
+tags[].Name | `string`  | Mot clé du classifieur d’étiquettes.
 tags[].Score    | `number`  | Score de confiance, compris entre 0 et 1.
-description  | `object` | Objet de premier niveau pour une description.
-description.tags[] |    `string`    | Liste d’étiquettes.  Si le score de confiance est insuffisant pour pouvoir générer une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
+description  | `object` | Objet de plus haut niveau pour une description.
+description.tags[] |    `string`    | Liste d’étiquettes.  En cas confiance insuffisante pour pouvoir produire une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
 description.captions[].text | `string`  | Expression décrivant l’image.
-description.captions[].confidence   | `number`  | Score de confiance de l’expression.
+description.captions[].confidence   | `number`  | Score de confiance pour l’expression.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Récupérer et comprendre la sortie JSON des modèles spécifiques au domaine
 
-**Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
 
-La sortie est un tableau d’étiquettes, similaire à l’exemple suivant :
+La sortie est un tableau d’étiquettes, comme illustré dans l’exemple suivant :
 
 ```json
 {  
@@ -200,9 +208,9 @@ La sortie est un tableau d’étiquettes, similaire à l’exemple suivant :
 }
 ```
 
-**Option 2 :** Analyse élargie - Analyser avec la taxonomie des 86 catégories pour fournir des détails supplémentaires
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Option 2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant la taxonomie « 86-categories » (86 catégories)
 
-Pour les modèles spécifiques au domaine qui utilisent l’option 2 (Analyse élargie), le type de retour des catégories est étendu. Exemple :
+Pour les modèles spécifiques au domaine qui utilisent l’option 2 (analyse élargie), le type de retour des catégories est étendu, comme illustré dans l’exemple suivant :
 
 ```json
 {  
@@ -229,20 +237,20 @@ Pour les modèles spécifiques au domaine qui utilisent l’option 2 (Analyse é
 }
 ```
 
-Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Notez également que chaque catégorie qui se termine par un trait de soulignement correspond à cette catégorie et à ses enfants (par exemple, people_ et people_group pour le modèle celebrities).
+Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Les catégories qui se terminent par un trait de soulignement correspondent à cette catégorie et à ses enfants (par exemple, « people_ » et « people_group » pour le modèle « celebrities »).
 
 Champ   | Type  | Contenu
 ------|------|------|
-categories | `object`   | Objet de premier niveau
-categories[].name    | `string` | Nom issu de la taxonomie des 86 catégories
-categories[].score  | `number`  | Score de confiance, compris entre 0 et 1
-categories[].detail  | `object?`      | Objet de détail facultatif
+categories | `object`   | Objet de plus haut niveau.
+categories[].name    | `string` | Nom de la liste de la taxonomie de 86 catégories.
+categories[].score  | `number`  | Score de confiance, compris entre 0 et 1.
+categories[].detail  | `object?`      | (Facultatif) Objet de détail.
 
-Notez que si plusieurs catégories correspondent (par exemple, le classifieur de 86 catégories retourne un score pour people_ et people_young avec le modèle celebrities), les détails s’appliquent au niveau de correspondance le plus général (people_ dans cet exemple).
+Si plusieurs catégories correspondent (par exemple, le classifieur de 86 catégories retourne un score à la fois pour « people_ » et pour « people_young » quand model=celebrities), les détails sont attachés à la correspondance du niveau le plus général (dans cet exemple, « people_ »).
 
-## <a name="errors-responses"></a>Réponses d’erreurs
+## <a name="error-responses"></a>Réponses d’erreur
 
-Ces réponses sont identiques à celles de vision.analyze, avec en plus l’erreur NotSupportedModel (HTTP 400), qui peut être retournée dans les deux scénarios Option 1 et Option 2. Dans le scénario Option 2 (Analyse élargie), si un des modèles spécifiés dans les détails n’est pas reconnu, l’API retourne une erreur NotSupportedModel, même si un ou plusieurs des autres modèles sont valides.  Les utilisateurs peuvent appeler listModels pour savoir quels modèles sont pris en charge.
+Ces erreurs sont identiques à celles de vision.analyze, avec en plus l’erreur NotSupportedModel (HTTP 400), qui peut être retournée dans les deux scénarios Option 1 et Option 2. Dans Option 2 (analyse élargie), si un des modèles spécifiés dans les détails n’est pas reconnu, l’API retourne une erreur NotSupportedModel, même si un ou plusieurs des modèles sont valides. Pour connaître les modèles pris en charge, vous pouvez appeler listModels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

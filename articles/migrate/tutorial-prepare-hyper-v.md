@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 09/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952080"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010317"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Préparer l’évaluation et la migration de machines virtuelles Hyper-V vers Azure
 
@@ -99,7 +99,7 @@ Pour préparer l’évaluation d’Hyper-V, procédez comme suit :
 1. Vérifiez les paramètres de l’hôte Hyper-V.
 2. Configurez la communication à distance PowerShell sur chaque hôte, afin que l’appliance Azure Migrate puisse exécuter des commandes PowerShell sur l’hôte, via une connexion WinRM.
 3. Si les disques de machine virtuelle se trouvent dans un stockage SMB distant, une délégation des informations d’identification est nécessaire. 
-    - Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte. T
+    - Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte.
     - Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance, comme décrit ci-dessous.
     - Plus tard, quand vous configurerez l’appliance, vous activerez la délégation sur l’appliance.
 4. Examinez la configuration requise de l’appliance, et l’accès à l’URL ou au port nécessaire pour celle-ci.
@@ -129,7 +129,7 @@ Exécutez le script comme suit :
 
 1. Assurez-vous que PowerShell version 4.0 ou ultérieure est installé sur l’hôte Hyper-V.
 2. Téléchargez le script à partir du [Centre de téléchargement Microsoft](https://aka.ms/migrate/script/hyperv). Le script est signé par chiffrement par Microsoft.
-3. Validez l’intégrité du script à l’aide de fichiers de hachage MD5 ou SHA256. Pour générer le hachage pour le script, exécutez la commande suivante :
+3. Validez l’intégrité du script à l’aide de fichiers de hachage MD5 ou SHA256. Les valeurs de code de hachage sont indiquées ci-dessous. Pour générer le hachage pour le script, exécutez la commande suivante :
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
@@ -138,19 +138,20 @@ Exécutez le script comme suit :
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
     ```
-    
-    Les valeurs de hachage sont les suivantes :
-    Hachage | Valeur
-    --- | ---
-    **MD5** | 0ef418f31915d01f896ac42a80dc414e
-    **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
-
 
 4.  Après avoir validé l’intégrité du script, exécutez-le sur chaque hôte Hyper-V à l’aide de la commande PowerShell suivante :
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
+#### <a name="hashtag-values"></a>Valeurs de code de hachage
+
+Les valeurs de hachage sont les suivantes :
+
+| **Code de hachage** | **Valeur** |
+| --- | --- |
+| **MD5** | 0ef418f31915d01f896ac42a80dc414e |
+| **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 ### <a name="verify-hyper-v-host-settings"></a>Vérifier les paramètres de l’hôte Hyper-V
 

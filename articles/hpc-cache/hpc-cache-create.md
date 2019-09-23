@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 479adf9419cdd6b04e50fa479d47b56762b2bdc6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774622"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037062"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -21,7 +21,7 @@ Utilisez le portail Azure pour créer votre cache.
 
 ## <a name="define-basic-details"></a>Définir les détails de base
 
-![capture d’écran de la page Détails du projet dans le portail Azure](media/create-1.png)
+![capture d’écran de la page Détails du projet dans le portail Azure](media/hpc-cache-create-basics.png)
 
 Dans **Détails du projet**, sélectionnez l’abonnement et le groupe de ressources qui hébergeront le cache Azure HPC Cache. Assurez-vous que l’abonnement figure dans la liste d’[accès à la préversion](hpc-cache-prereqs.md#azure-subscription).
 
@@ -47,7 +47,7 @@ Gardez à l’esprit que le taux de transfert de données réel dépend de la ch
 
 Pour le stockage du cache, Azure HPC Cache gère les fichiers qui sont mis en cache et préchargés afin d’optimiser les taux de réussite du cache. Le contenu du cache est évalué en permanence et les fichiers sont déplacés vers un stockage à long terme lorsqu’ils sont moins fréquemment sollicités. Choisissez une taille de stockage du cache qui peut contenir facilement l’ensemble actif de fichiers de travail avec de l’espace supplémentaire pour les métadonnées et d’autres surcharges.
 
-![capture d’écran de la page de dimensionnement du cache](media/create-cache-iops.png)
+![capture d’écran de la page de dimensionnement du cache](media/hpc-cache-create-iops.png)
 
 ## <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -55,19 +55,21 @@ Les cibles de stockage sont le stockage back-end à long terme pour le contenu d
 
 Vous pouvez définir des cibles de stockage lors de la création du cache, mais vous pouvez également les ajouter par la suite à l’aide du lien figurant dans la section **Configurer** de la page de votre cache dans le portail.
 
-![capture d’écran de la page des cibles de stockage](media/create-targets.png)
+![capture d’écran de la page des cibles de stockage](media/hpc-cache-storage-targets-pop.png)
 
 Cliquez sur le lien **Add storage target** (Ajouter une cible de stockage) pour définir vos systèmes de stockage back-end. Le stockage peut correspondre à des conteneurs d’objets blob Azure ou des systèmes NFS locaux.
 
 Vous pouvez définir jusqu’à dix cibles de stockage différentes.
 
-Pour obtenir des instructions pas à pas sur l’ajout d’une cible de stockage, consultez [Ajouter du stockage](hpc-cache-add-storage.md). La procédure est différente pour le stockage d’objets blob ou pour les exportations NFS.
+Des instructions pas à pas sur l’ajout d’une cible de stockage sont incluses dans [Ajouter du stockage](hpc-cache-add-storage.md). La procédure est différente pour le stockage d’objets blob ou pour les exportations NFS.
 
-Pour les deux types de stockage, vous devez spécifier le mode de recherche du système de stockage back-end (une adresse NFS ou un nom de conteneur d’objets blob) et le chemin de l’espace de noms orienté client.
+Voici quelques conseils : 
 
-Lorsque vous créez une cible de stockage d’objets blob, assurez-vous que le cache dispose des autorisations d’accès au compte de stockage, comme décrit dans [Ajouter les rôles de contrôle d’accès](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Si vous ne savez pas si la configuration du rôle va réussir, créez d’abord le cache, puis ajoutez le stockage d’objets blob par la suite.
+* Pour les deux types de stockage, vous devez spécifier le mode de recherche du système de stockage back-end (une adresse NFS ou un nom de conteneur d’objets blob) et le chemin de l’espace de noms orienté client.
 
-Lorsque vous créez une cible de stockage NFS, spécifiez un [modèle d’utilisation](hpc-cache-add-storage.md#choose-a-usage-model). Le paramètre de modèle d’utilisation aide le cache à optimiser votre workflow.
+* Lorsque vous créez une cible de stockage d’objets blob, assurez-vous que le cache dispose des autorisations d’accès au compte de stockage, comme décrit dans [Ajouter les rôles de contrôle d’accès](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Si vous ne savez pas si la configuration du rôle va réussir, créez d’abord le cache, puis ajoutez le stockage d’objets blob par la suite.
+
+* Lorsque vous créez une cible de stockage NFS, spécifiez un [modèle d’utilisation](hpc-cache-add-storage.md#choose-a-usage-model). Le paramètre de modèle d’utilisation aide le cache à optimiser votre workflow.
 
 ## <a name="add-resource-tags-optional"></a>Ajouter des balises de ressources (facultatif)
 
@@ -77,11 +79,13 @@ La page **Balises** vous permet d’ajouter des [balises de ressources](https://
 
 Après avoir configuré le nouveau cache, cliquez sur l’onglet **Vérifier + créer**. Le portail valide vos choix et vous permet de les passer en revue. Si tout est correct, cliquez sur **Créer**. 
 
-La création du cache prend environ 10 minutes. Vous pouvez suivre la progression dans le panneau de notifications du portail Azure. Une fois l’opération terminée, une notification s’affiche avec un lien vers la nouvelle instance de cache Azure HPC Cache. 
+La création du cache prend environ 10 minutes. Vous pouvez suivre la progression dans le panneau de notifications du portail Azure. 
 
-Le cache est également visible dans la liste **Ressources** de votre abonnement. 
+![capture d’écran des pages de création de cache « déploiement en cours » et « notifications » sur le portail](media/hpc-cache-deploy-status.png)
 
-![capture d’écran de l’instance de cache Azure HPC Cache dans le portail Azure](media/finished-hpc-cache.png)
+À l’issue de l’étape de création, une notification s’affiche avec un lien vers la nouvelle instance Azure HPC Cache, et le cache apparaît dans la liste **Ressources** de votre abonnement. 
+
+![capture d’écran de l’instance de cache Azure HPC Cache dans le portail Azure](media/hpc-cache-new-overview.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

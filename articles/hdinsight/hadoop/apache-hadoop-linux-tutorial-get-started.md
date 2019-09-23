@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: a648d6a57a53f29e55ad86859bb391358d9a1adb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6c4ff1df0ec56339721b3cdab9bb62b0ee8ba94f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918287"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067669"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Démarrage rapide : Créer un cluster Apache Hadoop dans Azure HDInsight avec un modèle Resource Manager
 
@@ -31,7 +31,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 1. Sélectionnez le bouton **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle Resource Manager sur le Portail Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Entrez ou sélectionnez les valeurs suivantes :
 
@@ -70,7 +70,7 @@ Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être su
 
 1. Revenez à l’onglet du navigateur dans lequel se trouve le portail Azure. Vous devez être sur la page de vue d’ensemble du cluster. Sélectionnez **Supprimer** si vous souhaitez seulement supprimer le cluster, mais conserver le compte de stockage par défaut.
 
-    ![HDInsight suppression du cluster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Suppression du cluster HDInsight")
+    ![HDInsight - Supprimer un cluster du portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight - Supprimer un cluster du portail")
 
 2. Si vous souhaitez supprimer le cluster ainsi que le compte de stockage par défaut, sélectionnez le nom du groupe de ressources (encadré dans la capture d’écran précédente) pour ouvrir la page du groupe de ressources.
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c302b18e34533a564904562ed39879bbe37b82ca
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: df12acad5fa9287f43cc256bfcc89fa6775c3e3b
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908196"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001303"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) d’appareil Python
 
@@ -33,6 +33,9 @@ Cet article présente les inscriptions individuelles.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
+> [!NOTE]
+> Ce guide s’applique seulement au SDK Python V1 qui est désormais déprécié. Les appareils TPM simulés ne sont pas encore pris en charge dans V2. L’équipe travaille actuellement sur la parité des fonctionnalités pour la V2.
+
 ## <a name="prepare-the-environment"></a>Préparer l’environnement 
 
 1. Assurez-vous que vous avez installé [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou une version ultérieure, avec la charge de travail « développement Desktop en C++ » activée pour votre installation de Visual Studio.
@@ -44,7 +47,7 @@ Cet article présente les inscriptions individuelles.
 1. Ouvrez une invite de commandes ou Git Bash. Clonez le référentiel GitHub pour l’exemple de code de simulation d’appareil :
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
 1. Créez un dossier dans votre copie locale de ce référentiel GitHub pour le processus de génération de CMake. 

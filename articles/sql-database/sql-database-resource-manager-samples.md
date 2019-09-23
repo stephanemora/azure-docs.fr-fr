@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566884"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037444"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modèles Azure Resource Manager pour Azure SQL Database
 
 Les modèles Azure Resource Manager vous permettent de définir votre infrastructure sous forme de code et de déployer vos solutions sur le cloud Azure.
 
-## <a name="single-database--elastic-pool"></a>Base de données unique et pool élastique
+## <a name="single-database--elastic-pooltabsingle-database"></a>[Base de données unique et pool élastique](#tab/single-database)
 
 Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pour Azure SQL Database.
 
@@ -41,7 +41,7 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | [Cluster HDInsight avec SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Ce modèle vous permet de créer un cluster HDInsight, un serveur SQL Database, une base de données SQL et deux tables. Il est utilisé dans l’article [Utiliser Sqoop avec Hadoop dans HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
 | [Application logique Azure qui exécute une procédure stockée SQL selon une planification](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Ce modèle vous permet de créer une application logique qui exécute une procédure stockée SQL selon une planification. Tous les arguments relatifs à la procédure peuvent être placés dans la section du corps du modèle.|
 
-## <a name="managed-instance"></a>Instance gérée
+## <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
 
 Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pour Azure SQL Database - Managed Instance.
 
@@ -51,3 +51,5 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | [Environnement réseau pour instance managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Ce déploiement crée un réseau virtuel Azure configuré avec deux sous-réseaux : un réseau dédié à vos instances managées et un autre dans lequel vous pouvez placer d’autres ressources (par exemple des machines virtuelles, des environnements App Service, etc.). Ce modèle crée un environnement réseau correctement configuré, où vous pouvez déployer des instances managées. |
 | [Instance managée avec connexion P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Ce déploiement crée un réseau virtuel Azure avec deux sous-réseaux `ManagedInstance` et `GatewaySubnet`. L’option Managed Instance est déployée dans le sous-réseau ManagedInstance. Une passerelle de réseau virtuel est créée dans le sous-réseau `GatewaySubnet` et configurée pour la connexion VPN point à site. |
 | [Instance managée avec machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Ce déploiement crée un réseau virtuel Azure avec deux sous-réseaux `ManagedInstance` et `Management`. L’option Managed Instance est déployée dans le sous-réseau `ManagedInstance`. La machine virtuelle dotée de la dernière version de SQL Server Management Studio (SSMS) est déployée dans le sous-réseau `Management`. |
+
+---

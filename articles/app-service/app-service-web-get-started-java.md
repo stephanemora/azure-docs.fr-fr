@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 615a4c055980381771d3b63eba878846fd583cc9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 3251637d5a5bd0593a9eaf559963921a68a6ccdc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883616"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102749"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Démarrage rapide : Créer une application Java dans Azure App Service sur Windows
 
@@ -34,7 +34,7 @@ ms.locfileid: "70883616"
 > [!NOTE]
 > Vous pouvez également le faire à l’aide d’IDE couramment utilisés comme IntelliJ et Eclipse. Consultez nos documents similaires dans le [Guide de démarrage d’Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou le [Guide de démarrage rapide d’Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
-![Exemple d’application s’exécutant dans Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Exemple d’application en cours d’exécution dans Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -119,7 +119,7 @@ mvn package azure-webapp:deploy
 
 Une fois le déploiement terminé, accédez à l’application déployée à l’aide de l’URL suivante dans votre navigateur web. Par exemple : `http://<webapp>.azurewebsites.net/`.
 
-![Exemple d’application s’exécutant dans Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Exemple d’application en cours d’exécution dans Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Félicitations !** Vous avez déployé votre première application Java sur App Service sur Windows.
 

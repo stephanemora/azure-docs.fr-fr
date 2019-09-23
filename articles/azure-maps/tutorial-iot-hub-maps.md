@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916405"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933199"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -167,7 +167,7 @@ Ouvrez l’application Postman et suivez les étapes ci-dessous pour charger la 
     
     La valeur « geojson » définie pour le paramètre `dataFormat` dans le chemin d’URL représente le format des données en cours de chargement.
 
-3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé d’abonnement Azure Maps.
+3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé primaire d’abonnement Azure Maps.
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions est un service de calcul serverless qui nous permet d’exécute
 6. Copiez le [code C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) dans votre fonction, puis cliquez sur **Enregistrer**.
  
 7. Dans le script C#, remplacez les paramètres suivants :
-    * Remplacez **SUBSCRIPTION_KEY** par la clé d’abonnement de votre compte Azure Maps.
+    * Remplacez **SUBSCRIPTION_KEY** par la clé primaire d’abonnement de votre compte Azure Maps.
     * Remplacez la valeur **UDID** par l’udId de la limite géographique que vous avez chargée. 
     * La fonction **CreateBlobAsync** du script crée un objet blob par événement dans le compte de stockage de données. Remplacez les valeurs **ACCESS_KEY**, **ACCOUNT_NAME** et **STORAGE_CONTAINER_NAME** par la clé d’accès et le nom de votre compte de stockage, ainsi que par le conteneur de stockage de données.
 

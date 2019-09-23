@@ -9,15 +9,15 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 044cdde8e7c2f79835f4197ae70f7f0dc8d9ccec
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: f9e33ae30b3aa59f4705518c3df20118fa056a93
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302672"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996760"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Qu'est-ce que l'API Recherche d’images Bing ?
 
@@ -66,3 +66,5 @@ Pour exécuter rapidement votre première requête d’API, vous pouvez apprendr
 * L’article [Obtention d’images à partir du web avec l’API Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) explique comment rechercher et obtenir des images à partir du web.
 
 * L’article [Envoi et utilisation des requêtes de recherche](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) décrit comment créer et personnaliser des requêtes de recherche et comment leur ajouter un tableau croisé dynamique.
+
+* [Comparer les API Recherche Bing](../Bing-web-search/bing-api-comparison.md)

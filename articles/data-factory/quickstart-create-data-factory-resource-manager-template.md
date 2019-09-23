@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 7826d34b3489fce9d71da051345cf066b756ef8b
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140985"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008716"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 
@@ -47,71 +47,34 @@ Pour en savoir plus sur la syntaxe JSON et les propriétés à utiliser pour les
 
 ## <a name="data-factory-json"></a>JSON de la fabrique de données
 
-Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTutorial** avec le contenu suivant :
+Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTutorial** (créez le dossier ADFTutorial s’il n’existe pas déjà) avec le contenu suivant :
 
 ```json
-{
-    "contentVersion": "1.0.0.0",
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "parameters": {
-        "dataFactoryName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the data factory. Must be globally unique."
+{  
+    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion":"1.0.0.0",
+    "parameters":{  
+        "dataFactoryName":{  
+            "type":"string",
+            "metadata":"Data Factory Name"
+        },
+        "dataFactoryLocation":{  
+            "type":"string",
+            "defaultValue":"East US",
+            "metadata":{  
+                "description":"Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
             }
         },
-        "dataFactoryLocation": {
-            "type": "string",
-            "allowedValues": [
-                "East US",
-                "East US 2",
-                "West Europe"
-            ],
-            "defaultValue": "East US",
-            "metadata": {
-                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
+        "storageAccountName":{  
+            "type":"string",
+            "metadata":{  
+                "description":"Name of the Azure storage account that contains the input/output data."
             }
         },
-        "storageAccountName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Azure storage account that contains the input/output data."
-            }
-        },
-        "storageAccountKey": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Key for the Azure storage account."
-            }
-        },
-        "blobContainer": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the blob container in the Azure Storage account."
-            }
-        },
-        "inputBlobFolder": {
-            "type": "string",
-            "metadata": {
-                "description": "The folder in the blob container that has the input file."
-            }
-        },
-        "inputBlobName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the input file/blob."
-            }
-        },
-        "outputBlobFolder": {
-            "type": "string",
-            "metadata": {
-                "description": "The folder in the blob container that will hold the transformed data."
-            }
-        },
-        "outputBlobName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the output file/blob."
+        "storageAccountKey":{  
+            "type":"securestring",
+            "metadata":{  
+                "description":"Key for the Azure storage account."
             }
         },
         "triggerStartTime": {
@@ -126,149 +89,199 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTu
                 "description": "End time for the trigger."
             }
         }
+    },      
+    "variables":{  
+        "factoryId":"[concat('Microsoft.DataFactory/factories/', parameters('dataFactoryName'))]"
     },
-    "variables": {
-        "azureStorageLinkedServiceName": "ArmtemplateStorageLinkedService",
-        "inputDatasetName": "ArmtemplateTestDatasetIn",
-        "outputDatasetName": "ArmtemplateTestDatasetOut",
-        "pipelineName": "ArmtemplateSampleCopyPipeline",
-        "triggerName": "ArmTemplateTestTrigger"
-    },
-    "resources": [{
-        "name": "[parameters('dataFactoryName')]",
-        "apiVersion": "2018-06-01",
-        "type": "Microsoft.DataFactory/factories",
-        "location": "[parameters('dataFactoryLocation')]",
-        "identity": {
-            "type": "SystemAssigned"
-        },
-        "resources": [{
-                "type": "linkedservices",
-                "name": "[variables('azureStorageLinkedServiceName')]",
-                "dependsOn": [
-                    "[parameters('dataFactoryName')]"
-                ],
-                "apiVersion": "2018-06-01",
-                "properties": {
-                    "type": "AzureStorage",
-                    "description": "Azure Storage linked service",
-                    "typeProperties": {
-                        "connectionString": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
-                            "type": "SecureString"
+    "resources":[  
+        {  
+            "name":"[parameters('dataFactoryName')]",
+            "apiVersion":"2018-06-01",
+            "type":"Microsoft.DataFactory/factories",
+            "location":"[parameters('dataFactoryLocation')]",
+            "identity":{  
+                "type":"SystemAssigned"
+            },
+            "resources":[  
+                {  
+                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
+                    "type":"Microsoft.DataFactory/factories/linkedServices",
+                    "apiVersion":"2018-06-01",
+                    "properties":{  
+                        "annotations":[  
+
+                        ],
+                        "type":"AzureBlobStorage",
+                        "typeProperties":{  
+                            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
                         }
-                    }
-                }
-            },
-            {
-                "type": "datasets",
-                "name": "[variables('inputDatasetName')]",
-                "dependsOn": [
-                    "[parameters('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2018-06-01",
-                "properties": {
-                    "type": "AzureBlob",
-                    "typeProperties": {
-                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-                        "fileName": "[parameters('inputBlobName')]"
                     },
-                    "linkedServiceName": {
-                        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-                        "type": "LinkedServiceReference"
-                    }
-                }
-            },
-            {
-                "type": "datasets",
-                "name": "[variables('outputDatasetName')]",
-                "dependsOn": [
-                    "[parameters('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2018-06-01",
-                "properties": {
-                    "type": "AzureBlob",
-                    "typeProperties": {
-                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-                        "fileName": "[parameters('outputBlobName')]"
-                    },
-                    "linkedServiceName": {
-                        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-                        "type": "LinkedServiceReference"
-                    }
-                }
-            },
-            {
-                "type": "pipelines",
-                "name": "[variables('pipelineName')]",
-                "dependsOn": [
-                    "[parameters('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]",
-                    "[variables('inputDatasetName')]",
-                    "[variables('outputDatasetName')]"
-                ],
-                "apiVersion": "2018-06-01",
-                "properties": {
-                    "activities": [{
-                        "type": "Copy",
-                        "typeProperties": {
-                            "source": {
-                                "type": "BlobSource"
-                            },
-                            "sink": {
-                                "type": "BlobSink"
+                    "dependsOn":[  
+                        "[parameters('dataFactoryName')]"
+                    ]
+                },
+                {  
+                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
+                    "type":"Microsoft.DataFactory/factories/datasets",
+                    "apiVersion":"2018-06-01",
+                    "properties":{  
+                        "linkedServiceName":{  
+                            "referenceName":"ArmtemplateStorageLinkedService",
+                            "type":"LinkedServiceReference"
+                        },
+                        "annotations":[  
+
+                        ],
+                        "type":"Binary",
+                        "typeProperties":{  
+                            "location":{  
+                                "type":"AzureBlobStorageLocation",
+                                "fileName":"emp.txt",
+                                "folderPath":"input",
+                                "container":"adftutorial"
                             }
-                        },
-                        "name": "MyCopyActivity",
-                        "inputs": [{
-                            "referenceName": "[variables('inputDatasetName')]",
-                            "type": "DatasetReference"
-                        }],
-                        "outputs": [{
-                            "referenceName": "[variables('outputDatasetName')]",
-                            "type": "DatasetReference"
-                        }]
-                    }]
-                }
-            },
-            {
-                "type": "triggers",
-                "name": "[variables('triggerName')]",
-                "dependsOn": [
-                    "[parameters('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]",
-                    "[variables('inputDatasetName')]",
-                    "[variables('outputDatasetName')]",
-                    "[variables('pipelineName')]"
-                ],
-                "apiVersion": "2018-06-01",
-                "properties": {
-                    "type": "ScheduleTrigger",
-                    "typeProperties": {
-                        "recurrence": {
-                            "frequency": "Hour",
-                            "interval": 1,
-                            "startTime": "[parameters('triggerStartTime')]",
-                            "endTime": "[parameters('triggerEndTime')]",
-                            "timeZone": "UTC"
                         }
                     },
-                    "pipelines": [{
-                        "pipelineReference": {
-                            "type": "PipelineReference",
-                            "referenceName": "ArmtemplateSampleCopyPipeline"
+                    "dependsOn":[  
+                        "[parameters('dataFactoryName')]",
+                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
+                    ]
+                },
+                {  
+                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
+                    "type":"Microsoft.DataFactory/factories/datasets",
+                    "apiVersion":"2018-06-01",
+                    "properties":{  
+                        "linkedServiceName":{  
+                            "referenceName":"ArmtemplateStorageLinkedService",
+                            "type":"LinkedServiceReference"
                         },
-                        "parameters": {}
-                    }]
+                        "annotations":[  
+
+                        ],
+                        "type":"Binary",
+                        "typeProperties":{  
+                            "location":{  
+                                "type":"AzureBlobStorageLocation",
+                                "folderPath":"output",
+                                "container":"adftutorial"
+                            }
+                        }
+                    },
+                    "dependsOn":[  
+                        "[parameters('dataFactoryName')]",
+                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
+                    ]
+                },
+                {  
+                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
+                    "type":"Microsoft.DataFactory/factories/pipelines",
+                    "apiVersion":"2018-06-01",
+                    "properties":{  
+                        "activities":[  
+                            {  
+                                "name":"MyCopyActivity",
+                                "type":"Copy",
+                                "dependsOn":[  
+
+                                ],
+                                "policy":{  
+                                    "timeout":"7.00:00:00",
+                                    "retry":0,
+                                    "retryIntervalInSeconds":30,
+                                    "secureOutput":false,
+                                    "secureInput":false
+                                },
+                                "userProperties":[  
+
+                                ],
+                                "typeProperties":{  
+                                    "source":{  
+                                        "type":"BinarySource",
+                                        "storeSettings":{  
+                                            "type":"AzureBlobStorageReadSettings",
+                                            "recursive":true
+                                        }
+                                    },
+                                    "sink":{  
+                                        "type":"BinarySink",
+                                        "storeSettings":{  
+                                            "type":"AzureBlobStorageWriteSettings"
+                                        }
+                                    },
+                                    "enableStaging":false
+                                },
+                                "inputs":[  
+                                    {  
+                                        "referenceName":"ArmtemplateTestDatasetIn",
+                                        "type":"DatasetReference",
+                                        "parameters":{  
+
+                                        }
+                                    }
+                                ],
+                                "outputs":[  
+                                    {  
+                                        "referenceName":"ArmtemplateTestDatasetOut",
+                                        "type":"DatasetReference",
+                                        "parameters":{  
+
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "annotations":[  
+
+                        ]
+                    },
+                    "dependsOn":[  
+                        "[parameters('dataFactoryName')]",
+                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
+                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
+                    ]
+                },
+                {  
+                    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
+                    "type":"Microsoft.DataFactory/factories/triggers",
+                    "apiVersion":"2018-06-01",
+                    "properties":{  
+                        "annotations":[  
+
+                        ],
+                        "runtimeState":"Started",
+                        "pipelines":[  
+                            {  
+                                "pipelineReference":{  
+                                    "referenceName":"ArmtemplateSampleCopyPipeline",
+                                    "type":"PipelineReference"
+                                },
+                                "parameters":{  
+
+                                }
+                            }
+                        ],
+                        "type":"ScheduleTrigger",
+                        "typeProperties":{  
+                            "recurrence":{  
+                                "frequency":"Hour",
+                                "interval":1,
+                                "startTime":"[parameters('triggerStartTime')]",
+                                "endTime":"[parameters('triggerEndTime')]",
+                                "timeZone":"UTC"
+                            }
+                        }
+                    },
+                    "dependsOn":[  
+                        "[parameters('dataFactoryName')]",
+                        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
+                    ]
                 }
-            }
-        ]
-    }]
+            ]
+        }
+    ]
 }
 ```
-
 ## <a name="parameters-json"></a>Paramètres JSON
 
 Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramètres du modèle Azure Resource Manager.
@@ -276,48 +289,33 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 > [!IMPORTANT]
 > - Spécifiez le nom et la clé de votre compte Stockage Azure pour les paramètres **storageAccountName** et **storageAccountKey** dans ce fichier de paramètres. Vous avez créé le conteneur adftutorial et téléchargé l’exemple de fichier (emp.txt) dans le dossier d’entrée de ce stockage d’objets blob Azure.
 > - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple :  ARMTutorialFactoryJohnDoe11282017.
-> - Pour la valeur **triggerStartTime**, spécifiez la date du jour au format : `2017-11-28T00:00:00`.
-> - Pour la valeur **triggerEndTime**, spécifiez la date du jour suivant au format : `2017-11-29T00:00:00`. Vous pouvez également vérifier l’heure UTC actuelle et spécifier l’heure suivante ou les deux heures suivantes comme heure de fin. Par exemple, si l’heure UTC actuelle est 1:32, spécifiez `2017-11-29:03:00:00` comme heure de fin. Dans ce cas, le déclencheur exécute le pipeline deux fois (à 2:00 et 3:00).
+> - Pour la valeur **triggerStartTime**, spécifiez la date du jour au format : `2019-09-08T00:00:00`.
+> - Pour la valeur **triggerEndTime**, spécifiez la date du jour suivant au format : `2019-09-09T00:00:00`. Vous pouvez également vérifier l’heure UTC actuelle et spécifier l’heure suivante ou les deux heures suivantes comme heure de fin. Par exemple, si l’heure UTC actuelle est 1:32, spécifiez `2019-09-09:03:00:00` comme heure de fin. Dans ce cas, le déclencheur exécute le pipeline deux fois (à 2:00 et 3:00).
 
 ```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "dataFactoryName": {
-      "value": "<datafactoryname>"
-    },
-    "dataFactoryLocation": {
-      "value": "East US"
-    },
-    "storageAccountName": {
-      "value": "<yourstorageaccountname>"
-    },
-    "storageAccountKey": {
-      "value": "<yourstorageaccountkey>"
-    },
-    "blobContainer": {
-      "value": "adftutorial"
-    },
-    "inputBlobFolder": {
-      "value": "input"
-    },
-    "inputBlobName": {
-      "value": "emp.txt"
-    },
-    "outputBlobFolder": {
-      "value": "output"
-    },
-    "outputBlobName": {
-      "value": "emp.txt"
-    },
-    "triggerStartTime": {
-        "value": "2017-11-28T00:00:00. Set to today"
-    },
-    "triggerEndTime": {
-        "value": "2017-11-29T00:00:00. Set to tomorrow"
+{  
+    "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion":"1.0.0.0",
+    "parameters":{  
+        "dataFactoryName":{  
+            "value":"<datafactoryname>"
+        },
+        "dataFactoryLocation":{  
+            "value":"East US"
+        },
+        "storageAccountName":{  
+            "value":"<yourstorageaccountname>"
+        },
+        "storageAccountKey":{  
+            "value":"<yourstorageaccountkey>"
+        },
+        "triggerStartTime":{  
+            "value":"2019-09-08T11:00:00"
+        },
+        "triggerEndTime":{  
+            "value":"2019-09-08T14:00:00"
+        }
     }
-  }
 }
 ```
 
@@ -326,7 +324,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 
 ## <a name="deploy-data-factory-entities"></a>Déployer des entités Data Factory
 
-Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé précédemment dans ce démarrage rapide.
+Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory dans votre groupe de ressources (dans ce cas, prenez ADFTutorialResourceGroup comme exemple) en utilisant le modèle Resource Manager que vous avez créé précédemment dans ce guide de démarrage rapide.
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -338,26 +336,21 @@ Une sortie similaire à l’exemple suivant s’affiche :
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
-Timestamp               : 11/29/2017 3:11:13 AM
+Timestamp               : 9/8/2019 10:52:29 AM
 Mode                    : Incremental
-TemplateLink            :
-Parameters              :
-                          Name                 Type            Value
-                          ===============      ============    ==========
-                          dataFactoryName      String          <data factory name>
-                          dataFactoryLocation  String          East US
-                          storageAccountName   String          <storage account name>
-                          storageAccountKey    SecureString
-                          blobContainer        String          adftutorial
-                          inputBlobFolder      String          input
-                          inputBlobName        String          emp.txt
-                          outputBlobFolder     String          output
-                          outputBlobName       String          emp.txt
-                          triggerStartTime     String          11/29/2017 12:00:00 AM
-                          triggerEndTime       String          11/29/2017 4:00:00 AM
-
-Outputs                 :
-DeploymentDebugLogLevel :
+TemplateLink            : 
+Parameters              : 
+                          Name                   Type                       Value     
+                          =====================  =========================  ==========
+                          dataFactoryName        String                     <data factory name>
+                          dataFactoryLocation    String                     East US   
+                          storageAccountName     String                     <storage account name>
+                          storageAccountKey      SecureString                         
+                          triggerStartTime       String                     9/8/2019 11:00:00 AM
+                          triggerEndTime         String                     9/8/2019 2:00:00 PM
+                          
+Outputs                 : 
+DeploymentDebugLogLevel : 
 ```
 
 ## <a name="start-the-trigger"></a>Démarrer le déclencheur
@@ -365,7 +358,7 @@ DeploymentDebugLogLevel :
 Le modèle déploie les entités Data Factory suivantes :
 
 - Service lié Stockage Azure
-- Jeux de données Blob Azure (entrée et sortie)
+- Jeux de données binaires (entrée et sortie)
 - Pipeline avec une activité de copie
 - Déclencheur pour déclencher le pipeline
 
@@ -395,9 +388,10 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Voici l'exemple de sortie :
 
     ```json
+
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ARMFactory1128
+    DataFactoryName   : ADFQuickstartsDataFactory0905
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Stopped
     ```
@@ -428,7 +422,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     ```console
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ARMFactory1128
+    DataFactoryName   : ADFQuickstartsDataFactory0905
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Started
     ```
@@ -437,33 +431,24 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 
 1. Après vous être connecté au [portail Azure](https://portal.azure.com/), cliquez sur **Tous les services**, faites une recherche avec le mot clé **data fa**, puis sélectionnez **Fabriques de données**.
 
-    ![Parcourir le menu Fabriques de données](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
-
 2. Sur la page **Fabriques de données**, cliquez sur la fabrique de données que vous avez créée. Si nécessaire, filtrez la liste avec le nom de votre fabrique de données.
 
-    ![Sélectionner une fabrique de données](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+3. Dans la page Data Factory, cliquez sur **Créer et surveiller**.
 
-3. Sur la page Fabrique de données, cliquez sur la vignette **Surveiller et gérer**.
-
-    ![Vignette Surveiller et gérer](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
-
-4. L’**application d’intégration de données** devrait s’ouvrir dans un onglet distinct dans le navigateur web. Si l’onglet Surveiller n’est pas actif, basculez vers l’**onglet Surveiller**. Notez que l’exécution du pipeline a été déclenchée par un **déclencheur Scheduler**.
-
-    ![Surveillance de l’exécution du pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
+4. Dans la page **Commençons**, sélectionnez **Onglet Surveiller**.  ![Superviser les exécutions de pipeline](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > Les exécutions du pipeline s’affichent uniquement par heure (par exemple, 4:00, 5:00, 6:00, etc.). Cliquez sur **Actualiser** dans la barre d’outils pour actualiser la liste lorsque l’heure atteint l’heure suivante.
 
-5. Cliquez sur le lien dans les colonnes **Actions**.
+5. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**.
 
     ![Lien Actions de pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
 6. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copier. Par conséquent, vous observez une exécution de cette activité.
 
     ![Exécutions d’activités](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Cliquez sur le lien situé sous la colonne **Sortie**. Vous voyez la sortie de l’opération de copie dans une fenêtre **Sortie**. Cliquez sur le bouton Agrandir pour afficher la sortie complète. Vous pouvez fermer la fenêtre de sortie agrandie ou la fermer.
+7. Cliquez sur le lien **Sortie** sous la colonne Actions. Vous voyez la sortie de l’opération de copie dans une fenêtre **Sortie**. Cliquez sur le bouton Agrandir pour afficher la sortie complète. Vous pouvez fermer la fenêtre de sortie agrandie ou la fermer.
 
-    ![Fenêtre Sortie](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
 8. Arrêtez le déclencheur une fois que vous voyez une exécution réussie ou un échec. Le déclencheur exécute le pipeline une fois par heure. Le pipeline copie le même fichier à partir du dossier d’entrée dans le dossier de sortie à chaque exécution. Pour arrêter le déclencheur, exécutez la commande suivante dans la fenêtre PowerShell.
     
     ```powershell
@@ -477,8 +462,8 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 Les entités Data Factory suivantes sont définies dans le modèle JSON :
 
 - [Service lié Azure Storage](#azure-storage-linked-service)
-- [Jeu de données d'entrée d'objet Blob Azure](#azure-blob-input-dataset)
-- [Jeu de données de sortie d'objet Blob Azure](#azure-blob-output-dataset)
+- [Jeu de données d’entrée binaire](#binary-input-dataset)
+- [Jeu de données de sortie binaire](#binary-output-dataset)
 - [Pipeline de données avec une activité de copie](#data-pipeline)
 - [Déclencheur](#trigger)
 
@@ -487,119 +472,166 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les conditions préalables. Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure.
 
 ```json
-{
-    "type": "linkedservices",
-    "name": "[variables('azureStorageLinkedServiceName')]",
-    "dependsOn": [
-        "[parameters('dataFactoryName')]"
-    ],
-    "apiVersion": "2018-06-01",
-    "properties": {
-        "type": "AzureStorage",
-        "description": "Azure Storage linked service",
-        "typeProperties": {
-            "connectionString": {
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
-                "type": "SecureString"
-            }
+{  
+    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
+    "type":"Microsoft.DataFactory/factories/linkedServices",
+    "apiVersion":"2018-06-01",
+    "properties":{  
+        "annotations":[  
+
+        ],
+        "type":"AzureBlobStorage",
+        "typeProperties":{  
+            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
         }
-    }
+    },
+    "dependsOn":[  
+        "[parameters('dataFactoryName')]"
+    ]
 }
 ```
 
 La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStorageLinkedService et dataFactoryName définies dans le modèle.
 
-#### <a name="azure-blob-input-dataset"></a>Jeu de données d'entrée d'objet Blob Azure
+#### <a name="binary-input-dataset"></a>Jeu de données d’entrée binaire
 
-Le service lié Stockage Azure spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Dans la définition du jeu de données d’objets blob Azure, vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.
+Le service lié Stockage Azure spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Dans la définition de jeu de données binaire, vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Pour plus d’informations sur les propriétés JSON utilisées pour définir un jeu de données binaire, consultez [Propriétés de jeu de données binaire](format-binary.md#dataset-properties).
 
 ```json
-{
-    "type": "datasets",
-    "name": "[variables('inputDatasetName')]",
-    "dependsOn": [
-        "[parameters('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
-    ],
-    "apiVersion": "2018-06-01",
-    "properties": {
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-            "fileName": "[parameters('inputBlobName')]"
+{  
+    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
+    "type":"Microsoft.DataFactory/factories/datasets",
+    "apiVersion":"2018-06-01",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"ArmtemplateStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "linkedServiceName": {
-            "referenceName": "[variables('azureStorageLinkedServiceName')]",
-            "type": "LinkedServiceReference"
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":{  
+                "type":"AzureBlobStorageLocation",
+                "fileName":"emp.txt",
+                "folderPath":"input",
+                "container":"adftutorial"
+            }
         }
-    }
-},
+    },
+    "dependsOn":[  
+        "[parameters('dataFactoryName')]",
+        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
+    ]
+}
 ```
 
-#### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
+#### <a name="binary-output-dataset"></a>Jeu de données de sortie binaire
 
-Vous spécifiez le nom du dossier dans le Stockage Blob Azure contenant les données copiées à partir du dossier d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.
+Vous spécifiez le nom du dossier dans le Stockage Blob Azure contenant les données copiées à partir du dossier d’entrée. Pour plus d’informations sur les propriétés JSON utilisées pour définir un jeu de données binaire, consultez [Propriétés de jeu de données binaire](format-binary.md#dataset-properties).
 
 ```json
-{
-    "type": "datasets",
-    "name": "[variables('outputDatasetName')]",
-    "dependsOn": [
-        "[parameters('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
-    ],
-    "apiVersion": "2018-06-01",
-    "properties": {
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-            "fileName": "[parameters('outputBlobName')]"
+{  
+    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
+    "type":"Microsoft.DataFactory/factories/datasets",
+    "apiVersion":"2018-06-01",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"ArmtemplateStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "linkedServiceName": {
-            "referenceName": "[variables('azureStorageLinkedServiceName')]",
-            "type": "LinkedServiceReference"
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":{  
+                "type":"AzureBlobStorageLocation",
+                "folderPath":"output",
+                "container":"adftutorial"
+            }
         }
-    }
+    },
+    "dependsOn":[  
+        "[parameters('dataFactoryName')]",
+        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
+    ]
 }
 ```
 
 #### <a name="data-pipeline"></a>Pipeline de données
 
-Vous définissez un pipeline qui copie les données d’un jeu de données d’objet blob Azure vers un autre jeu de données d’objet blob Azure. Consultez [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) pour obtenir des descriptions des éléments JSON permettant de définir un pipeline dans cet exemple.
+Vous définissez un pipeline qui copie les données d’un jeu de données binaire vers un autre jeu de données binaire. Consultez [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) pour obtenir des descriptions des éléments JSON permettant de définir un pipeline dans cet exemple.
 
 ```json
-{
-    "type": "pipelines",
-    "name": "[variables('pipelineName')]",
-    "dependsOn": [
-        "[parameters('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]",
-        "[variables('inputDatasetName')]",
-        "[variables('outputDatasetName')]"
-    ],
-    "apiVersion": "2018-06-01",
-    "properties": {
-        "activities": [{
-            "type": "Copy",
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource"
+{  
+    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
+    "type":"Microsoft.DataFactory/factories/pipelines",
+    "apiVersion":"2018-06-01",
+    "properties":{  
+        "activities":[  
+            {  
+                "name":"MyCopyActivity",
+                "type":"Copy",
+                "dependsOn":[  
+
+                ],
+                "policy":{  
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
                 },
-                "sink": {
-                    "type": "BlobSink"
-                }
-            },
-            "name": "MyCopyActivity",
-            "inputs": [{
-                "referenceName": "[variables('inputDatasetName')]",
-                "type": "DatasetReference"
-            }],
-            "outputs": [{
-                "referenceName": "[variables('outputDatasetName')]",
-                "type": "DatasetReference"
-            }]
-        }]
-    }
+                "userProperties":[  
+
+                ],
+                "typeProperties":{  
+                    "source":{  
+                        "type":"BinarySource",
+                        "storeSettings":{  
+                            "type":"AzureBlobStorageReadSettings",
+                            "recursive":true
+                        }
+                    },
+                    "sink":{  
+                        "type":"BinarySink",
+                        "storeSettings":{  
+                            "type":"AzureBlobStorageWriteSettings"
+                        }
+                    },
+                    "enableStaging":false
+                },
+                "inputs":[  
+                    {  
+                        "referenceName":"ArmtemplateTestDatasetIn",
+                        "type":"DatasetReference",
+                        "parameters":{  
+
+                        }
+                    }
+                ],
+                "outputs":[  
+                    {  
+                        "referenceName":"ArmtemplateTestDatasetOut",
+                        "type":"DatasetReference",
+                        "parameters":{  
+
+                        }
+                    }
+                ]
+            }
+        ],
+        "annotations":[  
+
+        ]
+    },
+    "dependsOn":[  
+        "[parameters('dataFactoryName')]",
+        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
+        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
+    ]
 }
 ```
 
@@ -608,36 +640,41 @@ Vous définissez un pipeline qui copie les données d’un jeu de données d’o
 Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le déclencheur déployé est à l’arrêt. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger**. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
-{
-    "type": "triggers",
-    "name": "[variables('triggerName')]",
-    "dependsOn": [
-        "[parameters('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]",
-        "[variables('inputDatasetName')]",
-        "[variables('outputDatasetName')]",
-        "[variables('pipelineName')]"
-    ],
-    "apiVersion": "2018-06-01",
-    "properties": {
-        "type": "ScheduleTrigger",
-        "typeProperties": {
-            "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-28T00:00:00",
-                "endTime": "2017-11-29T00:00:00",
-                "timeZone": "UTC"
+{  
+    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
+    "type":"Microsoft.DataFactory/factories/triggers",
+    "apiVersion":"2018-06-01",
+    "properties":{  
+        "annotations":[  
+
+        ],
+        "runtimeState":"Started",
+        "pipelines":[  
+            {  
+                "pipelineReference":{  
+                    "referenceName":"ArmtemplateSampleCopyPipeline",
+                    "type":"PipelineReference"
+                },
+                "parameters":{  
+
+                }
             }
-        },
-        "pipelines": [{
-            "pipelineReference": {
-                "type": "PipelineReference",
-                "referenceName": "ArmtemplateSampleCopyPipeline"
-            },
-            "parameters": {}
-        }]
-    }
+        ],
+        "type":"ScheduleTrigger",
+        "typeProperties":{  
+            "recurrence":{  
+                "frequency":"Hour",
+                "interval":1,
+                "startTime":"[parameters('triggerStartTime')]",
+                "endTime":"[parameters('triggerEndTime')]",
+                "timeZone":"UTC"
+            }
+        }
+    },
+    "dependsOn":[  
+        "[parameters('dataFactoryName')]",
+        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
+    ]
 }
 ```
 

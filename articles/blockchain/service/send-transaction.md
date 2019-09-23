@@ -1,28 +1,27 @@
 ---
-title: Utiliser les contrats intelligents sur Azure Blockchain Service
-description: Tutoriel sur l’utilisation d’Azure Blockchain Service pour déployer un contrat intelligent et exécuter une fonction par le biais d’une transaction.
+title: Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents avec Azure Blockchain Service
+description: Tutoriel expliquant comment utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705128"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934982"
 ---
-# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>Tutoriel : Utiliser les contrats intelligents sur Azure Blockchain Service
+# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Didacticiel : Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents
 
-Dans ce tutoriel, vous allez utiliser Azure Blockchain Development Kit pour Ethereum afin de créer et déployer un contrat intelligent, puis d’exécuter une fonction de contrat intelligent par le biais d’une transaction sur un réseau blockchain de consortium.
+Dans ce tutoriel, vous allez utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service. Vous allez aussi utiliser Truffle pour exécuter une fonction de contrat intelligent via une transaction.
 
 Vous utilisez Azure Blockchain Development Kit pour Ethereum afin de :
 
 > [!div class="checklist"]
-> * Se connecter à un membre blockchain de consortium Azure Blockchain Service
 > * Créer un contrat intelligent
 > * Déployer un contrat intelligent
 > * Exécuter une fonction de contrat intelligent par le biais d’une transaction
@@ -32,52 +31,11 @@ Vous utilisez Azure Blockchain Development Kit pour Ethereum afin de :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Azure Blockchain Development Kit pour l’extension Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.JS](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/) Ajoutez Python.exe à votre chemin. La présence de Python dans votre chemin est exigée pour Azure Blockchain Development Kit.
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
-
-### <a name="verify-azure-blockchain-development-kit-environment"></a>Vérifier l’environnement Azure Blockchain Development Kit
-
-Azure Blockchain Development Kit vérifie que les conditions préalables de votre environnement de développement sont remplies. Pour vérifier votre environnement de développement :
-
-À partir de la palette de commandes VS Code, choisissez **Azure Blockchain : Afficher la page d’accueil**.
-
-Azure Blockchain Development Kit exécute un script de validation qui dure environ une minute. Vous pouvez afficher la sortie en sélectionnant **Terminal > Nouveau terminal**. Dans la barre de menus Terminal, sélectionnez l’onglet **Sortie**, et **Azure Blockchain** dans la liste déroulante. Une validation réussie génère une image semblable à la suivante :
-
-![Environnement de développement valide](./media/send-transaction/valid-environment.png)
-
- S’il vous manque un outil exigé, un nouvel onglet nommé **Azure Blockchain Development Kit - Préversion** liste les applications à installer, et les liens pour télécharger les outils.
-
-![Applications exigées pour le kit de développement](./media/send-transaction/required-apps.png)
-
-## <a name="connect-to-consortium-member"></a>Se connecter à un membre de consortium
-
-Vous pouvez vous connecter à des membres de consortium au moyen de l’extension VS Code Azure Blockchain Development Kit. Une fois connecté à un consortium, vous pouvez compiler, générer et déployer des contrats intelligents sur un membre de consortium Azure Blockchain Service.
-
-Si vous n’avez pas accès à un membre de consortium Azure Blockchain Service, suivez l’un des deux prérequis suivants [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md).
-
-1. Dans le volet de l’Explorateur de Visual Studio Code (VS code), développez l’extension **Azure Blockchain**.
-1. Sélectionnez **Se connecter au consortium**.
-
-   ![Se connecter au consortium](./media/send-transaction/connect-consortium.png)
-
-    Si vous êtes invité à utiliser l’authentification Azure, suivez les invites pour vous authentifier avec un navigateur.
-1. Choisissez **Se connecter au consortium Azure Blockchain Service** dans la liste déroulante de la palette de commandes.
-1. Choisissez l’abonnement et le groupe de ressources qui sont associés à votre membre de consortium Azure Blockchain Service.
-1. Choisissez votre consortium dans la liste.
-
-Le consortium et les membres blockchain sont listés dans la barre latérale de l’Explorateur Visual Studio.
-
-![Consortium affiché dans l’Explorateur](./media/send-transaction/consortium-node.png)
+* Effectuer l’étape [Démarrage rapide : Utiliser Visual Studio Code pour se connecter à un réseau de consortium Azure Blockchain Service](connect-vscode.md)
 
 ## <a name="create-a-smart-contract"></a>Créer un contrat intelligent
 
-Azure Blockchain Development Kit pour Ethereum utilise des modèles de projet et des outils Truffle pour aider à structurer, générer et déployer des contrats.
+Azure Blockchain Development Kit pour Ethereum utilise des modèles de projet et des outils Truffle pour aider à structurer, générer et déployer des contrats. Avant de commencer, respectez les prérequis [Démarrage rapide : Utilisez Visual Studio Code pour vous connecter à un réseau de consortium Azure Blockchain Service](connect-vscode.md). Le guide de démarrage rapide vous aide à installer et à configurer pas à pas le kit de développement Azure Blockchain pour Ethereum.
 
 1. À partir de la palette de commandes VS Code, choisissez **Azure Blockchain : Nouveau projet Solidity**.
 1. Choisissez **Créer un projet de base**.
@@ -107,7 +65,7 @@ Azure Blockchain Development Kit utilise Truffle pour compiler les contrats inte
 Truffle utilise des scripts de migration pour déployer vos contrats sur un réseau Ethereum. Les migrations sont des fichiers JavaScript situés dans le répertoire **migrations** du projet.
 
 1. Pour déployer votre contrat intelligent, cliquez avec le bouton droit sur **HelloBlockchain.sol** et choisissez **Déployer les contrats** dans le menu.
-1. Choisissez votre réseau de consortium Azure Blockchain sous **From truffle-config.js**. Le réseau blockchain de consortium a été ajouté au fichier de configuration Truffle du projet lorsque vous avez créé le projet.
+1. Choisissez votre réseau de consortium Azure Blockchain dans la palette de commandes. Le réseau blockchain de consortium a été ajouté au fichier de configuration Truffle du projet lorsque vous avez créé le projet.
 1. Choisissez **Générer le mnémonique**. Choisissez un nom de fichier et enregistrez le fichier mnémonique dans le dossier du projet. Par exemple : `myblockchainmember.env`. Le fichier mnémonique est utilisé pour générer une clé privée Ethereum pour votre membre blockchain.
 
 Azure Blockchain Development Kit utilise Truffle pour exécuter le script de migration et déployer les contrats dans le blockchain.
@@ -173,7 +131,7 @@ Les fonctions de contrat intelligent peuvent retourner la valeur actuelle des va
     La fonction retourne le message stocké dans une variable d’état, selon l’état actuel du contrat.
 
 1. Cliquez avec le bouton droit sur **HelloBlockchain.sol** et choisissez **Générer les contrats** dans le menu pour compiler les modifications apportées au contrat intelligent.
-1. Pour déployer, cliquez avec le bouton droit sur **HelloBlockchain.sol** et choisissez **Déployer les contrats** dans le menu.
+1. Pour déployer, cliquez avec le bouton droit sur **HelloBlockchain.sol** et choisissez **Déployer les contrats** dans le menu. Quand vous y êtes invité, choisissez votre réseau de consortium Azure Blockchain dans la palette de commandes.
 1. Ensuite, créez un script pour appeler la fonction **getMessage**. Créez un fichier à la racine de votre projet Truffle et nommez-le `getmessage.js`. Ajoutez le code JavaScript Web3 suivant au fichier.
 
     ```javascript

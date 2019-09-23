@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347919"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076325"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -36,9 +36,9 @@ Les bibliothèques de gestion des fonctionnalités .NET Core étendent le framew
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Gestionnaire de fonctionnalités** >  **+ Créer** pour ajouter les indicateurs de fonctionnalités suivants :
+6. Sélectionnez **Gestionnaire de fonctionnalités** >  **+Ajouter** pour ajouter les indicateurs de fonctionnalités suivants :
 
-    | Clé | État |
+    | Clé | State |
     |---|---|
     | Bêta | Off |
 
@@ -81,10 +81,11 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
-1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
+1. Ajoutez une référence aux packages NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` et `Microsoft.FeatureManagement.AspNetCore` en exécutant les commandes suivantes :
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Exécutez la commande suivante pour restaurer les packages de votre projet :
@@ -262,9 +263,11 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
 1. Sélectionnez **Gestionnaire de fonctionnalités**, puis changez la valeur de la clé **Bêta** en **On** :
 
-    | Clé | État |
+    | Clé | State |
     |---|---|
     | Bêta | Il en va |
+
+1. Redémarrez votre application en retournant à votre invite de commandes et en appuyant sur `Ctrl-C` pour annuler le processus `dotnet` en cours d’exécution, puis en réexécutant `dotnet run`.
 
 1. Actualisez la page de navigateur pour afficher les nouveaux paramètres de configuration.
 
@@ -281,3 +284,4 @@ Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuratio
 - Découvrez plus d’informations sur la [gestion des fonctionnalités](./concept-feature-management.md).
 - [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md).
 - [Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core](./use-feature-flags-dotnet-core.md).
+- [Utiliser la configuration dynamique dans une application ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

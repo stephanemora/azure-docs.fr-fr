@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565773"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967058"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -75,6 +75,6 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
 
-- [Démarrage rapide : Analyser une image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Démarrage rapide : Extraire du texte manuscrit](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Démarrage rapide : Générer une miniature](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Démarrage rapide : SDK .NET Vision par ordinateur](quickstarts-sdk/csharp-sdk.md)
+- [Démarrage rapide : SDK Python Vision par ordinateur](quickstarts-sdk/python-sdk.md)
+- [Démarrage rapide : SDK Java Vision par ordinateur](quickstarts-sdk/java-sdk.md)

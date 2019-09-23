@@ -3,16 +3,16 @@ title: Exemple - Blueprint Canada Federal PBMM - Correspondance des contrôles
 description: Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM avec Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918761"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002910"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -32,7 +32,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 
 ## <a name="ac-2-account-management"></a>AC-2 Gestion des comptes
 
-Ce blueprint vous aide à passer en revue les comptes qui peuvent ne pas être conformes aux exigences en matière de gestion des comptes de votre organisation. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
+Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conformes aux exigences de votre organisation en matière de gestion de comptes. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
@@ -178,7 +178,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestion des authentificateurs | Authentification basée sur mot de passe
 
-Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe , vous pouvez prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
+Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe, vous pouvez prendre des mesures correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
 
 - \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 - \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
@@ -240,7 +240,7 @@ L’accès juste-à-temps (JIT) à la machine virtuelle verrouille le trafic ent
 
 ## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>Confidentialité et intégrité des transmissions SC-8 (1) | Protection par chiffrement ou autre protection physique
 
-Ce blueprint permet de protéger la confidentialité et l’intégrité des informations transmises en affectant des définitions [Azure Policy](../../../policy/overview.md) permettant de superviser le mécanisme de chiffrement implémenté pour les protocoles de communication. Vérifiez que les communications sont correctement chiffrées pour mieux répondre aux exigences de votre organisation et pour protéger vos informations contre toute divulgation ou modification non autorisées.
+Ce blueprint permet de protéger la confidentialité et l’intégrité des informations transmises en affectant des définitions [Azure Policy](../../../policy/overview.md) permettant de superviser le mécanisme de chiffrement implémenté pour les protocoles de communication. Vérifiez que les communications sont correctement chiffrées pour mieux répondre aux besoins de votre organisation et pour protéger vos informations contre toute divulgation ou modification non autorisées.
 
 - L'application API doit uniquement être accessible via HTTPS
 - Auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
@@ -310,6 +310,12 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 > La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Vous avez parcouru la correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM. Continuez avec les articles suivants pour découvrir une vue d’ensemble de cet exemple et pour savoir comment le déployer :
+
+> [!div class="nextstepaction"]
+> [Blueprint Canada Federal PBMM – Vue d’ensemble](./control-mapping.md)
+> [Blueprint Canada Federal PBMM – Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

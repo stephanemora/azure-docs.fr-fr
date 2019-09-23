@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 7091e2bd1ee24843299721d3c21a8546197fac6f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6721769b0ab6df4165281d9b5b75c0e1332ed1dc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207580"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001647"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Vue d’ensemble du service Azure Resource Graph
 
@@ -49,7 +49,7 @@ Resource Graph met alors à jour sa base de données. Resource Graph effectue é
 
 ## <a name="the-query-language"></a>Langage de requête
 
-Maintenant que vous avez une meilleure idée de ce qu’est Azure Resource Graph, examinons comment construire des requêtes.
+Maintenant que vous avez une meilleure idée de ce qu’est Azure Resource Graph, voyons comment construire des requêtes.
 
 Il est important de comprendre que le langage de requête d’Azure Resource Graph est basé sur le [langage de requête Kusto](../../data-explorer/data-explorer-overview.md) utilisé par Azure Data Explorer.
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376149"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966924"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Visage pour Python
 
@@ -285,7 +285,7 @@ Si vous avez migré des données à l’aide de la fonctionnalité de capture in
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Visage pour Python pour effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans ce guide de démarrage rapide, vous avez découvert comment utiliser la bibliothèque Visage pour Python afin d’effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API Visage (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

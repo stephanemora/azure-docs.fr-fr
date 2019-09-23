@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914876"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996639"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour .NET
 
@@ -26,7 +26,6 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
 [Documentation de référence sur l’API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -118,26 +117,14 @@ Cette opération retourne une série de paires clé/valeur.
 }
 ```
 
-Prenez note de clientId, clientSecret, subscriptionId et tenantId, car nous allons utiliser ces éléments au cours de l’étape [S’authentifier auprès de votre coffre de clés](#authenticate-to-your-key-vault) ci-dessous.
-
-Vous allez également avoir besoin de l’appID du principal de service. Vous pouvez le trouver en exécutant la commande [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) avec le paramètre `--show-mine` :
-
-```azurecli
-az ad sp list --show-mine
-```
-
-L’`appID` apparaît dans la chaîne JSON retournée :
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+Prenez note des valeurs de clientId et de clientSecret, car nous allons les utiliser dans l’étape [S’authentifier auprès de votre coffre de clés](#authenticate-to-your-key-vault) ci-dessous.
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Accorder au principal de service l’accès à votre coffre de clés
 
-Créez une stratégie d’accès qui accorde à votre principal de service l’autorisation d’accéder à votre coffre de clés. Pour ce faire, utilisez la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Nous allons accorder au principal de service les autorisations get, list, et set sur les clés et les secrets.
+Créez une stratégie d’accès pour votre coffre de clés qui accorde l’autorisation à votre principal de service en passant le clientId à la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Accordez au principal de service les autorisations get, list et set sur les clés et les secrets.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>Modèle objet
@@ -164,10 +151,6 @@ Avant de générer et d’exécuter votre application, utilisez la commande `set
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Chaque fois que vous appelez `setx`, vous devez obtenir la réponse « RÉUSSITE : La valeur spécifiée a été enregistrée. »

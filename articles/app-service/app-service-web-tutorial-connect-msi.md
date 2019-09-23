@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743395"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018280"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Didacticiel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -83,10 +83,22 @@ Pour plus d’informations sur l’ajout d’un administrateur Active Directory,
 
 ## <a name="set-up-visual-studio"></a>Configuration de Visual Studio
 
-Pour activer le développement et le débogage dans Visual Studio, ajoutez votre utilisateur Azure AD dans Visual Studio en sélectionnant **Fichier** > **Paramètres du compte** à partir du menu, puis cliquez sur **Ajouter un compte**.
+### <a name="windows"></a>Windows
+Visual Studio pour Windows est intégré avec l’authentification Azure AD. Pour activer le développement et le débogage dans Visual Studio, ajoutez votre utilisateur Azure AD dans Visual Studio en sélectionnant **Fichier** > **Paramètres du compte** à partir du menu, puis cliquez sur **Ajouter un compte**.
 
 Pour définir l’utilisateur Azure AD pour l’authentification de service Azure, sélectionnez **Outils** > **Options** dans le menu, puis sélectionnez **Authentification du service Azure** > **Sélection du compte**. Sélectionnez l’utilisateur Azure AD que vous avez ajouté, puis cliquez sur **OK**.
 
+Vous êtes maintenant prêt à développer et déboguer votre application avec SQL Database en tant que back-end, à l’aide de l’authentification Azure AD.
+
+### <a name="macos"></a>MacOS
+
+Visual Studio pour Mac n’est pas intégré avec l’authentification Azure AD. Cependant, la bibliothèque [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) que vous utiliserez par la suite peut utiliser des jetons à partir d’Azure CLI. Pour permettre le développement et le débogage dans Visual Studio, vous devez d’abord [installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre ordinateur local.
+
+Une fois Azure CLI installé sur votre ordinateur local, connectez-vous à Azure CLI avec la commande suivante en utilisant votre compte d’utilisateur Azure AD :
+
+```bash
+az login --allow-no-subscriptions
+```
 Vous êtes maintenant prêt à développer et déboguer votre application avec SQL Database en tant que back-end, à l’aide de l’authentification Azure AD.
 
 ## <a name="modify-your-project"></a>Modifier votre projet

@@ -4,16 +4,16 @@ description: Cet article décrit les API REST qui sont disponibles avec votre in
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900860"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105455"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Entreprise Azure
 
@@ -31,7 +31,7 @@ Les clients d’Entreprise Microsoft Azure peuvent obtenir des données sur l’
 
 **Frais du magasin de la Place de marché** : l’[API Frais du magasin de la Place de marché](billing-enterprise-api-marketplace-storecharge.md) présente l’analyse détaillée des frais de la Place de marché basés sur l’utilisation par jour pour la période de facturation ou la plage entre les dates de début et de fin indiquées. Pour plus d’informations, consultez [API de création de rapports pour les clients d’Entreprise :Frais du magasin de la Place de marché](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Grille tarifaire** : l’[API Grille tarifaire](/billing-enterprise-api-pricesheet.md) indique les tarifs applicables pour chaque compteur selon l’inscription et la période de facturation. Pour plus d’informations, consultez [API de création de rapports pour les clients d’Entreprise : Grille tarifaire](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Grille tarifaire** : l’[API Grille tarifaire](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) indique les tarifs applicables pour chaque compteur selon l’inscription et la période de facturation. Pour plus d’informations, consultez [API de création de rapports pour les clients d’Entreprise : Grille tarifaire](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Périodes de facturation** : l’[API Périodes de facturation](billing-enterprise-api-billing-periods.md) affiche, par ordre chronologique inverse, une liste des périodes de facturation comportant les données de consommation pour une inscription. Chaque période contient une propriété qui pointe vers la route de l’API pour les quatre ensembles de données : BalanceSummary (Solde et résumé), UsageDetails (Détails de l’utilisation), Marketplace Charges (Frais de la Place de marché) et PriceSheet (Grille tarifaire). Pour plus d’informations, consultez [API de création de rapports pour les clients d’Entreprise : Périodes de facturation](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -81,7 +81,7 @@ Un point de terminaison Swagger est disponible sur [Enterprise Reporting v3 APIs
 
 Quand vous utilisez une API, plusieurs codes d’état de réponse peuvent s’afficher. Le tableau suivant les décrit.
 
-| Code du statut de réponse | Message | Description |
+| Code d’état de la réponse | Message | Description |
 | --- | --- | --- |
 | 200 | OK | Aucune erreur |
 | 401 | Non autorisé | Clé API introuvable, non valide, expirée, etc. |
@@ -172,7 +172,7 @@ Le format JSON est généré à partir du rapport CSV. Le format est donc le mê
 | Cost Center | CostCenters |  CostCenter |
 | Groupe de ressources | ResourceGroup |  ResourceGroup |
 
-#### <a name="price-sheet"></a>Price Sheet
+#### <a name="price-sheet"></a>Price sheet
 
 | Nom de colonne CSV | Nom de colonne JSON | Commentaire |
 | --- | --- | --- |

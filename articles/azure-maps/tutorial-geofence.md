@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916455"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934186"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -56,7 +56,7 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
     
     Dans le chemin d’URL, le paramètre GEOJSON représente le format des données en cours de chargement.
 
-3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé d’abonnement Azure Maps.
+3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé primaire d’abonnement Azure Maps.
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-geofence/postman-key-vals.png)
 

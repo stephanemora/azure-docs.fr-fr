@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918782"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018972"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -58,9 +58,9 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
 
 >[!NOTE]
->Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe. Par défaut, Pare-feu Azure ne prend en charge le tunneling forcé vers un réseau local.
+>Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
 >
->Toutefois, si votre configuration nécessite un tunneling forcé vers un réseau local, Microsoft le prendra en charge au cas par cas. Contactez le support technique afin qu’il puisse étudier votre cas. Si votre dossier est accepté, nous autoriserons votre abonnement afin de garantir le maintien de la connectivité Internet du pare-feu.
+>Pour l’heure, Pare-feu Azure ne prend pas en charge le tunneling forcé. Si votre configuration nécessite un tunneling forcé vers un réseau local et que vous pouvez déterminer les préfixes IP cibles pour vos destinations Internet, vous pouvez configurer ces plages en faisant du réseau local le tronçon suivant via une route définie par l’utilisateur sur le sous-réseau AzureFirewallSubnet. Vous pouvez aussi utiliser le protocole BGP pour définir ces routes.
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
@@ -373,7 +373,7 @@ Créez une machine virtuelle dans le réseau virtuel spoke, exécutant IIS, sans
     - **Nom d’utilisateur** : *azureuser*.
     - **Mot de passe** : *Azure123456!*
 4. Sélectionnez **Suivant : Disques**.
-5. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Réseaux**.
+5. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Mise en réseau**.
 6. Sélectionnez **VNet-Spoke** pour le réseau virtuel et **SN-Workload** pour le sous-réseau.
 7. Pour **Adresse IP publique**, sélectionnez **Aucune**.
 8. Pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**, puis sélectionnez **HTTP (80)** et **RDP (3389)** .

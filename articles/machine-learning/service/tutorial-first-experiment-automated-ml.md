@@ -1,6 +1,6 @@
 ---
 title: Créer votre première expérience de Machine learning automatisé
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et déployer un modèle de classification avec le Machine Learning automatisé dans la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 0dd4447736469644875dff914c6284b087be87d0
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910220"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092008"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Didacticiel : Créer votre premier modèle de classification avec Machine Learning automatisé
 
@@ -26,7 +26,7 @@ Avec le machine learning automatisé, vous pouvez automatiser des tâches fastid
 Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un espace de travail de service Azure Machine Learning.
+> * Créez un espace de travail Machine Learning.
 > * Exécuter une expérience de machine learning automatisé.
 > * Voir les détails de l'expérience.
 > * Déployer le modèle.
@@ -56,7 +56,7 @@ Vous effectuez les étapes de configuration et d’exécution de l’expérience
 
 1. Sélectionnez votre abonnement et l’espace de travail que vous avez créé.
 
-1. Sélectionnez **Get started** (Bien démarrer).
+1. Sélectionnez **Prise en main**.
 
 1.  Sélectionnez **Automated ML** dans la section **Authoring** (Création), dans le volet gauche.
 L’écran **Getting started** (Bien démarrer) s’affiche, car il s’agit de votre première expérience avec le Machine Learning automatisé.
@@ -67,7 +67,7 @@ L’écran **Getting started** (Bien démarrer) s’affiche, car il s’agit de 
 
 1. Entrez **my-1st-automl-experiment** comme nom de l’expérience.
 
-1. Sélectionnez **Create a new compute** (Créer un calcul). 
+1. Sélectionnez **Create a new compute** (Créer un calcul). Un calcul est un environnement de ressources local ou cloud utilisé pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service. Pour cette expérience, nous utilisons un calcul cloud. 
 
     1. Configurez votre contexte de calcul pour cette expérience.
         
@@ -99,7 +99,8 @@ L’écran **Getting started** (Bien démarrer) s’affiche, car il s’agit de 
         Format de fichier| Delimited
         Délimiteur| Comma
         Encodage| UTF-8
-        Column headers| Tous les fichiers ont les mêmes en-têtes            Skip rows | Aucune
+        Column headers| Tous les fichiers ont les mêmes en-têtes
+        Ignorer les lignes | Aucun
 
         >[!NOTE]
         > Si l’un des paramètres de ce formulaire est mis à jour, l’aperçu est mis à jour en conséquence.
@@ -146,9 +147,9 @@ Le processus de préparation de l’expérience prend plusieurs minutes. Une foi
 
 ## <a name="deploy-the-model"></a>Déployer le modèle
 
-En utilisant le Machine Learning automatisé dans la page d’accueil de l’espace de travail, vous pouvez déployer le meilleur modèle en tant que service web pour effectuer des prédictions sur de nouvelles données et identifier les zones d’opportunité. Pour cette expérience, le déploiement signifie que l’établissement financier dispose à présent d’une solution itérative et scalable pour identifier les clients potentiels d’un compte à terme.
+En utilisant le machine learning automatisé dans la page de destination de l’espace de travail, vous pouvez déployer le meilleur modèle en tant que service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. Dans le cadre de cette expérience, le déploiement sur un service web signifie que l’établissement financier dispose désormais d’une solution web itérative et scalable pour identifier les clients potentiels d’un compte à terme. 
 
-Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le meilleur modèle d’après la métrique **AUC_weighted**.  Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ.
+Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le meilleur modèle d’après la métrique **AUC_weighted**.  Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
 
 1. Dans la page **Run Detail** (Détails de l’exécution), sélectionnez le bouton **Deploy Best Model** (Déployer le meilleur modèle) en haut à droite.
 
@@ -161,7 +162,7 @@ Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le me
     Script de scoring| Générer automatiquement
     Script d’environnement| Générer automatiquement
     
-1. Sélectionnez **Déployer**.
+1. Sélectionnez **Déployer**.  
 
     Un message complet de déploiement s’affiche une fois le déploiement terminé.
     

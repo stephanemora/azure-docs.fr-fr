@@ -1,37 +1,39 @@
 ---
-title: Jetons de ressource Azure Cosmos DB avec Gremlin
-description: Découvrir comment créer des jetons de ressource et les utiliser pour accéder à la base de données de graphes
+title: Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
+description: Découvrez comment créer des jetons de ressource et les utiliser pour accéder à la base de données de graphe.
 author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/06/2019
 ms.author: olignat
-ms.openlocfilehash: fcb18fb14cf787713735da07ca2048d0853fa46c
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 6364bd0f762647b5fe9567ed40042a5ad81f97c1
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70807010"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105033"
 ---
-# <a name="azure-cosmos-db-resource-tokens-with-gremlin"></a>Jetons de ressource Azure Cosmos DB avec Gremlin
-Cet article explique comment utiliser des [jetons de ressource Cosmos DB](secure-access-to-data.md) pour accéder à la base de données de graphes par le biais du SDK Gremlin.
+# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
+
+Cet article explique comment utiliser des [jetons de ressource Azure Cosmos DB](secure-access-to-data.md) pour accéder à la base de données de graphe via le SDK Gremlin.
 
 ## <a name="create-a-resource-token"></a>Créer un jeton de ressources
 
-Le SDK TinkerPop Gremlin ne dispose pas d’API pour créer des jetons de ressource. Le jeton de ressource est un concept de Cosmos DB. Pour créer des jetons de ressource, téléchargez le [SDK Azure Cosmos DB](sql-api-sdk-dotnet.md). Si votre application doit créer des jetons de ressource et les utiliser pour accéder à la base de données de graphes, il a besoin de 2 SDK distincts.
+Le SDK Apache TinkerPop Gremlin ne dispose pas d’une API à utiliser pour créer des jetons de ressource. Le terme *jeton de ressource* est un concept d’Azure Cosmos DB. Pour créer des jetons de ressource, téléchargez le [SDK Azure Cosmos DB](sql-api-sdk-dotnet.md). Si votre application doit créer des jetons de ressource et les utiliser pour accéder à la base de données de graphe, elle a besoin de 2 SDK distincts.
 
-Hiérarchie du modèle objet au-dessus des jetons de ressource :
-- **Compte Cosmos DB** : entité de niveau supérieur à laquelle est associé le système DNS ; par exemple, `contoso.gremlin.cosmos.azure.com`
-  - **Base de données Cosmos DB**
+La hiérarchie du modèle d’objets au-dessus des jetons de ressource est illustrée dans le plan suivant :
+
+- **Compte Azure Cosmos DB** : entité de plus haut niveau à laquelle est associé un DNS (par exemple `contoso.gremlin.cosmos.azure.com`).
+  - **Base de données Azure Cosmos DB**
     - **Utilisateur**
       - **Permission**
-        - *Jeton* : propriété de l’objet **Autorisation** qui indique les actions autorisées ou refusées.
+        - **Jeton** : propriété d’un objet d’autorisation qui indique les actions autorisées ou refusées.
 
-Le format du jeton de ressource est `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Cette chaîne est opaque pour les clients et doit être utilisée en l’état sans modification ou d’interprétation.
+Un jeton de ressource utilise le format suivant : `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Cette chaîne est opaque pour les clients et doit être utilisée telle quelle, sans modification ni interprétation.
 
 ```csharp
-// Notice that document client is created against .NET SDK end-point rather than Gremlin.
+// Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
 DocumentClient client = new DocumentClient(
   new Uri("https://contoso.documents.azure.com:443/"), 
   "<master key>", 
@@ -42,10 +44,10 @@ DocumentClient client = new DocumentClient(
   });
 
   // Read specific permission to obtain a token.
-  // Token will not be returned during ReadPermissionReedAsync() call.
-  // This call will succeed only if database id, user id and permission id already exist. 
-  // Note that <database id> is not a database name, it is a base64 string that represents database identifier, for example "KalVAA==".
-  // Similar comment applies to <user id> and <permission id>
+  // The token isn't returned during the ReadPermissionReedAsync() call.
+  // The call succeeds only if database id, user id, and permission id already exist. 
+  // Note that <database id> is not a database name. It is a base64 string that represents the database identifier, for example "KalVAA==".
+  // Similar comment applies to <user id> and <permission id>.
   Permission permission = await client.ReadPermissionAsync(UriFactory.CreatePermissionUri("<database id>", "<user id>", "<permission id>"));
 
   Console.WriteLine("Obtained token {0}", permission.Token);
@@ -53,21 +55,21 @@ DocumentClient client = new DocumentClient(
 ```
 
 ## <a name="use-a-resource-token"></a>Utiliser un jeton de ressources
-Les jetons de ressource peuvent être utilisés directement comme propriété « password » lors de la construction de la classe `GremlinServer`.
+Vous pouvez utiliser des jetons de ressource directement comme propriété « password » quand vous construisez la classe GremlinServer.
 
 ```csharp
-// Gremlin application needs to be given a resource token. It can't discover the token on its own.
-// Token can be obtained for a given permission using Cosmos DB SDK or passed into the application as command line argument or configuration value.
+// The Gremlin application needs to be given a resource token. It can't discover the token on its own.
+// You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
-// Configure gremlin servier to use resource token rather than master key
+// Configure the Gremlin server to use a resource token rather than a master key.
 GremlinServer server = new GremlinServer(
   "contoso.gremlin.cosmosdb.azure.com",
   port: 443,
   enableSsl: true,
   username: "/dbs/<database name>/colls/<collection name>",
 
-  // Format of the token is "type=resource&ver=1&sig=<base64 string>;<base64 string>;"
+  // The format of the token is "type=resource&ver=1&sig=<base64 string>;<base64 string>;".
   password: resourceToken);
 
   using (GremlinClient gremlinClient = new GremlinClient(server, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType))
@@ -85,7 +87,7 @@ AuthProperties authenticationProperties = new AuthProperties();
 authenticationProperties.with(AuthProperties.Property.USERNAME,
     String.format("/dbs/%s/colls/%s", "<database name>", "<collection name>"));
 
-// Format of the token is "type=resource&ver=1&sig=<base64 string>;<base64 string>;"
+// The format of the token is "type=resource&ver=1&sig=<base64 string>;<base64 string>;".
 authenticationProperties.with(AuthProperties.Property.PASSWORD, resourceToken);
 
 builder.authProperties(authenticationProperties);
@@ -93,11 +95,11 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limite
 
-Un compte Gremlin unique peut émettre un nombre illimité de jetons. Cependant, un maximum de **100** jetons peuvent être utilisés simultanément dans un délai d’**1 heure**. Si l’application dépasse la limite de jetons par heure, la demande d’authentification est refusée avec le message d’erreur `"Exceeded allowed resource token limit of 100 that can be used concurrently"`. La fermeture des connexions actives avec des jetons spécifiques pour libérer des emplacements pour de nouveaux jetons n’est pas fructueuse. Le moteur de base de données Gremlin de Cosmos DB effectue le suivi des différents jetons au cours de la dernière heure précédant la demande d’authentification.
+Avec un seul compte Gremlin, vous pouvez émettre un nombre illimité de jetons. Cependant, vous pouvez utiliser seulement jusqu’à 100 jetons simultanément au cours d’une heure. Si une application dépasse la limite de jetons par heure, une demande d’authentification est refusée et vous recevez le message d’erreur suivant : « La limite autorisée de 100 jetons de ressources pouvant être utilisés simultanément a été dépassée. » La fermeture des connexions actives utilisant des jetons spécifiques pour libérer des emplacements pour de nouveaux jetons ne fonctionne pas. Le moteur de base de données Azure Cosmos DB Gremlin effectue le suivi des jetons uniques au cours de l’heure précédant immédiatement la demande d’authentification.
 
 ## <a name="permission"></a>Autorisation
 
-L’erreur courante que rencontrent les applications lors de l’utilisation de jetons de ressource est `"Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header."`. Cette erreur est retournée quand une traversée Gremlin tente d’écrire une arête ou un sommet, mais que le jeton de ressource accorde uniquement des autorisations `Read`. Inspectez votre traversée pour voir si elle contient l’une des étapes suivantes : `.addV()`, `.addE()`, `.drop()` ou `.property()`.
+Une erreur courante que les applications rencontrent quand elles utilisent des jetons de ressource est « Autorisations insuffisantes fournies dans l’en-tête d’autorisation pour la demande correspondante. Réessayez avec un autre en-tête d’autorisation. » Cette erreur est retournée quand une traversée Gremlin tente d’écrire une arête ou un sommet, mais que le jeton de ressource accorde seulement des autorisations *Lecture*. Inspectez votre traversée pour voir si elle contient une des étapes suivantes : *.addV()* , *.addE()* , *.drop()* ou *.property()* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Contrôle d’accès en fonction du rôle (RBAC)](role-based-access-control.md) dans Azure Cosmos DB

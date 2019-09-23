@@ -13,9 +13,9 @@ metadata:
   ms.service: dms
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 03/12/2019
+  ms.date: 09/22/2019
 abstract:
-  description: "Azure\_Database\_Migration\_Service permet des migrations fluides à partir de plusieurs sources de base de données vers des plateformes de données Azure, avec un temps d’arrêt minimal. Le service utilise l’Assistant Migration de données pour générer des rapports d’évaluation qui fournissent des suggestions concernant les modifications requises avant d’effectuer une migration. Quand vous êtes prêt à commencer le processus de migration, Azure Database Migration Service effectue toutes les étapes associées."
+  description: "Azure\_Database\_Migration\_Service permet des migrations fluides à partir de plusieurs sources de base de données vers des plateformes de données Azure, avec un temps d’arrêt minimal. Le service utilise l’Assistant Migration de données pour générer des rapports d’évaluation qui fournissent des suggestions concernant les modifications requises avant d’effectuer une migration. Quand vous êtes prêt à commencer le processus de migration, Azure Database Migration Service effectue toutes les étapes nécessaires."
   aside:
     image:
       alt: null
@@ -40,19 +40,36 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: "Découvrez comment migrer des bases de données avec Database\_Migration\_Service\_:"
+        text: "Découvrez comment migrer des bases de données avec Azure Database Migration Service\_:"
       - type: list
-        style: ordered
+        style: unordered
         items:
-          - html: "<a href=\"/azure/dms/tutorial-sql-server-to-azure-sql\">Migrer SQL\_Server vers Azure\_SQL\_Database hors connexion à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-sql-server-azure-sql-online\">Migrer SQL\_Server vers Azure\_SQL\_Database en ligne à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-sql-server-to-managed-instance\">Migrer SQL\_Server vers Azure\_SQL\_Database\_Managed\_Instance hors connexion à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-sql-server-managed-instance-online\">Migrer SQL\_Server vers Azure\_SQL\_Database\_Managed\_Instance en ligne à l’aide de DMS</a>"
-          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrer RDS SQL Server vers Azure SQL Database ou Azure SQL Database Managed Instance en ligne à l’aide de DMS</a>
-          - html: "<a href=\"/azure/dms/tutorial-mysql-azure-mysql-online\">Migrer MySQL vers Azure\_Database pour MySQL en ligne à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-postgresql-azure-postgresql-online\">Migrer PostgreSQL vers Azure\_Database pour PostgreSQL en ligne à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-mongodb-cosmos-db\">Migrer MongoDB vers l’API Mongo Azure Cosmos\_DB hors connexion à l’aide de DMS</a>"
-          - html: "<a href=\"/azure/dms/tutorial-mongodb-cosmos-db-online\">Migrer MongoDB vers l’API Mongo Azure Cosmos\_DB en ligne à l’aide de DMS</a>"
+          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrer SQL Server vers Azure SQL Database hors connexion</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrer SQL Server vers Azure SQL Database en ligne</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrer SQL Server vers Azure SQL Database Managed Instance hors connexion</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrer SQL Server vers Azure SQL Database Managed Instance en ligne</a>
+          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrer les services Bureau à distance SQL Server vers Azure SQL Database ou Azure SQL Database Managed Instance en ligne</a>
+          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrer MySQL vers Azure Database pour MySQL en ligne</a>
+          - html: <a href="/azure/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online">Migrer les services Bureau à distance MySQL vers Azure Database pour MySQL en ligne</a>
+          - html: "<a href=\"/azure/dms/tutorial-postgresql-azure-postgresql-online\">Migrer PostgreSQL vers Azure\_Database pour PostgreSQL en ligne</a>"
+          - html: "<a href=\"/azure/dms/tutorial-rds-postgresql-server-azure-db-for-postgresql-online\">Migrer les services Bureau à distance PostgreSQL vers Azure\_Database pour PostgreSQL en ligne</a>"
+          - html: "<a href=\"/azure/dms/tutorial-mongodb-cosmos-db\">Migrer MongoDB vers l’API Mongo Azure Cosmos\_DB hors connexion</a>"
+          - html: "<a href=\"/azure/dms/tutorial-mongodb-cosmos-db-online\">Migrer MongoDB vers l’API Mongo Azure Cosmos\_DB en ligne</a>"
+          - html: <a href="/azure/dms/tutorial-oracle-azure-postgresql-online">Migrer Oracle vers Azure Database pour PostgreSQL en ligne</a>
+  - title: Videos
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/">Utiliser le guide de migration des bases données</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/">Processus de migration et outils/services recommandés</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/">Répondre aux prérequis et créer une instance DMS</a>'
+          - html: "<a href=\"https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/\">Migrer SQL Server\_2008 vers Azure SQL Database Managed Instance</a>"
+          - html: "<a href=\"https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/\">Migrer PostgreSQL vers Azure\_Database pour PostgreSQL</a>"
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/">Superviser une migration en ligne et effectuer le basculement</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/">Migrer Oracle vers Azure SQL Database</a>'
+          - html: "<a href=\"https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/\">Migrer MongoDB vers Azure Cosmos\_DB</a>"
   - title: Exemples
     items:
       - type: list

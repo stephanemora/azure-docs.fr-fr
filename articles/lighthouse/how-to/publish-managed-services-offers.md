@@ -4,15 +4,15 @@ description: Découvrez comment publier une offre de service managé qui intègr
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165266"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105262"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -71,7 +71,7 @@ Enfin, complétez la section **Détails du manifeste**. Cela a pour effet de cr�
   - **ID d’objet Azure AD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme indiqué dans la définition de rôle) sur les ressources de votre client.
   - **Nom d’affichage d’objet Azure AD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
   - **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour plus d’informations sur ces rôles, voir [Rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Rôles attribuables** : si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation, vous pouvez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
+  - **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
 
 > [!TIP]
 > Dans la plupart des cas, vous affectez des autorisations à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent.

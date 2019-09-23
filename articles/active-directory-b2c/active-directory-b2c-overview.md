@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227164"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065710"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
-Azure Active Directory (Azure AD) B2C est un service de gestion d’identités entreprise-client. Ce service vous permet de personnaliser et de contrôler la façon dont les utilisateurs interagissent de façon sécurisée avec vos applications web, de bureau, mobiles ou monopages. Avec Azure AD B2C, les utilisateurs peuvent s’inscrire, se connecter, réinitialiser les mots de passe et modifier des profils. Azure AD B2C implémente une forme des protocoles OpenID Connect et OAuth 2.0. Les jetons de sécurité et leurs revendications sont ce qu’il y a de plus important dans l’implémentation de ces protocoles : ils vous permettent de fournir un accès sécurisé aux ressources.
+Azure Active Directory B2C (Azure AD B2C) est un service de gestion des identités entreprise-client. Ce service vous permet de personnaliser et de contrôler la façon dont les utilisateurs interagissent de façon sécurisée avec vos applications web, de bureau, mobiles ou monopages. Avec Azure AD B2C, les utilisateurs peuvent s’inscrire, se connecter, réinitialiser les mots de passe et modifier des profils. Azure AD B2C implémente une forme des protocoles OpenID Connect et OAuth 2.0. Les jetons de sécurité et leurs revendications sont ce qu’il y a de plus important dans l’implémentation de ces protocoles : ils vous permettent de fournir un accès sécurisé aux ressources.
 
 Un *parcours utilisateur* est une demande qui spécifie une stratégie, qui contrôle le comportement de l’interaction entre l’utilisateur et votre application avec Azure AD B2C. Vous pouvez définir les parcours utilisateur dans Azure AD B2C de deux façons.
 

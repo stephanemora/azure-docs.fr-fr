@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200053"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102625"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Didacticiel : Ajouter ou supprimer automatiquement des membres dans un groupe
 
@@ -50,13 +50,25 @@ Vous allez commencer par créer un groupe de vos utilisateurs invités qui provi
 3. Dans le panneau **Groupe** :
   
    * Sélectionnez le type de groupe **Sécurité**.
-   * Entrez `Guest users Contoso` en guise de nom et de description pour le groupe.
+   * Entrez `Guest users Contoso` en guise de nom et de description du groupe.
    * Redéfinissez **Type d’appartenance** sur **Utilisateur dynamique**.
-   * Sélectionnez **Ajouter une requête dynamique**.
-  
-4. Sélectionnez **Règle avancée** puis, dans la zone **Règle avancée**, entrez : `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
-5. Sélectionnez **Ajouter une requête** pour fermer le panneau.
-6. Dans le panneau **Groupe**, sélectionnez **Créer** pour créer le groupe.
+   
+4. Sélectionnez **Propriétaires** puis, dans le panneau **Ajouter des propriétaires**, recherchez les propriétaires souhaités. Cliquez sur les propriétaires que vous voulez ajouter à la sélection.
+5. Cliquez sur **Sélectionner** pour fermer le panneau **Ajouter des propriétaires**.  
+6. Sélectionnez **Modifier la requête dynamique** dans la zone **Membres utilisateurs dynamiques**.
+7. Dans le panneau **Règles d’appartenance dynamique** :
+
+   * Dans le champ **Propriété**, cliquez sur la valeur existante et sélectionnez **userType**. 
+   * Dans le champ **Opérateur**, vérifiez que **Est égal à** est sélectionné.  
+   * Sélectionnez le champ **Valeur** et entrez **Invité**. 
+   * Cliquez sur le lien hypertexte **Ajouter une expression** pour ajouter une autre ligne.
+   * Dans le champ **Et/Ou**, sélectionnez **Et**.
+   * Dans le champ **Propriété**, sélectionnez **companyName**.
+   * Dans le champ **Opérateur**, vérifiez que **Est égal à** est sélectionné.
+   * Dans le champ **Valeur**, entrez **Contoso**.
+   * Cliquez sur **Enregistrer** pour fermer le panneau **Règles d’appartenance dynamique**.
+   
+8. Dans le panneau **Groupe**, sélectionnez **Créer** pour créer le groupe.
 
 ## <a name="assign-licenses"></a>Attribuer des licences
 

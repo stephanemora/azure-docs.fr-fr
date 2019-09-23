@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275921"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995335"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -98,7 +98,7 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 
 ![Attribution de rôle pour contrôler les accès](./media/overview/rbac-overview.png)
 
-Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à 2000 attributions de rôles dans chaque abonnement. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
+Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à **2 000** attributions de rôle dans chaque abonnement et **500** attributions de rôle dans chaque groupe d’administration. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
