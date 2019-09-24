@@ -79,8 +79,8 @@ Le JSON suivant montre le schéma de l’extension de l’agent Azure VM Depende
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| Type | DependencyAgentWindows |
-| typeHandlerVersion | 9,5 |
+| type | DependencyAgentWindows |
+| typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
