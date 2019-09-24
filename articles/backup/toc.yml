@@ -50,6 +50,16 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice de prise en charge de l’agent MARS
           href: backup-support-matrix-mars-agent.md
+    - name: Sécurité
+      items:
+        - name: Contrôle d’accès en fonction du rôle
+          href: backup-rbac-rs-vault.md
+        - name: Sécurité pour les charges de travail cloud
+          href: backup-azure-security-feature-cloud.md
+        - name: Sécurité pour les sauvegardes hybrides
+          href: backup-azure-security-feature.md
+        - name: Contrôles de sécurité intégrés
+          href: backup-security-controls.md
     - name: Forum Aux Questions (FAQ)
       items:
         - name: FAQ sur les coffres Recovery Services
@@ -68,20 +78,12 @@
           href: backup-azure-monitor-alert-faq.md
     - name: Architecture de sauvegarde
       href: backup-architecture.md
-    - name: Contrôle d’accès en fonction du rôle
-      href: backup-rbac-rs-vault.md
-    - name: Sécurité pour les charges de travail cloud
-      href: backup-azure-security-feature-cloud.md
-    - name: Sécurité pour les sauvegardes hybrides
-      href: backup-azure-security-feature.md
     - name: Configurer la sauvegarde hors connexion
       href: backup-azure-backup-import-export.md
     - name: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
       href: backup-azure-backup-server-import-export-.md
     - name: Remplacer votre bibliothèque de bandes
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Contrôles de sécurité intégrés
-      href: backup-security-controls.md
 - name: Procédures
   items:
     - name: Azure Backup Server

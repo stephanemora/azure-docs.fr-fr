@@ -1,6 +1,6 @@
 - name: Documentation Azure Open Datasets
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Présentation d'Azure Open Datasets
@@ -17,7 +17,7 @@
   items:
     - name: Kit de développement logiciel (SDK) Python
       displayName: api open datasets reference sdk
-      href: 'https://aka.ms/open-datasets-api'
+      href: /python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py
     - name: Notebooks Jupyter
       displayName: python notebooks
       href: 'https://github.com/Azure/OpenDatasetsNotebooks'

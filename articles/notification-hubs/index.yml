@@ -5,14 +5,14 @@ metadata:
   title: "Documentation Azure Notification Hubs\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
   description: 'Découvrez comment envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile avec Notification Hubs. Didacticiels, références d’API et autres documents.'
   services: notification-hubs
-  author: spelluru
-  manager: null
+  author: sethmanheim
+  manager: femila
   ms.service: notification-hubs
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/01/2017
-  ms.author: spelluru
+  ms.author: sethm
 abstract:
   description: 'Apprenez à utiliser Notification Hubs, un moteur de notifications Push multiplateforme évolutif pour envoyer rapidement des millions de messages à des applications s’exécutant sur différents types d’appareils (Android, iOS, Windows, Windows Phone). <p>Des didacticiels, références d’API et autres documents vous montrent comment configurer et envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile.</p>'
   aside:
