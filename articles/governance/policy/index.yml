@@ -1,72 +1,117 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation du service Azure Policy
+### YamlMime:Landing
+title: Documentation Azure Policy
+summary: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources.
 metadata:
-  title: 'Documentation sur Azure Policy - Tutoriels, informations de référence sur l’API'
-  description: 'Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service.'
-  author: DCtheGeek
-  manager: carmonm
+  title: Documentation Azure Policy
+  description: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 03/16/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: 'Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Portail Azure
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portail Azure
-            href: ./assign-policy-portal
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              alt: Azure CLI
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-          - image:
-              alt: Modèle Resource Manager
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Modèle Resource Manager
-            href: ./assign-policy-template
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Créer et gérer Azure Policy</a>
-          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Créer une définition de stratégie personnalisée</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: Consultez les exemples disponibles pour vous aider à créer des définitions de stratégies dans Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Index d’exemples</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: '<p><a href="/cli/azure/policy">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Guest Configuration)</a></p>'
-          - title: Modèles Resource Manager
-            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Affectations</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Définitions de stratégies</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Définitions d’initiatives</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/policy-insights/policyevents">Événements</a></p><p><a href="/rest/api/policy-insights/policystates">États</a></p><p><a href="/rest/api/resources/policyassignments">Affectations</a></p><p><a href="/rest/api/resources/policydefinitions">Définitions de stratégies</a></p><p><a href="/rest/api/resources/policysetdefinitions">Définitions d’initiatives</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Ressources suivies par les stratégies</a></p><p><a href="/rest/api/policy-insights/remediations">Corrections</a></p><p><a href="/rest/api/guestconfiguration/">Guest Configuration</a></p>
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 43deed57090cd2f64bc9ee96f6f0c6f5286b0dca
+  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/23/2019
+  ms.locfileid: "71203978"
+landingContent:
+- title: À propos d’Azure Policy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Azure Policy
+      url: ./overview.md
+    - text: Effets des stratégies
+      url: ./concepts/effects.md
+    - text: Structure de définition
+      url: ./concepts/definition-structure.md
+    - text: Structure d’attribution
+      url: ./concepts/assignment-structure.md
+  - linkListType: video
+    links:
+    - text: Azure Policy dans la build 2018
+      url: https://channel9.msdn.com/events/Build/2018/THR2030
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Attribuer une stratégie (portail)
+      url: ./assign-policy-portal.md
+    - text: Attribuer une stratégie (PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Attribuer une stratégie (Azure CLI)
+      url: ./assign-policy-azurecli.md
+    - text: Attribuer une stratégie (modèle)
+      url: ./assign-policy-template.md
+  - linkListType: tutorial
+    links:
+    - text: Créer et gérer les stratégies
+      url: ./tutorials/create-and-manage.md
+  - linkListType: deploy
+    links:
+    - text: Index des exemples de stratégie
+      url: ./samples/index.md
+- title: Créer des stratégies
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer une stratégie personnalisée
+      url: ./tutorials/create-custom-policy-definition.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une stratégie avec le SDK
+      url: ./how-to/programmatically-create.md
+    - text: Créer des stratégies pour les groupes
+      url: ./how-to/author-policies-for-arrays.md
+  - linkListType: concept
+    links:
+    - text: Stratégie pour AKS
+      url: ./concepts/rego-for-aks.md
+    - text: Stratégie pour les machines virtuelles
+      url: ./concepts/guest-configuration.md
+- title: Vérifier et corriger les ressources
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Obtenir des données de conformité
+      url: ./how-to/get-compliance-data.md
+    - text: Déterminer les causes de non-conformité
+      url: ./how-to/determine-non-compliance.md
+    - text: Remédier aux ressources non conformes
+      url: ./how-to/remediate-resources.md
+- title: Être impliqué
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Chaîne YouTube - Gouvernance Azure
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Demander des fonctionnalités pour le produit
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Communauté technique pour Gouvernance Azure
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/policy
+    - text: Azure PowerShell (Policy)
+      url: /powershell/module/az.resources/#policies
+    - text: Azure PowerShell (Policy Insights)
+      url: /powershell/module/az.policyinsights#policy_insights
+    - text: Kit SDK Azure pour .NET (attributions)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - text: Kit SDK Azure pour .NET (définitions de stratégies)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - text: REST (Policy Insights)
+      url: /rest/api/policy-insights/
+    - text: REST (Attributions)
+      url: /rest/api/resources/policyassignments
+    - text: REST (Définitions)
+      url: /rest/api/resources/policydefinitions
+    - text: REST (Initiatives)
+      url: /rest/api/resources/policysetdefinitions
+    - text: Modèles Resource Manager
+      url: /azure/templates/microsoft.authorization

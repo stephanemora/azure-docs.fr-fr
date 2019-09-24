@@ -257,6 +257,12 @@
     - name: Comprendre les effets de Policy
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Structure d’attribution Azure Policy
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: Évaluer l’impact d’une nouvelle stratégie
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
     - name: Azure Policy pour Kubernetes
       displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
       href: ./concepts/rego-for-aks.md
@@ -288,7 +294,7 @@
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
@@ -300,7 +306,7 @@
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Kit SDK Azure pour .NET
       items:
-        - name: Affectations
+        - name: Attributions
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Définitions de stratégies
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
@@ -310,7 +316,7 @@
           href: /rest/api/policy-insights/policyevents
         - name: États
           href: /rest/api/policy-insights/policystates
-        - name: Affectations
+        - name: Attributions
           href: /rest/api/resources/policyassignments
         - name: Définitions de stratégies
           href: /rest/api/resources/policydefinitions
@@ -324,7 +330,7 @@
           href: /rest/api/guestconfiguration/
     - name: Modèles Resource Manager
       items:
-        - name: Affectations
+        - name: Attributions
           href: /azure/templates/microsoft.authorization/policyassignments
         - name: Définitions de stratégies
           href: /azure/templates/microsoft.authorization/policydefinitions

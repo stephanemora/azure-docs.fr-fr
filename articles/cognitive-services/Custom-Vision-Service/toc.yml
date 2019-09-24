@@ -44,6 +44,8 @@
           href: go-tutorial-object-detection.md
 - name: Tutoriels
   items:
+    - name: Application Alertes visuelles IoT
+      href: iot-visual-alerts-tutorial.md
     - name: Détecteur de logos pour mobile
       href: logo-detector-mobile.md
 - name: Guides pratiques
