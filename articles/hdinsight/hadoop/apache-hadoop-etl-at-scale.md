@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810765"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066935"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
-L’extraction, la transformation et le chargement (ETL) sont le processus par lequel les données sont acquises à partir de diverses sources, collectées dans un emplacement standard, nettoyées et traitées et finalement chargées dans une banque de données à partir de laquelle elles peuvent être interrogées. Les processus ETL hérités importent des données, les nettoient sur place, puis les stockent dans un moteur de données relationnelles. Avec HDInsight, une grande variété de composants d’écosystème Apache Hadoop prend en charge l’exécution du processus ETL à grande échelle. 
+L’extraction, la transformation et le chargement (ETL) sont le processus par lequel les données sont acquises à partir de diverses sources, collectées dans un emplacement standard, nettoyées et traitées et finalement chargées dans une banque de données à partir de laquelle elles peuvent être interrogées. Les processus ETL hérités importent des données, les nettoient sur place, puis les stockent dans un moteur de données relationnelles. Avec HDInsight, une grande variété de composants d’écosystème Apache Hadoop prend en charge l’exécution du processus ETL à grande échelle.
 
 L’utilisation de HDInsight dans le processus ETL peut être résumée par ce pipeline :
 
-![Vue d’ensemble du processus ETL HDInsight](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![Vue d’ensemble du processus ETL HDInsight à grande échelle](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 Les sections qui suivent décrivent chacune des phases ETL et les composants associés.
 
@@ -35,11 +35,11 @@ L’orchestration est nécessaire pour exécuter le travail approprié au moment
 
 Apache Oozie est un système de coordination de flux de travail qui gère les tâches Hadoop. Oozie s’exécute dans un cluster HDInsight et est intégré à la pile Hadoop. Oozie prend en charge les tâches Hadoop pour Apache Hadoop MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Oozie peut également être utilisé pour planifier des tâches propres à un système comme des programmes Java ou des scripts shell.
 
-Pour plus d’informations, consultez la section [Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur HDInsight](../hdinsight-use-oozie-linux-mac.md). Pour savoir en détail comment utiliser Oozie pour piloter un pipeline de bout en bout, consultez la page [Opérationnaliser le pipeline de données](../hdinsight-operationalize-data-pipeline.md). 
+Pour plus d’informations, consultez la section [Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur HDInsight](../hdinsight-use-oozie-linux-mac.md). Pour savoir en détail comment utiliser Oozie pour piloter un pipeline de bout en bout, consultez la page [Opérationnaliser le pipeline de données](../hdinsight-operationalize-data-pipeline.md).
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory fournit des capacités d’orchestration sous la forme d’une plateforme en tant que service. Il s’agit d’un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. 
+Azure Data Factory fournit des capacités d’orchestration sous la forme d’une plateforme en tant que service. Il s’agit d’un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données.
 
 À l’aide d’Azure Data Factory, vous pouvez :
 
