@@ -1,7 +1,7 @@
 ---
 title: Configuration d’un environnement de développement Python
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment configurer un environnement de développement quand vous travaillez avec Azure Machine Learning service. Dans cet article, vous allez découvrir comment utiliser des environnements Conda, créer des fichiers de configuration et configurer votre propre serveur de notebooks basé sur le cloud, Jupyter Notebooks, Azure Databricks, des IDE, des éditeurs de code et une Data Science Virtual Machine.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment configurer un environnement de développement quand vous travaillez avec Azure Machine Learning. Dans cet article, vous allez découvrir comment utiliser des environnements Conda, créer des fichiers de configuration et configurer votre propre serveur de notebooks basé sur le cloud, Jupyter Notebooks, Azure Databricks, des IDE, des éditeurs de code et une Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,16 +11,16 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860578"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034870"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
-Dans cet article, vous allez découvrir comment configurer un environnement de développement pour qu’il fonctionne avec Azure Machine Learning service. Le service Azure Machine Learning est indépendant de toute plateforme. La seule exigence matérielle pour votre environnement de développement est Python 3. Un environnement isolé comme Anaconda ou Virtualenv est également recommandé.
+Dans cet article, vous allez découvrir comment configurer un environnement de développement pour qu’il fonctionne avec Azure Machine Learning. Azure Machine Learning est indépendant de toute plateforme. La seule exigence matérielle pour votre environnement de développement est Python 3. Un environnement isolé comme Anaconda ou Virtualenv est également recommandé.
 
 Le tableau suivant présente chaque environnement de développement évoqué dans cet article, ainsi que ses avantages et inconvénients.
 
@@ -40,7 +40,7 @@ Cet article fournit également des conseils d’utilisation supplémentaires pou
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md). Un espace de travail est tout ce dont vous avez besoin pour commencer à utiliser votre propre [serveur de notebooks basé sur le cloud](#notebookvm), une [DSVM](#dsvm) ou [Azure Databricks](#aml-databricks).
+Un espace de travail Azure Machine Learning. Pour créer l’espace de travail, voir [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md). Un espace de travail est tout ce dont vous avez besoin pour commencer à utiliser votre propre [serveur de notebooks basé sur le cloud](#notebookvm), une [DSVM](#dsvm) ou [Azure Databricks](#aml-databricks).
 
 Pour installer l’environnement du Kit de développement logiciel (SDK) pour votre [ordinateur local](#local), [serveur Jupyter Notebook](#jupyter) ou [Visual Studio Code](#vscode) vous avez également besoin des éléments suivants :
 
@@ -70,7 +70,7 @@ La machine virtuelle de notebooks est :
   + une sélection d’infrastructures de Deep Learning.
 
 
-  Si vous êtes dans le code, la machine virtuelle inclut des didacticiels et exemples pour vous aider à découvrir et apprendre à utiliser Azure Machine Learning service. Les exemples de notebooks sont stockés dans le compte Stockage Blob Azure de votre espace de travail, afin de pouvoir les partager entre les machines virtuelles. Quand ils sont exécutés, ils ont également accès aux magasins de données et ressources de calcul de votre espace de travail.
+  Si vous êtes dans le code, la machine virtuelle inclut des didacticiels et exemples pour vous aider à découvrir et apprendre à utiliser Azure Machine Learning. Les exemples de notebooks sont stockés dans le compte Stockage Blob Azure de votre espace de travail, afin de pouvoir les partager entre les machines virtuelles. Quand ils sont exécutés, ils ont également accès aux magasins de données et ressources de calcul de votre espace de travail.
 
 + **Simple à configurer** : créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
@@ -145,7 +145,7 @@ Pour utiliser une DSVM en tant qu’environnement de développement, procédez c
     print(azureml.core.VERSION)
     ```
 
-1. Pour configurer la DSVM pour utiliser votre espace de travail Azure Machine Learning service, veuillez consulter la section [Créer un fichier de configuration d’espace de travail](#workspace).
+1. Pour configurer la DSVM pour utiliser votre espace de travail Azure Machine Learning, voir la section [Créer un fichier de configuration d’espace de travail](#workspace).
 
 Pour plus d’informations, consultez la page [Machines virtuelles Science des données](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
@@ -255,7 +255,7 @@ La procédure décrite dans la section [Ordinateur Local](#local) installe les c
     sys.path
     ```
     
-1. Pour configurer le Jupyter Notebook pour utiliser votre espace de travail Azure Machine Learning service, veuillez consulter la section [Créer un fichier de configuration d’espace de travail](#workspace).
+1. Pour configurer le Jupyter Notebook pour utiliser votre espace de travail Azure Machine Learning, voir la section [Créer un fichier de configuration d’espace de travail](#workspace).
 
 
 ### <a id="vscode"></a>Visual Studio Code
@@ -287,7 +287,7 @@ Pour utiliser Visual Studio Code pour le développement, procédez comme suit :
 ## <a name="azure-databricks"></a>Azure Databricks
 Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il fournit un environnement basé sur Notebook collaboratif avec un cluster de calcul basé sur l'UC ou le GPU.
 
-Comment Azure Databricks fonctionne avec Azure Machine Learning service :
+Comment Azure Databricks fonctionne avec Azure Machine Learning :
 + Vous pouvez effectuer l’apprentissage d’un modèle à l’aide de Spark MLlib et déployer le modèle sur ACI/AKS à partir d’Azure Databricks.
 + Vous pouvez également utiliser les fonctionnalités [d’apprentissage automatique automatisées](concept-automated-ml.md) dans un Kit de développement logiciel (SDK) Azure ML spécial avec Azure Databricks.
 + Vous pouvez utiliser Azure Databricks comme cible de calcul à partir d’un [pipeline Azure Machine Learning](concept-ml-pipelines.md).
@@ -355,7 +355,7 @@ Lancez-vous :
 
 ## <a id="workspace"></a>Créer un fichier de configuration d’espace de travail
 
-Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning service. Le fichier est nommé *config.json*, et il a le format suivant :
+Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning. Le fichier est nommé *config.json*, et il a le format suivant :
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812833"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033647"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -36,7 +36,7 @@ La section suivante présente les éléments clés de la planification qui vous 
 
 ### <a name="prerequisites"></a>Prérequis
 
-Avant de commencer votre implémentation, vous devez respecter les prérequis suivants. Pour plus d’informations sur la configuration de votre environnement, y compris sur ces prérequis, consultez [ce tutoriel](application-proxy-add-on-premises-application.md).
+Avant de commencer votre implémentation, vous devez respecter les prérequis suivants. Pour plus d’informations sur la configuration de votre environnement, y compris sur ces prérequis, consultez [ce didacticiel](application-proxy-add-on-premises-application.md).
 
 * **Connecteurs** : les connecteurs sont des agents légers que vous pouvez déployer sur :
    * Du matériel physique local
@@ -170,7 +170,7 @@ L’implémentation de votre pilote directement dans un locataire de production 
 
 ### <a name="deploy-application-proxy"></a>Déployer le proxy d’application
 
-Les étapes nécessaires au déploiement de votre proxy d’application sont fournies dans ce [tutoriel sur l’ajout d’une application locale pour l’accès à distance](application-proxy-add-on-premises-application.md). Si l’installation a échoué, sélectionnez **Dépanner le proxy d’application** dans le portail ou utilisez le guide de dépannage [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md).
+Les étapes nécessaires au déploiement de votre proxy d’application sont fournies dans ce [didacticiel sur l’ajout d’une application locale pour l’accès à distance](application-proxy-add-on-premises-application.md). Si l’installation a échoué, sélectionnez **Dépanner le proxy d’application** dans le portail ou utilisez le guide de dépannage [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publier des applications via le proxy d’application
 
@@ -239,7 +239,7 @@ Vérifiez que votre application est accessible via le proxy d’application en y
 
 3. Dans le champ **Pré-authentification**, cliquez sur la liste déroulante pour sélectionner **Azure Active Directory**, puis sélectionnez **Enregistrer**.
 
-Lorsque la pré-authentification est activée, Azure AD demande d’abord aux utilisateurs de s’authentifier. Si l’authentification unique est configurée, l’application back-end vérifie également l’utilisateur avant de lui accorder l’accès à l’application. Le fait de passer du mode de pré-authentification Relais au mode Azure AD configure également l’URL externe avec le protocole HTTPS. Ainsi, toutes les applications initialement configurées pour le protocole HTTP sont maintenant sécurisées avec le protocole HTTPS.
+Lorsque la pré-authentification est activée, Azure AD demande d’abord aux utilisateurs de s’authentifier. Si l’authentification unique est configurée, l’application principale vérifie également l’utilisateur avant de lui accorder l’accès à l’application. Le fait de passer du mode de pré-authentification Relais au mode Azure AD configure également l’URL externe avec le protocole HTTPS. Ainsi, toutes les applications initialement configurées pour le protocole HTTP sont maintenant sécurisées avec le protocole HTTPS.
 
 ### <a name="enable-single-sign-on"></a>activation de l'authentification unique
 
@@ -292,11 +292,11 @@ Toutefois, les utilisateurs doivent toujours effectuer des opérations nécessit
 
 ### <a name="reporting-and-monitoring"></a>Création de rapports et surveillance
 
-Azure AD fournit des insights supplémentaires sur l’utilisation des applications et l’intégrité opérationnelle de votre organisation par le biais de [journaux d’audit et de rapports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Le proxy d’application facilite également la supervision des connecteurs à partir du portail Azure AD et des journaux des événements Windows.
+Azure AD fournit des insights supplémentaires sur l’utilisation des applications et l’intégrité opérationnelle de votre organisation par le biais de [journaux d’audit et de rapports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Le proxy d’application facilite également la supervision des connecteurs à partir du portail Azure AD et des journaux des événements Windows.
 
 #### <a name="application-audit-logs"></a>Journaux d’audit des applications
 
-Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les [journaux d’audit](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) sont accessibles via le portail Azure et l’[API Audit](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) desquels ils peuvent être exportés. Des [rapports d’utilisation et d’insights](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) sont également disponibles pour votre application.
+Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les [journaux d’audit](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont accessibles via le portail Azure et l’[API Audit](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) desquels ils peuvent être exportés. Des [rapports d’utilisation et d’insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont également disponibles pour votre application.
 
 #### <a name="application-proxy-connector-monitoring"></a>Supervision du connecteur Proxy d’application
 
@@ -306,7 +306,7 @@ Les connecteurs et le service se chargent de toutes les tâches de haut niveau d
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Journaux des événements Windows et compteurs de performances
 
-Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Suivez ce [tutoriel pour configurer les sources de données de journaux des événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Suivez ce [didacticiel pour configurer les sources de données de journaux des événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guide de résolution des problèmes
 

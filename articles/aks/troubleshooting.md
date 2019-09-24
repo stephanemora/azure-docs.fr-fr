@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844264"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932658"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -141,3 +141,9 @@ Essayez les solutions de contournement suivantes :
 1. Utilisez un principal de service existant qui a déjà été propagé dans les régions et qui puisse être passé dans AKS au moment de la création du cluster.
 2. Si vous utilisez des scripts d’automatisation, augmentez les délais entre la création du principal de service et la création du cluster AKS.
 3. Si vous utilisez le portail Azure, revenez aux paramètres du cluster au moment de la création, puis recommencez la page de validation après quelques minutes.
+
+## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Je reçois des erreurs après avoir restreint mon trafic sortant
+
+Lors de la restriction du trafic sortant d’un cluster AKS, il existe des règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application [obligatoires et facultatives recommandées](limit-egress-traffic.md) pour AKS. Si vos paramètres sont en conflit avec l’une de ces règles, vous risquez de ne pas pouvoir exécuter certaines commandes `kubectl`. Vous pouvez également voir des erreurs lors de la création d’un cluster AKS.
+
+Vérifiez que vos paramètres ne sont pas en conflit avec l’une règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application obligatoires ou facultatives recommandées.

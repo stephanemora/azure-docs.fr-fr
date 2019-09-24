@@ -1,7 +1,7 @@
 ---
 title: 'Cibles de calcul : emplacement où entraîner et déployer des modèles'
-titleSuffix: Azure Machine Learning service
-description: Définissez l’emplacement où vous souhaitez entraîner ou déployer votre modèle avec Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Définissez l’emplacement où vous souhaitez déployer votre modèle et en faire l’apprentissage avec Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860589"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035531"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning service ? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
 Une **cible de calcul** est un environnement/une ressource de calcul où vous exécutez votre script d’entraînement ou hébergez votre déploiement de service. Cet emplacement peut être votre machine locale ou une ressource de calcul basée sur le cloud. Les cibles de calcul facilitent la modification de votre environnement de calcul sans modifier votre code.  
 
@@ -29,7 +29,7 @@ Les ressources de calcul utilisées pour vos cibles de calcul sont associées à
 
 ## <a name="train"></a> Cibles de calcul d’entraînement
 
-La prise en charge par Azure Machine Learning service varie selon les ressources de calcul.  Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier.
+La prise en charge d’Azure Machine Learning varie selon les ressources de calcul.  Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcul Azure Machine Learning (managé)
 
-Une ressource de calcul managée est créée et managée par Azure Machine Learning service. Ce calcul est optimisé pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule ressource de calcul managée à partir du 30 mai 2019. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
+Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule ressource de calcul managée à partir du 30 mai 2019. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
 
 Vous pouvez utiliser la capacité de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (préversion).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
 
@@ -59,7 +59,7 @@ Vous pouvez créer des instances de capacité de calcul Azure Machine Learning d
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 
-Une cible de calcul non managée n’est *pas* managée par Azure Machine Learning service. Vous créez ce type de cible de calcul en dehors d’Azure Machine Learning, puis l’attachez à votre espace de travail. Il se peut que des étapes supplémentaires soient requises pour ces ressources de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
+Une cible de calcul non managée n’est *pas* managée par Azure Machine Learning. Vous créez ce type de cible de calcul en dehors d’Azure Machine Learning, puis l’attachez à votre espace de travail. Il se peut que des étapes supplémentaires soient requises pour ces ressources de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

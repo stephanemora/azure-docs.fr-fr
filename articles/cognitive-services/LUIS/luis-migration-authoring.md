@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844773"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932827"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Effectuer une migration vers une clé de ressource de création Azure
 
@@ -35,7 +35,8 @@ Par exemple, si vous créez deux types d’applications LUIS avec différents 
 
 La migration comprend les éléments suivants :
 
-* **Toutes** les applications du propriétaire.
+* Tous les utilisateurs de LUIS, propriétaires et contributeurs.
+* **Toutes** les applications.
 * Une **migration unidirectionnelle**.
 
 Le propriétaire ne peut pas effectuer la migration d’un sous-ensemble d’applications et ce processus n’est pas réversible. 
@@ -87,13 +88,17 @@ Vous pouvez ajouter des contributeurs à la ressource de création à partir du 
 
 ## <a name="migration-for-the-app-contributor"></a>Migration côté contributeur de l’application
 
+Chaque utilisateur de LUIS doit migrer, y compris les collaborateurs/contributeurs. 
+
 ### <a name="before-the-app-is-migrated"></a>Avant la migration de l’application
 
 Vous pouvez choisir d’exporter une application à laquelle vous contribuez, puis de réimporter l’application dans LUIS. Le processus d’importation crée une application (avec un nouvel ID d’application) dont vous êtes le propriétaire.
 
 ### <a name="after-the-app-is-migrated"></a>Après la migration de l’application
 
-Après le processus de migration, si vous avez besoin d’accéder à l’application d’origine, vous devez être ajouté à la ressource de création Azure en tant que collaborateur par le propriétaire de l’application.  
+Le propriétaire de l’application doit [ajouter votre e-mail à la ressource de création Azure en tant que collaborateur](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
+
+Après le processus de migration, toutes les applications que vous possédez sont disponibles sur la page **Mes applications** du portail LUIS.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

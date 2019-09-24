@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899493"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097839"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
-Lorsque vous exécutez des applications dans Azure Kubernetes Service (AKS), vous pouvez avoir besoin d’augmenter ou de diminuer la quantité de ressources de calcul. Tout comme le nombre des instances d’application qui vous est nécessaire change, le nombre de nœuds Kubernetes sous-jacents peut également varier. Par ailleurs, vous pouvez avoir besoin de provisionner rapidement un grand nombre d’instances d’application supplémentaires.
+Lorsque vous exécutez des applications dans Azure Kubernetes Service (AKS), vous pouvez avoir besoin d’augmenter ou de diminuer la quantité de ressources de calcul. Tout comme le nombre des instances d’application qui vous est nécessaire change, le nombre de nœuds Kubernetes sous-jacents peut également varier. Par ailleurs, vous pouvez avoir besoin d’approvisionner rapidement un grand nombre d’instances d’application supplémentaires.
 
 Cet article présente les concepts fondamentaux qui vous aident à mettre à l’échelle vos applications dans AKS :
 
@@ -27,7 +27,7 @@ Cet article présente les concepts fondamentaux qui vous aident à mettre à l�
 
 ## <a name="manually-scale-pods-or-nodes"></a>Mettre à l’échelle des pods ou des nœuds manuellement
 
-Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour cette mise à l’échelle manuelle, il vous suffit de définir le nombre de réplicas ou de nœuds, et l’API Kubernetes planifie la création de pods supplémentaires ou le drainage de nœuds.
+Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour mettre à l’échelle manuellement, vous définissez le nombre de réplicas ou de nœuds. L’API Kubernetes planifie ensuite la création de pods supplémentaires ou le drainage de nœuds en fonction du nombre de réplicas ou de nœuds.
 
 Pour vous familiariser avec la mise à l’échelle manuelle des pods et des nœuds, consultez [Mettre à l’échelle des applications dans AKS][aks-scale].
 
@@ -51,7 +51,7 @@ Actuellement, vous ne pouvez pas paramétrer ces valeurs de ralentissement à pa
 
 ## <a name="cluster-autoscaler"></a>Autoscaler de cluster
 
-Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscaler de cluster (actuellement en préversion dans AKS) qui ajuste le nombre de nœuds en fonction des ressources de calcul demandées dans le pool de nœuds. Par défaut, l’autoscaler de cluster vérifie le serveur d’API de métriques toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
+Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscaler de cluster, actuellement en préversion dans AKS, qui ajuste le nombre de nœuds en fonction des ressources de calcul demandées dans le pool de nœuds. Par défaut, l’autoscaler de cluster vérifie le serveur d’API de métriques toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
 
 ![Autoscaler de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375315"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067767"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -43,10 +43,13 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 Azure Government | Gouvernement américain - Virginie
 Asie-Pacifique | Asie Est ou Asie Sud-Est
 Australie | Australie Est ou Australie Sud-Est
+Brésil | Brésil Sud
 Canada | Canada Centre ou Canada Est
 Europe | Europe Nord ou Europe Ouest
+France | France Centre
 Inde | Inde Centre ou Inde Sud
 Japon |  Japon Est ou Japon Ouest
+Corée du Sud | Corée Centre ou Corée Sud
 Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
 États-Unis | USA Centre ou USA Ouest 2
 
@@ -73,7 +76,7 @@ Azure Migrate exécute une appliance légère pour découvrir les machines virtu
 
 **Support** | **Détails**
 --- | ---
-**Étapes de déploiement d’appliance** | Vous déployez l’appliance en tant que machine virtuelle VMware. Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.<br/> La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure. 
+**Étapes de déploiement d’appliance** | Vous déployez l’appliance en tant que machine virtuelle VMware. Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.<br/> La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure.
 **Projet Azure Migrate** | Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines virtuelles par projet.
 **Découverte** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu'à un seul vCenter Server.
 **Groupe d’évaluation** | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.

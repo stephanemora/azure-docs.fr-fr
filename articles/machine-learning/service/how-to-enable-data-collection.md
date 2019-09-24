@@ -1,6 +1,6 @@
 ---
 title: Collecter des données relatives à vos modèles de production
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment collecter des données de modèle d’entrée Azure Machine Learning dans un stockage d’objets blob Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860521"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002857"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
-Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir des services Azure Machine Learning que vous avez déployés dans Azure Kubernetes Cluster (AKS) dans un stockage d’objets blob Azure. 
+Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir d’Azure Machine Learning déployé dans un cluster Azure Kubernetes dans un stockage d’objets blob Azure. 
 
 Une fois la collecte activée, ces données vous aideront à :
 * [Superviser les dérives de données](how-to-monitor-data-drift.md) à mesure que les données de production entrent dans votre modèle.
@@ -50,18 +50,18 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-- Un espace de travail du service Azure Machine Learning, un répertoire local contenant vos scripts et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
+- Un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 
-- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le tutoriel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
+- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le didacticiel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
 - Cluster Azure Kubernetes Service. Pour plus d’informations sur la création et le déploiement, consultez le document [Où et comment effectuer un déploiement](how-to-deploy-and-where.md).
 
 - [Configurez votre environnement](how-to-configure-environment.md) et installez le [SDK Monitoring](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Activer la collecte des données
-La collecte de données peut être activée quel que soit le modèle en cours de déploiement par le biais du service Azure Machine Learning ou d’autres outils. 
+La collecte de données peut être activée quel que soit le modèle en cours de déploiement par le biais d’Azure Machine Learning ou d’autres outils. 
 
 Pour l’activer, vous devez :
 
