@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a543b17633b99bea63d72f46ba856a8b4593d16a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bec09e5cd053774902083c6dd042c1ed4b293d20
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439554"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066678"
 ---
 # <a name="language-support-for-qna-maker"></a>Prise en charge linguistique pour QnA Maker
 
@@ -28,7 +28,7 @@ QnA Maker prend en charge l’extraction de questions/réponses dans n’import
 |Langues prises en charge| Paramètres régionaux|
 |-----|----|
 |Anglais|en-*|
-|Anglais|fr-*|
+|Français|fr-*|
 |Italien|it-*|
 |Allemand|de-*|
 |Espagnol|es-*|
@@ -42,7 +42,7 @@ Si l’utilisateur prévoit de prendre en charge plusieurs langues, il doit avoi
 Vérifiez la langue principale en procédant comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
-1. Recherchez et sélectionnez la ressource de recherche Azure créée dans le cadre de votre ressource QnA Maker. Le nom de la ressource de recherche Azure commence avec le même nom que la ressource QnA Maker et aura le type **Service de recherche**. 
+1. Recherchez et sélectionnez la ressource de recherche Azure créée dans le cadre de votre ressource QnA Maker. Le nom de la ressource de recherche Azure commence avec le même nom que la ressource QnA Maker et aura le type **Service de recherche**. N’oubliez pas qu’une seule ressource QnA Maker peut être liée à une ressource Recherche Azure.
 1. À partir de la page **Vue d’ensemble** de la ressource de recherche, sélectionnez **Index**. 
 1. Sélectionnez l’index **testkb**.
 1. Sélectionnez l’onglet **Champs**. 
@@ -73,7 +73,7 @@ Bengali|
 |Anglais|
 |Estonien|
 |Finnois|
-|Anglais|
+|Français|
 |Galicien|
 |Allemand|
 |Grec|

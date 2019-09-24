@@ -1,6 +1,6 @@
 ---
-title: Copier des données depuis une base de données Teradata avec Azure Data Factory | Microsoft Docs
-description: Découvrez le connecteur Teradata du service Data Factory, qui vous permet de copier des données d’une base de données Teradata vers des magasins de données pris en charge par Data Factory en tant que récepteurs.
+title: Copier des données depuis une base de données Teradata Vantage avec Azure Data Factory | Microsoft Docs
+description: Découvrez le connecteur Teradata du service Data Factory, qui vous permet de copier des données Teradata Vantage vers des magasins de données pris en charge par Data Factory en tant que récepteurs.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,26 +10,31 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e538c8b00bddc8a2fa35b158c1e76f9033b73a56
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232494"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089186"
 ---
-# <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata à l’aide d’Azure Data Factory
+# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Version actuelle](connector-teradata.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir d’une base de données Teradata. Il s’appuie sur la [vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Teradata Vantage. Il s’appuie sur la [vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Vous pouvez copier des données d’une base de données Teradata vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Ce connecteur Teradata est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
+
+Vous pouvez copier des données de Teradata Vantage vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Plus précisément, ce connecteur Teradata prend en charge :
 
@@ -62,8 +67,8 @@ Le service lié Teradata prend en charge les propriétés suivantes :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Teradata**. | OUI |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance de base de données Teradata. Consultez les exemples suivants.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance de Teradata. Consultez les exemples suivants.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| username | Spécifiez le nom d’utilisateur associé à la connexion à Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
 | password | Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous pouvez également choisir de [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br>S’applique lors de l’utilisation de l’authentification Windows ou du référencement du mot de passe dans Key Vault pour l’authentification de base. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |OUI |
 
@@ -142,8 +147,8 @@ Pour copier des données à partir de Teradata, les propriétés suivantes sont 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur `TeradataTable`. | OUI |
-| database | Nom de la base de données Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
-| table | Nom de la table dans la base de données Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
+| database | Nom de l’instance Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
+| table | Nom de la table dans l’instance Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple :**
 
@@ -197,7 +202,7 @@ Pour copier des données à partir de Teradata, les propriétés prises en charg
 |:--- |:--- |:--- |
 | type | La propriété type de la source de l’activité de copie doit être définie sur `TeradataSource`. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`.<br>Lorsque vous activez la charge partitionnée, vous devez utiliser les paramètres de partition intégrés correspondants dans votre requête. Pour consulter des exemples, voir [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non (si la table du jeu de données est spécifiée) |
-| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de Teradata. <br>Les valeurs autorisées sont les suivantes : **Aucun** (par défaut), **Hachage** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir d’une base de données Teradata est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. | Non |
+| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de Teradata. <br>Les valeurs autorisées sont les suivantes : **Aucun** (par défaut), **Hachage** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir de Teradata est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
 | partitionColumnName | Spécifiez le nom de la colonne source qu’utilisera le partitionnement par plages de valeurs ou hachage pour la copie en parallèle. S’il n’est pas spécifié, l'index primaire de la table sera automatiquement détecté et utilisé en tant que colonne de partition. <br>S’applique lorsque l’option de partitionnement est `Hash` ou `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` dans la clause WHERE. Consultez l’exemple de la section [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non |
 | partitionUpperBound | Valeur maximale de la colonne de partition à partir de laquelle copier des données. <br>S’applique lorsque de l’option de partition est `DynamicRange`. Si vous avez recours à une requête pour récupérer des données sources, utilisez `?AdfRangePartitionUpbound` dans la clause WHERE. Pour consulter un exemple, voir [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non |
@@ -245,9 +250,9 @@ Le connecteur Teradata de Data Factory propose un partitionnement de données in
 
 ![Capture d’écran représentant les options de partition](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l'option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Teradata.
+Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l'option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de Teradata.
 
-Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données notamment lorsque vous chargez une grande quantité de données à partir de votre base de données Teradata. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture dans un seul fichier.
+Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données notamment lorsque vous chargez une grande quantité de données à partir de Teradata. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture dans un seul fichier.
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -328,6 +333,11 @@ Lorsque vous copiez des données à partir de Teradata, les mappages suivants s�
 | VarChar |Chaîne |
 | VarGraphic |Non pris en charge. Appliquer un cast explicite dans la requête source. |
 | Xml |Non pris en charge. Appliquer un cast explicite dans la requête source. |
+
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+
+Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

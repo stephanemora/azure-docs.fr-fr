@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775045"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037218"
 ---
 # <a name="add-storage"></a>Ajouter du stockage
 
@@ -27,13 +27,15 @@ Vous pouvez ajouter des cibles de stockage lors de la création de votre instanc
 
 Utilisez l’onglet **Cibles de stockage** de l’Assistant Création de cache pour définir le stockage lors de la création de l’instance de cache.
 
-![capture d’écran de la page des cibles de stockage](media/create-targets.png)
+![capture d’écran de la page des cibles de stockage](media/hpc-cache-storage-targets-pop.png)
 
 Cliquez sur le lien **Ajouter une cible de stockage** pour ajouter du stockage.
 
 ## <a name="add-storage-targets-from-the-cache"></a>Ajouter des cibles de stockage à partir du cache
 
 À partir du portail Azure, ouvrez votre instance de cache, puis cliquez sur **Cibles de stockage** dans la barre latérale gauche. La page Cibles de stockage liste toutes les cibles existantes et fournit un lien permettant d’en ajouter une nouvelle.
+
+![capture d’écran du lien Cibles de stockage dans la barre latérale, sous l’en-tête Configurer, qui se trouve entre les en-têtes Paramètres et Surveillance](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Ajouter une cible de stockage Blob Azure
 
@@ -51,8 +53,6 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
 * **Conteneur de stockage** : sélectionnez le conteneur d’objets blob pour cette cible.
 
 * **Chemin de l’espace de noms virtuels** : définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
-
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
 
 Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
 

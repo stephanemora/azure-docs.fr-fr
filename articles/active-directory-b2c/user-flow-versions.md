@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ed57a9fa3b041961ce220e8f10d9aed5e7bef60e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7b3ce6a4e72b90c6fd642b92d4a92eb02f4c92c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511920"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063194"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versions de flux utilisateur dans Azure Active Directory B2C
 
 >[!IMPORTANT]
 > Tous les flux utilisateur listés dans l’article sont considérés comme étant en préversion publique, sauf s’ils sont **recommandés**. Veillez à utiliser uniquement des flux utilisateur recommandés pour vos applications de production.
 
-Les flux utilisateur dans Azure Active Directory (Azure AD) B2C vous aident à configurer des [stratégies](active-directory-b2c-reference-policies.md) courantes qui décrivent entièrement les expériences liées à l’identité des clients. Ces expériences incluent l’inscription, la connexion, la réinitialisation du mot de passe et la modification du profil. Dans Azure AD B2C, vous pouvez sélectionner des flux utilisateur recommandés et en préversion dans une collection. 
+Les flux utilisateur dans Azure Active Directory B2C (Azure AD B2C) vous aident à configurer des [stratégies](active-directory-b2c-reference-policies.md) courantes qui décrivent entièrement les expériences liées à l’identité des clients. Ces expériences incluent l’inscription, la connexion, la réinitialisation du mot de passe et la modification du profil. Dans Azure AD B2C, vous pouvez sélectionner des flux utilisateur recommandés et en préversion dans une collection.
 
 Les nouveaux flux utilisateur sont ajoutés sous forme de nouvelles versions. L’utilisation d’un flux utilisateur est recommandée quand le flux se stabilise. Un flux utilisateur **recommandé** signifie qu’il a été rigoureusement testé. Les flux utilisateur sont considérés comme étant en préversion tant qu’ils ne sont pas recommandés. Vous devez utiliser un flux utilisateur recommandé pour toute application de production, mais vous pouvez choisir d’autres versions pour tester les nouvelles fonctionnalités mises à disposition. Il est déconseillé d’utiliser les versions antérieures des flux utilisateur recommandés.
 

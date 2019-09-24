@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2019
+ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 784ec507027d6ec0ac1b5288c101e2a76cab436e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835060"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097616"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Utiliser Microsoft Authentication Library pour interagir avec Azure Active Directory B2C
 
@@ -56,21 +56,30 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 1. Ouvrez le fichier **index.html** dans l’exemple.
 
-1. Configurez l’exemple avec l’ID d’application et la clé que vous avez enregistrés lors de l’inscription de votre application. Modifiez les lignes de code suivantes en remplaçant les valeurs par les noms de votre répertoire et de vos API :
+1. Configurez l’exemple avec l’ID de client et la clé que vous avez enregistrés lors de l’inscription de votre application. Modifiez les lignes de code suivantes en remplaçant les valeurs par les noms de votre répertoire et de vos API :
 
    ```javascript
-   // The current application coordinates were pre-registered in a B2C directory.
+   // The current application coordinates were pre-registered in a B2C tenant.
 
-   const msalConfig = {
-       auth:{
-           clientId: "Enter_the_Application_Id_here",
-           authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>",
-           b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/hello/demo.read"],
-           webApi: 'http://localhost:5000/hello',
-     };
+    var appConfig = {
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+    };
 
-   // create UserAgentApplication instance
-   const myMSALObj = new UserAgentApplication(msalConfig);
+    const msalConfig = {
+        auth: {
+            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902" //This is your client/application ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
+    };
+    // create UserAgentApplication instance
+    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
+
    ```
 
 Le nom de [flux d’utilisateur](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) utilisé dans ce tutoriel est **B2C_1_signupsignin1**. Si vous utilisez un autre nom de flux d’utilisateur, définissez la valeur **autorité** sur ce nom.

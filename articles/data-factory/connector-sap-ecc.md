@@ -12,21 +12,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f51ad3d0a75ab1f0662ea0b747852fcb98e5026
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259044"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089546"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de SAP ECC (SAP Enterprise Central Component). Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, voir le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l'intégration de données SAP par ADF, consultez le [livre blanc Intégration de données SAP à l'aide d'Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur SAP ECC est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données de SAP ECC vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -200,6 +205,10 @@ Lorsque vous copiez des données de SAP ECC, les mappages suivants sont utilisé
 
 > [!NOTE]
 > Les types de données complexes ne sont actuellement pas pris en charge.
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+
+Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Créer, exécuter et effectuer le suivi des pipelines ML
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Utilisez des pipelines ML pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, l’apprentissage du modèle, le déploiement du modèle et l’inférence/le scoring.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858774"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034840"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
@@ -26,11 +26,11 @@ Vous pouvez utiliser un autre type de pipeline appelé [pipeline Azure](https://
 
 Chaque phase d’un pipeline ML, telle que la préparation des données et l’entraînement du modèle, peut inclure une ou plusieurs étapes.
 
-Les pipelines ML que vous créez sont visibles par les membres de votre [espace de travail](how-to-manage-workspace.md) du service Azure Machine Learning. 
+Les pipelines ML que vous créez sont visibles par les membres de votre [espace de travail](how-to-manage-workspace.md) d’Azure Machine Learning. 
 
 Les pipelines ML utilisent des cibles de calcul à distance pour le calcul et le stockage des données intermédiaires et finales associées à ce pipeline. Ils peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](https://docs.microsoft.com/azure/storage/) pris en charge.
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -283,7 +283,7 @@ La réutilisation des résultats précédents (`allow_reuse`) est essentielle lo
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
 > [!NOTE]
-> Aucune donnée ni fichier n’est téléchargé sur le service Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline.
+> Aucune donnée ni fichier n’est téléchargé sur Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline.
 
 ```python
 # list of steps to run
@@ -322,7 +322,7 @@ Pour plus d’informations, consultez [azureml-pipeline-steps package](https://d
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
-Lorsque vous envoyez le pipeline, le service Azure Machine Learning vérifie les dépendances pour chaque étape et charge un instantané du répertoire source que vous avez spécifié. Si aucun répertoire source n’est spécifié, le répertoire local actuel est chargé. La capture instantanée est également stockée dans le cadre de l’expérience dans votre espace de travail.
+Lorsque vous envoyez le pipeline, Azure Machine Learning vérifie les dépendances pour chaque étape et charge un instantané du répertoire source que vous avez spécifié. Si aucun répertoire source n’est spécifié, le répertoire local actuel est chargé. La capture instantanée est également stockée dans le cadre de l’expérience dans votre espace de travail.
 
 > [!IMPORTANT]
 > Pour empêcher les fichiers d’être inclus dans la capture instantanée, créez un élément [.gitignore](https://git-scm.com/docs/gitignore) ou un fichier `.amlignore` dans le répertoire et ajoutez-y les fichiers. Le fichier `.amlignore` utilise les mêmes modèles et syntaxe que le fichier [.gitignore](https://git-scm.com/docs/gitignore). Si les deux fichiers existent, le fichier `.amlignore` est prioritaire.

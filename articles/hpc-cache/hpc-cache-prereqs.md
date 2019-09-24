@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7bd1268784df50168e03673ac809b3a5854e2be7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775069"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036866"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -22,7 +22,7 @@ Avant d’utiliser le portail Azure pour créer une nouvelle instance d’Azure 
 Un abonnement payant est recommandé.
 
 > [!NOTE]
-> Dans la préversion publique, l’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches de test. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
+> Dans la préversion, l’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches de test. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 

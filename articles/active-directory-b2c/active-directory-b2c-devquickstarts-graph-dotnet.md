@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c7fcbbbfcc2192160ca852538c015a365518e448
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880095"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065944"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
 
 >[!NOTE]
 > Vous devez utiliser [l’API Graph Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) pour gérer les utilisateurs d’un annuaire Azure AD B2C. Il ne s’agit pas de l’API Microsoft Graph. En savoir plus [ici](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-Les clients Azure Active Directory (Azure AD) B2C sont souvent très volumineux. Par conséquent, de nombreuses tâches courantes de gestion de client doivent être effectuées par programmation. La gestion des utilisateurs en est un parfait exemple. Il se peut que vous ayez besoin de migrer un magasin d’utilisateurs existant vers un client B2C ou que vous souhaitiez héberger l’inscription des utilisateurs sur votre page et créer des comptes d’utilisateur dans votre répertoire Azure AD B2C en arrière-plan. Pour effectuer ces types de tâches, vous devez être en mesure de créer, de lire, de mettre à jour et de supprimer des comptes d’utilisateur. Vous pouvez faire tout cela à l’aide de l’API Azure AD Graph.
+Les clients Azure Active Directory B2C (Azure AD B2C) sont souvent très volumineux. Par conséquent, de nombreuses tâches courantes de gestion de client doivent être effectuées par programmation. La gestion des utilisateurs en est un parfait exemple. Il se peut que vous ayez besoin de migrer un magasin d’utilisateurs existant vers un client B2C ou que vous souhaitiez héberger l’inscription des utilisateurs sur votre page et créer des comptes d’utilisateur dans votre répertoire Azure AD B2C en arrière-plan. Pour effectuer ces types de tâches, vous devez être en mesure de créer, de lire, de mettre à jour et de supprimer des comptes d’utilisateur. Vous pouvez faire tout cela à l’aide de l’API Azure AD Graph.
 
 Pour les clients B2C, il existe deux modes principaux de communication avec l’API Graph.
 
@@ -43,10 +43,10 @@ Une fois que vous avez un locataire B2C, vous devez inscrire votre application �
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD B2C en sélectionnant votre compte dans le coin supérieur droit de la page.
 3. Dans le volet de navigation de gauche, choisissez **Tous les services**, cliquez sur **Inscriptions des applications**, puis sur **Nouvelle inscription**.
-4. Suivez les invites et créez une application. 
+4. Suivez les invites et créez une application.
     1. Ajouter un nom approprié
     2. Sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
-    3. Sélectionnez **Web** comme type d’application et indiquez n’importe quelle **URL de connexion** (par exemple, `https://B2CGraphAPI`), car cela n’a pas d’importance dans cet exemple.  
+    3. Sélectionnez **Web** comme type d’application et indiquez n’importe quelle **URL de connexion** (par exemple, `https://B2CGraphAPI`), car cela n’a pas d’importance dans cet exemple.
     4. Cliquez sur S’inscrire.
 5. L’application va maintenant s’afficher dans la liste des applications. Cliquez sur celle-ci pour obtenir l’**ID de l’application** (également appelé ID client). Copiez-le, car vous en aurez besoin dans une section ultérieure.
 6. Dans le menu Paramètres, cliquez sur **Certificats et secrets**.
@@ -65,8 +65,8 @@ Vous disposez maintenant d’une application autorisée à créer, lire et mettr
 
 > [!NOTE]
 > Le processus complet d'octroi d'autorisations peut prendre quelques minutes.
-> 
-> 
+>
+>
 
 ## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurer les autorisations de suppression ou de mise à jour du mot de passe pour votre application
 Actuellement, l’autorisation *Accéder en lecture et en écriture aux données de l’annuaire* n’inclut **PAS** la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe. Si vous souhaitez donner à votre application la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe, vous devez effectuer ces étapes supplémentaires impliquant PowerShell. Dans le cas contraire, vous pouvez passer à la section suivante.
@@ -132,8 +132,8 @@ Toute demande envoyée à l’API Graph requiert un jeton d’accès pour l’au
 
 > [!NOTE]
 > Cet exemple de code utilise la bibliothèque ADAL v2 afin de communiquer avec l’API Graph.  Vous devez utiliser la bibliothèque ADAL v2 ou v3 afin d’obtenir des jetons d’accès qui peuvent être utilisés avec l’API Azure AD Graph .
-> 
-> 
+>
+>
 
 Lorsque `B2CGraphClient` est exécuté, il crée une instance de la classe `B2CGraphClient`. Le constructeur de cette classe définit une structure d’authentification de la bibliothèque ADAL :
 
@@ -260,8 +260,8 @@ Vous pouvez voir comment la demande POST est construite dans `B2CGraphClient.Sen
 
 > [!NOTE]
 > Si les comptes que vous souhaitez migrer à partir d’un magasin d’utilisateurs existant ont un mot de passe moins fort que les [règles de mot de passe fort d’Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), vous pouvez désactiver la condition de mot de passe fort à l’aide de la valeur `DisableStrongPassword` dans la propriété `passwordPolicies`. Par exemple, vous pouvez modifier la demande de création d’utilisateur fournie ci-dessus comme suit : `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-> 
-> 
+>
+>
 
 ### <a name="update-consumer-user-accounts"></a>Mise à jour de comptes d’utilisateurs clients
 Le processus de mise à jour d’objets utilisateur est similaire à celui utilisé pour créer des objets utilisateur. Cependant, ce processus fait appel à la méthode HTTP `PATCH` :

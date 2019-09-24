@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 78996fae99393d3bec11c1a3f8f734e281291ad3
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70036701"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71107220"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données issues de requêtes envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données issues des réponses reçues depuis un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
-| Capacité maximale du compte de stockage | 2 Po pour les États-Unis et l'Europe, 500 To pour toutes les autres régions (y compris le Royaume-Uni)<sup>1</sup>|
+| Capacité maximale du compte de stockage | 2 Pio pour les États-Unis et l'Europe, 500 Tio pour toutes les autres régions (y compris le Royaume-Uni)<sup>1</sup>|
 | Nombre maximal de conteneurs d’objets blob, de partages de fichiers, de tables, de files d’attente, d’entités ou de messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
 | Entrée maximale<sup>1</sup> par compte de stockage (régions des États-Unis, Europe) | 25 Gbits |

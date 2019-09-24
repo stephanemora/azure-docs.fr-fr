@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951867"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091826"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -40,6 +40,9 @@ La fonctionnalité de session dans Service Bus autorise une opération de récep
 Dans le portail, définissez l’indicateur avec la case à cocher suivante :
 
 ![][2]
+
+> [!NOTE]
+> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
 
 Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment de la réception des sessions et des messages, ainsi qu’un modèle basé sur le gestionnaire, semblable à *OnMessage*, qui simplifie la gestion de la boucle de réception.
 

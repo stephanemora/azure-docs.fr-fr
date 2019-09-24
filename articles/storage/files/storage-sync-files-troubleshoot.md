@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129195"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103079"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -293,6 +293,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x8000FFFF | -2147418113 | E_UNEXPECTED | Le fichier ne peut pas être synchronisé en raison d’une erreur inattendue. | Si l’erreur persiste pendant plusieurs jours, veuillez ouvrir un dossier de support. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Le fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Le fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
+| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Impossible de synchroniser le fichier, car le nombre maximal de fichiers conflictuels a été atteint. Azure File Sync prend en charge 100 fichiers de conflit par fichier. Pour en savoir plus sur les conflits de fichiers, consultez la [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) d’Azure File Sync. | Pour résoudre ce problème, réduisez le nombre de fichiers conflictuels. Le fichier est synchronisé une fois que le nombre de fichiers conflictuels est inférieur à 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestion des caractères non pris en charge
 Si le script PowerShell **FileSyncErrorsReport.ps1** montre des défaillances dues à des caractères non pris en charge (code d’erreur 0x8007007b ou 0x80c80255), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-cmdlet) peut servir à identifier les caractères qui ne sont pas pris en charge.
@@ -395,6 +396,18 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
     ```
 2. [Vérifiez l’existence du compte de stockage.](#troubleshoot-storage-account)
 3. [Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement (si activés)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**Une erreur inconnue s’est produite lors de l’accès au compte de stockage.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (décimal)** | -2134364022 |
+| **Chaîne d’erreur** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Correction requise** | OUI |
+
+1. [Vérifiez l’existence du compte de stockage.](#troubleshoot-storage-account)
+2. [Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement (si activés)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**La synchronisation a échoué en raison d’un problème avec la base de données de synchronisation.**  
 

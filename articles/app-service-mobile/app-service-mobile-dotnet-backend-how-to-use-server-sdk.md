@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119510"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097775"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +35,7 @@ Cette rubrique montre comment utiliser le kit SDK du serveur backend .NET dans l
 ## <a name="reference-documentation"></a>Documentation de référence
 La documentation de référence du SDK serveur se trouve ici : [Documentation de référence .NET Azure Mobile Apps][1].
 
-## <a name="create-app"></a>Guide pratique : Créer un back-end d’application mobile .NET
+## <a name="create-app"></a>Procédure : Créer un back-end d’application mobile .NET
 Si vous démarrez un nouveau projet, vous pouvez créer une application App Service à l’aide du [portail Azure] ou de Visual Studio. Vous pouvez exécuter l’application App Service en local ou publier le projet sur votre application mobile App Service hébergée sur le cloud.
 
 Si vous ajoutez des fonctionnalités mobiles à un projet existant, consultez la section [Télécharger et initialiser le Kit de développement logiciel (SDK)](#install-sdk) .
@@ -412,7 +412,7 @@ Toutes les balises fournies par le client pendant l’inscription aux notificati
 
 Pour obtenir un exemple, consultez [Client-added push notification tags][5] (Balises de notification Push ajoutées au client) dans l’exemple de démarrage rapide complet d’App Service Mobile Apps.
 
-## <a name="push-user"></a>Guide pratique : Envoyer des notifications Push à un utilisateur authentifié
+## <a name="push-user"></a>Procédure : Envoyer des notifications Push à un utilisateur authentifié
 Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par cette personne. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cette personne :
 
     // Get the current user SID and create a tag for the current user.
@@ -440,7 +440,7 @@ Vous pouvez écrire dans les journaux de diagnostics App Service à l’aide du 
 
 Pour activer les diagnostics et écrire dans les journaux d’activité :
 
-1. Suivez les étapes indiquées dans [Activer des diagnostics](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Suivez les étapes [d’Activer la journalisation des applications (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Ajoutez l’instruction using suivante dans votre fichier de code :
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Pour activer les diagnostics et écrire dans les journaux d’activité :
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Publiez à nouveau votre projet de serveur et accédez au serveur principal d’application mobile pour exécuter le chemin d’accès du code avec la journalisation.
-5. Téléchargez et évaluez les journaux d’activité, comme décrit dans [Guide pratique : Télécharger des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Téléchargez et évaluez les journaux d’activité, comme décrit dans [Accéder aux fichiers journaux](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Débogage local avec authentification
 Vous pouvez exécuter localement votre application afin de tester les modifications avant de les publier dans le cloud. Pour la plupart des backends Azure Mobile Apps, appuyez sur *F5* lorsque vous êtes dans Visual Studio. Toutefois, certains points spécifiques sont à prendre en compte en lien avec l’authentification.

@@ -2,18 +2,18 @@
 title: Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux - Azure
 description: Découvrez comment accéder aux journaux des applications YARN sur un cluster HDInsight sous Linux (Apache Hadoop) à l’aide de la ligne de commande et d’un navigateur web.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2b230f91b9d6b169b89b125bdd0394c2c7ecd96f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879874"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091519"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux
 
@@ -62,11 +62,11 @@ L’interface utilisateur ResourceManager YARN s’exécute sur le nœud princip
 1. Dans votre navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net. Remplacez CLUSTERNAME par le nom de votre cluster HDInsight.
 2. Dans la liste des services sur la gauche, sélectionnez **YARN**.
 
-    ![Service YARN sélectionné](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    ![Apache Ambari - Service Yarn sélectionné](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
 3. Dans la liste déroulante **Liens rapides**, sélectionnez un des nœuds principaux du cluster, puis **Journal ResourceManager**.
 
-    ![Liens rapides YARN](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    ![Apache Ambari - Liens rapides Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     Une liste de liens menant vers les journaux d’activité YARN s’affiche.
 

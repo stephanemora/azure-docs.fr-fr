@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882267"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066917"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
@@ -171,7 +171,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
    * Si vous utilisez un __compte de stockage Azure__, cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** pour le projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
-       ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+       ![Icône de chargement de HDInsight pour le nouveau projet](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ouvrir**.
 

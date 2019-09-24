@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42a38b47f9e49652b5fe80aa5bbd0047dc7d1e74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511958"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063136"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
-Dans Azure Active Directory (Azure AD) B2C, vous pouvez utiliser différents types de comptes. Azure Active Directory, Azure Active Directory B2B et Azure Active Directory B2C partagent les types de comptes d’utilisateur qui peuvent être utilisés.
+Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez utiliser différents types de comptes. Azure Active Directory, Azure Active Directory B2B et Azure Active Directory B2C partagent les types de comptes d’utilisateur qui peuvent être utilisés.
 
 Les types de comptes suivants sont disponibles :
 
 - **Compte professionnel** – Un compte professionnel peut accéder aux ressources dans un locataire et, avec un rôle d’administrateur, peut gérer des locataires.
-- **Compte invité** – Un compte invité peut uniquement être un compte Microsoft ou un utilisateur Azure Active Directory qui peut être utilisé pour accéder à des applications ou gérer des locataires. 
-- **Compte consommateur** – Un compte consommateur est créé en passant par un flux d’utilisateur d’inscription dans une application Azure AD B2C ou en utilisant l’API Azure AD Graph, et il est utilisé par les utilisateurs des applications qui sont inscrites auprès d’Azure AD B2C. 
+- **Compte invité** – Un compte invité peut uniquement être un compte Microsoft ou un utilisateur Azure Active Directory qui peut être utilisé pour accéder à des applications ou gérer des locataires.
+- **Compte consommateur** – Un compte consommateur est créé en passant par un flux d’utilisateur d’inscription dans une application Azure AD B2C ou en utilisant l’API Azure AD Graph, et il est utilisé par les utilisateurs des applications qui sont inscrites auprès d’Azure AD B2C.
 
 ## <a name="work-account"></a>Compte professionnel
 
@@ -35,12 +35,12 @@ Lorsque vous ajoutez un nouveau compte professionnel, vous devez prendre en comp
 
 - **Nom** et **Nom d’utilisateur** – La propriété **Nom** contient le prénom et le nom de l’utilisateur. Le **nom d’utilisateur** est l’identificateur que l’utilisateur utilise pour se connecter. Le nom d’utilisateur inclut le domaine complet. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, *nom de domaine.onmicrosoft.com*, ou un nom de [domaine personnalisé](../active-directory/fundamentals/add-custom-domain.md) vérifié, non fédéré, tel que *contoso.com*.
 - **Profil** – Le compte est configuré avec un profil de données utilisateur. Vous avez la possibilité d’entrer un prénom, un nom, un poste et un nom de service. Vous pouvez modifier le profil une fois que le compte a été créé.
-- **Groupes** – Un groupe vous permet d’effectuer différentes tâches de gestion, comme attribuer des licences ou des autorisations à plusieurs utilisateurs ou appareils simultanément. Vous pouvez placer le nouveau compte dans un [groupe](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existant dans votre locataire. 
+- **Groupes** – Un groupe vous permet d’effectuer différentes tâches de gestion, comme attribuer des licences ou des autorisations à plusieurs utilisateurs ou appareils simultanément. Vous pouvez placer le nouveau compte dans un [groupe](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existant dans votre locataire.
 - **Rôle d’annuaire** – Vous devez spécifier le niveau d’accès que le compte d’utilisateur possède pour les ressources dans votre locataire. Les niveaux d’autorisation suivants sont disponibles :
 
     - **Utilisateur** – Les utilisateurs peuvent accéder aux ressources affectées, mais ne peuvent pas gérer la plupart des ressources de locataire.
     - **Administrateur général** – Les administrateurs généraux contrôlent totalement toutes les ressources de locataire.
-    - **Administrateur limité** – Sélectionnez le ou les rôles d’administration pour l’utilisateur. Pour plus d’informations sur les rôles qui peuvent être sélectionnés, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
+    - **Administrateur limité** – Sélectionnez le ou les rôles d’administration pour l’utilisateur. Pour plus d’informations sur les rôles qui peuvent être sélectionnés, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="create-a-work-account"></a>Créer un compte professionnel
 
@@ -58,7 +58,7 @@ Vous pouvez utiliser les informations suivantes pour mettre à jour le profil d�
 
 ### <a name="reset-a-password-for-a-user"></a>Réinitialiser un mot de passe pour un utilisateur
 
-Vous pouvez utiliser les informations suivantes pour réinitialiser le mot de passe d’un utilisateur : 
+Vous pouvez utiliser les informations suivantes pour réinitialiser le mot de passe d’un utilisateur :
 
 - [Portail Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)

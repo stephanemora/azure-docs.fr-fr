@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: a80e1d0e4aa243d46efa79173af3fc5d774eb46f
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806595"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103197"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -172,9 +172,6 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
   > Les pools élastiques disposant de 800 DTU au maximum et de plus de 250 bases de données utilisant la géoréplication peuvent rencontrer des problèmes, notamment des basculements planifiés plus longs et une dégradation des performances.  Ces problèmes sont davantage susceptibles de se produire pour les charges de travail intensives en écriture, quand les points de terminaison de géoréplication sont géographiquement très éloignés, ou quand plusieurs points de terminaison secondaires sont utilisés pour chaque base de données.  Les symptômes de ces problèmes sont signalés quand le décalage de la géoréplication augmente au fil du temps.  Ce décalage peut être surveillé avec [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Si ces problèmes se produisent, l’atténuation des risques inclut l’augmentation du nombre de DTU du pool ou la réduction du nombre de bases de données géorépliquées dans ce même pool.
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Meilleures pratiques relatives à l’utilisation de groupes de basculement avec les instances managées
-
-> [!IMPORTANT]
-> Groupes de basculement automatique pour Managed Instance est en préversion publique.
 
 Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données de l’instance seront répliquées sur l’instance secondaire. 
 
@@ -365,7 +362,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 | [Mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Met à jour un groupe de basculement. |
 |  | |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>API REST : Gérer des groupes de basculement avec des instances managées (préversion)
+### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>API REST : Gérer des groupes de basculement avec des instances managées
 
 | API | Description |
 | --- | --- |

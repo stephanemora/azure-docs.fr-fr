@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bb6ca0483a7bc0a5af63a1fae7e5e5a5415abba
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: dfe531f8b298be1d90df45f57918f87744912949
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810312"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077059"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -170,7 +170,7 @@ Dans la [page d’accueil du cluster](#homePage) :
 
 1. Sélectionnez **Tableaux de bord du cluster**.
 
-    ![Menu de cluster Hadoop HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    ![Menu du cluster Apache Hadoop sur HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Sélectionnez **Accueil Ambari** dans la nouvelle page.
 1. Entrez le nom d’utilisateur et le mot de passe du cluster.  Le nom d’utilisateur du cluster par défaut est _admin_.

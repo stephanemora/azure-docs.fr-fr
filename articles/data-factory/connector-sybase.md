@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: ab2035ec344e07d88e2ac4ffb19cb1b2361f2e92
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f6fcdddb2da005d563ee0a10381e7aa4f26487d0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277466"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089253"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -27,6 +27,11 @@ ms.locfileid: "70277466"
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir d’une base de données Sybase. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur Sybase est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données d’une base de données Sybase vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -169,6 +174,11 @@ Si vous utilisiez une source de données typée `RelationalSource`, elle reste p
 Lors de la copie des données à partir de Sybase, les mappages suivants sont utilisés entre les types de données Sybase et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma source et le type de données au récepteur, consultez [Mappages de types de données et de schémas](copy-activity-schema-and-type-mapping.md).
 
 Sybase prend en charge les types T-SQL. Pour obtenir une table de mappage entre les types SQL et les types de données intermédiaires d’Azure Data Factory, consultez la section [Connecteur Azure SQL Database - Mappage de type de données](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database).
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+
+Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,5 +1,5 @@
 ---
-title: Utilisation des files d’attente Azure Service Bus dans Node.js | Microsoft Docs
+title: Utiliser des files d’attente Service Bus dans Node.js
 description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988304"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091807"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Comment utiliser les files d’attente Service Bus avec Node.js et le package azure-sb
 > [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
@@ -31,9 +32,9 @@ Dans ce tutoriel, vous allez apprendre à créer des applications Node.js afin d
 Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) utilisant le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide permet d’accélérer l’expérience. Pour en savoir plus sur le nouveau package, consultez [Comment utiliser les files d’attente Service Bus avec Node.js et le @azure/service-buspackage](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
 
 ## <a name="prerequisites"></a>Prérequis
-- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour obtenir un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
-    1. Lisez la **vue d’ensemble** des **files d’attente** Service Bus. 
+- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
+    1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 
     2. Créez un **espace de noms** Service Bus. 
     3. Obtenez la **chaîne de connexion**. 
 
@@ -42,7 +43,7 @@ Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d
  
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
-Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, voir les pages [Création et déploiement d’une application Node.js sur un site web Azure][Create and deploy a Node.js application to an Azure Website] ou [Service cloud Node.js avec Windows PowerShell][Node.js Cloud Service].
+Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, voir les pages [Création et déploiement d’une application Node.js sur un site web Azure][Create and deploy a Node.js application to an Azure Website] ou [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node.js. Ce dernier inclut des bibliothèques permettant de communiquer avec les services REST de Service Bus.

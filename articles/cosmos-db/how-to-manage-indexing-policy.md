@@ -4,14 +4,14 @@ description: Découvrir comment gérer les stratégies d’indexation dans Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/17/2019
 ms.author: thweiss
-ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915909"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104847"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -374,47 +374,23 @@ az cosmosdb collection update \
 
 ## <a name="use-the-net-sdk-v2"></a>Utiliser le SDK .NET V2
 
-L’objet `DocumentCollection` du [SDK .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (voir [ce Guide de démarrage rapide](create-sql-api-dotnet.md) concernant son utilisation) expose une propriété `IndexingPolicy` qui vous permet de changer la valeur `IndexingMode`, et d’ajouter ou de supprimer des `IncludedPaths` et `ExcludedPaths`.
+L’objet `DocumentCollection` du [SDK .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expose une propriété `IndexingPolicy` qui vous permet de changer la valeur `IndexingMode`, et d’ajouter ou de supprimer des `IncludedPaths` et `ExcludedPaths`.
 
-Récupérer les détails du conteneur
 
 ```csharp
+// Retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-```
-
-Définir le mode d’indexation sur cohérent
-
-```csharp
+// Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-```
-
-Ajouter un chemin inclus
-
-```csharp
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
-```
-
-Ajouter un chemin exclu
-
-```csharp
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
-```
-
-Ajouter un index spatial
-
-```csharp
+// Add a spatial index
 containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
-```
-
-Ajouter un Index composite
-
-```csharp
+// Add a composite index
 containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
-```
-
-Mettre à jour le conteneur avec les modifications
-
-```csharp
+// Update container with changes
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -425,6 +401,64 @@ Pour suivre la progression de la transformation de l’index, vous devez passer 
 ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
 // retrieve the index transformation progress from the result
 long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-net-sdk-v3"></a>Utiliser le SDK .NET V3
+
+L’objet `ContainerProperties` du [SDK .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (voir [ce Guide de démarrage rapide](create-sql-api-dotnet.md) concernant son utilisation) expose une propriété `IndexingPolicy` qui vous permet de changer la valeur `IndexingMode`, et d’ajouter ou de supprimer des `IncludedPaths` et `ExcludedPaths`.
+
+
+```csharp
+// Retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Set the indexing mode to consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+// Add a spatial index
+SpatialPath spatialPath = new SpatialPath
+{
+    Path = "/locations/*"
+};
+spatialPath.SpatialTypes.Add(SpatialType.Point);
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+// Add a composite index
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> { new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending } });
+// Update container with changes
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
+```
+
+Pour suivre la progression de la transformation de l’index, passez un objet `RequestOptions` qui définit la propriété `PopulateQuotaInfo` sur `true`, puis récupérez la valeur à partir de l’en-tête de réponse `x-ms-documentdb-collection-index-transformation-progress`.
+
+```csharp
+// retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync(new ContainerRequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
+```
+
+Lors de la définition d’une stratégie d’indexation personnalisée pendant la création d’un conteneur, l’API Fluent du SDK V3 vous permet d’écrire cette définition de façon concise et efficace :
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithIndexingPolicy()
+        .WithIncludedPaths()
+            .Path("/*")
+        .Attach()
+        .WithExcludedPaths()
+            .Path("/name/*")
+        .Attach()
+        .WithSpatialIndex()
+            .Path("/locations/*", SpatialType.Point)
+        .Attach()
+        .WithCompositeIndex()
+            .Path("/name", CompositePathSortOrder.Ascending)
+            .Path("/age", CompositePathSortOrder.Descending)
+        .Attach()
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## <a name="use-the-java-sdk"></a>Utiliser le SDK Java

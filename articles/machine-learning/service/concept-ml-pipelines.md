@@ -1,6 +1,6 @@
 ---
 title: Présentation des pipelines ML
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Dans cet article, découvrez des informations sur les pipelines de machine learning que vous pouvez créer avec le SDK Azure Machine Learning pour Python et les avantages de l’utilisation des pipelines. Les pipelines Machine Learning sont utilisés par les scientifiques des données pour créer, optimiser et gérer leurs flux de travail de machine learning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858819"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035483"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Que sont les pipelines ML dans Azure Machine Learning service ?
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>Que sont les pipelines ML dans Azure Machine Learning ?
 
-Découvrez les pipelines de Machine Learning que vous pouvez créer et gérer avec Azure Machine Learning service. 
+Découvrez les pipelines de Machine Learning que vous pouvez créer et gérer avec Azure Machine Learning. 
 
 À l’aide de pipelines Machine Learning (ML), les scientifiques des données, ingénieurs des données et professionnels de l’informatique peuvent collaborer sur les étapes suivantes :
 + Préparation des données, comme les normalisations et les transformations
@@ -30,7 +30,7 @@ Découvrez les pipelines de Machine Learning que vous pouvez créer et gérer av
 
 Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipeline.md).
 
-![Pipelines de Machine Learning dans Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
+![Pipelines de Machine Learning dans Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>Quelle technologie de pipeline Azure dois-je utiliser ?
@@ -86,7 +86,7 @@ Il existe deux packages Python pour les pipelines avec Azure Machine Learning : 
 
 + Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipeline.md).
 
-+ Découvrez comment [exécuter des prédictions par lots sur de grandes quantités de données](how-to-run-batch-predictions.md).
++ Découvrez comment [exécuter des prédictions par lots sur de grandes quantités de données](tutorial-pipeline-batch-scoring-classification.md).
 
 + Consultez les [documents de référence sur le Kit de développement logiciel (SDK) pour les pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 

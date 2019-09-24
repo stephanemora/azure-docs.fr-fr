@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873517"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103153"
 ---
 # <a name="azure-sql-database-features"></a>Fonctionnalités d’Azure SQL Database
 
@@ -32,7 +32,7 @@ Azure SQL Database gère vos bases de données et garantit leur haute disponibil
 
 Le tableau suivant répertorie les principales fonctionnalités de SQL Server et indique si la fonctionnalité est partiellement ou entièrement prise en charge dans Managed Instance ou Single Database et Elastic pools, avec un lien vers des informations supplémentaires sur la fonctionnalité.
 
-| **Fonctionnalité SQL** | **Single databases and elastic pools** | **Managed instances** |
+| **Fonctionnalité SQL** | **Single databases and elastic pools** | **Instances gérées et pools d’instances** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) |
 | [Groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données et [ne peut pas être gérée par l'utilisateur](sql-database-managed-instance-transact-sql-information.md#always-on-availability). La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
@@ -112,10 +112,10 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 
 La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont ajoutées en tant que valeur supplémentaire aux fonctionnalités de base de données standard. Il existe un certain nombre de services externes qui peuvent être utilisés avec Azure SQL Database Service. 
 
-| **Fonctionnalités de la plateforme** | **Single databases and elastic pools** | **Managed instances** |
+| **Fonctionnalités de la plateforme** | **Single databases and elastic pools** | **Instances gérées et pools d’instances** |
 | --- | --- | --- |
-| [Géo-réplication active](sql-database-active-geo-replication.md) | Oui - tous les niveaux de service autres que hyperscale | Non, consultez [Groupes de basculement automatique (préversion)](sql-database-auto-failover-group.md) en guise d’alternative |
-| [Groupes de basculement automatique](sql-database-auto-failover-group.md) | Oui - tous les niveaux de service autres que hyperscale | Oui, en [préversion publique](sql-database-auto-failover-group.md)|
+| [Géo-réplication active](sql-database-active-geo-replication.md) | Oui - tous les niveaux de service autres que hyperscale | Non, consultez [Groupes de basculement automatique](sql-database-auto-failover-group.md) en guise d’alternative |
+| [Groupes de basculement automatique](sql-database-auto-failover-group.md) | Oui - tous les niveaux de service autres que hyperscale | Oui, voir [Groupes de basculement automatique](sql-database-auto-failover-group.md)|
 | Mise à l’échelle automatique | Oui, mais uniquement dans un [modèle serverless](sql-database-serverless.md). Dans le modèle avec serveur, le changement de niveau de service (modification de vCore, de stockage ou de DTU) est rapide et s’effectue en ligne. La modification du niveau de service ne nécessite qu’un temps d’arrêt minimal voire inexistant. | Non, vous devez choisir le calcul et le stockage réservés. La modification du niveau de service (vCore ou stockage maximal) s’effectue en ligne et ne nécessite qu’un temps d’arrêt minimal voire inexistant. |
 | [Sauvegardes automatiques](sql-database-automated-backups.md) | Oui. Les sauvegardes complètes interviennent tous les 7 jours, les sauvegardes différentielles toutes les 12 heures et les sauvegardes des journaux toutes les 5 à 10 minutes. | Oui. Les sauvegardes complètes interviennent tous les 7 jours, les sauvegardes différentielles toutes les 12 heures et les sauvegardes des journaux toutes les 5 à 10 minutes. |
 | [Réglage automatique (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| Non |
@@ -131,7 +131,7 @@ La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont 
 | [Gestion basée sur des stratégies](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Non | Non |
 | Adresse IP publique | Oui. L’accès peut être restreint à l’aide du pare-feu ou des points de terminaison du service.  | Oui. Doit être explicitement activée et le port 3342 doit être activé dans les règles de groupe de sécurité réseau. L'adresse IP publique peut être désactivée, si nécessaire. Voir [Point de terminaison public](sql-database-managed-instance-public-endpoint-securely.md) pour plus d’informations. | 
 | [Limite de restauration dans le temps d’une base de données](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Oui - tous les niveaux de service autres que hyperscale - Voir [Récupération de SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore) | Oui - voir [Récupération de base de données SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Pools de ressources | Oui, en tant que [pools élastiques](sql-database-elastic-pool.md) | Non. Une seule instance managée peut avoir plusieurs bases de données qui partagent le même pool de ressources. Les instances managées ne peuvent pas partager de ressources. |
+| Pools de ressources | Oui, en tant que [pools élastiques](sql-database-elastic-pool.md) | Oui. Une seule instance managée peut avoir plusieurs bases de données qui partagent le même pool de ressources. En outre, vous pouvez déployer plusieurs instances gérées dans des [pools d’instances (préversion)](sql-database-instance-pools.md) qui peuvent partager les ressources. |
 | Augmentation ou diminution d’échelle (en ligne) | Oui, vous pouvez modifier les DTU ou les vCores réservés ou le stockage maximal avec un temps d’arrêt minimal. | Oui, vous pouvez modifier les vCores réservés ou le stockage maximal avec un temps d’arrêt minimal. |
 | Alias SQL | Oui, voir [Alias DNS](dns-alias-overview.md) | Non |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | OUI | OUI |
@@ -146,7 +146,7 @@ La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont 
 ## <a name="tools"></a>Outils
 Azure SQL Database prend en charge différents outils de données qui peuvent vous aider à gérer vos données.
 
-| **Outil** | **Single databases and elastic pools** | **Managed instances** |
+| **Outil** | **Single databases and elastic pools** | **Instances gérées et pools d’instances** |
 | --- | --- | --- |
 | Portail Azure | OUI | OUI |
 | D’Azure CLI | OUI | OUI|
@@ -167,7 +167,7 @@ Azure SQL Database prend en charge différents outils de données qui peuvent vo
 
 Vous pouvez utiliser différentes méthodes de migration pour déplacer vos données entre SQL Server, une base de données unique et des bases de données Managed Instance. Les méthodes **en ligne** détectent toutes les modifications apportées à la source pendant la migration. Avec les méthodes **hors connexion**, lorsque que la migration est en cours, vous devez arrêter la charge de travail qui modifie les données de la source.
 
-| **Source** | **Base de données et pool élastique** | **Managed Instance** |
+| **Source** | **Base de données et pool élastique** | **Instance gérée et pools d’instances** |
 | --- | --- | --- |
 | SQL Server (local, Azure VM, Amazon RDS) | **En ligne :** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) <br/> **Hors connexion :** [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **En ligne :** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) <br/> **Hors connexion :** Sauvegarde et restauration natives, [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [Réplication de capture instantanée](sql-database-managed-instance-transactional-replication.md) |
 | Base de données unique | **Hors connexion :** [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Hors connexion :** [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
@@ -183,3 +183,4 @@ Microsoft continue d’ajouter des fonctionnalités à Azure SQL Database. Visit
 Pour plus d’informations sur les versions d’Azure SQL Database, consultez :
 - [Définition de la base de données SQL](sql-database-technical-overview.md)
 - [Présentation de Managed Instance](sql-database-managed-instance.md)
+- [Que sont les pools Managed Instance ?](sql-database-instance-pools.md)

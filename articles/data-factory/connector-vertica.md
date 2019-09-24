@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 84d82c443b291e5374e70ddb8227a8c35a831029
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: d33540aa60bdb86294c386314055a4c21c698902
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277358"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089093"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copier des données de Vertica avec Azure Data Factory 
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis Vertica. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur Vertica est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier les données depuis Vertica vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -173,6 +178,10 @@ Pour copier des données de Vertica, définissez **VerticaSource** comme type de
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+
+Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

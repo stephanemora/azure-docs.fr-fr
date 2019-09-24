@@ -1,7 +1,7 @@
 ---
 title: Problèmes connus et résolutions
-titleSuffix: Azure Machine Learning service
-description: Liste des problèmes connus, des solutions de contournement et des résolutions pour Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Liste des problèmes connus, des solutions de contournement et des résolutions pour Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 81eabadba70a2d5334fab43157f17d24c41d97ec
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858693"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103415"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
-Cet article vous permet de rechercher et de corriger les erreurs ou les défaillances rencontrées lors de l’utilisation du service Azure Machine Learning.
+Cet article vous permet de rechercher et de corriger les erreurs ou les défaillances rencontrées lors de l’utilisation d’Azure Machine Learning.
 
 ## <a name="visual-interface-issues"></a>Problèmes concernant l’interface visuelle
 
@@ -87,7 +87,7 @@ Problèmes Databricks et Azure Machine Learning
 
 ### <a name="failure-when-installing-packages"></a>Échec lors de l’installation des packages
 
-L’installation du Kit de développement logiciel (SDK) Azure Machine Learning échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Azure Databricks et non au Kit de développement logiciel (SDK) Azure Machine Learning service. Vous pouvez également rencontrer ce problème avec d’autres bibliothèques. Exemple :
+L’installation du Kit de développement logiciel (SDK) Azure Machine Learning échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Azure Databricks et non au Kit de développement logiciel (SDK) Azure Machine Learning. Vous pouvez également rencontrer ce problème avec d’autres bibliothèques. Exemple :
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -143,7 +143,7 @@ Si vous accédez directement à votre espace de travail à partir d’un lien de
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux d’activité, visitez le [Portail Microsoft Azure](https://portal.azure.com) et accédez à votre espace de travail, puis sélectionnez **Espace de travail > Expérience > Exécuter > Journaux d’activité**.  Vous pouvez également trouver ces informations dans la section **Expériences** de la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning service consigne des informations de diverses sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. La plupart de ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+> Azure Machine Learning consigne des informations de diverses sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. La plupart de ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
 ## <a name="activity-logs"></a>Journaux d’activité
 
@@ -174,3 +174,43 @@ Par exemple, vous recevrez une erreur si vous essayez de créer ou de joindre un
 Si vous recevez une erreur `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, appliquez les solutions de contournement suivantes.
 
 Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions. Vous pouvez également répartir la charge de travail entre deux espaces de travail.
+
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Défaillances des WebServices dans Azure Kubernetes Service 
+
+De nombreuses défaillances de WebService dans Azure Kubernetes Service peuvent être déboguées en se connectant au cluster à l’aide de `kubectl`. Vous pouvez obtenir `kubeconfig.json` pour un cluster Azure Kubernetes Service en exécutant
+
+```bash
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Mise à jour des composants d’Azure Machine Learning dans le cluster AKS
+
+Les mises à jour des composants Azure Machine Learning installés dans un cluster Azure Kubernetes Service doivent être appliquées manuellement. Vous pouvez appliquer ces clusters en détachant le cluster de l’espace de travail Azure Machine Learning, puis en attachant à nouveau le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+Si vous n’avez plus le certificat et la clé privée SSL, ou si vous utilisez un certificat généré par Azure Machine Learning, vous pouvez récupérer les fichiers avant de détacher le cluster en vous connectant au cluster avec `kubectl` et en extrayant le secret `azuremlfessl`.
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes stocke les secrets dans un format encodé en base 64. Vous devez décoder en base 64 les composants `cert.pem` et `key.pem` des secrets avant de les fournir à `attach_config.enable_ssl`. 

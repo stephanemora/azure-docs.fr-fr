@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c9ffd5a173bcfae41e08babbadae1e67047ed452
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a76baf65b2dc7d0cdb444b79e697930188417748
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725989"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089484"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de ServiceNow. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur ServiceNow est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier les données depuis ServiceNow vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -44,7 +49,7 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
 | type | La propriété type doit être définie sur : **ServiceNow** | OUI |
 | endpoint | Point de terminaison du serveur ServiceNow (`http://<instance>.service-now.com`).  | OUI |
 | authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont les suivantes : **Basic**, **OAuth2** | OUI |
-| userName | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | OUI |
+| username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | OUI |
 | password | Mot de passe correspondant au nom d’utilisateur pour l’authentification De base et OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | clientId | ID client pour l’authentification OAuth2.  | Non |
 | clientSecret | Secret client pour l’authentification OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
@@ -164,6 +169,11 @@ Si votre requête contient un filtre, utilisez le schéma « Actual » pour b�
 ### <a name="index"></a>Index
 
 L’index de table ServiceNow peut contribuer à améliorer les performances des requêtes. Consultez [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+
+Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

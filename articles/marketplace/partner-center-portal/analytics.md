@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880199"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036642"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
@@ -26,7 +26,6 @@ Pour accéder aux outils d'analyse de l'Espace partenaires, ouvrez le tableau de
 |[Commandes](#orders-dashboard)|Informations relatives à vos commandes dans un format graphique et téléchargeable|
 |[Clients](#customer-dashboard)|Informations sur vos clients, y compris les tendances de croissance, présentées dans un format graphique et téléchargeable|
 |[Téléchargements](#downloads-dashboard)|Liste de vos requêtes de téléchargement durant les 30 derniers jours|
-|[Évaluations et avis](#ratings-and-reviews)| Informations sur les évaluations et les avis laissés par vos clients pour les offres qu’ils ont acquises.
 
 ## <a name="summary-dashboard"></a>Tableau de bord Résumé
 
@@ -245,7 +244,7 @@ Vous recevez une notification contextuelle et un e-mail contenant un lien vers l
 | Nom de l’instance cloud : Azure Government | Ordre| Clouds de Microsoft réservés aux gouvernements suivants : Chine, Allemagne ou États-Unis d’Amérique.| |
 | Ville du client| Client| Nom de ville fourni par le client final. La ville peut être différente de la ville associée à l’abonnement Azure du client.||
 | Langue de communication du client  | Client| Langue dans laquelle le client préfère communiquer.||
-| Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client.|  |
+| Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom associé à l’abonnement Azure du client.|  |
 | Pays du client | Client, Commande | Nom de pays fourni par le client. Le pays peut être différent du pays associé à l’abonnement Azure du client.|  |
 | Adresse e-mail du client| Client| Adresse e-mail fournie par le client final. L'adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.||
 | Prénom du client| Client| Prénom fourni par le client. Le prénom peut être différent du prénom associé à l’abonnement Azure du client.| |
@@ -286,38 +285,3 @@ Vous recevez une notification contextuelle et un e-mail contenant un lien vers l
 | Nom du fournisseur| Client| Nom du fournisseur impliqué dans la relation entre Microsoft et le client final. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP.|
 | SKU| Ordre| Nom de la référence SKU, tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU, mais une référence SKU ne peut être associée qu’à une seule offre.||
 | Date de fin d'essai| Ordre| La date de fin de la période d’essai de cette commande approche ou est dépassée.||
-
-## <a name="ratings-and-reviews"></a>Évaluations et avis
-
-Quand les clients parcourent, recherchent et achètent des offres dans les deux places de marché, ils peuvent laisser des évaluations et des avis pour les offres qu’ils ont acquises. Ils peuvent soumettre de nouveaux avis ou évaluations, et mettre à jour ou supprimer ceux qu’ils ont déjà soumis. Les avis sont publiés dans la Place de marché Azure ou AppSource sous l’onglet Avis de la page d’affichage du produit de l’offre. Les clients peuvent inclure leur nom pour les évaluations ou les avis, ou publier de manière anonyme.  
-
-> [!NOTE]
-> Les clients ne peuvent apporter des modifications qu’à leurs propres évaluations et avis.
-
-Le **tableau de bord des évaluations et avis** affiche les tendances et les insights des activités des clients. Il fournit des représentations graphiques des éléments suivants :
-
-- Évaluations et avis  
-- Commentaires d’évaluation
-
-### <a name="marketplace-storefront-tabs"></a>Onglets des vitrines des places de marché
-
-Les éditeurs peuvent voir les métriques de leurs offres séparément dans les onglets AppSource et Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez **Offre** dans la liste déroulante :
-
-![Liste déroulante des offres du menu Analyser de l’Espace partenaires](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>Récapitulatif des évaluations et avis
-
-La section Récapitulatif des évaluations et avis montre les métriques ci-dessous pour une plage de dates sélectionnée :
-
-- **Évaluation moyenne :** Évaluation (étoiles) moyenne pondérée de toutes les évaluations soumises par les clients pour l’offre sélectionnée.
-- **Détails des évaluations :** Détails des évaluations (étoiles) par le nombre de clients ayant soumis des évaluations. Le graphique à barres est empilé avec des évaluations réelles et révisées (nombre d’évaluations mis à jour).
-- **Total des évaluations :** Nombre total des évaluations soumises. Ce nombre comprend également les évaluations avec et sans avis.
-- **Évaluations avec avis :** Nombre d’avis soumis.
-
-![Récapitulatif des évaluations et avis du menu Analyser de l’Espace partenaires](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>Commentaires d’évaluation
-
-Les avis sont affichés dans l’ordre chronologique de leur publication. La vue par défaut montre tous les avis. Vous pouvez filtrer les avis selon l’évaluation (étoiles) à l’aide du **filtre** dans le menu déroulant. Vous pouvez également rechercher les mots clés qui s’affichent dans l’avis.  
-
-![Commentaires d’évaluation du menu Analyser de l’Espace partenaires](./media/analyze-reviews.png)

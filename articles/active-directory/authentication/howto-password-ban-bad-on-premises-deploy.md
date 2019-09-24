@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389773"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959934"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -65,6 +65,14 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
 * Un compte d’administrateur général pour inscrire la forêt et le service proxy de protection par mot de passe auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
 * Les domaines Active Directory qui exécutent le logiciel du service d’agent DC doivent utiliser la réplication du système de fichiers distribué (DFSR) pour la réplication sysvol.
+
+  Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour utiliser DFSR avant d’installer la protection de mot de passe Azure AD. Pour plus d’informations, consultez le lien suivant :
+
+  [Guide de migration de la réplication sysvol : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+  > [!WARNING]
+  > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS (la technologie qui précède DFSR) pour la réplication sysvol, mais le logiciel ne fonctionnera pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
+
 * Le service de distribution de clés doit être activé sur tous les contrôleurs de domaine figurant dans le domaine qui exécutent Windows Server 2012. Par défaut, ce service est activé par le début du déclencheur manuel.
 
 ## <a name="single-forest-deployment"></a>Déploiement d’une seule forêt

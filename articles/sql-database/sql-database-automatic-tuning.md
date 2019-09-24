@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 3ddee3dabd51d95f230f0178dfb647f8e297b3d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9922d347fae154a3a9b1c37e813014225c28442d
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569393"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103174"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -75,7 +75,7 @@ Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP IN
 
 Vous pouvez soit appliquer manuellement les recommandations de réglage à l’aide du portail, soit laisser le réglage automatique les appliquer en toute autonomie pour vous. L’avantage de laisser le système appliquer de manière autonome les recommandations de réglage pour vous est qu’il valide automatiquement qu’il existe un accroissement des performances de la charge de travail. En revanche, si une régression est détectée, il annule automatiquement les recommandations de réglage. Notez qu’en cas de requêtes affectées par des recommandations de réglage qui ne sont pas exécutées fréquemment, la phase de validation peut, par nature, prendre jusqu’à 72 heures.
 
-Si vous appliquez manuellement les recommandations de réglage, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles. En outre, les recommandations appliquées manuellement restent actives et figurent dans la liste des recommandations pendant 24 à 48 heures avant que le système ne les retire automatiquement. Pour supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
+Si vous appliquez les recommandations de réglage via T-SQL, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles. Les recommandations appliquées de cette manière restent actives et s’affichent dans la liste des recommandations de paramétrage pour 24-48 heures. avant que le système ne les retire automatiquement. Si vous souhaitez supprimer une recommandation de cette liste avant cela, vous pouvez l’abandonner dans le portail Azure.
 
 Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur des serveurs SQL Database et les appliquer sur chaque base de données qui hérite des paramètres du serveur. Les serveurs SQL Database peuvent hériter des valeurs Azure par défaut pour les paramètres de réglage automatique. Actuellement, les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 

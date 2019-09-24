@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 26f05e60761af0b8f0db9508488f28613b82293f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 81e386be98f9c5684402c376372f43e90fefcb42
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879133"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066745"
 ---
 # <a name="device-connectivity-in-azure-iot-central-preview-features"></a>Connectivité des appareils dans Azure IoT Central (fonctionnalités en préversion)
 
@@ -34,15 +34,18 @@ L’utilisation de DPS permet :
 
 Cet article décrit les cas d’usage suivants :
 
-1. [Connecter rapidement un seul appareil avec la SAS](#connect-a-single-device)
-1. [Connecter des appareils à l’échelle avec la SAS](#connect-devices-at-scale-using-sas)
-1. [Connecter des appareils à l’échelle avec des certificats X.509](#connect-devices-using-x509-certificates), l’approche recommandée pour les environnements de production.
-1. [Connecter des appareils sans les inscrire au préalable](#connect-without-registering-devices)
-1. [Connecter des appareils à l'aide des fonctionnalités IoT Plug-and-Play](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Connecter rapidement un seul appareil avec la SAS](#connect-a-single-device)
+- [Connecter des appareils à l’échelle avec la SAS](#connect-devices-at-scale-using-sas)
+- [Connecter des appareils à l’échelle avec des certificats X.509](#connect-devices-using-x509-certificates), l’approche recommandée pour les environnements de production.
+- [Connecter des appareils sans les inscrire au préalable](#connect-without-registering-devices)
+- [Connecter des appareils à l'aide des fonctionnalités IoT Plug-and-Play](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## <a name="connect-a-single-device"></a>Connecter un appareil unique
 
-Cette approche est pratique quand vous faites des essais avec IoT Central ou quand vous testez des appareils. Vous pouvez utiliser les informations de connexion des appareils à partir de votre application IoT Central afin de générer la chaîne de connexion pour un appareil. Pour voir le détail des étapes, consultez [Comment générer une chaîne de connexion d’appareil pour se connecter à une application Azure IoT Central](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Cette approche est pratique quand vous faites des essais avec IoT Central ou quand vous testez des appareils. Vous pouvez utiliser les informations de connexion de l’appareil à partir de votre application IoT Central pour connecter un appareil à votre application IoT Central à l’aide du service d’approvisionnement d’appareils (DPS). Vous trouverez des exemples de code client d’appareil DPS pour les langages suivants :
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.JS](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Connecter des appareils à l’échelle avec la SAS
 
@@ -190,8 +193,6 @@ Le kit de développement logiciel (SDK) Azure Device est le moyen le plus simple
 - [SDK Azure IoT pour Node.js](https://github.com/azure/azure-iot-sdk-node)
 - [SDK Azure IoT pour Java](https://github.com/azure/azure-iot-sdk-java)
 - [SDK Azure IoT pour .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Chaque appareil se connecte en utilisant une chaîne de connexion unique qui l’identifie. Un appareil ne peut se connecter qu’au hub IoT où il est inscrit. Quand vous créez un appareil réel dans votre application Azure IoT Central, l’application génère les informations dont vous avez besoin pour construire une chaîne de connexion avec `dps-keygen`.
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>Fonctionnalités du SDK et connectivité d’IoT Hub
 

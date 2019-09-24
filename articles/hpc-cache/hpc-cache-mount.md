@@ -4,14 +4,14 @@ description: Comment connecter des clients à un service Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775073"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036960"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Monter le cache Azure HPC Cache
 
@@ -19,13 +19,13 @@ Une fois le cache créé, les clients NFS peuvent y accéder à l’aide d’un
 
 Utilisez les adresses de montage listées dans la vue d’ensemble du cache, ainsi que le chemin de l’espace de noms virtuels que vous avez défini lors de la création de la cible de stockage. 
 
-![Capture d’écran de la page Vue d’ensemble de l’instance Azure HPC Cache, avec la liste des adresses de montage mise en surbrillance en bas à droite](media/mount-addresses.png)
+![Capture d’écran de la page Vue d’ensemble de l’instance Azure HPC Cache, avec la liste des adresses de montage mise en surbrillance en bas à droite](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > Les adresses de montage du cache correspondent aux interfaces réseau du sous-réseau du cache. Dans le groupe de ressources, les cartes réseau portent un nom se terminant par `-cluster-nic-` et par un nombre. Vous ne devez ni modifier ni supprimer ces interfaces, car cela rendrait le cache indisponible.
 
-Les chemins d’espaces de noms virtuels sont affichés dans la page **Cibles de stockage**. 
-![Capture d’écran du panneau Cible de stockage du cache, avec une entrée mise en surbrillance dans la colonne Chemin de la table](media/storage-target-path.png)
+Les chemins d’espaces de noms virtuels sont affichés dans la page **Cibles de stockage**. Cliquez sur le nom de la cible pour afficher les détails, y compris le ou les chemins d’accès de l’espace de noms agrégé qui lui sont associés. 
+![Capture d’écran du panneau Cible de stockage du cache, avec une entrée mise en surbrillance dans la colonne Chemin de la table](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>Syntaxe de la commande mount
 

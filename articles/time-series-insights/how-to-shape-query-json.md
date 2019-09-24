@@ -165,8 +165,8 @@ Exemple de charge utile JSON :
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi |
-   | FYYY | pumpRate | LINE\_DATA | FR | Débit | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | FR | Pression d’huile moteur | psi |
+   | FYYY | pumpRate | LINE\_DATA | US | Débit | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | US | Pression d’huile moteur | psi |
 
 * Table d’événements Time Series Insights, après l’aplanissement :
 
@@ -176,8 +176,8 @@ Exemple de charge utile JSON :
    | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi | 2018-01-17T01:17:00Z | 34.7 |
    | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | FR | Débit | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | FR | Pression d’huile moteur | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FYYY | pumpRate | LINE\_DATA | US | Débit | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | US | Pression d’huile moteur | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 Remarques sur ces deux tables :
 

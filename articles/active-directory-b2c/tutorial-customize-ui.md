@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849380"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063276"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Didacticiel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
-Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory (Azure AD) B2C. Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-overview.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
+Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory B2C (Azure AD B2C). Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-overview.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
 
 Dans cet article, vous apprendrez comment :
 
@@ -43,7 +43,7 @@ Vous créez un conteneur et un compte de stockage Azure, puis vous placez les fi
 Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoins de ce tutoriel vous allez les stocker dans le [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à bien utiliser l’annuaire qui contient votre abonnement Azure. Sélectionnez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez l’annuaire qui contient votre abonnement. Cet annuaire est différent de celui qui contient votre locataire Azure B2C.
+2. Veillez à bien utiliser l’annuaire qui contient votre abonnement Azure. Sélectionnez le filtre **Annuaire + abonnement** dans le menu supérieur et sélectionnez l’annuaire qui contient votre abonnement. Cet annuaire est différent de celui qui contient votre locataire Azure B2C.
 3. Choisissez Tous les services dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Comptes de stockage**.
 4. Sélectionnez **Ajouter**.
 5. Sous **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis cliquez sur **OK**.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743832"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102646"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -75,7 +75,7 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)|**Évaluations de mises à jour** : Pris en charge<br><br>**Mise à jour corrective** : Exige un runbook Worker hybride. Consultez [Exigences du runbook Worker hybride](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)|**Évaluations de mises à jour** : Pris en charge<br><br>**Mise à jour corrective** : Exige un runbook Worker hybride. Consultez [Exigences du runbook Worker hybride](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
@@ -108,7 +108,7 @@ Les agents Windows doivent être configurés pour communiquer avec un serveur 
 
 #### <a name="linux"></a>Linux
 
-Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. TLS 1.1 ou TLS 1.2 est exigé pour interagir avec Update Management. La configuration de Log Analytics Agent pour Linux afin d’envoyer des rapports à plusieurs espaces de travail Log Analytics n’est pas prise en charge avec cette solution.
+Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. TLS 1.1 ou TLS 1.2 est exigé pour interagir avec Update Management. La configuration de Log Analytics Agent pour Linux afin d’envoyer des rapports à plusieurs espaces de travail Log Analytics n’est pas prise en charge avec cette solution.  Python 2.x doit également être installé sur la machine.
 
 Pour plus d’informations sur la manière d’installer Log Analytics Agent pour Linux et télécharger la dernière version, consultez [Log Analytics Agent pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour plus d’informations sur la manière d’installer Log Analytics Agent pour Windows et télécharger la dernière version, consultez [Microsoft Monitoring Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).
 

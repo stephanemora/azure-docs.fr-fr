@@ -4,14 +4,14 @@ description: Décrit comment utiliser des modèles Azure Resource Manager pour l
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801980"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965310"
 ---
 # <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
@@ -21,43 +21,35 @@ Pour relever ces défis, vous pouvez automatiser les déploiements et utiliser l
 
 Pour implémenter une infrastructure en tant que code pour vos solutions Azure, utilisez des modèles Azure Resource Manager. Le modèle est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. Dans le modèle, vous spécifiez les ressources à déployer et les propriétés de ces ressources.
 
-## <a name="benefits-of-resource-manager-templates"></a>Avantages des modèles Resource Manager
+## <a name="why-choose-resource-manager-templates"></a>Pourquoi choisir des modèles Resource Manager ?
 
-Les modèles Resource Manager offrent les avantages suivants :
+Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’un des autres services d’infrastructure en tant que code, tenez compte des avantages suivants de l’utilisation de modèles :
 
-* Déployer, gérer et superviser toutes les ressources de votre solution sous forme de groupe, plutôt qu’individuellement
+* **Syntaxe déclarative** : Les modèles Resource Manager vous permettent de créer et de déployer une infrastructure Azure entière de façon déclarative. Par exemple, vous pouvez déployer non seulement des machines virtuelles, mais également l’infrastructure réseau, les systèmes de stockage et toute autre ressource dont vous pouvez avoir besoin.
 
-* Déployez votre solution à plusieurs reprises tout au long du cycle de vie de développement. Vous avez ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
+* **Résultats reproductibles** : Déployez votre infrastructure à plusieurs reprises tout au long du cycle de vie de développement. Vous avez ainsi l’assurance que vos ressources sont déployées de façon cohérente. Les modèles sont idempotents, ce qui signifie que vous pouvez déployer le même modèle plusieurs fois et obtenir les mêmes types de ressources dans le même état. Vous pouvez développer un modèle qui représente l’état souhaité, plutôt que de développer un grand nombre de modèles distincts pour représenter des mises à jour.
 
-* Gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts
-
-Si vous essayez de choisir entre utiliser des modèles Resource Manager ou l’un des autres services d’infrastructure en tant que code, tenez compte des avantages suivants que présentent les modèles par rapport à ces services :
-
-* Les nouveaux services et fonctionnalités Azure sont immédiatement disponibles dans les modèles. Dès qu’un fournisseur de ressources introduit de nouvelles ressources, vous pouvez les déployer par le biais de modèles. Avec les autres services d’infrastructures en tant que code, vous devez attendre que des tiers implémentent des interfaces pour les nouvelles ressources.
-
-* Les déploiements de modèle sont gérés par le biais d’un seul envoi du modèle, plutôt qu’avec plusieurs commandes impératives. Resource Manager orchestre le déploiement de ressources interdépendantes afin qu’elles soient créées dans l’ordre approprié. Il analyse le modèle et détermine l’ordre correct pour le déploiement en fonction des références entre les ressources.
+* **Orchestration** : Vous n’avez pas à vous soucier de la complexité des opérations de commande. Resource Manager orchestre le déploiement de ressources interdépendantes afin qu’elles soient créées dans l’ordre approprié. Lorsque cela est possible, Resource Manager déploie des ressources en parallèle afin que vos déploiements se terminent plus rapidement que les déploiements en série. Vous déployez le modèle par le biais d’une seule commande, plutôt que par le biais de plusieurs commandes impératives.
 
    ![Comparaison de déploiements de modèles](./media/template-deployment-overview/template-processing.png)
 
-* Les déploiements de modèles font l’objet d’un suivi dans le portail Azure. Vous pouvez consulter l’historique des déploiements et obtenir des informations sur le déploiement des modèles. Vous pouvez voir le modèle qui a été déployé, les valeurs de paramètre passées et toutes les valeurs de sortie. Les autres services d’infrastructure en tant que code ne font pas l’objet d’un suivi par le biais du portail.
+* **Validation intégrée** : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
+
+* **Fichiers modulaires** : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans d’autres modèles.
+
+* **Créez une ressource Azure** : Vous pouvez utiliser immédiatement les nouveaux services et fonctionnalités Azure dans les modèles. Dès qu’un fournisseur de ressources introduit de nouvelles ressources, vous pouvez les déployer par le biais de modèles. Vous n’avez pas besoin d’attendre la mise à jour des outils ou des modules avant d’utiliser les nouveaux services.
+
+* **Déploiements suivis** : Dans le portail Azure, vous pouvez consulter l’historique des déploiements et obtenir des informations sur le déploiement des modèles. Vous pouvez voir le modèle qui a été déployé, les valeurs de paramètre passées et toutes les valeurs de sortie. Les autres services d’infrastructure en tant que code ne font pas l’objet d’un suivi par le biais du portail.
 
    ![Historique de déploiement](./media/template-deployment-overview/deployment-history.png)
 
-* Les déploiements de modèles sont soumis à une validation en amont. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
+* **Stratégie en tant que code** : [Azure Policy](../governance/policy/overview.md) est une stratégie en tant qu’infrastructure de code pour automatiser la gouvernance. Si vous utilisez des stratégies Azure, la correction des stratégies est effectuée sur des ressources non conformes quand elles sont déployées par le biais de modèles.
 
-* Si vous utilisez des [stratégies Azure](../governance/policy/overview.md), la correction des stratégies est effectuée sur des ressources non conformes quand elles sont déployées par le biais de modèles.
+* **Blueprints de déploiement** : Vous pouvez tirer parti des [plans](../governance/blueprints/overview.md) fournis par Microsoft pour respecter les normes réglementaires et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
 
-* Microsoft fournit des [blueprints](../governance/blueprints/overview.md) de déploiement pour respecter les standards de réglementation et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
+* **Code exportable** : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 
-## <a name="idempotent"></a>Idempotent
-
-Idempotent signifie simplement que vous pouvez exécuter les mêmes opérations plusieurs fois et obtenir le même résultat. Le déploiement d’un modèle Resource Manager est idempotent. Vous pouvez déployer le même modèle plusieurs fois et obtenir les mêmes types de ressources dans le même état. Ce concept est important car cela signifie que vous obtenez des résultats cohérents, que vous redéployiez un modèle dans un groupe de ressources existant ou que vous déployiez un modèle dans un nouveau groupe de ressources.
-
-Supposons qu’après avoir déployé trois ressources dans un groupe de ressources, vous décidez que vous devez ajouter une quatrième ressource. Au lieu de créer un modèle qui contient uniquement la nouvelle ressource, vous pouvez ajouter la quatrième ressource à votre modèle existant. Quand vous déployez le nouveau modèle dans le groupe de ressources qui contient déjà trois ressources, Resource Manager détermine les actions à entreprendre.
-
-Si la ressource existe dans le groupe de ressources et que la demande ne contient aucune mise à jour des propriétés, aucune action n’est effectuée. Si la ressource existe mais que des propriétés ont changé, la ressource existante est mise à jour. Si la ressource n’existe pas, la nouvelle ressource est créée.
-
-Vous avez l’assurance qu’une fois le déploiement terminé, les ressources sont toujours dans l’état attendu.
+* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](resource-manager-tools-vs-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage.
 
 ## <a name="template-file"></a>Fichier de modèle
 
@@ -74,20 +66,6 @@ Le modèle comprend les sections suivantes :
 * [Ressources](resource-group-authoring-templates.md#resources) - Spécifiez les ressources à déployer.
 
 * [Sorties](template-outputs.md) - Retournez des valeurs à partir des ressources déployées.
-
-## <a name="template-features"></a>Fonctionnalités de modèle
-
-Resource Manager analyse les dépendances pour garantir que les ressources sont créées dans l’ordre approprié. La plupart des dépendances sont déterminées implicitement. Toutefois, vous pouvez définir explicitement une dépendance pour garantir qu’une ressource est déployée avant une autre ressource. Pour plus d’informations, consultez [Définition de dépendances dans des modèles Azure Resource Manager](resource-group-define-dependencies.md).
-
-Vous pouvez ajouter une ressource à votre modèle et éventuellement la déployer. En général, vous passez une valeur de paramètre qui indique si la ressource doit être déployée. Pour plus d’informations, consultez [Déploiement conditionnel dans des modèles Resource Manager](conditional-resource-deployment.md).
-
-Au lieu de répéter des blocs de code JSON de nombreuses fois dans votre modèle, vous pouvez utiliser un élément copy pour spécifier plusieurs instances d’une variable, d’une propriété ou d’une ressource. Pour plus d’informations, consultez [Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager](resource-group-create-multiple.md).
-
-## <a name="export-templates"></a>Exporter des modèles
-
-Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
-
-Lorsque vous créez une solution à partir du portail, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Pour obtenir un exemple, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="template-deployment-process"></a>Processus de déploiement de modèle
 
@@ -146,6 +124,7 @@ Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
-* Pour bien démarrer avec le développement d’un modèle, consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](resource-manager-tools-vs-code.md).
-* Pour une introduction au service Resource Manager, notamment de ses fonctionnalités de gestion, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
-
+* Pour définir explicitement des dépendances afin qu’une ressource soit déployée avant une autre, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md).
+* Vous pouvez ajouter une ressource à votre modèle et éventuellement la déployer. Pour plus d’informations, consultez [Déploiement conditionnel dans des modèles Resource Manager](conditional-resource-deployment.md).
+* Au lieu de répéter des blocs de code JSON de nombreuses fois dans votre modèle, vous pouvez spécifier plusieurs instances d’une variable, d’une propriété ou d’une ressource. Pour plus d’informations, consultez [Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager](resource-group-create-multiple.md).
+* Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

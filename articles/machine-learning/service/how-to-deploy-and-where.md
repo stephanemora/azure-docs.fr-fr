@@ -1,6 +1,6 @@
 ---
 title: Comment et où déployer des modèles ?
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment et où déployer vos modèles Azure Machine Learning service, notamment Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA (Field Programmable Gate Arrays).
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cf72a83035e318d3a937176bbaaebd8e298d3ad2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f70975749be52e8498488d7019bf5cb8d858df54
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390668"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034684"
 ---
-# <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
+# <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 
 Découvrez comment déployer votre modèle Machine Learning en tant que service web dans le cloud Azure ou sur des appareils Azure IoT Edge.
 
@@ -29,11 +29,11 @@ Le workflow est similaire quel que soit l’endroit [où vous déployez](#target
 1. Déployer le modèle sur la cible de calcul.
 1. Tester le modèle déployé, également appelé service web.
 
-Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning service](concept-model-management-and-deployment.md).
+Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
+- Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur les concepts impliqués dans le workflow de dépl
 
 ## <a name="connect-to-your-workspace"></a>Se connecter à un espace de travail
 
-Le code suivant montre comment se connecter à un espace de travail Azure Machine Learning service à l’aide des informations mises en cache dans l’environnement de développement local :
+Le code suivant montre comment se connecter à un espace de travail Azure Machine Learning à l’aide des informations mises en cache dans l’environnement de développement local :
 
 + **Avec le kit SDK**
 
@@ -118,7 +118,7 @@ Les extraits de code de cette section montrent comment inscrire un modèle à pa
 
 ### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
 
-Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fournir le chemin d’un dossier ou d’un seul fichier. Vous pouvez utiliser cette méthode pour inscrire les modèles qui ont été entraînés avec Azure Machine Learning service et téléchargés. Vous pouvez également utiliser cette méthode pour inscrire des modèles entraînés en dehors d’Azure Machine Learning.
+Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fournir le chemin d’un dossier ou d’un seul fichier. Vous pouvez utiliser cette méthode pour inscrire les modèles qui ont été entraînés avec Azure Machine Learning et téléchargés. Vous pouvez également utiliser cette méthode pour inscrire des modèles entraînés en dehors d’Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
@@ -154,7 +154,7 @@ Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fourn
 
 Pour plus d’informations, consultez la documentation sur la [classe Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-Pour plus d’informations sur l’utilisation de modèles entraînés en dehors d’Azure Machine Learning service, consultez le [guide pratique pour déployer un modèle existant](how-to-deploy-existing-model.md).
+Pour plus d’informations sur l’utilisation de modèles formés en dehors d’Azure Machine Learning, consultez [Déployer un modèle existant](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -214,7 +214,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 #### <a name="optional-automatic-schema-generation"></a>(Facultatif) Génération automatique d'un schéma
 
-Si vous voulez générer automatiquement un schéma pour votre service web, spécifiez un exemple d’entrée et/ou de sortie dans le constructeur pour l’un des objets de type définis. Le type et l’exemple sont utilisés pour créer automatiquement le schéma. Azure Machine Learning service crée ensuite une spécification [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) pour le service web pendant le déploiement.
+Si vous voulez générer automatiquement un schéma pour votre service web, spécifiez un exemple d’entrée et/ou de sortie dans le constructeur pour l’un des objets de type définis. Le type et l’exemple sont utilisés pour créer automatiquement le schéma. Azure Machine Learning crée ensuite une spécification (Swagger) [OpenAPI](https://swagger.io/docs/specification/about/) pour le service web pendant le déploiement.
 
 Les types suivants sont pris en charge :
 
@@ -630,7 +630,7 @@ Le document JSON suivant est un exemple de schéma (spécification OpenAPI) gén
     "swagger": "2.0",
     "info": {
         "title": "myservice",
-        "description": "API specification for the Azure Machine Learning service myservice",
+        "description": "API specification for Azure Machine Learning myservice",
         "version": "1.0"
     },
     "schemes": [
@@ -762,9 +762,9 @@ Pour plus d’informations, consultez la [spécification OpenAPI](https://swagge
 Pour disposer d'un utilitaire permettant de créer des bibliothèques clientes à partir de la spécification, consultez [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a> Inférence par lots
-Les cibles de calcul Azure Machine Learning sont créées et managées par Azure Machine Learning service. Elles peuvent être utilisées pour la prédiction par lots à partir de pipelines Azure Machine Learning.
+Les cibles de calcul Azure Machine Learning sont créées et managées par Azure Machine Learning. Elles peuvent être utilisées pour la prédiction par lots à partir de pipelines Azure Machine Learning.
 
-Pour obtenir une présentation détaillée de l’inférence par lots avec la capacité de calcul Azure Machine Learning, consultez le [guide pratique pour exécuter des prédictions par lots](how-to-run-batch-predictions.md).
+Pour obtenir une présentation détaillée de l’inférence par lots avec la capacité de calcul Azure Machine Learning, consultez le [guide pratique pour exécuter des prédictions par lots](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> Inférence IoT Edge
 La prise en charge du déploiement en périphérie est en préversion. Pour plus d’informations, consultez [Déployer Azure Machine Learning en tant que module IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -776,7 +776,7 @@ La prise en charge du déploiement en périphérie est en préversion. Pour plus
 
 ## <a name="continuously-deploy-models"></a>Déployer des modèles en continu
 
-Vous pouvez déployer des modèles en continu à l’aide de l’extension Machine Learning pour [Azure DevOps](https://azure.microsoft.com/services/devops/). Vous pouvez utiliser l’extension Machine Learning pour Azure DevOps pour déclencher un pipeline de déploiement quand un nouveau modèle Machine Learning est inscrit dans un espace de travail Azure Machine Learning service.
+Vous pouvez déployer des modèles en continu à l’aide de l’extension Machine Learning pour [Azure DevOps](https://azure.microsoft.com/services/devops/). Vous pouvez utiliser l’extension Machine Learning pour Azure DevOps pour déclencher un pipeline de déploiement quand un nouveau modèle Machine Learning est inscrit dans un espace de travail Azure Machine Learning.
 
 1. Inscrivez-vous sur [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), ce qui permet l’intégration et la livraison continues de votre application vers n’importe quelle plateforme ou n’importe quel cloud. (Azure Pipelines et les [pipelines Machine Learning](concept-ml-pipelines.md#compare) sont deux choses différentes.)
 
@@ -784,7 +784,7 @@ Vous pouvez déployer des modèles en continu à l’aide de l’extension Machi
 
 1. Installez l’[extension Machine Learning pour Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Utilisez les connexions au service pour configurer une connexion de principal de service à votre espace de travail Azure Machine Learning service afin d’accéder à vos artefacts. Accédez aux paramètres du projet, puis sélectionnez **Connexions au service** et **Azure Resource Manager** :
+1. Utilisez les connexions au service pour configurer une connexion de principal de service à votre espace de travail Azure Machine Learning afin d’accéder à vos artefacts. Accédez aux paramètres du projet, puis sélectionnez **Connexions au service** et **Azure Resource Manager** :
 
     [![Sélectionner Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
@@ -804,6 +804,19 @@ Pour obtenir d’autres exemples de projets et des exemples, consultez les dép�
 
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+## <a name="download-a-model"></a>Télécharger un modèle
+Si vous souhaitez télécharger votre modèle pour l’utiliser dans votre propre environnement d’exécution, vous pouvez le faire avec les commandes du kit de développement logiciel (SDK)/de l’interface CLI suivantes :
+
+SDK :
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+Interface CLI :
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
 
 ## <a name="package-models"></a>Modèles de package
 

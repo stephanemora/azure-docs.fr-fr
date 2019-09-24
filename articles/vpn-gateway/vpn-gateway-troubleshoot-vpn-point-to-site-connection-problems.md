@@ -4,7 +4,7 @@ description: Découvrez comment résoudre les problèmes de connexion de point �
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475960"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104820"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -45,11 +45,10 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
-    | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
+    | AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
 
 3. Accédez à C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, puis installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
 
@@ -85,7 +84,7 @@ Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
    | Windows 10 version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Définissez la valeur de clé de Registre. Créer ou de définir la clé REG_DWORD « HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload » sur 1 dans le Registre.
+2. Définissez la valeur de clé de Registre. Créez ou attribuez la valeur 1 à la clé REG_DWORD `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` dans le registre.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erreur du client VPN : le message reçu était inattendu ou mis en forme de façon incorrecte
 
@@ -122,7 +121,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|

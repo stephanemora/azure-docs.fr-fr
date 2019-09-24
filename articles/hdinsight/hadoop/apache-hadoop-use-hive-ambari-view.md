@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917714"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077007"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -34,7 +34,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
 3. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
-    ![L’affichage Hive sélectionné](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari - Sélectionner la vue Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     L’affiche Hive est similaire à ceci :
 
@@ -98,25 +98,25 @@ La vue **Visual Explain** de la requête peut être utile pour comprendre le dé
 Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul afin d’afficher l’interface utilisateur Tez pour la requête.
 
 > [!IMPORTANT]  
-> Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez. 
+> Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez.
 
 ## <a name="view-job-history"></a>Afficher l’historique des tâches
 
 L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
-![Image de l’historique des travaux](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive - Afficher l’onglet d’historique des tâches](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tables de base de données
 
 Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des tables dans une base de données Hive.
 
-![Image de l’onglet tables](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Image de l’onglet Tables d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
 À partir de l’onglet **Query** (Requête), vous pouvez éventuellement enregistrer des requêtes. Après avoir enregistré une requête, vous pouvez la réutiliser à partir de l’onglet __Saved Queries__ (Requêtes enregistrées).
 
-![Image de l’onglet de requêtes enregistrées](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Onglet Afficher les requêtes Apache Hive enregistrées](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Les requêtes enregistrées sont stockées dans le stockage en cluster par défaut. Vous pouvez rechercher les requêtes enregistrées sous le chemin `/user/<username>/hive/scripts`. Ces fichiers sont stockés en tant que fichiers `.hql` en texte brut.
@@ -129,7 +129,7 @@ Vous pouvez étendre Hive par l’intermédiaire de fonctions définies par l’
 
 Déclarez et enregistrez un ensemble de fonctions définies par l’utilisateur en utilisant l’onglet **UDF** en haut de l’affichage Hive. Ces UDF peuvent être utilisés avec les **l’éditeur de requête**.
 
-![Image de l’onglet UDF](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Affichage de l’onglet UDF d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Lorsque vous avez ajouté une fonction définie par l’utilisateur à l’affichage Hive, un bouton **Insert udfs** (Insérer des fonctions définies par l’utilisateur) s’affiche au bas de **Query Editor** (l’éditeur de requête). La sélection de cette entrée affiche une liste déroulante des UDF définis dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
 

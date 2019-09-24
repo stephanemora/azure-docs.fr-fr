@@ -1,7 +1,7 @@
 ---
 title: Cibles de calcul distantes ML automatisées
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment créer des modèles avec le Machine Learning automatisé sur une cible de calcul distante Azure Machine Learning avec Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Découvrez comment créer des modèles avec le Machine Learning automatisé sur une cible de calcul distante Azure Machine Learning avec Azure Machine Learning
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858799"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034985"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 

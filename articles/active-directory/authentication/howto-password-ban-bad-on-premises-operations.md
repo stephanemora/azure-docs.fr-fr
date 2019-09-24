@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358178"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097630"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
 
@@ -55,9 +55,12 @@ Ce message n’est qu’un seul exemple de plusieurs résultats possibles. Le me
 
 Les utilisateurs finaux concernés devront peut-être travailler avec leur service informatique pour comprendre les nouvelles exigences et être plus en mesure de choisir des mots de passe sécurisés.
 
+> [!NOTE]
+> La protection par mot de passe Azure AD n’a aucun contrôle sur le message d’erreur spécifique affiché par l’ordinateur client lorsqu’un mot de passe faible est rejeté.
+
 ## <a name="enable-mode"></a>Mode d’activation
 
-Ce paramètre doit normalement être laissé à son état par défaut (Oui). Si vous désactivez ce paramètre (Non), tous les agents DC de la Protection par mot de passe Azure AD déployés passeront en mode inactif : tous les mots de passe seront acceptés tels quels et aucune activité de validation ne sera exécutée (par exemple, aucun événement d'audit ne sera émis).
+Ce paramètre doit être laissé à son état par défaut (Oui). Si vous désactivez ce paramètre (Non), tous les agents DC de la Protection par mot de passe Azure AD déployés passeront en mode inactif : tous les mots de passe seront acceptés tels quels et aucune activité de validation ne sera exécutée (par exemple, aucun événement d'audit ne sera émis).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

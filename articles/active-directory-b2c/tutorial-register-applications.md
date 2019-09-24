@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 06b2c273f41bfa74ee968b6fd6676e83767ce8b2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980704"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063266"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Didacticiel : Inscrire une application dans Azure Active Directory B2C
 
-Pour que vos [applications](active-directory-b2c-apps.md) puissent interagir avec Azure Active Directory (Azure AD) B2C, elles doivent être inscrites dans un locataire que vous gérez. Ce tutoriel vous montre comment inscrire une application web à l’aide du portail Azure.
+Pour que vos [applications](active-directory-b2c-apps.md) puissent interagir avec Azure Active Directory B2C (Azure AD B2C), elles doivent être inscrites dans un locataire que vous gérez. Ce tutoriel vous montre comment inscrire une application web à l’aide du portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -35,7 +35,7 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](tutoria
 
 ## <a name="register-a-web-application"></a>Inscrire une application web
 
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications**, puis **Ajouter**.
 1. Entrez un nom pour l’application. Par exemple, *webapp1*.

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622785"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063250"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
-Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory (Azure AD) B2C à votre [flux d’utilisateurs](active-directory-b2c-reference-policies.md) à l’aide du portail Azure.
+Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory B2C (Azure AD B2C) à votre [flux d’utilisateurs](active-directory-b2c-reference-policies.md) à l’aide du portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -45,7 +45,7 @@ Les applications de fournisseurs d’identité offrent l’identificateur et la 
 Pour autoriser la connexion des utilisateurs à partir d’Azure AD, vous devez inscrire une application au sein du locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
 1. Entrez un nom pour votre application. Par exemple : `Azure AD B2C App`.
@@ -125,7 +125,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 1. Sélectionnez **Fournisseurs d’identité**, puis **Facebook**.
 1. Saisissez un **Nom**. Par exemple, *Facebook*.
 1. Dans **ID client**, entrez l’ID de l’application Facebook que vous avez créée précédemment.
-1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez enregistrée.
+1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez consignée.
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="update-the-user-flow"></a>Mettre à jour le flux d'utilisateurs
