@@ -6,18 +6,17 @@ metadata:
   description: Effectuez des recherches dans le cloud sur du contenu hétérogène privé, avec des options d’utilisation de l’IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous une forme brute.
   services: search
   ms.service: service
-  ms.subservice: cognitive-search
   ms.topic: landing-page
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: 113ee13c1667e00f1052c88c9b29b881f312b00c
-  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.openlocfilehash: 9c89fa143ad5e7fb2c4ba9c227682d14aa511bd9
+  ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71147269"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71265641"
 landingContent:
 - title: En savoir plus sur Recherche Azure
   linkLists:

@@ -61,7 +61,7 @@
           href: time-series-insights-update-use-cases.md
         - name: Modèle de série chronologique
           href: time-series-insights-update-tsm.md
-        - name: Interrogation de données
+        - name: Requête de série chronologique
           href: time-series-insights-update-tsq.md
         - name: Visualiser des données dans l’explorateur (préversion)
           href: time-series-insights-update-explorer.md
