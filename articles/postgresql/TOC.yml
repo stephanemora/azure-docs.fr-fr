@@ -146,6 +146,12 @@
           href: concepts-hyperscale-choose-distribution-column.md
         - name: Colocalisation de table
           href: concepts-hyperscale-colocation.md
+        - name: Accès aux données et sécurité
+          items:
+            - name: Règles de pare-feu
+              href: concepts-hyperscale-firewall-rules.md
+            - name: Configuration du chiffrement SSL
+              href: concepts-hyperscale-ssl-connection-security.md
         - name: Extensions PostgreSQL
           href: concepts-hyperscale-extensions.md
         - name: Ressources
@@ -154,86 +160,96 @@
               href: concepts-hyperscale-configuration-options.md
 - name: Guides pratiques
   items:
-    - name: Créer des utilisateurs
-      href: howto-create-users.md
-    - name: Optimisation
+    - name: Serveur unique
       items:
-        - name: Insertions en bloc
-          href: howto-optimize-bulk-inserts.md
-        - name: Autovacuum
-          href: howto-optimize-autovacuum.md
-        - name: Collection de statistiques de requête
-          href: howto-optimize-query-stats-collection.md
-        - name: Stratégie de table toast
-          href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-    - name: Gérer le pare-feu
+        - name: Créer des utilisateurs
+          href: howto-create-users.md
+        - name: Optimisation
+          items:
+            - name: Insertions en bloc
+              href: howto-optimize-bulk-inserts.md
+            - name: Autovacuum
+              href: howto-optimize-autovacuum.md
+            - name: Collection de statistiques de requête
+              href: howto-optimize-query-stats-collection.md
+            - name: Stratégie de table toast
+              href: howto-optimize-query-time-with-toast-table-storage-strategy.md
+        - name: Gérer le pare-feu
+          items:
+            - name: Portail Azure
+              href: howto-manage-firewall-using-portal.md
+            - name: D’Azure CLI
+              href: howto-manage-firewall-using-cli.md
+        - name: Restaurer un serveur
+          items:
+            - name: Portail Azure
+              href: howto-restore-server-portal.md
+            - name: D’Azure CLI
+              href: howto-restore-server-cli.md
+        - name: Migrer une base de données
+          items:
+            - name: Vider et restaurer
+              href: howto-migrate-using-dump-and-restore.md
+            - name: Importer et exporter
+              href: howto-migrate-using-export-and-import.md
+            - name: Migration avec temps d’arrêt minimal
+              href: howto-migrate-online.md
+        - name: Configurer les paramètres du serveur
+          items:
+            - name: Portail Azure
+              href: howto-configure-server-parameters-using-portal.md
+            - name: D’Azure CLI
+              href: howto-configure-server-parameters-using-cli.md
+        - name: Augmenter automatiquement le stockage
+          items:
+            - name: Portail Azure
+              href: howto-auto-grow-storage-portal.md
+            - name: D’Azure CLI
+              href: howto-auto-grow-storage-cli.md
+        - name: Accéder aux journaux d’activité du serveur
+          items:
+            - name: Portail Azure
+              href: howto-configure-server-logs-in-portal.md
+            - name: D’Azure CLI
+              href: howto-configure-server-logs-using-cli.md
+        - name: Surveiller
+          items:
+            - name: Créer des alertes sur les mesures
+              href: howto-alert-on-metric.md
+        - name: Résolution des problèmes
+          items:
+            - name: Résoudre les erreurs de connexion
+              href: howto-troubleshoot-common-connection-issues.md
+        - name: Protection avancée contre les menaces
+          items:
+            - name: Portail Azure
+              href: howto-database-threat-protection-portal.md
+        - name: Réseau virtuel
+          items:
+            - name: Portail Azure
+              href: howto-manage-vnet-using-portal.md
+            - name: D’Azure CLI
+              href: howto-manage-vnet-using-cli.md
+        - name: Redémarrer le serveur
+          items:
+            - name: Portail Azure
+              href: howto-restart-server-portal.md
+            - name: D’Azure CLI
+              href: howto-restart-server-cli.md
+        - name: Réplication
+          items:
+            - name: Gérer des réplicas en lecture dans le portail Azure
+              href: howto-read-replicas-portal.md
+            - name: 'Gérer des réplicas en lecture avec Azure CLI, l’API REST'
+              href: howto-read-replicas-cli.md
+    - name: Hyperscale (Citus)
       items:
-        - name: Portail Azure
-          href: howto-manage-firewall-using-portal.md
-        - name: D’Azure CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: Restaurer un serveur
-      items:
-        - name: Portail Azure
-          href: howto-restore-server-portal.md
-        - name: D’Azure CLI
-          href: howto-restore-server-cli.md
-    - name: Migrer une base de données
-      items:
-        - name: Vider et restaurer
-          href: howto-migrate-using-dump-and-restore.md
-        - name: Importer et exporter
-          href: howto-migrate-using-export-and-import.md
-        - name: Migration avec temps d’arrêt minimal
-          href: howto-migrate-online.md
-    - name: Configurer les paramètres du serveur
-      items:
-        - name: Portail Azure
-          href: howto-configure-server-parameters-using-portal.md
-        - name: D’Azure CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: Augmenter automatiquement le stockage
-      items:
-        - name: Portail Azure
-          href: howto-auto-grow-storage-portal.md
-        - name: D’Azure CLI
-          href: howto-auto-grow-storage-cli.md
-    - name: Accéder aux journaux d’activité du serveur
-      items:
-        - name: Portail Azure
-          href: howto-configure-server-logs-in-portal.md
-        - name: D’Azure CLI
-          href: howto-configure-server-logs-using-cli.md
-    - name: Surveiller
-      items:
-        - name: Créer des alertes sur les mesures
-          href: howto-alert-on-metric.md
-    - name: Résolution des problèmes
-      items:
-        - name: Résoudre les erreurs de connexion
-          href: howto-troubleshoot-common-connection-issues.md
-    - name: Protection avancée contre les menaces
-      items:
-        - name: Portail Azure
-          href: howto-database-threat-protection-portal.md
-    - name: Réseau virtuel
-      items:
-        - name: Portail Azure
-          href: howto-manage-vnet-using-portal.md
-        - name: D’Azure CLI
-          href: howto-manage-vnet-using-cli.md
-    - name: Redémarrer le serveur
-      items:
-        - name: Portail Azure
-          href: howto-restart-server-portal.md
-        - name: D’Azure CLI
-          href: howto-restart-server-cli.md
-    - name: Réplication
-      items:
-        - name: Gérer des réplicas en lecture dans le portail Azure
-          href: howto-read-replicas-portal.md
-        - name: 'Gérer des réplicas en lecture avec Azure CLI, l’API REST'
-          href: howto-read-replicas-cli.md
+        - name: Mise à l'échelle
+          href: howto-hyperscale-scaling.md
+        - name: Gérer le pare-feu
+          items:
+            - name: Portail Azure
+              href: howto-hyperscale-manage-firewall-using-portal.md
 - name: Informations de référence
   items:
     - name: D’Azure CLI
