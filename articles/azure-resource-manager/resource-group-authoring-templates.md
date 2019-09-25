@@ -4,14 +4,14 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306836"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984093"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -84,6 +84,8 @@ Les propriétés disponibles pour un paramètre sont :
 | maxLength |Non |Valeur maximale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
 | description |Non |Description du paramètre qui apparaît aux utilisateurs dans le portail. Pour plus d’informations, consultez [Commentaires dans les modèles](#comments). |
 
+Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
+
 ## <a name="variables"></a>variables
 
 Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
@@ -116,6 +118,8 @@ L’exemple suivant montre les options disponibles pour la définition d’une v
 ```
 
 Pour plus d’informations sur l’utilisation de `copy` pour créer plusieurs valeurs pour une variable, consultez [Itération de variable](resource-group-create-multiple.md#variable-iteration).
+
+Pour obtenir des exemples d’utilisation des variables, consultez [Variables dans un modèle Azure Resource Manager](template-variables.md).
 
 ## <a name="functions"></a>Fonctions
 
@@ -159,6 +163,8 @@ La définition d’une fonction utilisateur est soumise à certaines restriction
 | parameter-value |Non |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | output-type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée de la fonction. |
 | output-value |OUI |Expression du langage du modèle évaluée et retournée à partir de la fonction. |
+
+Pour obtenir des exemples d’utilisation des fonctions personnalisées, consultez [Fonctions définies par l’utilisateur dans un modèle Azure Resource Manager](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Ressources
 
@@ -259,6 +265,8 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 | condition |Non | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
 | Type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stockez la clé secrète dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](resource-manager-keyvault-parameter.md). |
 | value |OUI |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
+
+Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans un modèle Azure Resource Manager](template-outputs.md).
 
 <a id="comments" />
 

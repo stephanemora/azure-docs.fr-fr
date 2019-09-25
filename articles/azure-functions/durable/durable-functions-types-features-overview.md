@@ -1,225 +1,71 @@
 ---
-title: Types de fonctions et fonctionnalités de l’extension Durable Functions d’Azure Functions
+title: Types de fonctions de l’extension Durable Functions d’Azure Functions
 description: Découvrez les types de fonctions et les rôles qui permettent la communication de fonction à fonction dans le cadre d’une orchestration Durable Functions dans Azure Functions.
 services: functions
-author: jeffhollan
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0d3087c768a02bb5c647fc0d10db3aa4274804f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097736"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933152"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Types et fonctionnalités Durable Functions (Azure Functions)
 
-Durable Functions est une extension d’[Azure Functions](../functions-overview.md). Vous pouvez utiliser Durable Functions pour effectuer une orchestration avec état d’une exécution de fonction. Une fonction durable est une solution qui est composée de différentes fonctions Azure. Les fonctions peuvent jouer différents rôles dans le cadre d’une orchestration de fonction durable. 
+Durable Functions est une extension d’[Azure Functions](../functions-overview.md). Vous pouvez utiliser Durable Functions pour effectuer une orchestration avec état d’une exécution de fonction. Une application de fonction durable est une solution composée de différentes fonctions Azure. Les fonctions peuvent jouer différents rôles dans le cadre d’une orchestration de fonction durable. 
 
-Cet article vous présente les différents types de fonctions que vous pouvez utiliser dans une orchestration Durable Functions. L’article comprend quelques modèles courants que vous pouvez utiliser pour connecter les fonctions. Découvrez comment Durable Functions peut vous aider à résoudre les difficultés que vous rencontrez lors du développement d’applications.
+Il existe actuellement 4 types de fonctions durables dans Azure Functions : les fonctions d’activité, les fonctions d’orchestrateur, les fonctions d’entité et les fonctions clientes. Le reste de cette section décrit en détail les types de fonctions impliqués dans une orchestration.
 
-![Image qui illustre les types de fonctions durables][1]  
+## <a name="orchestrator-functions"></a>Fonctions d’orchestrateur
 
-## <a name="types-of-durable-functions"></a>Types de fonctions durables
-
-Vous pouvez utiliser 4 types de fonctions durables dans Azure Functions : les fonctions d’activité, les fonctions d’orchestrateur, les fonctions d’entité et les fonctions clientes.
-
-### <a name="activity-functions"></a>Fonctions d’activité
-
-Les fonctions d’activité sont à la base de l’orchestration de fonction durable. Les fonctions d’activité correspondent aux fonctions et aux tâches qui sont orchestrées dans le processus. Par exemple, vous pouvez créer une fonction durable pour traiter une commande. Ces tâches impliquent la vérification de l’inventaire, la facturation du client et l’organisation de l’expédition. Chacune de ces tâches correspond à une fonction d’activité. 
-
-Vous pouvez effectuer tous types de travaux dans les fonctions d’activité. Vous pouvez écrire une fonction d’activité dans n’importe quel [langage pris en charge par Durable Functions](durable-functions-overview.md#language-support). L’infrastructure des tâches durables garantit que chaque fonction d’activité appelée est exécutée au moins une fois au cours d’une orchestration.
-
-Utilisez un [déclencheur d’activité](durable-functions-bindings.md#activity-triggers) pour déclencher une fonction d’activité. Les fonctions .NET reçoivent un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) comme paramètre. Vous pouvez également lier le déclencheur à UN autre objet à passer dans les entrées de la fonction. En JavaScript, vous pouvez accéder à l’entrée via la propriété `<activity trigger binding name>` de l’[objet `context.bindings`](../functions-reference-node.md#bindings).
-
-Votre fonction d’activité peut également retourner des valeurs à l’orchestrateur. Si vous envoyez ou retournez un grand nombre de valeurs à partir d’une fonction d’activité, vous pouvez utiliser [des tuples ou des tableaux](durable-functions-bindings.md#passing-multiple-parameters). Vous ne pouvez déclencher une fonction d’activité qu’à partir d’une instance de l’orchestration. Même si une fonction d’activité peut partager du code avec une autre fonction (par exemple, une fonction déclenchée via HTTP), chaque fonction ne peut avoir qu’un seul déclencheur.
-
-Pour plus d’informations et pour obtenir des exemples, consultez [Fonctions d’activité](durable-functions-bindings.md#activity-triggers).
-
-### <a name="orchestrator-functions"></a>Fonctions d’orchestrateur
-
-Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [sous-orchestrations](#sub-orchestrations), l’[attente d’événements externes](#external-events) et des [ minuteurs](#durable-timers). Les fonctions d’orchestrateur peuvent également interagir avec des [fonctions d’entité](#entity-functions).
-
-Une fonction d’orchestrateur doit être déclenchée par un [déclencheur d’orchestration](durable-functions-bindings.md#orchestration-triggers).
-
-L’orchestrateur est démarré par un [client d’orchestrateur](#client-functions). Vous pouvez déclencher l’orchestrateur à partir de n’importe quelle source (HTTP, file d’attente, flux d’événements). Chaque instance d’une orchestration a son propre identificateur d’instance. L’identificateur d’instance peut être généré automatiquement (méthode recommandée) ou être généré par l’utilisateur. Vous pouvez utiliser l’identificateur d’instance pour [gérer des instances](durable-functions-instance-management.md) de l’orchestration.
-
-Pour plus d’informations et pour obtenir des exemples, consultez [Déclencheurs d’orchestration](durable-functions-bindings.md#orchestration-triggers).
-
-###  <a name="entity-functions"></a>Fonctions d’entité (préversion)
-
-Les fonctions d’entité définissent les opérations pour la lecture et la mise à jour de petits éléments d’état, connus sous le nom *d’entités durables*. Comme les fonctions d’orchestrateur, les fonctions d’entité sont des fonctions ayant un type spécial de déclencheur, *déclencheur d’entité*. Contrairement aux fonctions d’orchestrateur, les fonctions d’entité n’ont pas de contraintes code spécifiques. Les fonctions d’entité gèrent également l’état explicitement plutôt que de représenter implicitement l’état via le flux de contrôle.
+Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans les [modèles d’application Durable Functions](durable-functions-overview.md#application-patterns). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [orchestrations secondaires](durable-functions-orchestrations.md#sub-orchestrations), l’[attente d’événements externes](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-orchestrations.md#calling-http-endpoints) et des [minuteurs](durable-functions-orchestrations.md#durable-timers). Les fonctions d’orchestrateur peuvent également interagir avec des [fonctions d’entité](#entity-functions).
 
 > [!NOTE]
-> Les fonctions d’entité et les fonctionnalités associées sont uniquement disponibles dans Durable Functions 2.0 et versions ultérieures.
+> Les fonctions d’orchestrateur sont écrites à l’aide de code ordinaire, mais des conditions strictes s’appliquent à l’écriture du code. Plus précisément, le code de la fonction d’orchestrateur doit être *déterministe*. Le non-respect de ces conditions de déterminisme peut entraîner l’échec de l’exécution des fonctions d’orchestrateur. Vous trouverez des informations détaillées sur ces conditions et sur la façon de les contourner dans la rubrique sur les [contraintes de code](durable-functions-code-constraints.md).
 
-Pour plus d’informations sur les fonctions d’entité, consultez la documentation sur la fonctionnalité en préversion [Fonctions d’entité](durable-functions-preview.md#entity-functions).
+Pour plus d’informations sur les fonctions d’orchestrateur et leurs fonctionnalités, consultez l’article [Orchestrations durables](durable-functions-orchestrations.md).
 
-### <a name="client-functions"></a>Fonctions clientes
+## <a name="activity-functions"></a>Fonctions d’activité
 
-Les fonctions clientes sont des fonctions déclenchées qui créent et gèrent des instances d’orchestrations et d’entités. Elles sont en fait le point d’entrée pour interagir avec Durable Functions. Vous pouvez déclencher une fonction cliente à partir de n’importe quelle source (HTTP, file d’attente, flux d’événements, etc.). Une fonction cliente utilise la [liaison de client d’orchestration](durable-functions-bindings.md#orchestration-client) pour créer et gérer des entités et des orchestrations durables.
+Les fonctions d’activité sont à la base de l’orchestration de fonction durable. Les fonctions d’activité correspondent aux fonctions et aux tâches qui sont orchestrées dans le processus. Par exemple, vous pouvez créer une fonction d’orchestrateur pour traiter une commande. Ces tâches impliquent la vérification de l’inventaire, la facturation du client et l’organisation de l’expédition. Chacune de ces tâches correspond à une fonction d’activité distincte. Ces fonctions d’activité peuvent être exécutées en série, en parallèle ou dans une combinaison de ces deux modes.
 
-L’exemple de base d’une fonction cliente est une fonction HTTP déclenchée qui démarre une fonction d’orchestrateur et retourne une réponse de vérification de l’état. Pour obtenir un exemple, consultez [Découverte de l’URL de l’API HTTP](durable-functions-http-api.md#http-api-url-discovery).
+À la différence des fonctions d’orchestrateur, les fonctions d’activité ne sont pas limitées quant au type de travail qu’elles vous permettent d’effectuer. Les fonctions d’activité sont fréquemment utilisées pour effectuer des appels réseau ou exécuter des opérations gourmandes en processeur. Une fonction d’activité peut également retourner des données à la fonction d’orchestrateur. L’infrastructure Durable Task Framework garantit que chaque fonction d’activité appelée est exécutée *au moins une fois* au cours de l’exécution d’une orchestration.
 
-Pour plus d’informations et pour obtenir des exemples, consultez [Client d’orchestration](durable-functions-bindings.md#orchestration-client).
+> [!NOTE]
+> Comme les fonctions d’activité garantissent uniquement une exécution *au moins une fois*, nous vous recommandons de rendre *idempotente* votre logique de fonction d’activité chaque fois que cela est possible.
 
-## <a name="features-and-patterns"></a>Fonctionnalités et modèles
+Utilisez un [déclencheur d’activité](durable-functions-bindings.md#activity-trigger) pour définir une fonction d’activité. Les fonctions .NET reçoivent un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) comme paramètre. Vous pouvez également lier le déclencheur à un autre objet sérialisable au format JSON pour transmettre des entrées à la fonction. En JavaScript, vous pouvez accéder à l’entrée via la propriété `<activity trigger binding name>` de l’[objet `context.bindings`](../functions-reference-node.md#bindings). Une seule valeur peut être passée aux fonctions d’activité. Pour passer plusieurs valeurs, vous devez utiliser des tuples, des tableaux ou des types complexes.
 
-Les sections suivantes décrivent les fonctionnalités et les modèles des différents types Durable Functions.
+> [!NOTE]
+> Vous ne pouvez déclencher une fonction d’activité qu’à partir d’une fonction d’orchestrateur.
 
-### <a name="sub-orchestrations"></a>Orchestrations secondaires
+## <a name="entity-functions"></a>Fonctions d’entité
 
-Les fonctions d’orchestrateur peuvent appeler des fonctions d’activité, mais aussi d’autres fonctions d’orchestrateur. Par exemple, vous pouvez créer une orchestration plus grande à partir d’une bibliothèque de fonctions d’orchestrateur. Vous pouvez aussi exécuter en parallèle plusieurs instances d’une fonction d’orchestrateur.
+Les fonctions d’entité définissent les opérations pour la lecture et la mise à jour de petits éléments d’état. Nous faisons souvent référence à ces entités avec état en tant qu’*entités durables*. Comme les fonctions d’orchestrateur, les fonctions d’entité sont des fonctions ayant un type spécial de déclencheur, *déclencheur d’entité*. Elles peuvent également être appelées à partir de fonctions clientes ou de fonctions d’orchestrateur. Contrairement aux fonctions d’orchestrateur, les fonctions d’entité n’ont pas de contraintes code spécifiques. Les fonctions d’entité gèrent également l’état explicitement plutôt que de représenter implicitement l’état via le flux de contrôle.
 
-Pour plus d’informations et pour obtenir des exemples, consultez [Sous-orchestrations](durable-functions-sub-orchestrations.md).
+> [!NOTE]
+> Les fonctions d’entité et les fonctionnalités associées sont uniquement disponibles dans Durable Functions 2.0 et versions ultérieures. Les fonctions d’entité sont actuellement en préversion publique.
 
-### <a name="durable-timers"></a>Minuteurs durables
+Pour plus d’informations sur les fonctions d’entité, consultez l’article [Entités durables](durable-functions-entities.md).
 
-[Durable Functions](durable-functions-overview.md) fournit des *minuteurs durables* à utiliser dans les fonctions d’orchestrateur dans le but d’implémenter des délais ou de configurer des délais d’expiration pour des actions asynchrones. Utilisez les minuteurs durables dans les fonctions de l’orchestrateur à la place de `Thread.Sleep` et `Task.Delay` (C#) ou de `setTimeout()` et `setInterval()` (JavaScript).
+## <a name="client-functions"></a>Fonctions clientes
 
-Pour plus d’informations et pour obtenir des exemples, consultez [Minuteurs durables](durable-functions-timers.md).
+Les fonctions d’orchestrateur sont déclenchées par une [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger) et les fonctions d’entité sont déclenchées par une [liaison de déclencheur d’entité](durable-functions-bindings.md#entity-trigger). Ces deux déclencheurs fonctionnent en réagissant aux messages mis en file d’attente dans un [hub de tâches](durable-functions-task-hubs.md). Le principal moyen de fournir ces messages est d’utiliser une [liaison de client d’orchestrateur](durable-functions-bindings.md#orchestration-client) ou une [liaison de client d’entité](durable-functions-bindings.md#entity-client) à partir d’une *fonction cliente*. Toute fonction non-orchestrateur peut être une *fonction cliente*. Par exemple, vous pouvez déclencher l’orchestrateur à partir d’une fonction déclenchée par HTTP, d’une fonction déclenchée par Azure Event Hub, etc. Ce qui fait d’une fonction une *fonction cliente* est son utilisation de la liaison de sortie du client durable.
 
-### <a name="external-events"></a>Événements externes
+> [!NOTE]
+> Contrairement aux autres types de fonction, les fonctions d’orchestrateur et d’entité ne peuvent pas être déclenchées directement à l’aide des boutons du portail Azure. Si vous souhaitez tester une fonction d’orchestrateur ou d’entité dans le portail Azure, vous devez exécuter à la place une *fonction cliente* qui démarre une fonction d’orchestrateur ou d’entité dans le cadre de son implémentation. Pour la plus simple expérience de test, une fonction de *déclencheur manuel* est recommandée.
 
-Les fonctions d’orchestrateur peuvent attendre des événements externes pour mettre à jour une instance d’orchestration. Cette fonctionnalité Durable Functions est souvent utile pour gérer l’interaction humaine ou d’autres rappels externes.
-
-Pour plus d’informations et pour obtenir des exemples, consultez [Événements externes](durable-functions-external-events.md).
-
-### <a name="error-handling"></a>Gestion des erreurs
-
-Utilisez du code pour implémenter des orchestrations Durable Functions. Vous pouvez utiliser les fonctionnalités de gestion des erreurs du langage de programmation. Les modèles tels que `try`/`catch` fonctionnent dans votre orchestration. 
-
-Durable Functions comprend également des stratégies intégrées de nouvelle tentative. Une action peut retarder et retenter des activités automatiquement lors de la survenue d’exceptions. Les nouvelles tentatives permettent de gérer les exceptions temporaires sans avoir à abandonner l’orchestration.
-
-Pour plus d’informations et pour obtenir des exemples, consultez [Gestion des erreurs](durable-functions-error-handling.md).
-
-### <a name="cross-function-app-communication"></a>Communication entre plusieurs applications de fonction
-
-Même si une orchestration durable s’exécute dans le contexte d’une seule application de fonction, vous pouvez utiliser des modèles pour coordonner les orchestrations de nombreuses applications de fonction. Même si des communications entre applications sont possibles via HTTP, l’utilisation d’un framework durable pour chaque activité signifie que vous pouvez conserver un processus durable entre deux applications.
-
-Les exemples suivants montrent l’orchestration d’application interfonctions en C# et en JavaScript. Dans chaque exemple, une activité démarre l’orchestration externe. Une autre activité récupère et retourne l’état. L’orchestrateur attend que l’état soit `Complete` avant de continuer.
-
-Voici quelques exemples d’orchestration d’application interfonctions :
-
-#### <a name="c"></a>C#
-
-```csharp
-[FunctionName("OrchestratorA")]
-public static async Task RunRemoteOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    // Do some work...
-
-    // Call a remote orchestration.
-    string statusUrl = await context.CallActivityAsync<string>(
-        "StartRemoteOrchestration", "OrchestratorB");
-
-    // Wait for the remote orchestration to complete.
-    while (true)
-    {
-        bool isComplete = await context.CallActivityAsync<bool>("CheckIsComplete", statusUrl);
-        if (isComplete)
-        {
-            break;
-        }
-
-        await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(1), CancellationToken.None);
-    }
-
-    // B is done. Now, go do more work...
-}
-
-[FunctionName("StartRemoteOrchestration")]
-public static async Task<string> StartRemoteOrchestration([ActivityTrigger] string orchestratorName)
-{
-    using (var response = await HttpClient.PostAsync(
-        $"https://appB.azurewebsites.net/orchestrations/{orchestratorName}",
-        new StringContent("")))
-    {
-        string statusUrl = await response.Content.ReadAsAsync<string>();
-        return statusUrl;
-    }
-}
-
-[FunctionName("CheckIsComplete")]
-public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUrl)
-{
-    using (var response = await HttpClient.GetAsync(statusUrl))
-    {
-        // 200 = Complete, 202 = Running
-        return response.StatusCode == HttpStatusCode.OK;
-    }
-}
-```
-
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
-
-```javascript
-const df = require("durable-functions");
-const moment = require("moment");
-
-module.exports = df.orchestrator(function*(context) {
-    // Do some work...
-
-    // Call a remote orchestration.
-    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
-
-    // Wait for the remote orchestration to complete.
-    while (true) {
-        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
-        if (isComplete) {
-            break;
-        }
-
-        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
-        yield context.df.createTimer(waitTime);
-    }
-
-    // B is done. Now, go do more work...
-});
-```
-
-```javascript
-const request = require("request-promise-native");
-
-module.exports = async function(context, orchestratorName) {
-    const options = {
-        method: "POST",
-        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
-        body: ""
-    };
-
-    const statusUrl = await request(options);
-    return statusUrl;
-};
-```
-
-```javascript
-const request = require("request-promise-native");
-
-module.exports = async function(context, statusUrl) {
-    const options = {
-        method: "GET",
-        uri: statusUrl,
-        resolveWithFullResponse: true,
-    };
-
-    const response = await request(options);
-    // 200 = Complete, 202 = Running
-    return response.statusCode === 200;
-};
-```
+En plus de déclencher des fonctions d’orchestrateur ou d’entité, la liaison de *client durable* peut être utilisée pour interagir avec des orchestrations et des entités en cours d’exécution. Par exemple, les orchestrations peuvent être interrogées, arrêtées et faire l’objet d’événements déclenchés. Pour plus d’informations sur la gestion des orchestrations et des entités, consultez l’article [Gestion d’instance](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer, créez votre première fonction durable en [C#](durable-functions-create-first-csharp.md) ou en [JavaScript](quickstart-js-vscode.md).
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur Durable Functions](durable-functions-bindings.md)
-
-<!-- Media references -->
-[1]: media/durable-functions-types-features-overview/durable-concepts.png
+> [En savoir plus sur les orchestrations Durable Functions](durable-functions-orchestrations.md)

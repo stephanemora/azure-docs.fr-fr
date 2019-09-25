@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e156585ba063515bd8be573b5d99b41e7ce35d1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988621"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932483"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
@@ -47,6 +47,9 @@ Pour configurer une liste autorisée d’adresses IP, accédez à `HKLM\SOFTWAR
 | Nom | Type | Valeur par défaut | Description |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vide | Fournissez une liste séparée par des points-virgules pour les adresses IP. Incluez les adresses IP des machines d’origine des requêtes de service, telles que le serveur NAS/VPN. Les plages d’adresses IP et les sous-réseaux ne sont pas pris en charge. <br><br> Par exemple, *10.0.0.1;10.0.0.2;10.0.0.3*.
+
+> [!NOTE]
+> Cette clé de Registre n’est pas créée par défaut par le programme d’installation et une erreur s’affiche dans le journal AuthZOptCh lorsque le service est redémarré. Cette erreur dans le journal peut être ignorée, mais si cette clé de Registre est créée et laissée vide lorsqu’elle n’est pas nécessaire, le message d’erreur ne retourne pas.
 
 Lorsqu’une requête provient d’une adresse IP de la `IP_WHITELIST`, la vérification en deux étapes est ignorée. La liste d’adresses IP est comparée à l’adresse IP fournie dans l’attribut *ratNASIPAddress* de la requête RADIUS. Si une requête RADIUS est fournie sans l’attribut ratNASIPAddress, l’avertissement suivant est enregistré : « P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute. » (P_WHITE_LIST_WARNING::IP Whitelist est ignoré, car l’adresse IP source est manquante dans la requête RADIUS de l’attribut NasIpAddress.)
 

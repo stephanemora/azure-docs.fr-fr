@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094669"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983748"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -45,16 +45,18 @@ La prise en charge de toute taille de machine virtuelle en préversion ou en pro
 | Série Av2 | Toutes les tailles | Quelconque |
 | Série B | Aucun | Non disponible |
 | Série DC | Aucun | Non disponible |
-| Série Dv2, Dsv2 | Toutes les tailles | Quelconque |
+| Série Dv2, DSv2 | Toutes les tailles | Quelconque |
 | Série Dv3, Dsv3 | Toutes les tailles | Quelconque |
-| [Tailles de mémoires optimisées](../virtual-machines/linux/sizes-memory.md) | Aucun | Non disponible |
+| Série Ev3, Esv3 | Toutes les tailles | Quelconque |
 | Série Fsv2 | Toutes les tailles | Quelconque |
 | Série H | Toutes les tailles | Quelconque |
-| Série Hb<sup>2</sup> | Toutes les tailles | Quelconque |
-| Série Hc<sup>2</sup> | Toutes les tailles | Quelconque |
+| Série HB<sup>2</sup> | Toutes les tailles | Quelconque |
+| Série HC<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série Ls | Toutes les tailles | Quelconque |
 | Série Lsv2 | Aucun | Non disponible |
-| Série M | Standard_M64ms (priorité basse uniquement), Standard_M128s (priorité basse uniquement) | Quelconque |  
+| Série M | Standard_M64ms (priorité basse uniquement), Standard_M128s (priorité basse uniquement) | Quelconque |
+| Série Mv2 | Aucun | Non disponible |
+| Série NC | Toutes les tailles | Quelconque |
 | Série NCv2<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série NCv3<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série ND<sup>2</sup> | Toutes les tailles | Quelconque |

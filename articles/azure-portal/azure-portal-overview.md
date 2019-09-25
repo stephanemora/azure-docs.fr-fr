@@ -9,12 +9,12 @@ ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e176a8b16129cd35fc011e14fcb36038f7c0144
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244195"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000342"
 ---
 # <a name="azure-portal-overview"></a>Présentation du portail Azure
 
@@ -53,7 +53,7 @@ La figure ci-dessous étiquette les éléments de base du portail Azure, qui son
 |3|Contrôles globaux. Comme tous les éléments globaux, ces fonctionnalités sont persistantes sur le portail et incluent : Cloud Shell, filtre d’abonnement, notifications, paramètres du portail, aide et support, et envoyez-nous vos commentaires.|
 |4|Votre compte. Consultez les informations sur votre compte, changez d’annuaire, déconnectez-vous ou connectez-vous avec un autre compte.|
 |5\.|Barre latérale. La barre latérale est un élément global qui vous aide à naviguer entre les services. Vous pouvez réduire la barre latérale pour mieux vous concentrer sur le volet de travail.|
-|6\.|Contrôle principal pour créer une ressource dans l’abonnement actuel. Recherchez ou parcourez la Place de marché Azure pour trouver le type de ressource que vous souhaitez créer.|
+|6|Contrôle principal pour créer une ressource dans l’abonnement actuel. Recherchez ou parcourez la Place de marché Azure pour trouver le type de ressource que vous souhaitez créer.|
 |7|Votre liste de favoris. Ajoutez ou supprimez des favoris à partir de la page **Tous les services**.|
 |8|Volet de gauche. De nombreux services incluent un menu dans le volet de gauche pour vous aider à gérer le service.|
 |9|Barre de commandes. Les contrôles de la barre de commandes sont contextuels et dépendent de vos actions.|
@@ -69,6 +69,12 @@ Nous avons prérempli vos favoris dans la barre latérale avec des liens vers de
 > [!TIP]
 > La façon la plus rapide de rechercher une ressource, un service ou de la documentation consiste à utiliser *Recherche* dans l’en-tête global. Utilisez les liens de la barre de navigation pour revenir aux pages précédentes.
 >
+Regardez cette vidéo pour avoir une démonstration de l’utilisation de la recherche globale dans le portail Azure.
+
+
+> [!VIDEO https://www.youtube.com/embed/nZ7WwTZcQbo]
+
+[Guide pratique pour utiliser la recherche globale dans le portail Azure](https://www.youtube.com/watch?v=nZ7WwTZcQbo)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

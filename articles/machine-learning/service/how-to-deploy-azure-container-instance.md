@@ -1,7 +1,7 @@
 ---
 title: Déployer des modèles sur Azure Container Instances
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment déployer vos modèles Azure Machine Learning service en tant que service web Azure Container Instances.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment déployer vos modèles Azure Machine Learning en tant que service web à l’aide d’Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279140"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034644"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 
-Découvrez comment utiliser Azure Machine Learning service pour déployer un modèle en tant que service web sur Azure Container Instances (ACI). Utilisez Azure Container Instances si l’une des conditions suivantes est vraie :
+Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur Azure Container Instances (ACI). Utilisez Azure Container Instances si l’une des conditions suivantes est vraie :
 
 - Vous avez besoin de déployer et de valider rapidement votre modèle. Vous n’avez pas besoin de créer des conteneurs ACI à l’avance. Ils sont créés lors du processus de déploiement.
 - Vous testez un modèle en cours de développement. 
@@ -28,7 +28,7 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
+- Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un modèle Machine Learning inscrit dans votre espace de travail. Si vous n’avez pas de modèle inscrit, consultez la section [Comment et où déployer des modèles](how-to-deploy-and-where.md).
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: b840f1ce42c9d7e4af8854a2c6bd7fd26f5b88e9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307436"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067612"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -54,10 +54,10 @@ Le calendrier contient les réunions et les rendez-vous personnels, PAS les év�
 Nom de l’intention | Description | Exemples
 ---------|----------|---------------
  AcceptEventEntry | Accepter un rendez-vous/une réunion/un événement dans le calendrier. | Accepter un rendez-vous. <br> Accepter l’événement <br> Accepter la réunion d’aujourd’hui.
- Annuler | Annule l’action en cours par l’assistant virtuel, par exemple l’annulation du processus de création d’une réunion. <br> ***Avis** : Cette intention comprend principalement l’action « Annuler » dans le scénario de calendrier. Si vous avez besoin d’une expression générale sur « Annuler », utilisez l’intention « Annuler » dans le domaine des **Services**.* | Ça ira, je veux simplement annuler l’événement. <br> Non, j’annule simplement le rendez-vous.
+ Annuler | Annule l’action en cours par l’assistant virtuel, par exemple l’annulation du processus de création d’une réunion. <br> _**Avis** : Cette intention comprend principalement l’action « Annuler » dans le scénario de calendrier. Si vous avez besoin d’une expression générale sur « Annuler », utilisez l’intention « Annuler » dans le domaine **Services**._ | Ça ira, je veux simplement annuler l’événement. <br> Non, j’annule simplement le rendez-vous.
  ChangeCalendarEntry | Modifier ou replanifier l’entrée du calendrier. | Replanifier mon 6 h. Rendez-vous demain à 14 h. <br> Replanifier le rendez-vous du docteur pour 17 h <br> Replanifier le déjeuner avec Jenny Olson pour vendredi. <br> Modifier l’heure de l’événement.
  CheckAvailability | Recherchez la disponibilité pour un rendez-vous ou une réunion dans le calendrier de l’utilisateur ou d’une autre personne. | Quand Jim est-il disponible ? <br> Montrer quand Carole est disponible demain. <br> Chris est-il libre samedi ?
- Confirmer | Confirmez s’il faut effectuer une opération/action en fonction de l’intention précédente. <br> ***Avis** : Cette intention comprend principalement l’action « Confirmer » pour le scénario de calendrier. Si vous avez besoin d’expressions plus générales sur « Confirmer », utilisez l’intention « Confirmer » dans le domaine **Services**. *| C’est correct, créer la réunion <br> Oui, merci, connexion à la réunion.
+ Confirmer | Confirmez s’il faut effectuer une opération/action en fonction de l’intention précédente. <br> _**Avis** : Cette intention comprend principalement l’action « Confirmer » pour le scénario de calendrier. Si vous avez besoin d’expressions plus générales sur « Confirmer », utilisez l’intention « Confirmer » dans le domaine **Services**._| C’est correct, créer la réunion <br> Oui, merci, connexion à la réunion.
  ConnectToMeeting | Joindre une réunion. | Me connecter à l’appel de conférence à 11 h avec Andy. <br> Accepter l’appel de réunion sur le budget.
  ContactMeetingAttendees | Contacter les participants à la réunion. | Dire à la réunion que je suis en retard pour la réunion de 15 h. <br> Informer les collègues de la réunion de 8 h qu’il faudra commencer à 8 h 30.
  CreateCalendarEntry | Ajoutez un nouvel élément à usage unique au calendrier. | Créer une réunion pour discuter des problèmes. <br> Créer une réunion avec abc@microsoft.com
@@ -69,10 +69,10 @@ Nom de l’intention | Description | Exemples
  FindCalendarDetail | Vérifier et afficher les détails de la planification. | Je dois vous fournir les détails de la réunion que j’ai planifiée avec mon collègue Paul.
  FindDuration | Vérifiez la durée. | Combien de temps aurai-je pour faire les courses ? <br> Combien de temps ai-je pour déjeuner ?
  FindMeetingRoom | Rechercher les salles de réunion disponibles. | Quelles salles de réunion sont disponibles ? <br> Nouvel emplacement de réunion, en trouver un.
- GoBack | Revenir à la dernière étape ou au dernier élément.  <br> ***Avis** : Consultez le domaine **Services** pour plus d’énoncés GoBack généraux.* | Précédent <br> Retour au dernier e-mail.
- Rejeter | L’utilisateur refuse ce que l’assistant virtuel a proposé. <br> ***Avis** : Consultez le domaine **Services** pour plus d’énoncés Reject généraux.* | Vous n’avez pas besoin de définir l’événement. <br> J’ai d’autres choses à faire à ce moment-là.
-ShowNext | Vérifier l’événement suivant. <br> ***Avis** : Consultez le domaine **Services** pour plus d’énoncés ShowNext généraux.* | M’envoyer mon prochain événement. <br> Qu’est-ce qui est ensuite dans le calendrier ?
- ShowPrevious | Vérifier l’événement précédent. <br> ***Avis** : Consultez le domaine **Services** pour plus d’énoncés ShowPrevious généraux.* | Qu’est-ce qui est prévu avant cela ?
+ GoBack | Revenir à la dernière étape ou au dernier élément.  <br> _**Avis** : Consultez le domaine **Services** pour plus d’énoncés GoBack généraux._ | Précédent <br> Retour au dernier e-mail.
+ Rejeter | L’utilisateur refuse ce que l’assistant virtuel a proposé. <br> _**Avis** : Consultez le domaine **Services** pour plus d’énoncés Reject généraux._ | Vous n’avez pas besoin de définir l’événement. <br> J’ai d’autres choses à faire à ce moment-là.
+ShowNext | Vérifier l’événement suivant. <br> _**Avis** : Consultez le domaine **Services** pour plus d’énoncés ShowNext généraux._ | M’envoyer mon prochain événement. <br> Qu’est-ce qui est ensuite dans le calendrier ?
+ ShowPrevious | Vérifier l’événement précédent. <br> _**Avis** : Consultez le domaine **Services** pour plus d’énoncés ShowPrevious généraux._ | Qu’est-ce qui est prévu avant cela ?
  TimeRemaining | Vérifiez le temps restant jusqu’à l’événement suivant. | Afficher le temps que j’ai avant mes réunions. <br> Afficher le temps que j’ai avant le début de la prochaine réunion.
  
 ### <a name="entities"></a>**Entités**

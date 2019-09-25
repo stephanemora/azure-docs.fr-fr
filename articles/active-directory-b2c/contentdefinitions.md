@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511316"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064333"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez personnaliser l’apparence de tout [profil technique autodéclaré](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C exécute le code dans le navigateur de votre client et utilise une approche moderne appelée partage des ressources cross-origin (CORS). 
+Vous pouvez personnaliser l’apparence de tout [profil technique autodéclaré](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) exécute le code dans le navigateur de votre client et utilise une approche moderne appelée Partage des ressources Cross-Origin (CORS).
 
 Pour personnaliser l’interface utilisateur, vous spécifiez une URL dans l’élément **ContentDefinition**, avec du contenu HTML personnalisé. Dans le profil technique autodéclaré ou **OrchestrationStep**, vous pointez vers cet identificateur de définition de contenu. La définition de contenu peut contenir un élément **LocalizedResourcesReferences** qui spécifie une liste de ressources localisées à charger. Azure AD B2C fusionne des éléments d’interface utilisateur avec le contenu HTML chargé à partir de votre URL, puis affiche la page à l’utilisateur.
 
@@ -63,16 +63,16 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
+| Id | OUI | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
 
 L’élément **ContentDefinition** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Chaîne contenant l’URL de la page HTML5 de la définition de contenu. |
-| RecoveryUri | 0:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. | 
-| DataUri | 1:1 | Chaîne contenant l’URL relative d’un fichier HTML qui fournit l’expérience utilisateur à appeler pour l’étape. |  
-| Métadonnées | 1:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. | 
+| RecoveryUri | 0:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. |
+| DataUri | 1:1 | Chaîne contenant l’URL relative d’un fichier HTML qui fournit l’expérience utilisateur à appeler pour l’étape. |
+| Métadonnées | 1:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. |
 | LocalizedResourcesReferences | 0:1 | Collection de références de ressources localisées. Cet élément permet de personnaliser la localisation d’une interface utilisateur et d’un attribut de revendications. |
 
 ### <a name="datauri"></a>DataUri
@@ -82,11 +82,11 @@ L’élément **DataUri** est utilisé pour spécifier l’identificateur de pag
 | Valeur |   Description |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Affiche une page d’erreur quand une exception ou une erreur sont rencontrées. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. | 
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Cette valeur fournit également la fonctionnalité de maintien de connexion et le lien de rappel de mot de passe. . | 
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Cette valeur fournit également la fonctionnalité de maintien de connexion et le lien de rappel de mot de passe. . |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Vérifie des numéros de téléphone (par voie textuelle ou vocale) au cours d’une inscription ou d’une connexion. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Affiche un formulaire permettant aux utilisateurs de créer ou mettre à jour leur profil. | 
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Affiche un formulaire permettant aux utilisateurs de créer ou mettre à jour leur profil. |
 
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
@@ -95,7 +95,7 @@ L’élément **LocalizedResourcesReferences** contient les éléments suivants�
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | Liste de références de ressources localisées pour la définition de contenu. | 
+| LocalizedResourcesReference | 1:n | Liste de références de ressources localisées pour la définition de contenu. |
 
 L’élément **LocalizedResourcesReferences** contient les attributs suivants :
 
@@ -141,7 +141,7 @@ Pour savoir comment ajouter la prise en charge de la localisation à vos défini
 
 L’attribut d’ID de l’élément **ContentDefinition** spécifie le type de page qui se rapporte à la définition de contenu. L’élément définit le contexte que va appliquer un modèle HTML5/CSS personnalisé. Le tableau suivant décrit l’ensemble d’ID de définition de contenu reconnus par l’Infrastructure d’expérience d’identité, ainsi que les types de pages associés. Vous pouvez créer vos propres définitions de contenu avec un identificateur arbitraire.
 
-| ID | Modèle par défaut | Description | 
+| id | Modèle par défaut | Description |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Page d’erreur** : affiche une page d’erreur quand une exception ou une erreur sont rencontrées. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Page de sélection de fournisseur d’identité** : répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. Il s’agit généralement de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |
@@ -153,4 +153,4 @@ L’attribut d’ID de l’élément **ContentDefinition** spécifie le type de 
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Page d’inscription de compte social** : affiche un formulaire que les utilisateurs doivent remplir au moment de l’inscription à l’aide d’un compte existant d’un fournisseur d’identité de réseau social. Cette page est similaire à la page d’inscription au compte de réseau social ci-dessus, à l’exception des champs de saisie de mot de passe. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Page de mise à jour de profil** : affiche un formulaire auquel les utilisateurs peuvent accéder pour mettre à jour leur profil. Cette page est similaire à la page d’inscription au compte de réseau social, à l’exception des champs de saisie de mot de passe. |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Page d’inscription ou de connexion unifiée** : gère le processus d’inscription et de connexion des utilisateurs. Les utilisateurs peuvent utiliser des fournisseurs d’identité d’entreprise, des fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou des comptes locaux. |
- 
+

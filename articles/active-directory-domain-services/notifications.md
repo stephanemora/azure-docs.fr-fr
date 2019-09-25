@@ -1,102 +1,89 @@
 ---
-title: 'Azure Active Directory Domain Services : paramètres de notification | Microsoft Docs'
-description: Paramètres de notification pour Azure AD Domain Services
+title: Notifications par e-mail pour Azure AD Domain Services | Microsoft Docs'
+description: Découvrez comment configurer des notifications par e-mail pour être alerté des problèmes qui se produisent dans un domaine managé Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/12/2019
 ms.author: iainfou
-ms.openlocfilehash: a89b13d40f4eea08ecdb0f1eb8d68d1a146aca2b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472796"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993131"
 ---
-# <a name="notification-settings-in-azure-ad-domain-services"></a>Paramètres de notification dans Azure AD Domain Services
+# <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurer des notifications par e-mail pour les problèmes rencontrés dans Azure Active Directory Domain Services
 
-Les notifications pour Azure AD Domain Services vous permettent d’être informé dès qu’une alerte d’intégrité est détectée sur votre domaine managé.  
+L’intégrité d’un domaine managé Azure Active Directory Domain Services (Azure AD DS) est supervisée par la plateforme Azure. Les alertes relatives au domaine managé s’affichent dans la page État d’intégrité du portail Azure. Pour assurer des interventions en temps voulu quand des problèmes surviennent, il est possible de configurer des notifications par e-mail pour signaler les alertes d’intégrité dès qu’elles sont détectées dans le domaine managé Azure AD DS.
 
-Cette fonctionnalité est uniquement disponible pour les domaines gérés qui ne sont pas sur des réseaux virtuels classiques.
+Cet article vous montre comment configurer les destinataires des notifications par e-mail pour un domaine managé Azure AD DS.
 
+## <a name="email-notification-overview"></a>Vue d’ensemble des notifications par e-mail
 
-## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Comment vérifier les paramètres de notification par e-mail Azure AD Domain Services
+Pour être alerté des problèmes qui touchent un domaine managé Azure AD DS, vous pouvez configurer des notifications par e-mail. Celles-ci indiquent le domaine managé dans lequel l’alerte est présente, l’heure de détection et fournit un lien vers la page d’état d’intégrité du portail Azure. Vous pouvez ensuite suivre les conseils de dépannage fournis pour résoudre les problèmes.
 
-1. Accédez à la [page Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
-2. Choisissez votre domaine managé dans le tableau
-3. Dans le volet de navigation de gauche, choisissez **paramètres de Notification**
-
-Cette page présente la liste de tous les destinataires des notifications par e-mail pour Azure AD Domain Services.
-
-## <a name="what-does-an-email-notification-look-like"></a>À quoi ressemblent les notifications par e-mail ?
-
-L’image suivante est un exemple d’une notification par e-mail :
+L’exemple de notification par e-mail présenté ci-dessous indique qu’un avertissement ou une alerte critique a été généré dans le domaine managé Azure AD DS :
 
 ![Exemple de notification par e-mail](./media/active-directory-domain-services-alerts/email-alert.png)
 
-Ce message spécifie le domaine managé sur laquelle l’alerte est présente et fournit l’heure de détection et un lien vers la page de contrôle d’intégrité d’Azure AD Domain Services dans le portail Azure.
+> [!WARNING]
+> Assurez-vous toujours que l’e-mail provient d’un expéditeur Microsoft vérifié avant de cliquer sur les liens contenus dans le message. Les notifications par e-mail proviennent toujours de l’adresse `azure-noreply@microsoft.com`.
+
+### <a name="why-would-i-receive-email-notifications"></a>Pourquoi est-ce que je recevrais des notifications par e-mail ?
+
+Azure AD DS envoie des notifications par e-mail pour les faits nouveaux importants qui touchent le domaine managé. Ces notifications concernent uniquement les problèmes urgents qui ont un impact sur le service et qui doivent être traités immédiatement. Chaque notification par e-mail est déclenchée par une alerte dans le domaine managé Azure AD DS. Les alertes s’affichent aussi sur le portail Azure et sont visibles dans la [page d’état d’intégrité d’Azure AD DS][check-health].
+
+Azure AD DS n’envoie pas d’e-mails à des fins publicitaires, commerciales ou de mise à jour.
+
+### <a name="when-will-i-receive-email-notifications"></a>Quand est-ce que je recevrai des notifications par e-mail ?
+
+Les notifications sont envoyées aussitôt qu’une [nouvelle alerte][troubleshoot-alerts] est détectée dans un domaine managé Azure AD DS. Si l’alerte n’est pas résolue, d’autres notifications de rappel sont envoyées par e-mail tous les quatre jours.
+
+### <a name="who-should-receive-the-email-notifications"></a>Qui doit recevoir les notifications par e-mail ?
+
+La liste des destinataires pour Azure AD DS doit être composée de personnes capables d’administrer le domaine managé et d’y apporter des modifications. Cette liste doit être considérée comme celle des « premiers intervenants » pour tout type d’alerte et de problème.
+
+Vous pouvez ajouter jusqu’à cinq destinataires supplémentaires pour les notifications par e-mail. Si vous voulez que les notifications par e-mail soient envoyées à plus de cinq destinataires, créez une liste de distribution et ajoutez-la à la liste de notification.
+
+Vous pouvez aussi décider que tous les *administrateurs généraux* de l’annuaire Azure AD et tous les membres du groupe *Administrateurs AAD DC* recevront les notifications par e-mail. Azure AD DS peut envoyer les notifications à 100 adresses e-mail au maximum, en incluant la liste des administrateurs généraux et des administrateurs AAD DC.
+
+## <a name="configure-email-notifications"></a>Configurer les notifications par e-mail
+
+Pour examiner les destinataires existants des notifications par e-mail ou pour ajouter des destinataires supplémentaires, effectuez les étapes suivantes :
+
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
+1. Sélectionnez votre domaine managé Azure AD DS, par exemple *contoso.com*.
+1. Dans la partie gauche de la fenêtre de ressources Azure AD DS, sélectionnez **Paramètres de notification**. Les destinataires existants des notifications par e-mail s’affichent.
+1. Pour ajouter un destinataire, entrez son adresse e-mail dans le tableau des destinataires supplémentaires.
+1. Quand vous avez terminé, sélectionnez **Enregistrer** dans le volet de navigation du haut.
 
 > [!WARNING]
-> Assurez-vous toujours que le message provient d’un expéditeur Microsoft vérifié avant de cliquer sur les liens qu’il contient. Les messages sont toujours envoyés par azure-noreply@microsoft.com
-
-
-## <a name="why-would-i-receive-email-notifications"></a>Pourquoi est-ce que je recevrais des notifications par e-mail ?
-
-Azure AD Domain Services envoie des notifications par e-mail pour les informations importantes concernant votre domaine.  Ces notifications sont uniquement pour des questions urgentes qui ont un impact sur votre service et qui doivent être traitées immédiatement. Chaque notification par e-mail est déclenchée par une alerte sur votre domaine managé. Ces alertes s’affichent également sur le portail Azure et peut être consultées sur la [page de contrôle d’intégrité Azure AD Domain Services](check-health.md).
-
-Azure AD Domain Services n’envoie pas de messages à cette liste pour la publicité, les mises à jour ou la vente.
-
-## <a name="when-will-i-receive-email-notifications"></a>Quand est-ce que je recevrai des notifications par e-mail ?
-
-Les notification sont envoyées immédiatement quand une [nouvelle alerte](troubleshoot-alerts.md) est détectée sur votre domaine managé. Si l’alerte n’est pas résolue, une notification par e-mail est envoyée en guise de rappel tous les quatre jours.
-
-## <a name="who-should-receive-the-email-notifications"></a>Qui doit recevoir les notifications par e-mail ?
-
-
- Nous vous recommandons que la liste des destinataires pour les Azure AD Domain Services comporte des personnes qui sont en mesure d’administrer et d’apporter des modifications au domaine managé. Cette liste doit être considérée comme celle des « premiers intervenants » pour tout type de problème. Si vous souhaitez ajouter plus de cinq autres adresses, nous vous recommandons de créer une liste de distribution à ajouter à la liste de notification.
-
-Vous pouvez ajouter jusqu’à cinq adresses pour les notifications Azure AD Domain Services. En outre, vous pouvez également choisir que tous les administrateurs généraux de votre annuaire et tous les membres du groupe « AAD DC Administrators » reçoivent les notifications par e-mail envoyées par Azure AD Domain Services. Azure AD Domain Services enverra uniquement des notifications à 100 adresses e-mail, y compris la liste des administrateurs généraux et des administrateurs AAD DC.
-
-
-## <a name="how-to-add-an-additional-email-recipient"></a>Comment ajouter un destinataire
-
-> [!WARNING]
-> Lorsque vous modifiez les paramètres de notification, vous modifiez les paramètres de notification de tout le domaine managé, et non pas uniquement pour vous-même.
-
-1. Accédez à la [page Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
-2. Cliquez sur votre domaine managé.
-3. Dans le volet de navigation de gauche, choisissez **Paramètres de notification**.
-4. Pour ajouter une adresse e-mail, tapez l’adresse dans le tableau des destinataires supplémentaires.
-5. Cliquez sur « Enregistrer » dans le volet de navigation en haut.
+> Quand vous modifiez les paramètres de notification, vous mettez à jour les paramètres de notification du domaine managé Azure AD DS tout entier, pas seulement les vôtres.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>J’ai reçu une notification par e-mail pour une alerte, mais lorsque j’ai ouvert une session, le portail Azure ne contenait pas d’alerte. Que s’est-il passé ?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>J’ai reçu une notification par e-mail pour une alerte, mais lorsque j’ai ouvert une session, le portail Azure ne contenait pas d’alerte. Que s’est-il passé ?
 
-Si une alerte est résolue, elle disparaît du portail Azure. La raison la plus probable est qu’une autre personne qui reçoit ces notifications par e-mail a résolu l’alerte sur votre domaine managé, ou bien elle a été résolue automatiquement par Azure AD Domain Services.
+Une alerte qui été résolue ne figure plus sur le portail Azure. La raison la plus probable est qu’un autre destinataire des notifications par e-mail a résolu l’alerte dans votre domaine managé Azure AD DS ou elle a été résolue automatiquement par la plateforme Azure.
 
+### <a name="why-can-i-not-edit-the-notification-settings"></a>Pourquoi ne puis-je pas modifier les paramètres de notification ?
 
-#### <a name="why-can-i-not-edit-the-notification-settings"></a>Pourquoi ne puis-je pas modifier les paramètres de notification ?
+Si vous ne parvenez pas à accéder à la page des paramètres de notification sur le portail Azure, c’est que vous n’avez pas les autorisations permettant de modifier le domaine managé Azure AD DS. Vous devez contacter un administrateur général pour obtenir les autorisations permettant de modifier les ressources Azure AD DS ou pour être retiré de la liste des destinataires.
 
-Si vous ne parvenez pas à accéder à la page des paramètres de notification dans le portail Azure, vous n’avez pas les autorisations pour modifier les Azure AD Domain Services. Vous devez contacter votre administrateur général soit pour obtenir les autorisations pour modifier les ressources Azure AD Domain Services ou pour être retiré de la liste des destinataires.
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Je ne reçois pas de notifications par e-mail, même si j’ai fourni mon adresse e-mail. Pourquoi ?
 
-#### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Je ne reçois pas de notifications par e-mail, même si j’ai fourni mon adresse e-mail. Pourquoi ?
-
-Recherchez les notifications dans le dossier de courrier indésirable de votre boîte de réception et assurez-vous que l’expéditeur est bien dans la liste verte (azure-noreply@microsoft.com).
+Recherchez des notifications dans le dossier de courrier indésirable de votre boîte de réception et veillez à autoriser l’expéditeur de `azure-noreply@microsoft.com`.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Résoudre les alertes sur votre domaine managé](troubleshoot-alerts.md)
-- [En savoir plus sur Azure AD Domain Services](overview.md)
-- [Contacter l’équipe produit](contact-us.md)
 
-## <a name="contact-us"></a>Nous contacter
-Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](contact-us.md).
+Pour plus d’informations sur la résolution de certains problèmes susceptibles d’être signalés, consultez [Résoudre les alertes dans un domaine managé Azure AD DS][troubleshoot-alerts].
+
+<!-- INTERNAL LINKS -->
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md

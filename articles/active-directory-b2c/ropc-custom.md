@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164854"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063703"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Dans Azure Active Directory (Azure AD) B2C, le flux des informations d’identification par mot de passe de propriétaire ressource (ROPC) est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation.
+Dans Azure Active Directory B2C (Azure AD B2C), le flux des informations d’identification par mot de passe du propriétaire de ressource est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation.
 
 Les options prises en charge dans le flux ROPC sont les suivantes :
 
@@ -42,7 +42,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
 ## <a name="register-an-application"></a>Inscrire une application
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application, par exemple *ROPC_Auth_app*.
@@ -88,7 +88,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -140,7 +140,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
     </TechnicalProfile>
     ```
 
-    Remplacez la **DefaultValue** de **client_id** par l’ID d’application de l’application ProxyIdentityExperienceFramework que vous avez créée dans le didacticiel préalable. Remplacez ensuite la **DefaultValue** de **resource_id** par l’ID d’application de l’application IdentityExperienceFramework que vous avez également créée dans le didacticiel préalable.  
+    Remplacez la **DefaultValue** de **client_id** par l’ID d’application de l’application ProxyIdentityExperienceFramework que vous avez créée dans le didacticiel préalable. Remplacez ensuite la **DefaultValue** de **resource_id** par l’ID d’application de l’application IdentityExperienceFramework que vous avez également créée dans le didacticiel préalable.
 
 5. Ajoutez les éléments **ClaimsProvider** suivants avec leurs profils techniques à l’élément **ClaimsProviders** :
 
@@ -245,7 +245,7 @@ Ensuite, mettez à jour le fichier de partie de confiance qui lance le parcours 
 2. Ouvrez le nouveau fichier et changez la valeur de l’attribut **PolicyId** pour **TrustFrameworkPolicy** en valeur unique. L’ID de stratégie est le nom de votre stratégie. Par exemple, **B2C_1A_ROPC_Auth**.
 3. Modifiez la valeur de l’attribut **ReferenceId** dans **DefaultUserJourney** en `ResourceOwnerPasswordCredentials`.
 4. Modifiez l’élément **OutputClaims** afin qu’il ne contienne que les revendications suivantes :
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />

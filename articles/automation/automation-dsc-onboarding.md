@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498406"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965187"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -67,7 +67,8 @@ Si vous gérez un groupe de machines virtuelles identiques, consultez l’exempl
 
 ### <a name="powershell"></a>PowerShell
 
-Vous pouvez utiliser l’applet de commande [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) pour intégrer des machines virtuelles au portail Azure par le biais de PowerShell.
+Vous pouvez utiliser l’applet de commande [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) pour intégrer des machines virtuelles dans Azure à l’aide de PowerShell.
+Toutefois, cela n’est actuellement implémenté que pour les machines exécutant Windows (l’applet de commande déclenche uniquement l’extension Windows).
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Enregistrement de machines virtuelles dans plusieurs abonnements Azure
 
@@ -317,7 +318,7 @@ Pour résoudre les problèmes ou afficher l’état de l’extension Azure VM De
 
 Après avoir inscrit une machine en tant que nœud DSC dans Azure Automation State Configuration, il se peut que vous ayez besoin de revenir en arrière pour de multiples raisons :
 
-- Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
+- Pour les versions de Windows Server antérieures à Windows Server 2019, chaque nœud négocie automatiquement un certificat unique d’authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.  Une solution à ce problème est incluse dans Windows Server 2019 et ultérieur.
 - Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](/powershell/dsc/metaconfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement via une désinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
 
 L’inscription peut être renouvelée selon la procédure initiale, en utilisant l’une des méthodes d’intégration décrites dans ce document. Il est inutile d’annuler l’inscription d’un nœud dans Azure Automation State Configuration avant de le réinscrire.

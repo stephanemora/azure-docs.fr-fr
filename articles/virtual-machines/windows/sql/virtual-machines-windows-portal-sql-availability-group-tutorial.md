@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102363"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036526"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Didacticiel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -81,6 +81,9 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
    | Confirmation |Utilisez les valeurs par défaut, sauf si vous utilisez des espaces de stockage. Consultez la remarque qui suit ce tableau. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Définir l’adresse IP du cluster de basculement de Windows Server
+
+  > [!NOTE]
+  > Sur Windows Server 2019, le cluster crée un **nom de serveur distribué** à la place du **nom réseau du cluster**. Si vous utilisez Windows Server 2019, ignorez les étapes qui font référence au nom de base du cluster dans ce tutoriel. Vous pouvez créer un nom réseau de cluster à l’aide de [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Passez en revue le blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) pour plus d’informations. 
 
 1. Dans **Gestionnaire du cluster de basculement**, accédez à **Principales ressources du cluster** et développez les détails du cluster. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource à adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même. Cette adresse est donc dupliquée.
 

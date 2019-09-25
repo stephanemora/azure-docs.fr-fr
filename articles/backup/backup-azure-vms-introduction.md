@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951862"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018688"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -140,48 +140,13 @@ Disque de données 2 | 4095 Go | 0 Go
 La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0 Go= 47 Go. Cette taille d’instance protégée (47 Go) devient la base de la facture mensuelle. La taille de l’instance protégée utilisée pour la facturation augmente proportionnellement à la quantité de données dans la machine virtuelle.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Préversion publique limitée : Sauvegarde de machine virtuelle avec des tailles de disque jusqu’à 30 To
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Préversion publique : Sauvegarde de machine virtuelle avec des tailles de disque jusqu’à 30 To
 
-Sauvegarde Azure prend désormais en charge une préversion publique limitée de [disques managés Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) plus volumineux et plus puissants d’une taille allant jusqu’à 30 To. Cette préversion fournit une prise en charge au niveau de la production pour les machines virtuelles managées.
+Sauvegarde Azure prend désormais en charge une préversion publique de [disques Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) plus volumineux et plus puissants d’une taille allant jusqu’à 30 To. Cette préversion fournit une prise en charge au niveau de la production pour les machines virtuelles managées.
 
-Vous pouvez vous inscrire de manière fluide à la préversion sans aucun impact sur vos sauvegardes en cours. Une fois que l’abonnement est inscrit à la préversion, toutes les machines virtuelles ayant une taille de disque allant jusqu’à 30 To doivent être sauvegardées avec succès. Pour s’inscrire à la préversion :
- 
-Exécutez les applets de commande suivantes à partir d’un terminal PowerShell avec élévation des privilèges :
+Les sauvegardes de vos machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle doivent fonctionner de manière fluide sans impact sur vos sauvegardes existantes. Aucune action de l’utilisateur n’est requise pour que les sauvegardes s’exécutent sur les disques volumineux, si la machine virtuelle est déjà configurée avec Sauvegarde Azure.
 
-1. Connectez-vous à votre compte Azure.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Sélectionnez l’abonnement que vous voulez inscrire pour la mise à niveau :
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Inscrivez cet abonnement dans le programme de la préversion : 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Attendez 30 minutes pour que l’abonnement soit inscrit à la préversion. 
-
- 4. Pour vérifier l’état, exécutez les cmdlets suivantes :
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Lorsque l’abonnement indique qu’il est inscrit, exécutez la commande suivante :
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Les machines virtuelles chiffrées avec des disques d’une taille supérieure à 4 To ne sont pas prises en charge dans cette préversion.
-
-
+Toutes les machines virtuelles Azure avec des disques volumineux pour lesquels une sauvegarde est configurée doivent être sauvegardées avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

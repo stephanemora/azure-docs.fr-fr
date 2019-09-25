@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844869"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984376"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Utilisation de clés de ressources de création et de runtime
 
@@ -56,7 +56,7 @@ Lorsque vous êtes prêt à publier votre point de terminaison de prédiction, c
 1. Sélectionnez **+ Créer une ressource**.
 1. Dans la zone de recherche, entrez `Language understanding`.
 1. Sélectionnez **Créer** pour commencer le processus de création. 
-1. Créez **les deux** pour créer une clé d’exécution et une clé de runtime de point de terminaison de prédiction. 
+1. Sélectionnez **Les deux** pour créer une clé d’exécution et une clé de runtime de point de terminaison de prédiction. 
 1. Entrez les informations requises pour créer la ressource, puis sélectionnez **Créer** pour terminer le processus.
 
     ![Créer la ressource Language Understanding](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)

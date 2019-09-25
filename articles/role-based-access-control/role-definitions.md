@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142840"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996433"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -213,16 +213,18 @@ L’autorisation `NotDataActions` spécifie les opérations sur les données qui
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La propriété `AssignableScopes` spécifie les étendues (abonnements, groupes de ressources ou ressources) qui disposent de cette définition de rôle. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
+La propriété `AssignableScopes` spécifie les étendues (groupes d’administration, abonnements, groupes de ressources ou ressources) qui disposent de cette définition de rôle. Vous pouvez mettre le rôle à disposition pour pouvoir l’attribuer uniquement dans les groupes d’administration, les abonnements ou les groupes de ressources qui en ont besoin. Vous devez utiliser au moins un groupe de gestion, abonnement, groupe de ressources ou ID de ressource.
 
 La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 
-| Scénario | Exemples |
+| Le rôle est disponible à l’attribution | Exemples |
 |----------|---------|
-| Rôle disponible pour attribution dans un seul abonnement | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| Rôle disponible pour attribution dans deux abonnements | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| Rôle disponible pour attribution uniquement dans le groupe de ressources réseau | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Rôle disponible pour attribution dans toutes les étendues (s’applique uniquement à des rôles intégrés) | `"/"` |
+| Abonnement unique | `"/subscriptions/{subscriptionId1}"` |
+| Deux abonnements | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| Groupe de ressources réseau | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| Un seul groupe d’administration | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Groupe d’administration et abonnement | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| Toutes les étendues (applicable uniquement aux rôles intégrés) | `"/"` |
 
 Pour plus d’informations sur `AssignableScopes` pour des rôles personnalisés, consultez [Rôles personnalisés pour les ressources Azure](custom-roles.md).
 

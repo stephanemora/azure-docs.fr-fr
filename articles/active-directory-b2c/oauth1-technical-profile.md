@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fa5757f8b77e29545f6d6f6b885334c7b526f1
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513117"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063988"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité de protocole [OAuth protocole 1.0](https://tools.ietf.org/html/rfc5849). Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique OAuth1 vous permet d’opérer une fédération avec un fournisseur d’identité basée sur OAuth1, tel que Twitter. Fédérer avec le fournisseur d’identité permet aux utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
+Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité du [protocole OAuth 1.0](https://tools.ietf.org/html/rfc5849). Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique OAuth1 vous permet d’opérer une fédération avec un fournisseur d’identité basée sur OAuth1, tel que Twitter. Fédérer avec le fournisseur d’identité permet aux utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `OAuth1`. Par exemple, le protocole pour profil technique **Twitter-OAUTH1** est `OAuth1`.
 
@@ -31,7 +31,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `OAut
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>Revendications d’entrée
@@ -50,7 +50,7 @@ L’exemple suivant montre les revendications retournées par le fournisseur d�
 - La revendication **screen_name** mappée à la revendication **displayName**.
 - La revendication **email** sans mappage de nom.
 
-Le profil technique retourne également des revendications qui ne sont pas retournées par le fournisseur d’identité : 
+Le profil technique retourne également des revendications qui ne sont pas retournées par le fournisseur d’identité :
 
 - La revendication **identityProvider** contenant le nom du fournisseur d’identité.
 - La revendication **authenticationSource** avec la valeur par défaut `socialIdpAuthentication`.
@@ -74,7 +74,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | request_token_endpoint | OUI | URL du point de terminaison de jeton de requête conformément à la norme RFC 5849. |
 | authorization_endpoint | OUI | URL du point de terminaison d’autorisation conformément à la norme RFC 5849. |
 | access_token_endpoint | OUI | URL du point de terminaison de jeton conformément à la norme RFC 5849. |
-| ClaimsEndpoint | Non | URL du point de terminaison d’informations utilisateur. | 
+| ClaimsEndpoint | Non | URL du point de terminaison d’informations utilisateur. |
 | ClaimsResponseFormat | Non | Format de réponse des revendications.|
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
@@ -83,11 +83,11 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité.   | 
+| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité.   |
 
 ## <a name="redirect-uri"></a>URI de redirection
 
-Lorsque vous configurez l’URL de redirection de votre fournisseur d’identité, entrez `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com), et **{policyId}** par l’identificateur de votre stratégie (par exemple, b2c_1_policy). L’URI de redirection doit être en minuscules. Ajoutez un URI de redirection pour toutes les stratégies qui utilisent la connexion de fournisseur d’identité. 
+Lorsque vous configurez l’URL de redirection de votre fournisseur d’identité, entrez `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com), et **{policyId}** par l’identificateur de votre stratégie (par exemple, b2c_1_policy). L’URI de redirection doit être en minuscules. Ajoutez un URI de redirection pour toutes les stratégies qui utilisent la connexion de fournisseur d’identité.
 
 Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonline.com**, veillez à utiliser b2clogin.com au lieu de login.microsoftonline.com.
 

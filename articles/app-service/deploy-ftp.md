@@ -11,16 +11,16 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 09/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070498"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098050"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -72,9 +72,9 @@ Il est recommandé d’utiliser les **informations d’identification de l’app
 
 Pour une sécurité améliorée, vous devez autoriser FTP sur SSL uniquement. Vous pouvez également désactiver FTP et FTPS si vous n’utilisez pas de déploiement FTP.
 
-Dans la page des ressources de votre application dans le [portail Azure](https://portal.azure.com), sélectionnez **Paramètres de l’application** dans la navigation de gauche.
+Dans la page des ressources de votre application dans le [portail Azure](https://portal.azure.com), sélectionnez **Configuration** > **Paramètres généraux** dans le volet de navigation gauche.
 
-Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS Only** (FTPS uniquement). Pour désactiver complètement les protocoles FTP et FTPS, sélectionnez **Désactiver**. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Si vous utilisez **FTPS uniquement**, appliquez TLS 1.2 ou une version ultérieure en accédant au panneau **Paramètres SSL** de votre application web. TLS 1.0 et 1.1 ne sont pas pris en charge avec **FTPS uniquement**.
+Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS uniquement** dans **État FTP**. Pour désactiver complètement les protocoles FTP et FTPS, sélectionnez **Désactivé**. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Si vous utilisez **FTPS uniquement**, appliquez TLS 1.2 ou version ultérieure en accédant au panneau **Paramètres TLS/SSL** de votre application web. TLS 1.0 et 1.1 ne sont pas pris en charge avec **FTPS uniquement**.
 
 ![Désactiver le protocole FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

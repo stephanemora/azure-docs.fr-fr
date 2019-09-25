@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6ad7e305958131c4f544dfa2022e7471e9adac
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147102"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057767"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
@@ -36,7 +36,7 @@ Lorsque vous configurez pour la première fois l’approvisionnement automatique
 - Une **barre de progression** qui montre l’accomplissement de l’approvisionnement en pourcentage. Le pourcentage reflète le nombre de pages approvisionnées. Remarque : chaque page peut contenir plusieurs utilisateurs ou groupes. Le pourcentage ne reflète donc pas directement le nombre d’utilisateurs, de groupes ou de rôles approvisionnés.
 - Un bouton **Actualiser** que vous pouvez utiliser pour mettre à jour la vue.
 - Le nombre d’**Utilisateurs** et de **Groupes** approvisionnés, et le nombre de rôles créés. Pendant le cycle initial, le nombre d’**Utilisateurs** augmente de 1 lorsqu’un utilisateur est créé ou mis à jour, et diminue de 1 lorsqu’un utilisateur est supprimé. Pendant un cycle incrémentiel, les mises à jour d’utilisateurs n’affectent pas le nombre d’**Utilisateurs**. Le nombre ne change que lorsque des utilisateurs sont créés ou supprimés.
-- Un lien **Afficher les journaux d’audit**, qui ouvre les journaux d’audit Azure AD pour plus d’informations sur toutes les opérations exécutées par le service d’approvisionnement d’utilisateurs, dont l’état d’approvisionnement d’utilisateurs individuels (voir la section [Utiliser des journaux d’audit](#use-audit-logs-to-check-a-users-provisioning-status) ci-dessous).
+- Un lien **Afficher les journaux d’audit**, qui ouvre les journaux de provisionnement Azure AD pour plus d’informations sur toutes les opérations exécutées par le service de provisionnement d’utilisateurs, notamment l’état de provisionnement d’utilisateurs individuels (voir la section [Utiliser des journaux de provisionnement](#use-provisioning-logs-to-check-a-users-provisioning-status) ci-dessous).
 
 À la fin d’un cycle d’approvisionnement, la section **Statistiques à ce jour** affiche le nombre cumulatif d’utilisateurs et de groupes qui ont été approvisionnés à ce jour, ainsi que la date d’achèvement et la durée du dernier cycle. L’**ID d’activité** identifie uniquement le cycle d’approvisionnement le plus récent. L’**ID de tâche** est un identificateur unique de la tâche d’approvisionnement et est spécifique à l’application dans votre client.
 
@@ -44,36 +44,34 @@ La progression de l’approvisionnement peut être consultée dans le portail Az
 
 ![Barre de progression sur la page de l’approvisionnement](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
-## <a name="use-audit-logs-to-check-a-users-provisioning-status"></a>Utiliser des journaux d’audit pour vérifier l’état de l’approvisionnement d’utilisateurs
+## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Utiliser les journaux de provisionnement pour vérifier l’état de provisionnement d’un utilisateur
 
-Pour consulter l’état de l’approvisionnement d’un utilisateur spécifique, consultez les journaux d’audit dans Azure AD. Toutes les opérations effectuées par le service d’attribution d’utilisateurs sont enregistrées dans les journaux d’audit Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
+Pour consulter l’état de provisionnement d’un utilisateur sélectionné, consultez les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) dans Azure AD. Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les journaux de provisionnement Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
-Les journaux d’audit d’approvisionnement sont accessibles dans le portail Azure, sous l’onglet **Azure Active Directory &gt; Applications Entreprise &gt;\[Nom de l’application\]&gt; Journaux d’audit**. Filtrez les journaux d’activité sur la catégorie **Approvisionnement des comptes** pour afficher uniquement les événements d’approvisionnement de cette application. Vous pouvez rechercher des utilisateurs en fonction de l’ID de correspondance qui a été configuré pour eux dans les mappages d’attributs. 
+Vous pouvez accéder aux journaux de provisionnement dans le portail Azure en sélectionnant **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Journaux de provisionnement (préversion)** dans la section **Activité**. Vous pouvez rechercher les données de provisionnement en fonction du nom de l’utilisateur ou de l’identificateur dans le système source ou le système cible. Pour plus d’informations, consultez [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-Par exemple, si vous avez configuré le nom d’utilisateur principal ou l’adresse e-mail en tant qu’attribut correspondant côté Azure AD, et si l’utilisateur qui n’est pas approvisionné a la valeur « audrey@contoso.com », recherchez les journaux d’audit correspondant à « audrey@contoso.com » et passez en revue les entrées renvoyées.
-
-Les journaux d’audit d’approvisionnement enregistrent toutes les opérations effectuées par le service d’approvisionnement, y compris :
+Les journaux de provisionnement enregistrent toutes les opérations effectuées par le service de provisionnement, y compris :
 
 * Interrogation d’Azure AD concernant les utilisateurs assignés qui se trouvent dans l’étendue de l’approvisionnement
 * Interrogation de l’application cible concernant l’existence de ces utilisateurs
 * Comparaison des objets utilisateur du système
 * Ajout, mise à jour ou désactivation du compte d’utilisateur dans le système cible en fonction de la comparaison
 
-Pour plus d’informations sur la lecture des journaux d’audit dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Combien de temps faut-il pour approvisionner des utilisateurs ?
 Lorsque vous utilisez le provisionnement automatique des utilisateurs avec une application, Azure AD provisionne et met à jour automatiquement les comptes d’utilisateur dans une application selon différents éléments comme l’[affectation d’utilisateurs et de groupes](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) et selon un intervalle régulier planifié (généralement toutes les 40 minutes).
 
-Le temps d’approvisionnement d’un utilisateur donné dépend principalement de si votre tâche d’approvisionnement exécute une synchronisation initiale ou incrémentielle.
+Le temps de provisionnement d’un utilisateur donné dépend principalement de votre tâche de provisionnement, si elle est en cours d’exécution d’un cycle initial ou incrémentiel.
 
-- Pour les **synchronisations initiales**, le temps nécessaire dépend de plusieurs facteurs, notamment le nombre d’utilisateurs et de groupes dans la portée pour l’approvisionnement, ainsi que le nombre total d’utilisateurs et de groupe dans le système source. La première synchronisation entre Azure AD et une application peut prendre de 20 minutes à plusieurs heures, en fonction de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue de l’approvisionnement. Une liste complète des facteurs affectant les performances de la synchronisation initiale est présentée plus loin dans cette section.
+- Pour le **cycle initial**, le temps nécessaire dépend de plusieurs facteurs, notamment le nombre d’utilisateurs et de groupes dans l’étendue du provisionnement, ainsi que le nombre total d’utilisateurs et de groupes dans le système source. La première synchronisation entre Azure AD et une application peut prendre de 20 minutes à plusieurs heures, en fonction de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue de l’approvisionnement. Une liste complète des facteurs affectant les performances du cycle initial est présentée plus loin dans cette section.
 
-- Pour les **synchronisations incrémentielles** qui suivent les synchronisations initiales, les durées des tâches ont tendance à être plus rapides (10 minutes, par exemple) car le service d’approvisionnement stocke les filigranes qui représentent l’état des deux systèmes après la synchronisation initiale, ce qui améliore les performances des synchronisations suivantes. Le temps nécessaire dépend du nombre de modifications détectées dans ce cycle d’approvisionnement. S’il existe moins de 5 000 utilisateurs ou les changements d’appartenance au groupe, le travail peut finir dans un cycle d’approvisionnement incrémentiel. 
+- Pour les **cycles incrémentiels** qui suivent le cycle initial, les durées des tâches ont tendance à être plus rapides (10 minutes, par exemple), car le service de provisionnement stocke les filigranes qui représentent l’état des deux systèmes après le cycle initial, ce qui améliore les performances des synchronisations suivantes. Le temps nécessaire dépend du nombre de modifications détectées dans ce cycle d’approvisionnement. S’il existe moins de 5 000 utilisateurs ou les changements d’appartenance au groupe, le travail peut finir dans un cycle d’approvisionnement incrémentiel. 
 
 Le tableau suivant récapitule les temps de synchronisation des scénarios d’approvisionnement courants. Dans ces scénarios, le système source est Azure AD et le système cible est une application SaaS. Les temps de synchronisation sont dérivés d’une analyse statistique des travaux de synchronisation pour les applications SaaS ServiceNow, Workplace, Salesforce et G Suite.
 
 
-| Configuration d’étendue | Utilisateurs, groupes et membres dans l’étendue | Temps de la synchronisation initiale | Temps de la synchronisation incrémentielle |
+| Configuration d’étendue | Utilisateurs, groupes et membres dans l’étendue | Durée du cycle initial | Durée du cycle incrémentiel |
 | -------- | -------- | -------- | -------- |
 | Synchroniser les utilisateurs et groupes assignés uniquement |  < 1 000 |  < 30 minutes | < 30 minutes |
 | Synchroniser les utilisateurs et groupes assignés uniquement |  1 000 - 10 000 | 142 - 708 minutes | < 30 minutes |
@@ -85,12 +83,12 @@ Le tableau suivant récapitule les temps de synchronisation des scénarios d’a
 | Synchroniser l’ensemble des utilisateurs dans Azure AD | 1 000 - 10 000  | 43 - 86 minutes | < 30 minutes |
 
 
-Pour la configuration **Synchroniser l’utilisateur et les groupes affectés uniquement**, vous pouvez utiliser les formules suivantes pour déterminer les temps minimum et maximum attendus pour la **synchronisation initiale** :
+En ce qui concerne la configuration **Synchroniser uniquement les utilisateurs et groupes assignés**, vous pouvez utiliser les formules suivantes et déterminer les temps minimum et maximum attendus pour le **cycle initial** :
 
     Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
     Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
     
-Résumé des facteurs qui influencent le temps nécessaire pour terminer une **synchronisation initiale**  :
+Récapitulatif des facteurs ayant une incidence sur le temps nécessaire à l’accomplissement d’un **cycle initial** :
 
 - Nombre total d'utilisateurs et de groupes concernés par l'approvisionnement.
 
@@ -98,7 +96,7 @@ Résumé des facteurs qui influencent le temps nécessaire pour terminer une **s
 
 - Si les utilisateurs dans l’étendue pour l’approvisionnement sont mis en correspondance ou non avec des utilisateurs existants dans l’application cible, ou doivent être créés la première fois. Les travaux de synchronisation pour lesquels tous les utilisateurs sont créés pour la première fois prennent environ *deux fois plus* de temps que les travaux de synchronisation pour lesquels tous les utilisateurs sont mis en correspondance avec des utilisateurs existants.
 
-- Nombre d’erreurs dans les [journaux d’audit](check-status-user-account-provisioning.md). Les performances sont ralenties s'il y a beaucoup d'erreurs et que le service d'approvisionnement est passé en quarantaine.    
+- Nombre d’erreurs dans les [journaux de provisionnement](check-status-user-account-provisioning.md). Les performances sont ralenties s'il y a beaucoup d'erreurs et que le service d'approvisionnement est passé en quarantaine. 
 
 - Limites de taux de requêtes et limitation implémentées par le système cible. Certains systèmes cible implémentent des limites de taux de requêtes et une limitation qui peuvent affecter les performances lors d’opérations de synchronisation de grande envergure. Dans ces conditions, une application qui reçoit trop rapidement un trop grand nombre de requêtes risque d’afficher un taux de réponse plus faible ou d’interrompre la connexion. Pour améliorer les performances, le connecteur doit ajuster ce taux en évitant d’envoyer les requêtes d’application plus rapidement que ce que l’application est capable de traiter. Les connecteurs d’approvisionnement intégrés à Microsoft permettent d’effectuer cet ajustement. 
 

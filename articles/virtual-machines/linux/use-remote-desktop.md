@@ -11,21 +11,21 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1189faf64dc3619d0e4581641c2c66d0b527754a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 96f1f98f95bb726864553c81245e250cf907fb05
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813450"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961540"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](https://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 16.04 LTS existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
+Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 18.04 LTS dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Azure CLI](quick-create-cli.md)
 - [Portail Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 16.04
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installation d’un environnement de bureau sur votre machine virtuelle Linux
 La plupart des machines virtuelles Linux dans Azure n’ont pas d’environnement de bureau installé par défaut. Les machines virtuelles Linux sont généralement gérées à l’aide des connexions SSH plutôt que d’un environnement de bureau. Il existe divers environnements de bureau sous Linux que vous pouvez choisir. Selon l’environnement de bureau que vous choisissez, ce dernier peut consommer entre 1 et 2 Go d’espace disque et nécessiter 5 à 10 minutes pour installer et configurer tous les packages requis.
 
-L’exemple suivant installe l’environnement de bureau léger [xfce4](https://www.xfce.org/) sur une machine virtuelle Ubuntu 16.04 LTS. Les commandes pour les autres distributions varient légèrement (utilisez `yum` pour effectuer une installation sur Red Hat Enterprise Linux et configurez les règles `selinux` appropriées, ou utilisez `zypper` pour une installation sur SUSE, par exemple).
+L’exemple suivant installe l’environnement de bureau léger [xfce4](https://www.xfce.org/) sur une machine virtuelle Ubuntu 18.04 LTS. Les commandes pour les autres distributions varient légèrement (utilisez `yum` pour effectuer une installation sur Red Hat Enterprise Linux et configurez les règles `selinux` appropriées, ou utilisez `zypper` pour une installation sur SUSE, par exemple).
 
 Tout d’abord, connectez-vous avec SSH à votre machine virtuelle. L’exemple suivant se connecte à la machine virtuelle nommée *myvm.westus.cloudapp.azure.com* avec le nom d’utilisateur *azureuser*. Utilisez vos propres valeurs :
 

@@ -1,7 +1,7 @@
 ---
 title: Exécuter des prédictions par lots sur d’importants volumes de données avec des pipelines
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment effectuer des prédictions par lots de façon asynchrone sur de grandes quantités de données à l’aide d’Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment effectuer des prédictions par lots de façon asynchrone sur de grandes quantités de données à l’aide d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128252"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034313"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Exécuter des prédictions par lots sur de grands jeux de données avec des pipelines Azure Machine Learning
 
-Dans cet article, apprenez à effectuer des prédictions sur de grandes quantités de données de façon asynchrone à l’aide du service de pipelines ML d’Azure Machine Learning.
+Dans cet article, vous allez découvrir comment effectuer des prédictions sur de grandes quantités de données de façon asynchrone à l’aide des pipelines ML d’Azure Machine Learning.
 
 La prédiction par lots (ou le scoring par lots) fournit une inférence économique avec un débit inégalé pour les applications asynchrones. Les pipelines de prédiction par lots peuvent être mis à l’échelle pour effectuer l’inférence sur plusieurs téraoctets de données de production. La prédiction par lots est optimisée pour les débits élevés et les prédictions autonomes (fire and forget) pour un vaste ensemble de données.
 
@@ -30,7 +30,7 @@ Au cours des prochaines étapes, vous allez créer un [pipeline Machine Learning
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configurez votre environnement de développement pour installer le SDK Azure Machine Learning. Pour obtenir davantage d’informations, consultez la page [Configurer un environnement de développement pour Azure Machine Learning](how-to-configure-environment.md).
 

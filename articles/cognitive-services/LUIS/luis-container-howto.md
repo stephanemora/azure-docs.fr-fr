@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: d05f98ae695dd428a28ce49934e05c60de6328bc
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9d1a6ab698ceb6ac1c0a4fc635b5a8fe1e68b0c6
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257041"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102037"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -37,6 +37,8 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
 |La ressource Azure `Cognitive Services` et le fichier d’[application empaquetée](luis-how-to-start-new-app.md#export-app-for-containers) LUIS |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>* Une ressource Azure _Cognitive Services_ et la clé de facturation de l’URI du point de terminaison de facturation associée. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur. Vous devez ajouter le routage `luis/v2.0` à l’URI de point de terminaison, comme dans l’exemple BILLING_ENDPOINT_URI suivant. <br>* Une application entraînée ou publiée empaquetée en tant qu’entrée montée dans le conteneur avec son ID d’application associé. Vous pouvez obtenir le fichier empaqueté à partir du portail LUIS ou des API de création. Si vous obtenez des applications empaquetées LUIS à partir des [API de création](#authoring-apis-for-package-file), vous aurez également besoin de votre _clé de création_.<br><br>Ces prérequis sont utilisés pour passer des arguments de ligne de commande aux variables suivantes :<br><br>**{AUTHORING_KEY}**  : cette clé sert à obtenir l’application empaquetée à partir du service LUIS dans le cloud et à charger les journaux d’activité de requêtes vers le cloud. Le format est `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**  : cet ID sert à sélectionner l’application. Le format est `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**  : cette clé sert à démarrer le conteneur. La clé de point de terminaison est disponible à deux endroits. Le premier est le portail Azure, dans la liste des clés de la ressource _Cognitive Services_. Elle est également disponible dans le portail LUIS, dans la page Keys and Endpoint settings (Paramètres des clés et du point de terminaison). N’utilisez pas la clé de démarrage.<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page Vue d’ensemble.<br><br>La [clé de création et la clé de point de terminaison](luis-boundaries.md#key-limits) ont différentes fonctions. Ne les utilisez pas de manière interchangeable. |
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### <a name="authoring-apis-for-package-file"></a>API de création de fichier de package
 
@@ -75,7 +77,6 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 Pour obtenir une description complète des balises disponibles utilisées dans la commande précédente, telles que `latest`, consultez [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) sur Docker Hub.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
 
@@ -121,7 +122,7 @@ Avant d’empaqueter une application LUIS, vous devez disposer des éléments su
 
 |Conditions requises pour l’empaquetage|Détails|
 |--|--|
-|Instance de ressource Azure _Cognitive Services_|Exemples de régions prises en charge :<br><br>USA Ouest (```westus```)<br>Europe Ouest (```westeurope```)<br>Australie Est (```australiaeast```)|
+|Instance de ressource Azure _Cognitive Services_|Exemples de régions prises en charge :<br><br>USA Ouest (`westus`)<br>Europe Ouest (`westeurope`)<br>Australie Est (`australiaeast`)|
 |Application LUIS entraînée ou publiée|Sans aucune [dépendance non prise en charge](#unsupported-dependencies). |
 |Accès au système de fichiers de l’[ordinateur hôte](#the-host-computer) |L’ordinateur hôte doit autoriser un [montage d’entrée](luis-container-configuration.md#mount-settings).|
   
@@ -157,7 +158,6 @@ Le package de l’application entraînée est disponible à partir de la page de
 
 ![Exporter le package entraîné pour le conteneur à partir du menu Export de la page Versions](./media/luis-container-how-to/export-trained-package-for-container.png)
 
-
 ### <a name="export-published-apps-package-from-api"></a>Exporter le package de l’application publiée à partir de l’API
 
 Utilisez l’API REST suivante pour empaqueter une application LUIS que vous avez déjà [publiée](luis-how-to-publish-app.md). Remplacez les espaces réservés dans l’appel d’API par vos propres valeurs appropriées, en utilisant le tableau sous la spécification HTTP.
@@ -171,9 +171,9 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | Placeholder | Valeur |
 |-------------|-------|
 |{APPLICATION_ID} | ID d’application de l’application LUIS publiée. |
-|{APPLICATION_ENVIRONMENT} | Environnement de l’application LUIS publiée. Utilisez l’une des valeurs suivantes :<br/>```PRODUCTION```<br/>```STAGING``` |
+|{APPLICATION_ENVIRONMENT} | Environnement de l’application LUIS publiée. Utilisez l’une des valeurs suivantes :<br/>`PRODUCTION`<br/>`STAGING` |
 |{AUTHORING_KEY} | Clé de création du compte LUIS pour l’application LUIS publiée.<br/>Vous pouvez obtenir votre clé de création à partir de la page **User Settings** (Paramètres utilisateur) dans le portail LUIS. |
-|{AZURE_REGION} | Région Azure appropriée :<br/><br/>```westus``` - USA Ouest<br/>```westeurope``` - Europe Ouest<br/>```australiaeast``` - Australie Est |
+|{AZURE_REGION} | Région Azure appropriée :<br/><br/>`westus` - USA Ouest<br/>`westeurope` - Europe Ouest<br/>`australiaeast` - Australie Est |
 
 Pour télécharger le package publié, reportez-vous à la [documentation sur les API ici][download-published-package]. En cas de téléchargement réussi, la réponse est un fichier de package LUIS. Enregistrez le fichier à l’emplacement de stockage spécifié pour le montage d’entrée du conteneur. 
 
@@ -192,20 +192,15 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | ID d’application de l’application LUIS entraînée. |
 |{APPLICATION_VERSION} | Version d’application de l’application LUIS entraînée. |
 |{AUTHORING_KEY} | Clé de création du compte LUIS pour l’application LUIS publiée.<br/>Vous pouvez obtenir votre clé de création à partir de la page **User Settings** (Paramètres utilisateur) dans le portail LUIS.  |
-|{AZURE_REGION} | Région Azure appropriée :<br/><br/>```westus``` - USA Ouest<br/>```westeurope``` - Europe Ouest<br/>```australiaeast``` - Australie Est |
+|{AZURE_REGION} | Région Azure appropriée :<br/><br/>`westus` - USA Ouest<br/>`westeurope` - Europe Ouest<br/>`australiaeast` - Australie Est |
 
 Pour télécharger le package entraîné, reportez-vous à la [documentation sur les API ici][download-trained-package]. En cas de téléchargement réussi, la réponse est un fichier de package LUIS. Enregistrez le fichier à l’emplacement de stockage spécifié pour le montage d’entrée du conteneur. 
 
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. La commande utilise les paramètres suivants :
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. Pour plus d’informations sur la façon d’obtenir les valeurs `{ENDPOINT_URI}` et `{API_KEY}`, consultez la section [Collecte des paramètres requis](#gathering-required-parameters).
 
-| Placeholder | Valeur |
-|-------------|-------|
-|{API_KEY} | cette clé sert à démarrer le conteneur. N’utilisez pas la clé de démarrage. |
-|{ENDPOINT_URI} | La valeur du point de terminaison est disponible sur la page Vue d’ensemble de `Cognitive Services` du portail Azure. |
-
-Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant. Exécutez la commande dans la console Windows.
+[Exemples ](luis-container-configuration.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -226,10 +221,10 @@ ApiKey={API_KEY}
 Cette commande :
 
 * Exécute un conteneur à partir de l’image conteneur LUIS.
-* Charge l’application LUIS à partir du montage d’entrée qui se trouve à c:\input sur l’hôte de conteneur.
+* Charge l’application LUIS à partir du montage d’entrée à l’emplacement *C:\input* situé sur l’hôte de conteneur.
 * Alloue deux cœurs de processeur et 4 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
-* Enregistre les journaux d’activité LUIS et de conteneur dans le montage de sortie qui se trouve à c:\output sur l’hôte de conteneur.
+* Enregistre les journaux d’activité LUIS et de conteneur dans le montage de sortie à l’emplacement *C:\output* situé sur l’hôte de conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
 
 D’autres [exemples](luis-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 

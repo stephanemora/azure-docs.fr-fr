@@ -14,18 +14,139 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9e5bdb574439378b91a243d5d36ebddeb8520d49
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544145"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037450"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
-Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.9.0, ainsi que celles des versions précédentes.
+Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.10.0, ainsi que celles des versions précédentes.
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
+
+## <a name="version-1100"></a>Version 1.10.0
+12/9/2019
+
+### <a name="download-azure-storage-explorer-1100"></a>Télécharger l’Explorateur Stockage Azure 1.10.0
+- [Explorateur Stockage Azure 1.10.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.10.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.10.0 dans le Snap Store](https://snapcraft.io/storage-explorer)
+- [Explorateur Stockage Azure 1.10.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+
+* L’Explorateur Stockage a désormais une interface utilisateur dédiée aux paramètres. Vous pouvez y accéder en sélectionnant Modifier → Paramètres ou en cliquant sur l’icône Paramètres (engrenage) dans la barre d’outils verticale située à gauche. Cette fonctionnalité est la première étape que nous prenons pour proposer une variété de [paramètres demandés par l’utilisateur](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). À compter de cette version, les paramètres suivants sont pris en charge :
+    * Thème
+    * Proxy
+    * Se déconnecter en quittant [6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6)
+    * Activer la connexion du flux de code de l’appareil
+    * Actualisation automatique [1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526)
+    * Activer AzCopy
+    * Durée SAS AzCopy
+
+    Pour ajouter d’autres paramètres, [ouvrez un problème sur GitHub décrivant le paramètre que vous souhaitez afficher](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
+* L’Explorateur Stockage prend maintenant en charge les disques managés. Vous pouvez :
+    * Charger un disque dur virtuel local sur un nouveau disque
+    * Télécharger un disque
+    * Copier et coller des disques dans des groupes de ressources et des régions
+    * Supprimer des disques
+    * Créer un instantané d’un disque
+
+    Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
+* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](https://aka.ms/storageexplorer/snapinformation). [68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Deux changements majeurs ont été apportés à l’attachement à Azure Active Directory (Azure AD) pour rendre la fonctionnalité plus utile pour les utilisateurs d’ADLS Gen2 : * Vous sélectionnez à présent le locataire dans lequel se trouve la ressource que vous attachez. Vous n’avez donc plus besoin d’un accès RBAC à l’abonnement de la ressource.
+        * Si vous attachez un conteneur d’objets BLOB ADLS Gen2, vous pouvez désormais effectuer l’attachement à un chemin spécifique dans le conteneur.
+* Quand vous gérez des listes de contrôle d’accès pour des fichiers et des dossiers ADLS Gen2, l’Explorateur Stockage affiche désormais les noms conviviaux des entités dans la liste de contrôle d’accès. [957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
+* Lors de l’ajout par le biais d’OID à une liste de contrôle d’accès ADLS Gen2, l’Explorateur Stockage vérifie à présent que l’OID appartient à une entité valide dans votre locataire. [1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
+* Les raccourcis clavier permettant de naviguer entre les onglets utilisent désormais plus de combinaisons de touches standard. [1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
+* Cliquez sur le bouton central de la souris dans un onglet pour le fermer. [1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
+* Si un transfert AzCopy contient des omissions et zéro échec, l’Explorateur Stockage affiche désormais une icône d’avertissement pour mettre en évidence les omissions. [1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* L’outil AzCopy intégré a été mis à jour vers la version 10.2.1. Par ailleurs, vous pouvez maintenant afficher la version de AzCopy installée dans la boîte de dialogue À propos de. [1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
+
+### <a name="fixes"></a>Correctifs
+
+* De nombreux utilisateurs se heurtent à des erreurs du type « impossible de lire la version de non défini » ou « impossible de lire la connexion de non défini » lors de l’utilisation de comptes de stockage attachés. Bien que nous continuions toujours à étudier la cause racine de ce problème, nous avons amélioré la gestion des erreurs concernant le chargement des comptes de stockage attachés dans la version 1.10.0. [1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626), [985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985) et [1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
+* Il était possible pour l’arborescence de l’explorateur (côté gauche) d’entrer dans un état dans lequel le focus passait de manière répétée au nœud supérieur. Ce problème a été résolu. [1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
+* Lors de la gestion des instantanés d’un objet blob, les lecteurs d’écran ne lisaient pas l’horodatage associé à l’instantané. Ce problème a été résolu. [1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* Le paramètre de proxy sur macOS n’était pas défini à temps pour que le processus d’authentification les utilise. Ce problème a été résolu. [1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
+* Si un compte de stockage dans un cloud souverain était attaché à l’aide du nom et de la clé, AzCopy ne fonctionnait pas. Ce problème a été résolu. [1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
+* En cas d’attachement par le biais d’une chaîne de connexion, l’Explorateur Stockage supprime désormais les espaces de fin. [1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Le paramètre Actualisation automatique n’affecte pas encore toutes les opérations de l’Explorateur d’objets blob.
+* Les fonctionnalités des disques managés ne sont pas encore prises en charge dans Azure Stack.
+* Si un chargement ou un collage sur disque échoue et qu’un disque a été créé avant l’échec, l’Explorateur Stockage ne supprime pas le disque pour vous.
+* Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
+* Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+   * ADLS Gen2
+   * Disques managés
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 1.9.0](#version-190)
+* [Version 1.8.1](#version-181)
+* [Version 1.8.0](#version-180)
+* [Version 1.7.0](#version-170)
+* [Version 1.6.2](#version-162)
+* [Version 1.6.1](#version-161)
+* [Version 1.6.0](#version-160)
+* [Version 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
+* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 
 ## <a name="version-190"></a>Version 1.9.0
 1/7/2019
@@ -84,46 +205,6 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     ```
 
 * L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 1.8.1](#version-181)
-* [Version 1.8.0](#version-180)
-* [Version 1.7.0](#version-170)
-* [Version 1.6.2](#version-162)
-* [Version 1.6.1](#version-161)
-* [Version 1.6.0](#version-160)
-* [Version 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
-* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-181"></a>Version 1.8.1
 13/05/2019

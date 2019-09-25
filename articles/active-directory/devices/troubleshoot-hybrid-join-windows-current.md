@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297569"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995185"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -404,6 +404,9 @@ Ces champs indiquent que l’utilisateur s’est correctement authentifié aupr�
 - ID de connexion de substitution
 - Proxy HTTP introuvable
 
+## <a name="known-issues"></a>Problèmes connus
+- Sous Paramètres -> Comptes -> Accès professionnel ou scolaire, les appareils joints à Azure AD Hybride peuvent afficher deux comptes différents, l’un pour Azure AD et l’autre pour AD local, lorsqu’ils sont connectés à des points d’accès mobiles ou à des réseaux Wi-Fi externes. Il s’agit uniquement d’un problème d’interface utilisateur qui n’a aucun impact sur les fonctionnalités. 
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Poursuivez le [dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).

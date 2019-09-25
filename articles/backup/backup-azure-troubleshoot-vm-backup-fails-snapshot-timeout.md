@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 391ad5c6535d457c2df988cd29d21e481310b17f
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061761"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018167"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -105,12 +105,12 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 5 : Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources** <br>
 **Cause 6 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095-gb"></a>UserErrorUnsupportedDiskSize : actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go
+## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize : la taille de disque configurée n’est pas prise en charge par Sauvegarde Azure.
 
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
-**Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
+**Message d’erreur** : La taille de disque configurée n’est pas prise en charge par Sauvegarde Azure. <br>
 
-Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machine virtuelle dont la taille de disque est supérieure à 30 To. De plus, la sauvegarde de disques chiffrés d’une taille supérieure à 4 To n’est pas prise en charge actuellement. Vérifiez que la taille de disque est inférieure ou égale à la limite prise en charge en fractionnant les disques.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 
@@ -122,12 +122,10 @@ L’une de vos dernières tâches de sauvegarde a échoué, car il y a déjà un
 1. Connectez-vous au portail Azure et cliquez sur **Tous les services**. Tapez Recovery Services, puis cliquez sur **Coffres Recovery Services**. La liste des coffres Recovery Services s’affiche.
 2. Dans la liste des coffres Recovery Services, sélectionnez un coffre dont la sauvegarde est configurée.
 3. Dans le menu du tableau de bord du coffre, cliquez sur **Tâches de sauvegarde** pour afficher toutes les tâches de sauvegarde.
-
-- Si une tâche de sauvegarde est en cours, attendez qu’elle se termine ou annulez-la.
-  - Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- Si vous avez reconfiguré la sauvegarde dans un autre coffre, vérifiez qu’aucune tâche de sauvegarde n’est en cours d’exécution dans l’ancien coffre. S’il y en a une, annulez-la.
-  - Pour annuler le travail de sauvegarde, cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
-
+   - Si une tâche de sauvegarde est en cours, attendez qu’elle se termine ou annulez-la.
+     - Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - Si vous avez reconfiguré la sauvegarde dans un autre coffre, vérifiez qu’aucune tâche de sauvegarde n’est en cours d’exécution dans l’ancien coffre. S’il y en a une, annulez-la.
+     - Pour annuler le travail de sauvegarde, cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Réessayez l’opération de sauvegarde.
 
 Si l’opération de sauvegarde planifiée empiète sur la configuration de la sauvegarde suivante, consultez [Bonnes pratiques](backup-azure-vms-introduction.md#best-practices), [Performances de sauvegarde](backup-azure-vms-introduction.md#backup-performance) et [Considérations sur la restauration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -156,8 +154,7 @@ Il se peut que l’agent de machine virtuelle soit endommagé ou que le service 
 4. Téléchargez et installez la [dernière version du MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
 5. Vérifiez que le service d’agent invité Microsoft Azure apparaît dans les services.
 6. Exécutez une sauvegarde à la demande :
-
-- Dans le portail, sélectionnez **Sauvegarder maintenant**.
+   - Dans le portail, sélectionnez **Sauvegarder maintenant**.
 
 Vérifiez également que [Microsoft .NET 4.5 est installé](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) dans la machine virtuelle. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
 

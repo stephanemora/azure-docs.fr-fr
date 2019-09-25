@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 196ee5546a5065aebfae36d0af1fccff6b271a70
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032470"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097593"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -43,6 +43,52 @@ Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/
 Pendant que nous effectuons ce processus, le numéro de la version s’affiche avec un « X » en position de numéro de version mineure, comme dans « 1.3.X.0 ». Cela indique que les notes de publication de ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous aurons finalisé le processus de publication, le numéro de version sera mis à jour vers la version la plus récente, et l’état de lancement sera mis à jour vers « Lancé pour le téléchargement et la mise à niveau automatique ».
 La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14x0"></a>1.4.X.0
+
+>[!IMPORTANT]
+>Auparavant, dans certaines circonstances, les ordinateurs Windows de bas niveau joints à Active Directory local n’étaient pas synchronisés correctement dans le cloud. Par exemple, la valeur de l’attribut userCertificate des appareils Windows de bas niveau dans Active Directory était remplie. Dans Azure AD, en revanche, ces appareils conservaient l’état « en attente », car ces versions de système d’exploitation n’étaient pas conçues pour être inscrites auprès d’Azure AD par le biais d’AAD Sync. Dans cette version d’Azure AD Connect, AAD Sync arrête la synchronisation des ordinateurs Windows de bas niveau sur Azure AD et supprime également d’Azure AD les appareils Windows de bas niveau précédemment synchronisés de manière incorrecte. Notez que cette modification ne supprime pas les appareils Windows de bas niveau qui ont été correctement inscrits auprès d’Azure AD à l’aide du package MSI. Ces appareils continuent de fonctionner comme prévu dans le cadre de l’accès conditionnel basé sur les appareils. Certains clients peuvent voir une partie ou l’ensemble de leurs appareils Windows de bas niveau disparaître d’Azure AD. Cela ne constitue pas une source de préoccupation, car ces identités d’appareil n’ont jamais réellement été utilisées par Azure AD pendant l’autorisation d’accès conditionnel. Ces clients devront peut-être consulter de nouveau https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan pour inscrire leurs appareils Windows de bas niveau correctement et ainsi s’assurer qu’ils peuvent pleinement participer à l’accès conditionnel basé sur les appareils. Notez que si vous voyez dans Azure AD ces suppressions d’objets ordinateur/appareil de bas niveau dépasser le seuil de suppression des exportations, il est conseillé que le client autorise ces suppressions pour poursuivre.
+
+### <a name="release-status"></a>État de la version
+10/09/2019 : publiée pour la mise à niveau automatique uniquement
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+- De nouveaux outils de résolution des problèmes permettent de corriger les scénarios « utilisateur non synchronisé », « groupe non synchronisé » ou « membre de groupe non synchronisé ».
+- Ajout d’une prise en charge des clouds nationaux dans le script de résolution des problèmes d’AAD Connect 
+- Les clients doivent être informés que les points de terminaison WMI dépréciés pour MIIS_Service sont désormais supprimés. Toutes les opérations WMI doivent à présent être effectuées par le biais des applets de commande PS.
+- Amélioration de la sécurité en réinitialisant la délégation contrainte sur l’objet AZUREADSSOACC
+- Lors de l’ajout ou de la modification d’une règle de synchronisation, si des attributs sont utilisés dans la règle et qu’ils se trouvent dans le schéma du connecteur, mais ne sont pas ajoutés au connecteur, ces attributs sont automatiquement ajoutés au connecteur. Il en va de même pour le type d’objet affecté par la règle. Si quelque chose est ajouté au connecteur, le connecteur sera marqué pour une importation complète au cours du prochain cycle de synchronisation.
+- L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge.
+- Dans le gestionnaire de synchronisation, une synchronisation complète est exécutée lors de la création, de la modification ou de la suppression d’une règle. Une fenêtre contextuelle s’affiche pour toute modification de règle, notifiant l’utilisateur que l’importation complète ou la synchronisation totale va être exécutée.
+- Ajout d’étapes d’atténuation pour les erreurs de mot de passe à la page Connecteurs > Propriétés > Connectivité
+- Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées par le biais de l’Assistant AADC.
+- Ajout d’une nouvelle erreur pour les problèmes liés à la stratégie de mot de passe d’un utilisateur.
+- Prévention d’une erreur de configuration du filtrage de groupe par les filtres de domaine et d’UO. Le filtrage de groupe affiche une erreur lorsque le domaine ou l’unité d’organisation du groupe entré est déjà filtré et empêche l’utilisateur de poursuivre tant que le problème n’est pas résolu.
+- Les utilisateurs ne peuvent plus créer de connecteur pour Active Directory Domain Services ou Windows Azure Active Directory dans l’ancienne interface utilisateur.
+- Résolution du problème d’accessibilité des contrôles d’interface utilisateur personnalisés dans Synchronization Service Manager
+- Activation de six tâches de gestion de la fédération pour toutes les méthodes de connexion dans Azure AD Connect.  (Auparavant, seule la tâche « Mettre à jour le certificat SSL AD FS » était disponible pour l’ensemble des connexions.)
+- Ajout d’un avertissement lors de la modification de la méthode de connexion, qui passe de la fédération à la synchronisation de hachage de mot de passe (PHS) ou à l’authentification directe (PTA), convertissant tous les utilisateurs et domaines Azure AD en authentification managée.
+- Suppression des certificats de signature de jeton dans la tâche « Réinitialiser Azure AD et l’approbation AD FS » et ajout d’une sous-tâche distincte pour mettre à jour ces certificats.
+- Ajout d’une nouvelle tâche de gestion de la fédération appelée « Gérer les certificats », qui contient des sous-tâches permettant de mettre à jour les certificats de signature de jeton ou les certificats SSL de la batterie de serveurs AD FS.
+- Ajout d’une nouvelle sous-tâche de gestion de la fédération appelée « Spécifier le serveur principal », qui permet aux administrateurs de préciser un nouveau serveur principal pour la batterie de serveurs AD FS.
+- Ajout d’une nouvelle tâche de gestion de la fédération appelée « Gérer les serveurs », qui comporte des sous-tâches permettant de déployer un serveur AD FS, un serveur proxy d’application web et de spécifier le serveur principal.
+- Ajout d’une nouvelle tâche de gestion de la fédération appelée « Afficher la configuration de la fédération », qui affiche les paramètres AD FS actuels.  (En raison de cet ajout, les paramètres AD FS ont été supprimés de la page « Vérification de votre solution ».)
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- Résolution du problème d’erreur de synchronisation dans le scénario suivant lequel un objet utilisateur qui prend le contrôle de son objet contact correspondant dispose d’une autoréférence (par exemple, l’utilisateur est son propre manager).
+- Les fenêtres contextuelles d’aide s’affichent désormais sur le focus clavier.
+- Pour la mise à niveau automatique, si une application en conflit s’exécute pendant 6 heures, il y a possibilité de la supprimer et de poursuivre la mise à niveau.
+- Limitation du nombre d’attributs qu’un client peut sélectionner à 100 par objet lors de la sélection des extensions d’annuaire. De cette façon, l’erreur ne peut pas se produire pendant l’exportation, car Azure présente un maximum de 100 attributs d’extension par objet.
+- Correction d’un bogue permettant de renforcer le script de connectivité AD
+- Correction d’un bogue permettant de consolider l’installation d’AADConnect sur une machine qui utilise un service WCF de canaux nommés.
+- Amélioration des diagnostics et de la résolution des problèmes liés aux stratégies de groupe qui n’autorisent pas le démarrage du service ADSync lors de l’installation initiale.
+- Correction d’un bogue responsable de l’écriture incorrecte du nom d’affichage d’un ordinateur Windows.
+- Correction d’un bogue responsable de l’écriture incorrecte du type de système d’exploitation d’un ordinateur Windows.
+- Correction d’un bogue responsable de la synchronisation de manière inattendue d’ordinateurs non-Windows 10. Notez que l’effet de cette modification se traduit désormais par la suppression des ordinateurs non-Windows 10 qui, auparavant, étaient synchronisés. Cela n’a pas d’incidence sur les fonctionnalités, car la synchronisation des ordinateurs Windows est uniquement utilisée pour la jonction de domaine Azure AD Hybride, qui ne fonctionne que pour les appareils Windows 10. 
+- Correction d’un bogue responsable de l’écriture incorrecte du nom d’affichage d’un ordinateur Windows.
+- Correction d’un bogue responsable de l’écriture incorrecte du type de système d’exploitation d’un ordinateur Windows.
+- Ajout de plusieurs nouvelles applets de commande (internes) au module PowerShell ADSync.
+
+
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
 >Il existe un problème connu lié à la mise à niveau d’Azure AD Connect d’une version antérieure vers 1.3.21.0, où le portail Office 365 ne reflète pas la version mise à jour même si Azure AD Connect a été mis à niveau avec succès.
@@ -53,12 +99,9 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >2. Exécutez `Import-Module "ADSync"`
 >3. Exécutez `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-
-
 ### <a name="release-status"></a>État de la version 
 
 14/05/2019 : publiée pour téléchargement
-
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
 
@@ -94,7 +137,6 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 - Mise à jour du flux de travail de l’installation d’une nouvelle batterie AD FS afin qu’elle autorise uniquement le déploiement d’un serveur AD FS et d’un serveur WAP.  Tous les serveurs supplémentaires sont déployés après l’installation initiale. 
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
-
 
 - Correction de la logique de reconnexion SQL pour le service ADSync 
 - Correctif pour permettre une nouvelle installation à l’aide d’une base de données vide AOA SQL 

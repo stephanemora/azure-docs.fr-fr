@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233131"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000218"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ La prise en charge des pools de nœuds Windows Server comprend certaines limitat
 
 Kubernetes est historiquement axé sur Linux. De nombreux exemples utilisés sur le site web [Kubernetes.io][kubernetes] en amont sont destinés à être utilisés sur des nœuds Linux. Lorsque vous créez des déploiements qui utilisent des conteneurs Windows Server, les considérations suivantes au niveau du système d’exploitation s’appliquent :
 
-- **Identité** - Linux utilise l’userID (UID) et le groupID (GID), représentés en tant que types entiers. Les noms d’utilisateur et de groupe ne sont pas canoniques : ce sont simplement des alias dans */etc/groupes* ou */etc/passwd* qui désignent l’UID et le GID.
+- **Identité** - Linux identifie un utilisateur par un identificateur d’utilisateur entier (UID). Un utilisateur dispose également d’un nom d’utilisateur alphanumérique pour se connecter, que Linux convertit en UID de l’utilisateur. De même, Linux identifie un groupe d’utilisateurs par un identificateur de groupe entier (GID) et convertit un nom de groupe en son GID correspondant.
     - Windows Server utilise un identificateur de sécurité binaire (SID) plus long qui est stocké dans la base de données Windows Security Access Manager (SAM). Cette base de données n’est pas partagée entre l’hôte et les conteneurs, ou entre conteneurs.
 - **Autorisations de fichiers** - Windows Server utilise une liste de contrôle d’accès basée sur les SID, plutôt qu’un masque de bits d’autorisations et les UID et GID
 - **Chemins de fichiers** - La convention sur Windows Server consiste à utiliser \ au lieu de /.

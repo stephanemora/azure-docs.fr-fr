@@ -2,79 +2,90 @@
 title: Activer la journalisation des diagnostics pour les applications dans Azure App Service
 description: Découvrez comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, mais aussi comment accéder aux informations enregistrées par Azure.
 services: app-service
-documentationcenter: .net
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/06/2016
+ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af6d8b61c5d49ae219e90513abb93185f957222e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074059"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097554"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
-Azure fournit des diagnostics intégrés pour aider au débogage d’une [application App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
+Azure fournit des diagnostics intégrés pour aider au débogage d’une [application App Service](overview.md). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
 Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-## <a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
-App Service fournit des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l’application web. Ces informations sont réparties, en toute logique, en **diagnostics de serveur web** et en **diagnostics d’application**.
+|Type|Plateforme|Location|Description|
+|-|-|-|-|
+| Journalisation des applications | Windows, Linux | Système de fichiers App Service et/ou objets blob de stockage Azure | Consigne les messages générés par votre code d’application. Les messages peuvent être générés par l’infrastructure web de votre choix ou directement à partir de votre code d’application à l’aide du modèle de journalisation standard de votre langage. Chaque message se voit attribuer l’une des catégories suivantes : **Critique**, **Erreur**, **Avertissement**, **Info**, **Débogage** ou **Trace**. Vous pouvez sélectionner le degré de détail de la journalisation en définissant le niveau de gravité lorsque vous activez la journalisation des applications.|
+| Journalisation du serveur web| Windows | Système de fichiers App Service ou objets blob de stockage Azure| Données de requête HTTP brutes au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Chaque message de journalisation comprend des données telles que la méthode HTTP, l’URI de ressource, l’adresse IP du client, le port client, l’agent utilisateur, le code de réponse, etc. |
+| Journalisation détaillée des erreurs | Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
+| Suivi des demandes ayant échoué | Windows | Système de fichiers App Service | Informations de suivi détaillées des demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque demande ayant échoué, qui contient le fichier journal XML et la feuille de style XSL permettant d’afficher le fichier journal. |
+| Journalisation du déploiement | Windows, Linux | Système de fichiers App Service | Journaux relatifs à votre publication de contenu dans une application. La journalisation du déploiement se déroule automatiquement et il n’existe aucun paramètre de configuration de la journalisation du déploiement. Elle vous aide à déterminer la raison de l’échec d’un déploiement. Par exemple, si vous utilisez un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l’échec du script. |
 
-### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
-Vous pouvez activer ou désactiver les types de journaux d’activité suivants :
+> [!NOTE]
+> App Service fournit un outil de diagnostic interactif dédié pour vous aider à résoudre les problèmes de votre application. Pour plus d’informations, consultez [Présentation des diagnostics Azure App Service](overview-diagnostics.md).
+>
+> En outre, vous pouvez utiliser d’autres services Azure pour améliorer les fonctionnalités de journalisation et de surveillance de votre application, tels qu’[Azure Monitor](../azure-monitor/app/azure-web-apps.md).
+>
 
-* **Journalisation des erreurs détaillée** - Informations détaillées pour toute demande ayant entraîné un code d’état HTTP 400 ou supérieur. Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur. Un fichier HTML est généré pour chaque erreur dans le système de fichiers de l’application et jusqu’à 50 erreurs (fichiers) sont conservés. Lorsque le nombre de fichiers HTML dépasse 50, les 26 fichiers les plus anciens sont automatiquement supprimés.
-* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque erreur dans le système de fichiers de l’application. Les stratégies de rétention de fichier sont les mêmes que la journalisation des erreurs détaillée ci-dessus.
-* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
+## <a name="enable-application-logging-windows"></a>Activer la journalisation des applications (Windows)
 
-### <a name="application-diagnostics"></a>Diagnostic d'application
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Pour activer la journalisation des applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
 
-    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
+Sélectionnez **Activé** pour **Journal des applications (Système de fichiers)** , **Journal des applications (Blob)** ou les deux. 
 
-Au moment de l’exécution, vous pouvez récupérer ces journaux d’activité pour vous aider durant le dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes Azure App Service dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
+L’option **Système de fichiers** est utilisée à des fins de débogage temporaire et se désactive elle-même après 12 heures. L’option **Blob** est destinée à la journalisation à long terme et a besoin d’un conteneur de stockage d’objets blob dans lequel écrire les journaux.  L’option **Blob** inclut également des informations supplémentaires dans les messages de journalisation, telles que l’ID de l’instance de machine virtuelle d’origine du message de journalisation (`InstanceId`), l’ID de thread (`Tid`) et un horodateur plus précis ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
 
-App Service journalise également les informations de déploiement quand vous publiez du contenu dans une application. Cette opération est automatique et il n’existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l’échec du script.
+> [!NOTE]
+> Actuellement, seuls les journaux des applications .NET peuvent être écrits dans le Stockage Blob. Les journaux des applications Java, PHP, Node.js et Python peuvent être stockés uniquement dans le système de fichiers App Service (sans modifications du code pour écrire les journaux dans un stockage externe).
+>
+> De plus, si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés d’accès mises à jour. Pour ce faire :
+>
+> 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
+> 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
+>
+>
 
-## <a name="enablediag"></a>Activation des diagnostics
-Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez à la page de votre application, puis cliquez sur **Paramètres > Journaux de diagnostics**.
+Sélectionnez le **niveau** ou le niveau de détails à consigner. Le tableau suivant présente les catégories de journaux incluses à chaque niveau :
 
-<!-- todo:cleanup dogfood addresses in screenshot -->
-![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
-
-Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Le tableau suivant présente les catégories de journaux d’activité offertes par chaque niveau :
-
-| Niveau| Catégories de journaux incluses |
+| Niveau | Catégories incluses |
 |-|-|
 |**Désactivé** | Aucun |
 |**Error** | Erreur, Critique |
 |**Avertissement** | Avertissement, Erreur, Critique|
 |**Informations** | Info, Avertissement, Erreur, Critique|
 |**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
-|-|-|
 
-Pour **Journal des applications**, vous pouvez temporairement activer l’option système à des fins de débogage. Cette option se désactive automatiquement au bout de 12 heures. Vous pouvez également activer l’option de stockage Blob pour sélectionner un conteneur d’objets blob pour y écrire des journaux d’activité.
+Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
-> [!NOTE]
-> Actuellement, seuls les journaux des applications .NET peuvent être écrits dans le Stockage Blob. Il n’est possible de stocker les journaux des applications Java, PHP, Node.js, Python que dans le système de fichiers (sans modification du code pour écrire des journaux d’activité dans un stockage externe).
->
->
+## <a name="enable-application-logging-linuxcontainer"></a>Activer la journalisation des applications (Linux/Conteneur)
 
-Pour **Journalisation du serveur web**, vous pouvez sélectionner **Stockage** ou **Système de fichiers**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d’objets blob dans lequel les journaux d’activité sont écrits. 
+Pour activer la journalisation des applications Linux et des applications de conteneur personnalisées dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
 
-Si vous stockez les journaux d’activité sur le système de fichiers, vous pouvez accéder à ces fichiers par FTP ou les télécharger sous forme d’archive ZIP en utilisant Azure PowerShell ou Azure CLI.
+Dans **Journal des applications**, sélectionnez **Système de fichiers**.
 
-Par défaut, les journaux d’activité ne sont pas automatiquement supprimés (à l’exception du **Journal des applications (Système de fichiers)** ). Pour supprimer automatiquement les journaux d’activité, définissez le champ **Période de rétention (jours)** .
+Dans **Quota (Mo)** , spécifiez le quota de disque pour les journaux des applications. Dans **Période de conservation (jours)** , définissez le nombre de jours pendant lesquels les journaux doivent être conservés.
+
+Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+
+## <a name="enable-web-server-logging"></a>Activer la journalisation de serveur Web
+
+Pour activer la journalisation du serveur web pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
+
+Pour **Journalisation du serveur web**, sélectionnez **Stockage** pour stocker les journaux dans le stockage d’objets blob, ou **Système de fichiers** pour stocker les journaux sur le système de fichiers App service. 
+
+Dans **Période de conservation (jours)** , définissez le nombre de jours pendant lesquels les journaux doivent être conservés.
 
 > [!NOTE]
 > Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
@@ -84,149 +95,83 @@ Par défaut, les journaux d’activité ne sont pas automatiquement supprimés (
 >
 >
 
-Vous pouvez activer simultanément toute combinaison de système de fichiers ou stockage d’objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
+Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
-Bien que ces deux emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage blob** consigne des informations supplémentaires, telles que l’ID d’instance, l’ID de thread et un horodatage plus précis que lorsque vous optez pour la journalisation dans le **système de fichiers**.
+## <a name="log-detailed-errors"></a>Consigner les erreurs détaillées
 
-> [!NOTE]
-> Les informations stockées dans le **stockage blob** n’est accessible qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage d’objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d’objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
->
+Pour enregistrer la page d’erreur ou le suivi des demandes ayant échoué pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
 
-## <a name="download"></a>Guide pratique : Télécharger les journaux d’activité
-Les informations de diagnostic stockées dans le système de fichiers d’application sont directement accessibles via FTP. Vous pouvez également les télécharger sous la forme d’une archive ZIP en utilisant Azure CLI.
+Sous **Messages d’erreurs détaillés** ou **Suivi des demandes ayant échoué**, sélectionnez **Activé**, puis sélectionnez **Enregistrer**.
 
-La structure de répertoires dans laquelle les journaux d’activité sont stockés est la suivante :
+Les deux types de journaux sont stockés dans le système de fichiers App Service. Jusqu’à 50 erreurs (fichiers/dossiers) sont conservées. Lorsque le nombre de fichiers HTML dépasse 50, les 26 erreurs les plus anciennes sont automatiquement supprimées.
 
-* **Journaux d’activité d’application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
-* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
-* **Journaux d’activité d’erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
-* **Journaux d’activité des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging).
-* **Journaux d’activité de déploiement** : /LogFiles/Git. Ce dossier contient les journaux d’activité générés par les processus de déploiement internes utilisés par Azure App Service, ainsi que les journaux d’activité des déploiements Git. Vous trouverez également les journaux d’activité de déploiement sous D:\home\site\deployments.
+## <a name="add-log-messages-in-code"></a>Ajouter des messages de journalisation dans le code
 
-### <a name="ftp"></a>FTP
+Dans votre code d’application, vous utilisez les fonctionnalités de journalisation habituelles pour envoyer des messages de journalisation aux journaux des applications. Par exemple :
 
-Pour ouvrir une connexion FTP sur le serveur FTP de votre application, consultez [Déployer votre application dans Azure App Service avec FTP/S](deploy-ftp.md).
+- Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
-Une fois connecté au serveur FTP/S de votre application, ouvrez le dossier **LogFiles**, où les fichiers journaux sont stockés.
+    ```csharp
+    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
+    ```
 
-### <a name="download-with-azure-cli"></a>Téléchargement avec Azure CLI
-Pour télécharger les fichiers journaux à l’aide de l’interface de ligne de commande Azure, ouvrez une nouvelle session d’invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
+- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure).
 
-    az webapp log download --resource-group resourcegroupname --name appname
+## <a name="stream-logs"></a>Diffuser les journaux d’activité en continu
 
-Cette commande enregistre les journaux d’activité de l’application nommée « appname » dans un fichier **webapp_logs.zip** du répertoire actif.
-
-> [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Guide pratique pour utiliser Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
->
->
-
-## <a name="how-to-view-logs-in-application-insights"></a>Activation Afficher les journaux d’activité dans Application Insights
-Visual Studio Application Insights fournit des outils de filtrage et de recherche dans les journaux d’activité, mais aussi de mise en corrélation des journaux d’activité avec les requêtes et d’autres événements.
-
-1. Ajoutez le Kit de développement logiciel Application Insights à votre projet dans Visual Studio.
-   * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez Ajouter Application Insights. L’interface vous guide tout au long de la création de la ressource Application Insights. [En savoir plus](../azure-monitor/app/asp-net.md)
-2. Ajoutez le package de l’écouteur de suivi à votre projet.
-   * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet. Sélectionnez `Microsoft.ApplicationInsights.TraceListener` [En savoir plus](../azure-monitor/app/asp-net-trace-logs.md)
-3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
-4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous devriez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../azure-monitor/app/diagnostic-search.md)
-
-[En savoir plus sur le suivi des performances avec Application Insights](../azure-monitor/app/azure-web-apps.md)
-
-## <a name="streamlogs"></a>Guide pratique : Diffuser les journaux d’activité en continu
-Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure CLI.
+Avant de diffuser des journaux en temps réel, activez le type de journal souhaité. Toute information enregistrée dans un fichier doté de l’extension .txt, .log ou .htm et stocké dans le répertoire */LogFiles* (d:/home/logfiles) est diffusée par App Service.
 
 > [!NOTE]
 > Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 >
-> [!NOTE]
-> Pendant le streaming des journaux, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\\** sont également diffusées.
->
->
 
-### <a name="streaming-with-azure-cli"></a>Diffusion en continu à l’aide d’Azure CLI
-Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
+### <a name="in-azure-portal"></a>Dans le portail Azure
 
-    az webapp log tail --name appname --resource-group myResourceGroup
+Pour diffuser les journaux dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Flux de journaux**. 
 
-Cette commande établie une connexion avec l’application nommée « appname », puis diffuse les informations vers la fenêtre à mesure que des événements de journalisation se produisent sur l’application. Toute information enregistrée dans un fichier ayant l’extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
+### <a name="in-cloud-shell"></a>Dans Cloud Shell
+
+Pour diffuser les journaux en temps réel dans [Cloud Shell](../cloud-shell/overview.md), utilisez la commande suivante :
+
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup
+```
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple :
 
-    az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup --filter Error
+```
 Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Path** . Par exemple :
 
-    az webapp log tail --name appname --resource-group myResourceGroup --path http
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup --path http
+```
 
-> [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Guide pratique pour utiliser Azure CLI](../cli-install-nodejs.md).
->
->
+### <a name="in-local-terminal"></a>Dans le terminal local
 
-## <a name="understandlogs"></a>Guide pratique : Comprendre les journaux de diagnostic
-### <a name="application-diagnostics-logs"></a>Journaux de diagnostic d’application
-Le diagnostic d’application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux d’activité dans le système de fichiers ou le stockage d’objets blob. 
+Pour diffuser les journaux dans la console locale, [installez Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et [connectez-vous à votre compte](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Une fois connecté, suivez les [instructions pour Cloud Shell](#in-cloud-shell)
 
-L’ensemble de base des données stockées est le même dans les deux types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement. L’utilisation du système de fichiers pour le stockage des journaux est utile lorsque vous avez besoin d’un accès immédiat pour résoudre un problème car les fichiers journaux sont mis à jour presque instantanément. Le stockage d’objets blob est utilisé à des fins d’archivage car les fichiers sont mis en cache puis acheminés vers le conteneur de stockage selon un calendrier précis.
+## <a name="access-log-files"></a>Accéder aux fichiers journaux
 
-**Système de fichiers**
+Si vous configurez l’option des objets blob de stockage Azure pour un type de journal, vous avez besoin d’un outil client qui fonctionne avec le stockage Azure. Pour plus d’informations, consultez [Outils clients du stockage Azure](../storage/common/storage-explorers.md).
 
-Chaque ligne journalisée dans le système de fichiers ou reçue par le biais d’un streaming se présente au format suivant :
+Pour les journaux stockés dans le système de fichiers App Service, le moyen le plus simple consiste à télécharger le fichier ZIP dans le navigateur à l’adresse suivante :
 
-    {Date}  PID[{process ID}] {event type/level} {message}
+- Applications Linux/de conteneur : `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Applications Windows : `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-Par exemple, un événement d’erreur peut se présenter comme suit :
+Pour les applications Linux/de conteneur, le fichier ZIP contient les journaux de sortie de la console pour l’hôte Docker et le conteneur Docker. Pour une application avec scale-out, le fichier ZIP contient un ensemble de journaux pour chaque instance. Dans le système de fichiers App Service, ces fichiers journaux sont le contenu du répertoire */home/LogFiles*.
 
-    2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
+Pour les applications Windows, le fichier ZIP contient le contenu du répertoire *D:\Home\LogFiles* dans le système de fichiers App Service. Sa structure est la suivante :
 
-Parmi les trois méthodes disponibles, la journalisation d’informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L’heure, l’ID de processus, le niveau d’événement et le message sont, en effet, les seules informations fournies.
-
-**Stockage Blob**
-
-Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l’événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
-
-| Nom de la propriété | Valeur/format |
-| --- | --- |
-| Date |Date et heure auxquelles l'événement s'est produit |
-| Niveau |Niveau d’événement (par exemple, erreur, avertissement ou information) |
-| ApplicationName |Nom de l’application |
-| InstanceId |Instance d’application sur laquelle l’événement s’est produit |
-| EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
-| EventId |ID de cet événement<p><p>Il est, par défaut, défini sur 0 |
-| Pid |ID du processus |
-| Tid |ID de thread qui a généré l'événement |
-| Message |Message détaillé sur l'événement |
-
-Les données stockées dans un objet blob peuvent se présenter comme suit :
-
-    date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
-    2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
-
-> [!NOTE]
-> Pour ASP.NET Core, la journalisation s’effectue à l’aide du fournisseur [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Ce fournisseur dépose des fichiers journaux supplémentaires dans le conteneur blob. Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging) (Journalisation ASP.NET Core dans Azure).
->
->
-
-### <a name="failed-request-traces"></a>Suivi des demandes ayant échoué
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Si vous ouvrez un des fichiers XML dans Internet Explorer, ce dernier utilise la feuille de style XSL pour fournir un affichage mis en forme des informations de suivi, comme dans l’exemple suivant :
-
-![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
-
-> [!NOTE]
-> Un moyen simple d’afficher les traces des requêtes ayant échoué est pour accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes**, puis recherchez **Journaux de traçage des requêtes ayant échoué**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez.
->
-
-### <a name="detailed-error-logs"></a>Journaux d’activité d’erreurs détaillés
-Les journaux d’activité d’erreurs détaillés sont des documents HTML qui fournissent des informations plus détaillées sur les erreurs HTTP qui se sont produites. Puisqu'il s'agit simplement de documents HTML, ils peuvent être consultés à l'aide d'un navigateur Web.
-
-### <a name="web-server-logs"></a>Journaux d’activité des serveurs Web
-Les journaux d’activité de serveur Web utilisent le [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
-
-> [!NOTE]
-> Les journaux d’activité générés par Azure App Service ne prennent pas en charge les champs **s-computername**, **s-ip** ou **cs-version**.
->
->
+| Type de journal | Répertoire | Description |
+|-|-|-|
+| **Journaux d’application** |*/LogFiles/Application/* | Contient un ou plusieurs fichiers texte. Le format des messages de journalisation dépend du fournisseur de journalisation que vous utilisez. |
+| **Suivi des demandes ayant échoué** | */LogFiles/W3SVC#########/* | Contient des fichiers XML et un fichier XSL. Vous pouvez afficher les fichiers XML mis en forme dans le navigateur. |
+| **Journaux d’erreurs détaillés** | */LogFiles/DetailedErrors/* | Contient les fichiers d’erreur HTM. Vous pouvez afficher les fichiers HTM dans le navigateur.<br/>Un autre moyen d’afficher le suivi des demandes ayant échoué consiste à accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes**, puis recherchez **Journaux de traçage des requêtes ayant échoué**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez. |
+| **Journaux de serveur web** | */LogFiles/http/RawLogs/* | Contient les fichiers texte au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l’aide d’un éditeur de texte ou d’un utilitaire tel que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service ne prend pas en charge les champs `s-computername`, `s-ip` ni `cs-version`. |
+| **Journaux de déploiement** | */LogFiles/Git/* et */deployments/* | Contient les journaux générés par les processus de déploiement internes, ainsi que les journaux des déploiements Git. |
 
 ## <a name="nextsteps"></a> Étapes suivantes
 * [Surveillance des applications dans Azure App Service](web-sites-monitor.md)

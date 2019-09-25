@@ -1,7 +1,7 @@
 ---
 title: Optimiser les hyperparamètres pour votre modèle
-titleSuffix: Azure Machine Learning service
-description: Ajustez avec efficacité les hyperparamètres de votre modèle d’apprentissage profond (deep learning) / machine learning avec le service Azure Machine Learning. Vous allez apprendre à définir l’espace de recherche de paramètres, à spécifier un indicateur de performance à optimiser et à arrêter de façon anticipée les exécutions peu performantes.
+titleSuffix: Azure Machine Learning
+description: Ajustez avec efficacité les hyperparamètres de votre modèle Deep Learning/Machine Learning avec Azure Machine Learning. Vous allez apprendre à définir l’espace de recherche de paramètres, à spécifier un indicateur de performance à optimiser et à arrêter de façon anticipée les exécutions peu performantes.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873066"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999386"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Optimiser les hyperparamètres de votre modèle avec le service Azure Machine Learning
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Optimiser les hyperparamètres de votre modèle avec Azure Machine Learning
 
 Ajustez avec efficacité les hyperparamètres de votre modèle à l’aide d’Azure Machine Learning.  L’optimisation des hyperparamètres comprend les étapes suivantes :
 
@@ -94,7 +94,7 @@ Ce code définit un espace de recherche avec deux paramètres : `learning_rate`
 
 ### <a name="sampling-the-hyperparameter-space"></a>Échantillonnage de l’espace des hyperparamètres
 
-Vous pouvez aussi spécifier la méthode d’échantillonnage des paramètres à utiliser dans la définition de l’espace des hyperparamètres. Le service Azure Machine Learning prend en charge l’échantillonnage aléatoire, l’échantillonnage par grille et l’échantillonnage bayésien.
+Vous pouvez aussi spécifier la méthode d’échantillonnage des paramètres à utiliser dans la définition de l’espace des hyperparamètres. Azure Machine Learning prend en charge l’échantillonnage aléatoire, l’échantillonnage par grille et l’échantillonnage bayésien.
 
 #### <a name="random-sampling"></a>Échantillonnage aléatoire
 
@@ -186,7 +186,7 @@ Si vous utilisez une stratégie d’arrêt anticipé, vous pouvez configurer les
 * `evaluation_interval` : fréquence d’application de la stratégie. Chaque journalisation de la métrique principale par le script d’entraînement compte pour un intervalle. Ainsi, une valeur de 1 pour `evaluation_interval` applique la stratégie chaque fois que le script d’entraînement signale la métrique principale. Une valeur de 2 pour `evaluation_interval` applique la stratégie à chaque autre signalement de la métrique principale par le script d’entraînement. La valeur par défaut de `evaluation_interval` est 1 si ce paramètre n’est pas spécifié.
 * `delay_evaluation` : retarde la première évaluation de la stratégie pour un nombre d’intervalles spécifié. Il s’agit d’un paramètre facultatif qui permet à toutes les configurations de s’exécuter pour un nombre minimal initial d’intervalles, évitant ainsi un arrêt prématuré des exécutions d’entraînement. S’il est spécifié, la stratégie s’applique à chaque multiple de evaluation_interval qui est supérieur ou égal à delay_evaluation.
 
-Le service Azure Machine Learning prend en charge les stratégies d’arrêt anticipé suivantes.
+Azure Machine Learning prend en charge les stratégies d’arrêt anticipé suivantes.
 
 ### <a name="bandit-policy"></a>Stratégie Bandit
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` est le nom que vous voulez attribuer à votre expérience d’optimisation des hyperparamètres, et `workspace` est l’espace de travail dans lequel vous voulez créer l’expérience (pour plus d’informations sur les expériences, consultez [Fonctionnement du service Azure Machine Learning](concept-azure-machine-learning-architecture.md)).
+`experiment_name` est le nom que vous voulez attribuer à votre expérience d’optimisation des hyperparamètres, et `workspace` est l’espace de travail dans lequel vous voulez créer l’expérience (pour plus d’informations sur les expériences, consultez [Fonctionnement d’Azure Machine Learning](concept-azure-machine-learning-architecture.md)).
 
 ## <a name="visualize-experiment"></a>Visualiser l’expérience
 

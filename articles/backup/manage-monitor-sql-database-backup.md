@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019035"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934819"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -140,6 +140,32 @@ Désinscrivez une instance SQL Server après avoir désactivé la protection, ma
 4. Cliquez sur le serveur protégé, puis sélectionnez **Désinscrire**.
 
    ![Sélectionner Supprimer](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>Modifier la stratégie
+Dans la stratégie, modifiez la fréquence de sauvegarde ou la plage de rétention.
+
+> [!NOTE]
+> Toute modification de la période de rétention sera appliquée rétroactivement à tous les anciens points de récupération ainsi qu’aux nouveaux.
+
+Dans le tableau de bord du coffre, accédez à **Gérer** > **Stratégies de sauvegarde** et choisissez la stratégie que vous souhaitez modifier.
+
+  ![Gérer la stratégie de sauvegarde](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Modifier la stratégie de sauvegarde](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+La modification de la stratégie aura un impact sur tous les éléments de sauvegarde associés et déclenchera les tâches de **configuration de la protection** correspondantes. 
+
+#### <a name="inconsistent-policy"></a>Stratégie incohérente 
+
+Parfois, une opération de modification de la stratégie peut aboutir à une version de stratégie **incohérente** pour certains éléments de sauvegarde. Cela se produit lorsque la tâche de **configuration de la protection** correspondante échoue pour l’élément de sauvegarde après le déclenchement d’une opération de modification de la stratégie. Elle se présente comme suit dans l’affichage des éléments de sauvegarde :
+ 
+  ![Stratégie incohérente](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+Vous pouvez corriger la version de la stratégie pour tous les éléments concernés en un seul clic :
+
+  ![Corriger la stratégie incohérente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Réinscrire une extension sur la machine virtuelle SQL Server
 

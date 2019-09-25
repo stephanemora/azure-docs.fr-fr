@@ -1,7 +1,7 @@
 ---
 title: Déployer un modèle pour une inférence avec GPU
-titleSuffix: Azure Machine Learning service
-description: Cet article explique comment utiliser Azure Machine Learning service pour déployer un modèle de deep learning TensorFlow compatible GPU en tant que service web et noter les demandes d’inférence.
+titleSuffix: Azure Machine Learning
+description: Cet article explique comment utiliser Azure Machine Learning pour déployer un modèle Deep Learning TensorFlow compatible GPU en tant que service web et noter les demandes d’inférence.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844987"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002764"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 
-Cet article explique comment utiliser Azure Machine Learning service pour déployer un modèle compatible GPU en tant que service web. Les informations contenues dans cet article sont basées sur le déploiement d’un modèle sur Azure Kubernetes service (AKS). Le cluster AKS fournit une ressource GPU qui est utilisée par le modèle pour l’inférence.
+Cet article explique comment utiliser Azure Machine Learning pour déployer un modèle compatible GPU en tant que service web. Les informations contenues dans cet article sont basées sur le déploiement d’un modèle sur Azure Kubernetes service (AKS). Le cluster AKS fournit une ressource GPU qui est utilisée par le modèle pour l’inférence.
 
 L’inférence, ou notation de modèle, est la phase au cours de laquelle le modèle déployé est utilisé pour effectuer des prédictions. L’utilisation de GPU au lieu d’UC offre des avantages en termes de performances pour le calcul hautement parallélisable.
 
@@ -34,7 +34,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 * Un environnement de développement Python dans lequel le SDK Azure Machine Learning est installé. Pour plus d’informations, consultez [Kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -51,7 +51,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 Pour vous connecter à un espace de travail existant, utilisez le code suivant :
 
 > [!IMPORTANT]
-> Cet extrait de code s’attend à ce que la configuration de l’espace de travail soit enregistrée dans le répertoire actif ou son parent. Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et gérer les espaces de travail du service Azure Machine Learning](how-to-manage-workspace.md).   Pour plus d’informations sur l’enregistrement de la configuration dans un fichier, consultez [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
+> Cet extrait de code s’attend à ce que la configuration de l’espace de travail soit enregistrée dans le répertoire actif ou son parent. Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et gérer les espaces de travail Azure Machine Learning](how-to-manage-workspace.md).   Pour plus d’informations sur l’enregistrement de la configuration dans un fichier, consultez [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure vous facture tant que le cluster AKS existe. Veillez à supprimer votre cluster AKS lorsque vous n’en avec plus besoin.
 
-Pour plus d’informations sur l’utilisation d’AKS avec Azure Machine Learning service, consultez [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Pour plus d’informations sur l’utilisation d’AKS avec Azure Machine Learning, consultez [Guide pratique pour déployer sur Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Écrire le script d’entrée
 

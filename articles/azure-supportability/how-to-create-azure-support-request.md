@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129057"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71072085"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Création d’une demande de support Azure
 ## <a name="summary"></a>Résumé
 Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
-> Le Portail Azure pour l’Allemagne est [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Le Portail Azure pour le gouvernement des États-Unis est [https://portal.azure.us](https://portal.azure.us).
+> Le portail Azure pour un usage commercial est [https://portal.azure.com](https://portal.azure.com) Le portail Azure pour l’Allemagne est [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> Le portail Azure pour le gouvernement des États-Unis est [https://portal.azure.us](https://portal.azure.us)
 
 
 Suite aux commentaires des clients, nous avons mis à jour le processus de demande de support en fonction de trois objectifs principaux :

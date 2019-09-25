@@ -4,23 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176963"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059033"
 ---
-## <a name="what-is-queue-storage"></a>Présentation du stockage de files d'attente
-Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
+## <a name="what-is-queue-storage"></a>Présentation du stockage File d’attente
 
-Voici quelques utilisations courantes des files d’attente de stockage :
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Le stockage File d’attente est couramment utilisé pour créer un backlog de travail à traiter de façon asynchrone.
 
-* Création d'un journal des travaux en souffrance de travail à traiter de manière asynchrone
-* Transmission de messages d’un rôle web Azure à un rôle de travail Azure
+## <a name="queue-service-concepts"></a>Concepts du service File d’attente
 
-## <a name="queue-service-concepts"></a>Concepts du service de File d’attente
-Le service de file d’attente contient les composants suivants :
+Le service de File d’attente Azure contient les composants suivants :
 
 ![File d'attente 1](./media/storage-queue-concepts-include/queue1.png)
 

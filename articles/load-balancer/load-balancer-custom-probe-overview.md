@@ -12,45 +12,79 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275351"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098922"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
-Azure Load Balancer fournit des sondes d’intégrité à utiliser avec les règles d’équilibrage de charge.  La configuration des sondes d’intégrité et les réponses des sondes déterminent quelle instance de pool back-end recevra de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur une instance principale. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors d’un échec d’une sonde d’intégrité, l’équilibreur de charge cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.
+Quand vous utilisez des règles d’équilibrage de charge avec Azure Load Balancer, vous devez spécifier une sonde d’intégrité pour permettre à Load Balancer de détecter l’état du point de terminaison back-end.  La configuration de la sonde d’intégrité et les réponses de la sonde déterminent quelles instances de pool de back-ends recevront de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur un point de terminaison back-end. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors de l’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.
 
-Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibilité d’un type spécifique de sonde d’intégrité pour prendre en charge un protocole spécifique varie selon la référence SKU de l’équilibreur de charge.  De plus, le comportement du service varie selon la référence SKU de l’équilibreur de charge.
+Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibilité d’un type spécifique de sonde d’intégrité varie en fonction de la référence SKU de Load Balancer.  De plus, le comportement du service varie en fonction de la référence SKU de Load Balancer tel qu’indiqué dans le tableau suivant :
 
 | | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
 | [Types de sonde](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportement en cas de panne de sonde](#probedown) | Toutes les sondes sont en panne, tous les flux TCP continuent. | Toutes les sondes sont en panne, tous les flux TCP arrivent à expiration. | 
 
-> [!IMPORTANT]
-> Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
 
+>[!IMPORTANT]
+>Consultez ce document dans son intégralité, y compris [les conseils de conception](#design) importants fournis ci-dessous pour créer un service fiable.
+
+>[!IMPORTANT]
+>Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
+
+## <a name="probes"></a>Configuration de sonde
+
+La configuration de la sonde d’intégrité se compose des éléments suivants :
+
+- Durée de l’intervalle entre chaque sonde
+- Nombre de réponses de sondes devant être observées avant que la sonde bascule dans un autre état
+- Protocole de la sonde
+- Port de la sonde
+- Chemin HTTP à utiliser pour HTTP GET lors de l’utilisation de sondes HTTP(S)
+
+## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Description du signal d’application, de la détection du signal et de la réaction de la plateforme
+
+Le nombre de réponses de sondes s’applique à la fois :
+
+- Au nombre de sondes ayant réussi et qui permettent à une instance d’être étiquetée comme étant opérationnelle, et
+- Au nombre de sondes ayant échoué et qui permettent à une instance d’être étiquetée comme étant hors service.
+
+Les valeurs de délai d’expiration et d’intervalle spécifiées déterminent si une instance sera marquée comme étant opérationnelle ou hors service.  La durée de l’intervalle multipliée par le nombre de réponses de sondes détermine la durée pendant laquelle les réponses de sondes doivent être détectées.  Et le service réagira une fois les sondes requises obtenues.
+
+Nous pouvons illustrer le comportement plus en détail avec un exemple. Si vous avez défini le nombre de réponses de sondes sur deux et un intervalle de cinq secondes, cela signifie que deux échecs de sondes doivent être observés dans un intervalle de 10 secondes.  Étant donné que l’heure à laquelle une sonde est envoyée n’est pas synchronisée quand votre application peut changer d’état, nous pouvons limiter le temps de détection à deux scénarios :
+
+1. Si votre application commence à produire une réponse de sonde défaillante juste avant l’arrivée de la première sonde, la détection de ces événements prend 10 secondes (deux intervalles de cinq secondes) plus la durée entre le moment où l’application commence à signaler un échec et le moment où la première sonde arrive.  Vous pouvez supposer que cette détection prend un peu plus de 10 secondes.
+2. Si votre application commence à produire une réponse de sonde défaillante juste après l’arrivée de la première sonde, la détection de ces événements ne commencera pas avant l’arrivée (et l’échec) de la sonde suivante plus 10 secondes supplémentaires (deux intervalles de cinq secondes.  Vous pouvez supposer que cette détection prend un peu moins de 15 secondes.
+
+Pour cet exemple, une fois la détection effectuée, la plateforme prendra alors un peu de temps pour réagir à ce changement.  Cela signifie qu’en fonction des facteurs suivants : 
+
+1. Le moment où l’application commence à changer d’état
+2. Le moment où ce changement a été détecté et a répondu aux critères requis (nombre de sondes envoyées à l’intervalle spécifié)
+3. Le moment où la détection a été communiquée sur la plateforme 
+
+vous pouvez supposer que la réaction à une sonde défaillante prendra entre un minimum d’un peu plus de 10 secondes et un maximum d’un peu plus de 15 secondes pour réagir à un changement du signal de l’application.  Cet exemple est fourni afin d’illustrer ce qui se produit, mais il n’est pas possible de prévoir une durée exacte au-delà des valeurs approximatives illustrées ci-dessus.
+ 
 ## <a name="types"></a>Types de sonde
 
-La sonde d’intégrité peut être configurée pour les écouteurs avec les trois protocoles suivants :
+Le protocole utilisé par la sonde d’intégrité peut être configuré sur l’un des éléments suivants :
 
 - [Écouteurs TCP](#tcpprobe)
 - [Points de terminaison HTTP](#httpprobe)
 - [Points de terminaison HTTPS](#httpsprobe)
 
-Les types de sondes d’intégrité disponibles varient en fonction de la référence SKU de Load Balancer sélectionnée :
+Les protocoles disponibles dépendent de la référence SKU Load Balancer utilisée :
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | Référence SKU standard |    &#9989; |   &#9989; |   &#9989; |
 | Référence SKU De base |   &#9989; |   &#9989; | &#10060; |
-
-Quel que soit le type de sonde que vous choisissez, les sondes d’intégrité peuvent observer n’importe quel port sur une instance de back-end, notamment le port sur lequel le service est fourni.
 
 ### <a name="tcpprobe"></a> Sonde TCP
 
@@ -62,7 +96,7 @@ Une sonde TCP échoue quand :
 * L’écouteur TCP sur l’instance ne répond pas durant toute la durée de l’opération.  Une sonde est marquée hors service en fonction du nombre de demandes ayant échoué, et qui ont été configurées pour rester sans réponse avant que la sonde ne soit marquée hors service.
 * La sonde reçoit une réinitialisation TCP depuis l’instance.
 
-#### <a name="resource-manager-template"></a>Modèle Resource Manager
+L’exemple suivant montre comment exprimer ce type de configuration de sonde dans un modèle Resource Manager :
 
 ```json
     {
@@ -77,8 +111,8 @@ Une sonde TCP échoue quand :
 
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> Sonde HTTP/HTTPS
 
-> [!NOTE]
-> La sonde HTTPS est disponible uniquement pour [Standard Load Balancer](load-balancer-standard-overview.md).
+>[!NOTE]
+>La sonde HTTPS est disponible uniquement pour [Standard Load Balancer](load-balancer-standard-overview.md).
 
 Les sondes HTTP et HTTPS sont basées sur la sonde TCP, et émettent un HTTP GET avec le chemin spécifié. Les deux sondes prennent en charge les chemins d’accès relatifs pour le HTTP GET. Les sondes HTTPS sont identiques aux sondes HTTP avec un wrapper Transport Layer Security (TLS, anciennement appelé SSL) supplémentaire. La sonde d’intégrité est marquée comme étant en fonctionnement lorsque l’instance répond avec un statut HTTP de 200 dans la période d’expiration.  Par défaut, la sonde d’intégrité tente de vérifier le port de sonde d’intégrité configuré toutes les 15 secondes. L’intervalle d’analyse de sonde minimal est de 5 secondes. La durée totale de tous les intervalles ne peut pas dépasser 120 secondes.
 
@@ -91,7 +125,7 @@ Une sonde HTTP/HTTPS échoue quand :
 * Le point de terminaison de la sonde ne répond pas du tout pendant la période d’expiration de 31 secondes. Plusieurs demandes de sondage peuvent rester sans réponse avant que la sonde soit marquée comme inactive et jusqu’à ce que la somme de tous les intervalles de délai d’attente ait été atteinte.
 * Le point de terminaison de la sonde ferme la connexion via une réinitialisation TCP.
 
-#### <a name="resource-manager-templates"></a>Modèles Resource Manager
+L’exemple suivant montre comment exprimer ce type de configuration de sonde dans un modèle Resource Manager :
 
 ```json
     {
@@ -132,42 +166,35 @@ Si l’agent invité répond avec un HTTP 200, l’équilibreur de charge renvoi
 Quand vous utilisez un rôle web, le code du site web s’exécute généralement dans w3wp.exe, qui n’est pas surveillé par l’agent de structure Azure ou l’agent invité. Les échecs dans w3wp.exe (par exemple, les réponses HTTP 500) ne sont pas signalés à l’agent invité. Par conséquent, l’équilibreur de charge n’accepte qu’une instance hors rotation.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Sonde d’intégrité
+## <a name="probehealth"></a>Comportement de sonde opérationnelle
 
-Les sondes TCP, HTTP et HTTPS sont considérées comme saines et annotent l’instance de rôle comme saine dans les cas suivants :
+Les sondes d’intégrité TCP, HTTP et HTTPS sont considérées comme saines et annotent le point de terminaison back-end comme sain dans les cas suivants :
 
 * La sonde d’intégrité fonctionne correctement après le démarrage de la machine virtuelle.
-* Le nombre spécifié de sondes nécessaires pour marquer l’instance de rôle comme étant saine spécifié a été atteint.
+* Le nombre spécifié de sondes nécessaires pour marquer le point de terminaison back-end comme étant sain a été atteint.
+
+Tout point de terminaison back-end qui a atteint un état sain est éligible pour la réception de nouveaux flux.  
 
 > [!NOTE]
-> Si la sonde d’intégrité fluctue, l’équilibreur de charge attend plus longtemps avant de replacer l’instance de rôle dans un état d’intégrité normal. Ce délai d’attente supplémentaire protège l’utilisateur et l’infrastructure. Il s’agit d’une stratégie intentionnelle.
-
-## <a name="probe-count-and-timeout"></a>Nombre et délai d’expiration des sondes
-
-Le comportement des sondes dépend des éléments suivants :
-
-* Le nombre de sondes ayant réussi et qui permettent à une instance d’être étiquetée positivement.
-* Le nombre de sondes ayant échoué et qui permettent à une instance d’être étiquetée comme étant hors service.
-
-Les valeurs de délai d’expiration et d’intervalle spécifiées déterminent si une instance est marquée comme étant saine ou hors service.
+> Si la sonde d’intégrité fluctue, l’équilibreur de charge attend plus longtemps avant de replacer le point de terminaison back-end dans un état sain. Ce délai d’attente supplémentaire protège l’utilisateur et l’infrastructure. Il s’agit d’une stratégie intentionnelle.
 
 ## <a name="probedown"></a>Comportement en cas de panne de sonde
 
 ### <a name="tcp-connections"></a>Connexions TCP
 
-Les nouvelles connexions TCP avec les instances de back-end saines restantes réussissent.
+Les nouvelles connexions TCP avec les points de terminaison back-end sains restants réussissent.
 
-Si la sonde d’intégrité d’une instance de serveur principal échoue, les connexions TCP établies à cette instance de serveur principal demeurent.
+Si la sonde d’intégrité d’un point de terminaison back-end échoue, les connexions TCP établies à ce point de terminaison back-end demeurent.
 
 Si toutes les sondes vers toutes les instances d’un pool principal échouent, aucun nouveau flux ne sera envoyé au pool principal. L’équilibreur de charge standard autorise les flux TCP établis à continuer.  L’équilibreur de charge de base arrête tous les flux TCP existants vers le pool principal.
  
-Load Balancer est un service pass-through (il ne met pas fin aux connexions TCP), et le flux est toujours entre le client et le système d’exploitation invité et l’application de la machine virtuelle. Un pool avec toutes les sondes hors service entraînera une absence de réponse de la part d’un front-end face aux tentatives d’ouverture de connexion TCP (SYN), car il n’existe aucune instance de back-end saine pour recevoir le flux et répondre avec un SYN-ACK.
+Load Balancer est un service pass-through (il ne met pas fin aux connexions TCP), et le flux est toujours entre le client et le système d’exploitation invité et l’application de la machine virtuelle. Un pool avec toutes les sondes hors service entraînera une absence de réponse de la part d’un front-end face aux tentatives d’ouverture de connexion TCP (SYN), car il n’existe aucun point de terminaison back-end sain pour recevoir le flux et répondre avec un SYN-ACK.
 
 ### <a name="udp-datagrams"></a>Datagrammes UDP
 
-Les datagrammes UDP seront remis aux instances du serveur principal saines.
+Les datagrammes UDP seront remis aux points de terminaison back-end sains.
 
-UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP. Si la sonde d’intégrité de n’importe quelle instance de serveur principal échoue, les flux UDP existants peuvent se déplacer vers une autre instance intègre dans le pool principal.
+UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP. Si la sonde d’intégrité de n’importe quel point de terminaison back-end échoue, les flux UDP existants peuvent se déplacer vers une autre instance intègre dans le pool de back-ends.
 
 Si l’ensemble des sondes de l’ensemble des instances d’un pool principal échouent, les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard.
 
@@ -188,15 +215,15 @@ En plus des sondes d’intégrité Load Balancer, les [opérations suivantes uti
 
 Les sondes d’intégrité sont utilisées pour améliorer la résilience de votre service et pour lui permettre d’être mis à l’échelle. Une configuration incorrecte ou un mauvais modèle de conception peut avoir un impact sur la disponibilité et la scalabilité de votre service. Passez en revue la totalité de ce document et considérez l’impact sur votre scénario quand la réponse de cette sonde est négative ou positive, et comment elle impacte la disponibilité du scénario de votre application.
 
-Quand vous concevez le modèle d’intégrité pour votre application, vous devez sonder un port sur une instance de back-end qui reflète l’intégrité de cette instance de __et__ du service d’application que vous fournissez.  Le port de l’application et le port de la sonde ne doivent pas nécessairement être les mêmes.  Dans certains scénarios, il peut être souhaitable que le port de la sonde soit différent de celui sur lequel votre application fournit le service.  
+Quand vous concevez le modèle d’intégrité pour votre application, vous devez sonder un port sur un point de terminaison back-end qui reflète l’intégrité de cette instance __et__ du service d’application que vous fournissez.  Le port de l’application et le port de la sonde ne doivent pas nécessairement être les mêmes.  Dans certains scénarios, il peut être souhaitable que le port de la sonde soit différent de celui sur lequel votre application fournit le service.  
 
 Il peut parfois être utile pour votre application de générer une réponse de sonde d’intégrité non seulement pour détecter l’intégrité de votre application, mais aussi pour signaler directement à l’équilibreur de charge si votre instance doit ou non recevoir de nouveaux flux.  Vous pouvez manipuler la réponse de la sonde pour permettre à votre application de créer une contre-pression et de limiter la remise de nouveaux flux à une instance en mettant en échec la sonde d’intégrité, ou de préparer la maintenance de votre application et de commencer à simplifier votre scénario.  Lors de l’utilisation de l’équilibrage de charge standard, un signal de [sonde négative](#probedown) autorise toujours la continuation des flux TCP jusqu’au délai d’expiration pour inactivité ou jusqu’à la fermeture de la connexion. 
 
-Pour l’équilibrage de charge UDP, vous devez générer un signal de sonde d’intégrité personnalisé à partir de l’instance de back-end, et utiliser une sonde d’intégrité TCP, HTTP ou HTTPS ciblant l’écouteur correspondant, afin de refléter l’intégrité de votre application UDP.
+Pour l’équilibrage de charge UDP, vous devez générer un signal de sonde d’intégrité personnalisé à partir du point de terminaison back-end, et utiliser une sonde d’intégrité TCP, HTTP ou HTTPS ciblant l’écouteur correspondant, afin de refléter l’intégrité de votre application UDP.
 
 Quand vous utilisez des [règles d’équilibrage de charge de ports à haute disponibilité](load-balancer-ha-ports-overview.md) avec [Standard Load Balancer](load-balancer-standard-overview.md), tous les ports font l’objet de l’équilibrage de charge et une même réponse de sonde d’intégrité doit refléter l’état de l’intégralité de l’instance.
 
-Ne traduisez pas ou n’utilisez pas de proxy pour une sonde d’intégrité via l’instance qui reçoit la sonde d’intégrité pour la transférer vers une autre instance de votre réseau virtuel, car cette configuration peut entraîner des défaillances en cascade dans votre scénario.  Considérez le scénario suivant : un ensemble d’appliances de tiers est déployé dans le pool de back-ends d’une ressource d’équilibreur de charge pour fournir une mise à l’échelle et une redondance pour les appliances, et la sonde d’intégrité est configurée pour sonder un port que l’appliance de tiers met en proxy ou traduit vers les autres machines virtuelles derrière l’appliance.  Si vous sondez le même port que celui que vous utilisez pour traduire ou mettre en proxy les demandes vers les autres machines virtuelles derrière l’appliance, toute réponse de la sonde provenant d’une même machine virtuelle derrière l’appliance marque l’appliance elle-même comme étant hors service. Cette configuration peut entraîner un échec en cascade du scénario d’application dans son intégralité en raison de la présence d’une instance de back-end derrière l’appliance.  Le déclencheur peut être un échec intermittent de la sonde, qui fait que l’équilibreur de charge marque comme étant hors service la destination d’origine (l’instance de l’appliance), qui à son tour peut rendre inopérant le scénario de toute votre application. Au lieu de cela, sondez l’intégrité de l’appliance elle-même. La sélection de la sonde pour déterminer le signal d’intégrité est une considération importante pour les scénarios d’appliances virtuelles réseau, et vous devez consulter le fournisseur de votre application pour savoir quel est le signal d’intégrité approprié pour de tels scénarios.
+Ne traduisez pas ou n’utilisez pas de proxy pour une sonde d’intégrité via l’instance qui reçoit la sonde d’intégrité pour la transférer vers une autre instance de votre réseau virtuel, car cette configuration peut entraîner des défaillances en cascade dans votre scénario.  Considérez le scénario suivant : un ensemble d’appliances de tiers est déployé dans le pool de back-ends d’une ressource d’équilibreur de charge pour fournir une mise à l’échelle et une redondance pour les appliances, et la sonde d’intégrité est configurée pour sonder un port que l’appliance de tiers met en proxy ou traduit vers les autres machines virtuelles derrière l’appliance.  Si vous sondez le même port que celui que vous utilisez pour traduire ou mettre en proxy les demandes vers les autres machines virtuelles derrière l’appliance, toute réponse de la sonde provenant d’une même machine virtuelle derrière l’appliance marque l’appliance elle-même comme étant hors service. Cette configuration peut entraîner un échec en cascade du scénario d’application dans son intégralité en raison de la présence d’un seul point de terminaison back-end derrière l’appliance.  Le déclencheur peut être un échec intermittent de la sonde, qui fait que l’équilibreur de charge marque comme étant hors service la destination d’origine (l’instance de l’appliance), qui à son tour peut rendre inopérant le scénario de toute votre application. Au lieu de cela, sondez l’intégrité de l’appliance elle-même. La sélection de la sonde pour déterminer le signal d’intégrité est une considération importante pour les scénarios d’appliances virtuelles réseau, et vous devez consulter le fournisseur de votre application pour savoir quel est le signal d’intégrité approprié pour de tels scénarios.
 
 Si vous n’autorisez pas l’[adresse IP source](#probesource) de la sonde dans vos stratégies de pare-feu, la sonde d’intégrité échoue, car il lui est impossible d’atteindre votre instance.  L’équilibreur de charge marque à son tour votre instance comme étant hors service, en raison de l’échec de la sonde d’intégrité.  Une configuration incorrecte peut entraîner l’échec du scénario de votre application avec équilibrage de charge.
 
@@ -208,18 +235,18 @@ Ne configurez pas votre réseau virtuel avec la plage d’adresses IP détenue p
 
 Si vous avez plusieurs interfaces sur votre machine virtuelle, vous devez vous assurer que vous répondez à la sonde sur l’interface à partir de laquelle l’avez reçue.  Il peut être nécessaire de traduire l’adresse réseau source de cette adresse dans la machine virtuelle pour chaque interface.
 
-N’activez pas les [horodatages TCP](https://tools.ietf.org/html/rfc1323).  L’activation des horodatages TCP entraîne l’échec des sondes d’intégrité à cause de la suppression des paquets TCP par la pile TCP du système d’exploitation invité de la machine virtuelle, ce qui fait que l’équilibreur de charge marque négativement le point de terminaison correspondant.  Les horodatages TCP sont normalement activés par défaut sur les images de machine virtuelle avec sécurité renforcée, et ils doivent être désactivés.
+N’activez pas les [horodatages TCP](https://tools.ietf.org/html/rfc1323).  L’activation des horodatages TCP peut entraîner l’échec des sondes d’intégrité à cause de la suppression des paquets TCP par la pile TCP du système d’exploitation invité de la machine virtuelle, ce qui fait que Load Balancer marque négativement le point de terminaison correspondant.  Les horodatages TCP sont normalement activés par défaut sur les images de machine virtuelle avec sécurité renforcée, et ils doivent être désactivés.
 
 ## <a name="monitoring"></a>Surveillance
 
-Les [Standard Load Balancer](load-balancer-standard-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par instance principale comme des métriques multidimensionnelles via Azure Monitor. Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications partenaires. 
+Les [Standard Load Balancer](load-balancer-standard-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par point de terminaison back-end comme des métriques multidimensionnelles par le biais d’Azure Monitor. Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications partenaires. 
 
 Une instance Load Balancer publique de base expose l’état de la sonde d’intégrité résumé, par pool principal, via les journaux Azure Monitor.  Les journaux Azure Monitor ne sont pas disponibles pour les instances Load Balancer de base internes.  Vous pouvez utiliser les [journaux Azure Monitor](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
 
 ## <a name="limitations"></a>Limites
 
 - Les sondes HTTPS ne prennent pas en charge l’authentification mutuelle avec un certificat client.
-- Les sondes d’intégrité échouent quand les horodatages TCP sont activés.
+- Vous pouvez supposer que les sondes d’intégrité échoueront quand les horodatages TCP sont activés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172307"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959185"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -43,7 +43,7 @@ L’approbation de contenu est gérée par le biais d’un ensemble de clés de 
 
 La première étape consiste à activer l’approbation de contenu au niveau du registre. Une fois que vous activez l’approbation de contenu, les clients (utilisateurs ou services) peuvent envoyer des images signées à votre registre. L’activation de l’approbation de contenu sur votre registre ne limite pas l’utilisation du registre uniquement aux consommateurs ayant activé l’approbation de contenu. Les consommateurs pour lesquels l’approbation de contenu est désactivée peuvent continuer à utiliser votre registre normalement. Toutefois, les consommateurs qui ont activé l’approbation de contenu dans leurs clients seront *uniquement* en mesure de visualiser les images signées dans votre registre.
 
-Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer**.
+Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer**. Vous pouvez également utiliser la commande [az acr config content-trust update][az-acr-config-content-trust-update] dans Azure CLI.
 
 ![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-01-portal]
 
@@ -75,6 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## <a name="grant-image-signing-permissions"></a>Accorder des autorisations de signature d’image
 
 Seuls les utilisateurs ou les systèmes qui disposent des autorisations requises peuvent envoyer des images approuvées à votre registre. Pour accorder l’autorisation d’envoi d’images approuvées à un utilisateur (ou à un système à l’aide d’un principal de service), octroyez à leurs identités Azure Active Directory le rôle `AcrImageSigner`. Ce rôle vient s’ajouter au rôle `AcrPush` (ou équivalent) requis pour l’envoi (push) d’images au registre. Pour plus d’informations, consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md).
+
+> [!NOTE]
+> Vous ne pouvez pas accorder l’autorisation d’envoi (push) d’images approuvées au [compte Administrateur](container-registry-authentication.md#admin-account) d’un registre de conteneurs Azure.
 
 Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portail Azure et dans l’interface de ligne de commande Azure (Azure CLI) sont décrites ci-après.
 
@@ -113,7 +116,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 La variable `<service principal ID>` peut correspondre à l’élément **appId** ou **objectId** du principal de service, ou à l’un de ses éléments **servicePrincipalNames**. Pour plus d’informations sur l’utilisation des principaux de service et d’Azure Container Registry, consultez l’article [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
 
-Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur.
+> [!IMPORTANT]
+> Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur. Pour plus d’informations sur la vérification des rôles d’une identité, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](../role-based-access-control/role-assignments-cli.md) et [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Envoyer une image approuvée
 
@@ -214,3 +218,4 @@ Pour désactiver l’approbation de contenu pour votre registre, accédez au reg
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

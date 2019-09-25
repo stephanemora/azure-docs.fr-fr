@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882434"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059214"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analyser les journaux Apache Hadoop dans Azure HDInsight
 
@@ -110,7 +110,7 @@ Pour plus d’informations sur les journaux des applications, consultez la page 
 ### <a name="access-the-ambari-ui"></a>Accéder à l’interface utilisateur Ambari
 À partir du portail Azure, cliquez sur un nom de cluster HDInsight pour ouvrir le volet du cluster. Dans le volet du cluster, cliquez sur **Tableau de bord**.
 
-![Tableau de bord du cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight - Lancer le tableau de bord de cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Accéder à l’interface utilisateur Yarn
@@ -120,7 +120,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
 
 * **Obtenir l’état du cluster**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **About**. Une série de détails sur l’état du cluster apparaissent, comme la mémoire totale allouée, les cœurs utilisés, l’état du gestionnaire des ressources de cluster ou la version du cluster.
   
-    ![Lancer le tableau de bord du cluster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Lancer le tableau de bord du cluster yarn")
+    ![HDInsight - Lancer le tableau de bord du cluster YARN](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight - Lancer le tableau de bord de cluster YARN")
 * **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
 * **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux d’activité.
 

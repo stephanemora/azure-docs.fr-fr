@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858500"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993465"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -132,7 +132,7 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Audit|Affichage des enregistrements d’audit.<br>Mise à jour ou affichage de la stratégie d’audit.|
 |Masquage de données|Ajout, modification, suppression ou affichage des règles de masquage des données|
 |Chiffrement transparent des données|État ou statut d’affichage du chiffrement transparent des données|
-|Magasin de données des requêtes (performances)|Modification ou affichage des paramètres du Magasin des requêtes ; réglage automatique|
+|Magasin de données des requêtes (performances)|Modification ou affichage des paramètres du magasin des requêtes|
 |Réglage automatique|Application et vérification des recommandations de réglage automatique telles que l’indexation automatique|
 |Copie de base de données|Création d’une base de données comme copie.<br>Exportation vers un fichier BACPAC.|
 |SQL Data Sync|Synchronisation entre les bases de données hub et membre qui s’exécutent selon une planification configurable ou qui sont exécutées manuellement|

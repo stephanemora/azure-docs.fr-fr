@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933648"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104921"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -128,11 +128,39 @@ Le fait que le nom d’utilisateur ou le mot de passe avec Azure Multi-Factor Au
 
 Vérifiez que vous ne configurez pas **Authentification par mot de passe Active Directory** comme méthode d’authentification du Gestionnaire de connexions quand le paramètre *ConnectUsingManagedIdentity* a la valeur **True** . Vous pouvez le configurer plutôt sur **Authentification SQL**, qui est ignoré si *ConnectUsingManagedIdentity* est défini.
 
+### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Message d’erreur : « Échec de la tâche de mise en lots des requêtes avec le GUID d’opération ... en raison de l’erreur : Échec de la distribution de l’opération de mise en lots avec le message d’erreur : Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException : Échec du chargement du proxy de données. »
+
+Assurez-vous que votre runtime d’intégration Azure-SSIS est configuré avec un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md).
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : Code d’erreur : 2010, message d’erreur : Le runtime d’intégration auto-hébergé ... est hors connexion »
+
+Assurez-vous que votre runtime d’intégration auto-hébergé est installé et démarré. Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Message d’erreur : « Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : Le fournisseur OLE DB ... demandé n’est pas inscrit. Si le pilote 64 bits n’est pas installé, exécutez le package en mode 32 bits... »
+
+Assurez-vous que le fournisseur correspondant utilisé par les connecteurs OLE DB dans votre package est installé correctement sur l’ordinateur du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir).
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Message d’erreur : « Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : System.IO.FileLoadException : Impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35 » ou l’une de ses dépendances. La définition du manifeste de l’assembly trouvé ne correspond pas à la référence de l’assembly.'... »
+
+Une installation ou une mise à niveau incorrecte de votre runtime d’intégration auto-hébergé peut expliquer cette erreur. Suggérez de télécharger et de réinstaller le dernier runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md#installation-best-practices).
+
+### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Message d’erreur : « Une connexion est nécessaire lors d’une demande de métadonnées. Si vous travaillez hors connexion, désactivez l’option Travailler hors connexion dans le menu SSIS pour activer la connexion. »
+
+* Cause possible et action recommandée :
+  * Si le journal d’exécution contient également le message d’avertissement « Le composant ne prend pas en charge l’utilisation du gestionnaire de connexions avec la valeur ConnectByProxy définie sur true », cela signifie qu’un gestionnaire de connexions est utilisé sur un composant qui ne prend pas encore en charge « ConnectByProxy ». Pour connaître les composants pris en charge, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy).
+  * Le journal d’exécution est disponible dans le [rapport SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) ou dans le dossier du journal que vous avez spécifié dans l’activité d’exécution du package SSIS.
+  * Il est également possible d’utiliser un réseau virtuel pour accéder aux données locales. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": "Code de sortie de SSIS Executor : -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
+
+Assurez-vous que le runtime Visual C++ est installé sur la machine du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir).
+
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Plusieurs exécutions de package sont déclenchées de manière inattendue
 
 * Cause possible et action recommandée :
-  * L’activité de procédure stockée ADF est utilisée pour déclencher l’exécution du package SSIS. La commande t-sql peut rencontrer un problème temporaire et déclencher la réexécution, ce qui entraînerait plusieurs exécutions de package.
+  * L’activité de procédure stockée ADF ou l’activité Lookup est utilisée pour déclencher l’exécution du package SSIS. La commande t-sql peut rencontrer un problème temporaire et déclencher la réexécution, ce qui entraînerait plusieurs exécutions de package.
   * Utilisez l’activité ExecuteSSISPackage à la place, qui garantit que l’exécution du package ne sera pas renouvelée sauf si l’utilisateur a défini un nombre de nouvelles tentatives dans l’activité. Vous trouverez des détails sur [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Affinez votre commande T-SQL pour pouvoir la réexécuter en vérifiant si une exécution a déjà été déclenchée.
 
 ### <a name="package-execution-takes-too-long"></a>L’exécution du package prend trop de temps
 

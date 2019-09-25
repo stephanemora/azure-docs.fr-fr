@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147284"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091357"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
@@ -110,7 +110,7 @@ Une façon de créer cette relation d’approbation est décrite en détail dans
 
 ## <a name="specify-dns-servers"></a>Spécifier les serveurs DNS 
 
-Pour améliorer la robustesse, il est vivement recommandé de spécifier les adresses de serveur DNS utilisées dans votre environnement. Découvrez les deux options permettant de [définir le serveur DNS dans l’article sur la résolution des problèmes](troubleshoot.md#resolution-7).
+Pour améliorer la robustesse, il est vivement recommandé de spécifier les adresses de serveur DNS utilisées dans votre environnement. Pour définir votre serveur DNS pour IoT Edge, consultez la solution au problème [Le module Edge Agent rapporte en continu le message « fichier config vide » et aucun module ne démarre sur l’appareil](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) dans l’article relatif à la résolution des problèmes.
 
 ## <a name="optional-offline-settings"></a>Paramètres hors connexion facultatifs
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562362"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056443"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -31,45 +31,44 @@ Une fois l'application cliente confidentielle générée, vous pouvez acquérir 
 
 L'étendue à demander pour un flux d'informations d'identification client est le nom de la ressource suivi de `/.default`. Cette notation indique à Azure AD d'utiliser les **autorisations de niveau application** déclarées de manière statique lors de l'inscription de l'application. En outre, comme indiqué précédemment, ces autorisations d'API doivent être accordées par un administrateur client.
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Dans MSAL.Python, le fichier de configuration serait semblable à l'extrait de code suivant :
 
-```Python
+```Json
 {
-    "authority": "https://login.microsoftonline.com/organizations",
-    "client_id": "your_client_id",
-    "secret": "This is a sample only. You better NOT persist your password."
-    "scope": ["https://graph.microsoft.com/.default"]
+    "scope": ["https://graph.microsoft.com/.default"],
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
-### <a name="all"></a>Tous
-
-L'étendue utilisée pour les informations d'identification client doit toujours être resourceId+"/.default".
+---
 
 ### <a name="case-of-azure-ad-v10-resources"></a>Cas des ressources Azure AD (v1.0)
 
+L'étendue utilisée pour les informations d'identification client doit toujours être resourceId+"/.default".
+
 > [!IMPORTANT]
-> Concernant le point de terminaison MSAL (point de terminaison de la plateforme d'identités Microsoft) qui demande un jeton d'accès pour une ressource acceptant un jeton d'accès v1.0, Azure AD analyse l'audience souhaitée d'après l'étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l'utilisant comme identificateur de la ressource.
+> Concernant MSAL qui demande un jeton d’accès pour une ressource acceptant un jeton d’accès v1.0, Azure AD analyse l’audience souhaitée d’après l’étendue demandée, en prenant tout ce qui précède la dernière barre oblique et en l’utilisant comme identificateur de la ressource.
 > Par conséquent, si, comme Azure SQL ( **https://database.windows.net** ), la ressource attend une audience se terminant par une barre oblique (pour Azure SQL : `https://database.windows.net/` ), vous devez demander une étendue de `https://database.windows.net//.default` (notez la double barre oblique). Voir aussi le problème MSAL.NET [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : la barre oblique de fin a été omise dans l'URL de la ressource, ce qui a entraîné un échec d'authentification sql.
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
-### <a name="net"></a>.NET
+Au moment d’acquérir un jeton pour l’application, vous utiliserez `AcquireTokenForClient` ou l’équivalent en fonction des plateformes.
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -98,13 +97,12 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>Cache de jetons d'application
-
-Dans MSAL.NET, `AcquireTokenForClient` utilise le **cache de jetons d'application** (toutes les autres méthodes AcquireTokenXX utilisent le cache de jetons d'utilisateur). N'appelez pas `AcquireTokenSilent` avant d'appeler `AcquireTokenForClient` car `AcquireTokenSilent` utilise le cache de jetons d'**utilisateur**. `AcquireTokenForClient` vérifie le cache de jetons d'**application** et le met à jour.
-
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```Python
+# The pattern to acquire a token looks like this.
+result = None
+
 # Firstly, looks up a token from cache
 # Since we are looking for token for the current app, NOT for an end user,
 # notice we give account parameter as None.
@@ -113,22 +111,44 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token
+    print(result["token_type"])
+    print(result["expires_in"])  # You don't normally need to care about this.
+                                 # It will be good for at least 5 minutes.
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You may need this when reporting a bug
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-ClientCredentialParameters parameters = ClientCredentialParameters
-        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
-CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
 
-// You can complete the future in many different ways. Here we use .get() for simplicity
-AuthenticationResult result = future.get();
+BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
+    if (ex != null) {
+        System.out.println("Oops! We have an exception - " + ex.getMessage());
+    }
+    System.out.println("Returned ok - " + res);
+    System.out.println("ID Token - " + res.idToken());
+
+    /* call a protected API with res.accessToken() */
+};
+
+future.whenCompleteAsync(processAuthResult);
+future.join();
 ```
 
-### <a name="protocol"></a>Protocole
+---
+
+### <a name="protocol"></a>Protocol
 
 Si vous n'avez pas encore de bibliothèque pour la langue de votre choix, vous pouvez directement utiliser le protocole :
 
@@ -159,9 +179,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>En savoir plus sur le protocole
-
 Pour plus d'informations, consultez la documentation du protocole : [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+
+## <a name="application-token-cache"></a>Cache de jetons d'application
+
+Dans MSAL.NET, `AcquireTokenForClient` utilise le **cache de jetons d'application** (toutes les autres méthodes AcquireTokenXX utilisent le cache de jetons d'utilisateur). N'appelez pas `AcquireTokenSilent` avant d'appeler `AcquireTokenForClient` car `AcquireTokenSilent` utilise le cache de jetons d'**utilisateur**. `AcquireTokenForClient` vérifie le cache de jetons d'**application** et le met à jour.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

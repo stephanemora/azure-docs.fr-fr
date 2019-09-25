@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 99ffa49a8e379f6c3a2139c082cd23f95c126e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ccf1c912dbf982fde1eb5cde4cde6556fc88bc1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597249"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933913"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertes de sécurité Azure Security Center pour IoT
 
@@ -85,8 +85,8 @@ Pour plus d’informations, consultez [Créer des alertes personnalisées](quick
 | Moyenne   | Suppression d’un certificat d’un IoT Hub                                    | Un certificat nommé \'%{DescCertificateName}\' a été supprimé d’IoT Hub \'%{DescIoTHubName}\'. Si cette action a été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante.| 1. Assurez-vous que le certificat a été supprimé par un tiers autorisé. <br> 2. S’il n’a pas été supprimé par un tiers autorisé, ajouter le à nouveau et signalez l’alerte à l’équipe responsable de la sécurité de l’organisation. |
 | Moyenne   | Détection d’une tentative infructueuse d’ajout d’un certificat à un IoT Hub     | Échec de la tentative d’ajout du certificat \'%{DescCertificateName}\' à IoT Hub \'%{DescIoTHubName}\'. Si cette action a été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante.|   Assurez-vous que les autorisations de modification des certificats sont accordées uniquement aux tiers autorisés.  |
 | Moyenne   | Détection d’une tentative infructueuse de suppression d’un certificat d’un IoT Hub | Échec de la tentative de suppression du certificat \'%{DescCertificateName}\' à IoT Hub \'%{DescIoTHubName}\'. Si cette action a été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante. |Assurez-vous que les autorisations de modification des certificats sont accordées uniquement aux tiers autorisés.
-| Faible      | Détection d’une tentative d’ajout ou de modification d’un paramètre de diagnostic d’un IoT Hub    | Une tentative d’ajout ou de modification d’un paramètre de diagnostic d’un IoT Hub a été détectée. Les paramètres de diagnostic permettent de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. Si cette action n'a pas été effectuée par une partie autorisée, cela peut indiquer une activité malveillante.  |
-| Faible      | Détection d’une tentative de suppression d’un paramètre de diagnostic d’un IoT Hub       | Détection de %{DescAttemptStatusMessage}\' tentatives d’ajout ou de modification des paramètres de diagnostic \'%{DescDiagnosticSettingName}\' pour IoT Hub \'%{DescIoTHubName}\'. Le paramètre de diagnostic permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. Si cette action n’a pas été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante. |1. Assurez-vous que le certificat a été supprimé par un tiers autorisé.<br> 2. S’il n’a pas été supprimé par un tiers autorisé, ajoutez-le à nouveau et signalez l’alerte à l’équipe responsable de la sécurité de l’organisation.
+| Faible      | Détection d’une tentative d’ajout ou de modification d’un paramètre de diagnostic d’un IoT Hub    | Une tentative d’ajout ou de modification d’un paramètre de diagnostic d’un IoT Hub a été détectée. Les paramètres de diagnostic permettent de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. Si cette action n'a pas été effectuée par une partie autorisée, cela peut indiquer une activité malveillante.  |1. Assurez-vous que le certificat a été supprimé par un tiers autorisé.<br> 2. S’il n’a pas été supprimé par un tiers autorisé, ajoutez-le à nouveau et signalez l’alerte à l’équipe responsable de la sécurité de l’organisation.
+| Faible      | Détection d’une tentative de suppression d’un paramètre de diagnostic d’un IoT Hub       | Détection de %{DescAttemptStatusMessage}\' tentatives d’ajout ou de modification des paramètres de diagnostic \'%{DescDiagnosticSettingName}\' pour IoT Hub \'%{DescIoTHubName}\'. Le paramètre de diagnostic permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. Si cette action n’a pas été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante. |Assurez-vous que les autorisations de modification des paramètres de diagnostic sont accordées uniquement aux tiers autorisés.
 |
 
 ## <a name="next-steps"></a>Étapes suivantes

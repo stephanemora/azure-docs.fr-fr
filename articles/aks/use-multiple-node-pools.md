@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915852"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996894"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -76,9 +76,9 @@ az provider register --namespace Microsoft.ContainerService
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
 * Des pools de nœuds ne sont disponibles pour les clusters créés qu’après que vous avez correctement inscrit la fonctionnalité *MultiAgentpoolPreview* pour votre abonnement. Vous ne pouvez pas ajouter ou gérer des pools de nœuds avec un cluster AKS existant créé avant l’inscription de cette fonctionnalité.
-* Vous ne pouvez pas supprimer le premier pool de nœuds.
+* Vous ne pouvez pas supprimer le pool de nœuds par défaut (premier).
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
-* Vous ne pouvez pas ajouter/mettre à jour/supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
+* Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
 
 Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
@@ -89,6 +89,8 @@ Même si cette fonctionnalité est en préversion préliminaire, les limitations
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.10* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
+
+Il est fortement recommandé d’utiliser l’équilibreur de charge de la référence SKU standard lors de l’utilisation de plusieurs pools de nœuds. Lisez [ce document](load-balancer-standard.md) pour en savoir plus sur l’utilisation des équilibreurs de charge standard avec AKS.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 La création du cluster ne prend que quelques minutes.
@@ -578,7 +581,7 @@ La mise à jour de votre cluster AKS peut prendre quelques minutes selon les par
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds
 
 > [!NOTE]
-> Durant la période de préversion, l’utilisation de cette fonctionnalité avec la *référence (SKU) Standard Load Balancer dans AKS (préversion)* est limitée en raison de possibles conflits de règles d’équilibrage de charge avec l’approvisionnement des machines virtuelles. Pendant la période de préversion, utilisez la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
+> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. Pendant la période de préversion, utilisez la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
 
 Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, dans certains cas, les nœuds d’un pool de nœuds doivent avoir leurs propres adresses IP publiques. C’est par exemple le cas du gaming, où une console doit être directement connectée à une machine virtuelle dans le cloud pour réduire les tronçons. Pour ce faire, vous devez vous inscrire pour une fonctionnalité d’évaluation distincte, à savoir Node Public IP (préversion).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 428149fbc015037fa8c92bad6fe72cbd97aad5d7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 4a019c3f197f123486dd28dc2bdb46e34f6cabc4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622237"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064915"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "69622237"
 
 ## <a name="create-a-weibo-application"></a>Créer une application Weibo
 
-Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure Active Directory B2C (Azure AD B2C), vous devez créer dans votre locataire une application qui le représente. Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
 
 1. Connectez-vous au [portail des développeurs Weibo](https://open.weibo.com/) avec les informations d’identification de votre compte Weibo.
 1. Une fois que vous êtes connecté, sélectionnez votre nom d’affichage dans le coin supérieur droit.

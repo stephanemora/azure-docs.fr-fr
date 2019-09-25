@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186233"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004020"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilisation de projections dans une base de connaissances dans Recherche Azure
 
@@ -34,7 +34,7 @@ La base de connaissances prend en charge deux types de projections :
 
 + **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, les projections d’objet sont enregistrées comme des objets Blob.
 
-Pour voir des projections définies dans le contexte, parcourez [Prise en main de la Base de connaissances](knowledge-store-howto.md)
+Pour voir des projections définies dans le contexte, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
 
 ## <a name="projection-groups"></a>Groupes de projections
 
@@ -66,6 +66,9 @@ Vous pouvez projeter un document de votre index dans plusieurs tables, en conser
 ### <a name="defining-a-table-projection"></a>Définition d’une projection de table
 
 Lorsque vous définissez une projection de la table dans l’élément `knowledgeStore` de votre ensemble de compétences, commencez par mapper un nœud dans l’arborescence d’enrichissement avec la source de table. Ce nœud est généralement la sortie d’une compétence de **modélisateur** que vous avez ajoutée à la liste des compétences pour produire une forme spécifique dont vous avez besoin pour projeter dans des tables. Le nœud que vous choisissez de projeter peut être divisé pour être projeté dans plusieurs tables. La définition de tables est une liste de tables que vous souhaitez projeter. 
+
+#### <a name="projection-slicing"></a>Découpage de la projection
+Quand vous définissez un groupe de projections de tables, un nœud de l’arborescence d’enrichissement peut être divisé pour être projeté dans plusieurs tables associées. Si vous ajoutez une table dont le chemin source est un nœud enfant d’une projection de table existante, le nœud enfant est divisé à partir du nœud parent et projeté dans la nouvelle table associée. Cette technique vous permet de définir un nœud unique dans une compétence de modélisation qui peut être la source de toutes vos projections de tables.
 
 Chaque table requiert trois propriétés :
 

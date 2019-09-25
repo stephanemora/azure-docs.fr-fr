@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767152"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983398"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -35,7 +35,7 @@ Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePi
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Des invitations ont été désactivées pour le répertoire
 
-Si un message vous indique que vous n’êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes sous Paramètres utilisateur :
+Si un message vous indique que vous n’êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes sous Azure Active Directory > Paramètres utilisateur > Utilisateurs externes > Gérer les paramètres de collaboration externes :
 
 ![Capture d’écran montrant les paramètres des utilisateurs externes](media/troubleshoot/external-user-settings.png)
 

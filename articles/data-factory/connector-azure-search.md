@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275933"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962110"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
@@ -164,7 +164,7 @@ Le service Recherche Azure prend en charge l’écriture de documents sous form
 ]
 ```
 
-### <a name="data-type-support"></a>Prise en charge des types de données
+## <a name="data-type-support"></a>Prise en charge des types de données
 
 Le tableau suivant indique si un type de données Recherche Azure est pris en charge ou non.
 
@@ -178,6 +178,8 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 | DataTimeOffset | O |
 | Tableau de chaînes | N |
 | GeographyPoint | N |
+
+Les autres types de données, par exemple ComplexType, ne sont pas pris en charge pour le moment. Pour obtenir la liste complète des types de données pris en charge par le service Recherche Azure, consultez [Types de données pris en charge (Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

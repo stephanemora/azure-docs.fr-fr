@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879259"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097564"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -78,6 +78,13 @@ Pour plus d’informations, consultez les articles suivants :
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
+Si votre domaine n’utilise pas encore DFSR, vous DEVEZ le faire migrer pour l’utiliser avant d’installer la protection par mot de passe Azure Active Directory. Pour plus d’informations, consultez le lien suivant :
+
+[Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+> [!WARNING]
+> Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS pour la réplication sysvol, mais ce logiciel ne fonctionne pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez faire migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
+
 **Q : De quelle quantité d’espace disque la fonctionnalité a besoin sur le partage sysvol du domaine ?**
 
 L’utilisation d’un espace précis varie en fonction de facteurs, par exemple la surcharge de chiffrement, le nombre et la longueur des jetons interdits dans la liste globale interdite de Microsoft et dans la liste personnalisée par locataire. Le contenu de ces listes est susceptible d’évoluer à l’avenir. Ainsi, la prévision pour cette fonctionnalité d’au moins cinq (5) mégaoctets d’espace sur le partage sysvol du domaine est une appréciation raisonnable.
@@ -129,6 +136,10 @@ Non.
 **Q : Pourquoi Azure AD refuse-t-il toujours les mots de passe faibles, même si j’ai configuré la stratégie en mode Audit ?**
 
 Le mode Audit est uniquement pris en charge dans l’environnement Active Directory local. Azure AD est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
+
+**Q : Mes utilisateurs voient le message d’erreur Windows classique lorsqu’un mot de passe est rejeté par la protection par mot de passe Azure AD. Est-il possible de personnaliser ce message d’erreur afin que les utilisateurs sachent ce qui s’est réellement produit ?**
+
+Non. Le message d’erreur, affiché par les utilisateurs lorsqu’un mot de passe est rejeté par un contrôleur de domaine, est contrôlé par la machine cliente, et non par le contrôleur de domaine. Ce comportement se manifeste si un mot de passe est rejeté par les stratégies de mot de passe Active Directory par défaut, ou par une solution basée sur un filtre de mot de passe, comme la protection par mot de passe Azure AD.
 
 ## <a name="additional-content"></a>Contenu supplémentaire
 

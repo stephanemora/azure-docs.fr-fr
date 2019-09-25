@@ -1,6 +1,6 @@
 ---
 title: Créer, utiliser et gérer des environnements pour l’entraînement et le déploiement de modèles
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Créez et gérez des environnements pour l’entraînement et le déploiement de modèles. Gérez des packages Python et d’autres paramètres pour l’environnement.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098954"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996619"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Créer et gérer des environnements pour l’entraînement et le déploiement
 
 Dans cet article, découvrez comment créer et gérer des [environnements](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning afin de pouvoir suivre et reproduire les dépendances logicielles de vos projets à mesure qu’elles évoluent.
 
-La gestion des dépendances logicielles est une tâche courante pour les développeurs. Vous souhaitez être en mesure de garantir que les builds sont reproductibles sans beaucoup de configuration logicielle manuelle. Avec des solutions pour le développement local, comme pip et Conda par exemple, la classe Environments du service Azure Machine Learning fournit une solution pour le développement cloud local et distribué.
+La gestion des dépendances logicielles est une tâche courante pour les développeurs. Vous souhaitez être en mesure de garantir que les builds sont reproductibles sans beaucoup de configuration logicielle manuelle. Avec des solutions pour le développement local, comme pip et Conda par exemple, la classe Environments d’Azure Machine Learning fournit une solution pour le développement cloud local et distribué.
 
 Les exemples présentés de cet article montrent comment :
 
@@ -51,8 +51,8 @@ Les environnements gérés par le système sont utilisés quand vous souhaitez q
 
 ## <a name="prerequisites"></a>Prérequis
 
-* SDK Azure Machine Learning pour Python [installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* Un [espace de travail Azure Machine Learning service](how-to-manage-workspace.md)
+* SDK Azure Machine Learning pour Python [installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="create-an-environment"></a>Créer un environnement
 

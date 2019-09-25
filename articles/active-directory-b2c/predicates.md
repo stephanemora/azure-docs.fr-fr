@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835627"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063850"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory (Azure AD) B2C.
+Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory B2C (Azure AD B2C).
 
 Le diagramme suivant illustre la relation entre les éléments :
 
@@ -41,7 +41,7 @@ L’élément **Predicate** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | OUI | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 | Méthode | OUI | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
 
 L’élément **Predicate** contient les éléments suivants :
@@ -61,7 +61,7 @@ L’élément **Parameter** contient les attributs suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | Identificateur du paramètre. |
+| Id | 1:1 | Identificateur du paramètre. |
 
 L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
@@ -140,7 +140,7 @@ L’élément **PredicateValidation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
+| Id | OUI | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
 
 L’élément **PredicateValidation** contient l’élément suivant :
 
@@ -158,7 +158,7 @@ L’élément **PredicateGroup** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur utilisé pour le groupe de prédicats.  |
+| Id | OUI | Identificateur utilisé pour le groupe de prédicats.  |
 
 L’élément **PredicateGroup** contient les éléments suivants :
 
@@ -183,7 +183,7 @@ L’élément **PredicateReference** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur utilisé pour la validation de prédicat.  |
+| Id | OUI | Identificateur utilisé pour la validation de prédicat.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe

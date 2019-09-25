@@ -1,84 +1,78 @@
 ---
-title: 'Azure Active Directory Domain Services : Guide de résolution des problèmes | Microsoft Docs'
-description: Guide de dépannage pour les services de domaine Azure Active Directory
+title: Résolution des problèmes liés à Azure Active Directory Domain Services | Microsoft Docs'
+description: Découvrez comment résoudre les erreurs qui se produisent couramment pendant la création ou la gestion des services Azure AD DS
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/13/2019
 ms.author: iainfou
-ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617069"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998728"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
-Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
+# <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erreurs courantes et étapes de dépannage pour Azure Active Directory Domain Services
+
+En tant qu’élément central de l’identité et de l’authentification des applications, Azure Active Directory Domain Services (Azure AD DS) rencontre parfois des problèmes. Si cela vous arrive, les messages d’erreur courants et les étapes de dépannage associées sont là pour vous aider à rétablir le service. De même, vous pouvez à tout moment [formuler une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
+
+Cet article indique les étapes à suivre pour résoudre les problèmes courants dans Azure AD DS.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Vous ne pouvez pas activer les services de domaine Azure AD pour votre annuaire Azure AD
-Cette section vous permet de résoudre les erreurs quand vous essayez d’activer Azure AD Domain Services pour votre annuaire.
 
-Choisissez les étapes de résolution qui correspondent au message d’erreur que vous rencontrez.
+Si vous avez des difficultés à activer Azure AD DS, examinez ci-dessous les erreurs courantes et les étapes à suivre pour les résoudre :
 
-| **Message d’erreur** | **Résolution :** |
+| **Exemple de message d’erreur** | **Résolution :** |
 | --- |:--- |
 | *Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
-| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[Les services de domaine ne disposent pas des autorisations adéquates pour l’application Synchronisation des services de domaine Azure AD.](troubleshoot.md#inadequate-permissions) |
-| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application de services de domaine n’est pas configurée correctement dans votre client.](troubleshoot.md#invalid-configuration) |
+| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services ne dispose pas des autorisations adéquates pour l’application de synchronisation d’Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
+| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services n’est pas configurée correctement dans votre locataire Azure AD](troubleshoot.md#invalid-configuration) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre client Azure AD.](troubleshoot.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflit de nom de domaine
-**Message d’erreur :**
+
+**Message d’erreur**
 
 *Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
 
-**Correction :**
+**Résolution :**
 
-Vérifiez qu’aucun domaine existant avec le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Par la suite, vous essayez d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD
+Vérifiez qu’aucun environnement AD DS existant n’est associé au même nom de domaine sur le réseau virtuel. Par exemple, si vous disposez d’un domaine AD DS nommé *contoso.com* qui s’exécute sur des machines virtuelles Azure, quand vous essayez d’activer un domaine managé Azure AD DS avec le même nom de domaine (*contoso.com*) sur le réseau virtuel, l’opération demandée échoue.
 
-en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
+Cet échec est dû à des conflits de noms pour le nom de domaine sur le réseau virtuel. Une recherche DNS vérifie si un environnement AD DS existant répond au nom de domaine demandé. Pour résoudre cet échec, utilisez un nom différent pour configurer votre domaine managé Azure AD DS ou déprovisionnez le domaine AD DS existant, puis réessayez d’activer Azure AD DS.
 
 ### <a name="inadequate-permissions"></a>Autorisations inappropriées
-**Message d’erreur :**
+
+**Message d’erreur**
 
 *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.*
 
-**Correction :**
+**Résolution :**
 
-Vérifiez si votre répertoire Azure AD contient une application nommée « Synchronisation des services de domaine Azure AD ». Si cette application existe, supprimez-la, puis réactivez les services de domaine Azure AD.
+Vérifiez s’il existe une application nommée *Azure AD Domain Services Sync* dans votre annuaire Azure AD. Si cette application existe, supprimez-la, puis essayez à nouveau d’activer Azure AD DS. Pour rechercher une application existante et la supprimer si nécessaire, effectuez les étapes suivantes :
 
-Pour vérifier la présence de cette application et la supprimer le cas échant, procédez comme suit :
-
-1. Accédez à la section **Applications** de votre annuaire Azure AD dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
-2. Sélectionnez **Toutes les applications** dans la liste déroulante **Afficher**. Sélectionnez **Tout** dans la liste déroulante **État de l’application**. Sélectionnez **Tout** dans la liste déroulante **Visibilité de l’application**.
-3. Tapez **Azure AD Domain Services Sync** dans la zone de recherche. Si l’application existe, cliquez dessus, puis cliquez sur le bouton **Supprimer** dans la barre d’outils pour la supprimer.
-4. Une fois que vous avez supprimé l’application, essayez de nouveau d’activer les services de domaine Azure AD.
+1. Sur le portail Azure, sélectionnez **Azure Active Directory** dans le volet de navigation gauche.
+1. Sélectionnez **Applications d’entreprise**. Choisissez *Toutes les application* dans le menu déroulant **Type d’application**, puis sélectionnez **Appliquer**.
+1. Dans la zone de recherche, entrez *Azure AD Domain Services Sync*. Si l’application existe, sélectionnez-la et choisissez **Supprimer**.
+1. Une fois que vous avez supprimé l’application, essayez à nouveau d’activer Azure AD DS.
 
 ### <a name="invalid-configuration"></a>Configuration non valide
-**Message d’erreur :**
+
+**Message d’erreur**
 
 *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.*
 
-**Correction :**
+**Résolution :**
 
-Vérifiez si votre répertoire Azure AD contient une application nommée « AzureActiveDirectoryDomainControllerServices » (avec un identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64). Si cette application existe, vous devez la supprimer, puis réactiver les services de domaine Azure AD.
+Vérifiez si votre annuaire Azure AD contient une application nommée *AzureActiveDirectoryDomainControllerServices* avec l’identificateur d’application *d87dcbc6-a371-462e-88e3-28ad15ec4e64*. Si cette application existe, supprimez-la, puis essayez à nouveau d’activer Azure AD DS.
 
-Utilisez le script PowerShell suivant pour trouver l’application et la supprimer.
-
-> [!NOTE]
-> Ce script utilise les applets de commande **Azure AD PowerShell version 2**. Pour une liste complète de toutes les applets de commande disponibles et pour télécharger le module, consultez la [documentation de référence AzureAD PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx).
->
->
+Utilisez le script PowerShell suivant pour rechercher une instance d’application existante et la supprimer si nécessaire.
 
 ```powershell
 $InformationPreference = "Continue"
@@ -111,57 +105,78 @@ if ($sp -ne $null)
     Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
-<br>
 
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph désactivé
-**Message d’erreur :**
 
-Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.
+**Message d’erreur**
 
-**Correction :**
+*Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.*
 
-Vérifiez si vous avez désactivé une application avec l’identificateur 00000002-0000-0000-c000-000000000000. Cette application est l’application Microsoft Azure AD et fournit l’accès de l’API Graph à votre client Azure AD. Les services de domaine Azure AD ont besoin que cette application soit activée pour synchroniser votre client Azure AD pour votre domaine géré.
+**Résolution :**
 
-Pour résoudre cette erreur, activez cette application et réessayez d’activer les services de domaine pour votre client Azure AD.
+Vérifiez si vous avez désactivé une application associée à l’identificateur *00000002-0000-0000-c000-000000000000*. Cette application est l’application Microsoft Azure AD et fournit l’accès de l’API Graph à votre client Azure AD. Pour synchroniser votre locataire Azure AD, cette application doit être activée.
 
+Pour vérifier l’état de cette application existante et l’activer si nécessaire, effectuez les étapes suivantes :
 
-## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
-Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
+1. Sur le portail Azure, sélectionnez **Azure Active Directory** dans le volet de navigation gauche.
+1. Sélectionnez **Applications d’entreprise**. Choisissez *Toutes les application* dans le menu déroulant **Type d’application**, puis sélectionnez **Appliquer**.
+1. Dans la zone de recherche, entrez *00000002-0000-0000-c000-00000000000*. Sélectionnez l’application, puis choisissez **Propriétés**.
+1. Si **Activé pour que les utilisateurs se connectent** est défini sur *Non*, définissez la valeur sur *Oui*, puis sélectionnez **Enregistrer**.
+1. Une fois que vous avez activé l’application, essayez à nouveau d’activer Azure AD DS.
 
-* **Connectez-vous à l'aide du format UPN :** Essayez de vous connecter en utilisant le format UPN (par exemple, « joeuser@contoso.com ») au lieu du format SAMAccountName (« CONTOSO\joeuser »). Le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
+## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Azure AD gérés
 
-> [!NOTE]
-> Nous vous recommandons d’utiliser le format UPN pour vous connecter au domaine géré des services de domaine Azure AD.
->
->
+Si des utilisateurs de votre locataire Azure AD ne peuvent pas se connecter au domaine managé Azure AD DS, effectuez les étapes de dépannage suivantes :
 
-* Assurez-vous d'avoir [activé la synchronisation du mot de passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) selon les étapes décrites dans le guide de mise en route.
-* **Comptes externes :** Assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, « joe@live.com ») ou les comptes d’utilisateurs d’un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
-* **Comptes synchronisés :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
+* **Format d’informations d’identification** – Essayez d’utiliser le format UPN pour spécifier les informations d’identification, par exemple `dee@contoso.onmicrosoft.com`. Le format UPN est la méthode recommandée pour spécifier les informations d’identification dans Azure AD DS. Vérifiez que cet UPN est correctement configuré dans Azure AD.
 
-  * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)ou procédé à la mise à jour vers cette version.
-  * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
-  * Selon la taille de votre annuaire, la mise à disposition des comptes d'utilisateurs et hachages d’informations d’identification dans les services de domaine Azure AD peut prendre du temps. Assurez-vous de patienter suffisamment longtemps avant d’effectuer une nouvelle tentative d’authentification.
-  * Si le problème persiste après la vérification des étapes ci-dessus, essayez de redémarrer le service Microsoft Azure AD Sync. Ouvrez une invite de commande et exécutez les commandes suivantes sur votre ordinateur de synchronisation :
+    La valeur *SAMAccountName* de votre compte, par exemple *CONTOSO\driley*, peut être générée automatiquement s’il existe plusieurs utilisateurs avec le même préfixe UPN dans votre locataire ou si votre préfixe UPN est trop long. Par conséquent, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendiez ou de celui que vous utilisez dans votre domaine local.
 
-    1. net stop 'Microsoft Azure AD Sync'
-    2. net start 'Microsoft Azure AD Sync'
-* **Comptes cloud uniquement** : si le compte d’utilisateur affecté est un compte d’utilisateur dans le cloud uniquement : assurez-vous que l’utilisateur a modifié son mot de passe après que vous avez activé Azure AD Domain Services. Cette étape permet de générer les hachures d’informations d'identification requises pour les services de domaine Azure AD.
-* **Vérifiez que le compte d’utilisateur est actif**: Si le compte d’un utilisateur est verrouillé, il ne peut pas se connecter tant que son compte n’est pas de nouveau actif. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé.
-  * Les tentatives de saisie de mot de passe non valide dans le domaine managé ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé Azure AD Domain Services. Vérifiez le statut du compte d’utilisateur à l’aide de la console d’administration Active Directory (ADAC) pour le domaine managé Azure AD DS, et non dans Azure AD.
-  * Vous pouvez également [configurer des stratégies de mot de passe affinées qui modifient le seuil de verrouillage et la durée par défaut](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
+* **Synchronisation de mot de passe** – Veillez à activer la synchronisation de mot de passe pour les [utilisateurs cloud uniquement][cloud-only-passwords] ou pour les environnements hybrides [ utilisant Azure AD Connect][hybrid-phs].
+    * **Comptes synchronisés hybrides :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez les éléments suivants :
+    
+      * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou procédé à une mise à jour vers cette version.
+      * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète][hybrid-phs].
+      * Selon la taille de votre annuaire, la mise à disposition des comptes d’utilisateurs et des hachages d’informations d’identification dans Azure AD DS peut prendre un certain temps. Veillez à attendre suffisamment longtemps avant d’essayer de vous authentifier pour le domaine managé.
+      * Si le problème persiste après la vérification des étapes précédentes, essayez de redémarrer *Microsoft Azure Active Directory Sync Services*. À partir de votre [machine virtuelle de gestion][management-vm], ouvrez une invite de commandes et exécutez les commandes suivantes :
+    
+        ```console
+        net stop 'Microsoft Azure AD Sync'
+        net start 'Microsoft Azure AD Sync'
+        ```
+
+    * **Comptes cloud uniquement** : si le compte d’utilisateur en question est un compte d’utilisateur cloud uniquement, vérifiez que l’[utilisateur a changé son mot de passe après que vous avez activé Azure AD DS][cloud-only-passwords]. Cette réinitialisation de mot de passe entraîne la génération des hachages d’informations d’identification nécessaires à Azure AD Domain Services.
+
+* **Vérifiez que le compte d’utilisateur est actif**: par défaut, cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. L’utilisateur ne peut pas se connecter tant que le compte est verrouillé. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé.
+  * Les tentatives de saisie de mot de passe non valide dans le domaine managé Azure AD DS ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé. Vérifiez l’état du compte d’utilisateur dans la *console d’administration Active Directory (ADAC)* en utilisant la [machine virtuelle de gestion][management-vm], et non dans Azure AD.
+  * Vous pouvez aussi [configurer des stratégies de mot de passe affinées][password-policy] pour modifier le seuil et la durée de verrouillage par défaut.
+
+* **Comptes externes** – Vérifiez que le compte d’utilisateur en question n’est pas un compte externe dans le locataire Azure AD. Les comptes Microsoft comme `dee@live.com` ou les comptes d’utilisateurs d’un annuaire Azure AD externe sont des exemples de comptes externes. Azure AD DS ne stocke pas les informations d’identification pour les comptes d’utilisateurs externes et ne peut donc pas se connecter au domaine managé.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Il existe une ou plusieurs alertes sur votre domaine géré
 
-Découvrez comment résoudre les alertes sur votre domaine géré en vous rendant sur l’article [Dépanner les alertes](troubleshoot-alerts.md).
+La présence d’alertes actives dans le domaine managé Azure AD DS peut empêcher le bon fonctionnement du processus d’authentification.
+
+Pour savoir s’il existe des alertes actives, [vérifiez l’état d’intégrité d’un domaine managé Azure AD DS][check-health]. Si des alertes sont présentes, [résolvez les problèmes associés][troubleshoot-alerts].
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Les utilisateurs supprimés de votre client Azure AD ne sont pas supprimés de votre domaine géré
-Azure AD vous protège contre la suppression accidentelle d’objets utilisateur. Lorsque vous supprimez un compte d’utilisateur de votre client Azure AD, l’objet utilisateur correspondant est déplacé vers la Corbeille. Lorsque cette opération de suppression est synchronisée avec votre domaine géré, le compte d’utilisateur correspondant est marqué comme étant désactivé. Cette fonctionnalité vous permet de récupérer ou restaurer le compte d’utilisateur ultérieurement.
 
-Le compte d’utilisateur reste dans un état désactivé dans votre domaine managé, même si vous recréez un compte d’utilisateur avec le même nom d’utilisateur principal dans votre annuaire Azure AD. Pour supprimer le compte d’utilisateur de votre domaine managé, vous devez forcer sa suppression de votre locataire Azure AD.
+Azure AD protège contre la suppression accidentelle d’objets utilisateur. Quand vous supprimez un compte d’utilisateur d’un locataire Azure AD, l’objet utilisateur correspondant est déplacé dans la corbeille. Quand cette opération de suppression est synchronisée avec votre domaine managé Azure AD DS, le compte d’utilisateur correspondant est marqué comme étant désactivé. Cette fonctionnalité vous permet de récupérer le compte d’utilisateur, c’est-à-dire d’annuler sa suppression.
 
-Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell `Remove-MsolUser` avec l’option `-RemoveFromRecycleBin`, comme décrit dans cet [article MSDN](/previous-versions/azure/dn194132(v=azure.100)).
+Le compte d’utilisateur reste dans un état désactivé dans le domaine managé Azure AD DS, même si vous recréez un compte d’utilisateur avec le même UPN dans l’annuaire Azure AD. Pour supprimer le compte d’utilisateur du domaine managé Azure AD DS, vous devez forcer sa suppression dans le locataire Azure AD.
 
+Pour supprimer entièrement un compte d’utilisateur d’un domaine managé Azure AD DS, supprimez définitivement l’utilisateur de votre locataire Azure AD à l’aide de l’applet de commande PowerShell [Remove-MsolUser][Remove-MsolUser] avec le paramètre `-RemoveFromRecycleBin`.
 
-## <a name="contact-us"></a>Nous contacter
-Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](contact-us.md).
+## <a name="next-steps"></a>Étapes suivantes
+
+Si vous rencontrez toujours des problèmes, [formulez une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
+
+<!-- INTERNAL LINKS -->
+[cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
+[hybrid-phs]: tutorial-configure-password-hash-sync.md
+[management-vm]: tutorial-create-management-vm.md
+[password-policy]: password-policy.md
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md
+[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

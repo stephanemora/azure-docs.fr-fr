@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624912"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037484"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Déployer une application Service Fabric avec une identité managée affectée par l’utilisateur (préversion)
 
@@ -27,7 +27,7 @@ Pour déployer une application Service Fabric avec une identité managée, l’a
 
 ## <a name="user-assigned-identity"></a>Identité attribuée par l’utilisateur
 
-Pour activer l’application avec une identité attribuée par l’utilisateur, ajoutez tout d’abord la propriété **identity** à la ressource d’application avec le type **userAssigned** et les identités attribuées par l’utilisateur référencées. Ajoutez ensuite une section **managedIdentities** dans la section **properties** de la ressource **application** qui contient une liste de noms conviviaux pour le mappage de principalId de chacune des identités attribuées par l’utilisateur.
+Pour activer l’application avec une identité attribuée par l’utilisateur, ajoutez tout d’abord la propriété **identity** à la ressource d’application avec le type **userAssigned** et les identités attribuées par l’utilisateur référencées. Ajoutez ensuite une section **managedIdentities** dans la section **properties** de la ressource **application** qui contient une liste de noms conviviaux pour le mappage de principalId de chacune des identités attribuées par l’utilisateur. Pour plus d’informations sur les identités attribuées par l’utilisateur, consultez [Créer, lister ou supprimer une identité managée attribuée par l’utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### <a name="application-template"></a>Modèle d’application
 

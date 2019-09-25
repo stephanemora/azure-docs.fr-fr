@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207140"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057779"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -69,7 +69,7 @@ La gestion des droits d’utilisation a les rôles suivants, qui sont spécifiqu
 
 | Role | Description |
 | --- | --- |
-| Créateur de catalogue | Crée et gère des catalogues. Il s’agit, en général, d’un administrateur informatique qui n’est ni administrateur d’entreprise, ni propriétaire de ressource pour une collection de ressources. La personne qui crée un catalogue devient automatiquement le premier propriétaire du catalogue et peut ajouter des propriétaires de catalogues. |
+| Créateur de catalogue | Crée et gère des catalogues. Il s’agit, en général, d’un administrateur informatique qui n’est ni administrateur d’entreprise, ni propriétaire de ressource pour une collection de ressources. La personne qui crée un catalogue devient automatiquement le premier propriétaire du catalogue et peut ajouter des propriétaires de catalogues. Un créateur de catalogue ne peut ni gérer ni voir les catalogues dont il n’est pas propriétaire, et ne peut pas ajouter à un catalogue les ressources dont il n’est pas propriétaire. Si le créateur de catalogue doit gérer un autre catalogue ou ajouter des ressources dont il n’est pas propriétaire, il peut demander à être copropriétaire de ce catalogue ou de cette ressource. |
 | Propriétaire de catalogue | Modifie et gère les catalogues existants. Il s’agit, en général, d’un administrateur informatique, d’un propriétaire de ressource ou d’un utilisateur désigné par le propriétaire du catalogue. |
 | Gestionnaire de package d’accès | Modifie et gère tous les packages d’accès existants au sein d’un catalogue. |
 
@@ -139,7 +139,15 @@ Si vous souhaitez déléguer la création de catalogues, ajoutez des utilisateur
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès
 
-Si vous souhaitez déléguer la gestion d’un catalogue ou de packages accès dans le catalogue, ajoutez des utilisateurs aux rôles de propriétaire de catalogue ou de gestionnaire de package d’accès. La personne qui crée un catalogue en devient le premier propriétaire. Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue ou de gestionnaire de package d’accès.
+Pour déléguer la gestion d’un catalogue ou de packages d’accès dans le catalogue, ajoutez des utilisateurs aux rôles de propriétaire de catalogue ou de gestionnaire de packages d’accès. La personne qui crée un catalogue en devient le premier propriétaire. 
+
+Le propriétaire de catalogue ou le gestionnaire de packages d’accès affecté doit bien connaître le projet. L’auteur du catalogue doit créer le package d’accès s’il est impliqué dans les opérations quotidiennes du projet, et connaître les informations suivantes :
+- quelles ressources sont nécessaires
+- qui aura besoin d’un accès
+- qui doit approuver l’accès
+- combien de temps durera le projet
+
+Le créateur de catalogue doit déléguer la tâche au coordinateur de projet, qui crée et gère le package d’accès, s’il n’est pas impliqué dans les opérations quotidiennes du projet. Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue ou de gestionnaire de package d’accès :
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
 

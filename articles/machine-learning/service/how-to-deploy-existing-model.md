@@ -1,7 +1,7 @@
 ---
 title: Utiliser et déployer des modèles existants
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment vous pouvez utiliser le service Azure Machine Learning avec des modèles qui ont été entraînés en dehors du service. Vous pouvez inscrire des modèles créés en dehors du service Azure Machine Learning, puis les déployer comme un service web ou module Azure IoT Edge.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser Azure Machine Learning avec des modèles qui ont été entraînés en dehors du service. Vous pouvez inscrire des modèles créés en dehors d’Azure Machine Learning, puis les déployer en tant que service web ou module Azure IoT Edge.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,32 +10,32 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0de9284896900cb7430f42e1d0266a1c02fab20e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182540"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034441"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Utiliser un modèle existant avec le service Azure Machine Learning
+# <a name="use-an-existing-model-with-azure-machine-learning"></a>Utiliser un modèle existant avec Azure Machine Learning
 
-Découvrez comment utiliser un modèle d’apprentissage automatique existant avec le service Azure Machine Learning.
+Découvrez comment utiliser un modèle Machine Learning existant avec Azure Machine Learning.
 
-Si vous avez un modèle d’apprentissage automatique qui a été entraîné en dehors du service Azure Machine Learning, vous pouvez toujours utiliser le service pour déployer le modèle comme un service web ou sur un appareil IoT Edge. 
+Si vous avez un modèle Machine Learning qui a été entraîné en dehors d’Azure Machine Learning, vous pouvez toujours utiliser le service pour déployer le modèle en tant que service web ou sur un appareil IoT Edge. 
 
 > [!TIP]
-> Cet article fournit des informations de base sur l’inscription et le déploiement d’un modèle existant. Une fois déployé, le service Azure Machine Learning assure la supervision de votre modèle. Il vous permet également de stocker les données d’entrée envoyées au déploiement, qui peuvent être utilisées pour l’analyse de la dérive des données ou l’entraînement de nouvelles versions du modèle.
+> Cet article fournit des informations de base sur l’inscription et le déploiement d’un modèle existant. Une fois déployé, Azure Machine Learning assure la supervision de votre modèle. Il vous permet également de stocker les données d’entrée envoyées au déploiement, qui peuvent être utilisées pour l’analyse de la dérive des données ou l’entraînement de nouvelles versions du modèle.
 >
 > Pour plus d’informations sur les concepts et termes utilisés ici, consultez [Gérer, déployer et superviser des modèles d’apprentissage automatique](concept-model-management-and-deployment.md).
 >
-> Pour obtenir des informations générales sur le processus de déploiement, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+> Pour obtenir des informations générales sur le processus de déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail](how-to-manage-workspace.md).
 
     > [!TIP]
-    > Les exemples Python dans cet article supposent que la variable `ws` est définie sur votre espace de travail de service Azure Machine Learning.
+    > Les exemples Python dans cet article partent du principe que la variable `ws` est définie sur votre espace de travail Azure Machine Learning.
     >
     > Les exemples CLI utilisent les espaces réservés `myworkspace` et `myresourcegroup`. Remplacez-les par le nom de votre espace de travail et du groupe de ressources qui le contient.
 
@@ -46,7 +46,7 @@ Si vous avez un modèle d’apprentissage automatique qui a été entraîné en 
 * Un modèle entraîné. Le modèle doit être conservé dans un ou plusieurs fichiers de votre environnement de développement.
 
     > [!NOTE]
-    > Pour illustrer l’inscription d’un modèle entraîné en dehors du service Azure Machine Learning, les exemples d’extraits de code de cet article utilisent les modèles créés par le projet d’analyse des sentiments sur Twitter de Paolo Ripamonti : [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
+    > Pour illustrer l’inscription d’un modèle entraîné en dehors d’Azure Machine Learning, les exemples d’extraits de code de cet article utilisent les modèles créés par le projet d’analyse des sentiments sur Twitter de Paolo Ripamonti : [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## <a name="register-the-models"></a>Inscrire les modèles
 
@@ -58,7 +58,7 @@ from azureml.core.model import Model
 #      only some of the files from the directory
 model = Model.register(model_path = "./models",
                        model_name = "sentiment",
-                       description = "Sentiment analysis model trained outside Azure Machine Learning service",
+                       description = "Sentiment analysis model trained outside Azure Machine Learning",
                        workspace = ws)
 ```
 
@@ -79,7 +79,7 @@ Pour plus d’informations sur l’inscription de modèle en général, consulte
 La configuration de l’inférence définit l’environnement utilisé pour exécuter le modèle déployé. La configuration de l’inférence référence les entités suivantes qui sont utilisés pour exécuter le modèle quand il est déployé :
 
 * Script d’entrée. Ce fichier (nommé `score.py`) charge le modèle au démarrage du service déployé. Il est également responsable de la réception de données, de leur transmission au modèle et du renvoi d’une réponse.
-* Un [environnement](how-to-use-environments.md) du service Azure Machine Learning. Un environnement définit les dépendances logicielles nécessaires pour exécuter le modèle et le script d’entrée.
+* Un [environnement](how-to-use-environments.md) Azure Machine Learning. Un environnement définit les dépendances logicielles nécessaires pour exécuter le modèle et le script d’entrée.
 
 L’exemple suivant montre comment utiliser le SDK pour créer un environnement, puis l’utiliser avec une configuration d’inférence :
 
@@ -135,7 +135,7 @@ dependencies:
     - keras
 ```
 
-Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="entry-script"></a>Script d’entrée
 
@@ -220,7 +220,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Définir le déploiement
 

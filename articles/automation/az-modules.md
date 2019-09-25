@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c722dc6af2b98adb60045d530bb38de7762027d5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 2f81c0affb78d5944b8ba910cccfa0be655f1a6f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477893"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097947"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Prise en charge de modules Az dans Azure Automation
 
@@ -22,7 +22,7 @@ Azure automation prend en charge la possibilité d’utiliser le [module Az d’
 
 ## <a name="considerations"></a>Considérations
 
-Il y a beaucoup d’éléments à prendre en considération lorsque vous utilisez les modules Az dans Azure Automation. Des runbooks et des modules peuvent être utilisés par des solutions de haut niveau dans votre compte Automation. Modifier des runbooks ou mettre à niveau des modules peuvent causer des problèmes avec vos runbooks. Vous devez tester consciencieusement tous les runbooks et les solutions d’un compte Automation distinct avant d’importer les nouveaux modules `Az`. Les modifications apportées aux modules peuvent nuire aux solutions de haut niveau, telles que Update Management et Start/Stop VMs pendant les heures creuses. Il est recommandé de ne modifier ni les modules ni les runbooks dans les comptes Automation qui contiennent des solutions. Ce comportement n’est pas spécifique aux modules Az. Il doit être pris en considération lorsque vous introduisez des modifications dans votre compte Automation.
+Il y a beaucoup d’éléments à prendre en considération lorsque vous utilisez les modules Az dans Azure Automation. Des runbooks et des modules peuvent être utilisés par des solutions de haut niveau dans votre compte Automation. Modifier des runbooks ou mettre à niveau des modules peuvent causer des problèmes avec vos runbooks. Vous devez tester consciencieusement tous les runbooks et les solutions d’un compte Automation distinct avant d’importer les nouveaux modules `Az`. Toutes les modifications apportées aux modules peuvent nuire à la solution de [démarrage/arrêt](automation-solution-vm-management.md). Il est recommandé de ne modifier ni les modules ni les runbooks dans les comptes Automation qui contiennent des solutions. Ce comportement n’est pas spécifique aux modules Az. Il doit être pris en considération lorsque vous introduisez des modifications dans votre compte Automation.
 
 L’importation d’un module `Az` dans votre compte Automation n’importe pas systématiquement le module dans la session PowerShell que les runbooks utilisent. Les modules sont importés dans la session PowerShell, dans les situations suivantes :
 

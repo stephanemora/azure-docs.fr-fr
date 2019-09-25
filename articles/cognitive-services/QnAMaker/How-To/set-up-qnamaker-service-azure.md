@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277609"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984357"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -87,6 +87,8 @@ Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du por
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Rechercher des clés de point de terminaison dans le portail QnA Maker
 
+Le point de terminaison se trouve dans la même région que la ressource, car les clés de point de terminaison sont utilisées pour appeler la base de connaissances.
+
 Les clés de point de terminaison peuvent être gérées à partir du [portail QnA Maker](https://qnamaker.ai).
 
 1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai), accédez à votre profil, puis sélectionnez **Paramètres de service** :
@@ -111,6 +113,8 @@ QnA Maker crée plusieurs ressources Azure. Pour alléger la gestion et profiter
 |App Service|X|Impossible à la base|
 |Application Insights|✔|Peut être partagé|
 |Service de recherche|✔|1. `testkb` est un nom réservé pour le service QnAMaker ; il ne peut pas être utilisé par d’autres.<br>2. Le nom de carte de synonymes `synonym-map` est réservé au service QnAMaker.<br>3. Le nombre de bases de connaissances publiées est limité par le niveau de service de recherche. Si des index gratuits sont disponibles, les autres services peuvent les utiliser.|
+
+Découvrez-en plus sur [App Service](../../../app-service/index.yml) et le [service de recherche](../../../search/index.yml).
 
 ### <a name="using-a-single-search-service"></a>Utilisation d’un service de recherche unique
 
@@ -202,6 +206,8 @@ Vous pouvez vérifier votre version actuelle à l’adresse https://www.qnamaker
 Le service de gestion de QnA Maker est utilisé uniquement pour le portail QnA Maker et pour le traitement initial des données. Ce service est uniquement disponible dans la région USA Ouest. Il n’y a pas de stockage de données de clients dans ce service aux USA Ouest.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur [App Service](../../../app-service/index.yml) et le [service de recherche](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Créer et publier une base de connaissances](../Quickstarts/create-publish-knowledge-base.md)

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8e61f52282bcbc62a3eb069272cd7c1f3e329d3b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172706"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934007"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
 
@@ -107,7 +107,7 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 ![Requête croisée à partir du proxy Azure Data Explorer](media/adx-proxy/cross-query-adx-proxy.png)
 
-L’utilisation de l’[`join`opérateur](/azure/kusto/query/joinoperator), au lieu de l’union, peut nécessiter un conseil pour l’exécuter sur un cluster natif Azure Data Explorer (et non sur le proxy). 
+L’utilisation de l’[`join`opérateur](/azure/kusto/query/joinoperator), au lieu de l’union, peut nécessiter un [`hint`](/azure/kusto/query/joinoperator#join-hints) pour l’exécuter sur un cluster natif Azure Data Explorer (et non sur le proxy). 
 
 ## <a name="additional-syntax-examples"></a>Exemples de syntaxe supplémentaire
 

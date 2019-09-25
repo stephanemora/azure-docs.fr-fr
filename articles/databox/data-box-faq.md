@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142929"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098799"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -180,8 +180,19 @@ R.  Oui. Data Box prend en charge jusqu’à 10 comptes de stockage, à usage g�
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>Q. Mon appareil a été livré, mais il semble endommagé. Que dois-je faire ?
 R. Si votre appareil est arrivé endommagé ou présente des signes de falsification, ne l’utilisez pas. [Contactez le support Microsoft](data-box-disk-contact-microsoft-support.md) et retournez l’appareil dès que possible. Vous pouvez également créer une nouvelle commande Data Box pour obtenir un appareil de remplacement. Dans ce cas, vous n'êtes pas facturé pour cet appareil de remplacement.
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>Q. Puis-je utiliser mon propre transporteur pour expédier ma Data Box ?
-R. Pour le service Data Box, Microsoft gère la livraison vers et depuis le centre de données Azure. Si vous souhaitez utiliser votre propre transporteur, vous pouvez utiliser le service Azure Import/Export. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export ?](../storage/common/storage-import-export-service.md)
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>Q. Puis-je récupérer ma commande Data Box moi-même ? Puis-je retourner la Data Box via le transporteur de mon choix ?
+R. Oui. Microsoft propose également des expéditions autogérées dans la région US Gov uniquement. Quand vous commandez la Data Box, vous pouvez choisir l’option d’expédition autogérée. Pour récupérer votre Data Box, effectuez les étapes suivantes :
+    
+1. Une fois la commande passée, elle est traitée et la Data Box est préparée. Vous recevez une notification par e-mail indiquant que votre commande est prête à être récupérée. 
+2. Une fois la commande prête à être récupérée, accédez à votre commande dans le portail Azure et accédez au panneau **Vue d’ensemble**. 
+3. Vous voyez une notification avec un code dans le portail Azure. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) et fournissez-lui le code. L’équipe vous indique alors l’emplacement et planifie une date et une heure pour la récupération. Vous devez appeler l’équipe dans les 5 jours ouvrables suivant la réception de la notification par e-mail.
+
+Une fois la copie des données effectuée, suivez les étapes ci-dessous pour retourner votre appareil :
+
+1. Une fois la copie des données effectuée sans erreur, exécutez **Préparer l’expédition**. Une fois la préparation effectuée, vous recevez un code dans l’IU (interface utilisateur) web locale de l’appareil. Copiez et enregistrez le code.
+2. Arrêtez l’appareil, puis débranchez les câbles de connexion.
+3. Enroulez le cordon d’alimentation fourni avec la Data Box et fixez-le à l’arrière de l’appareil.
+4. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) en indiquant le code que vous avez enregistré. L’équipe va vous indiquer où et quand déposer l’appareil.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-ils des frontières lors de leur expédition ?
 R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE. Cela concerne les appareils Data Box et Data Box Heavy.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: b6d96ef2d2cdd79bec35f2581876823990e4a971
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172613"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018761"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copier des données depuis et vers Azure Database pour MySQL à l’aide d’Azure Data Factory
 
@@ -26,6 +26,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 Ce connecteur est spécialisé pour le [service Azure Database pour MySQL](../mysql/overview.md). Pour copier des données à partir d’une base de données MySQL générique située localement ou dans le cloud, utilisez le [connecteur MySQL](connector-mysql.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur Azure Database pour MySQL est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données à partir d’Azure Database pour MySQL vers toute banque de données réceptrice prise en charge. Vous pouvez également copier des données à partir de tout magasin de données source pris en charge vers Azure Database pour MySQL. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -188,8 +193,7 @@ Pour copier des données vers Azure Database pour MySQL, les propriétés suivan
 | type | La propriété type du récepteur d’activité de copie doit être définie sur : **AzureMySqlSink** | OUI |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure Database pour MySQL à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
 | writeBatchSize | Insère des données dans la table Azure Database pour MySQL lorsque la taille de la mémoire tampon atteint writeBatchSize.<br>La valeur autorisée est un entier représentant le nombre de lignes. | Non (valeur par défaut : 10 000) |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br> 
-Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:00:30) |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:00:30) |
 
 **Exemple :**
 
@@ -223,6 +227,10 @@ Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non (valeur p
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>Mappage de type de données pour Azure Database pour MySQL
 

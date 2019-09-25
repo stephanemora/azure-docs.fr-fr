@@ -1,6 +1,6 @@
 ---
 title: Interprétabilité de modèles
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment expliquer pourquoi votre modèle élabore des prédictions à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning. Il peut être utilisé pendant la formation et l’inférence pour comprendre comment un modèle élabore des prédictions.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872389"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002353"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Interprétabilité de modèles avec Azure Machine Learning service
+# <a name="model-interpretability-with-azure-machine-learning"></a>Interprétabilité de modèles avec Azure Machine Learning
 
 Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a élaboré ses prédictions avec les différents packages d’interprétabilité du Kit de développement logiciel (SDK) Python Azure Machine Learning.
 
@@ -219,7 +219,7 @@ Le package `explain` est conçu pour fonctionner avec les cibles de calcul local
 
 ### <a name="train-and-explain-remotely"></a>Former et expliquer à distance
 
-Bien que vous puissiez effectuer l’apprentissage sur les différentes cibles de calcul prises en charge par Azure Machine Learning service, l’exemple dans cette section montre comment procéder à l’aide d’une cible Capacité de calcul Azure Machine Learning.
+Bien que vous puissiez effectuer l’entraînement sur les différentes cibles de calcul prises en charge par Azure Machine Learning, l’exemple dans cette section montre comment procéder à l’aide d’une cible Capacité de calcul Azure Machine Learning.
 
 1. Créez un script de formation dans un Jupyter Notebook local (par exemple, run_explainer.py).
 
@@ -474,7 +474,7 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
 
 1. Déployer l’image sur une cible de calcul :
 
-   1. Créer un fichier de scoring (avant cette étape, suivez les étapes de [Déployer des modèles avec Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) pour inscrire votre modèle de prédiction d’origine)
+   1. Créer un fichier de scoring (avant cette étape, suivez les étapes de [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) pour inscrire votre modèle de prédiction d’origine)
 
         ```python
         %%writefile score.py

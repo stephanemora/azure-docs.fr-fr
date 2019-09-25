@@ -1,6 +1,6 @@
 ---
 title: Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment démarrer, identifier, organiser vos expériences de Machine Learning et en définir l’état.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376292"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002743"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -33,9 +33,9 @@ Cet article montre des exemples des tâches suivantes :
 
 Vous devez disposer des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Un [espace de travail Azure Machine Learning service](how-to-manage-workspace.md)
+* Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
 * Le Kit de développement logiciel (SDK) Azure Machine Learning pour Python (version 1.0.21 ou ultérieure). Pour installer ou mettre à jour la dernière version du SDK, consultez [Installer ou mettre à jour le SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -45,7 +45,7 @@ Vous devez disposer des éléments suivants :
     print(azureml.core.VERSION)
     ```
 
-* L’extension [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) et [CLI pour Azure Machine Learning service](reference-azure-machine-learning-cli.md).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) et l’[extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="start-a-run-and-its-logging-process"></a>Démarrer une exécution et son processus de journalisation
 
@@ -79,7 +79,7 @@ Pour démarrer une exécution de votre expérience, procédez comme suit :
     az login
     ```
 
-1. Attachez une configuration d’espace de travail au dossier qui contient votre script de d’entraînement. Remplacez `myworkspace` par votre espace de travail Azure Machine Learning service. Remplacez `myresourcegroup` par le groupe de ressources Azure qui contient votre espace de travail :
+1. Attachez une configuration d’espace de travail au dossier qui contient votre script de d’entraînement. Remplacez `myworkspace` par votre espace de travail Azure Machine Learning. Remplacez `myresourcegroup` par le groupe de ressources Azure qui contient votre espace de travail :
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -253,7 +253,7 @@ print(parent_run.get_children())
 
 ## <a name="tag-and-find-runs"></a>Identifier et rechercher des exécutions
 
-Dans Azure Machine Learning service, vous pouvez utiliser des balises et propriétés pour vous aider dans l’organisation et l’interrogation d’exécutions en vue de rechercher des informations importantes.
+Dans Azure Machine Learning, vous pouvez utiliser des balises et propriétés pour vous aider dans l’organisation et l’interrogation d’exécutions en vue de rechercher des informations importantes.
 
 ### <a name="add-properties-and-tags"></a>Ajouter des propriétés et des balises
 

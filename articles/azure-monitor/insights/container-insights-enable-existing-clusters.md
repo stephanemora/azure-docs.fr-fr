@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 650729269370bfcd6608b82fc14c3306da1ed222
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0153d39e1307458baa920d8e9107c8931242014e
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624430"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996266"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
@@ -49,17 +49,51 @@ La sortie doit ressembler à ce qui suit :
 provisioningState       : Succeeded
 ```
 
-Si vous préférez intégrer un espace de travail existant, utilisez la commande suivante pour spécifier celui-ci.
+### <a name="integrate-with-an-existing-workspace"></a>Intégrer avec un espace de travail existant
 
-```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
-```
+Si vous préférez effectuer une intégration avec un espace de travail existant, effectuez les étapes suivantes pour identifier tout d’abord l’ID de ressource complet de votre espace de travail Log Analytics requis pour le paramètre `--workspace-resource-id`, puis exécutez la commande pour activer l’extension de supervision par rapport à l’espace de travail spécifié.  
 
-La sortie doit ressembler à ce qui suit :
+1. Listez tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
 
-```azurecli
-provisioningState       : Succeeded
-```
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    La sortie doit ressembler à ce qui suit :
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    ```
+
+    Copiez la valeur de **SubscriptionId**.
+
+2. Basculez vers l’abonnement qui héberge l’espace de travail Log Analytics à l’aide de la commande suivante :
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+3. L’exemple suivant affiche la liste des espaces de travail de vos abonnements au format JSON par défaut. 
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+    Dans la sortie, recherchez le nom de l’espace de travail, puis copiez l’ID de ressource complet de cet espace de travail Log Analytics sous le champ **id**.
+ 
+4. Exécutez la commande suivante pour activer l’extension de supervision, en remplaçant la valeur du paramètre `--workspace-resource-id`. La valeur de chaîne doit être comprise entre les guillemets doubles :
+
+    ```azurecli
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
+    ```
+
+    La sortie doit ressembler à ce qui suit :
+
+    ```azurecli
+    provisioningState       : Succeeded
+    ```
 
 ## <a name="enable-using-terraform"></a>Activer à l’aide de Terraform
 

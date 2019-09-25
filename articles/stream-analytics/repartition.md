@@ -4,15 +4,15 @@ description: Cet article explique comment utiliser le repartitionnement pour opt
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9c802e6d23daf502da351549c66a7dae1247c068
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517350"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101511"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Utiliser le repartitionnement pour optimiser le traitement avec Azure Stream Analytics
 
@@ -54,7 +54,17 @@ Testez et observez l’utilisation des ressources de votre travail pour détermi
 
 ## <a name="repartitions-for-sql-output"></a>Repartitionnements pour une sortie SQL
 
-Quand votre travail utilise une base de données SQL pour la sortie, utilisez le repartitionnement explicite pour qu’il corresponde au nombre de partitions optimal et, ainsi, maximiser le débit. Étant donné que SQL fonctionne mieux avec huit enregistreurs, le repartitionnement du flux en huit partitions avant le vidage ou à un point quelconque en amont peut améliorer le niveau de performance du travail. Pour plus d'informations, consultez [Sortie d'Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
+Quand votre travail utilise une base de données SQL pour la sortie, utilisez le repartitionnement explicite pour qu’il corresponde au nombre de partitions optimal et, ainsi, maximiser le débit. Étant donné que SQL fonctionne mieux avec huit enregistreurs, le repartitionnement du flux en huit partitions avant le vidage ou à un point quelconque en amont peut améliorer le niveau de performance du travail. 
+
+Quand il y a plus de huit partitions d’entrée, l’héritage du schéma de partitionnement d’entrée n’est pas toujours une option appropriée. Envisagez d’utiliser [INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) dans votre requête pour spécifier explicitement le nombre de générateurs de sortie. 
+
+L’exemple suivant lit l’entrée, qu’elle soit partitionnée naturellement ou non, puis repartitionne le flux en dix partitions conformément à la dimension de DeviceID et vide les données vers la sortie. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+Pour plus d'informations, consultez [Sortie d'Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532958"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086731"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Stratégie de référence : exiger l’authentification MFA pour le management des services (préversion)
 
@@ -50,9 +50,9 @@ Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et c
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
-Comme la stratégie **Exiger l’authentification MFA pour le management des services** s’applique à tous les utilisateurs Azure Resource Manager, vous devez tenir compte de différentes considérations pour assurer un déploiement harmonieux. Ces considérations incluent l’identification, dans Azure AD, des utilisateurs et des principes de service qui ne peuvent pas ou ne doivent pas utiliser l’authentification multifacteur, ainsi que des applications et clients utilisés par votre organisation qui ne prennent pas en charge l’authentification moderne.
+La stratégie **Exiger l’authentification MFA pour le management des services** s’applique à tous les utilisateurs Azure Resource Manager.
 
-## <a name="enable-the-baseline-policy"></a>Activer la stratégie de référence
+## <a name="enable-the-baseline-policy"></a>Activer la stratégie de base de référence
 
 La stratégie **Stratégie de référence : exiger l’authentification MFA pour le management des services (préversion)** est préconfigurée et s’affiche sur la partie supérieure de la fenêtre lorsque vous accédez au panneau Accès conditionnel dans le portail Azure.
 

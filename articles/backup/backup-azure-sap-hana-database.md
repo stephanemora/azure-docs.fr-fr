@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060705"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067098"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Sauvegarder une base de données SAP HANA sur Azure
 
@@ -26,8 +26,8 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 **Support** | **Détails**
 --- | ---
 **Zones géographiques prises en charge** | Australie Sud-Est, Australie Est <br> Brésil Sud <br> Canada Centre, Canada Est <br> Asie Sud-Est, Asie Est <br> USA Est, USA Est 2, USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre Nord, USA Centre, USA Centre Sud<br> Inde Centre, Inde Sud <br> Japon Est, Japon Ouest<br> Centre de la Corée, Corée du Sud <br> Europe Nord, Europe Ouest <br> Royaume-Uni Sud, Royaume-Uni Ouest
-**Systèmes d’exploitation de machine virtuelle pris en charge** | SLES 12 avec SP2 ou SP3
-**Versions HANA prises en charge** | SDC sur HANA 1.x, MDC sur HANA 2.x <= SPS03
+**Systèmes d’exploitation de machine virtuelle pris en charge** | SLES 12 avec SP2, SP3 ou SP4.
+**Versions HANA prises en charge** | SDC sur HANA 1.x, MDC sur HANA 2.x <= SPS04 rév. 42
 
 ### <a name="current-limitations"></a>Limitations actuelles
 

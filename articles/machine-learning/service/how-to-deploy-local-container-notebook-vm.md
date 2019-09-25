@@ -1,7 +1,7 @@
 ---
 title: Guide pratique pour déployer des modèles sur des machines virtuelles Notebook
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment déployer vos modèles Azure Machine Learning Service en tant que service web en utilisant des machines virtuelles Notebook.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment déployer vos modèles Azure Machine Learning en tant que service web en utilisant des machines virtuelles Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947900"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002824"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>Déployer un modèle sur des machines virtuelles Notebook
 
-Découvrez comment utiliser Azure Machine Learning Service pour déployer un modèle en tant que service web sur votre machine virtuelle Notebook. Utilisez les machines virtuelles Notebook si l’une des conditions suivantes est vraie :
+Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur votre machine virtuelle Notebook. Utilisez les machines virtuelles Notebook si l’une des conditions suivantes est vraie :
 
 - Vous avez besoin de déployer et de valider rapidement votre modèle.
 - Vous testez un modèle en cours de développement.
 
 > [!TIP]
-> Le déploiement d’un modèle d’un notebook Jupyter sur une machine virtuelle Notebook vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est la machine virtuelle Notebook. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+> Le déploiement d’un modèle d’un notebook Jupyter sur une machine virtuelle Notebook vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est la machine virtuelle Notebook. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail Azure Machine Learning Service avec une machine virtuelle Notebook en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
+- Un espace de travail Azure Machine Learning avec une machine virtuelle Notebook en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="deploy-to-the-notebook-vms"></a>Déployer sur des machines virtuelles Notebook
 

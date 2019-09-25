@@ -10,27 +10,27 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510800"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064216"
 ---
 # <a name="integer-claims-transformations"></a>Transformations de revendications d’entier
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation de transformations de revendications d’entier du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation de transformations de revendications d’entier du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 Convertit un type de données long en type de données string.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | ClaimType à convertir en une chaîne. |
-| OutputClaim | outputClaim | chaîne | ClaimType généré après l’appel de cette ClaimsTransformation. |
+| OutputClaim | outputClaim | string | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
 Dans cet exemple, la revendication `numericUserId` avec un type de valeur long est convertie en revendication `UserId` avec un type de valeur chaîne.
 
@@ -49,6 +49,6 @@ Dans cet exemple, la revendication `numericUserId` avec un type de valeur long e
 
 - Revendications d’entrée :
     - **inputClaim** : 12334 (long)
-- Revendications de sortie : 
+- Revendications de sortie :
     - **outputClaim** : "12334" (chaîne)
 

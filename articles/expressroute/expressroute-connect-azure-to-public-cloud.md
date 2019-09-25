@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: 681a99d31e7ededda74aa186ff36cc837125bbda
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a496b91ab8ec14ce859df0da93e0ad5d87c50982
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052172"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019029"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Connexion d’Azure à des clouds publics
 
@@ -36,7 +36,7 @@ Lors de la connexion via le fournisseur Layer3, Microsoft publiera des itinérai
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-Le fournisseur peut insérer chaque fournisseur de cloud dans un VRF distinct. Si le trafic provenant de tous les fournisseurs de cloud accèdera au niveau du routeur du client. Si le client exécute le protocole BGP avec le fournisseur de services, ces itinéraires seront de nouveau publiés sur d’autres fournisseurs de cloud par défaut. 
+Le fournisseur peut insérer chaque fournisseur de cloud dans un VRF distinct si le trafic provenant de tous les fournisseurs de cloud est amené à accéder au routeur du client. Si le client exécute le protocole BGP avec le fournisseur de services, ces itinéraires seront de nouveau publiés sur d’autres fournisseurs de cloud par défaut. 
 
 Si le fournisseur de services insère tous les fournisseurs de cloud dans le même VRF, les itinéraires seront publiés sur d’autres fournisseurs de services cloud directement à partir du fournisseur de services. Cela suppose une opération BGP standard dans laquelle les itinéraires eBGP sont publiés sur d’autres voisins eBGP par défaut.
 

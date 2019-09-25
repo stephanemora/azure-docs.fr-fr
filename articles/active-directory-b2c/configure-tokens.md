@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ed1426bea920d1ef30fb28ff4a975d1268c12ff
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846926"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064389"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer les jetons dans Azure Active Directory B2C
 
-Dans cet article, vous allez apprendre à configurer la [durée de vie et la compatibilité d’un jeton](active-directory-b2c-reference-tokens.md) dans Azure Active Directory (Azure AD) B2C.
+Dans cet article, vous allez apprendre à configurer la [durée de vie et la compatibilité d’un jeton](active-directory-b2c-reference-tokens.md) dans Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Dans cet article, vous allez apprendre à configurer la [durée de vie et la com
 Vous pouvez configurer la durée de vie des jetons sur n’importe quel flux utilisateur.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Vérifiez que vous utilisez bien l’annuaire qui contient votre locataire Azure AD B2C. Choisissez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire Azure AD B2C.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Flux utilisateur (stratégies)** .
 5. Ouvrez le flux utilisateur que vous avez créé précédemment.

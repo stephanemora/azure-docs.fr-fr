@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: e21f3eed7e631c974d34f148b85843b055deaf60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706857"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076241"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
@@ -23,7 +23,7 @@ En règle générale, vous devez nettoyer et transformer les données entrantes 
 
 L’illustration suivante montre une vue d’ensemble du modèle et du cas d’usage pour l’automatisation du processus ETL. Les données en entrée sont transformées afin de générer la sortie appropriée.  Au cours de cette transformation, les données peuvent changer de forme, de type de données et même de langue.  Les processus ETL peuvent effectuer un conversion du système métrique au système impérial, modifier le fuseau horaire et améliorer la précision afin d’obtenir un alignement correct avec les données existantes dans la destination.  Les processus ETL peuvent également combiner les nouvelles données avec des données existantes pour avoir des rapports à jour ou afin de fournir de nouveaux insights sur les données existantes.  Les applications telles que les services et outils de reporting peuvent ensuite utiliser ces données dans le format souhaité.
 
-![Apache Hive et ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+![Apache Hive en tant qu’architecture ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
 Hadoop est généralement utilisé dans les processus ETL qui importent un nombre important de fichiers texte (tels que des fichiers CSV) ou un petit nombre (changeant fréquemment) de fichiers texte, ou les deux.  Hive est un excellent outil pour préparer les données avant leur chargement dans la destination des données.  Hive vous permet de créer un schéma du fichier CSV et d’utiliser un langage de type SQL pour générer des programmes MapReduce qui interagissent avec les données. 
 

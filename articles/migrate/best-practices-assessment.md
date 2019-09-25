@@ -1,17 +1,17 @@
 ---
-title: Meilleures pratiques pour la création d’une évaluation avec Azure Migrate Server Assessment | Microsoft Docs
+title: Bonnes pratiques pour la création d’une évaluation avec Azure Migrate Server Assessment
 description: Fournit des conseils pour créer des évaluations avec Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234315"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007708"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Meilleures pratiques pour la création d’évaluations
 
@@ -34,7 +34,7 @@ Par exemple, si vous avez une machine virtuelle locale avec quatre cœurs utilis
 - **Évaluation basée sur les performances** :
     - Identifie les cœurs et la mémoire effectifs sur la base des cœurs (4 x 0,20 = 0,8) et de l’utilisation de la mémoire (8 Go x 0,10 = 0,8).
     - Applique le facteur de confort spécifié dans les propriétés d’évaluation (par exemple, 1.3x) pour obtenir les valeurs à utiliser pour le dimensionnement. 
-    - Recommande la taille de machine virtuelle la plus proche dans Azure pouvant prendre en charge ~ 1,4 cœurs (0,8 x 1,3) et environ 1,4 Go (0,8 x 1,3) de mémoire.
+    - Recommande la taille de machine virtuelle la plus proche dans Azure pouvant prendre en charge environ 1,04 cœur (0,8 x 1,3) et environ 1,04 Go (0,8 x 1,3) de mémoire.
 
 - **Évaluation telle quelle (locale)**  :
     -  Recommande une machine virtuelle à quatre cœurs ; 8 Go de mémoire.

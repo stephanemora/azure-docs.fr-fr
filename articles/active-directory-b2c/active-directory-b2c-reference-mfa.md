@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b872fcfbc2ead2cebdd32ff718b582c13af314e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509312"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065577"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
+Azure Active Directory B2C (Azure AD B2C) s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
 
 Cette fonctionnalité permettent aux applications de gérer des scénarios tels que le suivant :
 
@@ -40,11 +40,11 @@ Un compte client est créé dans votre locataire avant l’étape d'authentifica
 
 ## <a name="add-multi-factor-authentication"></a>Ajouter une authentification multifacteur
 
-Il est possible d’activer l’authentification multifacteur sur un flux d’utilisateur que vous avez précédemment créé. 
+Il est possible d’activer l’authentification multifacteur sur un flux d’utilisateur que vous avez précédemment créé.
 
 Pour activer l’authentification multifacteur :
 
-1. Ouvrez le flux d’utilisateur, puis sélectionnez **Propriétés**. 
+1. Ouvrez le flux d’utilisateur, puis sélectionnez **Propriétés**.
 2. En regard d’**Authentification multifacteur**, sélectionnez **Activé**.
 3. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
 

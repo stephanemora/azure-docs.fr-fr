@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/18/2019
+ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067350"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091115"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Journaux de serveur dans Azure Database pour PostgreSQL - Serveur unique
 La base de données Azure pour PostgreSQL génère des journaux d’activité des requêtes et des erreurs. Les journaux d’activité des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux d’activité des transactions n’est pas pris en charge.) 
@@ -28,10 +28,19 @@ Si vous avez activé les journaux d’activité, vous pouvez y accéder à parti
 
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir qu’ils soient transmis vers des [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md), des Event Hubs ou Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir qu’ils soient transmis vers des [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md), des Event Hubs ou Stockage Azure. 
 
 > [!IMPORTANT]
 > Cette fonctionnalité de diagnostic des journaux de serveur n’est disponible que dans les [niveaux tarifaires](concepts-pricing-tiers.md) Usage général et Mémoire optimisée.
+
+Pour activer les journaux de diagnostic via le portail Azure :
+
+   1. Sur le portail, accédez à *Paramètres de diagnostic* dans le menu de navigation de votre serveur Postgres.
+   2. Sélectionnez *Ajouter le paramètre de diagnostic*.
+   3. Donnez un nom à ce paramètre. 
+   4. Sélectionnez l’emplacement en aval par défaut (compte de stockage, hub d’événements, analytique des journaux). 
+   5. Sélectionnez les types de données de votre choix.
+   6. Enregistrez votre paramètre.
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction du point de terminaison de sortie choisi, les champs et l’ordre dans lequel ils apparaissent peuvent varier. 
 
@@ -51,13 +60,16 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction du point 
 | OperationName | `LogEvent` |
 | errorLevel | Niveau de journalisation, par exemple : LOG, ERROR, NOTICE |
 | Message | Message de journal principal | 
-| Domain | Version du serveur, par exemple : postgres-10 |
-| Detail | Message du journal secondaire (le cas échéant) |
+| Domaine | Version du serveur, par exemple : postgres-10 |
+| Détails | Message du journal secondaire (le cas échéant) |
 | ColumnName | Nom de la colonne (le cas échéant) |
 | SchemaName | Nom du schéma (le cas échéant) |
 | DatatypeName | Nom du type de données (le cas échéant) |
 | LogicalServerName | Nom du serveur | 
 | _ResourceId | URI de ressource |
+| Préfixe | Préfixe de la ligne de journal |
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur l’accès aux journaux d’activité à partir du [portail Azure](howto-configure-server-logs-in-portal.md) ou de l’[interface de ligne de commande Azure](howto-configure-server-logs-using-cli.md).

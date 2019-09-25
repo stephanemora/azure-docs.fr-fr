@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 63eb13dd131fcc1c424c02fdac10f531cc9f0282
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5e50c814fef24aa799549d055ad6496f5bdf05e0
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876626"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961476"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Prise en charge linguistique du contenu de la base de connaissances pour QnA Maker
 
@@ -29,19 +29,11 @@ La langue est automatiquement reconnue à partir du contenu des sources de donn�
 
     ![Sélectionnez la ressource Recherche Azure](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-1. Sélectionnez l’index **testkb**. Cet index de Recherche Azure est toujours le premier créé, et il contient le contenu enregistré toutes les bases de connaissances de ce service. 
+1. Sélectionnez **Index**, puis l’index **testkb**. Il s’agit du premier index Recherche Azure créé. Ill contient le contenu enregistré de toutes les bases de connaissances de ce service. 
 
-    ![Sélectionnez la base de connaissances de test](../media/qnamaker-how-to-language-kb/select-testkb.png)
+1. Sélectionnez **Champs** pour afficher les champs dans l’index.
 
-1. Sélectionnez la section **Champs** affichant les détails _testkb_.
-
-    ![Sélectionnez Champs](../media/qnamaker-how-to-language-kb/selectfields.png)
-
-1. Cochez la case **Analyseur** pour afficher les détails de la langue.
-
-    ![Sélectionnez Analyseur](../media/qnamaker-how-to-language-kb/select-analyzer.png)
-
-1. Vous devriez constater que trouver que _l’analyseur_ est défini sur un langage particulier. Ce langage a été détecté automatiquement lors de l’étape de création de base de connaissances à partir des fichiers et des URL importés. Elle ne peut pas être modifiée une fois que la ressource est créée.
+1. La colonne _Analyseur_ des champs `questions` et `answer` est définie avec un langage spécifique. Ce langage a été détecté automatiquement lors de l’étape de création de base de connaissances à partir des fichiers et des URL importés. Elle ne peut pas être modifiée une fois que la ressource est créée.
 
     ![Analyseur sélectionné](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 

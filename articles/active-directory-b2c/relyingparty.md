@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716694"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063807"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L’élément **RelyingParty** spécifie le parcours utilisateur à appliquer pour la requête actuelle à Azure Active Directory (Azure AD) B2C. Il spécifie également la liste des revendications dont l’application par partie de confiance a besoin dans le cadre du jeton émis. Une application par partie de confiance, telle qu’une application web, mobile ou de bureau, appelle le fichier de stratégie de partie de confiance. Celui-ci exécute une tâche spécifique, telles que la connexion, la réinitialisation d’un mot de passe ou la modification d’un profil. Plusieurs applications peuvent utiliser la même stratégie de partie de confiance, et une application peut utiliser plusieurs stratégies. Toutes les applications par partie de confiance reçoivent le même jeton avec des revendications, et l’utilisateur suit le même parcours utilisateur.
+L’élément **RelyingParty** spécifie le parcours utilisateur à appliquer pour la demande actuelle à Azure Active Directory B2C (Azure AD B2C). Il spécifie également la liste des revendications dont l’application par partie de confiance a besoin dans le cadre du jeton émis. Une application par partie de confiance, telle qu’une application web, mobile ou de bureau, appelle le fichier de stratégie de partie de confiance. Celui-ci exécute une tâche spécifique, telles que la connexion, la réinitialisation d’un mot de passe ou la modification d’un profil. Plusieurs applications peuvent utiliser la même stratégie de partie de confiance, et une application peut utiliser plusieurs stratégies. Toutes les applications par partie de confiance reçoivent le même jeton avec des revendications, et l’utilisateur suit le même parcours utilisateur.
 
 L’exemple suivant montre un élément **RelyingParty** dans le fichier de stratégie *B2C_1A_signup_signin* :
 
@@ -178,7 +178,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Chaîne qui contient le nom du profil technique présenté aux utilisateurs. |
 | Description | 0:1 | Chaîne qui contient la description du profil technique présentée aux utilisateurs. |
-| Protocole | 1:1 | Protocole utilisé pour la fédération. |
+| Protocol | 1:1 | Protocole utilisé pour la fédération. |
 | Métadonnées | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
 | OutputClaims | 0:1 | Liste de types de revendications qui sont pris comme sortie dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | SubjectNamingInfo | 0:1 | Nom du sujet utilisé dans les jetons. |

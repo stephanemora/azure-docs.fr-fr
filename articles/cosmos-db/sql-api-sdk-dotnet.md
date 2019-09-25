@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 431ede41e115c82c877041da4a0eb93eacf83cbd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8017f02e694f5c9e2cd677c7b1f28c5de973d077
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142658"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932569"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -44,6 +44,11 @@ ms.locfileid: "70142658"
 
 > [!NOTE]
 > Si vous utilisez .NET Framework, consultez la dernière version 3.x du [SDK .NET](sql-api-sdk-dotnet-standard.md), qui cible .NET Standard. 
+
+### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
+
+* Ajout de PortReusePolicy à ConnectionPolicy
+* Correction du problème TypeLoadException pour ntdll!RtlGetVersion quand le kit SDK est utilisé dans une application UWP
 
 ### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
 
@@ -385,6 +390,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.6.0](#2.6.0) |30 août 2019 |--- |
 | [2.5.1](#2.5.1) |2 juillet 2019 |--- |
 | [2.4.1](#2.4.1) |20 juin 2019 |--- |
 | [2.4.0](#2.4.0) |5 mai 2019 |--- |

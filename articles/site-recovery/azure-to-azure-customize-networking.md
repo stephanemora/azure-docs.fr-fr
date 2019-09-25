@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 907a698a675a039dfdc852210adecb94c7bfab25
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886540"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087706"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
 
@@ -23,13 +23,16 @@ Cet article fournit des conseils sur la façon de personnaliser les configuratio
 
 Découvrez comment Site Recovery permet la récupération d’urgence pour [ce scénario](azure-to-azure-architecture.md).
 
-## <a name="support-networking-resources"></a>Ressources de support de mise en réseau
+## <a name="supported-networking-resources"></a>Ressources réseau prises en charge
 
 La configuration des ressources clés suivantes peut être fournie pour la machine virtuelle de basculement lors de la réplication des machines virtuelles Azure.
 
 - [Équilibreur de charge interne](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [Adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) pour le sous-réseau et pour la carte réseau
+
+ > [!IMPORTANT]
+  > Pour le moment, ces paramètres sont pris en charge uniquement dans l’opération de basculement, et pas pour le test de basculement.
 
 ## <a name="pre-requisites"></a>Conditions préalables
 

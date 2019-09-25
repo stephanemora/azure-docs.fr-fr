@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509055"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065392"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Le gestion de session d’authentification unique (SSO) dans Azure Active Directory (Azure AD) B2C permet à un administrateur de contrôler l’interaction avec un utilisateur une fois celui-ci authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
+Le gestion de session d’authentification unique (SSO) dans Azure Active Directory B2C (Azure AD B2C) permet à un administrateur de contrôler l’interaction avec un utilisateur une fois celui-ci authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
 
 La gestion de session d’authentification unique comporte deux parties. La première a trait aux interactions de l’utilisateur directement avec Azure AD B2C, et la deuxième aux interactions de l’utilisateur avec des tiers externes, tels que Facebook. Azure AD B2C ne peut ni remplacer, ni contourner des sessions d’authentification unique qui pourraient être tenues par des parties externes. Au lieu de cela, l’itinéraire parcouru via Azure AD B2C pour accéder à la partie externe est « mémorisé », ce qui évite de devoir réinviter l’utilisateur à sélectionner son fournisseur d’identité sociale ou d’entreprise. La décision finale en lien avec l’authentification unique appartient au tiers externe.
 
@@ -63,7 +63,7 @@ Pour ajouter des revendications dans la session, utilisez l’élément `<Persis
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Ce fournisseur est utilisé pour supprimer l’écran permettant de choisir le fournisseur d’identité. Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité externe, tel que Facebook. 
+Ce fournisseur est utilisé pour supprimer l’écran permettant de choisir le fournisseur d’identité. Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité externe, tel que Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">

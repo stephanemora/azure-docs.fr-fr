@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 335b6c1a12f3786d7c0f1083f5b052aaac4beccb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716823"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065770"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure Active Directory (Azure AD) B2C. Les flux d’utilisateur sont prédéfinis dans le portail Azure AD B2C pour les tâches d’identité les plus courantes. Les stratégies personnalisées peuvent être entièrement modifiées par un développeur d’identité pour effectuer de nombreuses tâches différentes.
+Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre locataire Azure Active Directory B2C (Azure AD B2C). Les flux d’utilisateur sont prédéfinis dans le portail Azure AD B2C pour les tâches d’identité les plus courantes. Les stratégies personnalisées peuvent être entièrement modifiées par un développeur d’identité pour effectuer de nombreuses tâches différentes.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparaison des flux d’utilisateur et des stratégies personnalisées
 
@@ -55,7 +55,7 @@ Le service de gestion des accès et des identités clients d’Azure inclut :
 
 Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identité, les utilisateurs, d’autres systèmes et l’annuaire d’utilisateurs locaux pour effectuer une tâche d’identité. Par exemple, connecter un utilisateur, inscrire un nouvel utilisateur ou réinitialiser un mot de passe. L’infrastructure d’expérience d’identité et une stratégie (également appelée « parcours utilisateur » ou « stratégie d’infrastructure de confiance ») établissent la confiance mutuelle et définissent explicitement les acteurs, les actions, les protocoles et la séquence d’étapes à effectuer.
 
-Identity Experience Framework est une plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre les entités dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WSFed, ainsi que quelques protocoles non standard, par exemple, des échanges de revendications entre systèmes basés sur l’API REST. L’infrastructure crée des expériences conviviales en marque blanche qui prennent en charge HTML et CSS.
+Identity Experience Framework est une plateforme Azure cloud, entièrement configurable et basée sur des stratégies, qui orchestre les relations de confiance entre les entités dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML ainsi que quelques protocoles non standard, par exemple des échanges de revendications entre systèmes basés sur l’API REST. L’infrastructure crée des expériences conviviales en marque blanche qui prennent en charge HTML et CSS.
 
 Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent notamment les éléments suivants : schéma de revendications, transformations de revendications, définitions de contenu, fournisseurs de revendications, profils techniques et étapes d’orchestration du parcours utilisateur. Une stratégie personnalisée est accessible sous la forme d’un ou plusieurs fichiers XML qui sont exécutés par l’infrastructure d’expérience d’identité lorsqu’ils sont appelés par une partie de confiance. Les développeurs qui configurent des stratégies personnalisées doivent définir les relations de confiance dans leurs moindres détails pour inclure les points de terminaison de métadonnées et les définitions exactes des échanges de revendications, et configurer les secrets, les clés et les certificats selon les besoins de chaque fournisseur d’identité.
 

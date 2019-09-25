@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861960"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962634"
 ---
 # <a name="animated-character-detection-preview"></a>Détection de personnages animés (préversion)
 
@@ -91,8 +91,7 @@ Si vous êtes propriétaire d’un compte Video Indexer payant, vous devez d’a
     1. Après avoir tapé le nouveau nom, cliquez sur l’icône de coche en regard du nouveau nom. Cela enregistre le nouveau nom dans le modèle dans Video Indexer.
     1. Une fois que vous avez fini de modifier tous les noms souhaités, vous devez effectuer la formation du modèle.
 
-        * Comptes d’essai : Ouvrez la page de personnalisation, cliquez sur l’onglet Personnages animés et cliquez sur le bouton **Former** pour le modèle dont vous disposez.
-        * Comptes payants : Ouvrez la page de personnalisation, puis cliquez sur l’onglet Personnages animés. Pour le modèle approprié, cliquez sur le lien **Modifier dans Custom Vision**. Cela vous redirigera vers la page du modèle dans Custom Vision. Cliquez sur le bouton « Former » pour former votre modèle. 
+        Ouvrez la page de personnalisation, puis cliquez sur l’onglet **Personnages animés**. Pour le modèle approprié, cliquez sur le lien **Modifier dans Custom Vision**. Cela vous redirigera vers la page du modèle dans Custom Vision. Cliquez sur le bouton **Entraîner** pour entraîner votre modèle. 
     1. Une fois l’apprentissage effectué, toute vidéo qui sera indexée ou réindexée à l’aide de ce modèle reconnaîtra les personnages formés. 
     Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. En savoir plus sur [l’amélioration de votre classifieur dans Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 

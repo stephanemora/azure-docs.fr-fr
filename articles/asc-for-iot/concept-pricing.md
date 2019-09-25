@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596516"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933806"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
@@ -66,9 +66,10 @@ Le tableau suivant fournit un récapitulatif des coûts associés et des implica
 | **Stockage Log Analytics** |  |
 | Alertes et recommandations de l’appareil| Alertes et recommandations de sécurité générées par le service | Obligatoire |
 | Données de sécurité brutes| Données de sécurité brutes des appareils IoT, collectées par des agents de sécurité | Désactiver le _stockage d’événements bruts de sécurité d’appareil_ |
+|
 
 >[!Important]
-> La désactivation a des conséquences importantes pour les fonctionnalités de sécurité disponibles.
+> La désactivation a des implications graves pour la disponibilité des fonctionnalités de sécurité Azure Security Center pour IoT. 
   
 | Désactiver | Implications |
 | --- | --- |

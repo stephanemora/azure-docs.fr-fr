@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f98df297eceb0a85a214bc046d33bd4c08d20030
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 201f35e7b3ccf7c113ae30a6d007ad3a1f9adb98
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884796"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087680"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -28,7 +28,7 @@ La bibliothèque `Microsoft.Azure.Services.AppAuthentication` gère l’authenti
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
-- L’[extension d’authentification d’application pour Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354), disponible en tant qu’extension distincte de Visual Studio 2017 Update 5, et regroupée avec le produit dans Update 6 et ultérieur. Avec Update 6 ou ultérieure, vous pouvez vérifier l’installation de l’extension d’authentification d’application en sélectionnant les outils de développement Azure dans le programme d’installation de Visual Studio.
+- L’extension d’authentification d’application pour Visual Studio, disponible en tant qu’extension distincte de Visual Studio 2017 Update 5, et regroupée avec le produit dans Update 6 et versions ultérieures. Avec Update 6 ou ultérieure, vous pouvez vérifier l’installation de l’extension d’authentification d’application en sélectionnant les outils de développement Azure dans le programme d’installation de Visual Studio.
 
 ## <a name="using-the-library"></a>Utilisation de la bibliothèque
 

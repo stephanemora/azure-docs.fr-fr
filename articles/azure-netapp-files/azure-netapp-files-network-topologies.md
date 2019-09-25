@@ -3,7 +3,7 @@ title: Consignes pour planifier un réseau Azure NetApp Files | Microsoft Docs
 description: Fournit des instructions qui peuvent vous aider à concevoir une architecture réseau efficace à l’aide d’Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383491"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984133"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -36,13 +36,13 @@ Vous devez comprendre quelques considérations lorsque vous prévoyez d’utilis
 Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour Azure NetApp Files : 
 
 * Groupes de sécurité réseau (NSG) appliqués au sous-réseau délégué
-* Itinéraires définis par l’utilisateur (UDR) avec un tronçon suivant comme sous-réseau Azure NetApp Files
+* Routes définies par l’utilisateur avec un préfixe d’adresse comme sous-réseau Azure NetApp Files
 * Stratégies Azure (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
 * Équilibreurs de charge pour le trafic d’Azure NetApp Files
 
 Les restrictions suivantes s’appliquent à Azure NetApp Files :
 
-* Le nombre d’adresses IP en cours d’utilisation dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels homologués) ne peut pas dépasser 1 000.
+* Le nombre d’adresses IP en cours d’utilisation dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels homologués) ne peut pas dépasser 1 000. Nous travaillons à l’augmentation de cette limite pour répondre aux demandes de mise à l’échelle du client. Dans l’intervalle, si vous avez besoin d’un plus grand nombre d’adresses IP, contactez notre équipe de support technique avec votre cas d’utilisation et la limite requise.
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
 
 

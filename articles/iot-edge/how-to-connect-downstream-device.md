@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698632"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999402"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -170,10 +170,9 @@ Cette section présente un exemple d’application permettant de connecter un cl
 
 Cette section présente un exemple d’application permettant de connecter un client d’appareil Azure IoT Python à une passerelle IoT Edge. 
 
-1. Récupérez l’exemple pour **edge_downstream_client** à partir des [exemples Azure IoT device SDK pour Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Assurez-vous que vous remplissez toutes les conditions préalables pour exécuter l’exemple en passant en revue le fichier **readme.md**. 
-3. Dans le fichier edge_downstream_client.py, mettez à jour les variables **CONNECTION_STRING** et **TRUSTED_ROOT_CA_CERTIFICATE_PATH**. 
-4. Consultez la documentation du Kit de développement logiciel pour obtenir des instructions sur la façon d’exécuter l’exemple sur votre appareil. 
+1. Récupérez l’exemple pour **send_message** à partir des [exemples Azure IoT device SDK pour Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Vérifiez que l’exécution a lieu dans un conteneur de périphérie ou dans un scénario de débogage, et que les variables d’environnement `EdgeHubConnectionString` et `EdgeModuleCACertificateFile` sont définies.
+3. Consultez la documentation du Kit de développement logiciel pour obtenir des instructions sur la façon d’exécuter l’exemple sur votre appareil. 
 
 
 ## <a name="test-the-gateway-connection"></a>Test de connexion à la passerelle

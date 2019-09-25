@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fbfc3f48bed5a4772573dcf2ab168cd3498a4cac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114845"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102002"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs d’API Visage
 
@@ -33,6 +33,8 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs d
 |Moteur Docker| Le moteur Docker doit être installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> Sur Windows, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous avez besoin de connaissances de base des concepts Docker, telles que les registres, les référentiels, les conteneurs et les images conteneur. Vous devez également connaître les commandes `docker` de base.| 
 |Ressource visage |Pour utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Visage** Azure, la clé API associée et l’URI de point de terminaison. Les deux valeurs sont disponibles sur les pages **Vue d’ensemble** et **Clés** de la ressource. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
 
@@ -80,16 +82,9 @@ Une fois que le conteneur est sur [l’ordinateur hôte](#the-host-computer), ap
 
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec docker run
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants.
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. Pour plus d’informations sur la façon d’obtenir les valeurs `{ENDPOINT_URI}` et `{API_KEY}`, consultez [Collecte des paramètres requis](#gathering-required-parameters).
 
-| Placeholder | Valeur |
-|-------------|-------|
-|{API_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible sur la page **Clés** d’Azure `Cognitive Services`. |
-|{ENDPOINT_URI} | La valeur d’URI de point de terminaison de facturation est disponible sur la page **Vue d’ensemble** d’Azure `Cognitive Services`. Par exemple `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
-
-Ajoutez le routage `face/v1.0` à l’URI de point de terminaison, comme dans l’exemple ENDPOINT_URI précédent. 
-
-Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant :
+[Exemples ](face-resource-container-config.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

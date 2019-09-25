@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306190"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057908"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -309,6 +309,8 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |details.data     | Données spécifiques trouvées dans la requête correspondant à la règle.         |
 |details.file     | Fichier de configuration qui contenait la règle.        |
 |details.line     | Numéro de ligne dans le fichier de configuration ayant déclenché l’événement.       |
+|hostname   | Nom d’hôte ou adresse IP de la passerelle Application Gateway.    |
+|transactionId  | ID unique d’une transaction donnée qui permet de regrouper plusieurs violations de règle qui se sont produites au cours de la même demande.   |
 
 ```json
 {
@@ -333,6 +335,8 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
+    "hostname": "40.90.218.100", 
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 

@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: orspodek
-ms.openlocfilehash: a7ac0bdc2bd5eed802f6959a628dee4c8141dbd1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5cb08ddafe2075ae27ced6d70894696025df0a86
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720805"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010268"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou depuis [Azure Data Explorer](../data-explorer/data-explorer-overview.md). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur Azure Data Explorer est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données à partir de tout magasin de données source pris en charge vers Azure Data Explorer. Vous pouvez également copier des données à partir d’Azure Data Explorer vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md).
 
@@ -56,7 +61,7 @@ Le connecteur d’Azure Data Explorer utilise l’authentification du principal 
     - Clé de l'application
     - ID client
 
-2. Accordez l’autorisation nécessaire au principal de service dans Azure Data Explorer. Consultez [Gérer les autorisations de base de données d’Azure Data Explorer](../data-explorer/manage-database-permissions.md) pour obtenir des informations détaillées sur les rôles et les autorisations, mais aussi sur la procédure pas à pas de gestion des autorisations. En règle générale, vous devez :
+2. Accordez l’autorisation nécessaire au principal de service dans Azure Data Explorer. Consultez l’article [Gérer les autorisations de base de données d’Azure Data Explorer](../data-explorer/manage-database-permissions.md), qui offre des informations détaillées sur les rôles et les autorisations et présente la procédure pas à pas de gestion des autorisations. En règle générale, vous devez :
 
     - **En tant que source**, accorder au moins le rôle **Observateur de base de données** à votre base de données.
     - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données.
@@ -141,7 +146,7 @@ Pour copier des données à partir d’Azure Data Explorer, définissez la propr
 | Type | La propriété **type** de la source d’activité de copie doit être définie sur : **AzureDataExplorerSource** | OUI |
 | query | Requête en lecture seule au [format KQL](/azure/kusto/query/). Utilisez la requête KQL personnalisée en tant que référence. | OUI |
 | queryTimeout | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est 10 minutes (00:10:00) et la valeur maximale autorisée 1 heure (01:00:00). | Non |
-| noTruncation | Indique s’il faut tronquer le jeu de résultats retourné. Par défaut, le résultat est tronqué après 500 000 enregistrements ou au-delà de 64 Mo. La troncation est vivement recommandée pour garantir le bon comportement de l’activité. |Non |
+| noTruncation | Indique s’il faut tronquer le jeu de résultats retourné. Par défaut, le résultat est tronqué après 500 000 enregistrements ou au-delà de 64 Mo. La troncation est vivement recommandée pour garantir le bon comportement de l’activité. |Non |
 
 >[!NOTE]
 >La source par défaut d’Azure Data Explorer a une taille limite de 500 000 enregistrements ou 64 Mo. Pour récupérer tous les enregistrements sans troncation, vous pouvez spécifier `set notruncation;` au début de votre requête. Consultez [limites de requête](https://docs.microsoft.com/azure/kusto/concepts/querylimits) pour plus de détails.
@@ -219,6 +224,10 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

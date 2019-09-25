@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742322"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934836"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
 
@@ -111,7 +111,7 @@ Certaines technologies BCDR, telles que SQL Always On, ne prennent pas en charge
 
     ![Capture d’écran de la fenêtre intitulée Content_AG montrant les noms et les états des serveurs](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Créez un équilibrage de charge. Pour chaque écouteur de groupe de disponibilité, créez une adresse IP à partir du pool d’adresses IP frontales. Ajoutez la machine virtuelle SQL Server au cluster back-end.
+1. Vérifiez que l’équilibreur de charge dans le réseau de basculement possède une adresse IP provenant du pool d’adresses IP front-end qui correspond à chaque écouteur de groupe de disponibilité et créée avec la machine virtuelle SQL Server du pool back-end.
 
      ![Capture d’écran de la fenêtre intitulée « SQL-AlwaysOn-LB – Frontend IP Pool »](./media/site-recovery-sql/create-load-balancer1.png)
 

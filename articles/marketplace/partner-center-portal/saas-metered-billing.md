@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141775"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105492"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturation à la consommation avec le service de mesure de la consommation de la Place de marché
 
@@ -55,7 +55,7 @@ Par exemple, Contoso est un éditeur avec un service SaaS appelé Contoso Notifi
     * Au-delà des 50 000 e-mails, payer 0,5 $ tous les 100 e-mails
     * Au-delà des 10 000 SMS, payer 0,01 $ pour chaque SMS
 
-Un client Azure s’abonnant au service CNS peut envoyer chaque mois la quantité incluse de SMS et d’e-mails en fonction du plan sélectionné.  Quand les clients consomment plus que la quantité incluse, ils n’ont pas à changer de plan ou à procéder différemment.  Contoso mesure le dépassement au-delà de la quantité incluse et commence à émettre des événements d’utilisation à destination de Microsoft pour l’utilisation supplémentaire avec l’[API du service de mesure de la consommation de la Place de marché](./marketplace-metering-service-apis.md).  Microsoft facture à son tour le client pour l’utilisation supplémentaire comme spécifié par l’éditeur.
+Un client Azure s’abonnant au service CNS peut envoyer chaque mois la quantité incluse de SMS et d’e-mails en fonction du plan sélectionné.  Contoso mesure l’utilisation jusqu’à la quantité incluse sans envoyer d’événements d’utilisation à Microsoft.  Quand les clients consomment plus que la quantité incluse, ils n’ont pas à changer de plan ou à procéder différemment.  Contoso mesure le dépassement au-delà de la quantité incluse et commence à émettre des événements d’utilisation à destination de Microsoft pour l’utilisation supplémentaire avec l’[API du service de mesure de la consommation de la Place de marché](./marketplace-metering-service-apis.md).  Microsoft facture à son tour le client pour l’utilisation supplémentaire comme spécifié par l’éditeur.
 
 ## <a name="billing-dimensions"></a>Dimensions de facturation
 

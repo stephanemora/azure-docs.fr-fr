@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491691"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002273"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -231,7 +231,7 @@ Examinez les [conditions préalables](vmware-azure-deploy-configuration-server.m
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Puis-je configurer manuellement le serveur de configuration au lieu d’utiliser un modèle ?
 
-Nous vous recommandons de [créer la machine virtuelle du serveur de configuration](vmware-azure-deploy-configuration-server.md) à l’aide de la version la plus récente du modèle Open Virtual Machine Format (OVF). Si vous ne pouvez pas utiliser le modèle (par exemple, si vous n’avez pas accès au serveur VMware), [téléchargez](physical-azure-set-up-source.md) le fichier d’installation à partir du portail et configurez le serveur de configuration.
+Nous vous recommandons de [créer la machine virtuelle du serveur de configuration](vmware-azure-deploy-configuration-server.md) à l’aide de la version la plus récente du modèle OVF (Open Virtualization Format). Si vous ne pouvez pas utiliser le modèle (par exemple, si vous n’avez pas accès au serveur VMware), [téléchargez](physical-azure-set-up-source.md) le fichier d’installation à partir du portail et configurez le serveur de configuration.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un serveur de configuration peut-il répliquer vers plusieurs régions ?
 
@@ -288,6 +288,14 @@ Oui, mais notez qu’une machine physique peut uniquement être restaurée vers 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Où puis-je télécharger les clés d’inscription du coffre ?
 
 Dans le coffre Recovery Services, sélectionnez **Serveurs de configuration** dans **Infrastructure Site Recovery** > **Gérer**. Puis, dans **Serveurs**, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
+
+### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Est-il possible d’utiliser un seul serveur de configuration pour protéger plusieurs instances vCenter ?
+
+Oui, un seul serveur de configuration peut protéger des machines virtuelles sur plusieurs instances vCenter.  Il n’existe pas de limite pour le nombre d’instances de vCenter pouvant être ajoutées au serveur de configuration. Toutefois, des limites s’appliquent quant au nombre de machines virtuelles qu’un seul serveur de configuration peut protéger.
+
+### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>Un seul serveur de configuration peut-il protéger plusieurs clusters dans vCenter ?
+
+Oui, Azure Site Recovery peut protéger des machines virtuelles sur différents clusters.
 
 ## <a name="process-server"></a>Serveur de traitement
 

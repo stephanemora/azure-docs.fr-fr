@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: cc94f2705f044c3674432f31b63d630be8afbf7d
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 0d8d1b37e7f5ebb6eef1c76e4324041c48ab8986
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035896"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995740"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoriser l’accès aux ressources Event Hubs à l'aide d'Azure Active Directory
 Azure Event Hubs prend en charge l’utilisation d'Azure Active Directory (Azure AD) pour autoriser les requêtes de ressources Event Hubs. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -21,7 +21,7 @@ Azure Event Hubs prend en charge l’utilisation d'Azure Active Directory (Azure
 ## <a name="overview"></a>Vue d'ensemble
 Lorsqu’un principal de sécurité (un utilisateur ou une application) tente d’accéder à une ressource Event Hubs, la requête doit être autorisée. Avec Azure AD, l’accès à une ressource est un processus en deux étapes. 
 
- 1. Pour commencer, l’identité du principal de sécurité est authentifiée, et un jeton OAuth 2.0 est renvoyé. 
+ 1. Pour commencer, l’identité du principal de sécurité est authentifiée, et un jeton OAuth 2.0 est renvoyé. Le nom de ressource à utiliser pour demander un jeton est `https://eventhubs.azure.net/`.
  1. Ensuite, ce jeton est transmis dans le cadre d’une requête adressée au service Event Hubs pour autoriser l’accès à la ressource spécifiée.
 
 L’étape d’authentification implique qu'une requête d'application contienne un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Function, elle peut utiliser une identité managée pour accéder aux ressources. Pour plus d’informations sur l’authentification des requêtes adressées par une identité managée au service Event Hubs, consultez l’article [Authentifier l’accès aux ressources Azure Event Hubs avec Azure Active Directory et les identités managées pour les ressources Azure](authenticate-managed-identity.md). 
@@ -65,7 +65,7 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 
 Consultez les articles associés suivants :
 
-- [Authentifier les requêtes adressées à Azure Event Hubs à partir d’une application à l’aide d'Azure Active Directory](authenticate-application.md)
+- [Authentifier les requêtes adressées à Azure Event Hubs à partir d’une application à l’aide d’Azure Active Directory](authenticate-application.md)
 - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)
 - [Authentifier les requêtes adressées à Azure Event Hubs à l’aide des signatures d’accès partagé](authenticate-shared-access-signature.md)
 - [Autoriser l’accès aux ressources Event Hubs à l’aide des signatures d’accès partagé](authorize-access-shared-access-signature.md)

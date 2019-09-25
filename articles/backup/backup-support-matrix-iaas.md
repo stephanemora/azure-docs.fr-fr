@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872895"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71018685"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauvegarder des machines et des charges de travail locales ainsi que des machines virtuelles Azure. Cet article récapitule les paramètres de prise en charge et les limitations de la sauvegarde de machines virtuelles Azure avec Sauvegarde Azure.
@@ -158,13 +158,13 @@ Machines virtuelles de deuxième génération | Pris en charge <br> Sauvegarde A
 
 **Composant** | **Support**
 --- | ---
-Disques de données de machine virtuelle Azure | Sauvegarder une machine virtuelle avec 16 disques de données ou moins. <br/><br/> Prise en charge des disques d’une taille maximale de 4 To<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Taille de disque de données | La taille maximale d’un disque individuel est de 4 095 Go.<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Disques de données de machine virtuelle Azure | Sauvegarder une machine virtuelle avec 16 disques de données ou moins. <br/><br/> Prend en charge la sauvegarde de machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
+Taille de disque de données | La taille maximale d’un disque individuel est de 30 To.
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.
 Disques chiffrés | Pris en charge.<br/><br/> Les machines virtuelles Azure activées pour Azure Disk Encryption peuvent être sauvegardées (avec ou sans l’application Azure AD).<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la totalité de la machine virtuelle.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.
 Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> La sauvegarde Azure exclut automatiquement les disques avec l’accélérateur d’écriture activé lors de la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pourrez pas restaurer ces disques à partir des points de récupération de la machine virtuelle.
-Sauvegarder les disques dédupliqués | Non pris en charge.
+Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvegarde Azure ne prend pas en charge la déduplication. Pour plus d’informations, reportez-vous à cet [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Sauvegarde Azure n’effectue pas de déduplication entre les machines virtuelles du coffre Recovery Services <br/> <br/>  - S’il existe des machines virtuelles en état de déduplication pendant la restauration, les fichiers ne peuvent pas être restaurés, car le coffre ne comprend pas le format
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La Sauvegarde des machines virtuelles à l’aide d’un Volume partagé de Cluster (CSV) ou d’un Serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
@@ -180,7 +180,7 @@ Plusieurs adresses IP réservées |    Pris en charge. <br/><br/> [Découvrez pl
 Machines virtuelles avec plusieurs cartes réseau  | Pris en charge. <br/><br/> [Découvrez plus d’informations](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sur la restauration de machines virtuelles avec des paramètres réseau spéciaux.
 Machines virtuelles avec des adresses IP publiques    | Pris en charge.<br/><br/> Associez une adresse IP publique existante à la carte réseau, ou bien créez une adresse et associez-la à la carte réseau une fois la restauration effectuée.
 Groupe de sécurité réseau sur une carte réseau/un sous-réseau. |   Pris en charge.
-Adresse IP réservée (statique) | Non pris en charge.<br/><br/> Vous ne pouvez pas sauvegarder une machine virtuelle avec une adresse IP réservée et sans point de terminaison défini.
+Adresse IP statique | Non pris en charge.<br/><br/> Une machine virtuelle créée à partir d’un point de restauration reçoit une adresse IP dynamique.<br/><br/> Pour les machines virtuelles Classic, vous ne pouvez pas sauvegarder une machine virtuelle avec une adresse IP réservée et sans point de terminaison défini.
 Adresse IP dynamique |    Pris en charge.<br/><br/> Si la carte réseau sur la machine virtuelle source utilise l’adressage IP dynamique, par défaut, la carte réseau sur la machine virtuelle restaurée l’utilise aussi.
 Azure Traffic Manager   | Pris en charge.<br/><br/>Si la machine virtuelle sauvegardée est dans Traffic Manager, ajoutez manuellement la machine virtuelle restaurée à la même instance Traffic Manager.
 Azure DNS | Pris en charge.

@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734302"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933423"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
-Les orchestrations Fonctions durables sont implémentées dans du code et peuvent utiliser les fonctionnalités de gestion des erreurs du langage de programmation. Cela dit, lorsque vous incorporez la gestion des erreurs et les compensations dans vos orchestrations, vous n’avez pas besoin d’apprendre de nouveaux concepts. Toutefois, vous devez tenir compte de certains comportements.
+Les orchestrations de fonctions durables sont implémentées dans du code et peuvent utiliser les fonctionnalités de gestion des erreurs intégrées dans le langage de programmation. Vous n’avez pas vraiment besoin d’apprendre de nouveaux concepts pour ajouter la gestion des erreurs et les compensations dans vos orchestrations. Toutefois, vous devez tenir compte de certains comportements.
 
 ## <a name="errors-in-activity-functions"></a>Erreurs liées aux fonctions d’activité
 
-Toute exception levée dans une fonction d’activité est marshalée vers la fonction d’orchestrateur et levée en tant qu’élément `FunctionFailedException`. Vous pouvez écrire du code de gestion des erreurs et de compensation qui correspond le mieux à vos besoins dans la fonction d’orchestrateur.
+Toute exception levée dans une fonction d’activité est marshalée en retour vers la fonction d’orchestrateur et levée en tant qu’élément `FunctionFailedException`. Vous pouvez écrire du code de gestion des erreurs et de compensation qui correspond le mieux à vos besoins dans la fonction d’orchestrateur.
 
 Par exemple, considérez la fonction d’orchestrateur suivante, qui transfère des fonds d’un compte à un autre :
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Si l’appel à la fonction **CreditAccount** échoue pour le compte de destination, la fonction d’orchestrateur compense cela replaçant les fonds sur le compte source.
+Si le premier appel à la fonction **CreditAccount** échoue, la fonction d’orchestrateur compense en recréditant les fonds sur le compte source.
 
 ## <a name="automatic-retry-on-failure"></a>Nouvelle tentative automatique en cas d’échec
 
@@ -192,18 +192,18 @@ module.exports = df.orchestrator(function*(context) {
 
 L’API `CallActivityWithRetryAsync` (.NET) ou `callActivityWithRetry` (JavaScript) prend un paramètre `RetryOptions`. Les appels de sous-orchestration utilisant l’API `CallSubOrchestratorWithRetryAsync` (.NET) ou `callSubOrchestratorWithRetry` (JavaScript) peuvent utiliser les mêmes stratégies de nouvelle tentative.
 
-Il existe plusieurs options de personnalisation de la stratégie de nouvelle tentative automatique. Les voici :
+Il existe plusieurs options de personnalisation de la stratégie de nouvelle tentative automatique :
 
 * **Nombre maximal de tentatives** : Nombre maximal de nouvelles tentatives.
 * **Intervalle avant première nouvelle tentative** : Temps d’attente avant la première nouvelle tentative.
 * **Coefficient d’interruption** : Coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
 * **Intervalle maximal entre deux nouvelles tentatives** : Durée maximale de l’attente entre deux nouvelles tentatives.
 * **Délai de nouvelle tentative** : Temps que passe le système à effectuer de nouvelles tentatives. Par défaut, le système effectue ces nouvelles tentatives indéfiniment.
-* **Descripteur** : Un rappel défini par l’utilisateur peut être spécifié, qui détermine si un appel de fonction doit être effectué à nouveau.
+* **Descripteur** : Un rappel défini par l’utilisateur peut être spécifié pour déterminer s’il convient de réessayer une fonction.
 
 ## <a name="function-timeouts"></a>Délais d’expiration des fonctions
 
-Vous souhaiterez peut-être abandonner un appel de fonction dans une fonction d’orchestration si elle prend trop de temps. Actuellement, la méthode adéquate pour cela consiste à créer un [minuteur durable](durable-functions-timers.md) à l’aide de `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) conjointement avec `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), comme dans l’exemple suivant :
+Vous souhaiterez peut-être abandonner un appel de fonction au sein d’une fonction d’orchestrateur s’il prend trop de temps. Actuellement, la méthode adéquate pour cela consiste à créer un [minuteur durable](durable-functions-timers.md) à l’aide de `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) conjointement avec `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), comme dans l’exemple suivant :
 
 ### <a name="precompiled-c"></a>C# précompilé
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 Si une fonction d’orchestration échoue avec une exception non prise en charge, les détails de cette dernière sont enregistrés et l’instance s’exécute avec un état `Failed`.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur les orchestrations éternelles](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Comment diagnostiquer des problèmes](durable-functions-diagnostics.md)

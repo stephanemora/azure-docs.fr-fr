@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891992"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999966"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -33,7 +33,7 @@ Chaque niveau IoT Hub est disponible en trois tailles, en fonction du débit de 
 
 Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis pour toutes les solutions IoT qui comptent utiliser les fonctionnalités de communication bidirectionnelle. Le niveau de base active un sous-ensemble de fonctionnalités. Il est destiné aux solutions IoT qui nécessitent uniquement une communication unidirectionnelle, des appareils vers le cloud. Ces deux niveaux offrent les mêmes fonctionnalités de sécurité et d’authentification.
 
-Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par hub IoT. Par exemple, vous pouvez créer un hub IoT avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et B3, ou S1 et S2.
+Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par hub IoT. Par exemple, vous pouvez créer un hub IoT avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et S2.
 
 | Fonctionnalité | Niveau de base | Niveau gratuit/Standard |
 | ---------- | ---------- | ------------- |
@@ -86,6 +86,10 @@ La différence de fonctionnalités prises en charge entre les niveaux de base et
 | Envoyer un événement de module | AMQP et MQTT uniquement | AMQP et MQTT uniquement |
 | [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | OUI | OUI |
 | [Opération sur l’appareil en bloc](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Oui, à l’exception des fonctionnalités IoT Edge | OUI |
+| [Annuler la tâche d’importation/exportation](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | OUI | OUI |
+| [Créer une tâche d’importation/exportation](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | OUI | OUI |
+| [Obtenir une tâche d’importation/exportation](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | OUI | OUI |
+| [Obtenir des tâches d’importation/exportation](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | OUI | OUI |
 | [Purger la file d’attente de commandes](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | OUI |
 | [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | OUI |
 | [Obtenir un jumeau de module](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | OUI |
@@ -107,17 +111,17 @@ La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le
 * Messages Cloud vers appareil
 * Opérations du registre d’identité
 
-Le trafic se mesure en fonction du nombre d’unités et non du nombre de hubs. Une instance IoT Hub de niveau 1 ou 2 peut avoir jusqu’à 200 unités associées. Une instance IoT Hub de niveau 3 peut avoir jusqu’à 10 unités. Une fois que votre IoT Hub créé, vous pouvez modifier le nombre d’unités ou changer de niveau, sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
+Le trafic se mesure pour votre hub IoT en fonction du nombre d’unités. Lorsque vous créez un hub IoT, vous choisissez son niveau et son édition, et définissez le nombre d’unités disponibles. Vous pouvez acheter jusqu’à 200 unités pour l’édition B1, B2, S1 ou S2, ou jusqu’à 10 unités pour l’édition B3 ou S3. Une fois votre hub IoT créé, vous pouvez changer le nombre d’unités disponibles dans son édition, mettre à niveau ou rétrograder l’édition au sein de son niveau (de B1 à B2) ou effectuer une mise à niveau du niveau de base au niveau standard (de B1 à S1) sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).  
 
 Voici un exemple du trafic de chaque niveau. Les messages appareil-à-cloud suivent les règles de débit soutenu suivantes :
 
-| Niveau | Débit soutenu | Vitesse de transmission soutenue |
+| Édition de niveau | Débit soutenu | Vitesse de transmission soutenue |
 | --- | --- | --- |
 | B1, S1 |Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) |Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
 | B2, S2 |Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) |Moyenne de 4167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
 | B3, S3 |Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) |Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
 
-Outre ces informations sur le débit, consultez les [quotas et limitations IoT Hub](iot-hub-devguide-quotas-throttling.md) et concevez votre solution en conséquence.
+Le débit appareil-à-cloud ne représente qu’une des métriques que vous devez prendre en compte lors de la conception d’une solution IoT. Pour obtenir des informations plus complètes, consultez [Quotas et limitations IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ### <a name="identity-registry-operation-throughput"></a>Débit des opérations de registre d’identité
 
@@ -127,7 +131,7 @@ Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitat
 
 ## <a name="auto-scale"></a>Mise à l’échelle automatique
 
-Si vous approchez le nombre maximal autorisé de messages pour votre hub IoT, vous pouvez utiliser ces [étapes pour une mise à l’échelle automatique](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/), afin d’incrémenter une unité IoT Hub dans le même niveau IoT Hub.
+Si vous approchez du nombre maximal autorisé de messages sur votre hub IoT, vous pouvez utiliser cette [procédure de mise à l’échelle automatique](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) afin d’incrémenter une unité IoT Hub dans le même niveau IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

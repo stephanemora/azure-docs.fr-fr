@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 51b37c43b94ad59090f32af0d57bbefaa57f30fa
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806395"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932556"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 Cet article traite des problèmes courants, des solutions de contournement, des étapes de diagnostic et des outils quand vous utilisez le [Kit de développement logiciel (SDK) .NET](sql-api-sdk-dotnet.md) avec des comptes d’API SQL Azure Cosmos DB.
@@ -48,7 +48,7 @@ Les [métriques du portail](monitor-accounts.md) vous aident à déterminer si u
 Une expiration de demande se produit généralement lors de l’utilisation d’une connexion directe/TCP, mais peut se produire en mode de passerelle. Voici les causes connues courantes et des suggestions sur la façon de résoudre le problème.
 
 * L’utilisation élevée de l’UC entraîne une latence et/ou une expiration de délai de demande. Le client peut faire monter en puissance la machine hôte pour lui octroyer plus de ressources, ou la charge peut être répartie sur davantage de machines.
-* La disponibilité de socket/port peut être faible. Lors de l’utilisation de kits de développement logiciel (SDK) .NET antérieurs à la version 2.0, des clients s’exécutant dans Azure pouvaient rencontrer un problème d’[Insuffisance de ports Azure SNAT (PAT)]. Ceci illustre la raison pour laquelle il est recommandé de toujours exécuter la dernière version du Kit de développement logiciel (SDK).
+* La disponibilité de socket/port peut être faible. Quand ils s’exécutent dans Azure, les clients qui utilisent le kit SDK .NET peuvent rencontrer un problème d’épuisement de ports Azure SNAT (PAT). Pour réduire le risque de rencontrer ce problème, utilisez la dernière version 2.x ou 3.x du kit SDK .NET. Voici un exemple qui illustre la raison pour laquelle il est recommandé de toujours exécuter la dernière version du kit SDK.
 * La création de plusieurs instances de DocumentClient peut entraîner des problèmes de conflit et de dépassement de délai de connexion. Suivez les [conseils en lien avec les performances](performance-tips.md) et utilisez une seule instance DocumentClient pour l’ensemble du processus.
 * Les utilisateurs sont parfois confronté à une latence ou à des délais d’attente de demande élevés parce que leurs collections ne sont pas suffisamment approvisionnées, parce que le serveur principal limite les demandes, ou parce que le client effectue de nouvelles tentatives en interne sans que cela soit signalé à l’appelant. Consultez les [métriques du portail](monitor-accounts.md).
 * Azure Cosmos DB répartit le débit global approvisionné de manière uniforme entre les partitions physiques. Vérifiez les métriques du portail pour voir si la charge de travail rencontre une [clé de partition](partition-data.md) chaude. Cela a pour effet que le débit consommé (unités de demande/s) apparaît inférieur aux unités de demande approvisionnées, alors que le débit consommé par une seule partition dépasse le débit approvisionné. 

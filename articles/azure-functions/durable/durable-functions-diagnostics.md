@@ -2,19 +2,19 @@
 title: Diagnostics dans Fonctions durables - Azure
 description: Découvrez comment gérer diagnostiquer les problèmes avec l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734490"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933504"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
@@ -32,7 +32,7 @@ Chaque événement du cycle de vie d’une instance d’orchestration entraîne 
 
 * **hubName** : Nom du hub de tâches dans lequel vos orchestrations sont en cours d’exécution.
 * **appName** : Le nom de l’application de fonction. Utile si plusieurs de vos applications de fonction partagent la même instance Application Insights.
-* **slotName** : [emplacement de déploiement](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) dans lequel s’exécute l’application de fonction actuelle. Utile pour tirer parti des emplacements de déploiement pour la version de vos orchestrations.
+* **slotName** : [emplacement de déploiement](../functions-deployment-slots.md) dans lequel s’exécute l’application de fonction actuelle. Utile pour tirer parti des emplacements de déploiement pour la version de vos orchestrations.
 * **functionName** : Nom de la fonction d’orchestrateur ou d’activité.
 * **functionType** : Type de la fonction, par exemple **Orchestrateur** ou **Activité**.
 * **instanceId** : ID unique de l’instance d’orchestration.
@@ -349,12 +349,13 @@ Les clients obtiennent la réponse suivante :
 
 Azure Functions prend directement en charge un code de fonction de débogage, et cette prise en charge s’applique également à Fonctions durables, que ce soit avec une exécution dans Azure ou localement. Toutefois, vous devez tenir compte de certains comportements lors du débogage :
 
-* **Réexécution** : Les fonctions Orchestrator sont régulièrement réexécutées lors de la réception de nouvelles entrées. Cela signifie qu’une seule exécution *logique* d’une fonction d’orchestrateur peut atteindre le même point d’arrêt plusieurs fois, en particulier si elle est définie très tôt dans le code de la fonction.
-* **Await** : Chaque fois qu’un événement `await` est rencontré, le contrôle repasse au répartiteur Durable Task Framework. Si c’est la première fois qu’un événement `await` particulier est détecté, la tâche associée n’est *jamais* reprise. Puisque la tâche ne reprend jamais, vous ne pouvez pas *parcourir* l’événement await (F10 dans Visual Studio). Parcourez uniquement des travaux lorsqu’une tâche est réexécutée.
-* **Délais d’expiration des messages** : Durable Functions utilise en interne des files d’attente de messages pour gérer l’exécution des fonctions d’orchestrateur et d’activité. Dans un environnement à plusieurs machines virtuelles, si vous arrêtez le débogage pendant de longues périodes, une autre machine virtuelle risque de récupérer le message, ce qui entraîne une double exécution. Ce comportement s’applique également aux fonctions déclenchées par une file d’attente standard, mais il est important de le souligner car les files d’attente constituent un détail d’implémentation.
+* **Réexécution** : Les fonctions d’orchestrateur sont régulièrement [réexécutées](durable-functions-orchestrations.md#reliability) lors de la réception de nouvelles entrées. Cela signifie qu’une seule exécution *logique* d’une fonction d’orchestrateur peut atteindre le même point d’arrêt plusieurs fois, en particulier si elle est définie très tôt dans le code de la fonction.
+* **Await** : Chaque fois qu’un élément `await` est rencontré dans une fonction d’orchestrateur, le contrôle repasse au répartiteur de l’infrastructure Durable Task Framework. Si c’est la première fois qu’un événement `await` particulier est détecté, la tâche associée n’est *jamais* reprise. Puisque la tâche ne reprend jamais, vous ne pouvez pas *parcourir* l’événement await (F10 dans Visual Studio). Parcourez uniquement des travaux lorsqu’une tâche est réexécutée.
+* **Délais d’expiration des messages** : Durable Functions utilise en interne des files d’attente de messages pour gérer l’exécution des fonctions d’orchestrateur, d’activité et d’entité. Dans un environnement à plusieurs machines virtuelles, si vous arrêtez le débogage pendant de longues périodes, une autre machine virtuelle risque de récupérer le message, ce qui entraîne une double exécution. Ce comportement s’applique également aux fonctions déclenchées par une file d’attente standard, mais il est important de le souligner car les files d’attente constituent un détail d’implémentation.
+* **Arrêt et démarrage** : Les messages dans Durable Functions persistent entre les sessions de débogage. Si vous arrêtez le débogage et mettez fin au processus hôte local pendant l’exécution d’une fonction durable, cette fonction peut être réexécutée automatiquement dans une session de débogage ultérieure. Cela peut prêter à confusion lorsque ce n’est pas attendu. L’effacement de tous les messages des [files d’attente de stockage interne](durable-functions-perf-and-scale.md#internal-queue-triggers) entre les sessions de débogage est une technique qui permet d’éviter ce comportement.
 
 > [!TIP]
-> Lors de la définition de points d’arrêt, si vous voulez uniquement arrêter en cas de non réexécution, vous pouvez définir un point d’arrêt conditionnel qui s’arrête uniquement si `IsReplaying` est `false`.
+> Lors de la définition de points d’arrêt dans les fonctions d’orchestrateur, si vous voulez uniquement arrêter en cas de non-réexécution, vous pouvez définir un point d’arrêt conditionnel qui s’arrête uniquement si `IsReplaying` a pour valeur `false`.
 
 ## <a name="storage"></a>Stockage
 
@@ -370,4 +371,4 @@ Cet outil est utile pour le débogage car il vous permet de visualiser exactemen
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez comment utiliser les minuteurs durables](durable-functions-timers.md)
+> [En savoir plus sur la supervision dans Azure Functions](../functions-monitoring.md)

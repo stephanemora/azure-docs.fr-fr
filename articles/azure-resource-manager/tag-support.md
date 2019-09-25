@@ -4,14 +4,14 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194721"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996823"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
@@ -21,7 +21,6 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft.AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
@@ -29,6 +28,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -62,14 +62,12 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -112,7 +110,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedLab](#microsoftmanagedlab)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -154,6 +151,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -179,13 +177,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | DomainServices | OUI |OUI |
 > | DomainServices/oucontainer | Non |Non |
 > | DomainServices/ReplicaSets | OUI |OUI |
-
-## <a name="microsoftaaddomainservices"></a>Microsoft.AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | domaines | Non |Non |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -232,7 +223,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | alertsSummary | Non |Non |
 > | alertsSummaryList | Non |Non |
 > | feedback | Non |Non |
-> | smartDetectorAlertRules | Non |Non |
+> | smartDetectorAlertRules | OUI |OUI |
 > | smartDetectorRuntimeEnvironments | Non |Non |
 > | smartGroups | Non |Non |
 
@@ -259,6 +250,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | configurationStores | OUI |OUI |
 > | configurationStores/eventGridFilters | Non |Non |
+
+## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Spring | OUI |OUI |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -328,6 +326,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
+> | hybridDataManagers | OUI |OUI |
+> | postgresInstances | OUI |OUI |
+> | sqlBigDataClusters | OUI |OUI |
+> | sqlInstances | OUI |OUI |
 > | sqlServerRegistrations | OUI |OUI |
 > | sqlServerRegistrations/sqlServers | Non |Non |
 
@@ -354,11 +356,28 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | Non |Non |
 > | billingAccounts/agreements | Non |Non |
+> | billingAccounts/billingPermissions | Non |Non |
 > | billingAccounts/billingProfiles | Non |Non |
+> | billingAccounts/billingProfiles/billingPermissions | Non |Non |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Non |Non |
 > | billingAccounts/billingProfiles/billingSubscriptions | Non |Non |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Non |Non |
+> | billingAccounts/billingProfiles/customers | Non |Non |
 > | billingAccounts/billingProfiles/invoices | Non |Non |
 > | billingAccounts/billingProfiles/invoices/pricesheet | Non |Non |
 > | billingAccounts/billingProfiles/invoiceSections | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/transactions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Non |Non |
 > | billingAccounts/BillingProfiles/patchOperations | Non |Non |
 > | billingAccounts/billingProfiles/paymentMethods | Non |Non |
 > | billingAccounts/billingProfiles/policies | Non |Non |
@@ -366,10 +385,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | Non |Non |
 > | billingAccounts/billingProfiles/products | Non |Non |
 > | billingAccounts/billingProfiles/transactions | Non |Non |
+> | billingAccounts/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingRoleDefinitions | Non |Non |
 > | billingAccounts/billingSubscriptions | Non |Non |
+> | billingAccounts/createBillingRoleAssignment | Non |Non |
 > | billingAccounts/createInvoiceSectionOperations | Non |Non |
 > | billingAccounts/customers | Non |Non |
 > | billingAccounts/customers/billingSubscriptions | Non |Non |
+> | billingAccounts/customers/initiateTransfer | Non |Non |
+> | billingAccounts/customers/products | Non |Non |
+> | billingAccounts/customers/transactions | Non |Non |
+> | billingAccounts/customers/transfers | Non |Non |
 > | billingAccounts/departments | Non |Non |
 > | billingAccounts/enrollmentAccounts | Non |Non |
 > | billingAccounts/invoices | Non |Non |
@@ -404,6 +430,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | transfers/acceptTransfer | Non |Non |
 > | transfers/declineTransfer | Non |Non |
 > | transfers/operationStatus | Non |Non |
+> | transfers/validateTransfer | Non |Non |
 > | validateAddress | Non |Non |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -570,12 +597,16 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | publicImages | Non |Non |
 > | quotas | Non |Non |
 > | storageAccounts | OUI |OUI |
+> | storageAccounts/blobServices | Non |Non |
+> | storageAccounts/fileServices | Non |Non |
 > | storageAccounts/metricDefinitions | Non |Non |
 > | storageAccounts/metrics | Non |Non |
+> | storageAccounts/queueServices | Non |Non |
 > | storageAccounts/services | Non |Non |
 > | storageAccounts/services/diagnosticSettings | Non |Non |
 > | storageAccounts/services/metricDefinitions | Non |Non |
 > | storageAccounts/services/metrics | Non |Non |
+> | storageAccounts/tableServices | Non |Non |
 > | storageAccounts/vmImages | Non |Non |
 > | vmImages | Non |Non |
 
@@ -747,25 +778,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | showbackRules | Non |Non |
 > | Views | Non |Non |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | hubs | OUI |OUI |
-> | hubs/authorizationPolicies | Non |Non |
-> | hubs/connectors | Non |Non |
-> | hubs/connectors/mappings | Non |Non |
-> | hubs/interactions | Non |Non |
-> | hubs/kpi | Non |Non |
-> | hubs/links | Non |Non |
-> | hubs/profiles | Non |Non |
-> | hubs/roleAssignments | Non |Non |
-> | hubs/roles | Non |Non |
-> | hubs/suggestTypeSchema | Non |Non |
-> | hubs/views | Non |Non |
-> | hubs/widgetTypes | Non |Non |
-
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
@@ -810,15 +822,12 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | catalogs | OUI |OUI |
 > | datacatalogs | OUI |OUI |
+> | datacatalogs/datasources | Non |Non |
+> | datacatalogs/datasources/scans | Non |Non |
+> | datacatalogs/datasources/scans/datasets | Non |Non |
+> | datacatalogs/datasources/scans/triggers | Non |Non |
 > | datacatalogs/scantargets | Non |Non |
 > | datacatalogs/scantargets/datasets | Non |Non |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | connectionManagers | OUI |OUI |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -936,7 +945,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | OUI |OUI |
 > | applicationgroups/applications | Non |Non |
-> | applicationgroups/assignedusers | Non |Non |
 > | applicationgroups/startmenuitems | Non |Non |
 > | hostpools | OUI |OUI |
 > | hostpools/sessionhosts | Non |Non |
@@ -1081,6 +1089,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | OUI |OUI |
 > | guestConfigurationAssignments | Non |Non |
 > | software | Non |Non |
 > | softwareUpdateProfile | Non |Non |
@@ -1207,6 +1216,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | hostingEnvironments | OUI |OUI |
 > | integrationAccounts | OUI |OUI |
 > | integrationServiceEnvironments | OUI |OUI |
+> | integrationServiceEnvironments/managedApis | OUI |OUI |
 > | isolatedEnvironments | OUI |OUI |
 > | workflows | OUI |OUI |
 
@@ -1234,13 +1244,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | Identities | Non |Non |
 > | userAssignedIdentities | OUI |OUI |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | labaccounts | OUI |OUI |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1348,8 +1351,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | OUI |OUI |
+> | objectUnderstandingAccounts | OUI |OUI |
 > | remoteRenderingAccounts | OUI |OUI |
 > | spatialAnchorsAccounts | OUI |OUI |
+> | surfaceReconstructionAccounts | OUI |OUI |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1475,6 +1481,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
+> | clusters | OUI |OUI |
 > | périphériques | Non |Non |
 > | linkTargets | Non |Non |
 > | storageInsightConfigs | Non |Non |
@@ -1501,6 +1508,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | legacyPeerings | Non |Non |
 > | peerAsns | Non |Non |
 > | peerings | OUI |OUI |
+> | peeringServiceProviders | Non |Non |
+> | peeringServices | OUI |OUI |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1596,21 +1605,18 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | deployments | Non |Non |
+> | deployments | OUI |Non |
 > | deployments/operations | Non |Non |
 > | links | Non |Non |
 > | notifyResourceJobs | Non |Non |
 > | fournisseurs | Non |Non |
-> | resourceGroups | Non |Non |
+> | resourceGroups | OUI |Non |
 > | les ressources | Non |Non |
 > | subscriptions | Non |Non |
 > | subscriptions/providers | Non |Non |
-> | subscriptions/resourceGroups | Non |Non |
-> | subscriptions/resourcegroups/resources | Non |Non |
 > | subscriptions/resources | Non |Non |
 > | subscriptions/tagnames | Non |Non |
 > | subscriptions/tagNames/tagValues | Non |Non |
-> | tags | Non |Non |
 > | tenants | Non |Non |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1626,7 +1632,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | flows | OUI |OUI |
 > | jobcollections | OUI |OUI |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1661,6 +1666,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Non |Non |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Non |Non |
 > | jitNetworkAccessPolicies | Non |Non |
+> | networkData | Non |Non |
 > | playbookConfigurations | OUI |OUI |
 > | stratégies | Non |Non |
 > | pricings | Non |Non |
@@ -1693,6 +1699,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | aggregations | Non |Non |
 > | alertRules | Non |Non |
+> | alertRuleTemplates | Non |Non |
 > | bookmarks | Non |Non |
 > | cas | Non |Non |
 > | dataConnectors | Non |Non |
@@ -1814,6 +1821,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers/restorableDroppedDatabases | Non | Non |
 > | servers/serviceobjectives | Non | Non |
 > | servers/tdeCertificates | Non | Non |
+> | virtualClusters | Non | Non |
 
 <a id="sqlnote" />
 
@@ -1919,6 +1927,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | annuler | Non |Non |
 > | CreateSubscription | Non |Non |
+> | enable | Non |Non |
 > | renommer | Non |Non |
 > | SubscriptionDefinitions | Non |Non |
 > | SubscriptionOperations | Non |Non |

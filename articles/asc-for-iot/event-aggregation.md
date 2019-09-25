@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600332"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933897"
 ---
 # <a name="security-agent-event-aggregation"></a>Agrégation des événements de l’agent de sécurité
 
@@ -59,6 +59,7 @@ Après analyse, Azure Security Center pour IoT crée des alertes de sécurité p
 
 L’heure de début, l’heure de fin et le nombre d’accès de l’agrégation pour chaque événement sont consignés dans le champ **ExtraDetails** de l’événement dans Log Analytics pour une utilisation lors des investigations. 
 
+Chaque événement agrégé représente une période de 24 heures des alertes collectées. Grâce au menu d’options d’événement en haut à gauche de chaque événement, vous pouvez **masquer** chaque événement agrégé individuel.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Configuration du jumeau d’agrégration d’événements
 Apportez des modifications à la configuration de l’agrégration d’événements Azure Security Center pour IoT à l’intérieur de l’[objet de configuration de l’agent](how-to-agent-configuration.md) de l’identité de jumeau de module du module **azureiotsecurity**.

@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900007"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000521"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
 
@@ -82,7 +82,7 @@ Les clients qui transmettent explicitement une liste d’abonnements à l’aide
 
 #### <a name="cause"></a>Cause :
 
-Si le client ne dispose pas d’autorisation de lecture sur tous les abonnements fournis, la demande est refusée en raison de l’absence de droits de sécurité appropriés.
+Si le client ne dispose pas d’autorisation de lecture sur tous les abonnements fournis, la requête est refusée en raison de l’absence de droits de sécurité appropriés.
 
 #### <a name="resolution"></a>Résolution :
 

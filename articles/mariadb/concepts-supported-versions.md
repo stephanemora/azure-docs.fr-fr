@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 950294094584958e83f6a16630a6e1f897785e46
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 09/12/2019
+ms.openlocfilehash: e5d1dbc8c212d4cdefb12fb740a454324d3adfa1
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897288"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962915"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Versions du serveur Azure Database for MariaDB prises en charge
 
@@ -26,15 +26,15 @@ Azure Database for MariaDB prend actuellement en charge la version suivante :
 
 ## <a name="mariadb-version-102"></a>MariaDB version 10.2
 
-Version du correctif : 10.2.23
+Version du correctif : 10.2.25
 
-Pour découvrir plus en détail les améliorations et les correctifs introduits dans MariaDB 10.2.23, reportez-vous à la [documentation MariaDB](https://mariadb.com/kb/en/library/mariadb-10223-release-notes/).
+Pour découvrir plus en détail les améliorations et les correctifs introduits dans cette version, consultez la [documentation MariaDB](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/).
 
 ## <a name="mariadb-version-103"></a>MariaDB version 10.3
 
-Version du correctif : 10.3.14
+Version du correctif : 10.3.16
 
-Pour découvrir plus en détail les améliorations et les correctifs introduits dans MariaDB 10.3.14, reportez-vous à la [documentation MariaDB](https://mariadb.com/kb/en/library/mariadb-10314-release-notes/).
+Pour découvrir plus en détail les améliorations et les correctifs introduits dans cette version, consultez la [documentation MariaDB](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 Le service gère automatiquement les mises à niveau des mises à jour correctives. Par exemple, 10.2.21 à 10.2.23.  

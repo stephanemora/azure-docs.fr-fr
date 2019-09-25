@@ -1,27 +1,29 @@
 ---
-title: Utilisation de Stockage Files d’attente depuis Python - Stockage Azure
+title: Guide pratique pour utiliser Stockage Files d’attente à partir de Python - Stockage Azure
 description: Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages.
 author: mhopkins-msft
 ms.service: storage
 ms.author: mhopkins
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 1ed084bfa0cf6879983e38ac6a8c5ab57e8948a8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 18333d3da0bb444ea236a4fbda4d6b72d7647053
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721355"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059065"
 ---
-# <a name="how-to-use-queue-storage-from-python"></a>Utilisation du stockage de files d'attente à partir de Python
+# <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes].
+
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Les scénarios traités incluent l’insertion, la lecture furtive, la récupération et la suppression des messages de file d’attente, ainsi que la création et suppression des files d’attente. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -29,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
 
-Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-python) nécessite Python 2.7, 3.3, 3.4, 3.5 ou 3.6.
+Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-python) nécessite Python versions 2.7, 3.3 et ultérieures.
  
 ### <a name="install-via-pypi"></a>Effectuer l’installation via PyPi
 
@@ -50,15 +52,15 @@ Pour voir et exécuter un exemple d’application qui montre comment utiliser Py
 
 Pour exécuter l’exemple d’application, vous devez avoir installé les packages `azure-storage-queue` et `azure-storage-common`.
 
-## <a name="how-to-create-a-queue"></a>Procédure : Création d’une file d’attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 
-L'objet **QueueService** permet d'utiliser des files d'attente. Le code suivant permet de créer un objet **QueueService** . Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
+L'objet [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) permet d'utiliser des files d'attente. Le code suivant crée un objet `QueueService`. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
 ```python
 from azure.storage.queue import QueueService
 ```
 
-Le code suivant permet de créer un objet **QueueService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
+Le code suivant crée un objet `QueueService` à l’aide du nom et de la clé du compte de stockage. Remplacez *myaccount* et *mykey* par le nom et la clé de votre compte.
 
 ```python
 queue_service = QueueService(account_name='myaccount', account_key='mykey')
@@ -66,15 +68,25 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Procédure : Insertion d’un message dans une file d’attente
-Pour insérer un message dans une file d’attente, utilisez la méthode **put\_message** pour créer un nouveau message et l’ajouter à la file d’attente.
+## <a name="insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
+
+Pour insérer un message dans une file d’attente, utilisez la méthode [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) afin de créer un message et l’ajouter à la file d’attente.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
-Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode **peek\_messages**. Par défaut, **peek\_messages** lit furtivement un seul message.
+Les messages de la file d’attente Azure sont stockés sous forme de texte. Si vous souhaitez stocker des données binaires, configurez les fonctions d’encodage et de décodage base64 sur l’objet de service de file d’attente avant de placer un message dans la file d’attente.
+
+```python
+# setup queue Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+## <a name="peek-at-the-next-message"></a>Lecture furtive du message suivant
+
+Vous pouvez lire furtivement le message au début de la file d’attente sans le supprimer de celle-ci en appelant la méthode [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-). Par défaut, `peek_messages` lit furtivement un seul message.
 
 ```python
 messages = queue_service.peek_messages('taskqueue')
@@ -82,8 +94,9 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Procédure : Retrait des messages de la file d’attente
-Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vous appelez **get\_messages**, vous obtenez le message suivant dans une file d’attente par défaut. Un message renvoyé par **get\_messages** devient invisible par les autres codes lisant les messages de cette file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler **delete\_message**. Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message** juste après le traitement du message.
+## <a name="dequeue-messages"></a>Enlever des messages d’une file d’attente
+
+Votre code supprime un message d'une file d'attente en deux étapes. Quand vous appelez [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), vous obtenez le message suivant dans une file d’attente par défaut. Un message renvoyé par `get_messages` devient invisible par les autres codes lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-). Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle `delete_message` juste après le traitement du message.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -92,8 +105,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente.
-Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode **get\_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode `get_messages` pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 ```python
 messages = queue_service.get_messages(
@@ -103,8 +115,9 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procédure : Modification du contenu d’un message en file d’attente
-Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code ci-dessous utilise la méthode **update\_message** pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
+## <a name="change-the-contents-of-a-queued-message"></a>Modification du contenu d'un message en file d'attente
+
+Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code ci-dessous utilise la méthode [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -113,24 +126,28 @@ for message in messages:
         'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procédure : Obtention de la longueur de la file d’attente
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **get\_queue\_metadata** demande au service de File d’attente de renvoyer les métadonnées relatives à la file d’attente, et la valeur **approximate_message_count**. Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de file d'attente a répondu à votre demande.
+## <a name="get-the-queue-length"></a>Obtention de la longueur de la file d'attente
+
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) demande au service de file d’attente de retourner les métadonnées relatives à la file d’attente et le nombre approximatif de messages (`approximate_message_count`). Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de file d'attente a répondu à votre demande.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d’une file d’attente
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **delete\_queue**.
+## <a name="delete-a-queue"></a>Suppression d'une file d'attente
+
+Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-).
 
 ```python
 queue_service.delete_queue('taskqueue')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous connaissez les bases du stockage de files d’attente, consultez les liens suivants pour en savoir plus.
 
+* [Informations de référence sur l’API Python Files d’attente Azure](/python/api/azure-storage-queue)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355)
 

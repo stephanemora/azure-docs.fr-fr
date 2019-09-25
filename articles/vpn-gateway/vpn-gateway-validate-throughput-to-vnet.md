@@ -3,18 +3,18 @@ title: Valider le débit VPN vers un réseau virtuel Microsoft Azure | Microsoft
 description: L’objectif de ce document est d’aider les utilisateurs à valider le débit du réseau de leurs ressources locales vers une machine virtuelle.
 services: vpn-gateway
 author: cherylmc
-manager: jasmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 1531bbe97c842fbae2ffe7df41f19a3a7be689d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228333"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058795"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -32,7 +32,7 @@ La connexion à la passerelle VPN implique les composants suivants :
 * Périphérique VPN local (afficher la liste des [ périphériques VPN validés)](vpn-gateway-about-vpn-devices.md#devicetable).
 * Internet public
 * Passerelle VPN Azure
-* Microsoft Azure
+* Azure VM
 
 Le diagramme suivant illustre la connectivité logique d’un réseau local vers un réseau virtuel Azure par VPN.
 
@@ -229,7 +229,7 @@ Même si le débit global évalué lors des étapes précédentes (iPERF/NTTTCP/
    ![Problèmes de copie lente de fichiers](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
    > [!Note]
-   > Toutes les applications ne fonctionnent pas de la même façon et tous les processus/applications n’utilisent pas l'ensemble des threads. Lors de l'exécution du test, vous pouvez remarquer des threads vides et dès lors, les résultats en termes de débit manqueront de précision.
+   > Toutes les applications ne fonctionnent pas de la même façon et tous les processus/applications n’utilisent pas l'ensemble des threads. Lors de l’exécution du test, vous pouvez remarquer des threads vides et dès lors, les résultats en termes de débit manqueront de précision.
    > Pour vérifier les performances de transfert de fichiers de votre application, utilisez le multithread en augmentant le nombre de threads successifs ou en le diminuant pour déterminer le débit optimal de l'application ou du transfert de fichiers.
 
 * La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
@@ -258,7 +258,7 @@ Vous pouvez vérifier la latence à l’aide des outils suivants :
 
 Si vous remarquez un pic de latence au niveau d'un des tronçons avant accès au réseau principal MS, vous pouvez effectuer des investigations supplémentaires avec votre fournisseur de services Internet.
 
-En présence d'un pic de latence anormalement élevé au niveau des tronçons de « msn.net », contactez le support MS pour un examen approfondi.
+En présence d’un pic de latence anormalement élevé au niveau des tronçons de « msn.net », contactez le support MS pour un examen approfondi.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

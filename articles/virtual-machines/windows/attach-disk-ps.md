@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 615eedc66d1c4ac931067ffccdace5d161b18384
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699883"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968356"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure avec PowerShell
 
@@ -119,4 +119,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créer une [capture instantanée](snapshot-copy-managed-disk.md).
+Vous pouvez également déployer des disques managés à l’aide de modèles. Pour plus d’informations, consultez [Utilisation de disques managés dans les modèles Azure Resource Manager](using-managed-disks-template-deployments.md) ou le [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) consacré au déploiement de plusieurs disques de données.

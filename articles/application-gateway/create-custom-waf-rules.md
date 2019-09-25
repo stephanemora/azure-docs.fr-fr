@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 71f2357ba2c2d3e978e4f967ad09fee763586a7c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231985"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058309"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Créer et utiliser les règles personnalisées du pare-feu d’applications web v2
 
@@ -179,7 +179,7 @@ Règle CRS correspondante : `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7
 
 ## <a name="example-3"></a>Exemple 3
 
-Pour cet exemple, vous souhaitez bloquer *evilbot* dans l'en-tête User-Agent et le trafic de la plage 192.168.5.0/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinctes et les placer dans la même règle. Cela garantit le blocage d'*evilbot* dans l'en-tête User-Agent **et** des adresses IP de la plage 192.168.5.0/24.
+Pour cet exemple, vous souhaitez bloquer *evilbot* dans l'en-tête User-Agent et le trafic de la plage 192.168.5.0/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinctes et les placer dans la même règle. Cela garantit le blocage de la demande si *evilbot* dans l’en-tête User-Agent **et** des adresses IP de la plage 192.168.5.0/24 correspondent.
 
 Logique : p **and** q
 

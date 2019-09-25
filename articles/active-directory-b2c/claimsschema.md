@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847049"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999102"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,13 +65,13 @@ PredicateValidationReference| 0:1 | Référence à un élément **PredicateValid
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocole | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
+| Protocol | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
 
 L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | OUI | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.

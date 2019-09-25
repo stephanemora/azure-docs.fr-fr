@@ -1,6 +1,6 @@
 ---
 title: Emplacement d’enregistrement et d’écriture des fichiers d’expérimentation
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez où enregistrer les fichiers d’entrée de vos expériences et où écrire les fichiers de sortie pour empêcher les erreurs de limites de stockage et la latence des expériences.
 services: machine-learning
 author: rastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114510"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034285"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 
@@ -33,7 +33,7 @@ Azure Machine Learning exécute des scripts d’entraînement en copiant la tota
 
 C’est pourquoi nous vous recommandons d’effectuer les opérations suivantes :
 
-* **Stockage de vos fichiers dans un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py) Azure Machine Learning.** Cela évite les problèmes de latence des expériences et présente l’avantage d’un accès aux données à partir d’une cible de calcul distante, ce qui signifie que l’authentification et le montage sont gérés par le service Azure Machine Learning. Découvrez-en plus sur la spécification d’un magasin de données comme votre répertoire source et sur le chargement de fichiers dans votre magasin de données dans l’article [Accéder aux données à partir de vos magasins de données](how-to-access-data.md).
+* **Stockage de vos fichiers dans un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py) Azure Machine Learning.** Cela évite les problèmes de latence des expériences et présente l’avantage d’un accès aux données à partir d’une cible de calcul distante, ce qui signifie que l’authentification et le montage sont gérés par Azure Machine Learning. Découvrez-en plus sur la spécification d’un magasin de données comme votre répertoire source et sur le chargement de fichiers dans votre magasin de données dans l’article [Accéder aux données à partir de vos magasins de données](how-to-access-data.md).
 
 * **Si vous avez besoin de seulement quelques fichiers de données et scripts de dépendance, et que vous ne pouvez pas utiliser un magasin de données,** placez les fichiers dans le même répertoire de dossier que votre script d’entraînement. Spécifiez ce dossier comme votre `source_directory` directement dans votre script d’entraînement ou dans le code qui appelle votre script d’entraînement.
 

@@ -11,20 +11,20 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858545"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018992"
 ---
-# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec Managed Instance
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
 Cet article résume et explique les différences de syntaxe et de comportement existant entre Azure SQL Database Managed Instance et le moteur de base de données SQL Server local. L’option de déploiement d’instance gérée est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
 
 ![Migration](./media/sql-database-managed-instance/migration.png)
 
-Certaines limitations PaaS ont été introduites dans Managed Instance et certains comportements ont changé par rapport à SQL Server. Les différences se répartissent en différentes catégories, à savoir : <a name="Differences"></a>
+Certaines limitations PaaS ont été introduites dans Managed Instance et certains comportements ont changé par rapport à SQL Server. Les différences se répartissent en différentes catégories, à savoir : <a name="Differences"></a>
 
 - la [disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et les [sauvegardes](#backup) ;
 - la [sécurité](#security) incluant les différences dans l’[audit](#auditing), les [certificats](#certificates), les [informations d’identification](#credential), les [fournisseurs de chiffrement](#cryptographic-providers), les [connexions et les utilisateurs](#logins-and-users) ainsi que la [clé de service et la clé principale du service](#service-key-and-service-master-key) ;
@@ -339,14 +339,14 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 - `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail` ne peut pas envoyer de pièces jointes à l’aide du paramètre @file_attachments. Le système de fichiers local, les partages d’étendues et le stockage Blob Azure ne sont pas accessibles dans cette procédure.
+ - `sp_send_dbmail` ne peut pas envoyer de pièces jointes à l’aide du paramètre @file_attachments. Le système de fichiers local ainsi que les partages externes ou le Stockage Blob Azure ne sont pas accessibles avec cette procédure.
  - Consultez les problèmes connus liés au paramètre `@query` et à l’authentification.
  
 ### <a name="dbcc"></a>DBCC
 
 Les instructions DBCC non documentées qui sont activées dans SQL Server ne sont pas prises en charge dans les instances managées.
 
-- Seul un nombre limité d’`Trace flags` globaux est pris en charge. Les `Trace flags` de session ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Seuls un nombre limité d’indicateurs de trace globaux sont pris en charge. Les `Trace flags` de session ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) et [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) fonctionnent avec le nombre limité d’indicateurs de trace globaux.
 - [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) ne peut pas être utilisé avec les options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST et REPAIR_REBUILD, car la base de données ne peut pas être définie sur le mode `SINGLE_USER`. Consultez l’article sur les [différences avec ALTER DATABASE](#alter-database-statement). Les endommagements potentiels de la base de données sont gérés par l’équipe de support Azure. Contactez le support Azure si vous constatez un endommagement de la base de données qui doit être corrigé.
 
@@ -415,7 +415,7 @@ Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob
 Pour plus d’informations sur la configuration de la réplication, consultez le [didacticiel de réplication](replication-with-sql-database-managed-instance.md).
 
 
-Si la réplication est activée sur une base de données dans un [groupe de basculement](sql-database-auto-failover-group.md), l’administrateur de Managed Insance doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau serveur principal après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
+Si la réplication est activée sur une base de données dans un [groupe de basculement](sql-database-auto-failover-group.md), l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
 
 1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
 2. Supprimez les métadonnées d’abonnement du serveur de publication en exécutant le script suivant sur la base de données du serveur de publication :
@@ -479,9 +479,12 @@ Limites :
 - La restauration d’un fichier `.BAK` d’une base de données qui contient une limitation décrite dans ce document (par exemple, `FILESTREAM` ou des objets `FILETABLE`) ne peut pas être restaurée sur Managed instance.
 - Les fichiers `.BAK` qui contiennent plusieurs jeux de sauvegarde ne peuvent pas être restaurés. 
 - Les fichiers `.BAK` qui contiennent plusieurs fichiers journaux ne peuvent pas être restaurés.
-- Les sauvegardes contenant des bases de données plus volumineuses que 8 To, des objets OLTP en mémoire actifs ou plus de 280 fichiers ne peuvent pas être restaurées sur une instance d’usage général. 
-- Les sauvegardes contenant des bases de données plus volumineuses que 4 To ou des objets OLTP en mémoire dont la taille totale est supérieure à la taille décrite dans les [limites de ressources](sql-database-managed-instance-resource-limits.md) ne peuvent pas être restaurées sur l’instance critique pour l’entreprise.
+- Les sauvegardes contenant des bases de données dont la taille excède 8 To, contenant des objets OLTP en mémoire actifs ou comprenant plus de 280 fichiers par instance ne peuvent pas être restaurées sur une instance d’usage général. 
+- Les sauvegardes contenant des bases de données dont la taille excède 4 To ou contenant des objets OLTP en mémoire dont la taille totale est supérieure à la taille spécifiée dans les [limites de ressources](sql-database-managed-instance-resource-limits.md) ne peuvent pas être restaurées sur une instance critique pour l’entreprise.
 Pour plus d’informations sur les instructions de restauration, consultez [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+
+ > [!IMPORTANT]
+ > Les mêmes limitations s’appliquent à une opération de restauration dans le temps intégrée. À titre d’exemple, une base de données à usage général dont la taille est supérieure à 4 To ne peut pas être restaurée sur une instance critique pour l’entreprise. Une base de données critique pour l’entreprise comprenant des fichiers OLTP en mémoire ou plus 280 fichiers ne peut pas être restaurée sur une instance à usage général.
 
 ### <a name="service-broker"></a>Service broker
 
@@ -537,9 +540,19 @@ La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 G
 
 ### <a name="error-logs"></a>Des journaux d’activité d’erreurs
 
-Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont consignés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Problèmes connus
+
+### <a name="missing-validations-in-restore-process"></a>Validations manquantes dans le processus de restauration
+
+**Date :** Septembre 2019
+
+Les instructions `RESTORE` et la limite de restauration dans le temps intégrée n’effectuent pas certaines vérifications nécessaires sur la base de données restaurée :
+- **DBCC CHECKDB** - L’instruction `RESTORE` n’effectue pas `DBCC CHECKDB` sur la base de données restaurée. Si une base de données d’origine est endommagée ou si le fichier de sauvegarde est endommagé lors de sa copie dans le Stockage Blob Azure, les sauvegardes automatiques ne sont pas effectuées et le support Azure contacte le client. 
+- Le processus de restauration dans le temps intégrée ne vérifie pas si la sauvegarde automatisée à partir de l’instance critique pour l’entreprise contient des [objets OLTP en mémoire](sql-database-in-memory.md#in-memory-oltp). 
+
+**Solution de contournement** : Veillez à exécuter `DBCC CHECKDB` sur la base de données source avant d’effectuer une sauvegarde, puis à utiliser l’option `WITH CHECKSUM` dans la sauvegarde pour éviter les endommagements potentiels qui pourraient être restaurés sur une instance managée. Vérifiez que votre base de données source ne contient pas d’[objets OLTP en mémoire](sql-database-in-memory.md#in-memory-oltp) si vous la restaurez sur le niveau Usage général.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement
 
@@ -549,19 +562,19 @@ Il se peut que la fonctionnalité [Resource Governor](https://docs.microsoft.com
 
 **Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail de l’agent SQL qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossible de s’authentifier auprès des serveurs de messagerie externes à l’aide d’une connexion sécurisée (SSL)
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Authentification impossible auprès des serveurs de messagerie externes à l’aide d’une connexion sécurisée (SSL)
 
 **Date :** août 2019
 
 L’instance de Database Mail qui est [configurée à l’aide d’une connexion sécurisée (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) ne peut pas s’authentifier auprès de certains serveurs de messagerie en dehors d’Azure. Il s’agit d’un problème de configuration de la sécurité qui sera bientôt résolu.
 
-**Solution de contournement :** Supprimez temporairement la connexion sécurisée (SSL) dans la configuration de Database Mail jusqu’à ce que le problème soit résolu. 
+**Solution de contournement :** Supprimez temporairement la connexion sécurisée (SSL) de la configuration de la messagerie de base de données jusqu’à ce que le problème soit résolu. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 
 **Date :** août 2019
 
-Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont **pas perdus** et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des Service Brokers dans une autre base de données cessera de transmettre les messages au service cible.
+Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont **pas perdus** et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des répartiteurs Service Brokers dans une autre base de données cesse de remettre les messages au service cible.
 
 **Solution de contournement :** arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
 
@@ -583,13 +596,13 @@ Le paramètre `@query` dans la procédure [sp_send_db_mail](https://docs.microso
 
 **Date :** mars 2019
 
-Si la réplication transactionnelle est activée sur une base de données dans un groupe de basculement automatique, l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancienne base de données primaire et les reconfigurer sur la nouvelle après un basculement vers une autre région. Pour plus d’informations, consultez [Réplication](#replication).
+Si la réplication transactionnelle est activée sur une base de données dans un groupe de basculement automatique, l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement vers une autre région. Pour plus d’informations, consultez [Réplication](#replication).
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Les utilisateurs et connexions AAD ne sont pas pris en charge dans les outils
 
 **Date :** janvier 2019
 
-SQL Server Management Studio et SQL Server Data Tools ne prennent pas entièrement en charge les utilisateurs et connexions Azure Active Directory.
+SQL Server Management Studio et SQL Server Data Tools ne prennent pas complètement en charge les utilisateurs et les connexions Azure Active Directory.
 - L’utilisation de principaux de serveur (connexions) et d’utilisateurs (préversion publique) Azure AD avec SQL Server Data Tools n’est pas prise en charge actuellement.
 - La création de scripts pour les principaux de serveur (connexions) et les utilisateurs (préversion publique) Azure AD n’est pas prise en charge dans SQL Server Management Studio.
 
@@ -609,7 +622,7 @@ Les instructions `CREATE DATABASE`, `ALTER DATABASE ADD FILE` et `RESTORE DATABA
 
 Chaque instance managée Usage général dispose de 35 To de stockage réservé pour l’espace disque Premium Azure. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To en taille de stockage à cause d’une fragmentation interne.
 
-Par exemple, une instance managée d’usage général peut avoir un gros fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également posséder 248 fichiers, d’une taille de 1 Go, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance managée à usage général peut avoir un fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également comporter 248 fichiers, d’une taille de 1 Go chacun, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.

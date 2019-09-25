@@ -10,19 +10,19 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a1d098550c6fb733e088f8ad211d29f48f55d2d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511700"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064529"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 
- Enregistrez les ressources des API web auprès de votre locataire afin qu’elles puissent accepter et répondre aux requêtes des applications clientes qui présentent un jeton d’accès. Cet article vous montre comment enregistrer une application dans Azure Active Directory (Azure AD) B2C.
+ Enregistrez les ressources des API web auprès de votre locataire afin qu’elles puissent accepter et répondre aux requêtes des applications clientes qui présentent un jeton d’accès. Cet article explique comment inscrire une application dans Azure Active Directory B2C (Azure AD B2C).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Choisissez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.

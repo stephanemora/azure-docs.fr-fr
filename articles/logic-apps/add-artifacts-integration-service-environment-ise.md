@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: df43b52514eebc3216dbec01cff0d8a3b14e7940
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517418"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967219"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajoutez des artefacts à votre environnement de service d’intégration dans Azure Logic Apps
 
-Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, integration service environment), ajoutez des artefacts tels que des applications logiques, des comptes d’intégration et des connecteurs personnalisés pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure.
+Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des artefacts tels que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,7 @@ Après avoir créé un [environnement de service d’intégration](../logic-apps
 
 <a name="create-logic-apps-environment"></a>
 
-## <a name="create-logic-apps-in-an-ise"></a>Créer des applications logiques dans un environnement ISE
+## <a name="create-logic-apps"></a>Créer des applications logiques
 
 Pour créer des applications logiques qui s’exécutent dans votre environnement ISE, effectuez les étapes suivantes :
 
@@ -57,7 +57,7 @@ Pour créer des applications logiques qui s’exécutent dans votre environnemen
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="create-integration-accounts-in-an-ise"></a>Créer des comptes d’intégration dans un environnement de service d’intégration
+## <a name="create-integration-accounts"></a>Créer des comptes d’intégration
 
 En fonction de la [référence SKU d’environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) sélectionnée lors de la création, votre environnement ISE comprend une utilisation de compte d’intégration spécifique sans coût supplémentaire. Les applications logiques qui existent dans un environnement ISE peuvent référencer uniquement des comptes d’intégration qui existent dans le même environnement ISE. Ainsi, pour qu’un compte d’intégration fonctionne avec des applications logiques dans un environnement ISE, le compte d’intégration et les applications logiques doivent utiliser le *même environnement* comme emplacement. Pour plus d’informations sur les comptes d’intégration et les environnements ISE, consultez [Comptes d’intégration et environnement de service d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 ).
@@ -84,9 +84,25 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
 
 1. Pour gérer les comptes d’intégration dans votre environnement ISE, consultez [Gérer votre environnement de service d’intégration](../logic-apps/ise-manage-integration-service-environment.md).
 
+<a name="add-ise-connectors-environment"></a>
+
+## <a name="add-ise-connectors"></a>Ajouter des connecteurs ISE
+
+Vous pouvez ajouter des connecteurs managés par Microsoft qui peuvent être utilisés dans votre environnement ISE mais ne sont pas déployés dans votre environnement ISE.
+
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs managés**. Dans la barre d’outils, sélectionnez **Ajouter**.
+
+   ![Afficher les connecteurs managés](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+
+1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Si le connecteur que vous souhaitez est disponible, sélectionnez-le, puis sélectionnez **Créer**.
+
+   La liste affiche uniquement les connecteurs qui sont éligibles, mais qui ne sont pas déployés dans votre environnement ISE. Les connecteurs déjà déployés dans votre environnement ISE apparaissent comme étant indisponibles pour la sélection.
+
+   ![Sélectionner un connecteur éligible](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+
 <a name="create-custom-connectors-environment"></a>
 
-## <a name="create-custom-connectors-in-an-ise"></a>Créer des connecteurs personnalisés dans un environnement ISE
+## <a name="create-custom-connectors"></a>Créer des connecteurs personnalisés
 
 Pour utiliser des connecteurs personnalisés dans votre environnement ISE, créez-les directement dans l’environnement.
 

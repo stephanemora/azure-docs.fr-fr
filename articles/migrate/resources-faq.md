@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279499"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934918"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate : Forum Aux Questions (FAQ)
 
@@ -26,6 +26,37 @@ Consultez les listes pour [VMware](https://docs.microsoft.com/azure/migrate/migr
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Quelle est la différence entre Azure Migrate et Azure Site Recovery ?
 
 Azure Migrate offre un hub centralisé pour démarrer votre migration, exécuter et suivre la découverte, l’évaluation de machines et de charges de travail, et exécuter et suivre la migration de machines et de charges de travail vers Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) est une solution de reprise d’activité. Azure Migrate Server Migration utilise Azure Site Recovery sur le serveur principal pour permettre des scénarios de migration dans le cas de migrations lift-and-shift de machines locales.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>Comment supprimer un projet Azure Migrate ?
+
+Pour supprimer un projet Azure Migrate et les ressources qui lui sont associées, dont les sites, les coffres recovery services, les coffres de migration, les coffres de clés, les projets d’évaluation, et autres, accédez à la page « Groupes de ressources » dans le portail Azure, sélectionnez le groupe de ressources dans lequel le projet de migration a été créé, puis sélectionnez « Afficher les types masqués ». Sélectionnez ensuite le projet de migration et les ressources associées listées ci-dessous, puis supprimez-les. Si le groupe de ressources est utilisé exclusivement par le projet de migration et ses ressources associées, vous pouvez également supprimer le groupe de ressources entier. Notez que cette liste présente tous les types de ressources créés pour tous les scénarios (détection, évaluation et migration). Vous ne trouverez que les ressources créées pour votre scénario que dans le groupe de ressources.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>Ressources créées pour les serveurs détectés, évalués ou migrés sur des serveurs VMware ou physiques [Ressource (Type)] :
+
+- "Appliancename"kv (coffre de clés)
+- "Appliancename"site (Microsoft.OffAzure/VMwareSites)
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- "ProjectName"project (Microsoft.Migrate/assessmentProjects)
+- "ProjectName"rsvault (coffre Recovery Services)
+- "ProjectName"-MigrateVault-* (coffre Recovery Services)
+- migrateappligwsa* (compte de stockage)
+- migrateapplilsa* (compte de stockage)
+- migrateapplicsa* (compte de stockage)
+- migrateapplikv* (coffre de clés)
+- migrateapplisbns16041 (espace de noms Service Bus)
+
+Remarque : Supprimez les comptes de stockage et les coffres de clés avec précaution, car ils peuvent contenir des données d’application et des clés de sécurité, respectivement.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Ressources créées pour les serveurs détectés, évalués ou migrés sur Hyper-V [Ressource (Type)] :
+
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- "ProjectName"project (Microsoft.Migrate/assessmentProjects)
+- HyperV*kv (coffre de clés)
+- HyperV*site (Microsoft.OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (coffre Recovery Services) 
+
+Remarque : Supprimez le coffre de clés avec précaution, car il peut contenir des clés de sécurité.
+
 
 ## <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 14aff313ece93feabc39194ba6859e3bca6be3bc
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622398"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065090"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
 
-Pour utiliser un compte Microsoft en tant que [fournisseur d'identité](active-directory-b2c-reference-oidc.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C. Si vous n’avez pas encore de compte Microsoft, vous pouvez en créer un sur [https://www.live.com/](https://www.live.com/).
+Pour utiliser un compte Microsoft en tant que [fournisseur d’identité](active-directory-b2c-reference-oidc.md) dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C. Si vous n’avez pas encore de compte Microsoft, vous pouvez en créer un sur [https://www.live.com/](https://www.live.com/).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914171"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000321"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -26,10 +26,13 @@ Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement
 
 Azure Cosmos DB prend en charge deux modes d’indexation :
 
-- **Cohérent** : si la stratégie d’indexation d’un conteneur est défini sur Cohérent, l’index est mis à jour de façon synchrone lorsque vous créez, mettez à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera la [cohérence configurée pour le compte](consistency-levels.md).
-- **Aucun** : Si la stratégie d’indexation d’un conteneur est définie sur Aucun, l’indexation est effectivement désactivée sur ce conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Ceci peut également aider à accélérer les opérations d’insertion en bloc.
+- **Cohérent** : L’index est mis à jour de manière synchrone quand vous créez, mettez à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera la [cohérence configurée pour le compte](consistency-levels.md).
+- **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) jusqu’à la fin du processus.
 
-En outre, vous devez définir la propriété **automatic** de la stratégie d’indexation sur **true**. L’affectation de la valeur true à cette propriété permet à Azure Cosmos DB d’indexer automatiquement les documents au fur et à mesure qu’ils sont écrits.
+> [!NOTE]
+> Cosmos DB prend également en charge un mode d’indexation différé. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. De plus, l’utilisation de l’indexation différée à la place de « None » (aucune indexation) pour les opérations en bloc ne présente aucun avantage, car tout changement du mode d’indexation entraîne la suppression et la recréation de l’index. Pour toutes ces raisons, nous déconseillons aux clients de l’utiliser. Pour améliorer le niveau de performance des opérations en bloc, affectez au mode d’indexation la valeur None, puis retournez au mode Consistent et supervisez la propriété `IndexTransformationProgress` sur le conteneur jusqu’à la fin du processus.
+
+Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
 ## <a name="including-and-excluding-property-paths"></a>Inclusion et exclusion de chemins de propriété
 

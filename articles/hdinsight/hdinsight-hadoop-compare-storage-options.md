@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885195"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104535"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -34,7 +34,7 @@ Le tableau suivant récapitule les services de stockage Azure pris en charge ave
 |Stockage Azure| Stockage Blob** | Object | Objet blob de blocs | standard | Chaud, froid, archive | Tous | Tous |
 |Azure Data Lake Storage Gen1| N/A | Hiérarchique (système de fichiers) | N/A | N/A | N/A | 3.6 uniquement | Tout sauf HBase |
 
-** Pour les clusters HDInsight, seuls les comptes de stockage secondaires peuvent être de type BlobStorage.
+** Pour les clusters HDInsight, seuls les comptes de stockage secondaires peuvent être de type BlobStorage. Par ailleurs, les objets blob de pages ne font pas partie des options de stockage prises en charge.
 
 Pour plus d’informations sur les types de comptes de stockage Azure, consultez l’article [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
@@ -129,7 +129,7 @@ Si vous choisissez de sécuriser votre compte de stockage à l’aide des restri
 
 Le schéma suivant résume l’architecture HDInsight de Stockage Azure :
 
-![Schéma montrant comment les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architecture de stockage HDInsight")
+![Architecture de stockage HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architecture de stockage HDInsight")
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
 

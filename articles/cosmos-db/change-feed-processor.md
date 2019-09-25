@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018780"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073689"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB 
 
@@ -95,5 +95,6 @@ Vous êtes facturé pour les unités de requête consommées, car des unités de
 Pour plus d’informations sur le processeur de flux de modification, consultez les articles suivants :
 
 * [Présentation du flux de modification](change-feed.md)
+* [Guide pratique pour effectuer une migration à partir de la bibliothèque du processeur de flux de modification](how-to-migrate-from-change-feed-library.md)
 * [Utilisation de l’estimateur de flux de modification](how-to-use-change-feed-estimator.md)
 * [Heure de début du processeur de flux de modification](how-to-configure-change-feed-start-time.md)

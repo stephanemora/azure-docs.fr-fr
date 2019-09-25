@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816518"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996602"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -85,6 +85,7 @@ Une cause potentielle est l’absence de prise en charge de plusieurs canaux SMB
 
 - L’obtention d’une machine virtuelle avec un cœur plus grand peut aider à améliorer le débit.
 - L’exécution de l’application cliente à partir de plusieurs machines virtuelles augmente le débit.
+
 - Utilisez les API REST si c’est possible.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Le débit sur les clients Linux est nettement plus faible que sur les clients Windows.
@@ -95,8 +96,9 @@ Il s’agit d’un problème connu d’implémentation de client SMB sur Linux.
 
 ### <a name="workaround"></a>Solution de contournement
 
-- Répartissez la charge entre plusieurs machines virtuelles
+- Répartissez la charge sur plusieurs machines virtuelles.
 - Sur la même machine virtuelle, utilisez plusieurs points de montage avec l’option **nosharesock** et répartissez la charge entre ces points de montage.
+- Sur Linux, essayez d’effectuer le montage avec l’option **nostrictsync** pour éviter de forcer le vidage SMB à chaque appel fsync. Pour Azure Files, cette option n’interfère pas avec la cohérence des données, mais elle peut entraîner des métadonnées de fichier obsolètes sur la liste des répertoires (commande **ls -l**). Interrogez directement les métadonnées du fichier (commande **stat**) pour retourner les métadonnées de fichier les plus récentes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latences élevées pour les charges de travail lourdes de métadonnées impliquant des opérations d’ouverture/de fermeture étendues.
 

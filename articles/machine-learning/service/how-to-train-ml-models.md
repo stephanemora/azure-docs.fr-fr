@@ -1,7 +1,7 @@
 ---
 title: Former des modèles ML avec des estimateurs
-titleSuffix: Azure Machine Learning service
-description: Découvrir comment effectuer un entraînement à nœud unique et un entraînement distribué sur des modèles Machine Learning traditionnels et d’apprentissage profond en utilisant la classe Estimator des services Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Découvrez comment effectuer un entraînement mononœud et un entraînement distribué sur des modèles Machine Learning et Deep Learning traditionnels en utilisant la classe Estimator d’Azure Machine Learning
 ms.author: maxluk
 author: maxluk
 services: machine-learning
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 041f80937e3ebae15dd5bd64858ccbd8269104a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815903"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002581"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 

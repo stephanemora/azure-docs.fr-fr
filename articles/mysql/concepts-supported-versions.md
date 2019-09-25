@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 09/12/2019
+ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947172"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962585"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -26,15 +26,15 @@ Azure Database pour MySQL prend actuellement en charge les versions suivantes :
 
 ## <a name="mysql-version-56"></a>MySQL version 5.6
 
-Version du correctif de bogue : 5.6.42
+Version du correctif de bogue : 5.6.44
 
-Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.6.42, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) MySQL.
+Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) MySQL.
 
 ## <a name="mysql-version-57"></a>MySQL version 5.7
 
-Version du correctif de bogue : 5.7.24
+Version du correctif de bogue : 5.7.26
 
-Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.7.24, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) MySQL.
+Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) MySQL.
 
 ## <a name="mysql-version-80"></a>MySQL Version 8.0
 
@@ -43,7 +43,7 @@ Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.
 
 Version du correctif de bogue : 8.0.15
 
-Pour plus d’informations sur les améliorations et les correctifs dans MySQL 8.0.15, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) MySQL.
+Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 Le service gère automatiquement les correctifs pour les mises à jour des versions des correctifs de bogues. Par exemple, 5.7.20 à 5.7.21.  

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/23/2019
-ms.openlocfilehash: 04b17d2e3acba7f003325ca7fdef2107108aea4d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 09/10/2019
+ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013414"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091147"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
@@ -44,6 +44,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -88,6 +89,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -133,6 +135,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -178,6 +181,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Affiche les informations de verrouillage au niveau des lignes|
@@ -212,6 +216,9 @@ Actuellement, les connexions sortantes d’Azure Database pour PostgreSQL ne son
 ## <a name="uuid"></a>uuid
 Si vous envisagez d’utiliser `uuid_generate_v4()` à partir de l’extension uuid-ossp, envisagez la comparaison avec `gen_random_uuid()` à partir de l’extension pgcrypto pour optimiser les performances.
 
+
+## <a name="pgaudit"></a>pgAudit
+L’extension pgAudit permet la journalisation d’audit des sessions et des objets. Pour savoir comment utiliser cette extension dans Azure Database pour PostgreSQL, consultez l’[article sur les concepts d’audit](concepts-audit.md). 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB est une base de données de séries chronologiques empaquetée en tant qu’extension pour PostgreSQL. TimescaleDB fournit des fonctions analytiques axées sur le temps et des optimisations et met à l’échelle PostgreSQL pour les charges de travail de série chronologique.

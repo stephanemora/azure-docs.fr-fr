@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918816"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036328"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -95,7 +95,7 @@ Si vous souhaitez savoir comment créer un partage de fichiers Premium, consulte
 Actuellement, vous ne pouvez pas convertir directement un partage de fichiers Standard en partage de fichiers Premium, et vice-versa. Si vous souhaitez basculer vers l’un ou l’autre de ces niveaux, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Vous pouvez effectuer cette opération en utilisant un des outils de copie pris en charge par Azure Files, tel que Robocopy ou AzCopy.
 
 > [!IMPORTANT]
-> Les partages de fichiers Premium sont uniquement disponibles avec le stockage LRS, et dans la plupart des régions qui offrent des comptes de stockage. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure.
+> Les partages de fichiers Premium sont disponibles avec le stockage LRS dans la plupart des régions qui offrent des comptes de stockage et avec le stockage ZRS dans moins de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions qui prennent en charge ZRS, consultez [Couverture du support et disponibilité régionale](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
 
 #### <a name="provisioned-shares"></a>Partages approvisionnés
 
@@ -157,7 +157,7 @@ Au départ, les nouveaux partages de fichiers se voient attribuer un nombre tota
 
 Les partages Azure Files prennent en charge quatre options de redondance des données : le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant interzone (GZRS) (préversion).
 
-Les partages Premium d’Azure Files prennent uniquement en charge le stockage localement redondant (LRS).
+Les partages Premium Azure Files prennent en charge les stockages LRS et ZRS, ZRS étant actuellement disponible dans moins de régions.
 
 Les sections suivantes décrivent les différences entre les différentes options de redondance :
 
@@ -211,6 +211,7 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 |Australie Est |LRS     |Non    |OUI|
 |Sud-Australie Est|LRS     |Non    |Pas encore|
 |Inde centrale  |LRS     |Non    |Pas encore|
+|Asie Est      |LRS     |Non    |Pas encore|
 |USA Est        |LRS     |Non    |Pas encore|
 |France Centre |LRS, ZRS|Non    |LRS - Oui, ZRS - pas encore|
 |France Sud   |LRS     |Non    |OUI|

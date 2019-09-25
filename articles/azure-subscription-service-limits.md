@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68698284"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71018509"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -89,8 +89,9 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
   * [Pare-feu Azure](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Équilibreur de charge](#load-balancer)
-  * [Adresse IP publique](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Adresse IP publique](#publicip-address)
+  * [Liaison privée](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Réseau virtuel](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
@@ -168,6 +169,9 @@ Sauf mention contraire, le tableau suivant s’applique aux références SKU v1,
 
 #### <a name="network-watcher-limits"></a>Limites de Network Watcher
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
+#### <a name="private-link-limits"></a>Limites de Liaison privée
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>Limites de Traffic Manager
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]

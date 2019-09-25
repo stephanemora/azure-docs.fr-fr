@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900176"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105342"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -80,7 +80,7 @@ Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des 
 
 Apache Ambari assure la gestion et la surveillance d’un cluster HDInsight grâce à une interface utilisateur web et à une API REST. Ambari est inclus sur les clusters HDInsight sous Linux. Sélectionnez le volet **Tableau de bord du cluster** sur la page HDInsight du portail Azure.  Sélectionnez le volet **Tableau de bord du cluster HDInsight** pour ouvrir l’interface utilisateur Ambari, puis entrez les informations d’identification utilisée pour vous connecter au cluster.  
 
-![Interface utilisateur Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Apache Ambari - Présentation du tableau de bord](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la page du portail Azure.  Cette liste varie selon les bibliothèques installées. Elle peut contenir par exemple YARN Queue Manager, Hive View et Tez View.  Sélectionnez le lien d’un service pour afficher des informations sur la configuration et le service.
 
@@ -127,7 +127,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari affiche une alerte indiquant les hôtes sur lesquels le service WebHCat est arrêté. Vous pouvez tenter de rétablir le service WebHCat en redémarrant le service sur son hôte.
 
-![Redémarrer le serveur WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Apache Ambari - Redémarrer le serveur WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 Si un serveur WebHCat ne répond toujours pas, consultez le journal des opérations pour vérifier les messages d’échec. Pour plus d’informations, vérifiez les fichiers `stderr` et `stdout` référencés sur le nœud.
 
@@ -176,7 +176,7 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
     L’illustration suivante montre la file d’attente joblauncher à un taux d’utilisation de 714,4 %. Ce taux est acceptable tant qu’il reste de la capacité disponible à emprunter à la file d’attente par défaut. Toutefois, lorsque le cluster est entièrement utilisé et que la mémoire YARN a atteint 100 % de sa capacité, les nouveaux travaux doivent attendre, ce qui finit par provoquer une expiration des délais d’attente.
 
-    ![File d’attente Joblauncher](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![HDInsight - Vue de la file d’attente joblauncher](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     Il existe deux façons de résoudre ce problème : vous pouvez soit réduire la vitesse d’envoi de nouveaux travaux, soit relever la vitesse de la consommation des anciens travaux en augmentant la capacité du cluster.
 
@@ -208,9 +208,9 @@ Pour diagnostiquer ces problèmes :
 
 La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
 
-![Pile et versions](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
+![Apache Ambari - Piles et versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
+## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
 
 De nombreux types de fichiers journaux d’activité sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
 
@@ -232,7 +232,7 @@ L’interface utilisateur HDInsight Ambari comprend un certain nombre de section
 
 Par exemple, pour les journaux d’activité HDFS :
 
-![Liens rapides Ambari vers des fichiers journaux](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
+![Liens rapides Ambari vers des fichiers journaux](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png)
 
 ### <a name="view-hadoop-generated-log-files"></a>Afficher les fichiers journaux générés par Hadoop
 

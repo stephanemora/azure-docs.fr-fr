@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/01/2019
+ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861020"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036656"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
-Pour accéder à des sources de données locales à partir de vos applications logiques, créez une ressource de passerelle de données locales dans le portail Azure. Vos applications logiques peuvent ensuite utiliser les [connecteurs locaux](../logic-apps/logic-apps-gateway-install.md#supported-connections). Cet article explique comment créer votre ressource de passerelle Azure*après* avoir [téléchargé et installé la passerelle sur votre ordinateur local](../logic-apps/logic-apps-gateway-install.md). Pour en savoir plus sur le fonctionnement de la passerelle, consultez [Fonctionnement de la passerelle](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Pour accéder à des sources de données locales à partir de vos applications logiques, créez une ressource de passerelle de données locales dans le portail Azure. Vos applications logiques peuvent ensuite utiliser les [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors). Cet article explique comment créer votre ressource de passerelle Azure *après* avoir [téléchargé et installé la passerelle sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md). Pour obtenir des informations détaillées sur la passerelle, consultez [Fonctionnement de la passerelle](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > Pour vous connecter à des réseaux virtuels Azure, envisagez de créer un [*environnement de service d’intégration*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) à la place. 
@@ -29,6 +29,27 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 * [Passerelle de données locale Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Passerelle de données locale Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>Sources de données prises en charge
+
+Pour Azure Logic Apps, la passerelle de données locale prend en charge des [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors) pour les sources de données suivantes :
+
+* BizTalk Server 2016
+* Système de fichiers
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
+
+Bien que la passerelle proprement dite n’entraîne pas de frais supplémentaires, le [modèle tarifaire de Logic Apps](../logic-apps/logic-apps-pricing.md) s’applique à ces connecteurs et à d’autres opérations dans Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -135,6 +156,13 @@ Pour créer une autre ressource de passerelle, lier l’installation de votre pa
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+**Q** : Pourquoi ne puis-je pas voir mon installation de la passerelle lorsque je crée la ressource de passerelle dans Azure ? <br/>
+**R** : Ce problème peut se produire pour les raisons suivantes :
+
+* L’installation de votre passerelle est déjà enregistrée et revendiquée par une autre ressource de passerelle dans Azure. Les installations de passerelle ne s’affichent pas dans la liste des instances après la création de ressources de passerelle pour elles. Pour vérifier vos inscriptions de passerelle dans le portail Azure, passez en revue toutes vos ressources Azure avec le type de **Passerelles de données locales** pour *tous* les abonnements Azure.
+
+* L’identité Azure AD octroyée à la personne qui a installé la passerelle diffère de celle de la personne qui s’est connectée au portail Azure. Vérifiez que vous êtes connecté avec la même identité que celle qui a installé la passerelle.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

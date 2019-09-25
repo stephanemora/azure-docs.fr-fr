@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37fe192e83c946089e2374f24ae10a756134e45a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25c5fed4fd88866f46a9ca254213cae5db893a4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807855"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063582"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformations de revendications de comptes sociaux
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans Azure Active Directory (Azure AD) B2C, les identités de comptes sociaux sont stockées dans un attribut `userIdentities` d’un type de revendication **alternativeSecurityIdCollection**. Chaque élément dans le type de revendication **alternativeSecurityIdCollection** spécifie l’émetteur (nom du fournisseur d’identité, tel que facebook.com), et l’`issuerUserId`, qui est un identificateur d’utilisateur unique pour l’émetteur.
+Dans Azure Active Directory B2C (Azure AD B2C), les identités de comptes sociaux sont stockées dans un attribut `userIdentities` d’un type de revendication **alternativeSecurityIdCollection**. Chaque élément dans le type de revendication **alternativeSecurityIdCollection** spécifie l’émetteur (nom du fournisseur d’identité, tel que facebook.com), et l’`issuerUserId`, qui est un identificateur d’utilisateur unique pour l’émetteur.
 
 ```JSON
 "userIdentities": [{
@@ -42,9 +42,9 @@ Crée une représentation JSON de la propriété alternativeSecurityId de l’ut
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | chaîne | ClaimType spécifiant l’identificateur d’utilisateur unique utilisé par le fournisseur d’identité sociale. |
-| InputClaim | IdentityProvider | chaîne | ClaimType spécifiant le nom du fournisseur d’identité de compte social, par exemple facebook.com. |
-| OutputClaim | alternativeSecurityId | chaîne | ClaimType généré après l’appel de l’élément ClaimsTransformation. Contient des informations sur l’identité d’un utilisateur de compte social. **issuer** est la valeur de la revendication `identityProvider`. **issuerUserId** est la valeur de la revendication `key` au format base64. |
+| InputClaim | key | string | ClaimType spécifiant l’identificateur d’utilisateur unique utilisé par le fournisseur d’identité sociale. |
+| InputClaim | IdentityProvider | string | ClaimType spécifiant le nom du fournisseur d’identité de compte social, par exemple facebook.com. |
+| OutputClaim | alternativeSecurityId | string | ClaimType généré après l’appel de l’élément ClaimsTransformation. Contient des informations sur l’identité d’un utilisateur de compte social. **issuer** est la valeur de la revendication `identityProvider`. **issuerUserId** est la valeur de la revendication `key` au format base64. |
 
 Utilisez cette transformation de revendications pour générer un ClaimType `alternativeSecurityId`. Il est utilisé par tous les profils techniques de fournisseur de réseau social, tels que `Facebook-OAUTH`. La transformation de revendications suivante reçoit l’ID de compte de réseau social de l’utilisateur et le nom du fournisseur d’identité. La sortie de ce profil technique est une chaîne de format JSON utilisable dans des services d’annuaire Azure AD.
 
@@ -74,7 +74,7 @@ Ajoute un `AlternativeSecurityId` à une revendication `alternativeSecurityIdCol
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | chaîne | ClaimType à ajouter à la revendication de sortie. |
+| InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
 | InputClaim | collection | alternativeSecurityIdCollection | ClaimTypes utilisés par la transformation de revendications si disponible dans la stratégie. Si elle est fournie, la transformation de revendications ajoute l’`item` à la fin de la collection. |
 | OutputClaim | collection | alternativeSecurityIdCollection | ClaimTypes générés après l’appel de cette ClaimsTransformation. Nouvelle collection contenant les éléments des entrées `collection` et `item`. |
 
@@ -138,7 +138,7 @@ Supprime un **AlternativeSecurityId** d’une revendication **alternativeSecurit
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | IdentityProvider | chaîne | ClaimType contenant le nom de fournisseur d’identité à retirer de la collection. |
+| InputClaim | IdentityProvider | string | ClaimType contenant le nom de fournisseur d’identité à retirer de la collection. |
 | InputClaim | collection | alternativeSecurityIdCollection | ClaimTypes utilisés par la transformation de revendications. La transformation des revendications retire le fournisseur d’identité de la collection. |
 | OutputClaim | collection | alternativeSecurityIdCollection | ClaimTypes générés après l’appel de cette ClaimsTransformation. Nouvelle collection, après suppression du fournisseur d’identité de la collection. |
 

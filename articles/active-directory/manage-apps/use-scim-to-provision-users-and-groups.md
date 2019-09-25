@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68741361"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033469"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -91,10 +91,10 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 1. Sélectionnez **Enregistrer** pour démarrer le service d’approvisionnement Azure AD.
 1. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale démarrée, vous pouvez sélectionner **Journaux d’audit** dans le panneau gauche pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
+Une fois le cycle initial démarré, vous pouvez sélectionner **Journaux d’audit** dans le panneau gauche pour suivre la progression, qui indique toutes les actions effectuées par le service de provisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 > [!NOTE]
-> La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 40 minutes, tant que le service est en cours d’exécution.
+> Le cycle initial prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 40 minutes, tant que le service est en cours d’exécution.
 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Comprendre l’implémentation de SCIM d’Azure AD
 
@@ -693,7 +693,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 1. Sélectionnez **Enregistrer** pour démarrer le service d’approvisionnement Azure AD.
 1. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale démarrée, vous pouvez sélectionner **Journaux d’audit** dans le panneau gauche pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
+Une fois le cycle initial démarré, vous pouvez sélectionner **Journaux d’audit** dans le panneau gauche pour suivre la progression, qui indique toutes les actions effectuées par le service de provisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 La dernière étape de vérification de l’exemple consiste à ouvrir le fichier TargetFile.csv dans le dossier \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug sur votre machine Windows. Une fois le processus de déploiement exécuté, ce fichier affiche les détails de tous les utilisateurs et groupes affectés et configurés.
 
@@ -834,7 +834,7 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 
 ### <a name="handling-endpoint-authentication"></a>Gestion de l’authentification du point de terminaison
 
-Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» :"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L'audience du jeton sera l'identifiant du modèle d'application de l'application dans la galerie. L'identifiant du modèle d'application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L'identifiant du modèle d'application pour chaque application de la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l'identifiant du modèle d'application pour une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
+Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» :"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L’audience du jeton est l’ID du modèle d’application de l’application dans la galerie. L’ID du modèle d’application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L’ID du modèle d’application de chaque application dans la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l’ID du modèle d’application d’une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
 
 Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes : 
 

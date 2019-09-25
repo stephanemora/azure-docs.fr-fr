@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df47b4fc5b8048f76f94486e213285896dab9cb9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 042c4fa18ce583f714bbe71f522b1f8f1af3dfdb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874090"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066124"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
-Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans Azure Active Directory (Azure AD) B2C pour identifier les autorisations octroyées à vos API. Lorsque vous appelez un serveur de ressources, un jeton d’accès doit être présent dans la requête HTTP. Un jeton d’accès est désigné **access_token** dans les réponses d’Azure AD B2C.
+Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans Azure Active Directory B2C (Azure AD B2C) pour identifier les autorisations accordées à vos API. Lorsque vous appelez un serveur de ressources, un jeton d’accès doit être présent dans la requête HTTP. Un jeton d’accès est désigné **access_token** dans les réponses d’Azure AD B2C.
 
 Cet article présente comment demander un jeton d’accès pour une application web et une API web. Pour plus d’informations sur les jetons dans Azure AD B2C, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 

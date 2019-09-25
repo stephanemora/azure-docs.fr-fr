@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 31273105c2f4de6950eae6a66c50264803197642
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981875"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003080"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrer des données vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Striim
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 * Si vous n’avez pas [d’abonnement Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-* Une base de données Oracle s’exécutant en local avec des données.
+* Vous devez disposer d’une base de données Oracle qui contient des données et s’exécute localement.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Déployer la solution de place de marché Striim
 
@@ -155,7 +155,17 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
    ![Se connecter à la cible](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Entrez les propriétés de configuration de votre instance d’Azure Cosmos DB cible, puis sélectionnez **Save** (Enregistrer) pour continuer.
+1. Avant de configurer la cible, vérifiez que vous avez ajouté un [certificat racine Baltimore à l’environnement Java de Striim](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+
+1. Entrez les propriétés de configuration de votre instance d’Azure Cosmos DB cible, puis sélectionnez **Save** (Enregistrer) pour continuer. Voici les paramètres clés à noter :
+
+   * **Adapter** (Adaptateur) - Utilisez **DatabaseWriter**. Quand vous écrivez dans l’API Cassandra Azure Cosmos DB, DatabaseWriter est obligatoire. Le pilote Cassandra 3.6.0 est fourni en bundle avec Striim. Si DatabaseWriter dépasse le nombre d’unités de requête provisionnées sur votre conteneur Azure Cosmos, l’application plante.
+
+   * **Username** (Nom d’utilisateur) - Spécifiez le nom de votre compte Azure Cosmos.
+   
+   * **Password** (Mot de passe) - Spécifiez la clé primaire de votre compte Azure Cosmos.
+
+   * **Tables** - Les tables cibles doivent avoir des clés primaires, et les clés primaires ne peuvent pas être mises à jour.
 
    ![Configurer les propriétés cibles](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
 
@@ -178,8 +188,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
 1. Enfin, connectez-vous à Azure et accédez à votre compte Azure Cosmos. Actualisez l’Explorateur de données : vous pouvez voir que les données sont arrivées. 
 
-En utilisant la solution Striim dans Azure, vous pouvez migrer en continu des données vers des Azure Cosmos DB à partir de diverses sources telles que Oracle, Cassandra, MongoDB, etc. vers Azure Cosmos DB. Si vous rencontrez des problèmes lors de la configuration du chemin de migration avec Striim, remplissez une demande de support sur le [site web de Striim](https://go2.striim.com/request-support-striim).
-
+En utilisant la solution Striim dans Azure, vous pouvez migrer en continu des données vers des Azure Cosmos DB à partir de diverses sources telles que Oracle, Cassandra, MongoDB, etc. vers Azure Cosmos DB. Pour en savoir plus, visitez le [site web Striim](https://www.striim.com/), [téléchargez une version d’essai gratuite de 30 jours de Striim](https://go2.striim.com/download-free-trial), et pour tout problème de configuration du chemin de migration lié à Striim, effectuez une [demande de support](https://go2.striim.com/request-support-striim).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

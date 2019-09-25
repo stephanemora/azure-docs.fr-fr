@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393645"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076531"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>S’intégrer avec des identités managées Azure
 
@@ -49,11 +49,13 @@ Pour suivre ce didacticiel, vous avez besoin de :
 
 Pour configurer une identité managée dans le portail, vous créez d’abord une application selon la procédure habituelle, puis vous activez la fonctionnalité.
 
-1. Créez une application dans le [portail Azure](https://portal.azure.com) comme vous le faites normalement. Accédez-y dans le portail.
+1. Créez une instance App Services dans le [portail Azure](https://portal.azure.com) comme vous le faites normalement. Accédez-y dans le portail.
 
 2. Faites défiler l’écran jusqu’au groupe **Paramètres** dans le volet de gauche, puis sélectionnez **Identité**.
 
 3. Sous l’onglet **Affecté(e) par le système**, définissez **État** sur **Activé**, puis sélectionnez **Enregistrer**.
+
+4. Répondez **Oui** lorsque vous êtes invité à activer l’identité managée affectée par le système.
 
     ![Définir une identité managée dans App Service](./media/set-managed-identity-app-service.png)
 
@@ -75,7 +77,9 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
 
 ## <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
-1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin de configuration d’application :
+1. Recherchez l’URL de votre magasin de configuration d’application en accédant à son écran de configuration dans le portail Azure, puis en cliquant sur l’onglet **Clés d’accès**.
+
+2. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin de configuration d’application. 
 
     ```json
     "AppConfig": {
@@ -83,7 +87,7 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
     }
     ```
 
-2. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` en remplaçant la méthode `config.AddAzureAppConfiguration()`.
+3. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` en remplaçant la méthode `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -110,6 +114,13 @@ Pour permettre un déploiement Git local pour votre application avec le serveur 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Activer Git local avec Kudu
+Si vous n’avez pas encore de dépôt Git local pour votre application, vous devez en initialiser un en exécutant les commandes suivantes à partir du répertoire de projet de votre application :
+
+```cmd
+git init
+git add .
+git commit -m "Initial version"
+```
 
 Pour permettre un déploiement Git local pour votre application avec le serveur de build Kudu, exécutez [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) dans Cloud Shell.
 

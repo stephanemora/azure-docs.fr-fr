@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849169"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033380"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -87,57 +87,39 @@ Dans Azure Monitor, l’analyse des changements est actuellement intégrée dans
 
 ### <a name="enable-change-analysis-at-scale"></a>Activez l’analyse des changements à l’échelle
 
-Si votre abonnement inclut de nombreuses applications web, l’activation du service pour chaque application web serait inefficace. Dans ce cas, suivez ces instructions alternatives.
+Si votre abonnement inclut de nombreuses applications web, l’activation du service pour chaque application web serait inefficace. Exécutez le script suivant pour activer toutes les applications web dans votre abonnement.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Inscrire le fournisseur de ressources d’analyse des changements pour votre abonnement
+Conditions préalables :
+* Module PowerShell Az. Suivez les instructions dans la rubrique[Installer le module Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Inscrire l’indicateur de fonctionnalité d’analyse des changements (préversion). Étant donné que l’indicateur de fonctionnalité est disponible en préversion, vous devez l’inscrire pour le rendre visible dans votre abonnement :
+Exécutez le script qui suit :
 
-   1. Ouvrez [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Capture d’écran du Cloud Shell changé](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Modifiez le type de shell sur **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Capture d’écran du Cloud Shell changé](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Exécutez la commande PowerShell suivante :
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Inscrivez le fournisseur de ressources d’analyse des changements pour l’abonnement.
+```
 
-   - Accédez à **Abonnements**, puis sélectionnez l’abonnement que vous souhaitez activer dans le service de changements. Puis sélectionnez les fournisseurs de ressources :
 
-        ![Capture d’écran montrant comment inscrire le fournisseur de ressources d’analyse des changements](./media/change-analysis/register-rp.png)
-
-       - Sélectionnez **Microsoft.ChangeAnalysis**. Puis, en haut de la page, sélectionnez **S’inscrire**.
-
-       - Une fois que le fournisseur de ressources est activé, vous pouvez définir une balise cachée sur l’application web pour détecter les modifications au niveau du déploiement. Pour définir une balise cachée, suivez les instructions sous **Impossible de récupérer les informations d’analyse des changements**.
-
-   - Vous pouvez également utiliser un script PowerShell pour inscrire le fournisseur de ressources :
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        Pour utiliser PowerShell pour définir une balise cachée sur une application web, exécutez la commande suivante :
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > Après avoir ajouté la balise cachée, vous devrez peut-être encore attendre jusqu'à 4 heures avant de commencer à voir les modifications. Les résultats sont différés, car l’analyse des modifications analyse votre application web uniquement toutes les 4 heures. La planification de 4 heures limite l’impact sur les performances de l’analyse.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

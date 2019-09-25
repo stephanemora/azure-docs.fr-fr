@@ -4,7 +4,7 @@ description: Apprenez-en davantage sur l'adresse IP 168.63.129.16 et sur la faç
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833120"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067777"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Quelle est l’adresse IP 168.63.129.16 ?
 
@@ -34,7 +34,7 @@ L’adresse IP 168.63.129.16 est une adresse IP publique virtuelle qui est utili
 
 ## <a name="scope-of-ip-address-1686312916"></a>Portée de l’adresse IP 168.63.129.16
 
-L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Elle est autorisée par la règle du groupe de sécurité réseau par défaut. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations.
+L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Elle est autorisée par la règle du groupe de sécurité réseau par défaut. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local, en entrée et en sortie. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations.
 
 Toutes les [sondes d’intégrité Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) ont pour source cette adresse IP. Si vous bloquez cette adresse IP, l’exécution de vos sondes échouera.
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7232917df6018c9c8afc7e7edd3730a277b193f4
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798258"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065419"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C dispose de fonctionnalités intégrées qui peuvent vous aider à protéger vos ressources et vos données contre les menaces. Ces menaces incluent des attaques par déni de service et des attaques de mot de passe. Les attaques par déni de service peuvent rendre les ressources inaccessibles aux utilisateurs prévus. Une attaque de mot de passe peut mener à un accès non autorisé aux ressources.
+Azure Active Directory B2C (Azure AD B2C) dispose de fonctionnalités intégrées qui peuvent vous aider à protéger vos ressources et vos données contre les menaces. Ces menaces incluent des attaques par déni de service et des attaques de mot de passe. Les attaques par déni de service peuvent rendre les ressources inaccessibles aux utilisateurs prévus. Une attaque de mot de passe peut mener à un accès non autorisé aux ressources.
 
 ## <a name="denial-of-service-attacks"></a>Attaques par déni de service
 

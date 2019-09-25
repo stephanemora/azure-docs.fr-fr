@@ -1,6 +1,6 @@
 ---
 title: Apprentissage du réseau neural d’apprentissage profond avec PyTorch
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur PyTorch de Azure Machine Learning.  Les exemples de scripts classifient des images de poulets et de dindes pour créer un réseau neural d’apprentissage profond basé sur le didacticiel sur le transfert d’apprentissage de PyTorch.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ac3675ec9d90fc51bc9e3c72b76d8fb80312a8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966790"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002565"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Former des modèles d’apprentissage profond Pytorch à l’échelle avec Azure Machine Learning
 
@@ -67,7 +67,7 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>Initialiser un espace de travail
 
-L’[espace de travail Azure Machine Learning service](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
+L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
 Créez un objet d’espace de travail à partir du fichier `config.json` créé dans la [section Conditions préalables](#prerequisites).
 
@@ -93,7 +93,7 @@ Le jeu de données se compose de 120 images de formation par dindes et poules, a
 
 ### <a name="prepare-training-scripts"></a>Préparer des scripts de formation
 
-Dans ce didacticiel, le script de formation, `pytorch_train.py`, est déjà fourni. En pratique, vous pouvez prendre n’importe quel script de formation tel quel, et l’exécuter avec Azure Machine Learning service.
+Dans ce didacticiel, le script de formation, `pytorch_train.py`, est déjà fourni. En pratique, vous pouvez prendre n’importe quel script d’entraînement tel quel et l’exécuter avec Azure Machine Learning.
 
 Chargez le script de formation Pytorch, `pytorch_train.py`.
 
@@ -101,7 +101,7 @@ Chargez le script de formation Pytorch, `pytorch_train.py`.
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Toutefois, si vous voulez utiliser les fonctionnalités de métriques et de suivi d’Azure Machine Learning service, vous devez ajouter un peu de code dans votre script de formation. Vous trouverez des exemples de métriques et de suivi dans `pytorch_train.py`.
+Toutefois, si vous voulez utiliser les fonctionnalités de métriques et de suivi d’Azure Machine Learning, vous devez ajouter un peu de code dans votre script d’entraînement. Vous trouverez des exemples de métriques et de suivi dans `pytorch_train.py`.
 
 ## <a name="create-a-compute-target"></a>Créer une cible de calcul
 
@@ -189,7 +189,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Entraînement distribué
 
-L’estimateur [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) prend également en charge la formation distribuée sur les clusters de l’UC et du GPU. Vous pouvez facilement exécuter des tâches distribuées PyTorch et Azure Machine Learning service gère l’orchestration à votre place.
+L’estimateur [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) prend également en charge la formation distribuée sur les clusters de l’UC et du GPU. Vous pouvez facilement exécuter des tâches distribuées PyTorch et Azure Machine Learning gère l’orchestration à votre place.
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) est une infrastructure open source réduite pour la formation distribuée, développée par Uber. Elle offre un accès facile vers des tâches distribuées PyTorch du GPU.
@@ -222,7 +222,7 @@ Pour optimiser l’inférence avec le [Runtime ONNX](concept-onnx.md), convertis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez formé et inscrit un apprentissage profond, un réseau neural à l’aide de PyTorch sur Azure Machine Learning service. Pour savoir comment déployer un modèle, passez à notre article relatif aux modèles de déploiement.
+Dans cet article, vous avez entraîné et inscrit un réseau neuronal Deep Learning à l’aide de PyTorch sur Azure Machine Learning. Pour savoir comment déployer un modèle, passez à notre article relatif aux modèles de déploiement.
 
 > [!div class="nextstepaction"]
 > [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)

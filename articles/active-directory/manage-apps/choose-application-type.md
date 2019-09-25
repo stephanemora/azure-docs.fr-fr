@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 09/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d5bd2397c345a4f670bde343f751cd69f825ecb9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424260"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056059"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 
@@ -45,7 +45,7 @@ Les fonctionnalités ci-après sont prises en charge par les quatre types d’ap
 
 - **Démarrage rapide** : commencez rapidement à utiliser une application en suivant des [étapes de déploiement simple](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
-- **Gestion des propriétés générales** : obtenez un [lien direct ciblé](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) vers une application, [personnalisez la marque](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) d’une application, ou [désactivez l’application](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) pour tous les utilisateurs.
+- **Gestion des propriétés générales** : obtenez un [lien direct ciblé](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) vers une application, [personnalisez la marque](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) d’une application ou [désactivez l’application](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) pour tous les utilisateurs.
 
 - **Gestion des utilisateurs et des groupes** : [affectez](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) des utilisateurs et des groupes à une application ou [supprimez](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)-les, et attribuez éventuellement les rôles d’application spécifiques auxquels ces utilisateurs et groupes ont accès.
 
@@ -124,9 +124,6 @@ Pour définir le mode d’authentification unique d’une application, procédez
 - **Approvisionnement manuel** : choisissez le mode d’approvisionnement [Manuel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si vous avez des comptes existants, ou si vous souhaitez gérer les comptes pour cette application hors d’Azure AD.
 
 - **Approvisionnement automatique** : choisissez le **mode d’approvisionnement**[automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
-
-  >[!NOTE]
-  >Cette option est disponible uniquement pour les applications de la catégorie **Applications à la une** de la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
 
 - **SCIM-based Automatic Provisioning** (Approvisionnement automatique SCIM) : utilisez l’[approvisionnement automatique SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) si votre application prend en charge le protocole SCIM pour détecter les modifications apportées aux utilisateurs et aux groupes, qui sont alors automatiquement appliquées à toutes les applications intégrées à Azure AD. 
 

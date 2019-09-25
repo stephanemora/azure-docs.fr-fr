@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852723"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056397"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelant des API web
 
@@ -60,7 +60,7 @@ Applications qui acquièrent un jeton pour leurs propres identités :
 Pour les développeurs, l’expérience de bout en bout pour ce scénario présente les aspects suivants :
 
 - Les applications démon ne peuvent fonctionner que dans des locataires Azure AD. Il n’aurait aucun sens à créer une application démon qui tente de manipuler des comptes personnels Microsoft. Si vous êtes un développeur d’applications métier, vous allez créer votre application démon dans votre locataire. Si vous êtes un éditeur de logiciels indépendant, vous pouvez créer une application démon mutualisée. Elle devra recevoir le consentement de chaque administrateur de locataire.
-- Lors de l’[inscription de l’application](./scenario-daemon-app-registration.md), l’**URI de réponse** n’est pas nécessaire. Vous devez partager les secrets ou certificats avec Azure AD, ainsi que demander des autorisations d’applications et obtenir le consentement d’un administrateur pour utiliser ces autorisations d’application.
+- Lors de l’[inscription de l’application](./scenario-daemon-app-registration.md), l’**URI de réponse** n’est pas nécessaire. Vous devez partager secrets ou certificats ou encore assertions signées avec Azure AD, demander également des autorisations d’applications et obtenir le consentement d’un administrateur pour utiliser ces autorisations d’application.
 - La [configuration de l’application](./scenario-daemon-app-configuration.md) doit fournir les informations d’identification client qui ont été partagées avec Azure AD lors de l’inscription de l’application.
 - L’[étendue](scenario-daemon-acquire-token.md#scopes-to-request) utilisée pour acquérir un jeton avec le flux d’informations d’identification client doit être une étendue statique.
 

@@ -1,7 +1,7 @@
 ---
-title: Activer la journalisation dans Azure Machine Learning service
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment activer la journalisation dans Azure Machine Learning service avec aussi bien le package de journalisation Python que des fonctionnalités spécifiques du kit de développement logiciel.
+title: Activer la journalisation dans Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Découvrez comment activer la journalisation dans Azure Machine Learning avec aussi bien le package de journalisation Python que des fonctionnalités propres au kit SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847928"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002756"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
+# <a name="enable-logging-in-azure-machine-learning"></a>Activer la journalisation dans Azure Machine Learning
 
 Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d’activer la journalisation avec aussi bien le package de journalisation Python par défaut que des fonctionnalités spécifiques du SDK, pour la journalisation en local et dans un espace de travail sur le portail. Les journaux d’activité fournissent aux développeurs des informations en temps réel sur l’état de l’application et peuvent aider à diagnostiquer les erreurs et les avertissements. Dans cet article, vous allez découvrir différentes façons d’activer la journalisation dans les domaines suivants :
 
@@ -27,7 +27,7 @@ Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d�
 > * Modèles déployés
 > * Paramètres `logging` Python
 
-[Créer un espace de travail pour Azure Machine Learning service](how-to-manage-workspace.md). Pour plus d’informations sur le SDK, consultez ce [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+[Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md). Pour plus d’informations sur le SDK, consultez ce [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="training-models-and-compute-target-logging"></a>Journalisation des modèles d’apprentissage et des cibles de calcul
 

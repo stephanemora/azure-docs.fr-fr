@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309042"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962665"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -74,7 +74,7 @@ Tous les partenaires qui disposent d’une offre publiée peuvent travailler ave
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
-En plus des avantages en matière de récompenses, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
+En plus des avantages en matière de récompenses, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
 
 ## <a name="marketplace-rewards-requirements-and-restrictions"></a>Exigences et restrictions relatives aux récompenses de la place de marché
 
@@ -101,9 +101,9 @@ Les transactions qui sont reconnues comme frauduleuses ne seront pas comptabilis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez créé votre offre dans portail Cloud Partner, connectez-vous pour créer ou configurer votre offre.
+Si vous avez créé votre offre dans le [portail Cloud Partner](https://cloudpartner.azure.com), connectez-vous pour créer ou configurer votre offre.
 
-Si vous avez créé votre offre dans l’espace partenaires, connectez-vous pour créer ou configurer votre offre.
+Si vous avez créé votre offre dans l’[Espace partenaires](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), connectez-vous pour créer ou configurer votre offre.
 
 Passez en revue les [ressources libre-service disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

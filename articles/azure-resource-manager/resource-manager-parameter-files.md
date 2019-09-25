@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892530"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983931"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
@@ -204,6 +204,6 @@ Si votre modèle inclut un paramètre utilisant le même nom que l’un des para
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
 - Pour plus d’informations sur l’utilisation de valeurs d’un coffre de clés, consultez la page [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](resource-manager-keyvault-parameter.md).
-
+- Pour plus d’informations sur les paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).

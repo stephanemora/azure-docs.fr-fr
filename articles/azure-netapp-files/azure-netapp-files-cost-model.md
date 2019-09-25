@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030793"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995112"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
@@ -73,7 +73,7 @@ Le diagramme ci-dessous illustre ces concepts :
     * Les volumes 1 à 8 ont reçu un quota de 60 Tio chacun.  La capacité totale utilisée est de 480 Tio.  
         Chaque volume présente une limite de qualité de service de 3,75 Gio/s de débit (60 Tio * 64 Mio/s).  
     * Le volume 9 a reçu un quota de 20 Tio.  
-        Le volume 9 présente une limite de qualité de service de débit de 1,25 Gio/s de débit (60 Tio * 64 Mio/s).
+        Le volume 9 présente une limite de qualité de service de 1,25 Gio/s de débit (20 Tio * 64 Mio/s).
 * Le volume 9 correspond à un scénario de dépassement. Sa consommation réelle est de 25 Tio.  
     * Après la période de grâce d’une heure, le pool de capacité doit être redimensionné à 505 Tio.  
         Autrement dit, la capacité totale utilisée est de 8 * le quota de 60 Tio pour les volumes 1 à 8, et 25 Tio de consommation réelle pour le volume 9.

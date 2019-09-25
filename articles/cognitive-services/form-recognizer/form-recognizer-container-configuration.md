@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348693"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105106"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurer des conteneurs Form Recognizer
 
@@ -90,16 +90,17 @@ Remplacez {_argument_name_} dans le tableau suivant par vos propres valeurs :
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | Clé qui sert à démarrer le conteneur. Elle est disponible dans la page Clés Form Recognizer dans le portail Azure.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | La valeur d’URI de point de terminaison de facturation est disponible dans la page de présentation de Form Recognizer du portail Azure.|
-|{COMPUTER_VISION_API_KEY}| La clé est disponible dans la page Clés de l’API Vision par ordinateur du portail Azure.|
-|{COMPUTER_VISION_ENDPOINT_URI}|Le point de terminaison de facturation. Si vous utilisez une ressource informatique Vision par ordinateur, la valeur de l’URI est disponible dans la page de vue d’ensemble de l’API Vision par ordinateur du portail Azure. Si vous utilisez un conteneur *cognitive-services-recognize-text*, utilisez l’URL du point de terminaison de facturation passée au conteneur dans la commande `docker run`.|
+| **{FORM_RECOGNIZER_API_KEY}** | Clé qui sert à démarrer le conteneur. Elle est disponible dans la page Clés Form Recognizer dans le portail Azure. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | La valeur d’URI de point de terminaison de facturation est disponible dans la page de présentation de Form Recognizer du portail Azure.|
+| **{COMPUTER_VISION_API_KEY}** | La clé est disponible dans la page Clés de l’API Vision par ordinateur du portail Azure.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | Le point de terminaison de facturation. Si vous utilisez une ressource informatique Vision par ordinateur, la valeur de l’URI est disponible dans la page de vue d’ensemble de l’API Vision par ordinateur du portail Azure. Si vous utilisez un conteneur *cognitive-services-recognize-text*, utilisez l’URL du point de terminaison de facturation passée au conteneur dans la commande `docker run`. |
+
+Consultez [Collecte des paramètres requis](form-recognizer-container-howto.md#gathering-required-parameters) pour plus d’informations sur la façon d’obtenir ces valeurs.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Pour exécuter le conteneur, spécifiez les options `Eula`, `Billing` et `ApiKey` ; sinon, le conteneur ne démarre pas. Pour plus d'informations, consultez [Facturation](#billing-configuration-setting).
-
-> [!NOTE] 
-> La valeur ApiKey est la **Clé** présente dans la page des clés de la ressource Azure Form Recognizer.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Exemples Docker de conteneurs Form Recognizer
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956743"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962624"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
 
@@ -52,7 +52,7 @@ Développez la vente incitative et la vente croisée de vos solutions en résolv
 
 Obtenez des insights sur les performances de vos annonces grâce aux analyses à votre disposition par le biais de la Place de marché. Vous aurez accès à davantage d’informations sur les performances des campagnes, les commandes, les revenus et les moyens d’optimiser les activités de campagne liées à votre solution.
 
-### <a name="marketplace-go-to-market-benefits"></a>Avantages de la commercialisation sur la Place de marché 
+### <a name="commercial-marketplace-benefits"></a>Avantages de la place de marché commerciale 
 
 Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un accès à un éventail diversifié d’avantages gratuits pour les aider à développer leur activité sur la Place de marché. Ces avantages appartiennent aux catégories suivantes : 
 
@@ -64,7 +64,7 @@ Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un
 
 Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.  Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-Pour plus d’informations sur les avantages Microsoft Go-To-Market pour la commercialisation et sur les moyens de développer votre activité sur la Place de marché, consultez [Services Microsoft Go-To-Market](https://partner.microsoft.com/reach-customers/gtm).
+Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

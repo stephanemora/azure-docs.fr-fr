@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509258"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065521"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans Azure Active Directory (Azure AD) B2C, vous pouvez permettre aux utilisateurs qui sont connectés avec un compte local de modifier leur mot de passe sans avoir à prouver leur authenticité avec une vérification par e-mail. Si la session expire avant que l’utilisateur ne parvienne au flux du changement de mot de passe, il est invité à se reconnecter. Cet article vous montre comment configurer la modification du mot de passe dans des [stratégies personnalisées](active-directory-b2c-overview-custom.md). Il est également possible de configurer la [réinitialisation du mot de passe en libre-service](active-directory-b2c-reference-sspr.md) pour les flux d’utilisateurs.
+Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez permettre aux utilisateurs qui sont connectés avec un compte local de modifier leur mot de passe sans avoir à prouver leur authenticité avec une vérification par e-mail. Si la session expire avant que l’utilisateur ne parvienne au flux du changement de mot de passe, il est invité à se reconnecter. Cet article vous montre comment configurer la modification du mot de passe dans des [stratégies personnalisées](active-directory-b2c-overview-custom.md). Il est également possible de configurer la [réinitialisation du mot de passe en libre-service](active-directory-b2c-reference-sspr.md) pour les flux d’utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="add-the-elements"></a>Ajouter les éléments 
+## <a name="add-the-elements"></a>Ajouter les éléments
 
-1. Ouvrez votre fichier *TrustframeworkExtensions.xml* et ajoutez l’élément **ClaimType** avec l’identificateur `oldPassword` à l’élément [ClaimsSchema](claimsschema.md) : 
+1. Ouvrez votre fichier *TrustframeworkExtensions.xml* et ajoutez l’élément **ClaimType** avec l’identificateur `oldPassword` à l’élément [ClaimsSchema](claimsschema.md) :
 
     ```XML
     <BuildingBlocks>
@@ -156,7 +156,7 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
 7. Modifiez l’attribut **ReferenceId** dans `<DefaultUserJourney>` pour qu’il corresponde à l’ID du parcours utilisateur que vous avez créé. Par exemple, *PasswordChange*.
 8. Enregistrez vos modifications.
 
-Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
 ## <a name="test-your-policy"></a>Tester votre stratégie
 
@@ -165,7 +165,7 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 ### <a name="upload-the-files"></a>Téléchargement des fichiers
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Infrastructure d’expérience d’identité**.
 5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
@@ -177,8 +177,8 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 
 1. Ouvrez la stratégie que vous avez changée. Par exemple, *B2C_1A_profile_edit_password_change*.
 2. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton, l’**URL de réponse** doit indiquer `https://jwt.ms`.
-3. Cliquez sur **Exécuter maintenant**. Connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe. 
+3. Cliquez sur **Exécuter maintenant**. Connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md). 
+- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

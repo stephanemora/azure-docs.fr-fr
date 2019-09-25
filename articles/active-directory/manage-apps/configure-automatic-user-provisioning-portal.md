@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996723"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056130"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
@@ -81,7 +81,7 @@ Les personnalisations prises en charge sont notamment les suivantes :
 
 Vous pouvez démarrer et arrêter le service d’approvisionnement d’Azure AD pour l’application sélectionnée dans la zone **Paramètres** de l’écran **Approvisionnement**. Vous pouvez aussi choisir de vider le cache d’approvisionnement et de redémarrer le service.
 
-Si c’est la première fois que l’approvisionnement est activé pour une application, activez le service en définissant le paramètre **État de la configuration** sur **Activé**. Avec cette modification, le service d’approvisionnement d’Azure AD exécute une synchronisation initiale. Il lit les utilisateurs affectés dans la section **Utilisateurs et groupes**, interroge l’application cible à leur sujet, puis effectue les actions d’approvisionnement définies dans la section **Mappages** d’Azure AD. Au cours de ce processus, le service d’approvisionnement stocke des données en cache sur les comptes d’utilisateur qu’il gère, de sorte que les opérations d’annulation de l’approvisionnement n’ont aucun effet sur les comptes non gérés des applications cibles qui n’ont jamais été concernés par l’affectation. Après la synchronisation initiale, le service d’approvisionnement synchronise automatiquement les objets utilisateur et groupe toutes les dix minutes.
+Si c’est la première fois que l’approvisionnement est activé pour une application, activez le service en définissant le paramètre **État de la configuration** sur **Activé**. Avec cette modification, le service de provisionnement d’Azure AD doit exécuter un cycle initial. Il lit les utilisateurs affectés dans la section **Utilisateurs et groupes**, interroge l’application cible à leur sujet, puis effectue les actions d’approvisionnement définies dans la section **Mappages** d’Azure AD. Au cours de ce processus, le service d’approvisionnement stocke des données en cache sur les comptes d’utilisateur qu’il gère, de sorte que les opérations d’annulation de l’approvisionnement n’ont aucun effet sur les comptes non gérés des applications cibles qui n’ont jamais été concernés par l’affectation. Après le cycle initial, le service de provisionnement synchronise automatiquement les objets utilisateur et groupe toutes les dix minutes.
 
 Changez **État de la configuration** pour **Désactivé** pour suspendre le service d’approvisionnement. Dans cet état, Azure ne crée, met à jour ou supprime aucun objet utilisateur ou groupe dans l’application. Changez de nouveau l’état pour **Activé** et le service reprend où il s’était arrêté.
 
@@ -89,6 +89,6 @@ Cochez la case **Effacer l’état en cours et redémarrer la synchronisation** 
 
 * Arrêter le service d’approvisionnement
 * Vider les données mises en cache sur les comptes que gère Azure AD
-* Redémarrer les services et exécuter à nouveau la synchronisation initiale
+* Redémarrer les services et exécuter à nouveau le cycle initial
 
 Cette option permet aux administrateurs de recommencer le processus de déploiement d’approvisionnement.

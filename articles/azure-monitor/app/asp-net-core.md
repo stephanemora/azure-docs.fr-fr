@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7e0143a25c0bb25b936d072cc2652e8b38a0be66
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302712"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058276"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour applications ASP.NET Core
 
-Cet article décrit comment activer Application Insights pour une application [ASP.NET Core](https://docs.microsoft.com/aspnet/core). Lorsque vous suivez les instructions de cet article, Application Insights collecte les requêtes, dépendances, exceptions, compteurs de performances, pulsations et journaux à partir de votre application ASP.NET Core. 
+Cet article décrit comment activer Application Insights pour une application [ASP.NET Core](https://docs.microsoft.com/aspnet/core). Lorsque vous suivez les instructions de cet article, Application Insights collecte les requêtes, dépendances, exceptions, compteurs de performances, pulsations et journaux à partir de votre application ASP.NET Core.
 
 L’exemple que nous utiliserons ici est une [application MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) qui cible `netcoreapp2.2`. Vous pouvez appliquer ces instructions à toutes les applications ASP.NET Core.
 
@@ -34,6 +34,9 @@ Le [SDK Application Insights pour ASP.NET Core](https://nuget.org/packages/Micro
 * **Serveur web** : IIS (Internet Information Server) ou Kestrel. 
 * **Plateforme d’hébergement** : fonctionnalité Web Apps d’Azure App Service, machine virtuelle Azure, Docker, Azure Kubernetes Service (AKS), etc.
 * **IDE** : Visual Studio, VS Code ou ligne de commande.
+
+> [!NOTE]
+> Si vous utilisez ASP.NET Core 3.0-preview avec Application Insights, utilisez la version [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) ou une version ultérieure. Il s’agit de la seule version connue pour fonctionner correctement avec ASP.NET Core 3.0. De plus, l’intégration basée sur Visual Studio n’est pas encore prise en charge pour les applications ASP.NET Core 3.0.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -137,11 +140,42 @@ Exécutez votre application et lancez des requêtes. Les données de télémétr
 
 La prise en charge des [compteurs de performances](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) dans ASP.Net Core est limitée :
 
-   * La version 2.4.1 et les versions ultérieures du SDK collectent les compteurs de performances si l’application est exécutée dans Web Apps (Windows).
-   * La version 2.7.0-beta3 et les versions ultérieures du SDK collectent les compteurs de performances si l’application est exécutée dans Windows et cible `NETSTANDARD2.0` ou des versions ultérieures.
-   * Pour les applications ciblant .NET Framework, toutes les versions du SDK prennent en charge les compteurs de performances.
- 
-Cet article sera mis à jour lors de l’ajout de la prise en charge des compteurs de performance dans Linux.
+* Les versions 2.4.1 et ultérieures du kit SDK collectent les compteurs de performances si l’application s’exécute dans Azure Web Apps (Windows).
+* Les versions 2.7.1 et ultérieures du kit SDK collectent les compteurs de performances si l’application s’exécute dans Windows et cible `NETSTANDARD2.0` ou version ultérieure.
+* Pour les applications ciblant .NET Framework, toutes les versions du SDK prennent en charge les compteurs de performances.
+* Les versions 2.8.0-beta3 et ultérieures du kit SDK prennent en charge le compteur processeur/mémoire dans Linux. Aucun autre compteur n’est pris en charge dans Linux. La méthode recommandée pour obtenir les compteurs système dans Linux (et dans d’autres environnements non-Windows) consiste à utiliser [EventCounters](#eventcounter)
+
+### <a name="eventcounter"></a>EventCounter
+
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) est une méthode multiplateforme permettant de publier et de consommer des compteurs dans .NET/.NET Core. Cette fonctionnalité existait avant, mais aucun fournisseur intégré n’avait publié ces compteurs. À compter de .NET Core 3.0, plusieurs compteurs sont publiés dès le départ, comme les compteurs CLR, les compteurs ASP.NET Core, etc.
+
+Les versions 2.8.0-beta3 et ultérieures du kit SDK prennent en charge la collecte des compteurs EventCounter. Par défaut, le kit SDK collecte les compteurs suivants et ces compteurs peuvent être interrogés dans Metrics Explorer ou à l’aide d’une requête Analytics sous la table PerformanceCounter. Le nom des compteurs sera au format « Category|Counter ».
+
+|Category | Compteur|
+|---------------|-------|
+|System.Runtime | cpu-usage |
+|System.Runtime | working-set |
+|System.Runtime | gc-heap-size |
+|System.Runtime | gen-0-gc-count |
+|System.Runtime | gen-1-gc-count |
+|System.Runtime | gen-2-gc-count |
+|System.Runtime | time-in-gc |
+|System.Runtime | gen-0-size |
+|System.Runtime | gen-1-size |
+|System.Runtime | gen-2-size |
+|System.Runtime | loh-size |
+|System.Runtime | alloc-rate |
+|System.Runtime | assembly-count |
+|System.Runtime | exception-count |
+|System.Runtime | threadpool-thread-count |
+|System.Runtime | monitor-lock-contention-count |
+|System.Runtime | threadpool-queue-length |
+|System.Runtime | threadpool-completed-items-count |
+|System.Runtime | active-timer-count |
+|Microsoft.AspNetCore.Hosting | requests-per-second |
+|Microsoft.AspNetCore.Hosting | total-requests |
+|Microsoft.AspNetCore.Hosting | current-requests |
+|Microsoft.AspNetCore.Hosting | failed-requests |
 
 ### <a name="ilogger-logs"></a>Journaux ILogger
 
@@ -197,7 +231,17 @@ Vous pouvez modifier quelques paramètres courants en passant de `ApplicationIns
     }
 ```
 
-Pour plus d’informations, consultez les [paramètres configurables dans `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
+Liste complète des paramètres dans `ApplicationInsightsServiceOptions`
+
+|Paramètre | Description | Default
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | Active/désactive la fonctionnalité LiveMetrics | true
+|EnableAdaptiveSampling | Active/désactive l’échantillonnage adaptatif | true
+|EnableHeartbeat | Active/désactive la fonctionnalité des pulsations, qui envoie régulièrement (toutes les 15 minutes, par défaut) une métrique personnalisée nommée « HeartBeatState » avec des informations sur le runtime, telles que la version .NET, des informations d’environnement Azure, le cas échéant, etc. | true
+|AddAutoCollectedMetricExtractor | Active/désactive l’extracteur AutoCollectedMetrics, qui est un TelemetryProcessor qui envoie des métriques pré-agrégées sur les demandes/dépendances avant l’échantillonnage. | true
+|RequestCollectionOptions.TrackExceptions | Active/désactive la création de rapports de suivi des exceptions non gérées par le module de collecte des demandes. | false dans NETSTANDARD2.0 (car les exceptions sont suivies avec ApplicationInsightsLoggerProvider), true dans le cas contraire.
+
+Consultez les [paramètres configurables dans `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) pour obtenir la liste la plus à jour.
 
 ### <a name="sampling"></a>échantillonnage
 
@@ -259,16 +303,17 @@ Vous pouvez ajouter des processeurs de télémétrie personnalisés à `Telemetr
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>Configuration ou suppression de l’élément TelemetryModules par défaut
 
-Application Insights utilise des modules de télémétrie pour [collecter automatiquement des informations utiles](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) sur des charges de travail spécifiques sans nécessiter une configuration supplémentaire.
+Application Insights utilise les modules de télémétrie pour collecter automatiquement des informations de télémétrie utiles sur des charges de travail spécifiques sans qu’un suivi manuel de l’utilisateur ne soit nécessaire.
 
 Les modules de collecte automatique suivants sont activés par défaut. Ces modules sont chargés de collecter automatiquement les données de télémétrie. Vous pouvez les désactiver ou les configurer pour modifier leur comportement par défaut.
 
-* `RequestTrackingTelemetryModule`
-* `DependencyTrackingTelemetryModule`
-* `PerformanceCollectorModule`
-* `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
-* `AzureInstanceMetadataTelemetryModule`
+* `RequestTrackingTelemetryModule` - Collecte RequestTelemetry à partir des demandes web entrantes.
+* `DependencyTrackingTelemetryModule` - Collecte DependencyTelemetry à partir des appels http sortants et des appels SQL.
+* `PerformanceCollectorModule` - Collecte les compteurs PerformanceCounters Windows.
+* `QuickPulseTelemetryModule` - Collecte les données de télémétrie à afficher dans le portail des métriques en temps réel.
+* `AppServicesHeartbeatTelemetryModule` - Collecte les pulsations (envoyées en tant que métriques personnalisées) à propos de l’environnement Azure App Service où l’application est hébergée.
+* `AzureInstanceMetadataTelemetryModule` - Collecte les pulsations (envoyées en tant que métriques personnalisées) à propos de l’environnement Azure VM où l’application est hébergée.
+* `EventCounterCollectionModule` - Collecte les compteurs [EventCounter](#eventcounter). Ce module est une nouvelle fonctionnalité disponible dans les versions 2.8.0-beta3 et ultérieures du kit SDK.
 
 Pour configurer tout `TelemetryModule` par défaut, utilisez la méthode d’extension `ConfigureTelemetryModule<T>` sur `IServiceCollection`, comme illustré dans l’exemple suivant.
 
@@ -286,6 +331,15 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
                         {
                             module.EnableW3CHeadersInjection = true;
                         });
+
+        // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+                            (module, o) =>
+                            {
+                                module.Counters.Clear();
+                                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+                            }
+                        );
 
         // The following removes PerformanceCollectorModule to disable perf-counter collection.
         // Similarly, any other default modules can be removed.
@@ -331,6 +385,8 @@ Si vous souhaitez désactiver la télémétrie de manière conditionnelle et dyn
     }
 ```
 
+Notez que le code ci-dessus n’empêche pas les modules de collecte automatique de collecter des données de télémétrie. Seul l’envoi de données de télémétrie à Application Insights est désactivé avec l’approche ci-dessus. Si un module de collecte automatique particulier n’est pas souhaité, il est préférable de [supprimer le module de télémétrie](#configuring-or-removing-default-telemetrymodules)
+
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Comment puis-je suivre les données de télémétrie qui ne sont pas automatiquement collectées ?
@@ -366,6 +422,8 @@ Pour plus d’informations sur la création de rapports personnalisés pour les 
 
 Oui, l’activation d’Application Insights avec cette méthode est valide. Cette technique est utilisée dans l’intégration de Visual Studio et dans les extensions Web Apps. Toutefois, nous vous recommandons d’utiliser `services.AddApplicationInsightsTelemetry()`, car cette méthode fournit des surcharges pour contrôler la configuration. Les deux méthodes font la même chose en interne. Si vous n’avez pas besoin d’appliquer une configuration personnalisée, vous pouvez appeler l’une ou l’autre de ces méthodes.
 
+`IWebHostBuilder` est remplacé par `IHostBuilder` dans ASP.NET Core 3.0 et, pour éviter toute confusion, Application Insights version 2.8.0-beta3 et ultérieure marquent la méthode UseApplicationInsights() comme obsolète et elle sera supprimée dans la version majeure suivante.
+
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>Je déploie mon application ASP.NET Core dans Web Apps. Dois-je toujours activer l’extension Application Insights à partir de Web Apps ?
 
 Si le SDK est installé au moment de la génération, comme indiqué dans cet article, vous n’avez pas besoin activer l’[extension Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) à partir du portail App Service. Même si l’extension est installée, elle se désactive quand elle détecte que le SDK est déjà ajouté à l’application. Si vous activez Application Insights à partir de l’extension, il est inutile d’installer et de mettre à jour le SDK. Mais si vous activez Application Insights en suivant les instructions de cet article, vous bénéficiez de davantage de flexibilité pour plusieurs raisons :
@@ -375,6 +433,7 @@ Si le SDK est installé au moment de la génération, comme indiqué dans cet ar
        * dans tous les modes de publication, notamment le mode autonome ou le mode dépendant de l’infrastructure ;
        * dans toutes les versions cibles de .Net Framework, y compris le .NET Framework complet ;
        * avec toutes les options d’hébergement, notamment Web Apps, les machines virtuelles, Linux, les conteneurs, Azure Kubernetes Service et l’hébergement non Azure.
+       * dans toutes les versions de .NET Core, y compris les préversions.
    * Vous pouvez voir les données de télémétrie localement lorsque vous déboguez à partir de Visual Studio.
    * Vous pouvez suivre des données de télémétrie personnalisées supplémentaires à l’aide de l’API `TrackXXX()`.
    * Vous avez le contrôle total de la configuration.

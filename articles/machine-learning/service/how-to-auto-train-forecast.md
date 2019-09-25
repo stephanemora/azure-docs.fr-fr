@@ -1,7 +1,7 @@
 ---
 title: Entraîner automatiquement un modèle de prévision de série chronologique
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser Azure Machine Learning service pour entraîner un modèle de régression de prévisions de série chronologique en utilisant le machine learning automatisé.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser Azure Machine Learning pour entraîner un modèle de régression de prévisions de série chronologique en utilisant le Machine Learning automatisé.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879064"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035045"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
-Dans cet article, vous allez apprendre à former un modèle de régression de prévisions de série chronologique à l’aide du machine learning dans Azure Machine Learning service. La configuration d’un modèle de prévision est semblable à celle d’un modèle de régression standard utilisant le machine learning automatisé, mais il existe certaines options de configuration et étapes de prétraitement pour l’utilisation des données de série chronologique. Les exemples suivants vous montrent comment :
+Dans cet article, vous allez apprendre à entraîner un modèle de régression de prévisions de série chronologique à l’aide du Machine Learning dans Azure Machine Learning. La configuration d’un modèle de prévision est semblable à celle d’un modèle de régression standard utilisant le machine learning automatisé, mais il existe certaines options de configuration et étapes de prétraitement pour l’utilisation des données de série chronologique. Les exemples suivants vous montrent comment :
 
 * Préparer les données pour la modélisation de série chronologique
 * Configurer les paramètres de série chronologique spécifiques dans un objet [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)
@@ -37,7 +37,7 @@ Les fonctionnalités extraites les données d’apprentissage jouent un rôle ca
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Pour créer l’espace de travail, consultez [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 * Cet article suppose une connaissance de base en matière de configuration d’une expérience de Machine Learning automatisé. Suivez le [didacticiel](tutorial-auto-train-models.md) ou les [procédures](how-to-configure-auto-train.md) pour afficher les modèles de conception des expériences de Machine Learning automatisé.
 
 ## <a name="preparing-data"></a>Préparation des données

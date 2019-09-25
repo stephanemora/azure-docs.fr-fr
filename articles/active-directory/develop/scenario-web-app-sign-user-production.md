@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd6717c132d32d54c16e7678695a09e35181a057
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074709"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086547"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>Application Web qui connecte les utilisateurs - Passage en production
 
@@ -37,12 +37,16 @@ Lorsque votre application web connecte des utilisateurs, elle peut appeler des A
 > [!div class="nextstepaction"]
 > [Application web qui appelle des API web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive---web-app-tutorial"></a>Approfondissement - Didacticiel d’application web
+### <a name="deep-dive---aspnet-core-web-app-tutorial"></a>Présentation approfondie - Tutoriel sur les applications web ASP.NET Core
 
-Découvrez d’autres méthodes de connexion d’utilisateurs dans le didacticiel ASP.NET Core : [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Il s’agit d’un didacticiel progressif contenant un code prêt pour la production pour une application web, y compris la procédure d’ajout de connexion.
+Découvrez d’autres méthodes de connexion d’utilisateurs dans le tutoriel ASP.NET Core : [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Cet exemple constitue un tutoriel graduel contenant un code prêt pour la production d’une application web, avec la procédure d’ajout de connexion aux comptes dans :
 
-<!--- Removed the diagram as it's already shown in the above link to GitHub
+- votre organisation
+- plusieurs organisations,
+- des comptes professionnels et scolaires, ou des comptes Microsoft personnels,
+- avec [Azure AD B2C](https://aka.ms/aadb2c)
+- ou dans les clouds nationaux.
 
-![Tutorial overview](media/scenarios/aspnetcore-webapp-tutorial.svg)
+### <a name="sample-code---java-web-app"></a>Exemple de code - Application web Java
 
---->
+Apprenez-en davantage sur l’application web Java à partir de l’exemple sur GitHub : [Une application web Java qui connecte les utilisateurs à la plateforme d’identités Microsoft et appelle Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

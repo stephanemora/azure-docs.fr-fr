@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 217601a430b40772eaf1f24c8e1501bc4b4fcae5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073203"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055306"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -71,7 +71,7 @@ Pour définir le fuseau horaire du serveur pour votre application web :
     * Value = *Fuseau horaire de votre choix*
 3. Sélectionnez **Enregistrer**.
 
-Pour connaître les valeurs acceptés, consultez la colonne **Fuseaux horaires** dans l’article [Fuseaux horaires par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones).
+Pour les services App Services qui s’exécutent sur Windows, consultez la colonne **Fuseaux horaires** dans l’article [Fuseaux horaires par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) pour connaître les valeurs acceptées. Pour les services App Services qui s’exécutent sur Linux, définissez le [nom de la base de données TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) comme valeur de fuseau horaire. Voici un exemple de nom de base de données TZ : America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Pourquoi mes tâches web continues échouent-elles parfois ?
 
@@ -96,7 +96,7 @@ Notez que, pour utiliser une adresse IP dédiée ou réservée aux appels entran
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Puis-je exporter mon certificat App Service afin de l’utiliser en dehors d’Azure, par exemple, pour un site web hébergé ailleurs ? 
 
-Les certificats App Service sont considérés comme des ressources Azure. Ils ne sont pas destinés à une utilisation en dehors de vos services Azure. Vous ne pouvez pas les exporter pour les utiliser en dehors d’Azure. Pour plus d’informations, voir [FAQ sur les certificats App Service et les domaines personnalisés](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Oui, vous pouvez l’exporter pour l’utiliser en dehors d’Azure. Pour plus d’informations, voir [FAQ sur les certificats App Service et les domaines personnalisés](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Puis-je exporter mon certificat App Service afin de l’utiliser avec d’autres services cloud Azure ?
 

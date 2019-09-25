@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e1cfb9bf0e8b17df67b2f7060f665d169a71c8d6
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909801"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098382"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -126,6 +126,10 @@ La fonctionnalité [Restauration instantanée](backup-instant-restore-capability
 Lorsque vous modifiez les paramètres du coffre de clés pour la machine virtuelle chiffrée, les sauvegardes continuent de fonctionner avec les nouveaux paramètres, mais, en cas de restauration à partir d’un point de récupération antérieur à la modification, vous devez restaurer les secrets dans un coffre de clés avant de pouvoir créer la machine virtuelle à partir de celui-ci. Pour plus d’informations, voir cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
 
 Des opérations telles que la restauration de secret/clé ne nécessitent pas cette étape et le même coffre de clés peut être utilisé après restauration.
+
+### <a name="can-i-access-the-vm-once-restored-due-to-an-vm-having-broken-relationship-with-domain-controller"></a>Puis-je accéder à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine ?
+
+Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, voir cet [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

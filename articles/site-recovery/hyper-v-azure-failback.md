@@ -6,23 +6,25 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 07ecc8547ab155600bccfd1ad8f1ecbb58a18fa3
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552414"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931844"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Hyper-V protégées par Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
-1. Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
-1. Assurez-vous que le serveur VMM ou le serveur d’hôte Hyper-V du site principal est connecté à Azure.
-2. Vous devez avoir effectué une **validation** sur la machine virtuelle.
+
+- Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
+- Assurez-vous que le serveur VMM ou le serveur d’hôte Hyper-V du site principal est connecté à Azure.
+- Vous devez avoir effectué une **validation** sur la machine virtuelle.
+- Veuillez à utiliser un compte de stockage pour la réplication, et non pas des disques managés. La restauration automatique des machines virtuelles Hyper-V répliquées à l’aide de la gestion de disques n’est pas prise en charge.
 
 ## <a name="perform-failback"></a>Effectuer une restauration automatique
 Après le basculement du site principal vers l’emplacement secondaire, les machines virtuelles répliquées ne sont pas protégées par Site Recovery et l’emplacement secondaire joue désormais le rôle d’emplacement actif. Pour effectuer une restauration automatique des machines virtuelles dans un plan de récupération, exécutez un basculement planifié à partir du site secondaire vers le site primaire, comme suit. 

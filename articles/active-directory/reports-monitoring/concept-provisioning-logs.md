@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b2d80d21822758991ad8b3bc1d3bb44e2257f4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129513"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983502"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -85,7 +85,7 @@ Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des c
 
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
-![Informations détaillées](./media/concept-provisioning-logs/detailed-information.png "Informations détaillées")
+![Informations détaillées](./media/concept-provisioning-logs/steps.png "Filtre")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrer les activités d’approvisionnement

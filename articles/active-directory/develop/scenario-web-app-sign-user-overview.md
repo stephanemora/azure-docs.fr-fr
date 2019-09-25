@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852468"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086569"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 
@@ -32,15 +32,35 @@ Découvrez comment créer une application web qui connecte les utilisateurs à l
 
 ## <a name="getting-started"></a>Prise en main
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 Si vous souhaitez créer vos premières applications web (ASP.NET Core) portables qui connectent les utilisateurs, suivez ce guide de démarrage rapide :
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : application web ASP.NET Core qui connecte les utilisateurs](quickstart-v2-aspnet-core-webapp.md)
 
-Si vous préférez continuer d’utiliser ASP.NET, essayez le didacticiel suivant :
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+Si vous souhaitez savoir comment ajouter la connexion à une application web ASP.NET héritée, essayez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : application web ASP.NET qui connecte les utilisateurs](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Si vous êtes développeur Java, essayez le guide de démarrage rapide suivant :
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Java](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Si vous développez avec Python, essayez :
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Python](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -51,11 +71,11 @@ Vous allez ajouter l’authentification à votre application web afin qu’elle 
 Lors d’une deuxième phase, vous pouvez également permettre à l’application d’appeler des API web de la part de l’utilisateur connecté. Cette phase suivante est un autre scénario, que vous trouverez dans l’article [Application web qui appelle des API web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> L’ajout de connexions à une application web consiste à protéger l’application web et à valider un jeton utilisateur, ce qui correspond à l’action des bibliothèques **d’intergiciels**. Ce scénario ne nécessite pas encore les bibliothèques MSAL (Microsoft Authentication Libraries), qui concernent l’acquisition d’un jeton pour appeler des API protégées. Les bibliothèques d’authentification sont uniquement introduites dans le scénario de suivi lorsque l’application web doit appeler les API web.
+> L’ajout de connexions à une application web consiste à protéger l’application web et à valider un jeton utilisateur, ce qui correspond à l’action des bibliothèques **d’intergiciels**. Dans le cas de .NET, ce scénario ne demande pas encore les bibliothèques MSAL (Microsoft Authentication Libraries), qui concernent l’acquisition d’un jeton pour appeler des API protégées. Les bibliothèques d’authentification sont uniquement introduites dans le scénario de suivi lorsque l’application web doit appeler les API web.
 
 ## <a name="specifics"></a>Spécificités
 
-- Lors de l’inscription de l’application, vous devez fournir un ou plusieurs (si vous déployez l’application à différents emplacements) URI de réponse. Dans certains cas (ASP.NET/ASP.NET Core), vous devrez activer le jeton IDToken. Enfin, vous souhaiterez configurer un URI de déconnexion afin que votre application réagisse aux déconnexions des utilisateurs.
+- Lors de l’inscription de l’application, vous devez fournir un ou plusieurs (si vous déployez l’application à différents emplacements) URI de réponse. Dans certains cas (ASP.NET/ASP.NET Core), vous devez activer le jeton d’ID. Enfin, vous souhaiterez configurer un URI de déconnexion afin que votre application réagisse aux déconnexions des utilisateurs.
 - Dans le code de l’application, vous devez indiquer l’autorité à laquelle l’application web délègue la connexion. Vous souhaiterez peut-être personnaliser la validation du jeton (en particulier dans les scénarios d’éditeurs de logiciels indépendants).
 - Les applications web prennent en charge tous les types de comptes. Pour plus d’informations, consultez l’article [Types de comptes pris en charge](v2-supported-account-types.md).
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0df6f5f9728a8e48a3257e56ddf8ad23906dc92c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735172"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933318"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
@@ -31,9 +31,6 @@ Il est important de pouvoir démarrer une instance d’orchestration. Cela se r�
 La méthode [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) sur [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) ou `startNew` sur `DurableOrchestrationClient` (JavaScript) démarre une nouvelle instance. Les instances de cette classe peuvent être obtenues à l’aide de la liaison `orchestrationClient`. En interne, cette méthode empile un message dans la file d’attente de contrôle, qui déclenche ensuite une fonction avec le nom spécifié utilisant la liaison de déclenchement `orchestrationTrigger`.
 
 Cette opération asynchrone se termine quand le processus d’orchestration est correctement planifié. Le processus d’orchestration doit démarrer dans les 30 secondes. Si cela dure plus longtemps, vous verrez une `TimeoutException`.
-
-> [!WARNING]
-> Lorsque vous développez localement en JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>` (par exemple, `localhost:7071`) pour utiliser les méthodes de `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -361,7 +358,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Envoyer des événements à des instances
 
-Dans certains scénarios, il est important que vos fonctions d’orchestrateur soient en mesure d’attendre et d’écouter les événements externes. Cela comprend les [fonctions de supervision](durable-functions-concepts.md#monitoring) et les fonctions qui attendent les [interactions humaines](durable-functions-concepts.md#human).
+Dans certains scénarios, il est important que vos fonctions d’orchestrateur soient en mesure d’attendre et d’écouter les événements externes. Cela comprend les [fonctions de supervision](durable-functions-overview.md#monitoring) et les fonctions qui attendent les [interactions humaines](durable-functions-overview.md#human).
 
 Vous pouvez envoyer des notifications d’événements aux instances en cours d’exécution à l’aide de la méthode [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) ou de la méthode `raiseEvent` de la classe `DurableOrchestrationClient` (JavaScript). Les instances pouvant gérer ces événements sont celles en attente d’un appel à[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) ou `waitForExternalEvent` (JavaScript).
 
@@ -541,7 +538,7 @@ Si une orchestration échoue pour une raison quelconque, vous pouvez *rembobiner
 
 Utilisez l’API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) ou `rewindAsync` (JavaScript) pour que l’orchestration revienne à l’état *En cours d’exécution*. Réexécutez les activités ou les sous-orchestrations qui ont échoué et provoqué l’échec de l’orchestration.
 
-Par exemple, supposons que vous ayez un workflow impliquant une suite d’[approbations humaines](durable-functions-concepts.md#human). Supposons que vous ayez une suite de fonctions d’activité qui informe une personne que son approbation est nécessaire, et qui attend la réponse en temps réel. Une fois que toutes les activités d’approbation ont reçu des réponses ou ont expiré, supposons qu’une autre activité échoue en raison d’un problème de configuration d’application (par exemple, une chaîne de connexion de base de données non valide). Il en résulte un échec de l’orchestration, survenu en profondeur dans le workflow. Avec l’API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), un administrateur d’application peut corriger l’erreur de configuration et rembobiner (rewind) l’orchestration ayant échoué jusqu’à l’état situé immédiatement avant l’échec. Aucune des étapes nécessitant une interaction humaine n’a besoin d’être réapprouvée et l’orchestration peut désormais s’effectuer correctement.
+Par exemple, supposons que vous ayez un workflow impliquant une suite d’[approbations humaines](durable-functions-overview.md#human). Supposons que vous ayez une suite de fonctions d’activité qui informe une personne que son approbation est nécessaire, et qui attend la réponse en temps réel. Une fois que toutes les activités d’approbation ont reçu des réponses ou ont expiré, supposons qu’une autre activité échoue en raison d’un problème de configuration d’application (par exemple, une chaîne de connexion de base de données non valide). Il en résulte un échec de l’orchestration, survenu en profondeur dans le workflow. Avec l’API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), un administrateur d’application peut corriger l’erreur de configuration et rembobiner (rewind) l’orchestration ayant échoué jusqu’à l’état situé immédiatement avant l’échec. Aucune des étapes nécessitant une interaction humaine n’a besoin d’être réapprouvée et l’orchestration peut désormais s’effectuer correctement.
 
 > [!NOTE]
 > La fonctionnalité de *rembobinage* ne prend pas en charge le rembobinage des instances d’orchestration qui utilisent des minuteurs durables.
@@ -661,4 +658,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez comment utiliser les API HTTP pour la gestion des instances](durable-functions-http-api.md)
+> [Découvrez comment gérer les versions](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Informations de référence sur les API HTTP intégrées pour la gestion des instances](durable-functions-http-api.md)

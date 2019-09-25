@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914862"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097914"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Préversion : Mettre à l’échelle automatiquement un cluster pour répondre à des demandes applicatives d’Azure Kubernetes Service (AKS)
 
 Pour suivre le rythme des demandes applicatives d’Azure Kubernetes Service (ACS), vous devrez peut-être ajuster le nombre de nœuds qui exécutent vos charges de travail. Le composant programme de mise à l’échelle automatique de cluster peut surveiller les pods de votre cluster qui ne peuvent pas être planifiés en raison de contraintes de ressources. Lorsque des problèmes sont détectés, le nombre de nœuds du pool de nœuds est augmenté pour répondre à la demande applicative. Les pods exécutés sont également régulièrement vérifiés sur les nœuds dont le nombre est réduit au besoin. Cette possibilité d’augmenter ou de réduire automatiquement le nombre de nœuds dans votre cluster AKS vous permet d’exécuter un cluster efficace et économique.
 
-Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS. La mise à l’échelle automatique de cluster ne doit être testée qu’en préversion sur les clusters AKS.
+Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS. Le programme de mise à l’échelle automatique de cluster ne doit être testé qu’en préversion sur les clusters AKS.
 
 > [!IMPORTANT]
 > Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
@@ -53,7 +53,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez des clust
 Pour faire face à l’évolution des demandes applicatives, par exemple entre les journées de travail et les soirées ou pendant les week-ends, les clusters ont souvent besoin d’être mis à l’échelle automatiquement. Les clusters AKS peuvent être mis à l’échelle de deux manières :
 
 * Le **programme de mise à l’échelle automatique de cluster** surveille les pods qui ne peuvent pas être planifiés sur les nœuds en raison de contraintes de ressources. Le cluster augmente alors automatiquement le nombre de nœuds.
-* Le **programme de mise à l’échelle automatique de pods élastique** utilise le serveur de mesures d’un cluster Kubernetes pour surveiller la demande en ressources de pods. Si un service a besoin de davantage de ressources, le nombre de pods est automatiquement augmenté pour répondre à la demande.
+* Le **programme de mise à l’échelle automatique de pods élastique** utilise le serveur de mesures d’un cluster Kubernetes pour surveiller la demande en ressources de pods. Si une application a besoin de davantage de ressources, le nombre de pods est automatiquement augmenté pour répondre à la demande.
 
 ![Le programme de mise à l’échelle automatique de cluster et le programme de mise à l’échelle automatique de pods élastique fonctionnent souvent ensemble pour assurer la prise en charge des demandes applicatives requises.](media/autoscaler/cluster-autoscaler.png)
 
@@ -67,7 +67,7 @@ Pour plus d’informations sur l’incapacité du programme de mise à l’éche
 
 Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Ces paramètres sont définis par la plateforme Azure et ne sont pas exposés actuellement pour que vous les ajustiez. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [What are the cluster autoscaler parameters?][autoscaler-parameters] (Quels sont les paramètres du programme de mise à l’échelle automatique de cluster ?).
 
-Les programmes de mise à l’échelle automatique de cluster et de pod horizontal peuvent fonctionner ensemble et sont souvent déployés ensemble dans un même cluster. Lorsqu’ils sont combinés, le programme de mise à l’échelle automatique de pods élastique se concentre sur l’exécution du nombre de pods requis pour répondre à la demande applicative. Le programme de mise à l’échelle automatique de cluster est axé sur l’exécution du nombre de nœuds nécessaires pour assurer la prise en charge des pods planifiés.
+Les programmes de mise à l’échelle automatique de cluster et de pods élastique peuvent fonctionner ensemble et sont souvent déployés dans un même cluster. Lorsqu’ils sont combinés, le programme de mise à l’échelle automatique de pods élastique se concentre sur l’exécution du nombre de pods requis pour répondre à la demande applicative. Le programme de mise à l’échelle automatique de cluster est axé sur l’exécution du nombre de nœuds nécessaires pour assurer la prise en charge des pods planifiés.
 
 > [!NOTE]
 > La mise à l’échelle manuelle est désactivée lorsque vous utilisez le programme de mise à l’échelle automatique de cluster. Laissez le programme de mise à l’échelle automatique de cluster déterminer le nombre de nœuds requis. Si vous souhaitez mettre à l’échelle manuellement votre cluster, [désactivez le programme de mise à l’échelle automatique de cluster](#disable-the-cluster-autoscaler).
@@ -104,7 +104,7 @@ La création du cluster et la configuration des paramètres du programme de mise
 ## <a name="change-the-cluster-autoscaler-settings"></a>Modification des paramètres du programme de mise à l’échelle automatique de cluster
 
 > [!IMPORTANT]
-> Si la fonctionnalité de *pools d’agents multiples* est activée sur votre abonnement, passez à la [section relative à la mise à l’échelle automatique à l’aide de pools d’agents multiples](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Les clusters dans lesquels des pools d’agents multiples sont activés nécessitent l’utilisation de l’ensemble de commandes `az aks nodepool` au lieu de `az aks` pour modifier des propriétés spécifiques du pool de nœuds. Les instructions ci-dessous partent du principe que vous n’avez pas activé des pools de nœuds multiples. Pour vérifier si vous les avez activés, exécutez la commande `az feature  list -o table` et recherchez `Microsoft.ContainerService/multiagentpoolpreview`.
+> Si la fonctionnalité de *pools d’agents multiples* est activée sur votre abonnement, passez à la [section relative à la mise à l’échelle automatique à l’aide de pools d’agents multiples](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Les clusters dans lesquels des pools d’agents multiples sont activés nécessitent l’utilisation de l’ensemble de commandes `az aks nodepool` au lieu de `az aks` pour modifier des propriétés spécifiques du pool de nœuds. Les instructions ci-dessous partent du principe que vous n’avez pas activé des pools de nœuds multiples. Pour vérifier si vous les avez activés, exécutez la commande `az feature  list -o table` et recherchez `Microsoft.ContainerService/multiagentpoolpreview`.
 
 Dans l’étape précédente de création d’un cluster AKS ou de mise à jour d’un pool de nœuds existant, le nombre minimal de nœuds du programme de mise à l’échelle automatique de cluster a été défini sur *1* tandis que le nombre maximal de nœuds a été défini sur *3*. Si vos demandes applicatives changent, vous devrez peut-être ajuster le nombre de nœuds du programme de mise à l’échelle automatique de cluster.
 

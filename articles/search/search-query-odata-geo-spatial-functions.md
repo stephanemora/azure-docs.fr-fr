@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur la fonction géospatiale OData - Recherche Azure
 description: 'Il existe deux fonctions géospatiales OData dans les requêtes Recherche Azure : geo.distance et geo.intersects.'
-ms.date: 06/13/2019
+ms.date: 09/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,18 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9585a9a7ea976ed32ccb8eed1e69877339196f87
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 03220786c65ab510a632252b20d593cd96a90494
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647576"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003448"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>Fonctions géospatiales OData dans Recherche Azure - `geo.distance` et `geo.intersects`
 
 Recherche Azure prend en charge les requêtes géospatiales dans les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `geo.distance` et `geo.intersects`. La fonction `geo.distance` renvoie la distance en kilomètres entre deux points, l’un étant un champ ou une variable de portée et l’autre une constante passée comme partie du filtre. La fonction `geo.intersects` renvoie `true` si un point donné se trouve dans un polygone donné, où le point est un champ ou une variable de portée et où le polygone est spécifié sous la forme d’une constante passée comme partie du filtre.
 
 La fonction `geo.distance` peut également être utilisée dans le paramètre [ **$orderby** ](search-query-odata-orderby.md) pour trier les résultats de recherche par distance à partir d’un point donné. La syntaxe pour `geo.distance` dans **$orderby** est la même que dans **$filter**. Lors de l’utilisation de `geo.distance` dans **$orderby**, le champ auquel elle s’applique doit être de type `Edm.GeographyPoint` et être aussi **triable**.
+
+> [!NOTE]
+> Si vous spécifiez `geo.distance` dans le paramètre **$orderby**, le champ que vous passez à la fonction doit contenir un seul point géographique. Autrement dit, il doit être de type `Edm.GeographyPoint` et pas de type `Collection(Edm.GeographyPoint)`. Le tri sur les champs de collection n’est pas possible dans la Recherche Azure.
 
 ## <a name="syntax"></a>Syntaxe
 

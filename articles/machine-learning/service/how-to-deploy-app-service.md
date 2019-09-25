@@ -1,7 +1,7 @@
 ---
 title: Déployer des modèles ML sur Azure App Service (préversion)
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser Azure Machine Learning service pour déployer un modèle sur une application web dans Azure App Service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser Azure Machine Learning pour déployer un modèle sur une application web dans Azure App Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,21 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147906"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034596"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 
-Découvrez comment déployer un modèle à partir d’Azure Machine Learning service en tant qu’application web dans Azure App Service.
+Découvrez comment déployer un modèle à partir d’Azure Machine Learning en tant qu’application web dans Azure App Service.
 
 > [!IMPORTANT]
-> Bien qu’Azure Machine Learning service et Azure App Service soient mis à la disposition générale, la possibilité de déployer un modèle du service Machine Learning vers App Service est en préversion.
+> Bien qu’Azure Machine Learning et Azure App Service soient mis à la disposition générale, la possibilité de déployer un modèle du service Machine Learning vers App Service est en préversion.
 
-Avec Azure Machine Learning service, vous pouvez créer des images Docker à partir de modèles Machine Learning entraînés. Cette image contient un service web qui reçoit des données, les soumet au modèle, puis retourne la réponse. Azure App Service peut être utilisé pour déployer l’image et fournit les fonctionnalités suivantes :
+Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de modèles Machine Learning entraînés. Cette image contient un service web qui reçoit des données, les soumet au modèle, puis retourne la réponse. Azure App Service peut être utilisé pour déployer l’image et fournit les fonctionnalités suivantes :
 
 * [Authentification](/azure/app-service/configure-authentication-provider-aad) avancée pour une sécurité améliorée. Les méthodes d’authentification incluent Azure Active Directory et l’authentification multifacteur.
 * [Effectuer une mise à l’échelle automatique](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sans nécessité de redéploiement.
@@ -37,7 +37,7 @@ Pour plus d’informations sur les fonctionnalités fournies par Azure App Servi
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un modèle Machine Learning entraîné inscrit dans votre espace de travail. Si vous n’avez pas de modèle, utilisez le [tutoriel de classification d’image : entraîner un modèle](tutorial-train-models-with-aml.md) pour entraîner et inscrire un modèle.
 
@@ -48,7 +48,7 @@ Pour plus d’informations sur les fonctionnalités fournies par Azure App Servi
     > * `model` - Modèle inscrit qui sera déployé.
     > * `inference_config` - Configuration d’inférence pour le modèle.
     >
-    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Préparation du déploiement
 
@@ -66,7 +66,7 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
     >
     > Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-run-batch-predictions.md), qui donnent accès aux magasins de travail lors du scoring.
 
-    Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+    Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
@@ -89,7 +89,7 @@ Ces entités sont encapsulées dans une __configuration d'inférence__. La confi
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
 
-Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Lors du déploiement vers Azure App Service, il n’est pas nécessaire de créer une __configuration de déploiement__.
@@ -99,7 +99,7 @@ Pour plus d’informations sur la configuration de l’inférence, consultez [D�
 Pour créer l’image du Docker qui est déployée sur Azure App Service, utilisez [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). L’extrait de code suivant montre comment construire une nouvelle image à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
-> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -153,7 +153,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     Dans cet exemple, le niveau tarifaire __De base__ (`--sku B1`) est utilisé.
 
     > [!IMPORTANT]
-    > Les images créées par le service Azure Machine Learning utilisent Linux. Vous devez donc utiliser le paramètre `--is-linux`.
+    > Les images créées par Azure Machine Learning utilisent Linux. Vous devez donc utiliser le paramètre `--is-linux`.
 
 1. Pour créer une application web, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagename>` par les valeurs du `package.location` retourné précédemment :
 
