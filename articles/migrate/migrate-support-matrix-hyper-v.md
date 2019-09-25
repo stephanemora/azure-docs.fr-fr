@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376092"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066780"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -27,9 +27,9 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 **Déploiement** | **Détails***
 --- | ---
 **Évaluer des machines virtuelles Hyper-V en local** | [Configurez](tutorial-prepare-hyper-v.md) votre première évaluation.<br/><br/> [Exécutez](scale-hyper-v-assessment.md) une évaluation à grande échelle.
-**Migrer des machines virtuelles Hyper-V vers Azure** | [Testez](tutorial-migrate-hyper-v.md) une migration vers Azure. 
+**Migrer des machines virtuelles Hyper-V vers Azure** | [Testez](tutorial-migrate-hyper-v.md) une migration vers Azure.
 
-La migration de serveurs Hyper-V managés avec System Center Virtual Machine Manager (VMM) n’est pas prise en charge par la migration de serveur Azure Migrate. 
+La migration de serveurs Hyper-V managés avec System Center Virtual Machine Manager (VMM) n’est pas prise en charge par la migration de serveur Azure Migrate.
 
 ## <a name="azure-migrate-projects"></a>Projets Azure Migrate
 
@@ -44,10 +44,13 @@ Geography | Vous pouvez créer un projet Azure Migrate dans un certain nombre de
   Azure Government | Gouvernement américain - Virginie
   Asie-Pacifique | Asie Est ou Asie Sud-Est
   Australie | Australie Est ou Australie Sud-Est
+  Brésil | Brésil Sud
   Canada | Canada Centre ou Canada Est
   Europe | Europe Nord ou Europe Ouest
+  France | France Centre
   Inde | Inde Centre ou Inde Sud
   Japon |  Japon Est ou Japon Ouest
+  Corée du Sud | Corée Centre ou Corée Sud
   Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
   États-Unis | USA Centre ou USA Ouest 2
 

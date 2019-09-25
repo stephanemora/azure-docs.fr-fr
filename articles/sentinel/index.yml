@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation Azure Sentinel (préversion)
+title: Documentation sur Azure Sentinel
 metadata:
-  title: 'Documentation Azure Sentinel (préversion) - Tutoriels, guides de démarrage rapide | Microsoft Doc'
+  title: 'Documentation sur Azure Sentinel - Tutoriels, guides de démarrage rapide | Microsoft Doc'
   meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
   services: sentinel
   author: cmcclister
@@ -15,7 +15,7 @@ metadata:
   ms.date: 02/28/19
   ms.author: cmcclister
 abstract:
-  description: "Azure Sentinel (préversion) est une solution SIEM native cloud qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud. Profitez d’une vitesse et d’une mise à l’échelle illimitées du cloud pour vous permettre de vous concentrer sur ce qui est vraiment important. Collectez facilement des données à partir de toutes vos ressources locales et cloud, d’Office\_365, de ressources Azure et d’autres clouds. Détectez efficacement les menaces avec le machine learning intégré des experts Microsoft en analytique de la sécurité. Automatisez les réponses aux menaces à l’aide des playbooks d’orchestration et d’automatisation intégrés."
+  description: "Azure Sentinel est une solution SIEM cloud native qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud. Profitez d’une vitesse et d’une mise à l’échelle illimitées du cloud pour vous permettre de vous concentrer sur ce qui est vraiment important. Collectez facilement des données à partir de toutes vos ressources locales et cloud, d’Office\_365, de ressources Azure et d’autres clouds. Détectez efficacement les menaces avec le machine learning intégré des experts Microsoft en analytique de la sécurité. Automatisez les réponses aux menaces à l’aide des playbooks d’orchestration et d’automatisation intégrés."
 sections:
   - title: "Démarrages en 5\_minutes"
     items:

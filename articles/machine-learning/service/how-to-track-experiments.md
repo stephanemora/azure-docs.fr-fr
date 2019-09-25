@@ -1,7 +1,7 @@
 ---
-title: Consigner les métriques pendant les exécutions d’entraînement
-titleSuffix: Azure Machine Learning service
-description: Vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats consignés d’une exécution.
+title: Journaliser les expériences et métriques Machine Learning
+titleSuffix: Azure Machine Learning
+description: Surveillez vos expériences Azure Machine Learning et les métriques d'exécution pour améliorer le processus de création de modèle. Ajoutez la journalisation à votre script d'entraînement et affichez les résultats enregistrés d’une exécution.  Utilisez run.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,21 +10,21 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858722"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002703"
 ---
-# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Suivre les métriques d’entraînement de Machine Learning avec Azure Machine Learning
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
 
-Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques. Dans cet article, découvrez comment ajouter du code de journalisation à votre script d’entraînement, soumettre une exécution d’expérience, superviser cette exécution et inspecter les résultats dans Azure Machine Learning service.
+Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques d'exécution. Dans cet article, découvrez comment ajouter du code de journalisation à votre script d’entraînement, soumettre une exécution d’expérience, superviser cette exécution et inspecter les résultats dans Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning service peut aussi consigner des informations provenant d’autres sources pendant l’entraînement, notamment les exécutions du Machine Learning automatisé ou le conteneur Docker qui exécute le travail d’entraînement. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+> Azure Machine Learning peut aussi consigner des informations provenant d’autres sources pendant l’entraînement, notamment les exécutions du Machine Learning automatisé ou le conteneur Docker qui exécute le travail d’entraînement. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
 ## <a name="available-metrics-to-track"></a>Métriques pouvant être suivies
 
@@ -65,7 +65,7 @@ Avant d’ajouter la journalisation et d’envoyer une expérience, vous devez c
 
 **start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
 
-L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un notebook Jupyter local. Pour en savoir plus sur l’envoi d’expérimentations dans différents environnements, consultez [Configurer des cibles de calcul pour l’entraînement de modèle avec le service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un notebook Jupyter local. Pour en savoir plus sur l’envoi d’expérimentations dans différents environnements, consultez [Configurer des cibles de calcul pour l’entraînement de modèle avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
 1. Créez un script d’entraînement dans un notebook Jupyter local. 
 
@@ -91,7 +91,7 @@ L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Ajoutez le suivi d’expérimentation à l’aide du kit SDK du service Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux d’activité, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
+2. Ajoutez le suivi d’expérimentation à l’aide du kit de développement logiciel (SDK) Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux d’activité, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
 
    ```python
     # Get an experiment object from Azure Machine Learning

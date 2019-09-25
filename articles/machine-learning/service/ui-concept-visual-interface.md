@@ -1,7 +1,7 @@
 ---
 title: Interface visuelle
-titleSuffix: Azure Machine Learning service
-description: En savoir plus sur les termes, les concepts et le workflow qui composent l’interface visuelle (préversion) pour Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: En savoir plus sur les termes, les concepts et le workflow qui composent l’interface visuelle (préversion) pour Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860397"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996520"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Qu’est-ce que l’interface visuelle pour Azure Machine Learning service ? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Qu’est-ce que l’interface visuelle pour Azure Machine Learning ? 
 
-L’interface visuelle (préversion) pour Azure Machine Learning service permet de préparer des données, d’entraîner, de tester, de déployer et de suivre les modèles d’apprentissage automatique sans écrire de code.
+L’interface visuelle (préversion) pour Azure Machine Learning permet de préparer des données, de former, de tester, de déployer et de suivre les modèles d’apprentissage automatique sans écrire de code.
 
 Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des [jeux de donnée](#dataset)s et des [modules](#module) pour construire votre modèle.
 
-L’interface visuelle utilise votre [espace de travail](concept-workspace.md) d’Azure Machine Learning service pour :
+L’interface visuelle utilise votre [espace de travail](concept-workspace.md) Azure Machine Learning pour :
 
 + Écrivez des artefacts d’exécutions [expérimentales](#experiment) dans l’espace de travail.
 + Accéder aux [jeux de données](#dataset).

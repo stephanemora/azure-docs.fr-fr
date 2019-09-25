@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744588"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067086"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives. La surveillance peut s’effectuer directement à partir d’un cluster AKS ou porter sur tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’Azure Container Instances est également possible lorsque vous surveillez un cluster AKS spécifique.
@@ -170,9 +170,13 @@ Les nœuds virtuels Azure Container Instances qui exécutent le système d’exp
 
 Sélectionnez des contrôleurs ou des conteneurs en haut de la page pour examiner l’état et l’utilisation des ressources pour ces objets. Pour afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%* , qui est une valeur de type données numérique représentant une valeur non définie ou non représentable.
 
-La **plage de travail de la mémoire** montre la mémoire résidente et la mémoire virtuelle (cache) incluses, et représente le total de ce que l’application utilise. **RSS mémoire** montre uniquement la mémoire principale (qui, en d’autres termes, n’est rien d’autre que la mémoire résidente). Cette métrique montre la capacité réelle de la mémoire disponible.
-
 ![Affichage des performances des nœuds d’un conteneur](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+La **plage de travail de la mémoire** montre la mémoire résidente et la mémoire virtuelle (cache) incluses, et représente le total de ce que l’application utilise. **RSS mémoire** montre uniquement la mémoire principale (qui, en d’autres termes, n’est rien d’autre que la mémoire résidente). Cette métrique montre la capacité réelle de la mémoire disponible. Quelle est la différence entre la mémoire résidente et la mémoire virtuelle ?
+
+- La mémoire résidente, ou mémoire principale, correspond à la quantité réelle de mémoire disponible pour les nœuds du cluster.
+
+- La mémoire virtuelle correspond à l’espace disque réservé (cache) utilisé par le système d’exploitation pour échanger des données de la mémoire sur le disque en cas de sollicitation de la mémoire, puis les replacer en mémoire si nécessaire.
 
 Par défaut, les données de performances sont basées sur les six dernières heures, mais vous pouvez modifier la fenêtre à l’aide de l’option **Plage horaire** située en haut à gauche. Vous pouvez également filtrer les résultats dans l’intervalle de temps en sélectionnant les options du sélecteur de centiles **Min**, **Avg** (Moy), **50th** (50e), **90th** (90e), **95th** (95e) et **Max**. 
 

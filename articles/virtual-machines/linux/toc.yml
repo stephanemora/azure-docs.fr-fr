@@ -476,6 +476,8 @@
           href: expand-disks.md
         - name: Effectuer la capture instantanée d’un disque
           href: snapshot-copy-managed-disk.md
+        - name: Créer un instantané incrémentiel
+          href: disks-incremental-snapshots.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Migration et conversion

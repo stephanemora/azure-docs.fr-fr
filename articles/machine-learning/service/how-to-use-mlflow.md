@@ -1,6 +1,6 @@
 ---
 title: Utiliser MLflow
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Configurez MLflow avec Azure Machine Learning pour consigner les métriques et les artefacts, et déployer des modèles à partir de Databricks, de votre environnement local ou de l’environnement de machines virtuelles.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860457"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999283"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Suivre des métriques et déployer des modèles avec MLflow et Azure Machine Learning service (préversion)
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>Suivre des métriques et déployer des modèles avec MLflow et Azure Machine Learning (préversion)
 
-Cet article montre comment activer l'URI de suivi MLflow et l'API de journalisation, collectivement appelés [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), avec le service Azure Machine Learning. Cela vous permet d’effectuer les opérations suivantes :
+Cet article montre comment activer l'URI de suivi MLflow et l'API de journalisation, collectivement appelés [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), avec Azure Machine Learning. Cela vous permet d’effectuer les opérations suivantes :
 
-+ Suivez et journalisez les métriques et artefacts de vos expériences dans votre [espace de travail du service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Si vous utilisez déjà MLflow Tracking pour vos expériences, l’espace de travail fournit un emplacement centralisé, sécurisé et évolutif pour stocker vos métriques et modèles d’apprentissage.
++ Suivez et journalisez les métriques et artefacts de vos expériences dans votre [espace de travail Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Si vous utilisez déjà MLflow Tracking pour vos expériences, l’espace de travail fournit un emplacement centralisé, sécurisé et évolutif pour stocker vos métriques et modèles d’apprentissage.
 
 + Déployez vos expériences MLflow en tant que service web Azure Machine Learning. En déployant un service web, vous pouvez appliquer les fonctionnalités de surveillance et de supervision des dérives de données Azure Machine Learning à vos modèles de production. 
 
@@ -34,7 +34,7 @@ Le diagramme suivant montre qu’avec MLflow Tracking, vous pouvez mener n’imp
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Comparer les clients MLflow et Azure Machine Learning
 
- Le tableau ci-dessous récapitule les différents clients pouvant utiliser Azure Machine Learning service et leurs fonctionnalités respectives.
+ Le tableau ci-dessous récapitule les différents clients pouvant utiliser Azure Machine Learning et leurs fonctionnalités respectives.
 
  MLflow Tracking offre des fonctionnalités de stockage de journalisation de métriques et d’artefact qui ne sont autrement disponibles que via le [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -59,7 +59,7 @@ Le diagramme suivant montre qu’avec MLflow Tracking, vous pouvez mener n’imp
 
 ## <a name="track-local-runs"></a>Suivre les exécutions locales
 
-MLflow Tracking avec le service Azure Machine Learning vous permet de stocker les métriques et artefacts consignés à partir de vos exécutions locales dans votre espace de travail Azure Machine Learning.
+MLflow Tracking avec Azure Machine Learning vous permet de stocker les métriques et artefacts consignés à partir de vos exécutions locales dans votre espace de travail Azure Machine Learning.
 
 Installez le package `azureml-contrib-run` pour utiliser MLflow Tracking avec Azure Machine Learning sur vos expériences exécutées localement dans un Jupyter Notebook ou un éditeur de code.
 
@@ -98,7 +98,7 @@ with mlflow.start_run():
 
 ## <a name="track-remote-runs"></a>Suivre les exécutions à distance
 
-MLflow Tracking avec le service Azure Machine Learning vous permet de stocker les métriques et artefacts consignés à partir de vos exécutions distantes dans votre espace de travail Azure Machine Learning.
+MLflow Tracking avec Azure Machine Learning vous permet de stocker les métriques et artefacts consignés à partir de vos exécutions distantes dans votre espace de travail Azure Machine Learning.
 
 Les exécutions à distance vous permettent d’effectuer l’apprentissage de vos modèles sur des calculs plus puissants, tels que des machines virtuelles activées par GPU ou des clusters de Capacité de calcul Machine Learning. Pour en savoir plus sur les différentes options de calcul, voir [Configurer des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md).
 
@@ -141,7 +141,7 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>Suivre les exécutions Azure Databricks
 
-MLflow Tracking avec le service Azure Machine Learning vous permet de stocker les métriques et artefacts journalisés à partir de vos exécutions Databricks dans votre espace de travail Azure Machine Learning.
+MLflow Tracking avec Azure Machine Learning vous permet de stocker les métriques et artefacts consignés à partir de vos exécutions Databricks dans votre espace de travail Azure Machine Learning.
 
 Pour exécuter vos expériences MLflow avec Azure Databricks, vous devez d’abord créer un [espace de travail et un cluster Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 

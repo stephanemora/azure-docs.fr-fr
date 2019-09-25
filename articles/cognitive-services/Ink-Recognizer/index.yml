@@ -1,81 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Ink Recognizer
+### YamlMime:Landing
+title: Documentation sur l’API Ink Recognizer
+summary: Découvrez comment utiliser l’API Ink Recognizer pour intégrer la reconnaissance des entrées manuscrites à vos applications et services. L’API est un service basé sur le cloud qui utilise le Machine Learning pour reconnaître des formes et du texte manuscrits dans n’importe quel contexte.
 metadata:
-  title: "Documentation Ink Recognizer\_- Guides de démarrage rapide, tutoriels, informations de référence sur l’API\_- Azure Cognitive Services\_| Microsoft Docs"
-  description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans plusieurs langues.
+  title: API Ink Recognizer - Tutoriels, guides de démarrage rapide, informations de référence sur l’API
+  titleSuffix: Azure Cognitive Services
+  description: Les entrées manuscrites numériques font référence aux technologies qui permettent de représenter sous forme numérique des entrées comme l’écriture manuscrite et les dessins. Tandis que les appareils continuent d’offrir des expériences d’écriture manuscrite numérique avancées, l’intelligence artificielle et le machine learning permettent de reconnaître des formes et du texte manuscrits dans n’importe quel contexte. L’API Ink Recognizer est un service cloud qui vous permet d’envoyer des traits d’encre et d’obtenir des informations détaillées les concernant.
   services: cognitive-services
-  author: erhopf
+  author: aahill
   manager: nitinme
+  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: ink-recognizer
   ms.topic: landing-page
-  ms.date: 05/02/2019
-  ms.author: erhopf
-abstract:
-  description: 'Les entrées manuscrites numériques font référence aux technologies qui permettent de représenter sous forme numérique des entrées comme l’écriture manuscrite et les dessins. Tandis que les appareils continuent d’offrir des expériences d’écriture manuscrite numérique avancées, l’intelligence artificielle et le machine learning permettent de reconnaître des formes et du texte manuscrits dans n’importe quel contexte. L’API Ink Recognizer est un service cloud qui vous permet d’envoyer des traits d’encre et d’obtenir des informations détaillées les concernant.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/ink-recognizer/overview
-            html: <p>En savoir plus sur Ink Recognizer et sur la façon de l’intégrer à vos produits</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que l’API Ink Recognizer\_?"
-          - href: concepts/send-ink-data.md
-            html: <p>En savoir plus sur les modèles d’appel recommandés lors de l’utilisation de l’API</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Envoi de données manuscrites à l’API Ink Recognizer
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Bien démarrer avec l’API Ink Recognizer\_:"
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo-csharp.svg
-            title: 'C#'
-          - image:
-              src: media/index/logo-java.svg
-            title: Java
-          - image:
-              src: media/index/logo-js.svg
-            title: JavaScript
-        rows:
-          - title: Reconnaître les traits d’encre numériques
-            values:
-              - href: quickstarts/csharp.md
-              - href: quickstarts/java.md
-              - href: quickstarts/javascript.md
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: "Utilisez ces exemples de programmes pour voir comment l’API Ink Recognizer peut être intégrée à vos applications\_:"
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089803">C# et la plateforme Windows universelle (UWP)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# et Windows Presentation Foundation (WPF)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">Application de navigateur web JavaScript</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Application mobile Android et Java</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Application mobile Swift et iOS</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST
-            html: "<p><a href=\"https://go.microsoft.com/fwlink/?linkid=2089907\">\_Informations de référence sur l’API REST\_</a></p>"
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: Interface de ligne de commande
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Interface de ligne de commande Azure</a></p>'
+  ms.date: 09/23/2019
+  ms.author: aahi
+  ms.openlocfilehash: 985cdb6492445c89462e79cc2931d28bc34abb58
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71219518"
+landingContent:
+- title: À propos de l’API Ink Recognizer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’API Ink Recognizer ?
+      url: overview.md
+- title: Reconnaître les traits d’encre numériques
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de C#
+      url: quickstarts/csharp.md
+    - text: Utilisation de Java
+      url: quickstarts/java.md
+    - text: Utilisation de JavaScript
+      url: quickstarts/javascript.md
+  - linkListType: concept
+    links:
+    - text: Envoyer les données des traits d’encre à l’API
+      url: concepts/send-ink-data.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://go.microsoft.com/fwlink/?linkid=2089907
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: D’Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+- title: Exemples
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: C# et plateforme Windows universelle (UWP)
+      url: https://go.microsoft.com/fwlink/?linkid=2089803
+    - text: C# et Windows Presentation Foundation (WPF)
+      url: https://go.microsoft.com/fwlink/?linkid=2089804
+    - text: Application de navigateur web JavaScript
+      url: https://go.microsoft.com/fwlink/?linkid=2089908
+    - text: Application mobile Android et Java
+      url: https://go.microsoft.com/fwlink/?linkid=2089906
+    - text: Application mobile Swift et iOS
+      url: https://go.microsoft.com/fwlink/?linkid=2089805

@@ -1,6 +1,6 @@
 ---
 title: Utiliser l’interface de ML automatisé d’Azure pour entraîner et déployer des modèles
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Créez, gérez et déployez des expériences de Machine Learning automatisé dans la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion).
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910415"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034824"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion)
 
@@ -26,9 +26,9 @@ ms.locfileid: "70910415"
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Consultez [Créer un espace de travail pour Azure Machine Learning service](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Prise en main
 
