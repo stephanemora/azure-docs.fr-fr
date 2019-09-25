@@ -141,7 +141,7 @@ Utilisation de `AADClientCertificate`:
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| Type | AzureDiskEncryptionForLinux | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (schéma 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (schéma 0.1) AADClientSecret | password | string |
@@ -151,7 +151,7 @@ Utilisation de `AADClientCertificate`:
 | KeyEncryptionAlgorithm | « RSA-OAEP », « RSA-OAEP-256 », « RSA1_5 » | string |
 | KeyEncryptionKeyURL | url | string |
 | (facultatif) KeyVaultURL | url | string |
-| Phrase secrète | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | Système d’exploitation, données, tout | string |
 
