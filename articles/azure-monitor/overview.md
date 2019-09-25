@@ -101,10 +101,10 @@ Les règles d’alerte dans Azure Monitor utilisent des [groupes d’actions](pl
 
 ![Alertes](media/overview/alerts.png)
 
-### <a name="autoscale"></a>Autoscale
+### <a name="autoscale"></a>Mise à l’échelle automatique
 La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet de créer des règles qui utilisent les métriques collectées par Azure Monitor pour déterminer quand ajouter automatiquement des ressources pour gérer les augmentations de charge tout en réalisant des économies en supprimant les ressources inactives. Vous spécifiez un nombre minimal et maximal d’instances et la logique permettant de définir quand augmenter ou diminuer les ressources.
 
-![Autoscale](media/overview/autoscale.png)
+![Mise à l’échelle automatique](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Affichage des données de supervision
 Les [visualisations](visualizations.md), telles que les tables et les graphiques, sont des outils efficaces pour résumer les données de supervision et les proposer à différents publics. Azure Monitor dispose de ses propres fonctionnalités de visualisation des données de supervision et s’appuie sur d’autres services Azure pour leur publication auprès de différents publics.
@@ -114,7 +114,7 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) vous pe
 
 ![tableau de bord](media/overview/dashboard.png)
 
-### <a name="views"></a>Views
+### <a name="views"></a>Les vues
 Les [vues](../log-analytics/log-analytics-view-designer.md) présentent de manière visuelle les données de journal dans Azure Monitor.  Chaque vue inclut une seule vignette comportant plusieurs visualisations, par exemple sous forme de barres et de graphiques en courbes, en plus des listes résumant les données critiques.  Les solutions de supervision incluent des vues qui synthétisent les données pour une application donnée. Vous pouvez créer vos propres vues pour présenter les données de n’importe quelle requête de journal. Comme les autres éléments d’Azure Monitor, les vues peuvent être ajoutées aux tableaux de bord Azure.
 
 ![Affichage](media/overview/view.png)
