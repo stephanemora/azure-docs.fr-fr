@@ -8,15 +8,15 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 648369d89bd2b5b08171e1f6f5482c81bfba3c66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010343"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173443"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Tutoriel : Créer une topologie de réseau hybride hub-and-spoke avec Terraform dans Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Didacticiel : Créer une topologie de réseau hybride hub-and-spoke avec Terraform dans Azure
 
 Cette série de tutoriels explique comment utiliser Terraform pour implémenter une [topologie de réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) dans Azure. 
 
@@ -67,7 +67,7 @@ Voici quelques utilisations courantes d’une architecture hub-and-spoke :
 
 - **Réseau local**. Un réseau local privé s’exécutant au sein d’une organisation. Pour l’architecture de référence hub-and-spoke, un réseau virtuel dans Azure est utilisé pour simuler un réseau local.
 
-- **Appareil VPN**. Un appareil ou service VPN assurant la connectivité externe au réseau local. L’appareil VPN peut être un équipement matériel ou une solution logicielle. 
+- **Périphérique VPN**. Un appareil ou service VPN assurant la connectivité externe au réseau local. L’appareil VPN peut être un équipement matériel ou une solution logicielle. 
 
 - **Réseau virtuel hub**. Le hub constituant le point central de la connectivité pour votre réseau local, et un emplacement où héberger des services. Ces services peuvent être consommés par les différentes charges de travail hébergées dans les réseaux virtuels spoke.
 
@@ -117,7 +117,7 @@ Créez le fichier de configuration Terraform qui déclare le fournisseur Azure.
 
 1. Collez le code suivant dans l’éditeur :
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.22"
     }
@@ -137,7 +137,7 @@ Créez le fichier de configuration Terraform pour les variables courantes qui so
 
 1. Collez le code suivant dans l’éditeur :
 
-    ```JSON
+    ```hcl
     variable "location" {
       description = "Location of the network"
       default     = "centralus"

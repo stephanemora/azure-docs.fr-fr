@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68619479"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
@@ -178,7 +178,7 @@ Dans ce tutoriel, vous allez utiliser les [API Analyse de texte d’Azure Cognit
    - Sélectionnez un niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Cognitive Services, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=sparkeventhubs-docs-alehall).
    - Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.
 
-     Sélectionnez **Créer**.
+     Sélectionnez **Create** (Créer).
 
 5. Une fois le compte créé, sélectionnez **Afficher les clés d'accès** dans l'onglet **Vue d'ensemble**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
     ![Créer un notebook dans Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 3. Répétez les étapes pour créer le notebook **AnalyzeTweetsFromEventHub**.
 

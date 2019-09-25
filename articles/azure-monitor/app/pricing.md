@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277007"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067011"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -151,7 +151,7 @@ Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregist
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
 > [!NOTE]
-> Nous avons temporairement supprimé cette fonctionnalité pendant que nous répondons à un problème potentiel.  Nous la rétablirons d’ici la mi-septembre 2019.
+> Nous avons temporairement supprimé cette fonctionnalité pendant que nous répondons à un problème potentiel.  Nous la rétablirons d’ici la première semaine d'octobre 2019.
 
 La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de conservation disponibles est 30, 60, 90, 120, 180, 270, 365, 550 et 730 jours. 
 

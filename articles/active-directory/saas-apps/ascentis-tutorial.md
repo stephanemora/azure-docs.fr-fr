@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Ascentis | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Ascentis | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ascentis.
 services: active-directory
 documentationCenter: na
@@ -16,20 +16,19 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed6c28491162a729f0e110e953f89dd72fe12ea
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 4fd6c18e3a3af763a2f4404e6b9c808e1bd8a4a5
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68002863"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129934"
 ---
-# <a name="tutorial-integrate-ascentis-with-azure-active-directory"></a>Tutoriel : Intégrer Ascentis à Azure Active Directory
+# <a name="tutorial-integrate-ascentis-with-azure-active-directory"></a>Didacticiel : Intégrer Ascentis à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Ascentis à Azure Active Directory (Azure AD). Quand vous intégrez Ascentis à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Ascentis.
 * Permettre à vos utilisateurs de se connecter automatiquement à Ascentis avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 

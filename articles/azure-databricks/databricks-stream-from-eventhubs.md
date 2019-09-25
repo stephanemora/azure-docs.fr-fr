@@ -11,10 +11,10 @@ ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
 ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68976506"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
@@ -173,7 +173,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
     ![Créer un notebook dans Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 3. Répétez les étapes pour créer le notebook **ReadTweetsFromEventHub**.
 

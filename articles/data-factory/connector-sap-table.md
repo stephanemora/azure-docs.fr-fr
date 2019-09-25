@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 1d64a25fc60a1a1cbe1ed04f87a57556b7de0b88
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 87f97d674b1dd4334ac0ca07648baa1e7cc6607a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259014"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089554"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
@@ -27,6 +27,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 >Pour en savoir plus sur la prise en charge générale de l'intégration de données SAP par ADF, consultez le [livre blanc Intégration de données SAP à l'aide d'Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur de table SAP est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données à partir d’une table SAP vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -293,6 +298,11 @@ Lors de la copie de données à partir d’une table SAP, les mappages suivants 
 | `P` P (« packed » DCB, Devise, Décimal, Qté) | `Decimal` |
 | `N` (Numérique) | `String` |
 | `X` (Données binaires et brutes) | `String` |
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

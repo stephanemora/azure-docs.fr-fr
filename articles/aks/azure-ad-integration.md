@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542894"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103787"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Intégrer Azure Active Directory dans Azure Kubernetes Service
 
@@ -86,7 +86,7 @@ La première application Azure AD est appliquée pour obtenir l’appartenance �
 
     e. Sélectionnez **Ajouter des autorisations** pour enregistrer les mises à jour.
 
-    f. Sous **Donner son consentement**, sélectionnez **Accorder le consentement administrateur**. Ce bouton n’est pas indisponible si le compte actif n’est pas administrateur de locataire.
+    f. Sous **Donner son consentement**, sélectionnez **Accorder le consentement administrateur**. Ce bouton est indisponible car le compte actuellement utilisé n'est pas répertorié en tant qu'administrateur de locataire.
 
     L’affichage de la notification suivante sur le portail indique que les autorisations ont bien été octroyées :
 

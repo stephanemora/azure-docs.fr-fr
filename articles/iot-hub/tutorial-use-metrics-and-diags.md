@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162541"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262312"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Didacticiel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
 
@@ -126,7 +126,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>Activer les journaux de diagnostic 
 
-Les [journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) sont désactivés par défaut quand vous créez un hub IoT. Dans cette section, activez les journaux de diagnostic pour votre hub.
+Les [journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) sont désactivés par défaut quand vous créez un hub IoT. Dans cette section, activez les journaux de diagnostic pour votre hub.
 
 1. Pour commencer, si vous n’êtes pas déjà sur votre hub dans le portail, cliquez sur **Groupe de ressources**, puis sur le groupe de ressources Contoso-Resources. Sélectionnez le hub dans la liste des ressources affichées. 
 

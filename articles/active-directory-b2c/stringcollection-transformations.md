@@ -10,30 +10,30 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512438"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063309"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation des transformations de revendications de collections de chaînes du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation des transformations de revendications de collections de chaînes du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Ajoute une revendication de chaîne à une nouvelle revendication stringCollection. 
+Ajoute une revendication de chaîne à une nouvelle revendication stringCollection.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | chaîne | ClaimType à ajouter à la revendication de sortie. |
+| InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
 | OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
 
-Utilisez cette transformation de revendication pour ajouter une chaîne à un objet stringCollection nouveau ou existant. Elle est couramment utilisée dans un profil technique **AAD-UserWriteUsingAlternativeSecurityId**. Avant la création d’un compte social, la transformation de revendication **CreateOtherMailsFromEmail** lit le ClaimType et ajoute la valeur au ClaimType **otherMails**. 
+Utilisez cette transformation de revendication pour ajouter une chaîne à un objet stringCollection nouveau ou existant. Elle est couramment utilisée dans un profil technique **AAD-UserWriteUsingAlternativeSecurityId**. Avant la création d’un compte social, la transformation de revendication **CreateOtherMailsFromEmail** lit le ClaimType et ajoute la valeur au ClaimType **otherMails**.
 
 La transformation de revendication suivante ajoute le ClaimType **e-mail** au ClaimType **otherMails**.
 
@@ -54,20 +54,20 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
   - **item** : "admin@contoso.com"
-- Revendications de sortie : 
+- Revendications de sortie :
   - **collection** : ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection. 
+Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
-| InputParameter | item | chaîne | Valeur à ajouter à la revendication de sortie. |
+| InputParameter | item | string | Valeur à ajouter à la revendication de sortie. |
 | OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
 
-Utilisez cette transformation de revendication pour ajouter une valeur de chaîne à un objet stringCollection nouveau ou existant. L’exemple suivant ajoute une adresse e-mail constante (admin@contoso.com) à la revendication **otherMails**. 
+Utilisez cette transformation de revendication pour ajouter une valeur de chaîne à un objet stringCollection nouveau ou existant. L’exemple suivant ajoute une adresse e-mail constante (admin@contoso.com) à la revendication **otherMails**.
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -87,21 +87,21 @@ Utilisez cette transformation de revendication pour ajouter une valeur de chaîn
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
-- Paramètres d'entrée 
+- Paramètres d'entrée
   - **item** : "admin@contoso.com"
 - Revendications de sortie :
   - **collection** : ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
-Obtient le premier élément de la collection de chaînes fournie. 
+Obtient le premier élément de la collection de chaînes fournie.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
-| OutputClaim | extractedItem | chaîne | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
+| OutputClaim | extractedItem | string | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
 
-L’exemple suivant lit la revendication **otherMails** et retourne le premier élément dans la revendication **e-mail**. 
+L’exemple suivant lit la revendication **otherMails** et retourne le premier élément dans la revendication **e-mail**.
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -118,6 +118,6 @@ L’exemple suivant lit la revendication **otherMails** et retourne le premier �
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com", "someone@contoso.com"]
-- Revendications de sortie : 
+- Revendications de sortie :
   - **extractedItem** : "someone@outlook.com"
 

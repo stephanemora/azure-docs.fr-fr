@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997010"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128983"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle
 
@@ -130,4 +130,4 @@ Vous trouverez également ces modèles et déploiements dans les sections **Mod�
 Dans ce tutoriel, vous avez découvert les étapes clés de la création, du déploiement et de la consommation d’un modèle Machine Learning dans l’interface visuelle. Pour en savoir plus sur la façon dont vous pouvez utiliser l’interface visuelle pour résoudre d’autres types de problèmes, consultez nos autres exemples d’expériences.
 
 > [!div class="nextstepaction"]
-> [Exemple de classification de risque de crédit](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Exemple de classification de risque de crédit](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

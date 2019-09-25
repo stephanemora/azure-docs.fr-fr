@@ -1,7 +1,7 @@
 ---
 title: Guide de résolution des problèmes liés au déploiement
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Kubernetes Service et Azure Container Instances à l’aide d’Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Kubernetes Service et Azure Container Instances à l’aide d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183541"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997175"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning service, Azure Kubernetes Service et Azure Container Instances
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning, Azure Kubernetes Service et Azure Container Instances
 
-Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning service.
+Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning.
 
-Quand vous déployez un modèle dans le service Azure Machine Learning, le système effectue une série de tâches. Les tâches de déploiement sont les suivantes :
+Lorsque vous déployez un modèle dans Azure Machine Learning, le système effectue une série de tâches. Les tâches de déploiement sont les suivantes :
 
 1. Inscrire le modèle dans le registre de modèles de l’espace de travail.
 
@@ -346,7 +346,7 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ Dans cet exemple de texte, le nom du Registre est `myregistry` et l’image est 
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Pour attacher VS Code à PTVSD à l’intérieur du conteneur, ouvrez VS Code et utilisez la touche F5, ou sélectionnez __Déboguer__. Lorsque vous y êtes invité, sélectionnez __Azure Machine Learning service : Configuration du débogage Docker__. Vous pouvez également sélectionner l’icône de débogage dans la barre latérale, __Azure Machine Learning service : entrée de débogage__ Docker dans le menu déroulant Déboguer, puis utiliser la flèche verte pour attacher le débogueur.
+1. Pour attacher VS Code à PTVSD à l’intérieur du conteneur, ouvrez VS Code et utilisez la touche F5, ou sélectionnez __Déboguer__. Lorsque vous y êtes invité, sélectionnez __Azure Machine Learning : Configuration du débogage Docker__. Vous pouvez également sélectionner l’icône de débogage dans la barre latérale, __Azure Machine Learning : entrée de débogage__ Docker dans le menu déroulant Déboguer, puis utiliser la flèche verte pour attacher le débogueur.
 
     ![Icône de débogage, bouton Démarrer le débogage et sélecteur de configuration](media/how-to-troubleshoot-deployment/start-debugging.png)
 

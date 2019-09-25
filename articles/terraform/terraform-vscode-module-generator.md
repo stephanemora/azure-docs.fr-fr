@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/08/2018
-ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 09/20/2019
+ms.openlocfilehash: 7a628eb02170346a826cab19498d6fdf40cebddd
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526739"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173382"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
@@ -229,7 +229,7 @@ Tous ces éléments sont préinstallés dans Cloud Shell.
 
 1. Démarrez une session Azure Cloud Shell à l’aide du [portail Azure](https://portal.azure.com/), du site [shell.azure.com](https://shell.azure.com) ou de l’application [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-1. La page **Bienvenue dans Azure Cloud Shell** s’ouvre. Sélectionnez **Bash (Linux)**. (PowerShell n’est pas pris en charge.)
+1. La page **Bienvenue dans Azure Cloud Shell** s’ouvre. Sélectionnez **Bash (Linux)** . (PowerShell n’est pas pris en charge.)
 
     ![Bienvenue dans Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
 

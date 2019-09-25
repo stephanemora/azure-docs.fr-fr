@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786557"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076550"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Comment surveiller la disponibilité de cluster avec les journaux Azure Monitor et Ambari
 
@@ -28,29 +28,29 @@ Ce document montre comment utiliser ces outils pour surveiller votre cluster et 
 
 Le tableau de bord Ambari est accessible en cliquant sur le lien **d’accueil Ambari** lien dans la section **Tableaux de bord du cluster** du panneau HDInsight Overview (Vue d’ensemble de HDInsight) dans le portail Azure, comme illustré ci-dessous. Vous pouvez également y accéder en entrant l’URL suivante dans un navigateur [https://\<clustername\>.azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
-![Affichage du portail de ressources HDInsight](media/hdinsight-cluster-availability/portal-overview.png)
+![Affichage du portail de ressources HDInsight](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
 Vous devez ensuite fournir un nom d’utilisateur et un mot de passe pour vous connecter au cluster. Saisissez les informations d’identification que vous avez choisies lors de la création du cluster.
 
 Vous êtes alors redirigé vers le tableau de bord Ambari, qui contient des widgets affichant un certain nombre de mesures pour vous donner un aperçu rapide de l’intégrité de votre cluster HDInsight. Ces widgets affichent des métriques telles que le nombre de DataNodes (nœuds Worker) et de JournalNodes (nœud Zookeeper) en direct, la durée de fonctionnement des NameNodes (nœuds principaux), ainsi que des mesures spécifiques à certains types de cluster, tels que la durée de fonctionnement de YARN ResourceManager pour les clusters Spark et Hadoop.
 
-![Tableau de bord Ambari](media/hdinsight-cluster-availability/ambari-dashboard.png)
+![Apache Ambari - Affichage du tableau de bord](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
 ### <a name="hosts--view-individual-node-status"></a>Hôtes - afficher l’état de chaque nœud
 
 Vous pouvez également afficher des informations d’état pour chaque nœud. Cliquez sur l’onglet **Hôtes** pour afficher une liste de tous les nœuds de votre cluster et consulter des informations de base sur chaque nœud. La coche verte à gauche de chaque nom de nœud indique que tous les composants du nœud sont opérationnels. Si un composant d’un nœud est en panne, vous verrez un triangle d’alerte rouge au lieu de la coche verte.
 
-![Affichage des hôtes Ambari](media/hdinsight-cluster-availability/ambari-hosts.png)
+![HDInsight Apache Ambari - Affichage des hôtes](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
 Vous pouvez ensuite cliquer sur le **nom** d’un nœud pour afficher des métriques d’hôtes plus détaillées pour ce nœud. Cet affichage indique l’état/la disponibilité de chaque composant.
 
-![Affichage de nœud unique pour les hôtes Ambari](media/hdinsight-cluster-availability/ambari-hosts-node.png)
+![Affichage de nœud unique pour les hôtes Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### <a name="ambari-alerts"></a>Alertes Ambari
 
 Ambari offre également plusieurs alertes configurables qui peuvent fournir des notifications pour certains événements. Lorsque des alertes sont déclenchées, elles sont affichées dans le coin supérieur gauche d’Ambari, sous la forme d’un badge rouge indiquant le nombre d’alertes. Cliquer sur ce badge permet d’afficher une liste des alertes actuelles.
 
-![Nombre d’alertes Ambari](media/hdinsight-cluster-availability/ambari-alerts.png)
+![Apache Ambari - Nombre d’alertes actuelles](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
 Pour afficher une liste de définitions d’alerte et leurs états, cliquez sur l’onglet **Alertes**, comme indiqué ci-dessous.
 
@@ -69,7 +69,7 @@ Une liste complète des alertes Ambari qui permet de surveiller la disponibilit�
 
 Pour afficher les détails d’une alerte ou modifier les critères, cliquez sur le **nom** de l’alerte. Prenez **DataNode Health Summary** (Récapitulatif d’intégrité DataNode) comme exemple. Vous pouvez voir une description de l’alerte, ainsi que des critères spécifiques qui déclencheront une alerte de type « avertissement » ou « critique » et l’intervalle de vérification des critères. Pour modifier la configuration, cliquez sur le bouton **Modifier** dans le coin supérieur droit de la zone Configuration.
 
-![Configuration de l’alerte Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+![Configuration de l’alerte Apache Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
 Ici, vous pouvez modifier la description et, plus important encore, l’intervalle de vérification et les seuils des alertes de type avertissement ou critique.
 
@@ -98,13 +98,13 @@ Vous aurez besoin d’un espace de travail Log Analytics pour stocker les donné
 
 Sur la page de ressources du cluster HDInsight dans le portail, cliquez sur le panneau **Operations Management Suite**. Ensuite, cliquez sur **activer** et sélectionnez votre espace de travail Log Analytics dans la liste déroulante.
 
-![Panneau Operations Management Suite HDInsight](media/hdinsight-cluster-availability/portal-enable-oms.png)
+![Panneau Operations Management Suite HDInsight](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
 ### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>Interroger des métriques et de tables de journaux dans le panneau des journaux
 
 Une fois que l’intégration des journaux Azure Monitor est activée (cela peut prendre quelques minutes), accédez à votre ressource **d’espace de travail Log Analytics** et cliquez sur le panneau **Journaux**
 
-![Panneau des journaux d’espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-logs.png)
+![Panneau des journaux d’espace de travail Log Analytics](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
 Le panneau **Journaux** répertorie de nombreux exemples de requêtes, tels que :
 
@@ -131,7 +131,7 @@ Vous pouvez également configurer des alertes Azure Monitor qui se déclencheron
 
 Dans le panneau **Journaux**, exécutez l’exemple de requête **Unavailable computers** (Ordinateurs non disponibles) en cliquant sur **Exécuter** pour cette requête, comme illustré ci-dessous.
 
-![Exemple de requête « ordinateurs non disponibles » du panneau de journaux d’espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Exemple d'« ordinateurs non disponibles » du panneau de journaux d’espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
 Si tous les nœuds sont disponibles, cette requête ne doit renvoyer aucun résultat pour l’instant. Cliquez sur **Nouvelle règle d’alerte** pour commencer à configurer votre alerte pour cette requête.
 
@@ -141,7 +141,7 @@ Trois composants constituent une alerte : la *ressource* pour laquelle créer la
 
 Cliquez sur le **titre de la condition**, comme illustré ci-dessous, pour terminer la configuration de la logique de signal.
 
-![Condition de règle d’alerte](media/hdinsight-cluster-availability/portal-condition-title.png)
+![Créer une règle d'alerte dans le portail - Condition](media/hdinsight-cluster-availability/portal-condition-title.png)
 
 Le panneau **Configurer la logique du signal** s’ouvre.
 
@@ -161,7 +161,7 @@ Cliquez sur **Terminé** lorsque vous avez terminé de configurer la logique de 
 
 Si vous n’avez pas de groupe d’actions existant, cliquez sur **Créer nouveau** dans la section **Groupes d’actions**.
 
-![Nouveau groupe d’actions de règle d’alerte](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![Créer une règle d'alerte - Nouveau groupe d'actions](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
 Le panneau **Ajouter un groupe d’actions** s’ouvre. Choisissez un **nom de groupe d’actions**, un **nom court**, un **abonnement** et un **groupe de ressources**. Dans la section **Actions**, choisissez un **nom d’action** et sélectionnez **E-mail/SMS/Push/Voix** pour **Type d’action**.
 
@@ -170,27 +170,27 @@ Le panneau **Ajouter un groupe d’actions** s’ouvre. Choisissez un **nom de g
 
 Le panneau **E-mail/SMS/Push/Voix** s’ouvre. Choisissez un **nom** de destinataire, **cochez** la case **E-mail**, puis tapez une adresse de messagerie à laquelle vous souhaitez envoyer l’alerte. Cliquez sur **OK** dans le panneau **E-mail/SMS/Push, voix**, puis dans le panneau **Ajouter un groupe d’actions** pour terminer la configuration de votre groupe d’actions.
 
-![Ajouter un groupe d’actions de règle d’alerte](media/hdinsight-cluster-availability/portal-add-action-group.png)
+![Créer une règle d'alerte - Ajouter un groupe d'actions](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
 Une fois ces panneaux fermés, vous devez voir votre groupe d’actions répertorié sous la section **Groupes d’actions**. Pour finir, complétez la section **Détails de l’alerte** en tapant un **nom de règle d’alerte** et une **description** et en choisissant une **gravité**.
 Cliquez sur **Créer une règle d’alerte** pour terminer.
 
-![Fin de la création d’une règle d’alerte](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
+![Créer une règle d'alerte dans le portail - Terminer](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
 > La possibilité de spécifier une **gravité** est très utile, notamment lorsque vous créez plusieurs alertes. Par exemple, vous pouvez créer une alerte pour déclencher un avertissement (Gravité 1) si un seul nœud principal tombe en panne et une autre alerte de type critique (Gravité 0) dans le cas peu probable où les deux nœuds principaux tomberaient en panne.
 
 Lorsque la condition de cette alerte est remplie, l’alerte se déclenche et vous recevez un e-mail contenant les détails de l’alerte comme suit :
 
-![E-mail d’alerte Azure Monitor](media/hdinsight-cluster-availability/alert-email.png)
+![Exemple d'e-mail d’alerte Azure Monitor](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
 Vous pouvez également afficher toutes les alertes qui ont été déclenchées, regroupées par gravité, en accédant au panneau **Alertes** de votre **espace de travail Log Analytics**.
 
-![Alertes d’espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-alerts.png)
+![Alertes d’espace de travail Log Analytics](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
 Cliquer sur un regroupement de gravité (par exemple, **Gravité 1**, comme illustré ci-dessus) affiche les enregistrements de toutes les alertes avec cette gravité qui ont été déclenchées, comme ci-dessous :
 
-![Alertes de gravité 1 espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
+![Alertes de gravité 1 espace de travail Log Analytics](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight)
