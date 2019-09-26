@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 0f070cb9a6e300dad0ec9e0b393b09b7f22d2942
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717571"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212578"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Analytique opérationnelle intégrée dans Azure Cosmos DB avec Apache Spark (préversion) 
 
@@ -136,12 +136,6 @@ L’illustration suivante montre comment la prise en charge de Spark dans Azure 
 L’illustration suivante montre comment la prise en charge de Spark par Azure Cosmos DB est utilisée dans l’analytique de jeu :
 
 ![Prise en charge de Spark par Azure Cosmos DB dans l’analytique de jeu](./media/spark-api-introduction/gaming-analytics.png)
-
-## <a name="built-in-jupyter-notebooks-support"></a>Prise en charge intégrée des blocs-notes Jupyter
-
-Azure Cosmos DB prend en charge les notebooks Jupyter intégrés pour toutes les API telles que Cassandra, MongoDB, SQL, Gremlin et Table. Les notebooks Jupyter s’exécutent dans les comptes Azure Cosmos et améliorent l’expérience du développeur. La prise en charge de blocs-notes intégrée pour toutes les API et tous les modèles de données Azure Cosmos DB vous permet d’exécuter les requêtes de manière interactive. Vous pouvez également exécuter des modèles Machine Learning et analyser les données stockées dans vos bases de données Azure Cosmos. Avec l’expérience de bloc-notes Jupyter, vous pouvez analyser les données stockées, créer et former des modèles Machine Learning, et effectuer des inférences sur les données dans le portail Azure comme le montre l’illustration ci-dessous :
-
-![Prise en charge de blocs-notes Jupyter dans Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

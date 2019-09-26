@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: jegeib
-ms.openlocfilehash: 889704a2312bc51e57c18f25875fdbc838876522
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928042"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219854"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Version mise à jour de Threat Modeling Tool 7.1.60702.1 - 2 juillet 2019
 
@@ -43,7 +43,7 @@ Un jeu de stencils pour la modélisation des appareils médicaux a été fourni 
 - Systèmes d'exploitation pris en charge
   - [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou version ultérieure
 - Version .NET obligatoire
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 

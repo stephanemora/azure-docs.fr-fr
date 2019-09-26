@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104747"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130287"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Créer un point de terminaison privé au moyen du portail Azure
 
-Un point de terminaison privé est le composant fondamental d’une liaison privée dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources de liaison privée. Dans ce guide de démarrage rapide, vous allez apprendre à créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec un point de terminaison privé Azure à l’aide d’Azure PowerShell. Ensuite, vous pouvez accéder en toute sécurité au serveur SQL Database à partir de la machine virtuelle.
+Un point de terminaison privé est le composant fondamental d’une liaison privée dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez apprendre à créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec Private Endpoint à l’aide d’Azure PowerShell. Ensuite, vous pouvez accéder en toute sécurité au serveur SQL Database à partir de la machine virtuelle.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -63,7 +63,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Nom de la machine virtuelle | Entrez *myVm*. |
     | Région | Sélectionnez **WestCentralUS**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
-    | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
     | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
@@ -77,15 +77,15 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Sélectionnez **Suivant : Disques**.
 
-1. Dans **Créer une machine virtuelle - Disques**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
+1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
 1. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Réseau virtuel | Conservez la valeur par défaut **MyVirtualNetwork**.  |
-    | Espace d’adressage | Conservez la valeur par défaut **10.1.0.0/24**.|
-    | Subnet | Conservez la valeur par défaut **mySubnet (10.1.0.0/24)** .|
+    | Réseau virtuel | Conservez la valeur par défaut, **MyVirtualNetwork**.  |
+    | Espace d’adressage | Conservez la valeur par défaut, **10.1.0.0/24**.|
+    | Subnet | Conservez la valeur par défaut, **mySubnet (10.1.0.0/24)** .|
     | Adresse IP publique | Conservez la valeur par défaut **(new) myVm-ip**. |
     | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
     | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**.|
@@ -122,7 +122,7 @@ Dans cette section, vous allez créer un serveur de base de données SQL dans Az
     | Location | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur SQL Server réside. |
     
 7. Sélectionnez  **OK**. 
-8. Sélectionnez  **Vérifier + créer**. Vous êtes redirigé vers la page  **Vérifier + créer**  où Azure valide votre configuration. 
+8. Sélectionnez **Vérifier + créer**. Vous êtes redirigé vers la page  **Vérifier + créer**  où Azure valide votre configuration. 
 9. Quand le message Validation réussie s’affiche, sélectionnez  **Créer**. 
 10. Quand le message Validation réussie s’affiche, sélectionnez Créer. 
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
     | ------- | ----- |
     |**MISE EN RÉSEAU**| |
     | Réseau virtuel| Sélectionnez *MyVirtualNetwork*. |
-    | Subnet | Sélectionnez  *mySubnet*. |
+    | Subnet | Sélectionnez *mySubnet*. |
     |**INTÉGRATION À DNS PRIVÉ**||
     |Intégrer à une zone DNS privée |Sélectionnez  **Oui**. |
     |Zone DNS privée |Sélectionnez *(New)privatelink.database.windows.net* |
@@ -199,6 +199,7 @@ Après avoir créé **myVm*, connectez-vous à cette machine virtuelle à partir
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Accéder au serveur de base de données SQL en privé à partir de la machine virtuelle
 
 1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
+
 2. Entrez  `nslookup myserver.database.windows.net`. 
 
     Vous recevez un message similaire à celui ci :

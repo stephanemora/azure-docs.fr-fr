@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: d77557f6d5d6a7bb741b9ff6caa4ea8f76db19c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567877"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262156"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights
 
@@ -96,7 +96,7 @@ L’exemple suivant montre Intelligent Insights dans Azure SQL Analytics :
 
 ### <a name="set-up-with-event-hubs"></a>Configurer avec Event Hubs
 
-Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en continu dans Event Hubs, consultez [Diffuser en continu des journaux de Diagnostics Azure à Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en continu dans Event Hubs, consultez [Diffuser en continu des journaux de Diagnostics Azure à Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Pour utiliser Event Hubs afin de personnaliser la supervision et les alertes, consultez [Que faire des journaux d’activité de métriques et diagnostics dans Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -179,4 +179,4 @@ Si l’une des exceptions critiques surveillées franchit les seuil absolus gér
 - Apprendre à [résoudre les problèmes de performances liés à SQL Database avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Utiliser le [journal de diagnostic des performances d’Intelligent Insights dans SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Apprendre à [surveiller SQL Database à l’aide de SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Apprendre à [collecter et utiliser les données de journaux de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Apprendre à [collecter et utiliser les données de journaux de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).

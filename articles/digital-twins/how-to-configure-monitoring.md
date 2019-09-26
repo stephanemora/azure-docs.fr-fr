@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950124"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261044"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Guide pratique pour configurer la supervision dans Azure Digital Twins
 
@@ -57,7 +57,7 @@ Pour la journalisation de l’activité avancée :
 
 ## <a name="enable-customer-diagnostic-logs"></a>Activer les journaux de diagnostic des clients
 
-Vous pouvez définir des [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) Azure pour chaque instance Azure afin de compléter la journalisation de l’activité. Bien que les journaux d’activité se rapportent aux événements de niveau abonnement, la journalisation des diagnostics fournit des insights sur l’historique opérationnel des ressources elles-mêmes.
+Vous pouvez définir des [paramètres de diagnostic](../azure-monitor/platform/resource-logs-overview.md) Azure pour chaque instance Azure afin de compléter la journalisation de l’activité. Bien que les journaux d’activité se rapportent aux événements de niveau abonnement, la journalisation des diagnostics fournit des insights sur l’historique opérationnel des ressources elles-mêmes.
 
 Voici quelques exemples de journalisation des diagnostics :
 
@@ -129,6 +129,6 @@ Azure Digital Twins prend également en charge la journalisation et l’audit de
 
 - Découvrez-en plus sur les [journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure.
 
-- Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md).
 
 - En savoir plus sur les [journaux Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

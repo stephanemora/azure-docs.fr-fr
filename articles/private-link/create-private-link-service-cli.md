@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104706"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273650"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Créer un service Private Link à l’aide d’Azure CLI
 Cet article explique comment créer un service Private Link dans Azure à l’aide d’Azure CLI.
@@ -29,13 +29,13 @@ Avant de pouvoir créer un réseau virtuel, vous devez créer un groupe de resso
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/az-network-vnet-create). Cet exemple crée un réseau virtuel par défaut nommé *myVirtualNetwork* avec un sous-réseau nommé *mySubnet* :
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cet exemple crée un réseau virtuel par défaut nommé *myVirtualNetwork* avec un sous-réseau nommé *mySubnet* :
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-a-subnet"></a>Créer un sous-réseau
-Créez un sous-réseau pour le réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé *mySubnet* dans le réseau virtuel *myVirtualNetwork* :
+Créez un sous-réseau pour le réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé *mySubnet* dans le réseau virtuel *myVirtualNetwork* :
 
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
@@ -82,7 +82,7 @@ Dans cet exemple, nous ne couvrons pas la création d’une machine virtuelle. V
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Désactiver les stratégies réseau du service Private Link sur le sous-réseau 
-Private Link requiert une adresse IP de n’importe quel sous-réseau de votre choix au sein d’un réseau virtuel. Actuellement, nous ne prenons pas en charge les stratégies réseau sur ces adresses IP.  Par conséquent, nous devons désactiver les stratégies réseau sur le sous-réseau. Mettez à jour le sous-réseau pour désactiver les stratégies réseau Private Link avec [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
+Private Link requiert une adresse IP de n’importe quel sous-réseau de votre choix au sein d’un réseau virtuel. Actuellement, nous ne prenons pas en charge les stratégies réseau sur ces adresses IP.  Par conséquent, nous devons désactiver les stratégies réseau sur le sous-réseau. Mettez à jour le sous-réseau pour désactiver les stratégies réseau Private Link avec [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
@@ -90,7 +90,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name myVir
  
 ## <a name="create-a-private-link-service"></a>Créer un service Liaison privée  
  
-Créez un service Private Link à l’aide de la configuration d’adresse IP frontale du Standard Load Balancer avec la commande [az network private-link-service create](/cli/azure/network/az-network-private-link-service-create). Cet exemple crée un service Private Link nommé *myPLS* en utilisant le Standard Load Balancer nommé *myLoadBalancer* dans le groupe de ressources nommé *myResourceGroup*. 
+Créez un service Private Link à l’aide de la configuration d’adresse IP frontale du Standard Load Balancer avec la commande [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create). Cet exemple crée un service Private Link nommé *myPLS* en utilisant le Standard Load Balancer nommé *myLoadBalancer* dans le groupe de ressources nommé *myResourceGroup*. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -111,7 +111,7 @@ Nous allons ensuite montrer comment mapper ce service à une instance Private En
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 
 ### <a name="create-the-virtual-network"></a>Créer un réseau virtuel 
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/az-network-vnet-create). Cet exemple crée un réseau virtuel nommé *myPEVNet* dans le groupe de ressources nommé *myResourcegroup* : 
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cet exemple crée un réseau virtuel nommé *myPEVNet* dans le groupe de ressources nommé *myResourcegroup* : 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Créer le sous-réseau 
-Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé *mySubnet* dans le réseau virtuel nommé *myPEVnet* dans le groupe de ressources nommé *myResourcegroup* : 
+Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé *mySubnet* dans le réseau virtuel nommé *myPEVnet* dans le groupe de ressources nommé *myResourcegroup* : 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -129,7 +129,7 @@ az network vnet subnet create \
 --address-prefixes 10.0.0.0/24 
 ```   
 ## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Désactiver les stratégies réseau Private Endpoint sur le sous-réseau 
-Vous pouvez créer une instance Private Endpoint dans n’importe quel sous-réseau de votre choix au sein d’un réseau virtuel. Actuellement, nous ne prenons pas en charge les stratégies réseau sur Private Endpoint.  Par conséquent, nous devons désactiver les stratégies réseau sur le sous-réseau. Mettez à jour le sous-réseau pour désactiver les stratégies réseau Private Endpoint avec [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update). 
+Vous pouvez créer une instance Private Endpoint dans n’importe quel sous-réseau de votre choix au sein d’un réseau virtuel. Actuellement, nous ne prenons pas en charge les stratégies réseau sur Private Endpoint.  Par conséquent, nous devons désactiver les stratégies réseau sur le sous-réseau. Mettez à jour le sous-réseau pour désactiver les stratégies réseau Private Endpoint avec [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ Vous pouvez obtenir la valeur de *private-connection-resource-id* avec `az netwo
  
 ## <a name="show-private-link-service-connections"></a>Afficher les connexions au service Private Link 
  
-Consultez les demandes de connexion sur votre service Private Link à l’aide de la commandeA [az network private-link-service show](/cli/azure/network/az-network-private-link-service-show).    
+Consultez les demandes de connexion sur votre service Private Link à l’aide de la commandeA [az network private-link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```

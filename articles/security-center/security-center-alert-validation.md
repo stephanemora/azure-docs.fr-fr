@@ -3,23 +3,22 @@ title: Validation des alertes (fichier de test EICAR) dans Azure Security Center
 description: Ce document est conçu pour vous aider à valider des alertes de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: f65b4b74a1a91fa081bd9c0d8146d055cebb0de6
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 32f67fb94b207735e77583a6db62f7c8703dd991
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626296"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202741"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validation des alertes (fichier de test EICAR) dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736778"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260171"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervision des journaux et des métriques dans Azure Front Door Service
 
@@ -25,20 +25,20 @@ Azure Front Door Service vous permet de superviser les ressources des manières 
 - **Métriques**. Application Gateway a actuellement sept métriques pour afficher les compteurs de performances.
 - **Journaux**. Les journaux d’activité et de diagnostic permettent d’enregistrer ou de consommer les données de performances, d’accès et autres provenant d’une ressource à des fins de supervision.
 
-### <a name="metrics"></a>Métriques
+### <a name="metrics"></a>Mesures
 
 Les métriques représentent une fonctionnalité de certaines ressources Azure qui vous permettent de voir les compteurs de performances dans le portail. Les métriques Front Door disponibles sont les suivantes :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Dimensions | Description |
 | --- | --- | --- | --- | --- |
-| RequestCount | Nombre de requêtes | Nombre | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre de requêtes de clients prises en charge par Front Door  |
+| RequestCount | Nombre de requêtes | Count | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre de requêtes de clients prises en charge par Front Door  |
 | RequestSize | Taille de la requête | Octets | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre d’octets envoyés en tant que requêtes de clients à Front Door. |
 | ResponseSize | Taille de la réponse | Octets | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre d’octets envoyés en tant que réponses de Front Door aux clients. |
 | TotalLatency | Latence totale | Millisecondes | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Temps calculé à partir du moment où la requête du client est reçue par Front Door jusqu’à ce que le client accuse réception du dernier octet de la réponse de Front Door. |
-| BackendRequestCount | Nombre de requêtes de backend | Nombre | httpStatus</br>HttpStatusGroup</br>Backend | Nombre de requêtes envoyées de Front Door aux backends. |
+| BackendRequestCount | Nombre de requêtes de backend | Count | httpStatus</br>HttpStatusGroup</br>Backend | Nombre de requêtes envoyées de Front Door aux backends. |
 | BackendRequestLatency | Latence de requête du backend | Millisecondes | Backend | Temps calculé à partir du moment où la requête est envoyée par Front Door au backend jusqu’à ce que Front Door reçoive le dernier octet de la réponse du backend. |
 | BackendHealthPercentage | Pourcentage d’intégrité du backend | Pourcentage | Backend</br>BackendPool | Pourcentage de sondes d’intégrité réussies de Front Door vers les backends. |
-| WebApplicationFirewallRequestCount | Nombre de requêtes du pare-feu d’applications web | Nombre | PolicyName</br>RuleName</br>Action | Nombre de requêtes de clients traitées par la sécurité de couche Application de Front Door. |
+| WebApplicationFirewallRequestCount | Nombre de requêtes du pare-feu d’applications web | Count | PolicyName</br>RuleName</br>Action | Nombre de requêtes de clients traitées par la sécurité de couche Application de Front Door. |
 
 ## <a name="activity-log"></a>Journaux d’activité
 
@@ -59,7 +59,7 @@ Vous pouvez accéder aux journaux d’activité de votre service Azure Front Doo
 ## <a name="diagnostic-logging"></a>Journaux de diagnostic
 Les journaux de diagnostic offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et le dépannage. Les journaux de diagnostic diffèrent des journaux d’activité.
 
-Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md).
+Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/resource-logs-overview.md).
 
 ![Journaux de diagnostic](./media/front-door-diagnostics/diagnostic-log.png)
 

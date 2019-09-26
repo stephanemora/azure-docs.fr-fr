@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: 5d16500b45cbc6190186835d0c793a48fd121bd0
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f1c571e421dccad366abf403de350b07113e04ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051539"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130030"
 ---
-## <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Déployer le conteneur Analyse des sentiments vers un cluster AKS
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Déployer le conteneur Analyse des sentiments vers un cluster AKS
 
 1. Ouvrir Azure CLI et se connecter à Azure.
 

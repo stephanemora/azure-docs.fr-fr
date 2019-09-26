@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976614"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266855"
 ---
 ## <a name="benefits"></a>Avantages 
 
@@ -113,6 +113,6 @@ Azure surveille et gère l’état d’intégrité de vos hôtes. Les états sui
 |----------|----------------|
 | Hôte disponible     | Il n’y a aucun problème connu avec votre hôte.   |
 | Examen en cours de l’hôte  | Nous enquêtons sur des problèmes que nous rencontrons avec l’hôte. Il s’agit d’un état transitoire requis pour qu’Azure tente d’identifier l’étendue et la cause racine du problème identifié. Les machines virtuelles en cours d’exécution sur l’hôte peuvent être affectées. |
-| Hôte en attente de désallocation   | Azure ne peut pas restaurer l’hôte dans un état sain et vous demande de redéployer vos machines virtuelles hors de cet hôte. Si `autoHealingOnFailure` est activé, vos machines virtuelles *sont réparées* sur du matériel sain. Dans le cas contraire, votre machine virtuelle est peut-être en cours d’exécution sur un hôte qui va échouer.|
+| Hôte en attente de désallocation   | Azure ne peut pas restaurer l’hôte dans un état sain et vous demande de redéployer vos machines virtuelles hors de cet hôte. Si `autoReplaceOnFailure` est activé, vos machines virtuelles *sont réparées* sur du matériel sain. Dans le cas contraire, votre machine virtuelle est peut-être en cours d’exécution sur un hôte qui va échouer.|
 | Hôte désalloué  | Toutes les machines virtuelles ont été supprimées de l’hôte. Vous n’êtes plus facturé pour cet hôte, car le matériel a été retiré de la rotation.   |
 

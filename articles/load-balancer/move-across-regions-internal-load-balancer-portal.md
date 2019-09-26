@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: 2e8f1cd32bc0b57faf7b2365e100064be78a37a2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 88aedb97f659725887026d0c83be88cbde27ae4f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106921"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219682"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Déplacer un équilibreur de charge Azure interne vers une autre région à l’aide du portail Azure
 
@@ -27,7 +27,7 @@ Les équilibreurs de charge internes Azure ne peuvent pas être déplacés d’u
 - Les équilibreurs de charge internes Azure ne peuvent pas être déplacés entre les régions.  Vous devez associer le nouvel équilibreur de charge à des ressources de la région cible.
 
 - Pour exporter une configuration d’équilibreur de charge interne et déployer un modèle afin de créer un équilibreur de charge interne dans une autre région, vous devez disposer au moins du rôle Contributeur de réseaux.
-   
+
 - Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cette disposition comprend notamment les équilibreurs de charge, les groupes de sécurité réseau, les machines virtuelles et les réseaux virtuels.
 
 - Vérifiez que votre abonnement Azure vous permet de créer des équilibreurs de charge internes dans la région cible utilisée. Contactez le support pour activer le quota requis.
@@ -43,13 +43,13 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Exporter le modèle de réseau virtuel et le déployer à partir du portail Azure
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) > **Groupes de ressources**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Groupes de ressources**.
 2. Localisez le groupe de ressources qui contient le réseau virtuel source, puis cliquez dessus.
 3. Sélectionnez > **Paramètres** > **Exporter le modèle**.
 4. Choisissez **Déployer** dans le panneau **Exporter le modèle**.
 5. Cliquez sur **MODÈLE** > **Modifier les paramètres** pour ouvrir le fichier **parameters.json** dans l’éditeur en ligne.
 6. Pour modifier le paramètre du nom du réseau virtuel, modifiez la propriété **value** sous **parameters** :
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -63,10 +63,10 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     ```
 7. Remplacez la valeur nom du réseau virtuel source dans l’éditeur par le nom de votre choix pour le réseau virtuel cible. Veillez à placer le nom entre guillemets.
 
-8. Cliquez sur **Enregistrer** dans le navigateur.
+8. Cliquez sur **Enregistrer** dans l’éditeur.
 
-9. Cliquez sur **MODÈLE** > **Modifier le modèle** pour ouvrir le fichier **template.json** dans l’éditeur en ligne. 
-    
+9. Cliquez sur **MODÈLE** > **Modifier le modèle** pour ouvrir le fichier **template.json** dans l’éditeur en ligne.
+
 10. Pour modifier la région cible où le réseau virtuel sera déplacé, changez la propriété **location** sous Ressources :
 
     ```json
@@ -86,9 +86,9 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
                         },
 
     ```
-  
+
 11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus**.
-    
+
 12. Vous pouvez également changer d’autres paramètres dans le fichier **template.json** si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
 
     * **Espace d’adressage** : l’espace d’adressage du réseau virtuel peut être modifié avant l’enregistrement en modifiant la section **resources** > **addressSpace** et en modifiant la propriété **addressPrefixes** dans le fichier **template.json** :
@@ -182,7 +182,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
 
 14. Cliquez **DE BASE** > **Abonnement** pour choisir l’abonnement dans lequel le réseau virtuel cible sera déployé.
 
-15. Cliquez **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le réseau virtuel cible sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un nouveau groupe de ressources pour le réseau virtuel cible.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source du réseau virtuel existant. 
+15. Cliquez **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le réseau virtuel cible sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un nouveau groupe de ressources pour le réseau virtuel cible.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source du réseau virtuel existant.
 
 16. Vérifiez que **DE BASE** > **Emplacement** est défini sur l’emplacement cible où vous souhaitez déployer le réseau virtuel.
 
@@ -194,7 +194,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Exporter le modèle d’équilibreur de charge interne et le déployer à partir d’Azure PowerShell
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) > **Groupes de ressources**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Groupes de ressources**.
 2. Recherchez le groupe de ressources qui contient l’équilibreur de charge externe source, puis cliquez dessus.
 3. Sélectionnez > **Paramètres** > **Exporter le modèle**.
 4. Choisissez **Déployer** dans le panneau **Exporter le modèle**.
@@ -215,15 +215,15 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
              "type": "String"
              }
     ```
- 
+
 6. Pour modifier la valeur du réseau virtuel cible qui a été déplacé ci-dessus, vous devez d’abord obtenir l’ID de ressource, puis le copier et le coller dans le fichier **parameters.json**. Pour obtenir l’ID :
-    
-    1. Connectez-vous au [portail Azure](http://portal.azure.com) > **Groupes de ressources** dans un autre onglet ou une autre fenêtre de navigateur.
+
+    1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Groupes de ressources** dans un autre onglet ou une autre fenêtre de navigateur.
     2. Recherchez le groupe de ressources cible qui contient le réseau virtuel déplacé lors des étapes ci-dessus, et cliquez dessus.
     3. Sélectionnez > **Paramètres** > **Propriétés**.
     4. Dans le panneau de droite, mettez en surbrillance l’**ID de ressource** et copiez-le dans le Presse-papiers.  Vous pouvez également cliquer sur le bouton **Copier dans le Presse-papiers** à droite du chemin de l’**ID de ressource**.
     5. Collez l’ID de ressource dans la propriété **defaultValue** dans l’éditeur **Modifier les paramètres** ouvert dans l’autre fenêtre ou onglet de navigateur :
-   
+
         ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
          "contentVersion": "1.0.0.0",
@@ -255,10 +255,10 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
                 },
     ```
 
-9.  Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus**.
-    
+9.  Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace : **Central US** = **centralus**.
+
 10. Vous pouvez également changer d’autres paramètres dans le modèle si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
-    
+
     * **Référence SKU** : vous pouvez permuter la référence SKU de l’équilibreur de charge interne dans la configuration entre les valeurs basic et standard en modifiant la propriété **sku** > **name** dans le fichier **template.json** :
 
         ```json
@@ -374,12 +374,12 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
         }
         ```
         Pour plus d’informations sur les règles NAT de trafic entrant, consultez [Qu’est-ce qu’Azure Load Balancer ?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
-    
+
 12. Cliquez sur **Enregistrer** dans l’éditeur en ligne.
-    
+
 13. Cliquez sur **DE BASE** > **Abonnement** pour choisir l’abonnement dans lequel l’équilibreur de charge interne cible sera déployé.
 
-15. Cliquez sur **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel l’équilibreur de charge cible sera déployé.  Vous pouvez cliquer sur **Créer** afin de créer un nouveau groupe de ressources pour l’équilibreur de charge interne cible, ou choisir le groupe de ressources existant créé ci-dessus pour le réseau virtuel.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source de l’équilibreur de charge interne source existant. 
+15. Cliquez sur **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel l’équilibreur de charge cible sera déployé.  Vous pouvez cliquer sur **Créer** afin de créer un nouveau groupe de ressources pour l’équilibreur de charge interne cible, ou choisir le groupe de ressources existant créé ci-dessus pour le réseau virtuel.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source de l’équilibreur de charge interne source existant.
 
 16. Vérifiez que **DE BASE** > **Emplacement** est défini sur l’emplacement cible où vous souhaitez déployer l’équilibreur de charge interne.
 
@@ -389,7 +389,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
 
 19. Cliquez sur le bouton **Acheter** pour déployer le réseau virtuel cible.
 
-## <a name="discard"></a>Abandonner 
+## <a name="discard"></a>Abandonner
 
 Si vous souhaitez ignorer le réseau virtuel et l’équilibreur de charge interne cibles, supprimez le groupe de ressources qui contient le réseau virtuel et l’équilibreur de charge interne cibles.  Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez **Supprimer** en haut de la page de vue d’ensemble.
 

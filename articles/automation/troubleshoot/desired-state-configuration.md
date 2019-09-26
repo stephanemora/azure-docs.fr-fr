@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850253"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259175"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
 
@@ -24,7 +24,7 @@ Cet article fournit des informations sur la résolution des problèmes de la Con
 
 Si vous rencontrez des erreurs en compilant ou en déployant des configurations dans Azure State Configuration, voici quelques étapes pour diagnostiquer le problème.
 
-1. **Veillez à ce que votre configuration compile avec succès sur votre ordinateur local :**  Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans la [documentation PowerShell DSC](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+1. **Veillez à ce que votre configuration compile avec succès sur votre ordinateur local :**  Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans les [documents PowerShell DSC](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
    En compilant votre configuration DSC sur votre ordinateur local, vous pouvez détecter et résoudre les erreurs courantes, telles que :
 
@@ -149,7 +149,7 @@ Vous avez mis à niveau votre version de WMF et endommagé WMI.
 
 #### <a name="resolution"></a>Résolution :
 
-Pour résoudre ce problème, suivez les instructions fournies dans l’article [Problèmes connus liés à la Configuration d’état souhaité (DSC)](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc).
+Pour résoudre ce problème, suivez les instructions fournies dans l’article [Problèmes connus liés à la Configuration d’état souhaité (DSC)](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
 ### <a name="issue-using-credential"></a>Scénario : Il est impossible d’utiliser des informations d’identification dans une configuration DSC
 

@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 2a1ee358a6c97b721ec6f0da3eb70269239b0737
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a09ce7b77dfcaa51e7c82f67a5d20000f3e22b61
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077957"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219994"
 ---
 # <a name="move-azure-virtual-network-to-another-region-using-the-azure-portal"></a>Déplacer un réseau virtuel Azure vers une autre région à l’aide du portail Azure
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migratio
 - Pour exporter un réseau virtuel et déployer un modèle pour créer un réseau virtuel dans une autre région, vous avez besoin du rôle Contributeur de réseaux ou supérieur.
 
 - Les homologations de réseaux virtuels ne seront pas recréées et échoueront si elles sont toujours présentes dans le modèle.  Vous devez supprimer tous les homologues de réseaux virtuels avant d’exporter le modèle, puis rétablir les homologues après la migration du réseau virtuel.
-    
+
 - Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cette disposition comprend notamment les équilibreurs de charge, les groupes de sécurité réseau et les adresses IP publiques.
 
 - Vérifiez que votre abonnement Azure vous permet de créer des machines virtuelles dans la région cible utilisée. Contactez le support pour activer le quota requis.
@@ -40,13 +40,13 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exporter le modèle et le déployer à partir du portail
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com) > **Groupes de ressources**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) > **Groupes de ressources**.
 2. Localisez le groupe de ressources qui contient le réseau virtuel source, puis cliquez dessus.
 3. Sélectionnez > **Paramètres** > **Exporter le modèle**.
 4. Choisissez **Déployer** dans le panneau **Exporter le modèle**.
 5. Cliquez sur **MODÈLE** > **Modifier les paramètres** pour ouvrir le fichier **parameters.json** dans l’éditeur en ligne.
 6. Pour modifier le paramètre du nom du réseau virtuel, modifiez la propriété **value** sous **parameters** :
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -60,9 +60,9 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
     ```
 7. Remplacez la valeur nom du réseau virtuel source dans l’éditeur par le nom de votre choix pour le réseau virtuel cible. Veillez à placer le nom entre guillemets.
 
-8.  Cliquez sur **Enregistrer** dans le navigateur.
+8.  Cliquez sur **Enregistrer** dans l’éditeur.
 
-9.  Cliquez sur **MODÈLE** > **Modifier le modèle** pour ouvrir le fichier **template.json** dans l’éditeur en ligne. 
+9.  Cliquez sur **MODÈLE** > **Modifier le modèle** pour ouvrir le fichier **template.json** dans l’éditeur en ligne.
 
 10. Pour modifier la région cible dans laquelle le réseau virtuel sera déplacé, modifiez la propriété **location** sous **resources** dans l’éditeur en ligne :
 
@@ -83,11 +83,11 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
                         },
 
     ```
- 
-11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **Central US** = **centralus**.
- 
+
+11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace : **Central US** = **centralus**.
+
 12. Vous pouvez également modifier d’autres paramètres dans le modèle si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
-    
+
     * **Espace d’adressage** : l’espace d’adressage du réseau virtuel peut être modifié avant l’enregistrement en modifiant la section **resources** > **addressSpace** et en modifiant la propriété **addressPrefixes** dans le fichier **template.json** :
 
         ```json
@@ -108,7 +108,7 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
 
         ```
 
-    * **Sous-réseau** : le nom du sous-réseau et l’espace d’adressage du sous-réseau peuvent être modifiés ou ajoutés en modifiant la section **subnets** du fichier **template.json**. Le nom du sous-réseau peut être modifié en modifiant la propriété **name**. Vous pouvez modifier l’espace d’adressage du sous-réseau en modifiant la propriété **addressPrefix** dans le fichier **template.json** :
+    * **Sous-réseau** : le nom du sous-réseau et l’espace d’adressage du sous-réseau peuvent être modifiés ou ajoutés en modifiant la section **subnets** du fichier **template.json**. Le nom du sous-réseau peut être changé en modifiant la propriété **name**. Vous pouvez changer l’espace d’adressage du sous-réseau en modifiant la propriété **addressPrefix** dans le fichier **template.json** :
 
         ```json
                 "subnets": [
@@ -139,7 +139,7 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
                 ]
         ```
 
-         Dans le fichier **template.json**, pour modifier le préfixe d’adresse, vous devez le modifier à deux emplacements, la section ci-dessus et la section **type** indiquée ci-dessous.  Modifiez la propriété **addressPrefix** pour qu’elle corresponde à celle ci-dessus :
+         Dans le fichier **template.json**, pour changer le préfixe d’adresse, vous devez le modifier à deux emplacements, la section ci-dessus et la section **type** indiquée ci-dessous.  Modifiez la propriété **addressPrefix** pour qu’elle corresponde à celle ci-dessus :
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -179,7 +179,7 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
 
 14. Cliquez **DE BASE** > **Abonnement** pour choisir l’abonnement dans lequel le réseau virtuel cible sera déployé.
 
-15. Cliquez **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le réseau virtuel cible sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un nouveau groupe de ressources pour le réseau virtuel cible.  Assurez-vous que le nom n’est pas le même que le groupe de ressources source du réseau virtuel existant. 
+15. Cliquez **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le réseau virtuel cible sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un nouveau groupe de ressources pour le réseau virtuel cible.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source du réseau virtuel existant.
 
 16. Vérifiez que **DE BASE** > **Emplacement** est défini sur l’emplacement cible où vous souhaitez déployer le réseau virtuel.
 
@@ -189,7 +189,7 @@ Les étapes suivantes vous montrent comment préparer le réseau virtuel pour le
 
 19. Cliquez sur le bouton **Acheter** pour déployer le réseau virtuel cible.
 
-## <a name="discard"></a>Abandonner 
+## <a name="discard"></a>Abandonner
 
 Si vous souhaitez abandonner le réseau virtuel cible, supprimez le groupe de ressources qui contient le réseau virtuel cible.  Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez **Supprimer** en haut de la page vue d’ensemble.
 

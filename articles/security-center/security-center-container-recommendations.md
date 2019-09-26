@@ -3,9 +3,8 @@ title: Recommandations concernant les conteneurs dans Azure Security Center | Mi
 description: Ce document explique les recommandations Azure Security Center pour la protection des conteneurs.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705275"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202400"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Comprendre les recommandations sur les conteneurs d’Azure Security Center
 

@@ -2,20 +2,22 @@
 title: Configurer Apple Push Notification Service dans Azure Notification Hubs | Microsoft Docs
 description: Découvrez comment configurer un concentrateur de notifications Aure avec les paramètres d’Apple Push Notification Service.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
-ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 74e7e3c74934e292b668b8bff594a5efbca19716
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237825"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212548"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres d’Apple Push Notification Service pour un hub de notifications dans le portail Azure
 Cet article explique comment configurer les paramètres d’Apple Push Notification Service pour un hub de notifications Azure à l’aide du portail Azure. 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899938"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262796"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Blueprint Sécurité et conformité : application web IaaS à trois niveaux pour UK OFFICIAL
 
@@ -172,7 +172,7 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 **Journaux d’activité** : configurez les [journaux d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) pour fournir un insight des opérations qui ont été effectuées sur les ressources de votre abonnement.
 
-**Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) correspondent à l’ensemble des journaux d’activité émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
+**Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) correspondent à l’ensemble des journaux d’activité émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
 
 **Journaux d’activité du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
 

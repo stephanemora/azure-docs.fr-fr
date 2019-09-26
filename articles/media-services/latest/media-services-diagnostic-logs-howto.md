@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 233b043ffdc295fe94ed2e3ba837d4229848df22
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795836"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261107"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Surveillez les journaux de diagnostic de Media Services
 
-[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et les journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi utiliser les mesures et les journaux de diagnostic Azure Media Services, consultez la section [Surveiller les mesures et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
+[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi utiliser les mesures et les journaux de diagnostic Azure Media Services, consultez la section [Surveiller les mesures et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
 
 Cet article vous montre comment acheminer les données vers le compte de stockage, puis comment afficher les données. 
 
@@ -177,8 +177,8 @@ Il se peut que vous deviez attendre cinq minutes avant que l’événement appar
 ## <a name="see-also"></a>Voir aussi
 
 * [Mesures Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Journaux de diagnostics Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [Comment collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Journaux de diagnostics Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md)
+* [Comment collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/platform/resource-logs-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

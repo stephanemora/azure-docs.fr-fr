@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: d647a643dafe50a5768261c2b09bf8c4154be469
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 464c1a8ab27f6615fdffd8efa6ab20d75e10a7c1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086239"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171183"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -529,7 +529,7 @@ La liaison d’entrée de stockage de table prend en charge les scénarios suiva
 
 * **Lire une ou plusieurs lignes en JavaScript**
 
-  Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<name>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
+  Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<BINDING_NAME>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
 
 ## <a name="output"></a>Output
 
@@ -786,7 +786,7 @@ La liaison de sortie de stockage de table prend en charge les scénarios suivant
 
 * **Écrire une ou plusieurs lignes en JavaScript**
 
-  Dans les fonctions JavaScript, accédez à la sortie de table avec `context.bindings.<name>`.
+  Dans les fonctions JavaScript, accédez à la sortie de table avec `context.bindings.<BINDING_NAME>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 

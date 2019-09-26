@@ -2,24 +2,18 @@
 title: 'Fournisseurs de connectivité et emplacements : Azure ExpressRoute | Microsoft Docs'
 description: Cet article fournit une vue d’ensemble détaillée des emplacements où les services sont proposés et de la façon de se connecter à des régions Azure. Trié par fournisseur de connectivité.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 09/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 997d6b29ef41c84766348c8b0ff74c5bc5c877d0
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dc80638bfafbd0ade17fe355c5dcbac58d4ff24e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033940"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172514"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -46,19 +40,19 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une r�
 ## <a name="locations"></a>Régions Azure vers des emplacements ExpressRoute au sein d'une région géopolitique.
 Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 
-| **Région géopolitique** | **Zone** | **Régions Azure** | **Emplacements ExpressRoute** |
-| --- | --- | --- | --- |
-| **Secteur public australien** | 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Pays de Galles), Paris, Stockholm, Zurich |
-| **Amérique du Nord** | 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
-| **Asie** | 2 |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2, Taipei |
-| **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japon** | 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
-| **Océanie** | 2 |Australie Sud-Est, Australie Est |Auckland, Melbourne, Perth, Sydney |
-| **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
-| **Émirats Arabes Unis** | 3 | Émirats arabes unis Centre, Émirats arabes unis Nord | Dubaï, Dubaï2 |
-| **Afrique du Sud** | 3 |Afrique du Sud Ouest, Afrique du Sud Nord |Le Cap, Johannesburg |
-| **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
+| **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
+| --- | --- | --- |
+| **Secteur public australien** |Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
+| **Europe** | France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Pays de Galles), Paris, Stockholm, Zurich |
+| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
+| **Asie** | Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2, Taipei |
+| **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japon** | Japon Ouest, Japon Est |Osaka, Tokyo |
+| **Océanie** | Australie Sud-Est, Australie Est |Auckland, Melbourne, Perth, Sydney |
+| **Corée du Sud** | Centre de la Corée, Corée du Sud |Busan, Séoul|
+| **Émirats Arabes Unis** | Émirats arabes unis Centre, Émirats arabes unis Nord | Dubaï, Dubaï2 |
+| **Afrique du Sud** | Afrique du Sud Ouest, Afrique du Sud Nord |Le Cap, Johannesburg |
+| **Amérique du Sud** | Brésil Sud |Sao Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
@@ -80,7 +74,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 
 ### <a name="production-azure"></a>Production Azure
 
-| **Fournisseur de services** | **Microsoft Azure** | **Office 365 et Dynamics 365** | **Emplacements** |
+| **Fournisseur de services** | **Microsoft Azure** | **Office 365**  | **Emplacements** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Pris en charge |Pris en charge |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Pris en charge | Pris en charge | Chennai2, Mumbai2 |

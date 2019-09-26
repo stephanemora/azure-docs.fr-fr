@@ -3,9 +3,8 @@ title: Détection des menaces pour le calcul natif cloud dans Azure Security Cen
 description: Cette rubrique présente les alertes du calcul natif cloud disponibles dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 5aa5efcf-9f6f-4aa1-9f72-d651c6a7c9cd
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 78f7633af1631eab8fdfb21fb8ff94eafc0247a9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.author: memildin
+ms.openlocfilehash: c3fcbadf93ff72f7d2a1dca3b25ace81c9d4f1ae
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013354"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202629"
 ---
 # <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Détection des menaces pour le calcul natif cloud dans Azure Security Center
 

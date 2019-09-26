@@ -3,9 +3,8 @@ title: Examiner les incidents et les alertes dans Azure Security Center | Micros
 description: Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
-ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: memildin
+ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662949"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202049"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Examiner les incidents et les alertes dans Azure Security Center (hors service)
 Ce document vous permet d’utiliser la fonctionnalité d’enquête (préversion) dans Azure Security Center pour examiner les alertes et les incidents liés à la sécurité.
 
 > [!NOTE]
-> L’enquête sur les alertes et les incidents (préversion) a été mise hors service le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_investigate)
+> L’enquête sur les alertes et les incidents (préversion) a été mise hors service le 31 juillet 2019. Pour plus d’informations et connaître les alternatives, consultez [Retrait des fonctionnalités de Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_investigate)
 
 ## <a name="what-is-investigation-in-security-center"></a>Qu’est-ce que la fonctionnalité d’examen dans Security Center ?
 La fonctionnalité d’examen dans Security Center vous permet de trier, comprendre l’étendue et repérer la cause racine d’un potentiel [incident lié à la sécurité](https://docs.microsoft.com/azure/security-center/security-center-incident).

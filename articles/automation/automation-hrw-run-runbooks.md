@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 100740e87c13887a3e7ac85aa5fce3d67c838ea0
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186755"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240321"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -41,8 +41,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Autorisations de Runbook
 
-Les runbooks exécutés sur un runbook Worker hybride ne peuvent pas utiliser la méthode généralement utilisée pour l’authentification des runbooks auprès des ressources Azure, car ils accèdent à des ressources extérieures à Azure. Le runbook peut fournir sa propre authentification aux ressources locales ou configurer l’authentification à l’aide des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-). Vous pouvez également spécifier un compte d’identification pour fournir un contexte utilisateur pour l’ensemble des runbooks.
+Les runbooks exécutés sur un runbook Worker hybride ne peuvent pas utiliser la méthode généralement utilisée pour l’authentification des runbooks auprès des ressources Azure, car ils accèdent à des ressources extérieures à Azure. Le runbook peut fournir sa propre authentification aux ressources locales ou configurer l’authentification à l’aide des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Vous pouvez également spécifier un compte d’identification pour fournir un contexte utilisateur pour l’ensemble des runbooks.
 
 ### <a name="runbook-authentication"></a>Authentification des Runbooks
 

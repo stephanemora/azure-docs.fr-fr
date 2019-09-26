@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036331"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300643"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
@@ -29,7 +29,11 @@ Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et R
 
 GZRS et RA-GZRS sont actuellement disponibles en préversion dans les régions suivantes :
 
+- Europe septentrionale
+- Europe occidentale
 - USA Est
+- USA Est 2
+- USA Centre
 
 Microsoft continue d’activer le stockage GZRS et RA-GZRS dans d’autres régions Azure. Consultez la page  [Mises à jour de service Azure](https://azure.microsoft.com/updates/) régulièrement pour plus d’informations sur les régions prises en charge.
 

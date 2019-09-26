@@ -2,20 +2,22 @@
 title: Configurer le service de notifications Push dans Azure Notification Hubs | Microsoft Docs
 description: Découvrez comment configurer les paramètres du service de notifications Push Microsoft pour un hub de notifications Azure.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
-ms.openlocfilehash: 1c76b44438e6527439d0a370c92f4120424b8da5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 0d7bf5410e05bb74a215fb7a95c704673b764b93
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240311"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212473"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres du service de notifications Push Microsoft pour un hub de notifications dans le portail Azure
 Cet article explique comment configurer les paramètres du service de notifications Push Microsoft pour un hub de notifications Azure à l’aide du portail Azure. 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596965"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299488"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Démarrage rapide : Intégrer le service Azure Security Center pour IoT dans IoT Hub
 
@@ -37,19 +37,6 @@ Cet article explique comment activer le service Azure Security Center pour IoT s
   - Vous pouvez choisir d’ajouter le stockage d’un type d’information supplémentaire : les **événements bruts**. Notez que le stockage d’**événements bruts** dans Log Analytics engendre des frais de stockage supplémentaires. 
 - IoT Hub (niveau standard)
 - Satisfaire à tous les [prérequis du service](service-prerequisites.md) 
-
-|Régions de service Azure prises en charge | ||
-|---|---|---|
-| USA Centre |USA Est |USA Est 2 |
-| Centre-USA Ouest |USA Ouest |USA Ouest 2 |
-| USA Centre Sud|Centre-Nord des États-Unis | Centre du Canada|
-| Est du Canada| Europe Nord|Brésil Sud|
-| France Centre| Ouest du Royaume-Uni|Sud du Royaume-Uni|
-|Europe Ouest|Europe Nord| OuJapon Est|
-|Japon Est | Sud-Australie Est|Australie Est|
-|Asie Est| Asie Sud-Est| Centre de la Corée|
-|Corée du Sud| Inde centrale| Inde Sud|
-|
 
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Activer Azure Security Center pour IoT sur votre IoT Hub 
 

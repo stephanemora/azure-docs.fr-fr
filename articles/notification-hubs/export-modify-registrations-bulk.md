@@ -2,22 +2,24 @@
 title: Exporter et importer en bloc des inscriptions Azure Notification Hubs | Microsoft Docs
 description: Découvrez comment utiliser la fonctionnalité en bloc de Notification Hubs pour effectuer un grand nombre d’opérations à la fois sur un hub de notifications ou pour exporter l’ensemble des inscriptions.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: jowargo
-ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575304"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212403"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporter et importer en bloc des inscriptions Azure Notification Hubs
 Certains scénarios nécessitent de créer ou modifier un grand nombre d’inscriptions dans un hub de notifications. Les mises à jour des étiquettes après des calculs par lots ou la migration d’une implémentation push existante pour utiliser Notification Hubs en sont deux exemples.

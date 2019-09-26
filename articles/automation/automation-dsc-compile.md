@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d72b474e5f5e62ded6423fcc756e1cd51b905f4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850667"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265124"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -259,7 +259,7 @@ Une configuration de nœuds signée est vérifiée localement sur un nœud gér�
 > [!NOTE]
 > Un fichier de configuration de nœuds ne doit pas être supérieur à 1 Mo pour pouvoir être importé dans Azure Automation.
 
-Pour plus d’informations sur la façon de signer des configurations de nœud, consultez [Améliorations apportées à WMF 5.1 - Comment signer la configuration et le module](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations).
+Pour plus d’informations sur la façon de signer des configurations de nœud, consultez [Améliorations apportées à WMF 5.1 - Comment signer la configuration et le module](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations).
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>Compilation d’une configuration dans Windows PowerShell
 

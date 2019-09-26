@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995185"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162407"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -110,7 +110,7 @@ Passez aux étapes suivantes pour poursuivre le dépannage.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 version 1803 et ultérieures
 
-Recherchez la sous-section « Previous Registration » dans la section « Diagnostic Data » de la sortie d’état de la jointure.
+Recherchez la sous-section « Previous Registration » dans la section « Diagnostic Data » de la sortie d’état de la jointure. Cette section s’affiche uniquement si l’appareil est joint à un domaine et ne peut pas joindre Azure AD hybride.
 Le champ « Error Phase » indique la phase de l’échec de la jointure, tandis que « Client ErrorCode » désigne le code d’erreur de l’opération de jointure.
 
 ```
@@ -181,7 +181,7 @@ Pour rechercher le code de sous-erreur du code d’erreur de découverte, utilis
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 version 1803 et ultérieures
 
-Recherchez « DRS Discovery Test » dans la section « Diagnostic Data » de la sortie d’état de la jointure.
+Recherchez « DRS Discovery Test » dans la section « Diagnostic Data » de la sortie d’état de la jointure. Cette section s’affiche uniquement si l’appareil est joint à un domaine et ne peut pas joindre Azure AD hybride.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Recherchez le type d’inscription et le code d’erreur dans la liste ci-dessou
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 version 1803 et ultérieures
 
-Recherchez la sous-section « Previous Registration » dans la section « Diagnostic Data » de la sortie d’état de la jointure.
+Recherchez la sous-section « Previous Registration » dans la section « Diagnostic Data » de la sortie d’état de la jointure. Cette section s’affiche uniquement si l’appareil est joint à un domaine et ne peut pas joindre Azure AD hybride.
 Le champ « Registration Type » indique le type de jointure effectué.
 
 ```

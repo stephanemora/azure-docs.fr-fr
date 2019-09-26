@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aea0a092ad836c020e23b81d38246ceead22ea0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402681"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213299"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
@@ -273,13 +273,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
-  
-Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
-  
-|Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|tableau de type long|OUI|Numéro de séquence des messages planifiés. Le numéro de séquence est utilisé pour annuler.|  
+|statusDescription|chaîne|Non|Description de l’état.|   
   
 ## <a name="session-operations"></a>Opérations de session  
   
@@ -573,7 +567,7 @@ Le message de réponse inclut les propriétés suivantes :
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|règles| tableau de mappage|OUI|Tableau de règles. Chaque règle est représentée par un mappage.|
+|rules| tableau de mappage|OUI|Tableau de règles. Chaque règle est représentée par un mappage.|
 
 Chaque entrée de mappage dans le tableau inclut les propriétés suivantes :
 

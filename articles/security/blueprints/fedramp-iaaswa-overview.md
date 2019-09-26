@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e1d481c6019feebf3d62f0e23480f5572363869c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bcce4dcac35b783efefe81abc2090506502e9931
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946840"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257278"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web IaaS pour FedRAMP
 
@@ -150,7 +150,7 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 La solution Journaux Azure Monitor assure une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système. La solution [Journaux Azure Monitor](../azure-security-disk-encryption-overview.md) collecte et analyse les données générées par les ressources dans les environnements Azure et locaux.
 
 - **Journaux d’activité :**  les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
-- **Journaux de diagnostic :**  Les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) correspondent à l’ensemble des journaux d’activité émis par chaque ressource. Ces journaux d’activité incluent les journaux d’activité système des événements Windows, les journaux d’activité de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès Application Gateway.
+- **Journaux de diagnostic :**  Les [journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) correspondent à l’ensemble des journaux d’activité émis par chaque ressource. Ces journaux d’activité incluent les journaux d’activité système des événements Windows, les journaux d’activité de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès Application Gateway.
 - **Archivage des journaux** :  Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connectent à Journaux Azure Monitor à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 
 Les solutions de surveillance suivantes sont également incluses dans cette architecture. Notez qu’il incombe au client de configurer ces solutions pour s’aligner avec les contrôles de sécurité FedRAMP :

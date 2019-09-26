@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104694"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266367"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -43,7 +43,7 @@ Voici quelques détails clés sur Private Endpoint :
  
 - Vous pouvez créer plusieurs instances Private Endpoint à l’aide de la même ressource Private Link. Pour un réseau unique qui utilise une configuration de serveur DNS commune, il est recommandé d’utiliser Private Endpoint pour une ressource Private Link donnée afin d’éviter les entrées en double ou les conflits dans la résolution DNS. 
  
-- Plusieurs instances Private Endpoint privées peuvent être créées sur des sous-réseaux identiques ou différents au sein du même réseau virtuel. Il existe des limites au nombre d’instances Private Endpoint que vous pouvez créer dans un abonnement. Pour plus d’informations, consultez [Limites Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Plusieurs instances Private Endpoint privées peuvent être créées sur des sous-réseaux identiques ou différents au sein du même réseau virtuel. Il existe des limites au nombre d’instances Private Endpoint que vous pouvez créer dans un abonnement. Pour plus d’informations, consultez [Limites Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -128,8 +128,8 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 |  Le portail ne prend pas en charge la création de Private Endpoint à l’aide de l’alias  |   Le portail permet uniquement de créer Private Endpoint à l’aide de l’URI de ressource      | Utiliser l’URI de ressource pour demander des connexions Private Endpoint        |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer une instance Private Endpoint pour un serveur SQL Database à l’aide du portail ](create-private-endpoint-portal.md)
-- [Créer une instance Private Endpoint pour un serveur SQL Database à l’aide de PowerShell ](create-private-endpoint-powershell.md)
-- [Créer une instance Private Endpoint pour un serveur SQL Database à l’aide de l’interface CLI ](create-private-endpoint-cli.md)
-- [Créer une instance Private Endpoint pour un compte de stockage à l’aide du portail ](create-private-endpoint-storage-portal.md)
-- [Créer votre propre service Private Link à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)
+- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide du portail](create-private-endpoint-portal.md)
+- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
+- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
+- [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](create-private-endpoint-storage-portal.md)
+- [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)

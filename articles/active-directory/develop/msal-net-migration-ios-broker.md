@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4426c070d2fd2e26e0d4368a94996bc32e95129d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103960"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257775"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator
 
@@ -36,7 +36,7 @@ Cet article part du principe que vous disposez déjà d’une application Xamari
 
 ### <a name="what-are-brokers"></a>Que sont les répartiteurs ?
 
-Les répartiteurs sont des applications fournies par Microsoft sur Android et iOS. (Voir l'application [Microsoft Authenticator](https://www.microsoft.com/account/authenticator) sur iOS et Android, ainsi que l’application Portail d'entreprise Intune sur Android.) 
+Les répartiteurs sont des applications fournies par Microsoft sur Android et iOS. (Voir l'application [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) sur iOS et Android, ainsi que l’application Portail d'entreprise Intune sur Android.) 
 
 Ils permettent d’effectuer les opérations suivantes :
 

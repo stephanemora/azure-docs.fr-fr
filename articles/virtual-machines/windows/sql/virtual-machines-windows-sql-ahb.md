@@ -6,20 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100609"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262872"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**.
@@ -125,7 +125,7 @@ Si vous avez approvisionné une machine virtuelle SQL Server à partir d’image
 
 Vous êtes uniquement autorisé à installer automatiquement SQL Server sur une machine virtuelle Azure via Azure Hybrid Benefit. Vous devez [inscrire ces machines virtuelles auprès du fournisseur de ressources de machines virtuelles SQL](virtual-machines-windows-sql-register-with-resource-provider.md) en sélectionnant Azure Hybrid Benefit comme licence SQL Server pour déclarer que vous utilisez Azure Hybrid Benefit conformément aux conditions d’utilisation du produit Microsoft.
 
-Vous pouvez modifier le type de licence d’une machine virtuelle SQL Server avec paiement à l'utilisation ou Azure Hybrid Benefit uniquement si la machine virtuelle SQL Server est inscrite auprès du fournisseur de ressources de la machine virtuelle SQL. Toutes les machines virtuelles SQL Server doivent être inscrites auprès du fournisseur de ressources pour la conformité des licences.
+Vous pouvez modifier le type de licence d’une machine virtuelle SQL Server avec paiement à l'utilisation ou Azure Hybrid Benefit uniquement si la machine virtuelle SQL Server est inscrite auprès du fournisseur de ressources de la machine virtuelle SQL.
 
 ## <a name="remarks"></a>Remarques
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775206"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219768"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Modèles de colonne de flux de données de mappage
 
@@ -57,5 +57,5 @@ Construisez vos règles à l’aide du générateur d’expressions. Vos express
 * `position` est la position ordinale des colonnes dans votre flux de données
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur le flux de données de mappage ADF [langage d’expression](http://aka.ms/dataflowexpressions) pour les transformations de données
+* En savoir plus sur le flux de données de mappage ADF [langage d’expression](https://aka.ms/dataflowexpressions) pour les transformations de données
 * Utiliser des modèles de colonne dans la [Transformation du récepteur](data-flow-sink.md) et [Transformation de sélection](data-flow-select.md) avec un mappage basé sur des règles

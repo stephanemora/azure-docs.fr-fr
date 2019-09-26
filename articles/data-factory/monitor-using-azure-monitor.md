@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910182"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300556"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -289,7 +289,7 @@ Pour plus d’informations, voir [Paramètres de diagnostic](https://docs.micros
 
 | Propriété | Type | Description | Exemples |
 | --- | --- | --- | --- |
-| **Level** |Chaîne | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
+| **Niveau** |Chaîne | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
 | **correlationId** |Chaîne | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | Chaîne | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| Chaîne| ID de l’exécution d’activité. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -487,7 +487,7 @@ L’installation d’Azure Data Factory Analytics crée un ensemble de vues par 
 
 - Exécutions d’ADF - 1) Exécutions de pipeline par Data Factory
  
-- Exécutions d’ADF - 2) Exécutions d’activité par Data Factory
+- Exécution d’ADF- 2) Exécution d’activité par fabrique de données
 
 - Exécutions d’ADF- 3) Exécutions de déclencheur par Data Factory
 
@@ -504,8 +504,6 @@ L’installation d’Azure Data Factory Analytics crée un ensemble de vues par 
 - Statistiques d’ADF - 3) Durée maximale d’exécutions du pipeline
 
 ![Fenêtre avec « Classeurs (préversion) » et « AzureDataFactoryAnalytics » en surbrillance](media/data-factory-monitor-oms/monitor-oms-image6.png)
-
-![Représentation graphique des exécutions et des erreurs](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
 Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derrière ces métriques, modifier les requêtes, créer des alertes, et exécuter d’autres action.
 

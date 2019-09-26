@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0dd460f7ed829bf82c285b80e59778dacd882404
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 839e608aa4bba26712ae5b0c160da40db279bbc9
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059374"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219190"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Déplacer un groupe de sécurité réseau Azure vers une autre région à l’aide du Portail Azure
 
@@ -27,7 +27,7 @@ Les groupes de sécurité Azure ne peuvent pas être déplacés d’une région 
 - Les groupes de sécurité réseau Azure ne peuvent pas être déplacés entre les régions.  Vous devez associer le nouveau groupe de sécurité réseau à des ressources dans la région cible.
 
 - Pour exporter une configuration de groupe de sécurité réseau et déployer un modèle afin de créer un groupe de sécurité réseau dans une autre région, vous devez disposer au minimum du rôle Contributeur de réseaux.
-   
+
 - Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cette disposition comprend notamment les équilibreurs de charge, les adresses IP publiques et les réseaux virtuels.
 
 - Vérifiez que votre abonnement Azure vous permet de créer des groupes de sécurité réseau dans la région cible utilisée. Contactez le support pour activer le quota requis.
@@ -41,7 +41,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exporter le modèle et le déployer à partir du portail
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com) > **Groupes de ressources**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) > **Groupes de ressources**.
 2. Recherchez le groupe de ressources contenant le groupe de sécurité réseau source et cliquez dessus.
 3. Sélectionnez **Paramètres** > **Exporter le modèle**.
 4. Choisissez **Déployer** dans le panneau **Exporter le modèle**.
@@ -77,19 +77,19 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace : **Central US** = **centralus**.
-    
+
 12. Vous pouvez également changer d’autres paramètres dans le modèle ; ces paramètres sont facultatifs en fonction de vos besoins :
 
     * **Règles de sécurité** : vous pouvez modifier les règles déployées dans le groupe de sécurité réseau cible en ajoutant ou en supprimant des règles dans la section **securityRules** du fichier **template.json** :
-    
+
         ```json
            "resources": [
             {
@@ -155,7 +155,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 14. Cliquez sur **DE BASE** > **Abonnement** pour choisir l’abonnement dans lequel le groupe de sécurité réseau sera déployé.
 
-15. Cliquez sur **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le groupe de sécurité réseau sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un groupe de ressources pour le groupe de sécurité réseau cible.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source du groupe de sécurité réseau existant. 
+15. Cliquez sur **DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel le groupe de sécurité réseau sera déployé.  Vous pouvez cliquer sur **Créer** pour créer un groupe de ressources pour le groupe de sécurité réseau cible.  Vérifiez que le nom n’est pas identique à celui du groupe de ressources source du groupe de sécurité réseau existant.
 
 16. Vérifiez que **DE BASE** > **Emplacement** est défini avec l’emplacement cible où vous souhaitez déployer le groupe de sécurité réseau.
 
@@ -165,7 +165,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 19. Cliquez sur le bouton **Acheter** pour déployer le groupe de sécurité réseau cible.
 
-## <a name="discard"></a>Abandonner 
+## <a name="discard"></a>Abandonner
 
 Si vous souhaitez abandonner le groupe de sécurité réseau cible, supprimez le groupe de ressources contenant le groupe de sécurité réseau cible.  Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez **Supprimer** en haut de la page de vue d’ensemble.
 

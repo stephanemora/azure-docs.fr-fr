@@ -3,7 +3,7 @@ title: Installer et configurer Terraform pour provisionner des ressources Azure 
 description: Découvrez comment installer et configurer Terraform pour créer des ressources Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090733"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168737"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installer et configurer Terraform pour provisionner des ressources Azure
  
@@ -37,7 +37,7 @@ Pour installer Terraform, [téléchargez](https://www.terraform.io/downloads.htm
 
 Vérifiez la configuration de votre chemin d’accès à l’aide de la commande `terraform`. Une liste des options Terraform disponibles apparaît, comme dans l’exemple de sortie suivant :
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -94,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 Créez un fichier `test.tf` dans un répertoire vide et collez-y le script suivant.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -111,7 +111,7 @@ terraform init
 
 Le résultat ressemble à l’exemple suivant :
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -125,7 +125,7 @@ terraform apply
 
 Le résultat ressemble à l’exemple suivant :
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

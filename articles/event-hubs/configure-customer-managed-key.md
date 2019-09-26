@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035906"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260868"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Event Hubs utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l'aide de clés gérées par Microsoft. 
@@ -84,7 +84,7 @@ Une fois la clé de chiffrement révoquée, le service Event Hubs devient inutil
 > Si vous supprimez une clé de chiffrement existante de votre coffre de clés et que vous la remplacez par une nouvelle clé sur l'espace de noms Event Hubs, dans la mesure où la clé supprimée est toujours valide (car mise en cache) pendant une heure maximum, vos anciennes données (qui ont été chiffrées avec l'ancienne clé) peuvent rester accessibles avec les nouvelles données, qui ne sont désormais accessibles qu'à l'aide de la nouvelle clé. Il s'agit du comportement par défaut dans la préversion de la fonctionnalité. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic 
-En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations lorsqu'un espace de noms est chiffré à l'aide de clés gérées par le client. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations lorsqu'un espace de noms est chiffré à l'aide de clés gérées par le client. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Activer les journaux utilisateur
 Pour activer les journaux relatifs aux clés gérées par le client, procédez comme suit.
