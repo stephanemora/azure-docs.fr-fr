@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68c235f32d003adcddecb98c20f30c517c723617
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723952"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033339"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -111,18 +111,18 @@ Utilisez le portail Azure Active Directory pour configurer le service d’approv
 
    - Les **paramètres** contrôlent le fonctionnement du service d’approvisionnement pour une application, qu’elle soit ou non en cours d’exécution. Le menu **Étendue** vous permet de spécifier si seuls les utilisateurs et les groupes affectés ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](assign-user-or-group-access-portal.md).
 
-Dans l’écran de gestion des applications, sélectionnez **Journaux d’audit** pour afficher les enregistrements de chaque opération exécutée par le service d’approvisionnement Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](check-status-user-account-provisioning.md).
+Dans l’écran de gestion des applications, sélectionnez Journaux de provisionnement (préversion) pour afficher les enregistrements de chaque opération exécutée par le service de provisionnement Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](check-status-user-account-provisioning.md).
 
-![Exemple : écran des journaux d’audit pour une application](./media/user-provisioning/audit_logs.PNG)
+![Exemple - Écran des journaux de provisionnement d’une application](./media/user-provisioning/audit_logs.PNG)
 
 > [!NOTE]
 > Le service d’approvisionnement des utilisateurs Azure AD peut également être configuré et géré à l’aide de [l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
 ## <a name="what-happens-during-provisioning"></a>Que se passe-t-il pendant l’approvisionnement ?
 
-Lorsque Azure AD est le système source, le service d’approvisionnement utilise la [fonctionnalité de requête différentielle de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) pour surveiller les utilisateurs et groupes. Le service d’approvisionnement exécute une synchronisation initiale sur le système source et le système cible, suivie de synchronisations incrémentielles périodiques.
+Lorsque Azure AD est le système source, le service d’approvisionnement utilise la [fonctionnalité de requête différentielle de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) pour surveiller les utilisateurs et groupes. Le service de provisionnement exécute un cycle initial sur le système source et le système cible, qui est suivi de cycles incrémentiels périodiques.
 
-### <a name="initial-sync"></a>Synchronisation initiale
+### <a name="initial-cycle"></a>Cycle initial
 
 Lorsque le service d’approvisionnement est démarré, la première synchronisation effectuée permettra de réaliser les opérations suivantes :
 
@@ -132,13 +132,13 @@ Lorsque le service d’approvisionnement est démarré, la première synchronisa
 1. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source. Une fois que le compte d’utilisateur a été créé, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour exécuter toutes les opérations futures sur cet utilisateur.
 1. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source. Une fois que le compte d’utilisateur a été créé, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour exécuter toutes les opérations futures sur cet utilisateur.
 1. Si les mappages d’attributs contiennent des attributs de « référence », le service effectue des mises à jour supplémentaires sur le système cible pour créer et lier les objets référencés. Par exemple, un utilisateur peut avoir un attribut « Manager » dans le système cible, qui est lié à un autre utilisateur créé dans le système cible.
-1. Conserver un filigrane à la fin de la synchronisation initiale, qui fournit le point de départ pour les synchronisations incrémentielles ultérieures.
+1. Conserver un filigrane à la fin du cycle initial, qui fournit le point de départ pour les cycles incrémentiels ultérieurs.
 
 Certaines applications telles que ServiceNow, G Suite et Box prennent non seulement en charge l’approvisionnement des utilisateurs, mais également celui des groupes et de leurs membres. Dans ce type de situation, si l’approvisionnement des groupes est activé dans les [mappages](customize-application-attributes.md), le service d’approvisionnement synchronise les utilisateurs et les groupes, puis les appartenances au groupe.
 
-### <a name="incremental-syncs"></a>Synchronisations incrémentielles
+### <a name="incremental-cycles"></a>Cycles incrémentiels
 
-Après la synchronisation initiale, toutes les autres synchronisations effectueront les opérations ci-dessous :
+Après le cycle initial, tous les autres cycles effectuent les opérations suivantes :
 
 1. Interroger le système source pour rechercher les utilisateurs et les groupes qui ont été mis à jour depuis le dernier filigrane enregistré.
 1. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](assign-user-or-group-access-portal.md) ou de [filtres d’étendue basés sur un attribut](define-conditional-rules-for-provisioning-user-accounts.md) configurés.
@@ -149,21 +149,21 @@ Après la synchronisation initiale, toutes les autres synchronisations effectuer
 1. Si un utilisateur qui se trouvait précédemment dans l’étendue de l’approvisionnement est supprimé de l’étendue (y compris si son affectation est annulée), le service désactive l’utilisateur dans le système cible via une mise à jour.
 1. Si un utilisateur qui se trouvait précédemment dans l’étendue de l’approvisionnement est désactivé ou supprimé de façon réversible dans le système source, le service désactive l’utilisateur dans le système cible via une mise à jour.
 1. Si un utilisateur qui se trouvait précédemment dans l’étendue de l’approvisionnement est définitivement supprimé du système source, le service efface l’utilisateur dans le système cible. Dans Azure AD, les utilisateurs sont supprimés définitivement 30 jours après leur suppression de façon réversible.
-1. Conserver un nouveau filigrane à la fin de la synchronisation initiale, qui fournit le point de départ pour les synchronisations incrémentielles ultérieures.
+1. Conserver un nouveau filigrane à la fin du cycle initial, qui fournit le point de départ pour les cycles incrémentiels ultérieurs.
 
 > [!NOTE]
 > Vous pouvez éventuellement désactiver les opérations de **création**, **mise à jour** et **suppression** à l’aide des cases à cocher **Actions d’objet cible** dans la section [Mappages](customize-application-attributes.md). La logique pour désactiver un utilisateur pendant une mise à jour est également contrôlée via un mappage d’attributs à partir d’un champ tel que « accountEnabled ».
 
-Le service d’approvisionnement continue à exécuter indéfiniment des synchronisations incrémentielles dos à dos, à des intervalles définis dans le [didacticiel spécifique à chaque application](../saas-apps/tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
+Le service de provisionnement continue à exécuter indéfiniment des cycles incrémentiels consécutifs, à des intervalles définis dans le [tutoriel spécifique à chaque application](../saas-apps/tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
 
 - Le service est arrêté manuellement à l’aide du portail Azure, ou à l’aide de la commande API Graph appropriée 
-- Une nouvelle synchronisation initiale est déclenchée à l’aide de l’option **Clear state and restart** (Effacer l’état et redémarrer) dans le portail Azure, ou à l’aide de la commande API Graph appropriée. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
-- Une nouvelle synchronisation initiale est déclenchée en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue. Cette action permet également d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
+- Un nouveau cycle initial est déclenché au moyen de l’option **Effacer l’état en cours et redémarrer** dans le portail Azure, ou à l’aide de la commande API Graph appropriée. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
+- Une nouveau cycle initial est déclenché en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue. Cette action permet également d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 - Le processus d’approvisionnement est mis en quarantaine (voir ci-dessous) en raison d’un taux d’erreur élevé et reste en quarantaine pendant plus de quatre semaines. Dans ce cas, le service sera automatiquement désactivé.
 
 ### <a name="errors-and-retries"></a>Erreurs et nouvelles tentatives
 
-Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le système cible en raison d’une erreur dans le système cible, une nouvelle tentative est effectuée lors du prochain cycle de synchronisation. Si l’utilisateur continue d’échouer, les nouvelles tentatives ne seront possibles qu’à une fréquence réduite, pour finalement n’être autorisées qu’une seule fois par jour. Pour résoudre le problème, les administrateurs doivent vérifier les [journaux d’audit](check-status-user-account-provisioning.md) pour identifier les événements « traitement d’escrow », afin de déterminer la cause racine et prendre les mesures nécessaires. Les échecs courants peuvent inclure :
+Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le système cible en raison d’une erreur dans le système cible, une nouvelle tentative est effectuée lors du prochain cycle de synchronisation. Si l’utilisateur continue d’échouer, les nouvelles tentatives ne seront possibles qu’à une fréquence réduite, pour finalement n’être autorisées qu’une seule fois par jour. Pour résoudre le problème, les administrateurs doivent vérifier les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) pour déterminer la cause racine et prendre les mesures nécessaires. Les échecs courants peuvent inclure :
 
 - Utilisateurs n’ayant pas d’attribut renseigné dans le système source alors qu’il est requis dans le système cible
 - Utilisateurs ayant une valeur d’attribut dans le système source pour laquelle il existe une contrainte unique dans le système cible, et la même valeur se trouve dans un autre enregistrement utilisateur
@@ -174,7 +174,7 @@ Ces échecs peuvent être résolus en ajustant les valeurs d’attribut de l’u
 
 Si la plupart ou la totalité des appels effectués sur le système cible échouent en permanence en raison d’une erreur (comme dans le cas d’informations d’identification non valides), le travail d’approvisionnement passe à un état « mis en quarantaine ». Cet état est indiqué dans le [rapport de synthèse sur l’approvisionnement](check-status-user-account-provisioning.md) et via les notifications par e-mail si elles ont été configurées dans le portail Azure.
 
-Lors de la mise en quarantaine, la fréquence des synchronisations incrémentielles est progressivement réduite à une fois par jour.
+Lors de la mise en quarantaine, la fréquence des cycles incrémentiels est progressivement réduite à une fois par jour.
 
 Le travail d’approvisionnement sera supprimé de la mise en quarantaine après la correction de toutes les erreurs qui posent problème, et le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé.
 
@@ -184,9 +184,9 @@ Les performances varient selon que votre tâche d’approvisionnement exécute u
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 
-Toutes les opérations effectuées par le service d’attribution d’utilisateurs sont enregistrées dans les journaux d’audit Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
+Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
-Pour plus d’informations sur la lecture des journaux d’audit dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
 
 ## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Comment résoudre les problèmes liés à l’attribution d’utilisateurs ?
 

@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce que le Machine Learning (ML) automatisé / automl
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment le service Azure Machine Learning peut choisir automatiquement un algorithme pour vous et générer un modèle à partir de celui-ci pour vous permettre de gagner du temps en utilisant les paramètres et les critères que vous fournissez de façon à sélectionner le meilleur algorithme pour votre modèle.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment Azure Machine Learning peut choisir automatiquement un algorithme pour vous et générer un modèle à partir de celui-ci pour vous permettre de gagner du temps en utilisant les paramètres et les critères que vous fournissez de façon à sélectionner le meilleur algorithme pour votre modèle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882035"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035704"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -39,7 +39,7 @@ Les scientifiques des données, analystes et développeurs de différents secteu
 
 ## <a name="how-automated-ml-works"></a>Fonctionnement du Machine Learning automatisé
 
-**Azure Machine Learning service** vous permet de concevoir et d’exécuter vos expériences d’apprentissage de Machine Learning automatisé en procédant comme suit :
+**Azure Machine Learning** vous permet de concevoir et d’exécuter vos expériences d’entraînement de Machine Learning automatisé en effectuant les étapes suivantes :
 
 1. **Identifier le problème de Machine Learning** à résoudre : classification, prévision ou régression.
 
@@ -53,7 +53,7 @@ Les scientifiques des données, analystes et développeurs de différents secteu
 
   ![Machine Learning automatisé](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-Pendant l’apprentissage, Azure Machine Learning service crée un certain nombre de pipelines parallèles qui testent différents algorithmes et paramètres. Il s’arrête une fois qu’il réunit les critères de sortie définis dans l’expérience.
+Pendant l’entraînement, Azure Machine Learning crée un certain nombre de pipelines parallèles qui testent différents algorithmes et paramètres. Il s’arrête une fois qu’il réunit les critères de sortie définis dans l’expérience.
 
 Vous pouvez également inspecter les informations d’exécution journalisées qui [contiennent les métriques collectées](how-to-understand-automated-ml.md) pendant l’exécution. L’exécution de l’apprentissage produit un objet sérialisé Python (fichier `.pkl`) contenant le modèle et le prétraitement des données.
 

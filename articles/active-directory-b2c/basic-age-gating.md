@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511666"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064451"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
 
 >[!IMPORTANT]
->Cette fonctionnalité est en version préliminaire publique. N’utilisez pas cette fonctionnalité pour les applications de production. 
+>Cette fonctionnalité est en version préliminaire publique. N’utilisez pas cette fonctionnalité pour les applications de production.
 >
 
-La vérification de l’âge dans Azure Active Directory (Azure AD) B2C vous permet d’identifier les mineurs qui souhaitent utiliser votre application. Vous pouvez choisir d’empêcher un mineur de se connecter à l’application. Les utilisateurs peuvent également revenir à l’application et indiquer leur tranche âge et l’état de leur consentement parental. Azure AD B2C peut bloquer les mineurs n’ayant pas de consentement parental. Vous pouvez également configurer Azure AD B2C pour que l’application gère elle-même les mineurs.
+La vérification de l’âge dans Azure Active Directory B2C (Azure AD B2C) vous permet d’identifier les mineurs qui souhaitent utiliser votre application. Vous pouvez choisir d’empêcher un mineur de se connecter à l’application. Les utilisateurs peuvent également revenir à l’application et indiquer leur tranche âge et l’état de leur consentement parental. Azure AD B2C peut bloquer les mineurs n’ayant pas de consentement parental. Vous pouvez également configurer Azure AD B2C pour que l’application gère elle-même les mineurs.
 
 Après avoir activé la vérification de l’âge dans votre [flux utilisateur](active-directory-b2c-reference-policies.md), les utilisateurs sont invités à entrer leur date de naissance et leur pays/région de résidence. Si un utilisateur qui se connecte n’a pas précédemment entré ces informations, il devra le faire à sa prochaine connexion. Les règles sont appliquées chaque fois qu’un utilisateur se connecte.
 
@@ -70,11 +70,11 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 | SK | Slovaquie | 16 | 18 |
 | TD | Tchad | Aucun | 21 |
 | MJ | Thaïlande | Aucun | 20 |
-| TW | Taïwan | Aucun | 20 | 
+| TW | Taïwan | Aucun | 20 |
 | FR | États-Unis | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Options de vérification de l’âge
- 
+
 ### <a name="allowing-minors-without-parental-consent"></a>Autoriser les mineurs sans consentement parental
 
 Pour les flux utilisateur impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir d’autoriser les mineurs sans accord dans votre application. Les mineurs sans accord parental sont autorisés à se connecter ou à créer un compte normalement, et Azure AD B2C émet un jeton d’ID avec la revendication **legalAgeGroupClassification**. Cette revendication définit l’expérience des utilisateurs, notamment la collecte de l’accord parental et la mise à jour du champ **consentProvidedForMinor**.
@@ -90,7 +90,7 @@ Pour les flux utilisateur impliquant des opérations de création de compte et/o
 
 Pour utiliser la vérification de l’âge dans un flux utilisateur, vous devez configurer des propriétés supplémentaires sur votre locataire.
 
-1. Veillez à utiliser l’annuaire contenant votre locataire Azure AD B2C. Pour cela, cliquez sur le **filtre Répertoire et abonnement** dans le menu du haut. Sélectionnez l’annuaire qui contient votre locataire. 
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur. Sélectionnez l’annuaire qui contient votre locataire.
 2. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Sélectionnez **Propriétés** pour votre locataire dans le menu de gauche.
 2. Sous la section **Vérification de l’âge**, cliquez sur **Configurer**.
@@ -103,7 +103,7 @@ Une fois que votre locataire est configuré pour utiliser la vérification de l�
 1. Créez un flux utilisateur dans lequel la vérification de l’âge est activée.
 2. Après avoir créé le flux utilisateur, sélectionnez **Propriétés** dans le menu.
 3. Dans la section **Vérification de l’âge**, sélectionnez **Activée**.
-4. Vous pouvez ensuite choisir la façon dont vous souhaitez gérer les utilisateurs qui s’identifient comme étant mineurs. Pour **Stratégies d’inscription ou de connexion**, sélectionnez `Allow minors to access your application` ou `Block minors from accessing your application`. Si le blocage de mineurs est sélectionné, sélectionnez `Send a JSON back to the application` ou `Show an error message`. 
+4. Vous pouvez ensuite choisir la façon dont vous souhaitez gérer les utilisateurs qui s’identifient comme étant mineurs. Pour **Stratégies d’inscription ou de connexion**, sélectionnez `Allow minors to access your application` ou `Block minors from accessing your application`. Si le blocage de mineurs est sélectionné, sélectionnez `Send a JSON back to the application` ou `Show an error message`.
 
 
 

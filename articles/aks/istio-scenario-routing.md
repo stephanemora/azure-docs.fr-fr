@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: bd660a2b6ffb96478c3170cc7013ff22518b758f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7baa2adbd615a449c73e70e1b96524fc1e18b25d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702205"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000171"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utiliser le routage intelligent et le déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
 
-[Istio][istio-github] est un maillage de services (service mesh) open source qui fournit un jeu de fonctionnalités de base dans les microservices d’un cluster Kubernetes. Ces fonctionnalités incluent la gestion du trafic, l’identité et la sécurité des services, l’application des stratégies et l’observabilité. Pour plus d’informations sur Istio, consultez la documentation officielle [What is Istio?][istio-docs-concepts] (Présentation d’Istio).
+[Istio][istio-github] est un maillage de services open source qui fournit un jeu de fonctionnalités de base dans les microservices d’un cluster Kubernetes. Ces fonctionnalités incluent la gestion du trafic, l’identité et la sécurité des services, l’application des stratégies et l’observabilité. Pour plus d’informations sur Istio, consultez la documentation officielle [What is Istio?][istio-docs-concepts].
 
 Cet article vous montre comment utiliser la fonctionnalité de gestion de trafic d’Istio. Un exemple d’application de vote AKS est utilisé pour explorer le routage intelligent et le déploiement de versions Canary.
 
@@ -35,7 +35,7 @@ Dans cet article, vous apprendrez comment :
 
 Les étapes détaillées de cet article supposent que vous avez créé un cluster AKS (Kubernetes versions `1.11` et ultérieures, avec RBAC activé) et que vous avez établi une connexion `kubectl` avec le cluster. Istio doit également être installé dans votre cluster.
 
-Si vous avez besoin d’aide avec l’un de ces éléments, consultez les instructions dans le [guide de démarrage rapide d’AKS][aks-quickstart] et [Installer Istio dans AKS][istio-install].
+Si vous avez besoin d’aide avec l’un de ces éléments, consultez les instructions du [Guide de démarrage rapide AKS][aks-quickstart] et de la rubrique [Installer Istio dans AKS][istio-install].
 
 ## <a name="about-this-application-scenario"></a>À propos de ce scénario d’application
 

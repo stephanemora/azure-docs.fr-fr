@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914893"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075454"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -149,7 +149,7 @@ az aks create \
 > Si vous obtenez une erreur de validation de mot de passe, essayez de créer votre groupe de ressources dans une autre région.
 > Puis essayez de créer le cluster avec le nouveau groupe de ressources.
 
-Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster.
+Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure. 
 
 ## <a name="add-a-windows-server-node-pool"></a>Ajouter un pool de nœuds Windows Server
 
@@ -264,7 +264,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>Test de l’application
 
-Quand l’application s’exécute, un service Kubernetes expose le front-end de l’application sur Internet. L’exécution de ce processus peut prendre plusieurs minutes.
+Quand l’application s’exécute, un service Kubernetes expose le front-end de l’application sur Internet. L’exécution de ce processus peut prendre plusieurs minutes. Parfois, le provisionnement du service peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure.
 
 Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
 

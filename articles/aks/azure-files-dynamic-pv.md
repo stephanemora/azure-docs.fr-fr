@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 09/12/2019
 ms.author: mlearned
-ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 045fcb3286c89097459a4a8405d22ee70e44c205
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67665967"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018838"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur les volumes Kubernetes, consultez [Options de sto
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Créer une classe de stockage
 
@@ -33,6 +33,7 @@ Une classe de stockage permet de définir la façon dont un partage de fichiers 
 * *Standard_LRS* : stockage localement redondant (LRS) standard
 * *Standard_GRS* : stockage géoredondant (GRS) standard
 * *Standard_RAGRS* : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
+* *Premium_LRS* - Stockage Premium localement redondant (LRS)
 
 > [!NOTE]
 > Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou une version ultérieure.
@@ -52,6 +53,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```
@@ -101,7 +105,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
-Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5GB* avec un accès *ReadWriteMany*. Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
+Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5 Go* avec un accès *ReadWriteMany*. Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
 
 Maintenant, créez un fichier nommé `azure-file-pvc.yaml`, et copiez-y le code YAML suivant. Vérifiez que *storageClassName* correspond à la classe de stockage créée à la dernière étape :
 
@@ -118,6 +122,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!NOTE]
+> Si vous utilisez la référence SKU *Premium_LRS* pour votre classe de stockage, la valeur minimale de *stockage* doit être *100 Gi*.
 
 Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] :
 
@@ -196,17 +203,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Options de montage
 
-Les valeurs par défaut *fileMode* et *dirMode* diffèrent d’une version Kubernetes à l’autre, comme détaillé dans le tableau suivant.
-
-| version | value |
-| ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0-v1.8.5 | 0700 |
-| v1.8.6 ou version supérieure | 0755 |
-| V1.9.0 | 0700 |
-| v1.9.1 ou version supérieure | 0755 |
-
-Si vous utilisez un cluster de la version 1.8.5 ou d’une version ultérieure et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
+La valeur par défaut de *fileMode* et *dirMode* est *0755* pour Kubernetes 1.9.1 et versions ultérieures. Si vous utilisez un cluster avec Kuberetes 1.8.5 ou ultérieur et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
 
 ```yaml
 kind: StorageClass
@@ -219,6 +216,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48f1b6e4410820d40ba6563d431c690ab791ff0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831235"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097239"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
 
@@ -28,7 +28,7 @@ Son utilisation profite aux applications qui tirent parti d’une communication 
 
 Pour établir une connexion WebSocket, une liaison HTTP spécifique est établie entre le client et le serveur. En cas de réussite, le protocole de la couche Application est « mis à niveau » de HTTP vers WebSockets, à l’aide de la connexion TCP établie. Une fois que cela s’est produit, le protocole HTTP disparaît du paysage. Les données peuvent être envoyées ou reçues aux deux points de terminaison via le protocole WebSocket, jusqu’à la fermeture de la connexion WebSocket. 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![websocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 
@@ -68,7 +68,7 @@ Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extr
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Configuration des règles de routage, BackendHttpSetting et BackendAddressPool
 
-Un élément BackendAddressPool permet de définir un pool principal avec des serveurs compatibles WebSocket. L’élément backendHttpSetting est défini avec un port principal 80 et 443. Les propriétés de l’affinité basée sur les cookies et de requestTimeouts ne sont pas pertinentes pour le trafic WebSocket. La règle de routage n’est pas modifiée. La règle « De base » sert à lier l’écouteur approprié au pool d’adresses principal correspondant. 
+Un élément BackendAddressPool permet de définir un pool principal avec des serveurs compatibles WebSocket. L’élément backendHttpSetting est défini avec un port principal 80 et 443. Le délai d’expiration de la demande défini dans les paramètres HTTP s’applique également à la session WebSocket. Il n’est pas nécessaire de modifier la règle de routage, qui sert à lier l’écouteur approprié au pool d’adresses de back-end correspondant. 
 
 ```json
 "requestRoutingRules": [{

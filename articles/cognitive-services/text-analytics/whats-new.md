@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: b5b7d43fc5a53bcf46874a48914bcda565a41c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 432d81b4282e45bc2f33d098e618f2edd152628b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697067"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098029"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
 
-## <a name="sentiment-analysis-v3-public-preview---july-2019"></a>Analyse des sentiments v3 - Préversion publique - Juillet 2019
+## <a name="sentiment-analysis-v3-public-preview---september-2019"></a>Analyse des sentiments v3 - Préversion publique - Septembre 2019
 
 La version suivante d’Analyse des sentiments est maintenant disponible en préversion publique, et fournit des améliorations significatives dans la précision et les détails de catégorisation et de scoring de texte de l’API. Elle fournit également les éléments suivants :
 
 * Étiquetage automatique pour différents sentiments dans le texte.
 * Analyse des sentiments et sortie au niveau du document et de la phrase. 
 
-Elle prend en charge l’anglais et est disponible dans trois régions : Canada Centre, Asie Est et USA Centre. Des langues et régions supplémentaires seront ajoutées dans des versions ultérieures.
+Elle prend en charge l’anglais, le français, l’italien, le japonais, le chinois simplifié et le chinois traditionnel, et est disponible dans les régions suivantes : `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` et `West US 2`.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur Analyse des sentiments v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
