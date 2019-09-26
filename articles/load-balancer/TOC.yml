@@ -84,7 +84,11 @@
     - name: Équilibrer la charge de machines virtuelles au sein d’une zone (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: Configurer des règles de trafic sortant
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: Configurer des règles de trafic sortant - CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: Configurer des règles de trafic sortant - PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: Créer un équilibreur de charge Azure Load Balancer à l’aide de l’API REST
       href: create-load-balancer-rest-api.md
     - name: Créer un équilibrage de charge de base (modèle)

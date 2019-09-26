@@ -18,7 +18,7 @@
       items:
         - name: Ajouter des cibles de stockage
           href: hpc-cache-add-storage.md
-        - name: Déplacer des données vers le stockage du cache
+        - name: Déplacer des données vers des cibles de stockage (si nécessaire)
           items:
             - name: Précharger un nouveau stockage d’objets blob
               href: hpc-cache-ingest.md

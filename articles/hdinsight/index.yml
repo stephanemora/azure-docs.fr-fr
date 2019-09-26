@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: e4504bbfc84dbafcd1efa45c9536a63569230a8a
-  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.openlocfilehash: 2e6a0bcc654bbf94bec5c562815aa7591cfabd60
+  ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/23/2019
-  ms.locfileid: "71204118"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71272231"
 landingContent:
 - title: À propos de HDInsight
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     links:
     - text: Composants et versions HDInsight
       url: ./hdinsight-component-versioning.md
-    - text: Configurations de nœuds prises en charge pour HDInsight
+    - text: Types de machine virtuelle pris en charge par HDInsight
       url: ./hdinsight-supported-node-configuration.md
     - text: Comparer les options de stockage
       url: ./hdinsight-hadoop-compare-storage-options.md
@@ -38,6 +38,14 @@ landingContent:
       url: ./hdinsight-hadoop-provision-linux-clusters.md
     - text: Créer des clusters avec Data Lake Store Gen2
       url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+  - linkListType: whats-new
+    links:
+    - text: Mettre automatiquement à l’échelle des clusters Hadoop
+      url: ./hdinsight-autoscale-clusters.md
+    - text: Supervision avec HDInsight
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: Migrer des tables Apache Hive vers HDInsight 4.0
+      url: ./interactive-query/apache-hive-migrate-workloads.md
 - title: Apache Spark
   linkLists:
   - linkListType: overview

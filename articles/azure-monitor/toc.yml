@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: Compteurs de performances
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: Les dépendances
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: Vue d'ensemble
                       href: platform/diagnostics-extension-overview.md
+                    - name: Collecter les journaux d’activité
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: Historique des versions
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: Groupes d’ordinateurs
               href: platform/computer-groups.md
-        - name: Ressources Azure
+        - name: Plateforme Azure
           items:
-            - name: Journaux de diagnostic
+            - name: Vue d’ensemble des journaux de plateforme
+              href: platform/platform-logs-overview.md
+            - name: Journaux d’activité de ressources
               items:
                 - name: Vue d'ensemble
-                  href: platform/diagnostic-logs-overview.md
-                - name: Collecter dans les journaux
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Collecter dans Stockage Azure
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: Collecter dans les journaux Azure Monitor
+                  href: platform/resource-logs-collect-workspace.md
                 - name: Archiver dans le stockage
-                  href: platform/archive-diagnostic-logs.md
-                - name: Activer avec des modèles Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Abonnement Azure
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: Flux de concentrateurs d’événements
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: Journal d’activité
               items:
                 - name: Vue d'ensemble
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: Schéma
                   href: platform/activity-log-schema.md
+            - name: Paramètres de diagnostic
+              items:
+                - name: Créer un paramètre de diagnostic
+                  href: platform/diagnostic-settings.md
+                - name: Créer un paramètre de diagnostic avec Resource Manager
+                  href: platform/diagnostic-settings-template.md
+                - name: Remplacer par le format de stockage d’objets blob
+                  href: platform/resource-logs-blob-format.md
             - name: Envoyer des données en streaming à Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault Analytics
@@ -685,6 +695,7 @@
         - name: Stockage
           items:
             - name: Azure Monitor pour le stockage
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: Bases de données
           items:
@@ -747,7 +758,7 @@
             - name: Connecter Configuration Manager
               href: platform/collect-sccm.md
         - name: Envoyer des données en streaming à Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: Analyser des données
       items:
         - name: Mesures
@@ -852,7 +863,7 @@
           href: platform/rest-api-walkthrough.md
     - name: Visualiser les données
       items:
-        - name: Views
+        - name: Les vues
           items:
             - name: Concepteur de vues
               href: platform/view-designer.md
@@ -980,7 +991,7 @@
               href: platform/itsmc-service-manager-script.md
     - name: Automatisation
       items:
-        - name: Autoscale
+        - name: Mise à l’échelle automatique
           items:
             - name: Vue d'ensemble
               href: platform/autoscale-overview.md
