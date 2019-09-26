@@ -344,6 +344,8 @@
               href: v2-permissions-and-consent.md
             - name: Framework de consentement
               href: consent-framework.md
+            - name: Consentement de l’administrateur
+              href: v2-admin-consent.md
             - name: Expériences du consentement d’application
               href: application-consent-experience.md
         - name: Clouds nationaux

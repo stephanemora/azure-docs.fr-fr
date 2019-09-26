@@ -238,9 +238,7 @@
 - name: Architecture de référence
   items:
     - name: Vue d'ensemble
-      href: iot-accelerators-architecture-overview.md
-    - name: Téléchargement
-      href: 'https://aka.ms/iotrefarchitecture'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
     - name: Implémentations partenaires
       items:
         - name: Plateforme de logistique connecté Intel
@@ -265,7 +263,7 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits SDK IoT Service
+        - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
@@ -275,7 +273,7 @@
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits SDK IoT Device
+        - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:

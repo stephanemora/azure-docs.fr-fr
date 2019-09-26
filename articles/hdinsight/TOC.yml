@@ -219,7 +219,7 @@
               href: ./hdinsight-release-notes.md
             - name: Notes de publication complètes d’HDInsight 3.6
               href: ./hdinsight-release-notes-archive.md
-        - name: Forum Aux Questions
+        - name: Forum Aux Questions (FAQ)
           href: ./hdinsight-faq.md
         - name: Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md

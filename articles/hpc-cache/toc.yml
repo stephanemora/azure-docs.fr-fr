@@ -23,12 +23,15 @@
             - name: Précharger un nouveau stockage d’objets blob
               href: hpc-cache-ingest.md
             - name: Autres méthodes d’ingestion de données
-            - name: Remplir le cache par copie parallèle
-              href: hpc-cache-ingest-parallelcp.md
-            - name: Remplir le cache avec msrsync
-              href: hpc-cache-ingest-msrsync.md
-            - name: Remplir le cache par copie de fichiers manuelle
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: Remplir le cache par copie parallèle
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: Remplir le cache avec msrsync
+                  href: hpc-cache-ingest-msrsync.md
+                - name: Remplir le cache par copie de fichiers manuelle
+                  href: hpc-cache-ingest-manual.md
+    - name: Connexion au cache
+      href: hpc-cache-mount.md
 - name: Ressources
   items:
     - name: Ouverture d’un ticket de support
