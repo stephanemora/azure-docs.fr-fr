@@ -723,7 +723,7 @@ Pour les machines virtuelles rejoignant les domaines locaux via une connexion de
 
 Pour éviter cette connectivité Internet directe, vous pouvez configurer le tunneling forcé avec une connectivité site à site entre le site local et Azure. La description détaillée de la fonctionnalité de tunneling forcé est disponible ici : <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
-Le tunneling forcé avec ExpressRoute est activé par les clients publiant un itinéraire par défaut via les sessions d’homologation BGP ExpressRoute.
+Le tunneling forcé avec ExpressRoute est activé par les clients publiant un itinéraire par défaut via les sessions de peering BGP ExpressRoute.
 
 #### <a name="summary-of-azure-networking"></a>Résumé de la mise en réseau Azure
 

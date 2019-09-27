@@ -121,7 +121,7 @@ Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azur
 [![2]][2]
 
 >[!NOTE]
-> Notez que MSEE ne se trouve pas dans le cloud Azure. ExpressRoute est en fait à la périphérie du réseau Microsoft, pas véritablement dans Azure. Une fois que vous êtes connecté avec ExpressRoute à un MSEE, vous êtes connecté au réseau de Microsoft, à partir duquel vous pouvez accéder à n’importe quels services cloud, tels qu’Office 365 (avec l’appairage Microsoft) ou Azure (avec l’appairage privé et/ou Microsoft).
+> Notez que MSEE ne se trouve pas dans le cloud Azure. ExpressRoute est en fait à la périphérie du réseau Microsoft, pas véritablement dans Azure. Une fois que vous êtes connecté avec ExpressRoute à un MSEE, vous êtes connecté au réseau de Microsoft, à partir duquel vous pouvez accéder à n’importe quels services cloud, tels qu’Office 365 (avec le peering Microsoft) ou Azure (avec le peering privé et/ou Microsoft).
 >
 >
 
@@ -133,7 +133,7 @@ Si deux réseaux virtuels (réseaux virtuels A et B dans le diagramme) sont conn
 3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
 
 >[!IMPORTANT]
-> Il est essentiel que pour chaque test vous notiez l’heure du jour à laquelle vous l’exécutez et que vous centralisiez l’enregistrement des résultats (j’ai un faible pour OneNote ou Excel). Chaque série de tests doit avoir une sortie identique afin que vous puissiez comparer les données résultantes entre les séries de tests et que vous n’ayez pas de « trous » dans les données. L’importance de la cohérence entre les différents tests est la raison principale qui m’amène à utiliser la boîte à outils AzureCT pour la résolution des problèmes. Ce ne sont pas les scénarios de charge exacts que j’exécute qui importent, mais le fait que j’obtiens une *sortie de données et de test cohérente* à l’issue de chaque test. Le fait d’enregistrer l’heure et d’avoir systématiquement des données cohérentes s’avère particulièrement utile si vous êtes amené à constater que le problème est sporadique. Faites preuve de diligence avec la collecte de données en amont ; vous devriez ainsi éviter de passer des heures à tester les mêmes scénarios plusieurs fois (je l’ai appris à mes dépens il y a de nombreuses années).
+> Il est essentiel que pour chaque test vous notiez l’heure du jour à laquelle vous l’exécutez et que vous centralisiez l’enregistrement des résultats (j’ai un faible pour OneNote ou Excel). Chaque série de tests doit avoir une sortie identique afin que vous puissiez comparer les données résultantes entre les séries de tests et que vous n’ayez pas de « trous » dans les données. L’importance de la cohérence entre les différents tests est la raison principale qui m’amène à utiliser la boîte à outils AzureCT pour la résolution des problèmes. Ce ne sont pas les scénarios de charge exacts que j’exécute qui importent, mais le fait que j’obtiens une *sortie de données* et *de test cohérente* à l’issue de chaque test. Le fait d’enregistrer l’heure et d’avoir systématiquement des données cohérentes s’avère particulièrement utile si vous êtes amené à constater que le problème est sporadique. Faites preuve de diligence avec la collecte de données en amont ; vous devriez ainsi éviter de passer des heures à tester les mêmes scénarios plusieurs fois (je l’ai appris à mes dépens il y a de nombreuses années).
 >
 >
 
@@ -157,7 +157,7 @@ J’ai une installation ExpressRoute à Seattle, Washington aux États-Unis. Le 
 
 Configuration des tests :
  - Un serveur physique exécutant Windows Server 2016 doté d’une carte réseau 10 Gbits/s, connecté à un circuit ExpressRoute.
- - Un circuit ExpressRoute Premium 10 Gbits/s à l’emplacement identifié avec l’appairage privé activé.
+ - Un circuit ExpressRoute Premium 10 Gbits/s à l’emplacement identifié avec le peering privé activé.
  - Un réseau virtuel Azure doté d’une passerelle UltraPerformance dans la région spécifiée.
  - Une machine virtuelle DS5v2 exécutant Windows Server 2016 sur le réseau virtuel. La machine virtuelle n’a pas été jointe à un domaine et a été générée à partir de l’image Azure par défaut (sans optimisation ou personnalisation) à l’aide de la boîte à outils AzureCT installée.
  - Tous les tests ont été effectués à l’aide de la commande Get-LinkPerformance de la boîte à outils AzureCT, à raison d’un test de charge de 5 minutes pour chacune des six séries de tests. Par exemple :
