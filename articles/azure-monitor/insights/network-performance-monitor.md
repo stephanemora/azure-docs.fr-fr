@@ -71,7 +71,7 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
 * **Moniteur de connectivité de service** : Installez un agent Log Analytics sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Log Analytics sur au moins un nœud dans O1, O2 et O3. 
 
-* **Moniteur ExpressRoute** : Installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
+* **Moniteur ExpressRoute** : Installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via le peering privé ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurer des agents Log Analytics pour la surveillance 
 
@@ -119,15 +119,15 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
    ![Vue Moniteur de connectivité de service](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Moniteur ExpressRoute** : Sélectionnez **Découvrir maintenant** pour découvrir tous les appairages privés ExpressRoute connectés aux réseaux virtuels dans l’abonnement Azure lié à cet espace de travail Log Analytics. 
+   **Moniteur ExpressRoute** : Sélectionnez **Découvrir maintenant** pour découvrir tous les peerings privés ExpressRoute connectés aux réseaux virtuels dans l’abonnement Azure lié à cet espace de travail Log Analytics. 
 
    ![Affichage Moniteur ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Une fois la détection terminée, les circuits et les pairs détectés sont répertoriés dans une table. 
+   Une fois la détection terminée, les circuits et les peerings détectés sont répertoriés dans une table. 
 
    ![Page Configuration de Network Performance Monitor](media/network-performance-monitor/npm-private-peerings.png)
     
-L’analyse de ces circuits et pairs est initialement désactivée. Sélectionnez chaque ressource à analyser et configurez l’analyse à partir de l’affichage des détails sur la droite. Sélectionnez **Enregistrer** pour enregistrer la configuration. Pour en savoir plus, Consultez l’article « Configurer l’analyse ExpressRoute ». 
+L’analyse de ces circuits et peerings est initialement désactivée. Sélectionnez chaque ressource à analyser et configurez l’analyse à partir de l’affichage des détails sur la droite. Sélectionnez **Enregistrer** pour enregistrer la configuration. Pour en savoir plus, Consultez l’article « Configurer l’analyse ExpressRoute ». 
 
 Une fois l’installation terminée, les données sont renseignées en 30 minutes à une heure. Pendant que la solution agrège les données à partir de votre réseau, le message *La solution nécessite une configuration supplémentaire* apparaît sur la mosaïque **Vue d’ensemble** de Network Performance Monitor. Une fois les données collectées et indexées, la mosaïque **Vue d’ensemble** change et vous informe de l’intégrité de votre réseau dans un résumé. Vous pouvez ensuite modifier l’analyse des nœuds sur lesquels les agents Log Analytics sont installés, ainsi que les sous-réseaux détectés à partir de votre environnement.
 
@@ -189,7 +189,7 @@ Une fois la solution Network Performance Monitor activée, la mosaïque de la so
 
 * **Principaux événements d’intégrité du réseau** : Cette page fournit une liste des alertes et des événements d’intégrité les plus récents du système, ainsi que le temps qui s’est écoulé depuis l’activation de l’événement. Un événement ou une alerte d’intégrité apparaît chaque fois que la valeur de la métrique choisie (perte, latence, temps de réponse ou utilisation de la bande passante) pour la règle de surveillance dépasse le seuil fixé. 
 
-* **Moniteur ExpressRoute** : Cette page fournit des récapitulatifs d’intégrité pour plusieurs connexions d’appairage ExpressRoute supervisées par la solution. La mosaïque **Topologie** indique le nombre de chemins d’accès réseau par le biais des circuits ExpressRoute analysés dans votre réseau. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
+* **Moniteur ExpressRoute** : Cette page fournit des récapitulatifs d’intégrité pour plusieurs connexions de peering ExpressRoute supervisées par la solution. La mosaïque **Topologie** indique le nombre de chemins d’accès réseau par le biais des circuits ExpressRoute analysés dans votre réseau. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
 
 * **Moniteur de connectivité de service** : Cette page fournit des récapitulatifs sur l’intégrité des différents tests que vous avez créés. La mosaïque **Topologie** indique le nombre de points de terminaison analysés. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
 

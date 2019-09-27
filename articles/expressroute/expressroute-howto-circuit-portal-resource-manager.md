@@ -63,7 +63,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
    * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
 
      > [!IMPORTANT]
-     > L’emplacement d’homologation indique [l’emplacement physique](expressroute-locations.md) où vous vous homologuez auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement d’homologation du circuit.
+     > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. Afficher les circuits et les propriétés
 
@@ -108,7 +108,7 @@ Vous pouvez afficher les propriétés du circuit qui vous intéressent en le sé
 
 ### <a name="6-create-your-routing-configuration"></a>6. Créer votre configuration de routage
 
-Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour créer et modifier des homologations de circuit.
+Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour créer et modifier des peerings de circuit.
 
 > [!IMPORTANT]
 > Ces instructions s’appliquent seulement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.

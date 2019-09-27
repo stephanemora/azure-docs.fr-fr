@@ -57,7 +57,7 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 - Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
 
    Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
-- Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
+- Assurez-vous de définir **AllowGatewayTransit** lors du peering de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors du peering de VNet-Spoke avec VNet-Hub.
 
 Pour plus d'informations sur la création de ces itinéraires, consultez la section [Créer des itinéraires](#create-the-routes) de cet article.
 

@@ -35,7 +35,7 @@ Cette erreur se produit quand :
 
 Pour résoudre ce problème :
 
-* Vérifiez que le réseau de la machine virtuelle Azure permet à celle-ci de communiquer avec le serveur de configuration local. Vous pouvez soit configurer un VPN de site à site dans votre centre de données local soit configurer une connexion ExpressRoute Azure avec une homologation privée sur le réseau virtuel de la machine virtuelle Azure.
+* Vérifiez que le réseau de la machine virtuelle Azure permet à celle-ci de communiquer avec le serveur de configuration local. Vous pouvez soit configurer un VPN de site à site dans votre centre de données local soit configurer une connexion ExpressRoute Azure avec un peering privé sur le réseau virtuel de la machine virtuelle Azure.
 * Si la machine virtuelle peut communiquer avec le serveur de configuration local, connectez-vous à la machine virtuelle. Vérifiez ensuite le service d’application InMage Scout. Si vous voyez qu’il ne s’exécute pas, démarrez le service manuellement. Vérifiez que le type de démarrage du service est défini sur **Automatique**.
 
 ### <a name="error-code-78052"></a>Code d'erreur 78052

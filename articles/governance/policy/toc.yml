@@ -155,7 +155,7 @@
             - name: Références (SKU) d’équilibreur de charge autorisées
               displayName: deny
               href: samples/allowed-load-balancer-skus.md
-            - name: Pas d’appairage réseau à un réseau ER
+            - name: Pas de peering réseau à un réseau ER
               displayName: 'deny, all, concat, ExistingResourceGroups'
               href: samples/no-peering-express-route-network.md
             - name: Aucune table d’itinéraires définie par l’utilisateur

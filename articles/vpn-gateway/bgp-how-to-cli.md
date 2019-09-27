@@ -209,7 +209,7 @@ Static route         : Add a route for 10.12.255.30/32, with nexthop being the V
 eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-Après quelques minutes, la connexion doit être établie. La session d’homologation BGP démarre une fois la connexion IPsec établie.
+Après quelques minutes, la connexion doit être établie. La session de peering BGP démarre une fois la connexion IPsec établie.
 
 ## <a name ="v2vbgp"></a>Établir une connexion de réseau virtuel à réseau virtuel avec BGP
 
@@ -300,7 +300,7 @@ az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /
 > 
 > 
 
-Une fois ces étapes effectuées, la connexion est établie au bout de quelques minutes. La session d’homologation BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
+Une fois ces étapes effectuées, la connexion est établie au bout de quelques minutes. La session de peering BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

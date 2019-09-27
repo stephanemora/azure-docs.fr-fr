@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: Se connecter à partir d’un navigateur web
           href: connect-web.md
+        - name: Se connecter avec le client macOS
+          href: connect-macos.md
+        - name: Se connecter avec le client iOS
+          href: connect-ios.md
     - name: Créer un pool d’hôtes avec le modèle Azure Resource Manager
       href: create-host-pools-arm-template.md
     - name: Créer un pool d’hôtes avec PowerShell

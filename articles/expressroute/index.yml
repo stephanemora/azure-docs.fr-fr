@@ -33,7 +33,7 @@ landingContent:
     links:
     - text: Créer et modifier un circuit
       url: expressroute-howto-circuit-portal-resource-manager.md
-    - text: Créer et modifier l’appairage pour un circuit
+    - text: Créer et modifier le peering pour un circuit
       url: expressroute-howto-routing-portal-resource-manager.md
     - text: Connecter un réseau virtuel à un circuit
       url: expressroute-howto-linkvnet-portal-resource-manager.md
@@ -47,7 +47,7 @@ landingContent:
       url: expressroute-prerequisites.md
     - text: Workflows
       url: expressroute-workflows.md
-    - text: Circuits et appairages
+    - text: Circuits et peerings
       url: expressroute-circuit-peerings.md
     - text: Configuration requise du routage
       url: expressroute-routing.md
@@ -67,15 +67,15 @@ landingContent:
       url: expressroute-connectivity-models.md
     - text: Concevoir pour la haute disponibilité
       url: designing-for-high-availability-with-expressroute.md
-    - text: Concevoir en vue d’une reprise d’activité après sinistre avec l’appairage privé
+    - text: Concevoir en vue d’une reprise d’activité après sinistre avec le peering privé
       url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - title: Chiffrer le trafic
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configurer un réseau privé virtuel (VPN) de site à site sur un appairage Microsoft
+    - text: Configurer un réseau privé virtuel (VPN) de site à site sur un peering Microsoft
       url: site-to-site-vpn-over-microsoft-peering.md
-    - text: Configurer le mode de transport IPsec pour l’appairage privé
+    - text: Configurer le mode de transport IPsec pour le peering privé
       url: expressroute-howto-ipsec-transport-private-windows.md
 - title: Surveillance
   linkLists:

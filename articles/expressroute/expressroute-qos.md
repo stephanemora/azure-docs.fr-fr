@@ -21,7 +21,7 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 ![](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> La configuration requise pour QoS ne s’applique qu’à l’homologation Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur l’homologation publique Azure et l’homologation privée Azure seront remises à 0. 
+> La configuration requise pour QoS ne s’applique qu’au peering Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur le peering public Azure et le peering privé Azure seront remises à 0. 
 > 
 > 
 

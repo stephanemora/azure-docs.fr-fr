@@ -691,6 +691,8 @@
       items:
         - name: Activer les notebooks
           href: enable-notebooks.md
+        - name: Utiliser les commandes de notebook intégrées
+          href: use-notebook-features-and-commands.md
     - name: Programmation côté serveur
       items:
         - name: 'Écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur'

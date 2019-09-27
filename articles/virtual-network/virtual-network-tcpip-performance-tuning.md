@@ -265,7 +265,7 @@ La mise à l'échelle côté réception (Receive Side Scaling ou RSS) est une te
 
 Pour obtenir les meilleures performances lorsque la mise en réseau accélérée est activée sur une machine virtuelle, vous devez activer RSS. RSS peut également offrir des avantages sur les machines virtuelles qui n'utilisent pas la mise en réseau accélérée. Pour un aperçu sur la façon de vérifier si RSS est activé et comment le faire le cas échéant, voir [Optimiser le débit du réseau des machines virtuelles Azure](https://aka.ms/FastVM).
 
-### <a name="tcp-timewait-and-timewait-assassination"></a>Assassinat TCP TIME_WAIT et TIME_WAIT
+### <a name="tcp-time_wait-and-time_wait-assassination"></a>Assassinat TCP TIME_WAIT et TIME_WAIT
 
 TCP TIME_WAIT est un autre paramètre courant qui affecte les performances du réseau et des applications. Sur les machines virtuelles occupées qui ouvrent et ferment plusieurs sockets, soit en tant que clients, soit en tant que serveurs (IP source : port source + IP de destination : port de destination), pendant le fonctionnement TCP normal, un socket donné peut finir dans un état TIME_WAIT sur une longue période. L'état TIME_WAIT a pour but de permettre aux données supplémentaires d'être transmises sur un socket avant sa fermeture. Ainsi, les piles TCP/IP empêchent généralement la réutilisation d'un socket en supprimant silencieusement le paquet TCP SYN du client.
 
@@ -309,7 +309,7 @@ Pour plus d’informations, consultez [Bande passante réseau des machines virtu
 
 Comme expliqué tout au long de cet article, des facteurs sur Internet et hors du contrôle d'Azure peuvent affecter les performances du réseau. Voici quelques-uns de ces facteurs :
 
-- **Latence** : La durée des boucles entre deux destinations peut être affectée par des problèmes sur les réseaux intermédiaires, par un trafic qui ne prend pas le chemin le plus court, et par des chemins d’homologation non optimaux.
+- **Latence** : La durée des boucles entre deux destinations peut être affectée par des problèmes sur les réseaux intermédiaires, par un trafic qui ne prend pas le chemin le plus court, et par des chemins de peering non optimaux.
 
 - **Perte de paquets** : Une perte de paquets peut être causée par l'encombrement du réseau, des problèmes de chemin physique et des périphériques réseau moins performants.
 

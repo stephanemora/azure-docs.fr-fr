@@ -84,7 +84,7 @@ ExpressRoute prend en charge la détection d’envoi bidirectionnel via le peeri
 
 Dans cet article, nous avons abordé la conception pour la haute disponibilité d’une connectivité de circuit ExpressRoute. Un point de peering du circuit ExpressRoute est épinglé à un emplacement géographique et par conséquent, peut être affecté par une défaillance grave affectant l’emplacement complet. 
 
-Pour des considérations relatives à la conception de connectivité de réseau géoredondante de la dorsale principale de Microsoft qui peut résister à des défaillances catastrophiques, impactant une région entière, consultez [Conception d’une récupération après sinistre avec l’homologation privée ExpressRoute][DR].
+Pour des considérations relatives à la conception de connectivité de réseau géoredondante de la dorsale principale de Microsoft qui peut résister à des défaillances catastrophiques, impactant une région entière, consultez [Conception d’une récupération après sinistre avec le peering privé ExpressRoute][DR].
 
 <!--Image References-->
 [1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "Méthode recommandée pour se connecter via ExpressRoute"

@@ -71,6 +71,8 @@
           items:
             - name: Supprimer les données d’image - CLI
               href: container-registry-delete.md
+            - name: Stratégie de conservation pour les manifestes non étiquetés (préversion)
+              href: container-registry-retention-policy.md
             - name: Vider automatiquement les balises et les manifestes (préversion)
               href: container-registry-auto-purge.md
         - name: Mise à niveau d’un registre Classique

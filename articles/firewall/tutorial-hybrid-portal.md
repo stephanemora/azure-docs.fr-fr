@@ -53,7 +53,7 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 - Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
 
    Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
-- Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
+- Assurez-vous de définir **AllowGatewayTransit** lors du peering de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors du peering de VNet-Spoke avec VNet-Hub.
 
 Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
 
@@ -276,7 +276,7 @@ Après environ cinq minutes, l’état des deux connexions doit être **Connect�
 À présent, appairez les réseaux virtuels hub et spoke.
 
 1. Ouvrez le groupe de ressources **FW-Hybrid-Test** et sélectionnez le réseau virtuel **VNet-hub**.
-2. Dans la colonne de gauche, sélectionnez **Homologations**.
+2. Dans la colonne de gauche, sélectionnez **Peerings**.
 3. Sélectionnez **Ajouter**.
 4. Pour **Nom**, tapez **HubtoSpoke**.
 5. Pour **Réseau virtuel**, sélectionnez **VNet-spoke**.
@@ -289,7 +289,7 @@ Après environ cinq minutes, l’état des deux connexions doit être **Connect�
 Vous devez activer l’option **Autoriser le trafic transféré** sur le peering SpoketoHub.
 
 1. Ouvrez le groupe de ressources **FW-Hybrid-Test** et sélectionnez le réseau virtuel **VNet-Spoke**.
-2. Dans la colonne de gauche, sélectionnez **Homologations**.
+2. Dans la colonne de gauche, sélectionnez **Peerings**.
 3. Sélectionnez le peering **SpoketoHub**.
 4. Sous **Autoriser le trafic transféré de VNet-hub à VNet-Spoke**, sélectionnez **Activé**.
 5. Sélectionnez **Enregistrer**.

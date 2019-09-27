@@ -107,7 +107,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 Si vous n’avez pas besoin de connecter le réseau virtuel du cluster que vous créez à un réseau virtuel existant via le peering, ignorez cette étape.
 
-Si vous associez un réseau se trouvant en dehors de l’abonnement par défaut, alors, dans cet abonnement, vous devrez également inscrire le fournisseur Microsoft.ContainerService. Pour ce faire, exécutez la commande ci-dessous dans cet abonnement. Sinon, si le réseau virtuel que vous associez se trouve dans le même abonnement, vous pouvez ignorer l’étape d’enregistrement. 
+En cas de peering à un réseau se trouvant en dehors de l’abonnement par défaut, alors, dans cet abonnement, vous devrez également inscrire le fournisseur Microsoft.ContainerService. Pour ce faire, exécutez la commande ci-dessous dans cet abonnement. Sinon, si le réseau virtuel dont vous effectuez le peering se trouve dans le même abonnement, vous pouvez ignorer l’étape d’enregistrement. 
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -127,13 +127,13 @@ Par exemple : `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResource
 
 Vous êtes prêt à créer un cluster. La procédure ci-après crée le cluster dans le locataire Azure AD spécifié, puis définit l’objet d’application Azure AD et le secret à utiliser comme principal de sécurité ainsi que le groupe de sécurité qui contient les membres disposant d’un accès administrateur au cluster.
 
-Si vous **n’appairez pas** votre cluster à un réseau virtuel, utilisez la commande suivante :
+Si vous **n’effectuez pas** le peering de votre cluster à un réseau virtuel, utilisez la commande suivante :
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Si vous **appairez** votre cluster à un réseau virtuel, utilisez la commande suivante qui ajoute l’indicateur `--vnet-peer` :
+Si vous **effectuez** le peering de votre cluster à un réseau virtuel, utilisez la commande suivante qui ajoute l’indicateur `--vnet-peer` :
  
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID

@@ -24,7 +24,7 @@ Avant de commencer la configuration, vérifiez les prérequis suivants :
 * Vous devez avoir installé la dernière version d’Azure CLI. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli) et [Bien démarrer avec Azure CLI](/cli/azure/get-started-with-azure-cli).
 * Vous devez comprendre les [workflows](expressroute-workflows.md) de provisionnement des circuits ExpressRoute.
 * Assurez-vous que les circuits ExpressRoute présentent l’état Provisionné.
-* Assurez-vous que l’homologation privée Azure est configurée sur vos circuits ExpressRoute.  
+* Assurez-vous que le peering privé Azure est configuré sur vos circuits ExpressRoute.  
 
 ### <a name="sign-in-to-your-azure-account"></a>Connexion à votre compte Azure
 

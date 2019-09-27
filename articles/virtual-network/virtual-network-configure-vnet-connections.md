@@ -50,7 +50,7 @@ Avant de commencer à implémenter et à configurer l'appairage de réseaux virt
 
 * Les réseaux virtuels homologués doivent se trouver dans la même région Azure.
 * Les réseaux virtuels appairés doivent disposer d'espaces d'adressage IP qui ne se chevauchent pas.
-* L’homologation se fait entre deux réseaux virtuels. Il n’y a aucune relation transitive dérivée entre les appairages. Par exemple, si VNetA est appairé à VNetB et que VNetB est appairé à VNetC, VNetA n'est *pas* appairé à VNetC.
+* Le peering se fait entre deux réseaux virtuels. Il n’y a aucune relation transitive dérivée entre les appairages. Par exemple, si VNetA est appairé à VNetB et que VNetB est appairé à VNetC, VNetA n'est *pas* appairé à VNetC.
 
 Si vous remplissez les conditions requises, vous pouvez suivre le [Didacticiel : Connecter des réseaux virtuels à l'aide de l'appairage de réseaux virtuels à partir du portail Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) pour créer et configurer l'appairage.
 

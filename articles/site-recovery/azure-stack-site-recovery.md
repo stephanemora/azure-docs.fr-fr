@@ -59,7 +59,7 @@ La réplication fonctionne comme suit :
 5. Le serveur de configuration orchestre la gestion de la réplication avec Azure (port de sortie HTTPS 443).
 6. Le serveur de processus optimise et chiffre les données qu’il reçoit des machines sources, puis les envoie à Stockage Azure via le (port de sortie 443).
 7. Les machines répliquées communiquent avec le serveur de configuration (port d’entrée HTTPS 443) pour gérer la réplication. Les machines envoient les données de réplication au serveur de processus (port d’entrée HTTPS 9443 ; modifiable).
-8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser une homologation publique Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
+8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser un peering public Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
 ## <a name="prerequisites"></a>Conditions préalables
 

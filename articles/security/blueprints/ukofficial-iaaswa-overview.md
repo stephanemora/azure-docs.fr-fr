@@ -45,13 +45,13 @@ ms.locfileid: "71262796"
 - (1) Sous-réseau /27 - Sous-réseau de passerelle
 - (1) Sous-réseau /29 - Sous-réseau Application Gateway
 - Utilise le DNS par défaut (fourni par Azure)
-- Appairage activé dans le réseau virtuel de gestion
+- Peering activé dans le réseau virtuel de gestion
 - Groupe de sécurité réseau (NSG) pour la gestion des flux de trafic
 
 (1) Sous-réseau /24 - Réseau virtuel de gestion
 - (1) Sous-réseau /27
 - Utilise le DNS ADDS (2) et les entrées Azure DNS (1)
-- Appairage activé dans le réseau virtuel opérationnel
+- Peering activé dans le réseau virtuel opérationnel
 - Groupe de sécurité réseau (NSG) pour la gestion des flux de trafic
 
 (1) Application Gateway

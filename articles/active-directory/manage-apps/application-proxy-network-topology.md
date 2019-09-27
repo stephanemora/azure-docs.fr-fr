@@ -92,7 +92,7 @@ Si vous avez une installation ExpressRoute avec peering Microsoft, vous pouvez u
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Modèle 3 : Tirer parti d’ExpressRoute avec peering privé
 
-Si vous avez une installation VPN ou ExpressRoute dédiée avec l’homologation privée entre Azure et votre réseau d’entreprise, vous avez une autre option. Dans cette configuration, le réseau virtuel dans Azure est généralement considéré comme une extension du réseau de l’entreprise. Par conséquent, vous pouvez installer le connecteur dans le centre de données Azure tout en répondant aux exigences de faible latence de la connexion connecteur à application.
+Si vous avez une installation VPN ou ExpressRoute dédiée avec le peering privé entre Azure et votre réseau d’entreprise, vous avez une autre option. Dans cette configuration, le réseau virtuel dans Azure est généralement considéré comme une extension du réseau de l’entreprise. Par conséquent, vous pouvez installer le connecteur dans le centre de données Azure tout en répondant aux exigences de faible latence de la connexion connecteur à application.
 
 La latence n’est pas compromise, car le trafic circule sur une connexion dédiée. Vous obtenez également une meilleure latence entre le service de proxy d’application et le connecteur, car le connecteur est installé dans un centre de données Azure proche de l’emplacement de votre locataire Azure AD.
 
@@ -150,11 +150,11 @@ Si la liaison ExpressRoute utilise le peering Microsoft, le trafic entre le prox
 
 ### <a name="use-case-4"></a>Cas d’utilisation 4
 
-**Scénario :** L’application se trouve dans un réseau d’entreprise aux États-Unis. ExpressRoute avec l’homologation privée existe entre Azure et le réseau d’entreprise.
+**Scénario :** L’application se trouve dans un réseau d’entreprise aux États-Unis. ExpressRoute avec le peering privé existe entre Azure et le réseau d’entreprise.
 
 **Recommandation :** Suivez le modèle 3, expliqué dans la section précédente.
 
-Placez le connecteur dans le centre de données Azure qui est connecté au réseau d’entreprise par le biais de l’homologation privée ExpressRoute.
+Placez le connecteur dans le centre de données Azure qui est connecté au réseau d’entreprise par le biais du peering privé ExpressRoute.
 
 Le connecteur peut être placé dans le centre de données Azure. Dans la mesure où le connecteur a toujours une ligne de vue à l’application et le centre de données via le réseau privé, le tronçon 3 reste optimisé. En outre, le tronçon 2 est davantage optimisé.
 

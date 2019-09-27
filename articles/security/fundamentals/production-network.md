@@ -34,7 +34,7 @@ Azure est hébergé dans des centres de données Azure répartis géographiqueme
 
 - Ingénierie de trafic basée sur MPLS assurant une utilisation efficace des liens et une dégradation progressive du service en cas de panne.
 - Les réseaux sont implémentés avec des architectures à redondance « need plus one » (N + 1) ou mieux.
-- En externe, les centres de données sont desservis par des circuits réseau dédiés haut débit dédiés qui connectent de manière redondante des propriétés à plus de 1 200 fournisseurs de services Internet dans le monde entier en plusieurs points d’homologation. Cette connexion fournit plus de 2 000 Go par seconde (Gbits/s) de la capacité de périphérie.
+- En externe, les centres de données sont desservis par des circuits réseau dédiés haut débit dédiés qui connectent de manière redondante des propriétés à plus de 1 200 fournisseurs de services Internet dans le monde entier en plusieurs points de peering. Cette connexion fournit plus de 2 000 Go par seconde (Gbits/s) de la capacité de périphérie.
 
 Comme Microsoft possède ses propres circuits réseau entre centres de données, ces attributs permettent à l’offre Azure d’atteindre une disponibilité de réseau supérieure à 99,9 % sans nécessité de faire appel à des fournisseurs de services Internet tiers traditionnels.
 

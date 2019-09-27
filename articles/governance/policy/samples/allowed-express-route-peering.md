@@ -1,6 +1,6 @@
 ---
-title: Exemple - Emplacements d’appairage Express Route autorisés
-description: Cet exemple de définition de stratégie nécessite qu’ExpressRoute utilise des emplacements d’appairage spécifiés.
+title: Exemple - Emplacements de peering Express Route autorisés
+description: Cet exemple de définition de stratégie nécessite qu’ExpressRoute utilise des emplacements de peering spécifiés.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -14,9 +14,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271201"
 ---
-# <a name="sample---allowed-peering-location-for-expressroute"></a>Exemple - Emplacement d’appairage autorisé pour ExpressRoute
+# <a name="sample---allowed-peering-location-for-expressroute"></a>Exemple - Emplacement de peering autorisé pour ExpressRoute
 
-Dans cette stratégie, les routes ExpressRoute doivent utiliser des emplacements d’appairage spécifiés. Spécifiez un tableau d’emplacements d’appairage autorisés.
+Dans cette stratégie, les routes ExpressRoute doivent utiliser des emplacements de peering spécifiés. Vous spécifiez un tableau d’emplacements de peering autorisés.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

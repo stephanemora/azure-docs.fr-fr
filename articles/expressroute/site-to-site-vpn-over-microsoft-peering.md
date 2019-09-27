@@ -1,6 +1,6 @@
 ---
-title: Configurer un VPN de site à site via un appairage Microsoft - ExpressRoute - Azure | Microsoft Docs
-description: Configurez une connectivité IPsec/IKE vers Azure via un circuit d’appairage Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site.
+title: Configurer un VPN de site à site via un peering Microsoft - ExpressRoute - Azure | Microsoft Docs
+description: Configurez une connectivité IPsec/IKE vers Azure via un circuit de peering Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -15,12 +15,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115735"
 ---
-# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via l’appairage Microsoft ExpressRoute
+# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via le peering Microsoft ExpressRoute
 
-Cet article a été conçu pour vous aider à configurer une connectivité chiffrée et sécurisée entre votre réseau local et vos réseaux virtuels Azure via une connexion privée ExpressRoute. Vous pouvez utiliser l’appairage Microsoft pour établir un tunnel VPN IPsec/IKE de site à site entre les réseaux locaux sélectionnés et les réseaux virtuels Azure. La configuration d’un tunnel sécurisé via ExpressRoute permet un échange de données garantissant confidentialité, authenticité et intégrité, notamment grâce à un système anti-relecture.
+Cet article a été conçu pour vous aider à configurer une connectivité chiffrée et sécurisée entre votre réseau local et vos réseaux virtuels Azure via une connexion privée ExpressRoute. Vous pouvez utiliser le peering Microsoft pour établir un tunnel VPN IPsec/IKE de site à site entre les réseaux locaux sélectionnés et les réseaux virtuels Azure. La configuration d’un tunnel sécurisé via ExpressRoute permet un échange de données garantissant confidentialité, authenticité et intégrité, notamment grâce à un système anti-relecture.
 
 >[!NOTE]
->Lorsque vous configurez un VPN de site à site via l’appairage Microsoft, la passerelle VPN et la sortie VPN vous sont facturées. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
+>Lorsque vous configurez un VPN de site à site via le peering Microsoft, la passerelle VPN et la sortie VPN vous sont facturées. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
 
@@ -36,38 +36,38 @@ Pour la haute disponibilité et la redondance, vous pouvez configurer plusieurs 
 
   ![options de haute disponibilité](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-Les tunnels VPN qui utilisent l’appairage Microsoft peuvent être terminés à l’aide de la passerelle VPN ou de l’une des appliances virtuelles réseau disponibles sur la Place de marché Azure. Vous pouvez échanger les itinéraires statiquement ou dynamiquement via les tunnels chiffrés, sans exposer l’échange d’itinéraires à l’appairage Microsoft sous-jacent. Dans les exemples de cet article, le protocole BGP (qui est différent de la session BGP utilisée pour créer l’appairage Microsoft) est utilisé pour échanger dynamiquement des préfixes via les tunnels chiffrés.
+Les tunnels VPN qui utilisent le peering Microsoft peuvent être terminés à l’aide de la passerelle VPN ou de l’une des appliances virtuelles réseau disponibles sur la Place de marché Azure. Vous pouvez échanger les itinéraires statiquement ou dynamiquement via les tunnels chiffrés, sans exposer l’échange d’itinéraires au peering Microsoft sous-jacent. Dans les exemples de cet article, le protocole BGP (qui est différent de la session BGP utilisée pour créer le peering Microsoft) est utilisé pour échanger dynamiquement des préfixes via les tunnels chiffrés.
 
 >[!IMPORTANT]
->Au niveau local, l’appairage Microsoft est généralement terminé sur le réseau DMZ, et l’appairage privé dans la zone réseau principale. Ces deux zones sont généralement séparées par un pare-feu. Si vous configurez l’appairage Microsoft exclusivement pour l’établissement de tunnels sécurisés via ExpressRoute, pensez à filtrer uniquement les adresses IP publiques d’intérêt qui sont publiées via l’appairage Microsoft.
+>Au niveau local, le peering Microsoft est généralement terminé sur le réseau DMZ, et le peering privé dans la zone réseau principale. Ces deux zones sont généralement séparées par un pare-feu. Si vous configurez le peering Microsoft exclusivement pour l’établissement de tunnels sécurisés via ExpressRoute, pensez à filtrer uniquement les adresses IP publiques d’intérêt qui sont publiées via le peering Microsoft.
 >
 >
 
 ## <a name="workflow"></a>Flux de travail
 
-1. Configurez l’appairage Microsoft pour votre circuit ExpressRoute.
-2. Publiez les préfixes publics régionaux Azure sélectionnés sur votre réseau local via l’appairage Microsoft.
+1. Configurez le peering Microsoft pour votre circuit ExpressRoute.
+2. Publiez les préfixes publics régionaux Azure sélectionnés sur votre réseau local via le peering Microsoft.
 3. Configurer une passerelle VPN et établir des tunnels IPsec
 4. Configurez des appareils VPN locaux.
 5. Créez la connexion IPsec/IKE de site à site.
 6. (Facultatif) Configurez les pare-feu ou le filtrage sur des appareils VPN locaux.
 7. Testez et validez la communication IPsec via le circuit ExpressRoute.
 
-## <a name="peering"></a>1. Configurer l’appairage Microsoft
+## <a name="peering"></a>1. Configurer le peering Microsoft
 
-Pour configurer une connexion VPN de site à site via ExpressRoute, vous devez utiliser l’appairage Microsoft ExpressRoute.
+Pour configurer une connexion VPN de site à site via ExpressRoute, vous devez utiliser le peering Microsoft ExpressRoute.
 
 * Pour configurer un nouveau circuit ExpressRoute, lisez les articles [Configuration requise pour ExpressRoute](expressroute-prerequisites.md) et [Création et modification d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md).
 
-* Si vous disposez déjà d’un circuit ExpressRoute, mais n’avez pas configuré l’appairage Microsoft, configurez celui-ci en vous aidant de l’article [Créer et modifier l’homologation pour un circuit ExpressRoute](expressroute-howto-routing-arm.md#msft).
+* Si vous disposez déjà d’un circuit ExpressRoute, mais n’avez pas configuré le peering Microsoft, configurez celui-ci en vous aidant de l’article [Créer et modifier le peering pour un circuit ExpressRoute](expressroute-howto-routing-arm.md#msft).
 
-Une fois que vous avez configuré votre circuit et l’appairage Microsoft, vous pouvez facilement l’afficher via la page **Vue d’ensemble** du portail Azure.
+Une fois que vous avez configuré votre circuit et le peering Microsoft, vous pouvez facilement l’afficher via la page **Vue d’ensemble** du portail Azure.
 
 ![circuit](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
 ## <a name="routefilter"></a>2. Configurer des filtres de routage
 
-Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste verte de toutes les valeurs de communauté BGP. 
+Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via le peering Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste verte de toutes les valeurs de communauté BGP. 
 
 ![Filtre de routage](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -77,15 +77,15 @@ Dans le filtre de routage, vous devez également choisir les circuits ExpressRou
 
 ### <a name="configfilter"></a>2.1 Configurer le filtre de routage
 
-Configurez le filtre de routage. Pour connaître les étapes à suivre, consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-portal.md).
+Configurez le filtre de routage. Pour connaître les étapes à suivre, consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-portal.md).
 
 ### <a name="verifybgp"></a>2.2 Vérifier les itinéraires BGP
 
-Une fois que vous avez créé l’appairage Microsoft sur votre circuit ExpressRoute et associé un filtre de routage au circuit, vous pouvez vérifier les itinéraires BGP envoyés par les MSEE sur les appareils PE qui sont appairés aux MSEE. La commande de vérification varie selon le système d’exploitation de vos appareils PE.
+Une fois que vous avez créé le peering Microsoft sur votre circuit ExpressRoute et associé un filtre de routage au circuit, vous pouvez vérifier les itinéraires BGP envoyés par les MSEE sur les appareils PE qui sont appairés aux MSEE. La commande de vérification varie selon le système d’exploitation de vos appareils PE.
 
 #### <a name="cisco-examples"></a>Exemples Cisco
 
-Cet exemple utilise une commande IOS-XE Cisco. Dans cet exemple, une instance virtuelle de routage et de transfert est utilisée pour isoler le trafic d’appairage.
+Cet exemple utilise une commande IOS-XE Cisco. Dans cet exemple, une instance virtuelle de routage et de transfert est utilisée pour isoler le trafic de peering.
 
 ```
 show ip bgp vpnv4 vrf 10 summary
@@ -106,7 +106,7 @@ Pour afficher la liste des préfixes reçus du voisin, utilisez l’exemple suiv
 sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 ```
 
-Pour vérifier que vous recevez le bon jeu de préfixes, vous pouvez effectuer une vérification croisée. La sortie de commande Azure PowerShell suivante répertorie les préfixes publiés via l’appairage Microsoft pour chacun des services et chacune des régions Azure :
+Pour vérifier que vous recevez le bon jeu de préfixes, vous pouvez effectuer une vérification croisée. La sortie de commande Azure PowerShell suivante répertorie les préfixes publiés via le peering Microsoft pour chacun des services et chacune des régions Azure :
 
 ```azurepowershell-interactive
 Get-AzBgpServiceCommunity
@@ -363,7 +363,7 @@ Pour configurer votre appareil VPN, vous avez besoin des éléments suivants :
 * Une clé partagée. Il s’agit de la clé partagée spécifiée lors de la création de la connexion VPN de site à site. Les exemples utilisent une clé partagée basique. Nous vous conseillons de générer une clé plus complexe.
 * Il s’agit de l’adresse IP publique de votre passerelle VPN. Vous pouvez afficher l’adresse IP publique à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande. Pour rechercher l’adresse IP publique de votre passerelle VPN à l’aide du portail Azure, accédez à Passerelles de réseau virtuel, puis cliquez sur le nom de votre passerelle.
 
-En règle générale, les pairs eBGP sont directement connectés (souvent via une connexion WAN). Toutefois, lorsque vous configurez eBGP sur des tunnels VPN IPsec via l’appairage ExpressRoute Microsoft, il existe plusieurs domaines de routage entre les pairs eBGP. Utilisez la commande **ebgp-multihop** pour établir la relation de voisin eBGP entre les deux pairs connectés indirectement. L’entier qui suit la commande ebgp-multihop spécifie la valeur de durée de vie dans les paquets BGP. La commande **maximum-paths eibgp 2** permet l’équilibrage de charge du trafic entre les deux chemins BGP.
+En règle générale, les pairs eBGP sont directement connectés (souvent via une connexion WAN). Toutefois, lorsque vous configurez eBGP sur des tunnels VPN IPsec via le peering ExpressRoute Microsoft, il existe plusieurs domaines de routage entre les pairs eBGP. Utilisez la commande **ebgp-multihop** pour établir la relation de voisin eBGP entre les deux pairs connectés indirectement. L’entier qui suit la commande ebgp-multihop spécifie la valeur de durée de vie dans les paquets BGP. La commande **maximum-paths eibgp 2** permet l’équilibrage de charge du trafic entre les deux chemins BGP.
 
 ### <a name="cisco1"></a>Exemple Cisco CSR1000
 

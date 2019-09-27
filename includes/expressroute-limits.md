@@ -19,13 +19,13 @@ ms.locfileid: "67622096"
 | --- | --- |
 | Circuits ExpressRoute par abonnement |10 |
 | Circuits ExpressRoute par région par abonnement, avec Azure Resource Manager |10 |
-| Nombre maximal d’itinéraires publiés vers l’homologation privée Azure avec ExpressRoute Standard |4 000 |
-| Nombre maximal d’itinéraires publiés vers l’homologation privée Azure avec le module complémentaire ExpressRoute Premium |10 000 |
-| Nombre maximal d'itinéraires publiés depuis l’homologation privée Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 |
-| Nombre maximal d’itinéraires publiés vers l’homologation Microsoft avec ExpressRoute Standard |200 |
-| Nombre maximal d’itinéraires publiés vers l’homologation Microsoft avec le module complémentaire ExpressRoute Premium |200 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans le même emplacement d’appairage |4 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements d’appairage |4 |
+| Nombre maximal d’itinéraires publiés vers le peering privé Azure avec ExpressRoute Standard |4 000 |
+| Nombre maximal d’itinéraires publiés vers le peering privé Azure avec le module complémentaire ExpressRoute Premium |10 000 |
+| Nombre maximal d'itinéraires publiés depuis le peering privé Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 |
+| Nombre maximal d’itinéraires publiés vers le peering Microsoft avec ExpressRoute Standard |200 |
+| Nombre maximal d’itinéraires publiés vers le peering Microsoft avec le module complémentaire ExpressRoute Premium |200 |
+| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans le même emplacement de peering |4 |
+| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering |4 |
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau [Nombre de réseaux virtuels par circuit ExpressRoute](#vnetpercircuit).  |
 
 #### <a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute

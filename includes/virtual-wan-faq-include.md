@@ -61,7 +61,7 @@ Oui. Au départ, le flux du trafic s’effectue de l’appareil local vers l’a
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Est-ce que les réseaux virtuels membres spoke et connectés à un hub virtuel peuvent communiquer entre eux ?
 
-Oui. Les réseaux virtuels Spoke peuvent communiquer directement par le biais du peering de réseau virtuel. Toutefois, nous ne prenons pas en charge les réseaux virtuels qui communiquent transitivement par le biais du hub. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
+Oui. Les réseaux virtuels Spoke peuvent communiquer directement par le biais du peering de réseau virtuel. Toutefois, nous ne prenons pas en charge les réseaux virtuels qui communiquent transitivement par le biais du hub. Pour en savoir plus, consultez [Peering de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Puis-je déployer et utiliser l’appliance virtuelle de mon réseau favori (dans un réseau virtuel NVA) avec le WAN virtuel Azure ?
 

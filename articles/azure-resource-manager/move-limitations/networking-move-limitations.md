@@ -25,7 +25,7 @@ Si vous déplacez une machine virtuelle avec une carte d’interface réseau, vo
 
 ## <a name="peered-virtual-network"></a>Réseau virtuel appairé
 
-Pour déplacer un réseau virtuel homologué, vous devez d’abord désactiver l’homologation du réseau virtuel. Une fois l’homologation désactivée, vous pouvez déplacer le réseau virtuel. Après le déplacement, réactivez l’homologation du réseau virtuel.
+Pour déplacer un réseau virtuel appairé, vous devez d’abord désactiver le peering du réseau virtuel. Une fois l’homologation désactivée, vous pouvez déplacer le réseau virtuel. Après le déplacement, réactivez le peering du réseau virtuel.
 
 ## <a name="subnet-links"></a>Liens de sous-réseau
 

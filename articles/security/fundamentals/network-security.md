@@ -89,11 +89,11 @@ Les réseaux Azure Virtual Network sont semblables aux réseaux virtuels que vou
 
 Vous pouvez connecter des réseaux virtuels entre eux, permettant aux ressources connectées à un réseau virtuel de communiquer avec eux via des réseaux virtuels. Vous pouvez utiliser une des deux options suivantes pour connecter des réseaux virtuels entre eux :
 
-- **Appairage :** Permet à des ressources connectées à différents réseaux virtuels Azure d’un même emplacement Azure de communiquer entre elles. La bande passante et la latence entre les réseaux virtuels sont les mêmes que si les ressources étaient connectées au même réseau virtuel. Pour en savoir plus sur les homologations, lisez l’article [Homologation de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
+- **Appairage :** Permet à des ressources connectées à différents réseaux virtuels Azure d’un même emplacement Azure de communiquer entre elles. La bande passante et la latence entre les réseaux virtuels sont les mêmes que si les ressources étaient connectées au même réseau virtuel. Pour en savoir plus sur les peerings, lisez l’article [Peering de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
 
-  ![Homologation](./media/network-security/azure-network-security-fig-3.png)
+  ![Peering](./media/network-security/azure-network-security-fig-3.png)
 
-- **Connexion de réseau virtuel à réseau virtuel :** Permet à des ressources connectées à un autre réseau virtuel Azure d’un même emplacement Azure ou de différents emplacements. Contrairement à l’homologation, la bande passante est limitée entre les réseaux virtuels car le trafic doit passer par une passerelle VPN Azure.
+- **Connexion de réseau virtuel à réseau virtuel :** Permet à des ressources connectées à un autre réseau virtuel Azure d’un même emplacement Azure ou de différents emplacements. Contrairement au peering, la bande passante est limitée entre les réseaux virtuels car le trafic doit passer par une passerelle VPN Azure.
 
 ![Connexion entre réseaux virtuels](./media/network-security/azure-network-security-fig-4.png)
 
@@ -152,9 +152,9 @@ Les [réseaux virtuels](../../virtual-network/virtual-networks-overview.md) peuv
 
 Vous pouvez connecter des réseaux virtuels entre eux, permettant aux ressources connectées à un réseau virtuel de communiquer avec eux via des réseaux virtuels. Vous pouvez utiliser une des deux options suivantes pour connecter des réseaux virtuels entre eux :
 
-- **Appairage :** Permet à des ressources connectées à différents réseaux virtuels Azure d’un même emplacement Azure de communiquer entre elles. La bande passante et la latence entre les réseaux virtuels sont les mêmes que si les ressources étaient connectées au même réseau virtuel. Pour en savoir plus sur l’homologation, lisez l’article [Homologation de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
+- **Appairage :** Permet à des ressources connectées à différents réseaux virtuels Azure d’un même emplacement Azure de communiquer entre elles. La bande passante et la latence entre les réseaux virtuels sont les mêmes que si les ressources étaient connectées au même réseau virtuel. Pour en savoir plus sur le peering, lisez l’article [Peering de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
 
-- **Connexion de réseau virtuel à réseau virtuel :** Permet à des ressources connectées à un autre réseau virtuel Azure d’un même emplacement Azure ou de différents emplacements. Contrairement à l’homologation, la bande passante est limitée entre les réseaux virtuels car le trafic doit passer par une passerelle VPN Azure. Pour en savoir plus sur la connexion des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel, lisez l’article [Configurer une connexion de réseau virtuel à réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Connexion de réseau virtuel à réseau virtuel :** Permet à des ressources connectées à un autre réseau virtuel Azure d’un même emplacement Azure ou de différents emplacements. Contrairement au peering, la bande passante est limitée entre les réseaux virtuels car le trafic doit passer par une passerelle VPN Azure. Pour en savoir plus sur la connexion des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel, lisez l’article [Configurer une connexion de réseau virtuel à réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Connectivité locale**
 
@@ -333,7 +333,7 @@ La section suivante répertorie la limite actuelle de la table et des itinérair
 
 - Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique).
 
-- Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute.
+- Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions de peering BGP ExpressRoute.
 
 > [!Note]
 > Pour plus d’informations, consultez la [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).

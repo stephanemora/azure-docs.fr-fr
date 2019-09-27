@@ -132,15 +132,15 @@ Tous les transferts de données s’effectuent via un canal sécurisé HTTPS et 
 
 Vous pouvez également utiliser un [VPN IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md) pour renforcer la sécurité du canal de communication entre votre réseau local et Azure.
 
-Le réseau virtuel Azure est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure en configurant VPN IPSec (de site à site) ou ExpressRoute (homologation privée).    
+Le réseau virtuel Azure est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure en configurant VPN IPSec (de site à site) ou ExpressRoute (peering privé).    
 
 Le tableau suivant récapitule les recommandations pour la configuration du réseau et du runtime d’intégration auto-hébergé selon différentes combinaisons d’emplacements source et de destination pour le déplacement de données hybrides.
 
 | Source      | Destination                              | Configuration réseau                    | Installation du runtime d’intégration                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure au sein du réseau virtuel.  |
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (homologation privée)           | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure au sein du réseau virtuel.  |
-| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (Homologation Microsoft)            | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure. |
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (peering privé)           | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure au sein du réseau virtuel.  |
+| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (peering Microsoft)            | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure. |
 
 Les images suivantes décrivent l’utilisation du runtime d’intégration auto-hébergé pour le déplacement de données entre une base de données locale et les services Azure à l’aide d’ExpressRoute et d’un VPN IPSec (avec un réseau virtuel) :
 

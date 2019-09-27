@@ -25,7 +25,7 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 
 Votre cluster AKS devra exister dans le même réseau virtuel que le serveur NFS ou un réseau virtuel appairé. Le cluster doit être créé dans un réseau virtuel existant, qui peut être le même que celui de votre machine virtuelle.
 
-Les étapes de configuration avec un réseau virtuel existant sont décrites dans les documentations : [Créer un cluster AKS dans le réseau virtuel][aks-virtual-network] et [Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le Portail Azure][peer-virtual-networks].
+Les étapes de configuration avec un réseau virtuel existant sont décrites dans les documentations : [Créer un cluster AKS dans le réseau virtuel][aks-virtual-network] et [Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le Portail Azure][peer-virtual-networks].
 
 Cet article suppose également que vous avez créé une machine virtuelle Ubuntu Linux (par exemple, 18.04 LTS). Vous pouvez choisir les paramètres et la taille, qui peuvent être déployés via Azure. Pour obtenir un guide de démarrage rapide Linux, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI][linux-create].
 

@@ -68,13 +68,13 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Homologation de réseaux virtuels
+    - text: Peering de réseau virtuel
       url: virtual-network-peering-overview.md
-    - text: FAQ sur l’appairage de réseaux virtuels
+    - text: FAQ sur le peering de réseaux virtuels
       url: virtual-networks-faq.md#vnet-peering
   - linkListType: tutorial
     links:
-    - text: Connecter des réseaux virtuels avec l’appairage de réseaux virtuels
+    - text: Connecter des réseaux virtuels avec le peering de réseaux virtuels
       url: tutorial-connect-virtual-networks-portal.md
   - linkListType: how-to-guide
     links:
@@ -88,7 +88,7 @@ landingContent:
       url: create-peering-different-deployment-models-subscriptions.md
   - linkListType: learn
     links:
-    - text: Communiquer sur un réseau virtuel avec l’appairage
+    - text: Communiquer sur un réseau virtuel avec le peering
       url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering
 - title: Router le trafic
   linkLists:

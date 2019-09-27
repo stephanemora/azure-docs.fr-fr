@@ -74,11 +74,11 @@ Les frais relatifs au moniteur ExpressRoute sont facturés en fonction du volume
 
 **J’utilise le Moniteur ExpressRoute pour surveiller plusieurs circuits ExpressRoute. Suis-je facturé en fonction du nombre de circuits surveillés ?**
 
-Vous n’êtes pas facturé en fonction du nombre de circuits ou du type d’homologation (par exemple, homologation privée, homologation Microsoft). Vous êtes facturé en fonction du volume de données, comme expliqué précédemment.
+Vous n’êtes pas facturé en fonction du nombre de circuits ou du type de peering (par exemple, peering privé, peering Microsoft). Vous êtes facturé en fonction du volume de données, comme expliqué précédemment.
 
 **Quel est le volume de données généré lorsque le service ExpressRoute surveille un seul circuit ?**
 
-Le volume de données généré par mois, lorsque le service ExpressRoute surveille une connexion d’homologation privée, est le suivant :
+Le volume de données généré par mois, lorsque le service ExpressRoute surveille une connexion de peering privé, est le suivant :
 
 |Percentile      |Données/mois (Mo)|
 | :---:          |           ---:|

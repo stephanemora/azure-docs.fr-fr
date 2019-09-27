@@ -60,7 +60,7 @@ Dans ce modèle de déploiement, les agents d’administration du fournisseur CS
 
 
 ### <a name="peered-deployment-model"></a>Modèle de déploiement appairé
-Dans ce modèle de déploiement, Azure AD Domain Services est activé au sein d’un réseau virtuel appartenant au client, c’est-à-dire dans le cadre d’un abonnement Azure direct payé par le client. Le partenaire CSP peut ensuite déployer des applications au sein d’un réseau virtuel appartenant à l’abonnement CSP du client. Les réseaux virtuels peuvent être connectés à l’aide de l’appairage de réseau virtuel Azure. Ainsi, les charges de travail/applications déployées par le partenaire CSP dans l’abonnement Azure CSP peuvent se connecter au domaine managé du client provisionné dans l’abonnement Azure direct du client.
+Dans ce modèle de déploiement, Azure AD Domain Services est activé au sein d’un réseau virtuel appartenant au client, c’est-à-dire dans le cadre d’un abonnement Azure direct payé par le client. Le partenaire CSP peut ensuite déployer des applications au sein d’un réseau virtuel appartenant à l’abonnement CSP du client. Les réseaux virtuels peuvent être connectés à l’aide du peering de réseau virtuel Azure. Ainsi, les charges de travail/applications déployées par le partenaire CSP dans l’abonnement Azure CSP peuvent se connecter au domaine managé du client provisionné dans l’abonnement Azure direct du client.
 
 ![Modèle de déploiement appairé](./media/csp/csp_peered_deployment_model.png)
 

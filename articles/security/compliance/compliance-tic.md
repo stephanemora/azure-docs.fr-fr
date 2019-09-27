@@ -49,7 +49,7 @@ Il existe plusieurs façons de remplir les exigences de l’Annexe H du programm
 
 Pour connecter le **Département ou l’Agence (D/A)** à Azure ou à Office 365 sans router le trafic via le TIC du D/A, le D/A doit utiliser un tunnel chiffré ou une connexion dédiée au fournisseur de services cloud (CSP, Cloud Service Provider). Les services CSP peuvent garantir que la connectivité aux ressources cloud du D/A n’est pas offerte à l’Internet public pour l’accès direct du personnel de l’agence.
 
-Office 365 se conforme à l’Annexe H du programme TIC 2.0 en utilisant ExpressRoute avec l’[homologation Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) activée ou une connexion Internet qui chiffre tout le trafic à l’aide de TLS 1.2. Les utilisateurs finaux du D/A sur le réseau D/A peuvent se connecter par le biais du réseau de leur agence et de l’infrastructure TIC via internet. Tout l’accès Internet à distance à Office 365 est bloqué et transite par l’agence. Le D/A peut également se connecter à Office 365 sur une connexion ExpressRoute avec une homologation Microsoft (un type d’homologation publique) activée.  
+Office 365 se conforme à l’Annexe H du programme TIC 2.0 en utilisant ExpressRoute avec le [peering Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) activé ou une connexion Internet qui chiffre tout le trafic à l’aide de TLS 1.2. Les utilisateurs finaux du D/A sur le réseau D/A peuvent se connecter par le biais du réseau de leur agence et de l’infrastructure TIC via internet. Tout l’accès Internet à distance à Office 365 est bloqué et transite par l’agence. Le D/A peut également se connecter à Office 365 sur une connexion ExpressRoute avec un peering Microsoft (un type de peering public) activé.  
 
 Pour Azure uniquement, la deuxième option (VPN) et la troisième option (ExpressRoute) peuvent remplir ces exigences quand elles sont utilisées conjointement avec des services qui limitent l’accès à Internet.
 
@@ -169,8 +169,8 @@ Le diagramme suivant illustre le flux réseau général pour l’accès aux serv
 
 ![Options de connectivité PaaS pour TIC](media/tic-diagram-e.png)
 
-1. Une connexion privée est établie à Azure à l’aide d’ExpressRoute. Une homologation privée ExpressRoute avec tunneling forcé est utilisée pour forcer tout le trafic de réseau virtuel client sur ExpressRoute, puis de nouveau localement. Une homologation Microsoft n’est pas nécessaire.
-2. Une passerelle VPN Azure, utilisée conjointement avec ExpressRoute et une homologation Microsoft, peut recouvrir le chiffrement IPSec de bout en bout entre le réseau virtuel client et le périmètre local. 
+1. Une connexion privée est établie à Azure à l’aide d’ExpressRoute. Un peering privé ExpressRoute avec tunneling forcé est utilisé pour forcer tout le trafic de réseau virtuel client sur ExpressRoute, puis de nouveau localement. Un peering Microsoft n’est pas nécessaire.
+2. Une passerelle VPN Azure, utilisée conjointement avec ExpressRoute et un peering Microsoft, peut recouvrir le chiffrement IPSec de bout en bout entre le réseau virtuel client et le périmètre local. 
 3. La connectivité au réseau virtuel client est contrôlée à l’aide de groupes de sécurité réseau qui permettent aux clients d’autoriser ou de refuser l’accès en fonction de l’adresse IP, du port et du protocole.
 4. Le réseau virtuel client s’étend au service PaaS en créant un point de terminaison de service pour le service du client.
 5. Le point de terminaison de service PaaS est sécurisé de façon à **tout rejeter par défaut** et à autoriser l’accès uniquement à partir des sous-réseaux spécifiés du réseau virtuel client. Les rejets par défaut incluent également les connexions provenant d’Internet.

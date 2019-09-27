@@ -75,7 +75,7 @@ Voici quelques utilisations courantes d’une architecture hub-and-spoke :
 
 - **Réseaux virtuels spokes**. Les membres spokes peuvent servir à isoler les charges de travail dans leurs propres réseaux virtuels, qui sont alors gérées séparément des autres membres spokes. Chaque charge de travail peut inclure plusieurs niveaux, avec plusieurs sous-réseaux connectés à l’aide d’équilibreurs de charge Azure. 
 
-- **Appairage de réseaux virtuels**. Deux réseaux virtuels pouvant être connectés au moyen d’une connexion de peering. Les connexions d’appairage sont des connexions non transitives et à faible latence entre des réseaux virtuels. Une fois appairés, les réseaux virtuels échangent du trafic à l’aide de la dorsale principale d’Azure, sans avoir besoin de routeur. Dans une topologie de réseau hub-and-spoke, le peering de réseaux virtuels est utilisé pour connecter le hub à chaque membre spoke. Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions.
+- **Appairage de réseaux virtuels**. Deux réseaux virtuels pouvant être connectés au moyen d’une connexion de peering. Les connexions de peering sont des connexions non transitives et à faible latence entre des réseaux virtuels. Une fois appairés, les réseaux virtuels échangent du trafic à l’aide de la dorsale principale d’Azure, sans avoir besoin de routeur. Dans une topologie de réseau hub-and-spoke, le peering de réseaux virtuels est utilisé pour connecter le hub à chaque membre spoke. Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 

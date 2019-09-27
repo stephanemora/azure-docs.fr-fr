@@ -41,10 +41,10 @@ Il existe deux options pour connecter des réseaux virtuels :
 - [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  
+L’option de peering est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. Le peering de réseau virtuel est limité aux réseaux d’une même région.  
 
 > [!IMPORTANT]
-> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> Le scénario de peering de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes du peering de réseau virtuel global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 ## <a name="connect-an-on-premises-application"></a>Connecter une application locale
 
@@ -61,16 +61,16 @@ Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas �
 
 Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir de votre box de développeur, vous devez d’abord établir une connexion entre cette dernière et le réseau virtuel Managed Instance. Pour cela, configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native. Pour plus d’informations, consultez [Configurer une connexion point à site pour se connecter à Azure SQL Database Managed Instance à partir d’un ordinateur local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="connect-from-on-premises-with-vnet-peering"></a>Se connecter à partir d’un ordinateur local avec l’appairage VNet
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Se connecter à partir d’un ordinateur local avec le peering VNet
 
 Un autre scénario utilisé par les clients est celui où la passerelle VPN est installée sur un réseau virtuel et dans un abonnement différents de ceux où est hébergé Managed Instance. Les deux réseaux virtuels sont ensuite appairés. Le diagramme d’architecture suivant montre comment ce scénario peut être implémenté.
 
-![Homologation de réseaux virtuels](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![Peering de réseaux virtuels](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
-Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres d’homologation**.
+Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres de peering**.
 
-1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
-2. Dans le réseau virtuel qui héberge l’instance managée, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
+1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
+2. Dans le réseau virtuel qui héberge l’instance managée, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Connecter une application hébergée Azure App Service
 
@@ -86,7 +86,7 @@ L’intégration d’Azure App Service à un réseau homologué avec un réseau 
 
 Ce scénario est illustré dans le diagramme suivant :
 
-![homologation d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
+![peering d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
 
 >[!NOTE]
 >La fonctionnalité d’intégration au réseau virtuel n’intègre pas d’application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en mode de coexistence, l’intégration du réseau virtuel ne fonctionnera pas. S'il vous faut accéder aux ressources via une connexion ExpressRoute, vous pouvez utiliser un App Service Environment s’exécutant dans votre réseau virtuel.
@@ -131,7 +131,7 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
    None
    ```
 
-- Si vous utilisez l’appairage VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering).
+- Si vous utilisez le peering VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versions exigées de pilotes et d’outils
 

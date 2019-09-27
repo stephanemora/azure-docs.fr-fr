@@ -84,7 +84,7 @@ Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un 
     Il existe deux manières principales de déployer votre machine virtuelle et de se connecter à un sous-réseau de réseau virtuel approprié :
     
     * Créez ou sélectionnez un sous-réseau existant dans le même réseau virtuel que celui où votre domaine managé Azure AD DS est déployé.
-    * Sélectionnez un sous-réseau dans un réseau virtuel Azure qui lui est connecté avec l’[appairage de réseau virtuel Azure][vnet-peering].
+    * Sélectionnez un sous-réseau dans un réseau virtuel Azure qui lui est connecté avec le [peering de réseau virtuel Azure][vnet-peering].
     
     Si vous sélectionnez un sous-réseau de réseau virtuel qui n’est pas connecté au sous-réseau pour votre instance Azure AD DS, vous ne pouvez pas joindre la machine virtuelle au domaine managé. Pour ce tutoriel, créons un sous-réseau dans le réseau virtuel Azure.
 

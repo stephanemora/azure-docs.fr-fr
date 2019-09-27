@@ -43,7 +43,7 @@
       href: virtual-network-service-endpoints-overview.md
     - name: Stratégies de points de terminaison de service
       href: virtual-network-service-endpoint-policies-overview.md
-    - name: Homologation
+    - name: Peering
       href: virtual-network-peering-overview.md
     - name: TAP de réseau virtuel
       href: virtual-network-tap-overview.md
@@ -130,7 +130,7 @@
               href: tutorial-restrict-network-access-to-resources-cli.md
         - name: 'Stratégies de points de terminaison de service : Portail'
           href: virtual-network-service-endpoint-policies-portal.md
-        - name: Homologation de réseaux virtuels
+        - name: Peering de réseau virtuel
           items:
             - name: Même mode de déploiement - même abonnement
               items:
@@ -230,7 +230,7 @@
           items:
             - name: Sous-réseaux
               href: virtual-network-manage-subnet.md
-            - name: Homologations
+            - name: Peerings
               href: virtual-network-manage-peering.md
             - name: Protection DDoS
               href: manage-ddos-protection.md

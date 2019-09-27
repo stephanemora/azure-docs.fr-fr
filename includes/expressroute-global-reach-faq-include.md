@@ -53,7 +53,7 @@ Le débit réseau entre vos réseaux locaux, activés par ExpressRoute Global Re
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Avec ExpressRoute Global Reach, quelles sont les limites du nombre de routes que je peux publier et du nombre de routes que je recevrai ?
 
-Le nombre de routes que vous pouvez publier à Microsoft sur l’homologation privée Azure reste 4 000 sur un circuit Standard ou 10 000 sur un circuit Premium. Le nombre de routes que vous recevrez de Microsoft sur l’homologation privée Azure sera la somme des routes de vos réseaux virtuels Azure et des routes de vos autres réseaux locaux connectés par le biais d’ExpressRoute Global Reach. Veillez à définir une limite de préfixe maximale appropriée sur votre routeur local. 
+Le nombre de routes que vous pouvez publier à Microsoft sur le peering privé Azure reste 4 000 sur un circuit Standard ou 10 000 sur un circuit Premium. Le nombre de routes que vous recevrez de Microsoft sur le peering privé Azure sera la somme des routes de vos réseaux virtuels Azure et des routes de vos autres réseaux locaux connectés par le biais d’ExpressRoute Global Reach. Veillez à définir une limite de préfixe maximale appropriée sur votre routeur local. 
 
 ### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Quel contrat SLA s’applique à ExpressRoute Global Reach ?
 

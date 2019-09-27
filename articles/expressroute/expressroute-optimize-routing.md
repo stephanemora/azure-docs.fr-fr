@@ -82,7 +82,7 @@ La deuxième solution est de continuer à publier les deux préfixes sur les deu
 ![Solution ExpressRoute n° 2 : ajoutez le préfixe AS PATH](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
 > [!NOTE]
-> Bien que les exemples fournis ici s’appliquent aux homologations Microsoft et publiques, nous prenons en charge les mêmes fonctionnalités pour l’homologation privée. En outre, le préfixe AS Path fonctionne au sein d’un même circuit ExpressRoute pour influencer la sélection des chemins principaux et secondaires.
+> Bien que les exemples fournis ici s’appliquent aux peerings Microsoft et publics, nous prenons en charge les mêmes fonctionnalités pour le peering privé. En outre, le préfixe AS Path fonctionne au sein d’un même circuit ExpressRoute pour influencer la sélection des chemins principaux et secondaires.
 > 
 > 
 

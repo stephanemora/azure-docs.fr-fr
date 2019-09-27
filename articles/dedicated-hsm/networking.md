@@ -64,13 +64,13 @@ Un réseau privé virtuel de site à site garantit une communication sécurisée
 
 ## <a name="connecting-virtual-networks"></a>Connexion de réseaux virtuels
 
-Une architecture de déploiement classique pour un module HSM dédié démarre avec un seul réseau virtuel et un sous-réseau correspondant dans lequel les appareils HSM sont créés et configurés. Cette même région peut également englober d’autres réseaux virtuels et sous-réseaux pour les composants d’application susceptibles d’utiliser le module HSM dédié. Pour permettre la communication entre ces réseaux, nous utilisons l’homologation de réseaux virtuels.
+Une architecture de déploiement classique pour un module HSM dédié démarre avec un seul réseau virtuel et un sous-réseau correspondant dans lequel les appareils HSM sont créés et configurés. Cette même région peut également englober d’autres réseaux virtuels et sous-réseaux pour les composants d’application susceptibles d’utiliser le module HSM dédié. Pour permettre la communication entre ces réseaux, nous utilisons le peering de réseaux virtuels.
 
-### <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
+### <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
-Lorsque plusieurs réseaux virtuels d’une région doivent accéder aux ressources de chacun d’eux, l’homologation de réseaux virtuels peut servir à créer des canaux de communication sécurisés entre ces réseaux.  L’homologation de réseaux virtuels garantit non seulement des communications sécurisées, mais également des connexions à faible latence et large bande passante entre les ressources dans Azure.
+Lorsque plusieurs réseaux virtuels d’une région doivent accéder aux ressources de chacun d’eux, le peering de réseaux virtuels peut servir à créer des canaux de communication sécurisés entre ces réseaux.  Le peering de réseaux virtuels garantit non seulement des communications sécurisées, mais également des connexions à faible latence et large bande passante entre les ressources dans Azure.
 
-![Appairage de réseau](media/networking/peering.png)
+![Peering de réseau](media/networking/peering.png)
 
 ## <a name="connecting-across-azure-regions"></a>Connexion entre des régions Azure
 
@@ -81,7 +81,7 @@ Les appareils HSM ont la possibilité, par le biais de bibliothèques logicielle
 Pour les applications distribuées globalement ou les scénarios de basculement régional à haute disponibilité, il est nécessaire de connecter des réseaux virtuels dans différentes régions. Un module Azure HSM dédié assure une haute disponibilité en utilisant une passerelle VPN qui fournit un tunnel sécurisé entre les deux réseaux virtuels. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel à l’aide d’une passerelle VPN, consultez l’article [Présentation d’une passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V).
 
 > [!NOTE]
-> Pour le moment, l’homologation de réseaux virtuels globale n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 
+> Pour le moment, le peering de réseaux virtuels global n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 
 
 ![global-vnet](media/networking/global-vnet.png)
 

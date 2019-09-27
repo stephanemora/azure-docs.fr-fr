@@ -112,11 +112,11 @@ Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être c
 Non. Vous ne pouvez pas utiliser IPv6 avec les réseaux virtuels pour l’instant. Vous pouvez toutefois attribuer des adresses IPv6 aux équilibreurs de charge Azure pour équilibrer la charge des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble du protocole IPv6 pour Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="can-a-vnet-span-regions"></a>Un réseau virtuel peut-il couvrir plusieurs régions ?
-Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’une homologation de réseaux virtuels. Pour plus d’informations, consultez [Homologation de réseaux virtuels](virtual-network-peering-overview.md)
+Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’un peering de réseaux virtuels. Pour plus d’informations, consultez [Peering de réseaux virtuels](virtual-network-peering-overview.md)
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Puis-je connecter un réseau virtuel à un autre réseau virtuel dans Azure ?
 Oui. Vous pouvez connecter un réseau virtuel à un autre réseau virtuel à l’aide des éléments suivants :
-- **Homologation de réseaux virtuels** : Pour plus d’informations, consultez [Présentation de l’homologation de réseaux virtuels](virtual-network-peering-overview.md)
+- **Homologation de réseaux virtuels** : Pour plus d’informations, consultez [Présentation du peering de réseaux virtuels](virtual-network-peering-overview.md)
 - **Une passerelle VPN Azure** : Pour en savoir plus, consultez [Configurer une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Résolution de noms pour les machines virtuelles et les instances de rôle
@@ -232,12 +232,12 @@ Oui. En savoir plus sur l’utilisation des éléments suivants :
 - PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/module/az.network) et [classique](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - L’interface de ligne de commande Azure pour déployer et gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/cli/azure/network/vnet) et [classique](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
-## <a name="vnet-peering"></a>Homologation de réseaux virtuels
+## <a name="vnet-peering"></a>Peering de réseaux virtuels
 
-### <a name="what-is-vnet-peering"></a>En quoi consiste l’appairage VNet ?
-L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion d’appairage VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions d’appairage VNet dans les abonnements Azure.
+### <a name="what-is-vnet-peering"></a>En quoi consiste le peering VNet ?
+Le peering VNet (ou peering de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion de peering VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions de peering VNet dans les abonnements Azure.
 
-### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
+### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion de peering pour un réseau virtuel dans une autre région ?
 Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure, dans les régions cloud de Chine et dans les régions cloud Government. Vous ne pouvez pas procéder au peering mondial à partir de régions publiques Azure vers des régions cloud nationales.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et à Global VNet Peering ?
@@ -259,35 +259,35 @@ Les ressources suivantes utilisent des équilibreurs de charge de base, ce qui s
 
 Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
-### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
-Oui. Il est possible d’établir une homologation de réseau virtuel (locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
+### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer le peering de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
+Oui. Il est possible d’établir un peering de réseau virtuel (local ou global) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion d’homologation de réseau est à l’état *initiée*, pourquoi ne puis-je pas me connecter ?
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion de peering de réseau est à l’état *initié*, pourquoi ne puis-je pas me connecter ?
 Si votre connexion de peering est dans un état *Initiée*, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion réussie. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion d’appairage VNet se trouve dans l’état *Déconnectée*, pourquoi ne puis-je pas créer une connexion d’appairage ?
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion de peering VNet se trouve dans l’état *Déconnecté*, pourquoi ne puis-je pas créer une connexion de peering ?
 Si votre connexion de peering VNet se trouve dans un état *Déconnecté*, cela signifie qu’un des liens créés a été supprimé. Pour rétablir une connexion de peering, vous devrez supprimer le lien et le créer de nouveau.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Puis-je homologuer mon réseau virtuel avec un réseau virtuel dans un autre abonnement ?
 Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Puis-je homologuer deux réseaux virtuels avec des plages d’adresses correspondantes ou se chevauchant ?
-Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer l’homologation de réseau virtuel.
+Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer le peering de réseau virtuel.
 
-### <a name="how-much-do-vnet-peering-links-cost"></a>Combien coûtent les liens d’homologation de réseau virtuel ?
-Il n’existe aucun frais pour créer une connexion d’homologation de réseau virtuel. Le transfert de données entre des connexions d’homologation est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
+### <a name="how-much-do-vnet-peering-links-cost"></a>Combien coûtent les liens de peering de réseau virtuel ?
+Il n’existe aucun frais pour créer une connexion de peering de réseau virtuel. Le transfert de données entre des connexions de peering est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic d’homologation de réseau virtuel est-il chiffré ?
+### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic de peering de réseau virtuel est-il chiffré ?
 Non. Le trafic entre des ressources des réseaux virtuels homologués est privé et isolé. Il reste entièrement sur le Microsoft Backbone.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion de peering est-elle dans un état *Déconnecté* ?
-Les connexions d’homologation de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien d’homologation de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion d’homologation.
+Les connexions de peering de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien de peering de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion de peering.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si j’effectue une homologation entre VNetA et VNetB, et que je dois également le faire entre VNetB et VNetC, cela signifie-il que VNetA et VNetC sont homologués ?
-Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le soient, vous devez homologuer VNetA et VNetC.
+Non. Le peering transitif n’est pas pris en charge. Pour qu’ils le soient, vous devez homologuer VNetA et VNetC.
 
-### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions d’homologation ?
-Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
+### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions de peering ?
+Non. Le peering de réseau virtuel, qu’il soit local ou global, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Comment résoudre les problèmes liés à VNet Peering ?
 Voici un [guide sur un utilitaire de résolution des problèmes](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) qui peut vous y aider.

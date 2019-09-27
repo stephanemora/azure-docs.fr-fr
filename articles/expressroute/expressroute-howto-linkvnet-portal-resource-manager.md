@@ -32,8 +32,8 @@ Cet article vous aide à créer une connexion pour lier un réseau virtuel à un
 
 * Vous devez disposer d’un circuit ExpressRoute actif.
   * Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) et faites-le activer par votre fournisseur de service de connectivité.
-  * Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Consultez l’article [Créer et modifier le Peering pour un circuit ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour obtenir des instructions sur le Peering et le routage.
-  * Vérifiez que l’homologation privée Azure est être configurée, et que l’homologation BGP entre votre réseau et Microsoft est être opérationnelle pour pouvoir activer la connectivité de bout en bout.
+  * Vérifiez que le peering privé Azure est configuré pour votre circuit. Consultez l’article [Créer et modifier le Peering pour un circuit ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour obtenir des instructions sur le Peering et le routage.
+  * Vérifiez que le peering privé Azure est configuré, et que le peering BGP entre votre réseau et Microsoft est opérationnel pour pouvoir activer la connectivité de bout en bout.
   * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour [créer une passerelle de réseau virtuel pour ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Une passerelle de réseau virtuel pour ExpressRoute utilise le type de passerelle « ExpressRoute », pas de VPN.
 
 * Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute standard. Tous les réseaux virtuels doivent figurer dans la même région géopolitique lors de l’utilisation d’un circuit ExpressRoute standard.
@@ -47,12 +47,12 @@ Cet article vous aide à créer une connexion pour lier un réseau virtuel à un
 ## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>Connecter un réseau virtuel à un circuit - même abonnement
 
 > [!NOTE]
-> Les informations de configuration BGP ne s’affichent pas si vos homologations ont été configurées par le fournisseur de la couche 3. Si votre circuit est dans l’état Approvisionné, vous pouvez créer des connexions.
+> Les informations de configuration BGP ne s’affichent pas si vos peerings ont été configurés par le fournisseur de la couche 3. Si votre circuit est dans l’état Approvisionné, vous pouvez créer des connexions.
 >
 
 ### <a name="to-create-a-connection"></a>Pour créer une connexion
 
-1. Assurez-vous que votre circuit ExpressRoute et l'homologation privée Azure ont été correctement configurés. Suivez les instructions fournies dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et [Créer et modifier le peering pour un circuit ExpressRoute](expressroute-howto-routing-arm.md). Votre circuit ExpressRoute doit être similaire à l’image suivante :
+1. Assurez-vous que votre circuit ExpressRoute et le peering privé Azure ont été correctement configurés. Suivez les instructions fournies dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et [Créer et modifier le peering pour un circuit ExpressRoute](expressroute-howto-routing-arm.md). Votre circuit ExpressRoute doit être similaire à l’image suivante :
 
    [![Capture d’écran d’un circuit ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Vue d’un circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. Vous pouvez maintenant commencer à approvisionner une connexion pour lier votre passerelle de réseau virtuel à votre circuit ExpressRoute. Cliquez sur **Connexion** > **Ajouter** pour ouvrir la page **Ajouter une connexion**, puis configurez les valeurs.

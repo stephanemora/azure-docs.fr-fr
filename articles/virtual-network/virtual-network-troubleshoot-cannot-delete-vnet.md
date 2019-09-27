@@ -70,14 +70,14 @@ Pour désactiver le service, consultez la page [Désactiver Azure Active Directo
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Vérifier si le réseau virtuel est connecté à d’autres ressources
 
-Recherchez les liaisons de circuit, les connexions et les homologations de réseaux virtuels. Tous ces éléments peuvent empêcher la suppression d’un réseau virtuel. 
+Recherchez les liaisons de circuit, les connexions et les peerings de réseaux virtuels. Tous ces éléments peuvent empêcher la suppression d’un réseau virtuel. 
 
 Voici la séquence de suppression recommandée :
 
 1. Connexions de passerelle
 2. Passerelles
 3. Adresses IP
-4. Homologations de réseaux virtuels
+4. Peerings de réseaux virtuels
 5. App Service Environment (ASE)
 
 ### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Vérifier si une machine virtuelle s’exécute toujours dans le réseau virtuel

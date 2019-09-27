@@ -155,6 +155,8 @@
               href: sql-data-warehouse-tables-data-types.md
             - name: Tables distribuées
               href: sql-data-warehouse-tables-distribute.md
+            - name: Contraintes de table
+              href: sql-data-warehouse-table-constraints.md
             - name: Index
               href: sql-data-warehouse-tables-index.md
             - name: Identité
@@ -181,7 +183,7 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: Attribution de variables
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: Views
+            - name: Les vues
               href: sql-data-warehouse-develop-views.md
     - name: Interrogation
       items:

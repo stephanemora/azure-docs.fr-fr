@@ -115,7 +115,7 @@ L'utilisation de la bande passante correspond au total de bande passante entrant
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Est-il possible d'obtenir des informations de bande passante entrante et sortante pour ExpressRoute ?
 Les valeurs entrantes et sortantes des bandes passantes principale et secondaire peuvent être capturées.
 
-Pour des informations sur l'appairage, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux.
+Pour des informations sur le peering, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux.
 
     NetworkMonitoring 
     | where SubType == "ExpressRoutePeeringUtilization"
@@ -183,8 +183,8 @@ Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pa
 ### <a name="there-is-loss-from-node-a-to-b-but-not-from-node-b-to-a-why"></a>Il existe une perte entre le nœud A vers B, mais pas entre le nœud B vers A. Pourquoi ?
 Les chemins d’accès réseau de A vers B peuvent être différents des chemins d’accès réseau de B vers A, des valeurs distinctes en termes de perte et latence peuvent être observées.
 
-### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Pourquoi mes circuits ExpressRoute et connexions d’appairage ne sont-ils pas détectés ?
-NPM détecte désormais les circuits ExpressRoute et les connexions d’appairage dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un appairage privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre appairage.
+### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Pourquoi mes circuits ExpressRoute et connexions de peering ne sont-ils pas détectés ?
+NPM détecte désormais les circuits ExpressRoute et les connexions de peering dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un peering privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre peering.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La fonctionnalité Moniteur ER affiche un message de diagnostic « Le trafic n'est acheminé dans AUCUN circuit ». Qu'est-ce que cela signifie ?
 

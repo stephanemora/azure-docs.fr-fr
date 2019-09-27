@@ -163,7 +163,7 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 * Vérifiez que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau Premium au niveau Standard. Si vous ne le faites pas, votre demande de mise à jour échoue et les tarifs Premium continuent d’être appliqués.
 * Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites pas, votre demande de mise à jour échoue et les tarifs Premium continuent d’être appliqués.
-* Pour l’homologation privée, votre table de routage doit comporter moins de 4 000 routages. Si la table de routage comporte plus de 4 000 routages, la session BGP s’arrête et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
+* Pour le peering privé, votre table de routage doit comporter moins de 4 000 routages. Si la table de routage comporte plus de 4 000 routages, la session BGP s’arrête et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
 
 #### <a name="to-disable-the-premium-add-on"></a>Pour désactiver le module complémentaire Premium
 

@@ -24,7 +24,7 @@ Cette page fournit des exemples de configuration NAT pour les routeurs des séri
 > 
 > 
 
-* Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Pour plus d’informations, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md).
+* Les exemples de configuration de routeur ci-dessous s'appliquent aux peerings Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour le peering privé Azure. Pour plus d’informations, voir [Peerings ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md).
 
 * Vous DEVEZ utiliser des pools IP NAT distincts pour la connectivité à Internet et ExpressRoute. L’utilisation du même pool IP NAT via internet et ExpressRoute entraîne un routage asymétrique et une perte de connectivité.
 

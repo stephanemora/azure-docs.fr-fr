@@ -301,7 +301,7 @@ Après avoir suivi ces étapes, vous pouvez vous connecter aux ressources de cha
 
 Cet exemple repose sur les hypothèses suivantes :
 
-* Vous avez deux réseaux virtuels Azure connectés à l’aide d’une passerelle VPN ou d’une homologation.
+* Vous avez deux réseaux virtuels Azure connectés à l’aide d’une passerelle VPN ou d’un peering.
 
 * Le serveur DNS personnalisé dans les deux réseaux exécute le système d’exploitation Linux ou Unix.
 

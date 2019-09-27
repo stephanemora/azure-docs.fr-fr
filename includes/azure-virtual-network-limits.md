@@ -25,7 +25,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
-| Homologations VNet par réseau virtuel |500 |
+| Peerings VNet par réseau virtuel |500 |
 | Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65 536 |
 | Adresses IP privées par interface réseau |256 |

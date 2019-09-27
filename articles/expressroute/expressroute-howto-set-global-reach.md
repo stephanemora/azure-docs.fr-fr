@@ -56,9 +56,9 @@ Activez la connectivité entre vos réseaux locaux. Il existe des ensembles dist
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
    $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
    ```
-2. Exécutez la commande suivante sur le circuit 1 et transférez l’ID de l’homologation privée du circuit 2. Lors de l'exécution de la commande, notez ce qui suit :
+2. Exécutez la commande suivante sur le circuit 1 et transférez l’ID du peering privé du circuit 2. Lors de l'exécution de la commande, notez ce qui suit :
 
-   * L'ID de l'homologation privée ressemble à l’exemple suivant : 
+   * L'ID du peering privé ressemble à l’exemple suivant : 
 
      ```
      /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
@@ -88,8 +88,8 @@ Si les deux circuits ne se trouvent pas dans le même abonnement Azure, vous dev
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
    ```
 
-   Notez l’ID de l’homologation privée du circuit 2, ainsi que la clé d’autorisation.
-2. Exécutez la commande suivante sur le circuit 1. Transférez l’ID de l’homologation privée du circuit 2, ainsi que la clé d’autorisation.
+   Notez l’ID du peering privé du circuit 2, ainsi que la clé d’autorisation.
+2. Exécutez la commande suivante sur le circuit 1. Transférez l’ID du peering privé du circuit 2, ainsi que la clé d’autorisation.
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'

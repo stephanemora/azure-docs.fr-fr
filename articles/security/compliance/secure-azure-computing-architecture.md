@@ -86,7 +86,7 @@ Lorsque vous planifiez votre stratégie de conformité SCCA et votre architectur
    - BCAP DISA :
         - DISA dispose de deux BCAP opérationnels au Pentagone et à Camp Roberts en Californie. Un troisième devrait être disponible prochainement. 
         - Les BCAP de DISA ont tous des circuits Azure ExpressRoute vers Azure, qui peuvent être utilisés par les clients DoD à des fins de connectivité. 
-        - DISA dispose d'une session d’homologation Microsoft de niveau professionnel pour les clients DoD qui souhaitent s'abonner aux outils Microsoft Software as a Service (SaaS) comme Office 365. En utilisant le BCAP DISA, vous pouvez activer la connectivité et l’homologation avec votre instance SACA. 
+        - DISA dispose d'une session de peering Microsoft de niveau professionnel pour les clients DoD qui souhaitent s'abonner aux outils Microsoft Software as a Service (SaaS) comme Office 365. En utilisant le BCAP DISA, vous pouvez activer la connectivité et le peering avec votre instance SACA. 
     - Créez votre propre BCAP :
         - Cette option vous oblige à louer de l'espace dans un centre de données colocalisé et à installer un circuit ExpressRoute vers Azure. 
         - Cette option nécessite une approbation supplémentaire. 
@@ -142,7 +142,7 @@ Comme mentionné précédemment, vous pouvez construire cette référence SACA e
 
 Comme vous pouvez le voir sur le diagramme, les clients DoD s'abonnent généralement à deux des BCAP DISA. L'un d'eux vit sur la côte ouest et l'autre sur la côte est des États-Unis. Un homologue privé ExpressRoute est activé pour Azure sur chaque site BCAP DISA. Ces homologues ExpressRoute sont ensuite associés à la passerelle réseau virtuelle dans les régions Azure DoD Est et DoD Centre. Une instance SACA est déployée dans les régions Azure DoD Est et DoD Centre. Tout le trafic d'entrée et de sortie est acheminé vers et depuis la connexion ExpressRoute vers le BCAP DISA.
 
-Les applications du propriétaire de la mission choisissent ensuite les régions Azure dans lesquelles ils prévoient de déployer leurs applications. Ils utilisent l’homologation de réseau virtuel pour connecter le réseau virtuel de leur application au réseau virtuel SACA. Puis ils tunnélisent de force tout leur trafic via l'instance VDSS.
+Les applications du propriétaire de la mission choisissent ensuite les régions Azure dans lesquelles ils prévoient de déployer leurs applications. Ils utilisent le peering de réseau virtuel pour connecter le réseau virtuel de leur application au réseau virtuel SACA. Puis ils tunnélisent de force tout leur trafic via l'instance VDSS.
 
 Nous recommandons cette architecture car elle répond aux exigences SCCA. Elle est hautement disponible et facilement évolutive. Elle simplifie également le déploiement et la gestion.
 

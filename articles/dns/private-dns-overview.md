@@ -42,7 +42,7 @@ Un DNS privé Azure offre les avantages suivants :
 
 * **Gestion automatique des enregistrements de noms d’hôte**. En plus d’héberger vos enregistrements DNS personnalisés, Azure gère automatiquement les enregistrements de noms d’hôte pour les machines virtuelles dans les réseaux virtuels spécifiés. Dans ce scénario, vous pouvez optimiser les noms de domaine que vous utilisez sans avoir à créer de solutions DNS personnalisées ni modifier les applications.
 
-* **Résolution de noms d’hôte entre réseaux virtuels**. Contrairement aux noms d’hôte fournis par Azure, les zones DNS privé peuvent être partagées entre des réseaux virtuels. Cette fonctionnalité simplifie les scénarios de détection de services et réseaux croisés, tels que l’homologation de réseaux virtuels.
+* **Résolution de noms d’hôte entre réseaux virtuels**. Contrairement aux noms d’hôte fournis par Azure, les zones DNS privé peuvent être partagées entre des réseaux virtuels. Cette fonctionnalité simplifie les scénarios de détection de services et réseaux croisés, tels que le peering de réseaux virtuels.
 
 * **Outils familiers et expérience utilisateur**. Pour réduire la courbe d’apprentissage, ce service offre utilise des outils Azure DNS bien établis (portail Azure, Azure PowerShell, Azure CLI, modèles Azure Resource Manager et API REST).
 

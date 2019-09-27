@@ -61,7 +61,7 @@ Puisque chaque membre aura simultanément plusieurs nœuds de validateur en cour
 
 ### <a name="bootnode-registrar"></a>Bureau d’enregistrement Bootnode
 
-Pour faciliter la connectivité, chaque membre hébergera un ensemble d’informations de connexion sur le [point de terminaison de l’API de données](#data-api). Ces données incluent une liste de bootnodes fournis en tant que nœuds d’homologation pour le membre de jointure. Dans le cadre de cette API de données, nous conservons cette liste de bootnodes à jour.
+Pour faciliter la connectivité, chaque membre hébergera un ensemble d’informations de connexion sur le [point de terminaison de l’API de données](#data-api). Ces données incluent une liste de bootnodes fournis en tant que nœuds de peering pour le membre de jointure. Dans le cadre de cette API de données, nous conservons cette liste de bootnodes à jour.
 
 ### <a name="bring-your-own-operator"></a>Apportez votre propre opérateur
 
@@ -85,7 +85,7 @@ Cette solution est également fournie avec Azure Monitor pour suivre les statist
 
 #### <a name="description"></a>Description
 
-Cette solution peut déployer un réseau de consortium Ethereum de plusieurs membres reposant sur une ou plusieurs régions. Par défaut, le RPC et les points de terminaison de l’homologation sont accessibles via l’adresse IP publique pour simplifier la connectivité entre les différents abonnements et clouds. Nous vous recommandons d’utiliser les [contrats d’octroi d’autorisations de Parity](https://wiki.parity.io/Permissioning) pour les contrôles d’accès de niveau applicatif. Nous prenons également en charge les réseaux déployés derrière des VPN, qui tirent parti des passerelles de réseau virtuel pour garantir une connectivité entre les abonnements. Ces déploiements étant plus complexes, il est recommandé de commencer par le modèle d’adresse IP publique.
+Cette solution peut déployer un réseau de consortium Ethereum de plusieurs membres reposant sur une ou plusieurs régions. Par défaut, le RPC et les points de terminaison du peering sont accessibles via l’adresse IP publique pour simplifier la connectivité entre les différents abonnements et clouds. Nous vous recommandons d’utiliser les [contrats d’octroi d’autorisations de Parity](https://wiki.parity.io/Permissioning) pour les contrôles d’accès de niveau applicatif. Nous prenons également en charge les réseaux déployés derrière des VPN, qui tirent parti des passerelles de réseau virtuel pour garantir une connectivité entre les abonnements. Ces déploiements étant plus complexes, il est recommandé de commencer par le modèle d’adresse IP publique.
 
 #### <a name="consortium-member-overview"></a>Vue d’ensemble des membre de consortium
 
@@ -93,7 +93,7 @@ Chaque déploiement d’un membre de consortium inclut :
 
 -   des machines virtuelles pour l’exécution des validateurs PoA ;
 
--   Azure Load Balancer, pour la répartition des requêtes de RPC, d’homologation et de Governance DApp ;
+-   Azure Load Balancer, pour la répartition des requêtes de RPC, de peering et de Governance DApp ;
 
 -   Azure Key Vault, pour sécuriser les identités de validateur ;
 
@@ -278,7 +278,7 @@ ID du membre de consortium|ID associé à chaque membre participant au réseau d
 ID réseau|ID du réseau Ethereum de consortium en cours de déploiement.  Chaque réseau Ethereum possède son propre ID de réseau, 1 étant l’ID du réseau public.|5 - 999 999 999|10101010
 Adresse Ethereum de l’administrateur|Adresse du compte Ethereum utilisé pour votre participation à la gouvernance PoA.  Nous vous recommandons d’utiliser MetaMask pour générer une adresse Ethereum.|42 caractères alphanumériques commençant par 0x|N/D
 Options avancées|Options avancées pour les paramètres Ethereum|Activer ou désactiver|Désactiver
-Adresse IP publique (Options avancées = Activer)|Déploie le réseau derrière une passerelle de réseau virtuel et supprime l’accès d’homologation. Si cette option est sélectionnée, tous les membres doivent utiliser une passerelle de réseau virtuel pour garantir la compatibilité de la connexion.|Adresse IP publique, réseau virtuel privé|Adresse IP publique
+Adresse IP publique (Options avancées = Activer)|Déploie le réseau derrière une passerelle de réseau virtuel et supprime l’accès de peering. Si cette option est sélectionnée, tous les membres doivent utiliser une passerelle de réseau virtuel pour garantir la compatibilité de la connexion.|Adresse IP publique, réseau virtuel privé|Adresse IP publique
 Limite de gaz par bloc (Options avancées = Activer)|Limite de gaz par bloc de départ du réseau|Toute valeur numérique|50000000
 Période de rescellage des blocs (s)|Fréquence à laquelle des blocs vides sont créés en l’absence de transaction sur le réseau. Une fréquence supérieure aboutit à une finalité plus rapide, mais avec des coûts de stockage plus élevés.|Toute valeur numérique|15
 Contrat d’autorisation de transaction (Options avancées = Activer)|Bytecode du contrat d’autorisation de transaction. Restreint le déploiement et l’exécution de contrats intelligents à une liste autorisée de comptes Ethereum.|Bytecode du contrat|N/D
@@ -789,7 +789,7 @@ La supervision est une fonctionnalité facultative. Dans certains cas rares où 
 
 #### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Les déploiements d’adresses IP publiques sont-ils compatibles avec les déploiements de réseau privé ?
 
-Non, l’homologation exige une communication bidirectionnelle, ce qui signifie que l’ensemble du réseau doit être public ou privé.
+Non, le peering exige une communication bidirectionnelle, ce qui signifie que l’ensemble du réseau doit être public ou privé.
 
 #### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Quel est le débit des transactions attendu de Proof-of-Authority ?
 

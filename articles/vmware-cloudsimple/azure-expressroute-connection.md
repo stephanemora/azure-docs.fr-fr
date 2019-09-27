@@ -29,7 +29,7 @@ Une connexion de réseau virtuel vous permet d’effectuer les tâches suivantes
 
 ## <a name="set-up-a-virtual-network-connection"></a>Configurer une connexion de réseau virtuel
 
-Pour configurer la connexion du réseau virtuel à votre cloud privé, vous avez besoin de votre clé d’autorisation, de l’URI du circuit homologue et de l’accès à votre abonnement Azure. Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour plus d’instructions, consultez [Obtenir des informations d’homologation pour la connexion entre le réseau virtuel Azure et CloudSimple](virtual-network-connection.md). Si vous avez du mal à obtenir ces informations, envoyez une <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">demande de support</a>.
+Pour configurer la connexion du réseau virtuel à votre cloud privé, vous avez besoin de votre clé d’autorisation, de l’URI du circuit homologue et de l’accès à votre abonnement Azure. Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour plus d’instructions, consultez [Obtenir des informations de peering pour la connexion entre le réseau virtuel Azure et CloudSimple](virtual-network-connection.md). Si vous avez du mal à obtenir ces informations, envoyez une <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">demande de support</a>.
 
 > [!TIP]
 > Si vous disposez déjà d’un réseau virtuel Azure, d’un sous-réseau de passerelle et d’une passerelle de réseau virtuel, vous pouvez passer à l’étape 4.

@@ -15,11 +15,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 06/18/2019
 ms.locfileid: "67176884"
 ---
-Le FAQ relatif aux connexions de réseau virtuel à réseau virtuel s’applique aux connexions de passerelle VPN. Pour plus d’informations sur l’homologation de réseaux virtuels, voir [Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
+Le FAQ relatif aux connexions de réseau virtuel à réseau virtuel s’applique aux connexions de passerelle VPN. Pour plus d’informations sur le peering de réseaux virtuels, voir [Peering de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Le trafic entre réseaux virtuels est-il facturé par Azure ?
 
-Lorsque vous utilisez une connexion de passerelle VPN, le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez [la page Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Si vous vous connectez vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels, plutôt qu’à l’aide d’une passerelle VPN, consultez la [tarification de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network/).
+Lorsque vous utilisez une connexion de passerelle VPN, le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez [la page Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Si vous vous connectez vos réseaux virtuels à l’aide du peering de réseaux virtuels, plutôt qu’à l’aide d’une passerelle VPN, consultez la [tarification de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Le trafic de réseau virtuel à réseau virtuel transite-t-il sur Internet ?
 

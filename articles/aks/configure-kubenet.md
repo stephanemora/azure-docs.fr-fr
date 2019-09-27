@@ -60,7 +60,7 @@ Les calculs de base suivants comparent la différence entre les modèles de rés
 > [!NOTE]
 > Ces valeurs maximales ne prennent pas en compte les opérations de mise à niveau ou de mise à l’échelle. Dans la pratique, vous ne pouvez pas exécuter le nombre maximal de nœuds que la plage d’adresses IP de sous-réseau prend en charge. Vous devez laisser certaines adresses IP disponibles pour qu’elles puissent être utilisées pendant les opérations de mise à l’échelle ou de mise à niveau.
 
-### <a name="virtual-network-peering-and-expressroute-connections"></a>Appairage de réseau virtuel et connexions ExpressRoute
+### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering de réseau virtuel et connexions ExpressRoute
 
 Pour fournir une connectivité locale, les approches des réseaux *kubenet* et *Azure CNI* peuvent toutes les deux utiliser le [Peering de réseaux virtuels Azure][vnet-peering] ou les [connexions ExpressRoute][express-route]. Planifiez vos plages d’adresses IP avec soin pour éviter le chevauchement et un routage incorrect du trafic. Par exemple, de nombreux réseaux locaux utilisent une plage d’adresses *10.0.0.0/8* qui est publiée sur la connexion ExpressRoute. Il est recommandé de créer vos clusters AKS dans des sous-réseaux de réseau virtuel Azure en dehors de cette plage d’adresses, comme *172.16.0.0/16*.
 

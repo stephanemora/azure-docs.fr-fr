@@ -153,7 +153,7 @@ Créez des règles de pare-feu entre le sous-réseau de charge de travail et le 
 
 Par défaut, CloudSimple fournit un lien 1 Gbit/s ExpressRoute. Un lien de bande passante plus élevée peut être nécessaire pour les environnements de plus grande taille. Pour plus d’informations sur les liens de bande passante plus élevée, contactez le support Azure.
 
-Pour poursuivre la configuration, vous avez besoin de la clé d’autorisation, de l’URI du circuit pair et de l’accès à votre abonnement Azure.  Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour plus d’instructions, consultez [Obtenir des informations d’homologation pour la connexion entre le réseau virtuel Azure et CloudSimple](virtual-network-connection.md). Si vous ne parvenez pas à obtenir ces informations, [contactez le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Pour poursuivre la configuration, vous avez besoin de la clé d’autorisation, de l’URI du circuit pair et de l’accès à votre abonnement Azure.  Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour plus d’instructions, consultez [Obtenir des informations de peering pour la connexion entre le réseau virtuel Azure et CloudSimple](virtual-network-connection.md). Si vous ne parvenez pas à obtenir ces informations, [contactez le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>Cloud privé CloudSimple : Élever les privilèges pour cloudowner
 

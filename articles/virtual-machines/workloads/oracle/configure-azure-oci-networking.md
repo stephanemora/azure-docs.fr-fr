@@ -35,7 +35,7 @@ L’image suivante illustre une vue d’ensemble de l’interconnexion :
 
 * Pour établir la connectivité entre Azure et OCI, vous devez disposer d’un abonnement Azure actif et une location OCI active.
 
-* Cette connectivité est uniquement possible là où un emplacement d’appairage ExpressRoute est à proximité ou dans le même emplacement d’appairage que le FastConnect OCI. Pour en savoir plus, veuillez consulter la section [Limitations de la préversion](oracle-oci-overview.md#preview-limitations).
+* Cette connectivité est uniquement possible là où un emplacement de peering ExpressRoute est à proximité ou dans le même emplacement de peering que le FastConnect OCI. Pour en savoir plus, veuillez consulter la section [Limitations de la préversion](oracle-oci-overview.md#preview-limitations).
 
 * Votre abonnement Azure doit être dans la liste verte de cette fonctionnalité en préversion.
 
@@ -65,19 +65,19 @@ L’image suivante illustre une vue d’ensemble de l’interconnexion :
         * Affectez la première adresse utilisable des deux plages pour l’adresse IP BGP Oracle (primaire et secondaire) et la seconde adresse à l’adresse IP BGP du client (dans une perspective FastConnect). La première adresse IP utilisable est la deuxième adresse IP dans l’espace adresse /30 (la première adresse IP est réservée par Microsoft).
     * Cliquez sur **Créer**.
 1. Terminez la liaison du FastConnect au réseau cloud virtuel sous votre locataire Oracle via Dynamic Routing Gateway, à l’aide de la table de routage.
-1. Accédez à Azure et vérifiez que le paramètre **État du fournisseur** pour votre circuit ExpressRoute est défini sur **Approvisionné** et qu’un appairage de type **Privé Azure** a été approvisionné. Ceci est nécessaire pour les étapes suivantes.
+1. Accédez à Azure et vérifiez que le paramètre **État du fournisseur** pour votre circuit ExpressRoute est défini sur **Approvisionné** et qu’un peering de type **Privé Azure** a été approvisionné. Ceci est nécessaire pour les étapes suivantes.
 
     ![État du fournisseur ExpressRoute](media/configure-azure-oci-networking/exr-provider-status.png)
-1. Cliquez sur l’appairage **Privé Azure**. Vous verrez que les détails d’appairage ont été automatiquement configurés en fonction des informations que vous avez saisies lors de la configuration de votre circuit FastConnect.
+1. Cliquez sur le peering **Privé Azure**. Vous verrez que les détails de peering ont été automatiquement configurés en fonction des informations que vous avez saisies lors de la configuration de votre circuit FastConnect.
 
-    ![Paramètres d’apparaige privé](media/configure-azure-oci-networking/exr-private-peering.png)
+    ![Paramètres de peering privé](media/configure-azure-oci-networking/exr-private-peering.png)
 
 ## <a name="connect-virtual-network-to-expressroute"></a>Connecter un réseau virtuel à ExpressRoute
 
 1. Créez un réseau virtuel et une passerelle de réseau virtuel, si vous ne l’avez pas déjà fait. Pour savoir comment procéder, veuillez consulter notre [guide pas à pas](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 1. Configurez la connexion entre la passerelle de réseau virtuel et votre circuit ExpressRoute en exécutant le [script Terraform](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) ou en exécutant la commande PowerShell pour [Configurer ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
-Une fois que vous avez terminé la configuration du réseau, vous pouvez vérifier la validité de votre configuration en cliquant sur **Get ARP Records** (Obtenir les enregistrements ARP) et **Get route table** (Obtenir une table de routage) sous le panneau Appairage privé ExpressRoute dans le Portail Microsoft Azure.
+Une fois que vous avez terminé la configuration du réseau, vous pouvez vérifier la validité de votre configuration en cliquant sur **Get ARP Records** (Obtenir les enregistrements ARP) et **Get route table** (Obtenir une table de routage) sous le panneau Peering privé ExpressRoute dans le Portail Microsoft Azure.
 
 ## <a name="automation"></a>Automatisation
 

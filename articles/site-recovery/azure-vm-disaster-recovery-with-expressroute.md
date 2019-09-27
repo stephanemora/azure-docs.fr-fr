@@ -69,7 +69,7 @@ Si vous voulez configurer la réplication pour des machines virtuelles Azure dan
     - Quand vous configurez et que vous activez la réplication, Site Recovery définit des réseaux, des sous-réseaux et les sous-réseaux de passerelle dans la région Azure cible, de façon à les faire correspondre à ceux de la région source. Site Recovery effectue aussi un mappage entre les réseaux virtuels sources et cibles.
     - Si vous ne voulez pas que Site Recovery effectue ceci automatiquement, créez les ressources réseau du côté cible avant d’activer la réplication.
 3. Créez les autres éléments du réseau :
-    - Site Recovery ne crée pas les tables de routage, les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, l’appairage des réseaux virtuels, ni d’autres ressources et connexions réseau dans la région secondaire.
+    - Site Recovery ne crée pas les tables de routage, les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, le peering des réseaux virtuels, ni d’autres ressources et connexions réseau dans la région secondaire.
     - Vous devez créer ces éléments de mise en réseau supplémentaires dans la région secondaire, n’importe quand mais avant d’effectuer un basculement depuis la région primaire.
     - Vous pouvez utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) et des scripts d’automatisation pour configurer et connecter ces ressources réseau.
 1. Si une appliance virtuelle réseau est déployée pour contrôler le flux de trafic réseau, notez que :
@@ -95,12 +95,12 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
   - Toutes les communications entre les sous-réseaux passent par ce hub.
     - **Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
-    - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
+    - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage de peering privé.
 - Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
 - Tout le routage est contrôlé via des tables de routage Azure.
 - Tout le trafic sortant entre les réseaux virtuels ou en direction du centre de données local est routé via l’appliance virtuelle réseau.
 
-### <a name="hub-and-spoke-peering-settings"></a>Paramètres de l’appairage hub-and-spoke
+### <a name="hub-and-spoke-peering-settings"></a>Paramètres du peering hub-and-spoke
 
 #### <a name="spoke-to-hub"></a>Spoke à hub
 
@@ -111,7 +111,7 @@ Spoke à hub | Autoriser le trafic transféré | activé
 Spoke à hub | Autoriser le transit par passerelle | Désactivé
 Spoke à hub | Utiliser des passerelles à distance | activé
 
- ![Configuration de l’homologation spoke vers hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
+ ![Configuration du peering spoke vers hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Hub à spoke
 
@@ -122,7 +122,7 @@ Hub à spoke | Autoriser le trafic transféré | activé
 Hub à spoke | Autoriser le transit par passerelle | activé
 Hub à spoke | Utiliser des passerelles à distance | Désactivé
 
- ![Configuration de l’homologation hub vers spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
+ ![Configuration du peering hub vers spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
 ### <a name="example-steps"></a>Étapes de l’exemple
 
@@ -131,12 +131,12 @@ Dans notre exemple, voici ce qui doit se produire lors de l’activation de la r
 1. Vous [activez la réplication](azure-to-azure-tutorial-enable-replication.md) pour une machine virtuelle.
 2. Site Recovery crée les réseaux virtuels, les sous-réseaux et les sous-réseaux de passerelle du réplica dans la région cible.
 3. Site Recovery crée des mappages entre les réseaux sources et les réseaux de cible du réplica qu’il crée.
-4. Vous créez manuellement les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, l’appairage de réseaux virtuels ou les autres ressources et connexions réseau.
+4. Vous créez manuellement les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, le peering de réseaux virtuels ou les autres ressources et connexions réseau.
 
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Basculer des machines virtuelles Azure lors de l’utilisation d’ExpressRoute
 
-Après avoir basculé des machines virtuelles Azure vers la région Azure cible avec Site Recovery, vous pouvez y accéder en utilisant [l’appairage privé](../expressroute/expressroute-circuit-peerings.md#privatepeering) ExpressRoute.
+Après avoir basculé des machines virtuelles Azure vers la région Azure cible avec Site Recovery, vous pouvez y accéder en utilisant le [peering privé](../expressroute/expressroute-circuit-peerings.md#privatepeering) ExpressRoute.
 
 - Vous devez connecter ExpressRoute au réseau virtuel cible avec une nouvelle connexion. La connexion ExpressRoute existante n’est pas transférée automatiquement.
 - La façon dont vous configurez votre connexion ExpressRoute au réseau virtuel cible dépend de votre topologie ExpressRoute.
@@ -144,7 +144,7 @@ Après avoir basculé des machines virtuelles Azure vers la région Azure cible 
 
 ### <a name="access-with-two-circuits"></a>Accès avec deux circuits
 
-#### <a name="two-circuits-with-two-peering-locations"></a>Deux circuits avec deux emplacements d’appairage
+#### <a name="two-circuits-with-two-peering-locations"></a>Deux circuits avec deux emplacements de peering
 
 Cette configuration protège les circuits ExpressRoute contre les sinistres régionaux. Si votre emplacement de peering principal tombe en panne, les connexions peuvent être maintenues à partir de l'autre emplacement.
 
@@ -154,17 +154,17 @@ Cette configuration protège les circuits ExpressRoute contre les sinistres rég
 - Les réseaux virtuels sources et cibles peuvent recevoir de nouvelles adresses IP ou conserver les mêmes après le basculement. Dans les deux cas, les connexions secondaires peuvent être établies avant le basculement.
 
 
-#### <a name="two-circuits-with-single-peering-location"></a>Deux circuits avec un seul emplacement d’appairage
+#### <a name="two-circuits-with-single-peering-location"></a>Deux circuits avec un seul emplacement de peering
 
-Cette configuration permet de se protéger contre les défaillances du circuit ExpressRoute principal, mais pas si le seul emplacement d’appairage ExpressRoute tombe en panne, en impactant les deux circuits.
+Cette configuration permet de se protéger contre les défaillances du circuit ExpressRoute principal, mais pas si le seul emplacement de peering ExpressRoute tombe en panne, en impactant les deux circuits.
 
 - Vous pouvez avoir des connexions simultanées du centre de données local vers le réseau virtuel source avec le circuit principal, et vers le réseau virtuel cible avec le circuit secondaire.
 - Avec des connexions simultanées vers les réseaux virtuels primaire et cible, vérifiez que le routage local utilise le circuit et la connexion secondaires seulement après le basculement.
--   Vous ne pouvez pas connecter les deux circuits au même réseau virtuel quand les circuits sont créés au même emplacement d’appairage.
+-   Vous ne pouvez pas connecter les deux circuits au même réseau virtuel quand les circuits sont créés au même emplacement de peering.
 
 ### <a name="access-with-a-single-circuit"></a>Accès avec un seul circuit
 
-Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que le circuit ait une connexion redondante au cas où une des deux soit défaillante, un circuit avec une seule route n’offre pas de résilience si votre région d’appairage connaît une défaillance. Notez les points suivants :
+Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que le circuit ait une connexion redondante au cas où une des deux soit défaillante, un circuit avec une seule route n’offre pas de résilience si votre région de peering connaît une défaillance. Notez les points suivants :
 
 - Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au [même emplacement géographique](azure-to-azure-support-matrix.md#region-support). Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Vous ne pouvez pas connecter simultanément les réseaux virtuels sources et cibles au circuit si le même espace d’adressage IP est utilisé sur la région cible. Dans ce scénario :    
@@ -180,7 +180,7 @@ Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que
 
 Dans notre exemple, nous utilisons la topologie suivante :
 
-- Deux circuits ExpressRoute différents dans deux emplacements d’appairage ExpressRoute différents.
+- Deux circuits ExpressRoute différents dans deux emplacements de peering ExpressRoute différents.
 - Les adresses IP privées pour les machines virtuelles Azure sont conservées après le basculement.
 - La région de récupération cible est Azure Asie Sud-Est.
 - Une connexion de circuit ExpressRoute secondaire est établie via un réseau de périphérie partenaire à Singapour.
@@ -197,7 +197,7 @@ Pour automatiser la récupération dans cet exemple, voici ce que vous devez fai
 
     b. Créez la connexion depuis le réseau virtuel hub cible vers le circuit ExpressRoute cible.
 
-    c. Configurez les homologations de réseau virtuel entre les réseaux virtuels hub and spoke de la région cible. Les propriétés d’homologation sur la région cible seront identiques à celles de la région source.
+    c. Configurez les peerings de réseau virtuel entre les réseaux virtuels hub and spoke de la région cible. Les propriétés de peering sur la région cible seront identiques à celles de la région source.
 
     d. Configurez les UDR dans le réseau virtuel hub et les deux réseaux virtuels spoke.
 

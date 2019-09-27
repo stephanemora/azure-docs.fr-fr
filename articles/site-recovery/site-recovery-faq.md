@@ -160,10 +160,10 @@ Notre partenaire, Riverbed, fournit des instructions détaillées sur l’utilis
 Oui, [vous pouvez utiliser ExpressRoute](concepts-expressroute-with-site-recovery.md) pour répliquer des machines virtuelles locales vers Azure.
 
 - Azure Site Recovery réplique des données vers un stockage Azure via un point de terminaison public. Vous devez configurer le [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou utiliser un [peering public existant](../expressroute/expressroute-circuit-peerings.md#publicpeering) (déconseillé pour de nouveaux circuits) afin d’utiliser ExpressRoute pour la réplication Site Recovery.
-- L’homologation Microsoft est le domaine de routage recommandé pour la réplication.
-- La réplication n’est pas pris en charge via une homologation privée.
+- Le peering Microsoft est le domaine de routage recommandé pour la réplication.
+- La réplication n’est pas pris en charge via un peering privé.
 - Si vous protégez des machines VMware ou des machines physiques, vérifiez que les [exigences de mise en réseau](vmware-azure-configuration-server-requirements.md#network-requirements) pour le serveur de configuration sont également remplies. La connectivité à des URL spécifiques est requise par le serveur de configuration pour l’orchestration de la réplication Site Recovery. ExpressRoute ne peut pas être utilisé pour cette connectivité.
-- Une fois que les machines virtuelles ont été basculées vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de la configuration de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering) avec le réseau virtuel Azure.
+- Une fois que les machines virtuelles ont été basculées vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de la configuration du [peering privé](../expressroute/expressroute-circuit-peerings.md#privatepeering) avec le réseau virtuel Azure.
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Si j’effectue une réplication vers Azure, de quel type de compte de stockage ou disque managé ai-je besoin ?

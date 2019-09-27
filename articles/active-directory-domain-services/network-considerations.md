@@ -59,14 +59,14 @@ Comme indiqué dans la section précédente, vous pouvez uniquement créer un do
 
 Vous pouvez connecter des charges de travail d’application hébergées sur d’autres réseaux virtuels Azure en utilisant l’une des méthodes suivantes :
 
-* Homologation de réseaux virtuels
+* Peering de réseau virtuel
 * Réseau privé virtuel (VPN)
 
 ### <a name="virtual-network-peering"></a>Peering de réseaux virtuels
 
 VNET Peering est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide du peering de réseaux virtuels mondiaux. Une fois homologués, les deux réseaux virtuels permettent aux ressources, telles que les machines virtuelles, de communiquer directement entre elles à l’aide d’adresses IP privées. Le peering de réseaux virtuels vous permet de déployer un domaine managé Azure AD DS géré avec les charges de travail d’applications déployées dans d’autres réseaux virtuels.
 
-![Connexion entre des réseaux virtuels à l’aide d’une homologation](./media/active-directory-domain-services-design-guide/vnet-peering.png)
+![Connexion entre des réseaux virtuels à l’aide d’un peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
 Pour plus d’informations, consultez la page [Vue d’ensemble du peering du réseau virtuel Azure](../virtual-network/virtual-network-peering-overview.md).
 

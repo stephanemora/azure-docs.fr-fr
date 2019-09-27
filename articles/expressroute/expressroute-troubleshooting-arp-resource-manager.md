@@ -34,7 +34,7 @@ Cet article vous guide tout au long des étapes d’apprentissage des tables ARP
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
 Le protocole ARP (Address Resolution Protocol) est un protocole de couche 2 défini dans [RFC 826](https://tools.ietf.org/html/rfc826). ARP est utilisé pour mapper l’adresse Ethernet (adresse MAC) avec une adresse IP.
 
-La table ARP fournit un mappage de l’adresse ipv4 et de l’adresse MAC pour une homologation particulière. La table ARP d’une homologation de circuit ExpressRoute fournit les informations suivantes pour chaque interface (principale et secondaire)
+La table ARP fournit un mappage de l’adresse ipv4 et de l’adresse MAC pour un peering particulier. La table ARP d’un peering de circuit ExpressRoute fournit les informations suivantes pour chaque interface (principale et secondaire)
 
 1. Mappage de l’adresse IP de l’interface du routeur local sur l’adresse MAC
 2. Mappage de l’adresse IP de l’interface du routeur ExpressRoute sur l’adresse MAC
@@ -55,8 +55,8 @@ La section suivante fournit des informations sur l’affichage des tables ARP vu
 ## <a name="prerequisites-for-learning-arp-tables"></a>Conditions préalables à l’apprentissage des tables ARP
 Assurez-vous que vous disposez des éléments suivants avant de poursuivre
 
-* Un circuit ExpressRoute valide configuré avec au moins une homologation. Le circuit doit être entièrement configuré par le fournisseur de connectivité. Vous (ou votre fournisseur de connectivité) devez avoir configuré au moins une des homologations (Azure privé, Azure public et Microsoft) sur ce circuit.
-* Plages d’adresses IP utilisées pour configurer les homologations (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresses IP sur la [page de configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et du côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration d’homologation en examinant la [page de configuration d’homologation ExpressRoute](expressroute-howto-routing-arm.md).
+* Un circuit ExpressRoute valide configuré avec au moins un peering. Le circuit doit être entièrement configuré par le fournisseur de connectivité. Vous (ou votre fournisseur de connectivité) devez avoir configuré au moins un des peerings (Azure privé, Azure public et Microsoft) sur ce circuit.
+* Plages d’adresses IP utilisées pour configurer les peerings (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresses IP sur la [page de configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et du côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration du peering en examinant la [page de configuration du peering ExpressRoute](expressroute-howto-routing-arm.md).
 * Informations de votre équipe réseau/fournisseur de connectivité sur les adresses MAC des interfaces utilisées avec ces adresses IP.
 * Vous devez disposer du dernier module PowerShell pour Azure (version 1.50 ou plus récente).
 
@@ -66,10 +66,10 @@ Assurez-vous que vous disposez des éléments suivants avant de poursuivre
 >
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Obtention des tables ARP pour votre circuit ExpressRoute
-Cette section fournit des instructions sur la manière d’afficher les tables ARP par homologation à l’aide de PowerShell. Vous ou votre fournisseur de connectivité devez avoir configuré l’homologation avant de poursuivre. Chaque circuit a deux chemins d’accès (principal et secondaire). Vous pouvez contrôler indépendamment la table ARP de chaque chemin d’accès.
+Cette section fournit des instructions sur la manière d’afficher les tables ARP par peering à l’aide de PowerShell. Vous ou votre fournisseur de connectivité devez avoir configuré le peering avant de poursuivre. Chaque circuit a deux chemins d’accès (principal et secondaire). Vous pouvez contrôler indépendamment la table ARP de chaque chemin d’accès.
 
-### <a name="arp-tables-for-azure-private-peering"></a>Tables ARP pour l’homologation privée Azure
-L’applet de commande suivante fournit les tables ARP pour l’homologation privée Azure
+### <a name="arp-tables-for-azure-private-peering"></a>Tables ARP pour le peering privé Azure
+L’applet de commande suivante fournit les tables ARP pour le peering privé Azure
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -89,8 +89,8 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
           0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering"></a>Tables ARP pour l’homologation publique Azure
-L’applet de commande suivante fournit les tables ARP pour l’homologation publique Azure
+### <a name="arp-tables-for-azure-public-peering"></a>Tables ARP pour le peering public Azure
+L’applet de commande suivante fournit les tables ARP pour le peering public Azure
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -111,8 +111,8 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
           0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-microsoft-peering"></a>Tables ARP pour l’homologation Microsoft
-L’applet de commande suivante fournit les tables ARP de l’homologation Microsoft
+### <a name="arp-tables-for-microsoft-peering"></a>Tables ARP pour le peering Microsoft
+L’applet de commande suivante fournit les tables ARP du peering Microsoft
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -134,13 +134,13 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
 
 
 ## <a name="how-to-use-this-information"></a>Utilisation de ces informations
-La table ARP d’une homologation peut servir à valider la connectivité et la configuration de la couche 2. Cette section fournit une vue d’ensemble de l’aspect des tables ARP dans différents scénarios.
+La table ARP d’un peering peut servir à valider la connectivité et la configuration de la couche 2. Cette section fournit une vue d’ensemble de l’aspect des tables ARP dans différents scénarios.
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Table ARP lorsqu’un circuit est dans un état opérationnel (état attendu)
 * La table ARP aura une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi qu’une entrée similaire pour le côté Microsoft. 
 * Le dernier octet de l’adresse IP locale sera toujours un nombre impair.
 * Le dernier octet de l’adresse IP Microsoft sera toujours un nombre pair.
-* La même adresse MAC s’affichera côté Microsoft pour les trois homologations (principales/secondaires). 
+* La même adresse MAC s’affichera côté Microsoft pour les trois peerings (principaux/secondaires). 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -170,7 +170,7 @@ or
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Table ARP en cas de problèmes côté Microsoft
-* Aucune table ARP ne s’affiche pour une homologation en cas de problèmes côté Microsoft. 
+* Aucune table ARP ne s’affiche pour un peering en cas de problèmes côté Microsoft. 
 * Ouvrez un incident auprès du [support technique Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Spécifiez que vous avez un problème au niveau de la connectivité de couche 2. 
 
 ## <a name="next-steps"></a>Étapes suivantes

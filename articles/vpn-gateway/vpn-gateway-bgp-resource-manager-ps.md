@@ -214,7 +214,7 @@ L’exemple ci-dessous répertorie les paramètres que vous devez saisir dans la
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-La connexion est établie après quelques minutes, et la session d’homologation BGP débute une fois la connexion IPsec établie.
+La connexion est établie après quelques minutes, et la session de peering BGP débute une fois la connexion IPsec établie.
 
 ## <a name ="v2vbgp"></a>Partie 3 - Établir une connexion de réseau virtuel à réseau virtuel avec BGP
 
@@ -313,7 +313,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > 
 > 
 
-Une fois ces étapes effectuées, la connexion est établie après quelques minutes. La session d’homologation BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
+Une fois ces étapes effectuées, la connexion est établie après quelques minutes. La session de peering BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
 
 Si vous avez effectué les trois parties de cet exercice, vous avez obtenu une topologie de réseau similaire à la suivante :
 

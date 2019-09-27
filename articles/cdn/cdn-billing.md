@@ -45,7 +45,7 @@ Pour plus d’informations sur les tarifs d’Azure CDN, consultez [Tarifs Conte
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Comment les frais de livraison sont-ils calculés par région ?
 La région de facturation d’Azure CDN est fonction de l’emplacement du serveur source qui fournit le contenu à l’utilisateur final. La destination (emplacement physique) du client n’est pas considérée comme la région de facturation.
 
-Par exemple, si un utilisateur situé au Mexique émet une requête qui est traitée par un serveur situé dans un point POP aux États-Unis en raison des conditions d’homologation ou de trafic, les États-Unis sont la région de facturation.
+Par exemple, si un utilisateur situé au Mexique émet une requête qui est traitée par un serveur situé dans un point POP aux États-Unis en raison des conditions de peering ou de trafic, les États-Unis sont la région de facturation.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Qu’est-ce qu’une transaction Azure CDN facturable ?
 Toute requête HTTP(S) qui se termine au niveau du CDN est un événement facturable, qui inclut tous les types de réponse : réussite, échec ou autre. Toutefois, différentes réponses peuvent générer différents montants de trafic. Par exemple, la réponse *304 Non modifié* et d’autres réponses avec en-tête seulement génèrent peu de trafic, car ce sont des réponses courtes avec en-tête. De même, les réponses d’erreur (par exemple, *404 Introuvable*) sont facturables, mais entraînent un faible coût en raison de la minuscule charge utile de réponse.

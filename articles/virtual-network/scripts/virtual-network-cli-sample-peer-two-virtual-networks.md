@@ -24,7 +24,7 @@ ms.locfileid: "64726781"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Exemple de script : Homologuer deux réseaux virtuels
 
-Cet exemple de script crée et connecte deux réseaux virtuels situés dans la même région via le réseau Azure. Après exécution du script, vous obtenez une homologation entre deux réseaux virtuels.
+Cet exemple de script crée et connecte deux réseaux virtuels situés dans la même région via le réseau Azure. Après exécution du script, vous obtenez un peering entre deux réseaux virtuels.
 
 Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/bash) ou à partir d’une installation Azure CLI locale. Si vous utilisez l’interface CLI localement, ce script nécessite que vous exécutiez la version 2.0.28 ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez la CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
@@ -51,7 +51,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 |---|---|
 | [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az network vnet create](/cli/azure/network/vnet) | Crée un réseau virtuel et un sous-réseau Azure. |
-| [az network vnet peering create](/cli/azure/network/vnet/peering) | Crée une homologation entre deux réseaux virtuels.  |
+| [az network vnet peering create](/cli/azure/network/vnet/peering) | Crée un peering entre deux réseaux virtuels.  |
 | [az group delete](/cli/azure/vm/extension) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

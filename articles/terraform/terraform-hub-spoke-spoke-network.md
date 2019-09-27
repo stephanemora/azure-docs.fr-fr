@@ -25,7 +25,7 @@ Ce tutoriel décrit les tâches suivantes :
 > [!div class="checklist"]
 > * Utilisation de HCL (HashiCorp Language) pour implémenter les réseaux virtuels Spoke dans la topologie hub-and-spoke
 > * Utilisation de Terraform pour créer des machines virtuelles dans les réseaux spoke
-> * Utilisation de Terraform pour établir les appairages de réseaux virtuels avec les réseaux hub
+> * Utilisation de Terraform pour établir les peerings de réseaux virtuels avec les réseaux hub
 
 ## <a name="prerequisites"></a>Prérequis
 

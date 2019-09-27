@@ -1,6 +1,6 @@
 ---
-title: Exemple - Aucun appairage de réseau au réseau Express Route
-description: Cet exemple de définition de stratégie empêche l’association d’un appairage réseau à un réseau d’un groupe de ressources spécifique.
+title: Exemple - Aucun peering de réseau au réseau Express Route
+description: Cet exemple de définition de stratégie empêche l’association d’un peering réseau à un réseau d’un groupe de ressources spécifique.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -14,9 +14,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264486"
 ---
-# <a name="sample---no-network-peering-to-express-route-network"></a>Exemple - Aucun appairage de réseau au réseau Express Route
+# <a name="sample---no-network-peering-to-express-route-network"></a>Exemple - Aucun peering de réseau au réseau Express Route
 
-Cette stratégie interdit l’association d’un appairage réseau à un réseau dans un groupe de ressources spécifié. À utiliser pour empêcher la connexion avec une infrastructure réseau gérée de façon centralisée. Spécifiez le nom du groupe de ressources pour empêcher l’association.
+Cette stratégie interdit l’association d’un peering réseau à un réseau dans un groupe de ressources spécifié. À utiliser pour empêcher la connexion avec une infrastructure réseau gérée de façon centralisée. Spécifiez le nom du groupe de ressources pour empêcher l’association.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

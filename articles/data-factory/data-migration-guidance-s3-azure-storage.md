@@ -54,7 +54,7 @@ Lors de la copie binaire de S3 vers un objet Blob et de S3 vers ADLS Gen2, ADF e
 
 Par défaut, ADF transfère les données d’Amazon S3 vers le stockage Blob Azure ou Azure Data Lake Storage Gen2 à l’aide d’une connexion chiffrée sur le protocole HTTPS.  Le protocole HTTPS assure le chiffrement des données en transit et empêche les écoutes clandestines et les attaques de l’intercepteur. 
 
-Sinon, si vous ne souhaitez pas que les données soient transférées via l’internet public, vous pouvez obtenir une sécurité accrue en transférant des données via un lien d’homologation privée entre le service de connexion directe AWS et Azure Express Route.  Reportez-vous à l’architecture de la solution ci-dessous pour savoir comment procéder. 
+Sinon, si vous ne souhaitez pas que les données soient transférées via l’internet public, vous pouvez obtenir une sécurité accrue en transférant des données via un lien de peering privé entre le service de connexion directe AWS et Azure Express Route.  Reportez-vous à l’architecture de la solution ci-dessous pour savoir comment procéder. 
 
 ## <a name="solution-architecture"></a>Architecture de solution
 
@@ -71,7 +71,7 @@ Migrer des données via un lien privé :
 
 ![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
-- Dans cette architecture, la migration des données s’effectue via un lien d’homologation privée entre AWS Direct Connect et Azure Express Route, de telle sorte que les données ne transitent jamais sur l’Internet public.  Cela nécessite l'utilisation de AWS VPC et du réseau virtuel Azure. 
+- Dans cette architecture, la migration des données s’effectue via un lien de peering privé entre AWS Direct Connect et Azure Express Route, de telle sorte que les données ne transitent jamais sur l’Internet public.  Cela nécessite l'utilisation de AWS VPC et du réseau virtuel Azure. 
 - Vous devez installer le runtime d'intégration ADF auto-hébergé sur une machine virtuelle Windows au sein de votre réseau virtuel Azure pour réaliser cette architecture.  Vous pouvez mettre à l’échelle manuellement vos machines virtuelles IR auto-hébergées ou les mettre à l’échelle sur plusieurs machines virtuelles (jusqu’à 4 nœuds) pour utiliser pleinement votre réseau et vos IOPS/bande passante de stockage. 
 - S’il est acceptable de transférer des données sur HTTPS mais que vous souhaitez verrouiller l’accès réseau à la source S3 à une plage d’adresses IP spécifique, vous pouvez adopter une variante de cette architecture en supprimant l’AWS VPC et en remplaçant le lien privé par HTTPS.  Vous devez conserver le runtime d’intégration virtuel Azure et auto-hébergé sur une machine virtuelle Azure, afin de pouvoir utiliser une adresse IP publiquement routable à des fins de liste verte. 
 - Cette architecture permet à la fois la migration initiale des données instantanées et la migration des données delta. 

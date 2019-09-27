@@ -48,7 +48,7 @@ Quand une règle de groupe de sécurité réseau est utilisée pour bloquer l’
 Quand des itinéraires, définis par l’utilisateur ou échangés par le biais de BGP, sont utilisés pour bloquer l’accès à Internet, un itinéraire spécial doit être configuré afin que les machines virtuelles dans ces sous-réseaux puissent accéder aux points de terminaison Data Lake Storage Gen1. Pour plus d’informations, consultez [Vue d’ensemble des itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md). Pour obtenir des instructions sur la création d’itinéraires définis par l’utilisateur, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Activation de la connectivité à partir de machines virtuelles restreintes à l’aide d’ExpressRoute
-Quand un circuit ExpressRoute est configuré, les serveurs locaux peuvent accéder à Data Lake Storage Gen1 par le biais de le peering public. Pour plus d’informations sur la configuration d’ExpressRoute pour l’appairage public, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md).
+Quand un circuit ExpressRoute est configuré, les serveurs locaux peuvent accéder à Data Lake Storage Gen1 par le biais de le peering public. Pour plus d’informations sur la configuration d’ExpressRoute pour le peering public, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ## <a name="see-also"></a>Voir aussi
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)

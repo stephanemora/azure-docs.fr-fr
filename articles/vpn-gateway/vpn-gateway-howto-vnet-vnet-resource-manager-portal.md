@@ -46,9 +46,9 @@ Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, l’esp
 
 Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide d'une connexion de [site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Lorsque vous suivez les étapes IPsec de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ces étapes vous permettent de spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez manuellement mettre à jour la passerelle réseau local correspondante.
 
-### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+### <a name="vnet-peering"></a>Peering de réseaux virtuels
 
-Vous pouvez également connecter vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels. VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Vous pouvez également connecter vos réseaux virtuels à l’aide du peering de réseaux virtuels. VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why-create-a-vnet-to-vnet-connection"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 

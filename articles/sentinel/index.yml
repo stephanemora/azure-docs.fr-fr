@@ -1,63 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation sur Azure Sentinel
+### YamlMime:Landing
+title: Documentation Azure Sentinel
+summary: Cet article présente les cas d’utilisation pour commencer à utiliser Azure Sentinel. Repérez et arrêtez les menaces avant qu’elles occasionnent des dommages, avec une solution SIEM réinventée pour le monde moderne. Azure Sentinel remplace vos yeux dans l’entreprise.
 metadata:
-  title: 'Documentation sur Azure Sentinel - Tutoriels, guides de démarrage rapide | Microsoft Doc'
-  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  title: Documentation Azure Sentinel
+  description: 'Cet article présente les cas d’utilisation et les scénarios pour commencer à utiliser Azure Sentinel. Repérez et arrêtez les menaces avant qu’elles occasionnent des dommages, avec une solution SIEM réinventée pour le monde moderne. Azure Sentinel remplace vos yeux dans l’entreprise. # Obligatoire ; Description de l’article affichée dans les résultats de la recherche. < 160 caractères.'
   services: sentinel
-  author: cmcclister
-  manager: carolz
-  ms.service: azure-sentinel
+  ms.service: sentinel
   ms.subservice: azure-sentinel
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/28/19
-  ms.author: cmcclister
-abstract:
-  description: "Azure Sentinel est une solution SIEM cloud native qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud. Profitez d’une vitesse et d’une mise à l’échelle illimitées du cloud pour vous permettre de vous concentrer sur ce qui est vraiment important. Collectez facilement des données à partir de toutes vos ressources locales et cloud, d’Office\_365, de ressources Azure et d’autres clouds. Détectez efficacement les menaces avec le machine learning intégré des experts Microsoft en analytique de la sécurité. Automatisez les réponses aux menaces à l’aide des playbooks d’orchestration et d’automatisation intégrés."
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment intégrer vos données à Azure Sentinel et obtenir une visibilité de vos données et des menaces potentielles.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: Intégrer Azure Sentinel
-            href: /azure/sentinel/quickstart-onboard
-          - image:
-              src: media/index/get-started.svg
-            text: Bien démarrer avec Azure Sentinel
-            href: /azure/sentinel/quickstart-get-visibility
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment définir des stratégies de sécurité, protéger vos ressources contre les activités malveillantes et répondre à des incidents et des alertes de sécurité.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/sentinel/tutorial-detect-threats">Détecter les menaces avec Azure Sentinel</a>
-          - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Configurer des réponses automatisées aux menaces</a>
-  - title: Développer vos compétences avec Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Présentation de la sécurité dans Azure
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Plus de formations interactives...</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=sentinel">Mises à jour de service</a>'
+  ms.collection: collection
+  author: rkarlin
+  ms.author: rkarlin
+  ms.date: 25/09/2019
+  ms.openlocfilehash: 8f8815645b7dfcdcc5e1ed5212ecd1ec298f8644
+  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71316485"
+landingContent:
+- title: À propos d’Azure Sentinel
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Sentinel ?
+      url: overview.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Intégrer Azure Sentinel
+      url: quickstart-onboard.md
+    - text: Obtenir une visibilité des alertes
+      url: quickstart-get-visibility.md
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter des données à Azure Sentinel
+      url: connect-data-sources.md
+- title: Connecter des sources de données supplémentaires
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter Azure AD
+      url: connect-azure-active-directory.md
+    - text: Connecter Azure Information Protection
+      url: connect-azure-information-protection.md
+    - text: Connecter AWS
+      url: connect-aws.md
+    - text: Connecter Palo Alto Networks
+      url: connect-paloalto.md
+    - text: Connecter la Threat Intelligence
+      url: connect-threat-intelligence.md
+- title: Utiliser plusieurs locataires
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour activer la prise en charge de plusieurs locataires dans Azure Sentinel
+      url: multiple-tenants-service-providers.md
+- title: Savoir ce qui se passe dans votre environnement
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Superviser vos données
+      url: tutorial-monitor-your-data.md
+    - text: Investiguer les incidents
+      url: tutorial-investigate-cases.md
+- title: Détecter les menaces
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utiliser l’analytique intégrée pour détecter les menaces
+      url: tutorial-detect-threats-built-in.md
+    - text: Créer des règles de détection personnalisées
+      url: tutorial-detect-threats-custom.md
+- title: Automatiser la prévention des menaces
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Répondre automatiquement aux menaces
+      url: tutorial-respond-threats-playbook.md
+    - text: Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
+      url: notebooks.md
+- title: Être proactif pour la détection des menaces
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter la Threat Intelligence
+      url: connect-threat-intelligence.md
+    - text: Être à l’affût des menaces
+      url: hunting.md
