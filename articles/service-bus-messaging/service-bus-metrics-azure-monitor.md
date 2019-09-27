@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 80a4b1e60202b88f6ed3c1574bd4684575a9b153
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 6d25bdf6ff8e790466f3a28e3b6043e347d74198
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538059"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261857"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métriques Azure Service Bus dans Azure Monitor
 
@@ -30,7 +30,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme les journaux Azure Monitor et Event Hubs. Pour plus d’informations, consultez [Mesures dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
+Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Accéder aux métriques dans le portail
 
@@ -63,11 +63,11 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Demandes entrantes| Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Requêtes ayant réussi|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Erreurs de serveur|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Erreurs d’utilisateur (voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Demandes limitées|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| Demandes entrantes| Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Requêtes ayant réussi|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs de serveur|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs d’utilisateur (voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Demandes limitées|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ### <a name="user-errors"></a>Erreurs d’utilisateur
 
@@ -81,18 +81,18 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Messages entrants|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Messages sortants|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-| Messages| Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
-| ActiveMessages| Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
-| Messages de lettres mortes| Nombre de messages de lettres mortes dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/>Dimension : EntityName |
-| Messages planifiés| Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne  <br/> Dimension : EntityName |
+|Messages entrants|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Messages sortants|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| Messages| Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| ActiveMessages| Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| Messages de lettres mortes| Nombre de messages de lettres mortes dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/>Dimension : EntityName |
+| Messages planifiés| Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne  <br/> Dimension : EntityName |
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|ActiveConnections|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ActiveConnections|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="resource-usage-metrics"></a>Métriques d’utilisation des ressources
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 88bca1a799d55ba59c8f5d2263f3219cfb66700e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 83d368e419550f38c173a7a1dca42c84db7d542f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946722"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259837"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Blueprint sur la sécurité et la conformité Azure : application web IaaS pour NIST SP 800-171
 
@@ -164,7 +164,7 @@ Cette architecture de référence utilise la fonction d’[évaluation des vuln�
 
 Les services Azure assurent une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système :
 - **Journaux d’activité** : les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
-- **Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux d’activité système des événements Windows, les journaux d’activité de stockage, les journaux d’audit Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. Les utilisateurs peuvent configurer la période de rétention jusqu‘à 730 jours, pour répondre à leurs besoins spécifiques.
+- **Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux d’activité système des événements Windows, les journaux d’activité de stockage, les journaux d’audit Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. Les utilisateurs peuvent configurer la période de rétention jusqu‘à 730 jours, pour répondre à leurs besoins spécifiques.
 
 **Journaux d’activité Azure Monitor** : ces journaux sont regroupés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois les données collectées, elles sont organisées dans des tables distinctes pour chaque type de données au sein des espaces de travail Log Analytics. De cette façon, toutes les données peuvent être analysées ensemble, quelle que soit leur source d’origine. Security Center s’intègre à Journaux Azure Monitor. Les clients peuvent utiliser des requêtes Kusto pour accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 

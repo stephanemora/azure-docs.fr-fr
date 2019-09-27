@@ -4,7 +4,7 @@ description: Vous trouverez ici quelques raisons courantes des problèmes de dé
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945394"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122726"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.

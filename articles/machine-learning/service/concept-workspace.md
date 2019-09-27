@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035326"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269212"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -87,7 +87,7 @@ Il existe plusieurs moyens de créer un espace de travail.
 * Utilisez le [portail Azure](how-to-manage-workspace.md) comme interface de type pointer-cliquer pour vous guider dans chaque étape.
 * Utilisez le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter
 * Utilisez un [modèle Azure Resource Manager](how-to-create-workspace-template.md) ou l’[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) lorsque vous devez automatiser ou personnaliser la création avec des normes de sécurité d’entreprise.
-* Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+* Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## <a name="resources"></a> Ressources associées
 
@@ -108,4 +108,4 @@ Pour bien démarrer avec Azure Machine Learning, voir :
 + [Vue d’ensemble d’Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Créer un espace de travail](how-to-manage-workspace.md)
 + [Gérer un espace de travail](how-to-manage-workspace.md)
-+ [Didacticiel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)
++ [Tutoriel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)

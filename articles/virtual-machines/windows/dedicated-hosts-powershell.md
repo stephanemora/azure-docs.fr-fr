@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 2482fb4ab74a3c1e032a32890c3dc2c3920b5e6b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725624"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261708"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Aperçu : Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure PowerShell
 
@@ -26,7 +26,7 @@ Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.
 Assurez-vous que vous avez installé Azure PowerShell version 2.4.2 ou ultérieure, et que vous êtes connecté à un compte Azure avec `Connect-AzAccount`. Pour installer la version 2.4.2, ouvrez une invite de commandes PowerShell et tapez :
 
 ```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
 ```
 
 Vous aurez besoin de la version 1.6.0 du module PowerShellGet au minimum pour activer la fonctionnalité d’aperçu du module dans PowerShell. Cette fonctionnalité est automatiquement intégrée dans les versions les plus récentes de PowerShell Core, mais pour les anciennes versions de PowerShell, vous pouvez exécuter la commande suivante pour mettre l’outil à jour vers la dernière version :

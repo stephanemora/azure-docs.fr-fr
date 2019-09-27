@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9aca2e4ea5e107358ff72e83562057830ece2cc
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7c7f2abda282d0219dd8787a9f6a2b6c1cda15df
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509355"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257910"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Que sont les dépendances de service dans l’accès conditionnel Azure Active Directory ? 
 
@@ -43,7 +43,7 @@ Le tableau ci-dessous répertorie les dépendances de service supplémentaires e
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
 | Microsoft Classroom | Microsoft Exchange                                    | Liaison anticipée |
-|                     | SharePoint                                  | Liaison anticipée  |
+|                     | SharePoint                                  | Liaison anticipée |
 | Microsoft Teams     | Microsoft Exchange                                    | Liaison anticipée |
 |                     | MS Planner                                  | Liaison tardive  |
 |                     | SharePoint                                  | Liaison anticipée |
@@ -57,6 +57,9 @@ Le tableau ci-dessous répertorie les dépendances de service supplémentaires e
 | Projet             | Dynamics CRM                                | Liaison anticipée |
 | Skype Entreprise  | Microsoft Exchange                                    | Liaison anticipée |
 | Visual Studio       | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
+| Microsoft Forms     | Microsoft Exchange                                    | Liaison anticipée |
+|                     | SharePoint                                  | Liaison anticipée |
+| Microsoft To-Do     | Microsoft Exchange                                    | Liaison anticipée |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

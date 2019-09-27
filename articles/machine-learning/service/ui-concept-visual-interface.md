@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996520"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128807"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Qu’est-ce que l’interface visuelle pour Azure Machine Learning ? 
 
@@ -95,8 +95,8 @@ Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployer un 
 
 * Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Tutoriel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md)
 * Utilisez un des exemples et modifiez-le selon vos besoins :
-    * [Exemple 1 - Régression : Prédire le prix](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative](ui-sample-classification-predict-churn.md)
+    * [Exemple 1 - Régression : Prédire le prix](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Exemple 3 - Classification : prédire le risque de crédit](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative](how-to-ui-sample-classification-predict-churn.md)

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 79ed2b6e5d7bb600a79e12d19268035491f3fe08
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7fe5b45d7719b34fff8c09d08f510dc465f50104
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946856"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257404"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Blueprint de sécurité et de conformité Azure : Data Warehouse pour l’automatisation de FedRAMP
 
@@ -129,7 +129,7 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 ### <a name="logging-and-audit"></a>Journalisation et audit
 [Journaux Azure Monitor](../azure-security-disk-encryption-overview.md) assure une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système. La solution [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) collecte et analyse les données générées par les ressources dans les environnements Azure et locaux.
 - **Journaux d’activité** : les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement.
-- **Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité du service Stockage Blob Azure, des tables et des files d’attente.
+- **Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité du service Stockage Blob Azure, des tables et des files d’attente.
 - **Journaux d’activité du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
 - **Archivage des journaux** : tous les journaux de diagnostic sont archivés dans un compte de stockage Azure centralisé et chiffré, et sont conservés pendant une période prédéfinie de deux jours. Ces journaux se connectent à Journaux Azure Monitor à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 

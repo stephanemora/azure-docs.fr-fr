@@ -2,18 +2,18 @@
 title: Définitions de stratégie Azure surveillées dans Azure Security Center | Microsoft Docs
 description: Définitions de stratégie Azure surveillées dans Azure Security Center.
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910356"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201668"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Stratégies de sécurité Azure supervisées par Azure Security Center
 Cet article fournit une liste de définitions de stratégies Azure Policy que vous pouvez superviser dans Security Center. Pour plus d’informations sur les stratégies de sécurité, consultez [Utilisation des stratégies de sécurité](tutorial-security-policy.md).

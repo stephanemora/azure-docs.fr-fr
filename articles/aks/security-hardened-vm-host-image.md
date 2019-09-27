@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099438"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202980"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Durcissement de la sécurité des hôtes de machines virtuelles AKS 
 
@@ -76,8 +76,6 @@ AKS-Engine ne promeut ni n’adhère à aucune norme de sécurité spécifique p
 |5.4.1.4 |Vérifier que le verrouillage de mot de passe inactif est de 30 jours ou moins |
 |5.4.4 |Vérifier que le masque umask d’utilisateur par défaut est 027 ou plus restrictif |
 |5.6 |Vérifier que l’accès à la commande su est restreint|
-
-(*) Doit être activé. Consultez la [documentation ](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md) sur la définition de cluster.
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
  

@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 776b873e089c331f2f2867c94e542903075be4f7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 511c737e160c0f0753e570314c9b29346972cb04
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034505"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269263"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 
-Dans cet article, vous allez créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) dans le portail Azure pour [Azure Machine Learning](overview-what-is-azure-ml.md).  Le portail est le moyen le plus simple de prendre en main les espaces de travail, mais à mesure que vos besoins évoluent ou que les besoins de l’automatisation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md), [à l’aide de code Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [via l’extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+Dans cet article, vous allez créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) dans le portail Azure pour [Azure Machine Learning](overview-what-is-azure-ml.md).  Le portail est le moyen le plus simple de prendre en main les espaces de travail, mais à mesure que vos besoins évoluent ou que les besoins de l’automatisation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md), [à l’aide de code Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [via l’extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
@@ -69,4 +69,4 @@ Utilisez le bouton Supprimer en haut de l’espace de travail que vous souhaitez
 Suivez le didacticiel complet pour apprendre à utiliser un espace de travail et créer, faire l’apprentissage et déployer des modèles avec Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Entraîner des modèles](tutorial-train-models-with-aml.md)
+> [Tutoriel : Entraîner des modèles](tutorial-train-models-with-aml.md)

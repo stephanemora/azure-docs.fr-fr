@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 3fa68cf3996efa047b7573306749acb56b4c9411
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 77805b15d0061d0ab4b6ef2185c2f7f1c3459f0c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "70744097"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172068"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -90,7 +90,7 @@ Le modèle de projet crée un projet dans le langage choisi, et installe les dé
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet.
 
-À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [modifiant le fichier function.json](#javascript-2), ou en [ajoutant un paramètre à une fonction de bibliothèque de classes C#](#c-class-library-2).
+À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [modifiant le fichier function.json](#add-a-function-to-your-project), ou en [ajoutant un paramètre à une fonction de bibliothèque de classes C#](#add-a-function-to-your-project).
 
 Vous pouvez également [ajouter une fonction à votre projet](#add-a-function-to-your-project).
 
@@ -98,11 +98,11 @@ Vous pouvez également [ajouter une fonction à votre projet](#add-a-function-to
 
 À l’exception des déclencheurs HTTP et de minuteur, les liaisons sont implémentées dans des packages d’extension. Vous devez installer les packages d’extension pour les déclencheurs et les liaisons qui en ont besoin. La façon dont vous devez installer les extensions de liaison dépend du langage de votre projet.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>Bibliothèque de classes C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package) dans la fenêtre de terminal pour installer les packages d’extension dont vous avez besoin dans votre projet. La commande suivante permet d’installer l’extension de stockage Azure, qui implémente des liaisons pour le stockage d’objets blob, de files d’attente et de tables.
 
@@ -110,19 +110,23 @@ Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## <a name="add-a-function-to-your-project"></a>Ajouter une fonction à votre projet
 
 Vous pouvez ajouter une nouvelle fonction à un projet existant à l’aide de l’un des modèles de déclencheur Functions prédéfinis. Pour ajouter un nouveau déclencheur de fonction, sélectionnez F1 pour ouvrir la palette de commandes, puis recherchez et exécutez la commande **Azure Functions: Create Function**. Suivez les invites pour choisir le type de déclencheur et définir les attributs requis de ce dernier. Si votre déclencheur nécessite une clé d’accès ou une chaîne de connexion pour se connecter à un service, préparez-la avant de créer le déclencheur de fonction.
 
 Les résultats de cette action varient selon le langage de votre projet :
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Un dossier est créé dans le projet. Il contient un nouveau fichier function.json et le nouveau fichier de code JavaScript.
 
-### <a name="c-class-library"></a>Bibliothèque de classes C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nouveau fichier de bibliothèque de classes C# (.cs) est ajouté à votre projet.
+
+---
 
 ## <a name="add-input-and-output-bindings"></a>Ajouter des liaisons d’entrée et de sortie
 
@@ -130,7 +134,7 @@ Vous pouvez développer votre fonction en ajoutant des liaisons d’entrée et d
 
 Les exemples suivants permettent de se connecter à une file d’attente de stockage nommée `outqueue`, où la chaîne de connexion pour le compte de stockage est définie le paramètre d’application `MyStorageConnection` du fichier local.settings.json.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code vous permet d’ajouter des liaisons à votre fichier function.json en suivant une série d’invites pratique. Pour créer une liaison, cliquez avec le bouton droit (Ctrl+Clic sur macOS) sur le fichier **function.json** dans le dossier de votre fonction, puis sélectionnez **Ajouter une liaison** :
 
@@ -168,7 +172,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Pour plus d’informations, consultez la référence [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output---javascript-example).
 
-### <a name="c-class-library"></a>Bibliothèque de classes C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Mettez à jour la méthode de la fonction et ajoutez le paramètre suivant à la définition de la méthode `Run` :
 
@@ -181,6 +185,8 @@ Ce code vous oblige à ajouter l’instruction `using` suivante :
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
+
+---
 
 Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection de messages écrits dans une liaison de sortie quand la fonction se termine. Vous ajoutez un ou plusieurs messages à la collection. Ces messages sont envoyés à la file d’attente lorsque la fonction se termine.
 
@@ -247,7 +253,7 @@ Le projet est régénéré, repackagé et chargé vers Azure. Le projet existant
 
 Pour appeler une fonction déclenchée via HTTP, vous avez besoin de l’URL de la fonction lorsqu’elle est déployée dans votre application de fonction. Cette URL inclut les [clés de fonction](functions-bindings-http-webhook.md#authorization-keys) requises. Vous pouvez utiliser l’extension pour obtenir les URL de vos fonctions déployées.
 
-1. Sélectionnez F1 pour ouvrir la palette de commandes, puis recherchez et exécutez la commande **Azure Functions: Copy Function URL**.
+1. Sélectionnez F1 pour ouvrir la palette de commandes, puis recherchez et exécutez la commande **Azure Functions : Copier l’URL de la fonction**.
 
 1. Suivez les invites pour sélectionner votre application de fonction dans Azure, puis le déclencheur HTTP particulier que vous souhaitez appeler.
 
@@ -336,7 +342,7 @@ Affichez les paramètres d’une application existante dans la zone **Azure : Fu
 
 ### <a name="download-settings-from-azure"></a>Télécharger les paramètres depuis Azure
 
-Si vous avez créé des paramètres d’application dans Azure, vous pouvez les télécharger dans votre fichier local.settings.json au moyen de la commande **Azure Functions: Download Remote Settings**.
+Si vous avez créé des paramètres d’application dans Azure, vous pouvez les télécharger dans votre fichier local.settings.json au moyen de la commande **Azure Functions: Télécharger les paramètres distants**.
 
 Tout comme dans le cas du chargement, si le fichier local est chiffré, il est déchiffré, publié et chiffré à nouveau. Si des paramètres comportent des valeurs conflictuelles dans les deux emplacements, vous êtes invité à choisir la procédure à suivre.
 

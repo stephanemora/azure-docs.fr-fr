@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243418"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260622"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 
@@ -31,7 +31,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 * Afficher les règles d’alerte définies dans [Alertes Azure](alerts-overview.md)
 * Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](powershell-quickstart-samples.md) ou le [CLI multiplateforme](cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
-* Affichez les [Paramètres de diagnostic](diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.
+* Affichez les [Paramètres de diagnostic](diagnostic-settings.md) pour une ressource.
 * Afficher le [profil de journalisation](activity-log-export.md) pour un abonnement.
 * Affichez les paramètres de mise à l’échelle automatique.
 * Afficher les activités et paramètres d’alerte.
@@ -52,7 +52,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
 
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
-* Définir les [paramètres de diagnostic](diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.\*
+* Définir les [paramètres de diagnostic](diagnostic-settings.md) pour une ressource.\*
 * Définir le [profil de journalisation](activity-log-export.md) pour un abonnement.\*
 * Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](alerts-overview.md).
 * Créer des tests web et composants Application Insights.

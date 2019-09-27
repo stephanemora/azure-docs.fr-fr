@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914752"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146282"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Télécharger une liste de groupes par lot (préversion) dans Azure Active Directory
 
@@ -26,10 +26,6 @@ ms.locfileid: "70914752"
 
 > [!NOTE]
 > Les opérations par lot d’Azure AD sont une fonctionnalité en préversion publique d’Azure AD disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les conditions d’utilisation des préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
-
-Chaque opération en bloc de téléchargement de liste de groupes peut prendre jusqu’à une heure. Cela vous permet de télécharger une liste d’au moins 300 000 groupes.
 
 ## <a name="to-download-a-list-of-groups"></a>Pour télécharger une liste de groupes
 
@@ -45,7 +41,11 @@ Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en atte
 
    ![La page Résultats des opérations en bloc indique l’état de la demande en bloc](./media/groups-bulk-download/bulk-center.png)
 
+## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
+
+Chaque opération en bloc de téléchargement de liste de groupes peut prendre jusqu’à une heure. Cela vous permet de télécharger une liste d’au moins 300 000 groupes.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Supprimer par lot des membres de groupe](groups-bulk-remove-members.md)
+- [Supprimer en bloc les membres d’un groupe](groups-bulk-remove-members.md)
 - [Télécharger les membres d’un groupe](groups-bulk-download-members.md)

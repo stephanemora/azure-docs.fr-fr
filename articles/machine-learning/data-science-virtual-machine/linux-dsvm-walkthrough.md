@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 759c804fd4128d7b28cbba078cab5e9d7e6453f6
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208298"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170685"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 
@@ -30,7 +30,7 @@ Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants re
 
 * **Abonnement Azure**. pour obtenir un abonnement Azure, consultez [Créer votre compte Azure gratuit aujourd'hui](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](linux-dsvm-intro.md#x2go).
 * Pour une expérience de défilement plus fluide, dans le navigateur web Firefox de la DSVM, basculez l'indicateur `gfx.xrender.enabled`dans `about:config`. [Plus d’informations](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de régler `mousewheel.enable_pixel_scrolling` sur `False`. [Plus d’informations](https://support.mozilla.org/questions/981140)
 * **Compte Azure Machine Learning**. Si vous n’en avez pas déjà un, inscrivez-vous pour obtenir un compte sur la [page d’espace d’Azure Machine Learning](https://studio.azureml.net/). Vous pouvez l’essayer gratuitement pour vous aider à commencer.
 

@@ -3,9 +3,9 @@ title: Notifications Push localisées vers des appareils iOS à l’aide d’Azu
 description: Découvrez comment utiliser des notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 8eb4cf5e12c16c3c164ecce41a84a9cd32fd85ee
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428457"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211896"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs
 

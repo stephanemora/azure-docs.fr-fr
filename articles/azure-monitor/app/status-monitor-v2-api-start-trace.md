@@ -3,7 +3,7 @@ title: 'Référence sur l’API Azure Status Monitor v2 : Lancer une trace | Mi
 description: Référence sur l’API Azure Status Monitor v2. Start-Trace. Collectez les journaux ETW de Status Monitor et du kit de développement logiciel (SDK) Application Insights.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3060a48e297082f5b70c8bd96030fe519f6e8b6f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326303"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200372"
 ---
 # <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API Status Monitor v2 : Start-ApplicationInsightsMonitoringTrace
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135188"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260330"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -33,7 +33,7 @@ Les bases de données uniques, les bases de données mises en pool dans les pool
 Pour plus d’informations sur les métriques et les catégories de journal prises en charge par les divers services Azure, consultez :
 
 - [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 Cet article fournit des conseils qui vous aideront à activer la télémétrie de diagnostic pour les bases de données Azure SQL, les pools élastiques et les instances managées. Il peut aussi vous aider à comprendre comment configurer Azure SQL Analytics comme outil de supervision pour consulter les données de télémétrie de diagnostic de base de données.
 
@@ -304,7 +304,7 @@ Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’AP
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Découvrez comment [activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Découvrez comment [activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## <a name="stream-into-azure-sql-analytics"></a>Envoi vers Azure SQL Analytics
 
@@ -712,7 +712,7 @@ Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-databa
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et de métriques prises en charge par les différents services Azure, consultez :
 
 - [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 Pour plus d’informations sur les concentrateurs d’événements, lisez :
 

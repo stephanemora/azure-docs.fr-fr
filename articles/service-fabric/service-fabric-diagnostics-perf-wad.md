@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110297"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155167"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Diagnostics Azure pour Windows
 
@@ -191,9 +191,6 @@ Voici un exemple de configuration avec le compteur pour le *Temps total du proce
       },
 ....
 ```
-
- >[!NOTE]
- >Même si vous pouvez utiliser `*` pour spécifier des groupes de compteurs de performances portant un nom similaire, l’envoi de tous les compteurs via un récepteur (vers Application Insights) nécessite de les déclarer séparément. 
 
 1. Une fois que vous avez ajouté les compteurs de performances à collecter appropriés, vous devez mettre à niveau votre ressource de cluster afin que ces modifications soient répercutées dans le cluster en cours d’exécution. Enregistrez le `template.json` modifié, puis ouvrez PowerShell. Vous pouvez mettre à niveau votre cluster à l’aide de `New-AzResourceGroupDeployment`. L’appel nécessite le nom du groupe de ressources, le fichier de modèle mis à jour et le fichier de paramètres. Ensuite, il demande à Resource Manager d’apporter les modifications nécessaires aux ressources que vous avez mises à jour. Une fois connecté à votre compte et au bon abonnement, utilisez la commande suivante pour exécuter la mise à niveau :
 

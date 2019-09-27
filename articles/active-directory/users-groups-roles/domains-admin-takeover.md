@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914776"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146463"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -88,14 +88,11 @@ Quand vous confirmez la propriété du nom de domaine, Azure AD supprime le nom 
 ### <a name="support-for-external-admin-takeover"></a>Prise en charge de la prise de contrôle par administrateur externe
 La prise de contrôle par administrateur externe est prise en charge par les services en ligne suivants :
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 Les plans de service pris en charge sont les suivants :
 
-- Power BI Gratuit
-- Power BI Pro
 - PowerApps Gratuit
 - PowerFlow Gratuit
 - RMS pour les particuliers
@@ -113,10 +110,6 @@ Pour [RMS pour les particuliers](/azure/information-protection/rms-for-individua
 La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, si le client non géré se trouve en Europe et votre organisation en Amérique du Nord.
 
 Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu n’est plus accessible une fois le domaine pris en charge.
-
-#### <a name="more-information-about-power-bi"></a>Informations supplémentaires sur Power BI
-
-Quand vous effectuez une prise de contrôle externe, le contenu Power BI créé avant la prise de contrôle est placé dans un [espace de travail Power BI archivé](/power-bi/service-admin-power-bi-archived-workspace). Vous devez migrer manuellement tout contenu que vous souhaitez utiliser dans le nouveau locataire.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Applets de commande Azure AD PowerShell pour l’option ForceTakeover
 Vous pouvez voir ces applets de commande utilisées dans un [exemple PowerShell](#powershell-example).
