@@ -39,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Recommandations de sécurité
       href: concept-recommendations.md
+    - name: Ligne de base
+      href: concept-baseline.md
     - name: Agrégation des événements
       href: event-aggregation.md
     - name: Tarifs et coûts associés
