@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: bwren
-ms.openlocfilehash: bff80b7083f2fb2e35af7db652849d527a5b8ba4
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 323267dd47735ca54b84e47e6a55d1f2d14a0b06
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963379"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262186"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Expérience Journaux simples dans Azure Monitor (préversion)
 Azure Monitor offre une [expérience riche](get-started-portal.md) pour la création de [requêtes de journal](log-query-overview.md) à l’aide du langage KQL. Toutefois, vous pouvez ne pas avoir besoin de toute la puissance de KQL et préférer une expérience simplifiée pour des exigences de requête de base. L’expérience Journaux simples vous permet de créer des requêtes de base sans interagir directement avec KQL. Vous pouvez également utiliser Journaux simples comme outil d’apprentissage pour KQL, car vous avez besoin de requêtes plus sophistiquées.
@@ -31,7 +31,7 @@ Azure Monitor offre une [expérience riche](get-started-portal.md) pour la créa
 L’expérience Journaux simples récupère des données des tables *AzureDiagnostics*, *AzureMetrics* et *AzureActivity* pour la ressource sélectionnée. 
 
 ## <a name="using-simple-logs"></a>Utilisation de Journaux simples
-Accédez à Cosmos DB ou Key Vault dans votre abonnement Azure avec les [paramètres de diagnostic configurés pour collecter les journaux dans un espace de travail Log Analytics](../platform/diagnostic-logs-stream-log-store.md). Cliquez sur **Journaux** dans le menu **Monitoring** (Supervision) pour ouvrir l’expérience Journaux simples.
+Accédez à Cosmos DB ou Key Vault dans votre abonnement Azure avec les [paramètres de diagnostic configurés pour collecter les journaux dans un espace de travail Log Analytics](../platform/resource-logs-collect-storage.md). Cliquez sur **Journaux** dans le menu **Monitoring** (Supervision) pour ouvrir l’expérience Journaux simples.
 
 ![Menu](media/simple-logs/menu.png)
 

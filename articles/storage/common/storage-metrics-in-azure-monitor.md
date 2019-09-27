@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e31ad78e24f329eb46cd85ba4a5962442a216779
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c2f6847a286a9c106fc094e9f0aa315d6b1f337d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844833"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257104"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder à partir du [Portail Azure](https://portal.azure.com), des API d’Azure Monitor (REST et .NET) et des solutions d’analyse comme Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Les mesures sont activées par défaut et vous pouvez accéder aux 93 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) dans Azure Monitor.
+Les mesures sont activées par défaut et vous pouvez accéder aux 93 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) dans Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accéder aux mesures dans le portail Azure
 

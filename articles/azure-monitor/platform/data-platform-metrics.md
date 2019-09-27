@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e534754e46e6f2ad9b99b67d24d9f7da63a51a4f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113518"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258376"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
@@ -37,7 +37,7 @@ Le tableau suivant répertorie les différentes façons d’utiliser des donnée
 | Visualisation | Épinglez un graphique à partir de Metrics Explorer dans un [tableau de bord Azure](../learn/tutorial-app-dashboards.md).<br>Créez un [classeur](../app/usage-workbooks.md) à combiner avec plusieurs jeux de données dans un rapport interactif. Exportez les résultats d’une requête dans [Grafana](grafana-plugin.md) pour bénéficier de la création de tableaux de bord et les combiner avec d’autres sources de données. |
 | Alerte | Configurez une [règle d’alerte sur les métriques](alerts-metric.md) qui envoie une notification ou prend [une action de façon automatique](action-groups.md) lorsque la valeur métrique dépasse le seuil défini. |
 | Automatisation |  Utilisez la [mise à l’échelle automatique](autoscale-overview.md) pour augmenter ou diminuer les ressources si une valeur métrique dépasse le seuil défini. |
-| Exportation | [Acheminez les métriques vers les journaux d’activité](diagnostic-logs-stream-log-store.md) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
+| Exportation | [Acheminez les métriques vers les journaux d’activité](resource-logs-collect-storage.md) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
 | Récupération | Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide des [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights).<br>Accédez à des valeurs métriques à partir d’une application personnalisée à l’aide de [l’API REST](rest-api-walkthrough.md).<br>Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide de [l’interface de ligne de commande](/cli/azure/monitor/metrics). |
 | Archivage | [Archivez](..//learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion. |
 
@@ -110,7 +110,7 @@ Pour la plupart des ressources dans Azure, les métriques sont stockées pendant
 
 
 > [!NOTE]
-> Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](diagnostic-logs-stream-log-store.md) pour les tendances à long terme.
+> Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](resource-logs-collect-storage.md) pour les tendances à long terme.
 
 
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959066"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259427"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/resource-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux d’activité Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -141,7 +141,7 @@ Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’AP
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## <a name="manage-your-logs"></a>Gérer vos journaux d’activité
 
@@ -327,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 Consultez la section [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.

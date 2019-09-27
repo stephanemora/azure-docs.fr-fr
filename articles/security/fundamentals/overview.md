@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999202"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262755"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
@@ -93,7 +93,7 @@ Application Insights crée des graphiques et tableaux présentant, par exemple, 
 En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous envoie des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application. Application Insights devient donc un outil de sécurité précieux, car il apporte la « disponibilité » dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/platform/activity-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/platform/activity-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 [Journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) fournit une solution de gestion informatique aussi bien pour les infrastructures en local que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données issues d’Azure Monitor peuvent être acheminées directement dans Journaux Azure Monitor, afin que vous puissiez voir les métriques et les journaux pour l’ensemble de votre environnement en un seul endroit.

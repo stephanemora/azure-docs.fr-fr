@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567916"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262191"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
-Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie du journal de diagnostic peuvent être transmises en continu aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie du journal de diagnostic peuvent être transmises en continu aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 > [!NOTE]
 > Pour appréhender rapidement la résolution des problèmes de performances liés à SQL Database à l’aide d’Intelligent Insights, consultez l’organigramme [Flux de résolution des problèmes recommandé](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) dans le présent document.
@@ -331,4 +331,4 @@ Intelligent Insights a généralement besoin d’une heure pour effectuer l’an
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).
 - Utilisez le [journal de diagnostic Intelligent Insights des performances d’Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Surveillez [Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).

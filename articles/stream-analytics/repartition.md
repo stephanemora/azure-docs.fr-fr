@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101511"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266440"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Utiliser le repartitionnement pour optimiser le traitement avec Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Testez et observez l’utilisation des ressources de votre travail pour détermi
 
 Quand votre travail utilise une base de données SQL pour la sortie, utilisez le repartitionnement explicite pour qu’il corresponde au nombre de partitions optimal et, ainsi, maximiser le débit. Étant donné que SQL fonctionne mieux avec huit enregistreurs, le repartitionnement du flux en huit partitions avant le vidage ou à un point quelconque en amont peut améliorer le niveau de performance du travail. 
 
-Quand il y a plus de huit partitions d’entrée, l’héritage du schéma de partitionnement d’entrée n’est pas toujours une option appropriée. Envisagez d’utiliser [INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) dans votre requête pour spécifier explicitement le nombre de générateurs de sortie. 
+Quand il y a plus de huit partitions d’entrée, l’héritage du schéma de partitionnement d’entrée n’est pas toujours une option appropriée. Envisagez d’utiliser [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) dans votre requête pour spécifier explicitement le nombre de générateurs de sortie. 
 
 L’exemple suivant lit l’entrée, qu’elle soit partitionnée naturellement ou non, puis repartitionne le flux en dix partitions conformément à la dimension de DeviceID et vide les données vers la sortie. 
 

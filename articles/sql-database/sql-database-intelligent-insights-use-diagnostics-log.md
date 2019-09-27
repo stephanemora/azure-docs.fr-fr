@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567893"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262145"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
-Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="log-header"></a>En-tête du journal
 

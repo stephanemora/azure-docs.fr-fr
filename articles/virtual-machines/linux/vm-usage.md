@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: bc341492779e6ed5aef2505a98ad8a116866fe4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ae974be462a688d7b740fb9ca28e1186e7512326
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695281"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273799"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Télécharger vos détails d’utilisation
-Pour commencer, [téléchargez vos détails d’utilisation](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
+Pour commencer, [téléchargez vos détails d’utilisation](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
 
 
 | Champs             | Signification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Exemples de valeurs                                                                                                                                                                                                                                                                                                                                                   |

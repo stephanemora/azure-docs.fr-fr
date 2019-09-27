@@ -3,7 +3,7 @@ title: 'Étapes détaillées : Paire de clés SSH pour les machines virtuelles L
 description: Découvrez les étapes détaillées pour créer et gérer une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: danlep
-ms.openlocfilehash: f166f460f1518588bd12cc5d0581101d417dd41a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: cynthn
+ms.openlocfilehash: da1454518cff12c2ae05f717b0165c02f437ee74
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083749"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168647"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Étapes détaillées : Créer et gérer des clés SSH pour l’authentification sur une machine virtuelle Linux dans Azure 
 Avec une paire de clés SSH (secure shell), vous pouvez créer une machine virtuelle Linux sur Azure qui utilise par défaut des clés SSH pour l’authentification sans avoir à utiliser de mot de passe pour la connexion. Les machines virtuelles créées avec le portail Azure, Azure CLI, les modèles Resource Manager ou d’autres outils peuvent inclure votre clé publique SSH dans le cadre du déploiement, qui configure l’authentification par clé SSH pour les connexions SSH. 

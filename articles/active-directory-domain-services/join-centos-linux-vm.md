@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 965714fc4b02430653d3670ddec69fcd77cc7920
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 2b10866adb1615b31446388fa0e9d0dabffd13da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075636"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268689"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé Azure AD Domain Services
 
@@ -69,7 +69,7 @@ Dans le fichier *hosts*, mettez à jour l’adresse *localhost*. Dans l’exempl
 Mettez à jour ces noms avec vos propres valeurs :
 
 ```console
-127.0.0.1 centos centos.contoso.com
+127.0.0.1 centos.contoso.com centos
 ```
 
 Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide de la commande `:wq` de l’éditeur.
@@ -98,15 +98,15 @@ Maintenant que les packages nécessaires sont installés sur la machine virtuell
     * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé Azure AD DS est disponible ou dans un réseau virtuel appairé.
     * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé Azure AD DS.
 
-1. À présent, initialisez Kerberos à l’aide de la commande `kinit`. Spécifiez un utilisateur qui appartient au groupe *Administrateurs du contrôleur de domaine AAD*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. À présent, initialisez Kerberos à l’aide de la commande `kinit`. Spécifiez un utilisateur qui appartient au groupe *Administrateurs AAD DC*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *Administrateurs du contrôleur de domaine AAD* :
+    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *Administrateurs AAD DC* :
 
     ```console
     kinit contosoadmin@CONTOSO.COM
     ```
 
-1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *Administrateurs du contrôleur de domaine AAD* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@CONTOSO.COM` :
+1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *Administrateurs AAD DC* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@CONTOSO.COM` :
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
@@ -189,7 +189,7 @@ Pour vérifier que la machine virtuelle a bien été jointe au domaine managé A
 
     Vos appartenances aux groupes du domaine managé Azure AD DS doivent s’afficher.
 
-1. Si vous vous êtes connecté à la machine virtuelle en tant que membre du groupe *Administrateurs du contrôleur de domaine AAD*, vérifiez que vous pouvez bien utiliser la commande `sudo` :
+1. Si vous vous êtes connecté à la machine virtuelle en tant que membre du groupe *Administrateurs AAD DC*, vérifiez que vous pouvez bien utiliser la commande `sudo` :
 
     ```console
     sudo yum update

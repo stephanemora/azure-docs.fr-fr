@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 732c93688dbc73cb5a4ce21e4669744be61c5925
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071659"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299561"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -34,7 +34,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Emplacement de journaux importants et outil collecteur de journaux
 
- Fichier | path
+ Fichier | Path
  ---- | -----
  Fichier journal de l’agent Log Analytics pour Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Fichier journal de configuration de l’agent Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
@@ -43,7 +43,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 
 ## <a name="important-configuration-files"></a>Fichiers de configuration importants
 
- Catégorie | Emplacement du fichier
+ Category | Emplacement du fichier
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` ou `/etc/rsyslog.conf` ou `/etc/rsyslog.d/95-omsagent.conf`
  Performances, Nagios, Zabbix, sortie Log Analytics et agent général | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
@@ -51,7 +51,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 
  >[!NOTE]
  >La modification des fichiers de configuration pour les compteurs de performances et Syslog est remplacée si la collection est configurée à partir du [menu Données dans les paramètres avancés Log Analytics ](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) dans le portail Azure pour votre espace de travail. Pour désactiver la configuration de tous les agents, désactivez la collecte dans les **Paramètres avancés** Log Analytics, ou bien, pour un seul agent, exécutez la commande suivante :  
-> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>Codes d’erreur d’installation
 
@@ -62,7 +62,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | 3 | Aucune option fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
 | 5\. | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
-| 6\. | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Échec de l’installation du package OMS. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 19 | Échec de l’installation du package OMI. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 20 | Échec de l’installation du package SCX. Examinez le résultat de la commande pour déterminer l’échec de root. |
@@ -85,7 +85,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | 3 | Configuration non valide fournie au script omsadmin. Exécutez `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` pour l’utilisation. |
 | 4 | Proxy non valide fourni au script omsadmin. Vérifiez le proxy et consultez notre [documentation sur l’utilisation d’un proxy HTTP](log-analytics-agent.md#network-firewall-requirements). |
 | 5\. | Erreur HTTP 403 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
-| 6\. | Erreur non HTTP 200 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
+| 6 | Erreur non HTTP 200 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 7 | Impossible de se connecter à Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 8 | Erreur d’intégration de l’espace de travail Log Analytics. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 30 | Erreur de script interne. Déposez un [problème GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) en indiquant les détails de la sortie. |
@@ -192,7 +192,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 ## <a name="issue-you-see-omiagent-using-100-cpu"></a>Problème : Vous voyez que l’omiagent utilise 100 % du processeur
 
 ### <a name="probable-causes"></a>Causes probables
-Une régression dans le package nss-pem [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) a provoqué un problème de performances, récurrent dans les distributions Redhat/Centos 7.x. Pour en savoir plus sur ce problème, consultez la documentation suivante : Bogue [1667121 sur la régression des performances dans libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+Une régression dans le package nss-pem [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) a provoqué un problème de performances, récurrent dans les distributions Redhat/Centos 7.x. Pour en savoir plus sur ce problème, consultez la documentation suivante : Bogue [1667121 sur la régression des performances dans libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles à reproduire. Si vous rencontrez ce genre de problèmes avec omiagent, vous devez utiliser le script omiHighCPUDiagnostics.sh afin de collecter les traces de l’omiagent lorsqu’il dépasse un certain seuil.
 
@@ -206,7 +206,7 @@ Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles 
 
 ### <a name="resolution-step-by-step"></a>Résolution (étape par étape)
 
-1. Mettez à niveau le package nss-pem vers la version [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+1. Mettez à niveau le package nss-pem vers la version [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. Si nss-pem n’est pas disponible pour la mise à niveau (c’est principalement le cas sur Centos), passez curl à la version antérieure 7.29.0-46. Si par inadvertance vous exécutez une « mise à jour yum », curl sera mis à niveau vers la version 7.29.0-51 et le problème surviendra à nouveau. <br/>

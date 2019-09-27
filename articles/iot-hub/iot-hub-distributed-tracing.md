@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400784"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259351"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -242,8 +242,8 @@ Pour mettre à jour la configuration d’échantillonnage du traçage distribué
 
 | Nom de l'élément | Obligatoire | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | OUI | Entier | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
-| `sampling_rate` | OUI | Entier | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
+| `sampling_mode` | OUI | Integer | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
+| `sampling_rate` | OUI | Integer | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
 
 ## <a name="query-and-visualize"></a>Interroger et visualiser
 
@@ -251,7 +251,7 @@ Pour voir toutes les traces journalisées par un hub IoT, interrogez le magasin 
 
 ### <a name="query-using-log-analytics"></a>Interroger avec Log Analytics
 
-Si vous avez configuré [Log Analytics avec des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-stream-log-store.md), exécutez une requête pour rechercher les journaux d’activité appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
+Si vous avez configuré [Log Analytics avec des journaux de diagnostic](../azure-monitor/platform/resource-logs-collect-storage.md), exécutez une requête pour rechercher les journaux d’activité appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
 
 ```Kusto
 // All distributed traces 
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Voici des exemple de journaux d’activité tels qu’ils apparaissent dans Log Analytics :
 
-| TimeGenerated | OperationName | Catégorie | Niveau | CorrelationId | DurationMs | properties |
+| TimeGenerated | OperationName | Category | Niveau | CorrelationId | DurationMs | properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

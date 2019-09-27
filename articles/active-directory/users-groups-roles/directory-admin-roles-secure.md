@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608105"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259405"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -139,7 +139,7 @@ Avec l’augmentation du BYOD (apportez votre propre appareil), des stratégies 
 
 * Identifiez les utilisateurs disposant de rôles d’administrateur et les services où ils peuvent gérer.
 * Utilisez Azure AD PIM pour connaître les utilisateurs de votre organisation disposant d’un accès administrateur à Azure AD, y compris les rôles autres que ceux répertoriés à l’étape 1.
-* En plus des rôles définis dans Azure AD, Office 365 inclut un ensemble de rôles d’administrateur que vous pouvez affecter aux utilisateurs de votre organisation. Chaque rôle d’administrateur correspond à des fonctions d’entreprise courantes et fournit aux personnes de votre organisation des autorisations pour effectuer des tâches spécifiques dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com). Utilisez le Centre d’administration Microsoft 365 pour déterminer quels sont les utilisateurs de votre organisation qui disposent d’un accès administrateur à Office 365, y compris via des rôles non gérés dans Azure AD. Pour plus d’informations, consultez [À propos des rôles d’administrateur Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) et [Security best practices for Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3) (Meilleures pratiques de sécurité pour Office 365).
+* En plus des rôles définis dans Azure AD, Office 365 inclut un ensemble de rôles d’administrateur que vous pouvez affecter aux utilisateurs de votre organisation. Chaque rôle d’administrateur correspond à des fonctions d’entreprise courantes et fournit aux personnes de votre organisation des autorisations pour effectuer des tâches spécifiques dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com). Utilisez le Centre d’administration Microsoft 365 pour déterminer quels sont les utilisateurs de votre organisation qui disposent d’un accès administrateur à Office 365, y compris via des rôles non gérés dans Azure AD. Pour plus d’informations, consultez [À propos des rôles d’administrateur Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) et [Security best practices for Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) (Meilleures pratiques de sécurité pour Office 365).
 * Inventoriez dans d’autres services dont votre organisation dépend, tels qu’Azure, Intune ou Dynamics 365.
 * Assurez-vous que vos comptes administrateur (comptes utilisés à des fins administratives, et pas seulement les comptes courants des utilisateurs) utilisent des adresses de messagerie qui leur sont associées et qu’ils sont inscrits pour Azure MFA ou utilisent MFA en local.
 * Demandez aux utilisateurs leur justification d’entreprise d’accès administrateur.

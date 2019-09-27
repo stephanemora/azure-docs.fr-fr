@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3103b556098d0b9ccbfca7348ab70c183a69753d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567932"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262231"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Créer des alertes pour Azure SQL Database et Data Warehouse à l'aide du portail Azure
 
@@ -118,5 +118,5 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](../monitoring-and-diagnostics/monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](../azure-monitor/platform/alerts-webhooks.md).
-* Consultez une [vue d’ensemble des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
+* Consultez une [vue d’ensemble des journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

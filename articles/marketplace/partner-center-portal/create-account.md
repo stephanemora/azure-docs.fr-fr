@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
-ms.openlocfilehash: fd1da6a43e4c1d7d6b66d5dbacb2d7a587c2856a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898678"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219431"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -60,7 +60,7 @@ Connectez-vous avec un compte professionnel afin de pouvoir lier le compte e-mai
 
 ### <a name="agree-to-terms-and-conditions"></a>Accepter les conditions générales
 
-Vous devez accepter les conditions générales du [contrat d’éditeur de la Place de marché Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=699560).
+Vous devez accepter les conditions générales du [contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=699560).
 
 ### <a name="provide-your-publisher-profile"></a>Fournir votre profil d’éditeur
 
@@ -103,7 +103,7 @@ Après vous être connecté, suivez les étapes de cette section pour terminer l
 
 1. Dans l’Espace partenaires, sélectionnez **Paramètres** > **Paramètres Partenaire** > **Programmes** > **Prise en main**.
 2. Microsoft Partner Network détecte votre abonnement et affiche la page de profil de l’éditeur qui vous permet d’entrer le nom de votre société et l’ID MPN.
-3. Lisez les conditions générales de [l’Accord de l’éditeur de la Place de marché Microsoft](http://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
+3. Lisez les conditions générales de [l’Accord de l’éditeur de la Place de marché Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
 Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la Place de marché commerciale. **La Place de marché commerciale** s’affiche dans la barre de navigation de gauche. Si vous sélectionnez **Paramètres** > **Paramètres partenaire** > **Programmes**, vous verrez que la Place de marché commerciale est répertoriée comme inscrite.
 

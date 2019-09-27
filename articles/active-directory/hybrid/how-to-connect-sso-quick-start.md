@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965215"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176823"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -221,7 +221,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Si elle est divulguée, la clé de déchiffrement Kerberos d’un compte d’ordinateur peut être utilisée pour générer des tickets Kerberos à l’attention de n’importe quel utilisateur dans sa forêt Active Directory. Les personnes malveillantes peuvent emprunter l’identité de connexions Azure AD pour des utilisateurs compromis. Nous vous recommandons vivement de renouveler ces clés de déchiffrement Kerberos au moins tous les 30 jours.
 
-Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
+Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.md). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.

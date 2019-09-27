@@ -3,9 +3,8 @@ title: Gestion multilocataire dans Azure Security Center | Microsoft Docs
 description: " Découvrez comment activer la collecte des données dans Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
-ms.author: v-mohabe
-ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.author: memildin
+ms.openlocfilehash: 178911390a4cb694171adf6c807369cab0c0499a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950545"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202355"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: evternov
-ms.openlocfilehash: 9bc94f653f5e70883b483fa44f6a17f6e9e9eaf1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3abf50b3467ce9a97f2163a10ad1782f6e1c9c20
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594437"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258440"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Mise en corrélation de données Application Insights avec des sources de données personnalisées
 
@@ -28,7 +28,7 @@ Vous pouvez avoir besoin de données personnalisées dans les situations suivant
 
 - Tables d’enrichissement ou de recherche de données : par exemple, compléter un nom de serveur avec le propriétaire du serveur et l’emplacement de laboratoire dans lequel il peut être trouvé 
 - Corrélation avec des sources de données autres qu’Application Insights : par exemple, corréler des données concernant un achat effectué dans une boutique en ligne avec des informations obtenues auprès de votre service de traitement des achats pour déterminer la précision des estimations de vos délais de livraison 
-- Données complètement personnalisées : parmi nos clients, beaucoup adorent le langage de requête et les performances de la plateforme de journaux Azure Monitor qui sous-tend Application Insights, et cherchent à en tirer parti pour interroger les données qui ne sont pas du tout liées à Application Insights. Par exemple, pour suivre les performances de panneaux solaires dans le cadre d’une installation résidentielle intelligente, comme décrit [ici]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Données complètement personnalisées : parmi nos clients, beaucoup adorent le langage de requête et les performances de la plateforme de journaux Azure Monitor qui sous-tend Application Insights, et cherchent à en tirer parti pour interroger les données qui ne sont pas du tout liées à Application Insights. Par exemple, pour suivre les performances de panneaux solaires dans le cadre d’une installation résidentielle intelligente, comme décrit [ici](https://www.catapultsystems.com/blogs/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Comment mettre en corrélation des données personnalisées avec des données Application Insights 
 
