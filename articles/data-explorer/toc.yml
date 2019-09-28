@@ -90,6 +90,8 @@
       items:
         - name: Power BI
           items:
+            - name: Bonnes pratiques
+              href: power-bi-best-practices.md
             - name: connecteur
               href: power-bi-connector.md
             - name: requête importée
