@@ -99,7 +99,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
-| apiVersion | 01-10-2018 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
