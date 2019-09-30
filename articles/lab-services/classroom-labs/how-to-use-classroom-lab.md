@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032012"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161532"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Accéder à un laboratoire de classe dans Azure Lab Services
 Cet article explique comment vous inscrire à un labo de salle de classe, voir tous les labos auxquels vous pouvez accéder, démarrer/arrêter une machine virtuelle dans le labo et vous connecter à la machine virtuelle. 
@@ -28,8 +28,11 @@ Cet article explique comment vous inscrire à un labo de salle de classe, voir t
 
 1. Accédez à **l’URL d’inscription** que vous avez reçue du professeur/formateur. Vous n’avez pas besoin d’utiliser l’URL d’inscription après avoir effectué l’enregistrement. À la place, utilisez l’URL : [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 n’est pas encore pris en charge. 
 1. Connectez-vous au service à l’aide de votre compte scolaire pour terminer l’inscription. 
-2. Une fois l’inscription terminée, confirmez que vous visualisez bien les machines virtuelles du laboratoire auquel vous avez accès. 
-3. Attendez que la machine virtuelle soit prête. Vous pouvez voir les champs suivants sur la vignette de la machine virtuelle :
+
+    > [!NOTE]
+    > L’utilisation d’Azure Lab Services nécessite un compte Microsoft. Si vous souhaitez vous connecter au portail avec un compte autre que Microsoft, tel qu’un compte Yahoo ou Google, suivez les instructions permettant de créer un compte Microsoft en vue de l’associer à votre compte non Microsoft. Ensuite, suivez les étapes pour terminer le processus d’inscription. 
+1. Une fois l’inscription terminée, confirmez que vous visualisez bien les machines virtuelles du laboratoire auquel vous avez accès. 
+1. Attendez que la machine virtuelle soit prête. Vous pouvez voir les champs suivants sur la vignette de la machine virtuelle :
     1. En haut de la vignette, vous voyez le **nom du labo**.
     1. À droite, vous voyez l’icône représentant le **système d’exploitation (SE)** de la machine virtuelle. Dans cet exemple, il s’agit du système d’exploitation Windows. 
     1. Les icônes/boutons situés en bas de la vignette vous permettent de démarrer/d’arrêter la machine virtuelle et de vous y connecter. 

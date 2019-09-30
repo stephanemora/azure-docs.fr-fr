@@ -1,34 +1,34 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Apptio | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apptio.
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à BIS | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BIS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
+ms.assetid: 419849ac-8398-4e8b-9509-a90158824e03
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bc442bd48de3b75d43206a1f111b1e26c4608ed
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129721"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174435"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Apptio
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bis"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à BIS
 
-Dans ce tutoriel, vous découvrez comment intégrer Apptio à Azure Active Directory (Azure AD). Quand vous intégrez Apptio à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer BIS à Azure Active Directory (Azure AD). Quand vous intégrez BIS à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à Apptio.
-* Autoriser les utilisateurs à se connecter automatiquement à Apptio avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès à BIS.
+* Permettre à vos utilisateurs de se connecter automatiquement à BIS avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,46 +38,48 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Apptio pour lequel l’authentification unique est activée.
+* Un abonnement BIS pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Apptio prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* BIS prend en charge l’authentification unique lancée par le **fournisseur de services**.
+
+* BIS prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-apptio-from-the-gallery"></a>Ajout d’Apptio à partir de la galerie
+## <a name="adding-bis-from-the-gallery"></a>Ajout de BIS à partir de la galerie
 
-Pour configurer l’intégration d’Apptio à Azure AD, vous devez ajouter Apptio à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de BIS à Azure AD, vous devez ajouter BIS, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Apptio** dans la zone de recherche.
-1. Sélectionnez **Apptio** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **BIS** dans la zone de recherche.
+1. Sélectionnez **BIS** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-apptio"></a>Configurer et tester l’authentification unique Azure AD pour Apptio
+## <a name="configure-and-test-azure-ad-single-sign-on-for-bis"></a>Configurer et tester l’authentification unique Azure AD pour BIS
 
-Configurez et testez l’authentification unique Azure AD avec Apptio à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Apptio associé.
+Configurez et testez l’authentification unique Azure AD avec BIS pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur BIS associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Apptio, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec BIS, effectuez les modules suivants :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique Apptio](#configure-apptio-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Apptio](#create-apptio-test-user)** pour avoir un équivalent de B.Simon dans Apptio, associé à sa représentation dans Azure AD.
+1. **[Configurer l’authentification unique BIS](#configure-bis-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test BIS](#create-bis-test-user)** pour avoir un équivalent de B.Simon dans BIS lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Apptio**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **BIS**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -85,15 +87,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **Identificateur**, tapez une URL :  `urn:federation:apptio`
-
-1. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://www.bistrainer.com/sso/biscr.cfm`
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Configurer Apptio**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer BIS**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -111,10 +111,10 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Apptio.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à BIS.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Apptio**.
+1. Dans la liste des applications, sélectionnez **BIS**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
@@ -127,19 +127,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-apptio-sso"></a>Configurer l’authentification unique Apptio
+## <a name="configure-bis-sso"></a>Configurer l’authentification unique BIS
 
-Pour configurer l’authentification unique côté **Apptio**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Apptio](https://www.apptio.com/about/contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **BIS**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du Portail Azure, à l’[équipe du support technique de BIS](mailto:help@bistrainer.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-### <a name="create-apptio-test-user"></a>Créer un utilisateur de test Apptio
+### <a name="create-bis-test-user"></a>Créer un utilisateur de test BIS
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Contactez l’ [équipe du support technique Apptio](https://www.apptio.com/about/contact) pour ajouter des utilisateurs à la plateforme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, un utilisateur appelé B.Simon est créé dans BIS. BIS prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur n’existe pas déjà dans BIS, il est créé après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Apptio dans le volet d’accès, vous devez vous connecter automatiquement à l’application Apptio pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette BIS dans le panneau d’accès doit vous connecter automatiquement à l’application BIS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -149,4 +149,5 @@ Quand vous cliquez sur la vignette Apptio dans le volet d’accès, vous devez v
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Essayer Apptio avec Azure AD](https://aad.portal.azure.com/)
+- [Essayer BIS avec Azure AD](https://aad.portal.azure.com/)
+

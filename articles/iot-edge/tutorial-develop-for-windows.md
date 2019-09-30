@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915148"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240975"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Didacticiel : Développer des modules IoT Edge pour les appareils Windows
 
@@ -57,6 +57,7 @@ Une machine de développement :
 
 * Windows 10 avec la mise à jour 1809 ou une mise à jour plus récente.
 * Vous pouvez utiliser votre propre ordinateur ou une machine virtuelle, selon vos préférences de développement.
+  * Vérifiez que votre ordinateur de développement prend bien en charge la virtualisation imbriquée. Cette fonctionnalité est nécessaire à l’exécution du moteur de conteneur que vous allez installer dans la section suivante.
 * Installez [Git](https://git-scm.com/). 
 
 Un appareil Azure IoT Edge sur Windows :
@@ -299,7 +300,7 @@ Le code IotEdgeModule1 reçoit des messages via sa file d’attente d’entrée 
 
 3. Regardez la section **Sortie** dans Visual Studio pour voir les messages arrivant à votre hub IoT. 
 
-   Le démarrage des deux modules peut prendre plusieurs minutes. Le runtime IoT Edge doit recevoir son nouveau manifeste de déploiement, extraire les images de module à partir du runtime du conteneur, puis démarrer chaque nouveau module. Si vous 
+   Le démarrage des deux modules peut prendre plusieurs minutes. Le runtime IoT Edge doit recevoir son nouveau manifeste de déploiement, extraire les images de module à partir du runtime du conteneur, puis démarrer chaque nouveau module. 
 
    ![Afficher les messages appareil-à-cloud entrants](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 

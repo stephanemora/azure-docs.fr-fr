@@ -1,19 +1,19 @@
 ---
 title: 'Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
 description: 'Tutoriel : Bien démarrer avec R et Spark sur un cluster Azure HDInsight Machine Learning Services.'
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899988"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121936"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
 
@@ -59,9 +59,9 @@ Le jeu de données *Airline 2012 On-Time Data Set* se compose de 12 fichiers s�
 
 1. Dans le volet droit, sélectionnez l’onglet **Environnement**. Les variables sont affichées sous **Valeurs**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    ![Console web HDInsight RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
-1.  Créez un répertoire local et téléchargez les exemples de données. Dans RStudio, entrez le code suivant :
+1. Créez un répertoire local et téléchargez les exemples de données. Dans RStudio, entrez le code suivant :
 
     ```R
     # Create local directory

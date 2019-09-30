@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5b041fecfaa5a84ed5a04a3a8c53de10b9efd65b
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616828"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155367"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gérer les ressources de l’API SQL Azure Cosmos DB à l’aide de PowerShell
 
@@ -43,6 +43,7 @@ Les sections suivantes montrent comment gérer le compte Azure Cosmos, et notamm
 * [Régénérer les clés pour un compte Azure Cosmos](#regenerate-keys)
 * [Répertorier les chaînes de connexion d’un compte Azure Cosmos](#list-connection-strings)
 * [Modifier la priorité de basculement pour un compte Azure Cosmos](#modify-failover-priority)
+* [Déclencher un basculement manuel pour un compte Azure Cosmos](#trigger-manual-failover)
 
 ### <a id="create-account"></a> Créer un compte Azure Cosmos
 
@@ -121,7 +122,9 @@ Cette commande vous permet de mettre à jour les propriétés de votre compte de
 * Activation du multimaître
 
 > [!NOTE]
-> Cette commande, qui vous permet d’ajouter ou de supprimer des régions, ne prend aucunement en charge la modification des priorités de basculement ou le changement de la région avec `failoverPriority=0`. Pour modifier la priorité de basculement, consultez [Modifier la priorité de basculement pour un compte Azure Cosmos](#modify-failover-priority).
+> Vous ne pouvez pas ajouter ou supprimer simultanément des régions `locations` et modifier d’autres propriétés d’un compte Azure Cosmos. La modification des régions doit être effectuée en tant qu’opération distincte de toute autre modification apportée à la ressource de compte.
+> [!NOTE]
+> Cette commande vous permet d’ajouter ou de supprimer des régions, mais ne vous permet pas de modifier des priorités de basculement ni de déclencher un basculement manuel. Consultez [Modifier la priorité de basculement](#modify-failover-priority) et [Déclencher un basculement manuel](#trigger-manual-failover).
 
 ```azurepowershell-interactive
 # Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
@@ -238,7 +241,38 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modifier la priorité de basculement
 
-Pour les comptes de base de données multirégions, vous pouvez changer l’ordre dans lequel un compte Cosmos promeut les réplicas de lecture secondaires en cas de basculement régional sur le réplica d’écriture principal. La modification de `failoverPriority=0` peut également être utilisée pour lancer une extraction de reprise d’activité après sinistre afin de tester la planification de la reprise d’activité.
+Pour les comptes configurés avec le basculement automatique, vous pouvez modifier l’ordre dans lequel Cosmos promeut les réplicas secondaires en réplicas principaux en cas d’indisponibilité de ce dernier.
+
+Dans l’exemple ci-dessous, partez du principe que la priorité de basculement actuelle est `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`.
+
+> [!CAUTION]
+> Le changement de `locationName` pour `failoverPriority=0` déclenche un basculement manuel pour un compte Azure Cosmos. Tout autre changement de priorité ne déclenche pas de basculement.
+
+```azurepowershell-interactive
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="South Central US"; "failoverPriority"=1 },
+    @{ "locationName"="East US 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+### <a id="trigger-manual-failover"></a> Déclencher un basculement manuel
+
+Pour les comptes configurés avec le basculement manuel, vous pouvez basculer et promouvoir n’importe quel réplica secondaire en réplica principal en affectant `failoverPriority=0`. Vous pouvez utiliser cette opération pour lancer une extraction de reprise d’activité après sinistre afin de tester la planification de la reprise d’activité.
 
 Pour l’exemple ci-dessous, supposons que le compte a actuellement la priorité de basculement `West US 2 = 0` et `East US 2 = 1`, et inversons les régions.
 
@@ -247,14 +281,15 @@ Pour l’exemple ci-dessous, supposons que le compte a actuellement la priorité
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="West US 2"; "failoverPriority"=1 }
+    @{ "locationName"="South Central US"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="West US 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{

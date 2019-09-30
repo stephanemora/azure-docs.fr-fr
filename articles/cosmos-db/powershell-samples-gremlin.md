@@ -4,14 +4,14 @@ description: Exemples Azure PowerShell pour Azure Cosmos DB - API Gremlin
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4183137c6066dd8862f7e9f56e11b99390f4559b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: b8b986facc01a963d2ca87121337988c4c650ba1
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566203"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154781"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API Gremlin
 
@@ -23,7 +23,8 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerSh
 |[Lister ou obtenir des bases de données et des graphes](scripts/powershell/gremlin/ps-gremlin-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Listez ou obtenez des bases de données et des graphes. |
 |[Obtenir les RU/s](scripts/powershell/gremlin/ps-gremlin-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenez les RU/s d’une base de données ou d’un graphe. |
 |[Mettre à jour les RU/s](scripts/powershell/gremlin/ps-gremlin-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Mettez à jour les RU/s d’une base de données ou d’un graphe. |
-|[Ajouter une région](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenir un compte Azure Cosmos et ajouter une région à la liste des emplacements. |
-|[Modifier la priorité de basculement](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Modifier la priorité de basculement d’un compte Azure Cosmos avec un déclencheur de basculement manuel. |
-|[Tâches relatives aux clés de compte et aux chaînes de connexion](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenez les chaînes de connexion d’un compte Azure Cosmos. Obtenir les clés primaires et secondaires d’un compte Azure Cosmos. Regénérez la clé de compte. |
+|[Mettre à jour un compte ou ajouter une région](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ajoutez une région à un compte Cosmos. Peut également être utilisé pour modifier d’autres propriétés de compte, mais celles-ci doivent être séparées des modifications apportées aux régions. |
+|[Modifier la priorité de basculement ou déclencher un basculement](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Modifiez la priorité de basculement régional d’un compte Azure Cosmos ou déclenchez un basculement manuel. |
+|[Clés de compte ou chaînes de connexion](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenez des clés primaires et secondaires, des chaînes de connexion, ou régénérez une clé de compte d’un compte Azure Cosmos. |
+|[Créer un compte Cosmos avec un pare-feu IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Créez un compte Azure Cosmos avec pare-feu IP activé. |
 |||

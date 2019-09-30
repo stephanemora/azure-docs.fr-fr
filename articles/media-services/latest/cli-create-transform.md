@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 86f455f25bb41833774bb7ad7d81688aad812b5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7fea8d997d25d6075e30620e7fd3527003c6a8bb
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236822"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128793"
 ---
 # <a name="cli-example-create-a-transform"></a>Exemple CLI : Créer une transformation
 
@@ -31,10 +31,15 @@ Le script Azure CLI dans cet article montre comment créer une transformation. L
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
+> [!NOTE]
+> Vous pouvez uniquement spécifier le chemin d’un fichier JSON prédéfini Standard Encoder personnalisé pour [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Pour plus d’informations, consultez l’exemple [Encoder avec une transformation personnalisée](custom-preset-cli-howto.md).
+>
+> Vous ne pouvez pas passer un nom de fichier si vous utilisez [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
+
 ## <a name="example-script"></a>Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-transform/Create-Transform.sh "Create a transform")]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble de Media Services](media-services-overview.md)
+[az ams transform (CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)

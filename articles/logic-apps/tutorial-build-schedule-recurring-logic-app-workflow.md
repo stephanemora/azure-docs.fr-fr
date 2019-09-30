@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931294"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172164"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Didacticiel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps
 
@@ -83,7 +83,7 @@ Ajoutez ensuite le [déclencheur](../logic-apps/logic-apps-overview.md#logic-app
 
 1. Dans le Concepteur Logic Apps, dans la zone de recherche, entrez « périodicité » en guise de filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **Périodicité**.
 
-   ![Déclencheur Périodicité](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
+   ![Déclencheur Récurrence](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
 1. Dans la forme **Périodicité**, sélectionnez le bouton représentant des **points de suspension** ( **...** ), puis **Renommer**. Renommez le déclencheur à l’aide de cette description : `Check travel time every weekday morning`.
 
@@ -235,7 +235,7 @@ Ajoutez une condition qui vérifie si la durée du trajet actuel est supérieure
 
 1. Sous l’action précédente, sélectionnez **Nouvelle étape**.
 
-1. Sous **Choisir une action**, sélectionnez **Intégré** et faites une recherche sur « condition ». Sélectionnez ensuite l’action **Condition**.
+1. Sous **Choisir une action**, sélectionnez **Intégré**. Dans la zone de recherche, entrez « condition » comme filtre. Dans la liste des actions, sélectionnez l’action **Condition**.
 
    ![Sélectionner l’action « Condition »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -243,19 +243,19 @@ Ajoutez une condition qui vérifie si la durée du trajet actuel est supérieure
 
 1. Générez une condition qui vérifie si la valeur de la propriété **travelTime** dépasse la limite spécifiée comme décrit et indiqué ici :
 
-   1. Dans la condition, cliquez dans la zone **Choisir une valeur** dans la partie gauche de la condition.
+   1. Dans la condition, cliquez sur la zone **Choisir une valeur** située à gauche de la condition.
 
-   1. Quand la liste à contenu dynamique apparaît, sous **Variables**, sélectionnez la propriété **travelTime**.
+   1. Dans la liste de contenu dynamique qui s’affiche, sous **Variables**, sélectionnez la propriété **travelTime**.
 
       ![Générer une condition côté gauche](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. Dans la zone de comparaison, sélectionnez cet opérateur : **est supérieur à**.
+   1. Dans la zone de comparaison du milieu, sélectionnez l’opérateur **est supérieur à**.
 
    1. Dans la zone **Choisir une valeur** dans la partie gauche de la condition, entrez cette limite : `15`
 
       Quand vous avez terminé, votre condition ressemble à cet exemple :
 
-      ![Créer une condition](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Condition terminée](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Enregistrez votre application logique.
 

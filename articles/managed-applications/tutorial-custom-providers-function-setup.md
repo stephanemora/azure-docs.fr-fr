@@ -1,68 +1,58 @@
 ---
-title: Configurer des fonctions Azure pour des fournisseurs personnalisés Azure
-description: Ce tutoriel vous explique comment créer une fonction Azure et comment la configurer pour qu’elle fonctionne avec des fournisseurs personnalisés Azure.
+title: Configurer Azure Functions pour les fournisseurs personnalisés Azure
+description: Ce tutoriel vous explique comment créer une application de fonction Azure et comment la configurer pour qu’elle fonctionne avec des fournisseurs personnalisés Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: d7e4de43659db88bfd9aad40cc3b9f1753189bba
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 6b5ab6948d382a9925c9ced91e04f360ecf51a0e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799118"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173014"
 ---
-# <a name="setup-azure-functions-for-azure-custom-providers"></a>Configurer des fonctions Azure pour des fournisseurs personnalisés Azure
+# <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurer Azure Functions pour les fournisseurs personnalisés Azure
 
-Les fournisseurs personnalisés vous permettent de personnaliser des workflows dans Azure. Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison (`endpoint`). Ce tutoriel vous guide tout au long du processus de configuration d’une fonction Azure comme `endpoint` d’un fournisseur personnalisé .
+Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Les fournisseurs personnalisés vous permettent de modifier des workflows dans Azure. Ce tutoriel montre comment configurer une application de fonction Azure pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé.
 
-Dans ce tutoriel, vous allez effectuer les étapes suivantes :
-
-- Créer la fonction Azure
-- Installer les liaisons Table Azure
-- Mettre à jour les méthodes HTTP RESTful
-- Ajouter des packages NuGet Azure Resource Manager
-
-Ce tutoriel s’appuie sur les tutoriels suivants :
-
-- [Création de votre première fonction Azure à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md)
-
-## <a name="creating-the-azure-function"></a>Créer la fonction Azure
+## <a name="create-the-azure-function-app"></a>Créer une application de fonction Azure
 
 > [!NOTE]
-> Dans ce tutoriel, nous allons créer un point de terminaison de service simple à l’aide d’une fonction Azure. Toutefois, un fournisseur personnalisé peut utiliser n’importe quel `endpoint` accessible au public. Azure Logic Apps, Azure API Management et Azure Web Apps sont d’excellentes alternatives.
+> Dans ce tutoriel, vous allez créer un point de terminaison de service simple qui utilise une application de fonction Azure. Toutefois, un fournisseur personnalisé peut utiliser n’importe quel point de terminaison accessible publiquement. Les alternatives sont notamment Azure Logic Apps, la gestion des API Azure et la fonctionnalité Web Apps d’Azure App Service.
 
-Avant de commencer, suivez le tutoriel pour [créer votre première fonction Azure dans le portail Azure](../azure-functions/functions-create-first-azure-function.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure.
+Pour démarrer ce tutoriel, vous devez d’abord suivre le tutoriel [Créer votre première application de fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure. C’est également la base du tutoriel actuel.
 
-## <a name="install-azure-table-bindings"></a>Installer les liaisons Table Azure
+## <a name="install-azure-table-storage-bindings"></a>Installer les liaisons du stockage Table Azure
 
-Cette section vous montre comment installer rapidement les liaisons de stockage Table Azure.
+Pour installer les liaisons du stockage Table Azure :
 
-1. Accédez à l’onglet `Integrate` pour HttpTrigger.
-2. Cliquez sur `+ New Input`.
-3. Sélectionnez `Azure Table Storage`.
-4. Installez `Microsoft.Azure.WebJobs.Extensions.Storage` si ce n’est pas déjà fait.
-5. Définissez « tableStorage » comme `Table parameter name` et « myCustomResources » comme `Table name`.
-6. Enregistrez le paramètre d’entrée mis à jour.
+1. Accédez à l’onglet **Intégrer** pour HttpTrigger.
+1. Sélectionnez **+Nouvelle entrée**.
+1. Sélectionnez **Stockage Table Azure**.
+1. Installez l’extension Microsoft.Azure.WebJobs.Extensions.Storage si celle-ci n’est pas déjà installée.
+1. Dans la zone **Nom du paramètre de table**, entrez **tableStorage**.
+1. Dans la zone**Nom de la table**, entrez **myCustomResources**.
+1. Sélectionnez **Enregistrer** pour enregistrer le paramètre d’entrée mis à jour.
 
-![Vue d’ensemble du fournisseur personnalisé](./media/create-custom-providers/azure-functions-table-bindings.png)
+![Vue d’ensemble du fournisseur personnalisé montrant les liaisons de table](./media/create-custom-providers/azure-functions-table-bindings.png)
 
 ## <a name="update-restful-http-methods"></a>Mettre à jour les méthodes HTTP RESTful
 
-Cette section vous montre comment configurer rapidement la fonction Azure de manière à inclure les méthodes de demande RESTful du fournisseur personnalisé.
+Pour configurer la fonction Azure de sorte qu’elle comprenne les méthodes de requête RESTful du fournisseur personnalisé :
 
-1. Accédez à l’onglet `Integrate` pour HttpTrigger.
-2. Sous `Selected HTTP methods`, cochez GET, POST, DELETE et PUT.
+1. Accédez à l’onglet **Intégrer** pour HttpTrigger.
+1. Sous **Méthodes HTTP sélectionnées**, sélectionnez **GET**, **POST**, **DELETE** et **PUT**.
 
-![Vue d’ensemble du fournisseur personnalisé](./media/create-custom-providers/azure-functions-http-methods.png)
+![Vue d’ensemble du fournisseur personnalisé montrant les méthodes HTTP](./media/create-custom-providers/azure-functions-http-methods.png)
 
-## <a name="modifying-the-csproj"></a>Modifier le fichier csproj
+## <a name="add-azure-resource-manager-nuget-packages"></a>Ajouter des packages NuGet Azure Resource Manager
 
 > [!NOTE]
-> Si le fichier csproj ne figure pas dans le répertoire, vous pouvez l’ajouter manuellement ou il apparaîtra une fois l’extension `Microsoft.Azure.WebJobs.Extensions.Storage` installée sur la fonction.
+> Si votre fichier projet C# ne se trouve pas dans le répertoire du projet, vous pouvez l’y ajouter manuellement. Sinon, il apparaîtra après l’installation de l’extension Microsoft.Azure.WebJobs.Extensions.Storage dans l’application de fonction.
 
-Ensuite, mettez à jour le fichier csproj en y ajoutant des bibliothèques NuGet utiles qui facilitent l’analyse de demandes entrantes en provenance de fournisseurs personnalisés. Suivez les étapes pour [ajouter des extensions à partir du portail](../azure-functions/install-update-binding-extensions-manual.md) et mettez à jour le fichier csproj pour y ajouter les références de package suivantes :
+Ensuite, mettez à jour le fichier projet C# en y ajoutant des bibliothèques NuGet. Ces bibliothèques facilitent l’analyse des requêtes entrantes envoyées par les fournisseurs personnalisés. Suivez les étapes pour [ajouter des extensions à partir du portail](../azure-functions/install-update-binding-extensions-manual.md) et mettez à jour le fichier projet C# pour y ajouter les références de package suivantes :
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -70,7 +60,7 @@ Ensuite, mettez à jour le fichier csproj en y ajoutant des bibliothèques NuGet
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-Exemple de fichier csproj :
+L’élément XML suivant est un exemple de fichier projet C# :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -88,6 +78,7 @@ Exemple de fichier csproj :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, nous avons préparé une fonction Azure pour qu’elle fonctionne comme `endpoint` d’un fournisseur personnalisé Azure. Accédez à l’article suivant pour apprendre à créer un `endpoint` de fournisseur personnalisé RESTful.
+Dans ce tutoriel, vous avez configuré une application de fonction Azure pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé Azure.
 
-- [Tutoriel : Création d’un point de terminaison de fournisseur personnalisé RESTful](./tutorial-custom-providers-function-authoring.md)
+Pour savoir comment créer un point de terminaison de fournisseur personnalisé RESTful, consultez [Tutoriel : Création d’un point de terminaison de fournisseur personnalisé RESTful](./tutorial-custom-providers-function-authoring.md).
+

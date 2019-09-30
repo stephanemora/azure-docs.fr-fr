@@ -1,38 +1,28 @@
 ---
-title: Créer et utiliser un fournisseur personnalisé Azure
+title: Créer et utiliser un fournisseur personnalisé
 description: Ce tutoriel explique comment créer et utiliser un fournisseur personnalisé.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 65a8e60d8216e1da16af987c9e699e24ecaec3ec
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 053cf9fca03bf58cf10c313ae2569ce1918a46b9
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799128"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172909"
 ---
-# <a name="authoring-a-restful-endpoint-for-custom-providers"></a>Création d’un point de terminaison RESTful pour un fournisseur personnalisé
+# <a name="create-and-use-a-custom-provider"></a>Créer et utiliser un fournisseur personnalisé
 
-Les fournisseurs personnalisés permettent de personnaliser les workflow dans Azure. Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison (`endpoint`). Ce tutoriel vous guide tout au long de la procédure de création d’un fournisseur personnalisé. Si vous ne savez pas encore ce qu’est un fournisseur personnalisé Azure, consultez [Présentation des fournisseurs de ressources personnalisés](./custom-providers-overview.md).
+Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Les fournisseurs personnalisés vous permettent de modifier des workflows dans Azure. Ce tutoriel montre comment créer un fournisseur personnalisé. Si vous ne savez pas encore ce qu’est un fournisseur personnalisé Azure, consultez la [présentation des fournisseurs de ressources personnalisés Azure](./custom-providers-overview.md).
 
-Ce tutoriel comprend les sections suivantes :
-
-- Définition d’un fournisseur personnalisé
-- Définition des actions et des ressources personnalisées
-- Déploiement d’un fournisseur personnalisé
-
-Ce tutoriel s’appuie sur les tutoriels suivants :
-
-- [Création d’un point de terminaison RESTful pour un fournisseur personnalisé](./tutorial-custom-providers-function-authoring.md)
-
-## <a name="creating-a-custom-provider"></a>Création d’un fournisseur personnalisé
+## <a name="create-a-custom-provider"></a>Créer un fournisseur personnalisé
 
 > [!NOTE]
-> Ce tutoriel n’explique pas comment créer un point de terminaison. Si vous ne disposez pas d’un point de terminaison RESTful, suivez le [tutoriel sur la création de points de terminaison RESTful](./tutorial-custom-providers-function-authoring.md).
+> Ce tutoriel n’explique pas comment créer un point de terminaison. Si vous ne disposez pas d’un point de terminaison RESTful, suivez le [tutoriel sur la création de points de terminaison RESTful](./tutorial-custom-providers-function-authoring.md), qui constitue la base du tutoriel actuel.
 
-Une fois le point de terminaison (`endpoint`) créé, vous pouvez créer un fournisseur personnalisé pour générer un contrat entre celui-ci et le point de terminaison (`endpoint`). Un fournisseur personnalisé vous permet de spécifier une liste de définitions de point de terminaison.
+Lorsque vous avez créé un point de terminaison, vous pouvez créer un fournisseur personnalisé afin de générer un contrat entre le fournisseur et le point de terminaison. Un fournisseur personnalisé vous permet de spécifier une liste de définitions de point de terminaison :
 
 ```JSON
 {
@@ -44,15 +34,15 @@ Une fois le point de terminaison (`endpoint`) créé, vous pouvez créer un four
 
 Propriété | Obligatoire | Description
 ---|---|---
-Nom | *Oui* | Nom de la définition de point de terminaison. Azure expose ce nom via son API sous « /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName} »
-routingType | *non* | Détermine le type de contrat passé avec le point de terminaison (`endpoint`). En l’absence de spécification, « Proxy » est spécifié par défaut.
-endpoint | *Oui* | Point de terminaison vers lequel router les requêtes. Il gère la réponse, ainsi que tous les effets secondaires de la requête.
+**name** | OUI | Nom de la définition de point de terminaison. Azure expose ce nom via son API sous /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
+**routingType** | Non | Type de contrat du point de terminaison. Si aucune valeur n’est spécifiée, la valeur par défaut est « proxy ».
+**endpoint** | OUI | Point de terminaison vers lequel router les requêtes. Ce point de terminaison gère la réponse, ainsi que tous les effets secondaires de la requête.
 
-Dans ce cas, le point de terminaison (`endpoint`) est l’URL du déclencheur de la fonction Azure. `<yourapp>` (nom de l’application), `<funcname>` (nom de la fonction) et `<functionkey>` (clé de la fonction) doivent être remplacés par les valeurs de la fonction que vous avez créée.
+La valeur de **endpoint** est l’URL du déclencheur de l’application de fonction Azure. Les espaces réservés `<yourapp>`, `<funcname>` et `<functionkey>` doivent être remplacés par les valeurs de l’application de fonction que vous avez créée.
 
-## <a name="defining-custom-actions-and-resources"></a>Définition des actions et des ressources personnalisées
+## <a name="define-custom-actions-and-resources"></a>Définir des actions et des ressources personnalisées
 
-Le fournisseur personnalisé contient une liste de définitions de point de terminaison modélisée sous `actions` et `resourceTypes`. Les `actions` sont mappées sur les actions personnalisées qui sont exposées par le fournisseur personnalisé, et les `resourceTypes` (types des ressources) correspondent aux ressources personnalisées. Pour ce tutoriel, nous allons définir un fournisseur personnalisé avec un `action` nommé `myCustomAction` et un `resourceType` nommé `myCustomResources`.
+Dans le fournisseur personnalisé, une liste de définitions de points de terminaison modélisée se trouve sous les propriétés **actions** et **resourceTypes**. La propriété **actions** est mappée aux actions personnalisées qui sont exposées par le fournisseur personnalisé, et la propriété **resourceTypes** correspond aux ressources personnalisées. Dans ce tutoriel, le fournisseur personnalisé comprend une propriété **actions** nommée `myCustomAction` et une propriété **resourceTypes** nommée `myCustomResources`.
 
 ```JSON
 {
@@ -76,14 +66,12 @@ Le fournisseur personnalisé contient une liste de définitions de point de term
 }
 ```
 
-Remplacez `endpoint` par l’URL du déclencheur appartenant à la fonction créée plus tôt dans le tutoriel précédent.
-
-## <a name="deploying-the-custom-provider"></a>Déploiement d’un fournisseur personnalisé
+## <a name="deploy-the-custom-provider"></a>Déployer un fournisseur personnalisé
 
 > [!NOTE]
-> `endpoint` doit être remplacé par l’URL de la fonction.
+> Vous devez remplacer les valeurs **endpoint** par l’URL de déclencheur de l’application de fonction créée précédemment dans ce tutoriel.
 
-Le fournisseur personnalisé ci-dessus peut être déployé à l’aide d’un modèle Azure Resource Manager.
+Vous pouvez déployer le fournisseur personnalisé ci-dessus à l’aide d’un modèle Azure Resource Manager :
 
 ```JSON
 {
@@ -116,16 +104,16 @@ Le fournisseur personnalisé ci-dessus peut être déployé à l’aide d’un m
 }
 ```
 
-## <a name="using-custom-actions-and-resources"></a>Utilisation des actions et des ressources personnalisées
+## <a name="use-custom-actions-and-resources"></a>Utiliser des actions et des ressources personnalisées
 
-Une fois que nous avons créé le fournisseur personnalisé, nous pouvons utiliser les nouvelles API Azure. La section suivante explique comment appeler et utiliser un fournisseur personnalisé.
+Après avoir créé un fournisseur personnalisé, vous pouvez utiliser les nouvelles API Azure. Les onglets suivants expliquent comment appeler et utiliser un fournisseur personnalisé.
 
 ### <a name="custom-actions"></a>Actions personnalisées
 
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 > [!NOTE]
-> `{subscriptionId}` et `{resourceGroupName}` doivent être remplacés par l’abonnement et le groupe de ressources dans lequel le fournisseur personnalisé a été déployé.
+> Vous devez remplacer les espaces réservés `{subscriptionId}` et `{resourceGroupName}` par l’abonnement et le groupe de ressources où vous avez déployé le fournisseur personnalisé.
 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
@@ -138,9 +126,9 @@ az resource invoke-action --action myCustomAction \
 
 Paramètre | Obligatoire | Description
 ---|---|---
-action | *Oui* | Nom de l’action définie dans le fournisseur personnalisé que vous avez créé.
-ids | *Oui* | ID de ressource du fournisseur personnalisé créé.
-request-body | *non* | Corps de la requête qui sera envoyé au point de terminaison (`endpoint`).
+*action* | OUI | Nom de l’action définie dans le fournisseur personnalisé
+*ids* | OUI | ID de ressource du fournisseur personnalisé
+*request-body* | Non | Corps de la requête qui sera envoyé au point de terminaison
 
 # <a name="templatetabtemplate"></a>[Modèle](#tab/template)
 
@@ -153,9 +141,9 @@ Aucune.
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 > [!NOTE]
-> `{subscriptionId}` et `{resourceGroupName}` doivent être remplacés par l’abonnement et le groupe de ressources dans lequel le fournisseur personnalisé a été déployé.
+> Vous devez remplacer les espaces réservés `{subscriptionId}` et `{resourceGroupName}` par l’abonnement et le groupe de ressources où vous avez déployé le fournisseur personnalisé.
 
-Créer une ressource personnalisée :
+#### <a name="create-a-custom-resource"></a>Créer une ressource personnalisée
 
 ```azurecli-interactive
 az resource create --is-full-object \
@@ -171,11 +159,11 @@ az resource create --is-full-object \
 
 Paramètre | Obligatoire | Description
 ---|---|---
-is-full-object | *Oui* | Indique que l’objet properties inclut d’autres options telles que l’emplacement, les étiquettes, une référence SKU et/ou un plan.
-id | *Oui* | ID de ressource de la ressource personnalisée. Celui-ci est généré lors de la création du fournisseur personnalisé.
-properties | *Oui* | Corps de la requête qui sera envoyé au point de terminaison (`endpoint`).
+*is-full-object* | OUI | Indique si l’objet properties inclut d’autres options telles que l’emplacement, les étiquettes, une référence SKU ou un plan.
+*id* | OUI | ID de ressource de la ressource personnalisée. Cet ID est une extension de l’ID de ressource du fournisseur personnalisé.
+*properties* | OUI | Corps de la requête qui sera envoyé au point de terminaison.
 
-Supprimer une ressource personnalisée Azure :
+#### <a name="delete-a-custom-resource"></a>Supprimer une ressource personnalisée
 
 ```azurecli-interactive
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -183,9 +171,9 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Paramètre | Obligatoire | Description
 ---|---|---
-id | *Oui* | ID de ressource de la ressource personnalisée. Celui-ci est généré lors de la création du fournisseur personnalisé.
+*id* | OUI | ID de ressource de la ressource personnalisée. Cet ID est une extension de l’ID de ressource du fournisseur personnalisé.
 
-Récupérer une ressource personnalisée Azure :
+#### <a name="retrieve-a-custom-resource"></a>Récupérer une ressource personnalisée
 
 ```azurecli-interactive
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -193,11 +181,11 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Paramètre | Obligatoire | Description
 ---|---|---
-id | *Oui* | ID de ressource de la ressource personnalisée. Celui-ci est généré lors de la création du fournisseur personnalisé.
+*id* | OUI | ID de ressource de la ressource personnalisée. Cet ID est une extension de l’ID de ressource du fournisseur personnalisé.
 
 # <a name="templatetabtemplate"></a>[Modèle](#tab/template)
 
-Exemple de modèle Azure Resource Manager :
+Exemple de modèle Resource Manager :
 
 ```JSON
 {
@@ -219,18 +207,18 @@ Exemple de modèle Azure Resource Manager :
 
 Paramètre | Obligatoire | Description
 ---|---|---
-resourceTypeName | *Oui* | Nom (`name`) du type de ressource (*resourceType*) défini dans le fournisseur personnalisé.
-resourceProviderName | *Oui* | Nom de l’instance de fournisseur personnalisé.
-customResourceName | *Oui* | Nom de la ressource personnalisée.
+*resourceTypeName* | OUI | Valeur `name` de la propriété **resourceTypes** définie dans le fournisseur personnalisé.
+*resourceProviderName* | OUI | Nom de l’instance de fournisseur personnalisé.
+*customResourceName* | OUI | Nom de la ressource personnalisée.
 
 ---
 
 > [!NOTE]
-> Une fois que vous en avez terminé avec le déploiement et l’utilisation du fournisseur personnalisé, pensez à nettoyer les ressources créées, y compris la fonction Azure.
+> Une fois que vous en avez terminé avec le déploiement et l’utilisation du fournisseur personnalisé, pensez à nettoyer les ressources créées, y compris l’application de fonction Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les fournisseurs personnalisés. Passez au suivant pour créer un fournisseur personnalisé.
+Dans cet article, vous avez découvert les fournisseurs personnalisés. Pour plus d'informations, consultez les pages suivantes :
 
-- [Guide pratique pour l’ajout d’actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
-- [Guide pratique pour l’ajout de ressources personnalisées à l’API REST Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Guide pratique pour ajouter des actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Guide pratique pour ajouter des ressources personnalisées à l’API REST Azure](./custom-providers-resources-endpoint-how-to.md)

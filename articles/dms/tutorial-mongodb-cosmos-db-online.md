@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/04/2019
-ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 09/25/2019
+ms.openlocfilehash: a73f3eefbf76b2ea24f34ed496ff45c5d2467e3e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565578"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266351"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Didacticiel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS
 
@@ -132,6 +132,9 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 ## <a name="specify-source-details"></a>Spécifier les détails de la source
 
 1. Sur l'écran **Détails de la source**, spécifiez les détails de connexion du serveur MongoDB source.
+
+   > [!IMPORTANT]
+   > Azure Database Migration Service ne prend pas en charge Azure Cosmos DB comme source.
 
     Il existe trois modes de connexion à une source :
    * **Mode standard**, qui accepte un nom de domaine complet ou une adresse IP, un numéro de port et des informations d’identification de connexion.

@@ -1,19 +1,19 @@
 ---
 title: Script Azure PowerShell - Mettre à jour un compte Azure Cosmos
-description: Exemple de script Azure PowerShell - Mettre à jour un compte Azure Cosmos avec les régions ajoutées
+description: Exemple de script Azure PowerShell - Mettre à jour un compte Azure Cosmos ou modifier des régions
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7d57264daf4036d1823d3da27c248bdca1d7466d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603947"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154740"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Mettre à jour un compte Azure Cosmos et ajouter une région à l’aide de PowerShell
+# <a name="update-an-azure-cosmos-account-or-add-modify-regions-using-powershell"></a>Mettre à jour un compte Azure Cosmos ou modifier des régions à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603947"
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> Vous ne pouvez pas modifier des régions et changer d’autres propriétés de compte Cosmos dans la même opération. Ces opérations doivent être effectuées séparément.
+> [!NOTE]
+> Cet exemple illustre l’utilisation d’un compte d’API SQL (Core). Pour utiliser cet exemple pour d’autres API, copiez les propriétés associées et appliquez-les à votre script propre à l’API.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -38,7 +43,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Ressources Azure**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Obtient une ressource. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crée une ressource. |
 | [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Met à jour une ressource. |
 |**Groupes de ressources Azure**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |

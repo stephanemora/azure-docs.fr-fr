@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034255"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212383"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Jamf Pro
 
@@ -87,7 +87,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 1. Sélectionnez **Définir des URL supplémentaires**. Si vous voulez configurer l’application en mode **initié par le fournisseur de services**, dans la zone de texte **URL de connexion**, entrez une URL qui utilise la formule suivante : `https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtenez la valeur réelle de l’identificateur dans la section* **Single Sign-On** (Authentification unique) du portail Jamf Pro. La procédure est expliquée plus loin dans le tutoriel. Vous pouvez extraire la valeur réelle du sous-domaine à partir de la valeur d’identificateur et utiliser ces informations de sous-domaine comme URL de connexion et URL de réponse. Vous pouvez aussi vous reporter aux formules présentées dans la section **Configuration SAML de base** du portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtenez la valeur réelle de l’identificateur dans la section **Single Sign-On** (Authentification unique) du portail Jamf Pro. La procédure est expliquée plus loin dans le tutoriel. Vous pouvez extraire la valeur réelle du sous-domaine à partir de la valeur d’identificateur et utiliser ces informations de sous-domaine comme URL de connexion et URL de réponse. Vous pouvez aussi vous reporter aux formules présentées dans la section **Configuration SAML de base** du portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, accédez à la section **Certificat de signature SAML**, cliquez sur le bouton **Copier** pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

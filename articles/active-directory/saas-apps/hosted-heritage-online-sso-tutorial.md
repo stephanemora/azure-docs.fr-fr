@@ -1,34 +1,34 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à CBRE ServiceInsight | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CBRE ServiceInsight.
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hosted Heritage Online SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 31d7cedf-2b70-4fa4-9b05-80066d2e8bfd
+ms.assetid: 6ff82b40-76de-4eed-8ab7-92a416cd83cb
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 462f44206b4f92629079eb5ae24099eae17291f8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: d1b133d28986f31ed396d1f499940d99e64f6fbc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121393"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174365"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cbre-serviceinsight"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à CBRE ServiceInsight
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hosted-heritage-online-sso"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO
 
-Dans ce tutoriel, vous allez apprendre à intégrer CBRE ServiceInsight à Azure AD (Azure Active Directory). Quand vous intégrez CBRE ServiceInsight à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Hosted Heritage Online SSO à Azure Active Directory (Azure AD). Quand vous intégrez Hosted Heritage Online SSO à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à CBRE ServiceInsight.
-* Permettre à vos utilisateurs de se connecter automatiquement à CBRE ServiceInsight avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès à Hosted Heritage Online SSO.
+* Permettre à vos utilisateurs de se connecter automatiquement à Hosted Heritage Online SSO avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,44 +38,43 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement CBRE ServiceInsight pour lequel l’authentification unique est activée.
+* Un abonnement Hosted Heritage Online SSO pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* CBRE ServiceInsight prend en charge l’authentification initiée par **SP**
-* CBRE ServiceInsight prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Hosted Heritage Online SSO prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-cbre-serviceinsight-from-the-gallery"></a>Ajout de CBRE ServiceInsight à partir de la galerie
+## <a name="adding-hosted-heritage-online-sso-from-the-gallery"></a>Ajout de Hosted Heritage Online SSO à partir de la galerie
 
-Pour configurer l’intégration de CBRE ServiceInsight à Azure AD, vous devez ajouter CBRE ServiceInsight depuis la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Hosted Heritage Online SSO à Azure AD, vous devez ajouter Hosted Heritage Online SSO, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **CBRE ServiceInsight** dans la zone de recherche.
-1. Sélectionnez **CBRE ServiceInsight** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Hosted Heritage Online SSO** dans la zone de recherche.
+1. Sélectionnez **Hosted Heritage Online SSO** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cbre-serviceinsight"></a>Configurer et tester l’authentification unique Azure AD pour CBRE ServiceInsight
+## <a name="configure-and-test-azure-ad-single-sign-on-for-hosted-heritage-online-sso"></a>Configurer et tester l’authentification unique Azure AD pour Hosted Heritage Online SSO
 
-Configurez et testez l’authentification unique Azure AD avec CBRE ServiceInsight pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur CBRE ServiceInsight associé.
+Configurez et testez l’authentification unique Azure AD avec Hosted Heritage Online SSO pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Hosted Heritage Online SSO associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec CBRE ServiceInsight, effectuez les modules suivants :
+Pour configurer et tester l’authentification unique Azure AD avec Hosted Heritage Online SSO, effectuez les modules suivants :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique CBRE ServiceInsight](#configure-cbre-serviceinsight-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test CBRE ServiceInsight](#create-cbre-serviceinsight-test-user)** pour obtenir un équivalent de B.Simon dans CBRE ServiceInsight lié à la représentation Azure AD associée.
+1. **[Configurer l’authentification unique Hosted Heritage Online SSO](#configure-hosted-heritage-online-sso-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Hosted Heritage Online SSO](#create-hosted-heritage-online-sso-test-user)** pour avoir un équivalent de B.Simon dans Hosted Heritage Online SSO lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **CBRE ServiceInsight**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Hosted Heritage Online SSO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -83,10 +82,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : `https://adfs4.mainstreamsasp.com/adfs/ls/`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.cirqahosting.com/Shibboleth.sso/Login`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.cirqahosting.com/shibboleth`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de CBRE ServiceInsight](mailto:SISupport@cbre.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Hosted Heritage Online SSO](mailto:support@isoxford.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -106,10 +107,10 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à CBRE ServiceInsight.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Hosted Heritage Online SSO.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **CBRE ServiceInsight**.
+1. Dans la liste des applications, sélectionnez **Hosted Heritage Online SSO**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
@@ -122,19 +123,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-cbre-serviceinsight-sso"></a>Configurer l’authentification unique CBRE ServiceInsight
+## <a name="configure-hosted-heritage-online-sso-sso"></a>Configurer l’authentification unique Hosted Heritage Online SSO
 
-Pour configurer l’authentification unique côté **CBRE ServiceInsight**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à [l’équipe du support technique CBRE ServiceInsight](mailto:SISupport@cbre.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Hosted Heritage Online SSO**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique de Hosted Heritage Online SSO](mailto:support@isoxford.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-### <a name="create-cbre-serviceinsight-test-user"></a>Créer l’utilisateur de test CBRE ServiceInsight
+### <a name="create-hosted-heritage-online-sso-test-user"></a>Créer un utilisateur de test Hosted Heritage Online SSO
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans CBRE ServiceInsight. CBRE ServiceInsight prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans CBRE ServiceInsight, il en est créé un quand vous tentez d’y accéder.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Hosted Heritage Online SSO. Collaborez avec l’ [équipe du support technique de Hosted Heritage Online SSO](mailto:support@isoxford.com) pour ajouter les utilisateurs dans la plateforme Hosted Heritage Online SSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette CBRE ServiceInsight dans le panneau d’accès doit vous connecter automatiquement à l’application CBRE ServiceInsight pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette Hosted Heritage Online SSO dans le volet d’accès doit vous connecter automatiquement à l’application Hosted Heritage Online SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -144,4 +145,5 @@ Le fait de cliquer sur la vignette CBRE ServiceInsight dans le panneau d’accè
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Essayer CBRE ServiceInsight avec Azure AD](https://aad.portal.azure.com/)
+- [Essayer Hosted Heritage Online SSO avec Azure AD](https://aad.portal.azure.com/)
+

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624350"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129565"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Sauvegarder et restaurer des partages de fichiers Azure
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
@@ -86,13 +86,15 @@ Vous souhaiterez parfois générer un instantané de sauvegarde ou un point de r
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. Dans la liste des partages de fichiers Azure, sélectionnez le partage de fichiers désiré. Le menu de l’élément de sauvegarde pour le partage de fichiers sélectionné s’ouvre.
+3. Dans la liste des partages de fichiers Azure, sélectionnez le partage de fichiers désiré. Les détails associés à **Élément de sauvegarde** s’affichent. Dans le menu **Élément de sauvegarde**, cliquez sur **Sauvegarder maintenant**. Comme il s’agit d’un travail de sauvegarde à la demande, il n’existe aucune stratégie de rétention associée au point de récupération.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/backup-item-menu.png)
 
-4. Dans le menu de l’élément de sauvegarde, cliquez sur **Sauvegarder maintenant**. Comme il s’agit d’un travail de sauvegarde à la demande, il n’existe aucune stratégie de rétention associée au point de récupération. La boîte de dialogue **Sauvegarder maintenant** s’ouvre. Spécifiez le dernier jour que vous souhaitez conserver dans le point de récupération.
+4. La boîte de dialogue **Sauvegarder maintenant** s’ouvre. Spécifiez le dernier jour que vous souhaitez conserver dans le point de récupération.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/backup-now-menu.png)
+
+5. Cliquez sur **OK** pour confirmer la tâche de sauvegarde à la demande.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restauration à partir d’une sauvegarde de partage de fichiers Azure
 Si vous devez restaurer un partage de fichiers entier ou des fichiers ou dossiers individuels à partir d’un point de restauration, accédez à l’élément de sauvegarde, comme détaillé dans la section précédente. Choisissez **Restaurer un partage** pour restaurer un partage de fichiers entier depuis un moment précis. Dans la liste des points de restauration qui s’affichent, sélectionnez-en un qui est en mesure de remplacer votre partage de fichiers actuel ou bien restaurez-le dans un autre partage de fichier de la même région.

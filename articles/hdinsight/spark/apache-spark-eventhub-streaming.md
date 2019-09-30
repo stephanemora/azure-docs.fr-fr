@@ -1,19 +1,19 @@
 ---
 title: 'Didacticiel : Traiter des données à partir d’Azure Event Hubs avec Apache Spark dans HDInsight'
 description: Didacticiel - Connectez Apache Spark dans Azure HDInsight à Azure Event Hubs et traitez les données de streaming.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735349"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266209"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Didacticiel : Traiter les tweets à l’aide d’Azure Event Hubs et d’Apache Spark dans HDInsight
 
@@ -252,7 +252,7 @@ Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data 
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 
-![Supprimer le cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer le cluster HDInsight")
+![Supprimer le cluster HDInsight dans le portail Azure](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer le cluster HDInsight")
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight Spark et le compte de stockage par défaut.
 

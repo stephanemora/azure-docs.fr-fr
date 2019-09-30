@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076993"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204233"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 
@@ -186,12 +186,15 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
 
 4. Chargez les packages utilisés par le notebook en entrant les informations suivantes dans une cellule de notebook. Exécutez la commande à l’aide de **CTRL + ENTRÉE**.
 
+Le streaming Spark utilise le microtraitement par lots, ce qui signifie que les données sont fournies sous forme de lots et que des exécuteurs s’exécutent sur les lots de données. Si le délai d’inactivité de l’exécuteur est inférieur au temps nécessaire au traitement par lots, l’exécuteur est constamment ajouté puis supprimé. Si le délai d’inactivité de l’exécuteur est supérieur à la durée du lot, l’exécuteur n’est jamais supprimé. Par conséquent, **nous vous recommandons de désactiver l’allocation dynamique en définissant spark.dynamicAllocation.enabled sur false lors de l’exécution d’applications de streaming**.
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```

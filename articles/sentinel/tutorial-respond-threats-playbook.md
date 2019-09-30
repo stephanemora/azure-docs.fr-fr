@@ -1,5 +1,5 @@
 ---
-title: Exécuter un playbook dans la préversion d’Azure Sentinel | Microsoft Docs
+title: Exécuter un playbook dans Azure Sentinel | Microsoft Docs
 description: Cet article décrit comment exécuter un playbook dans Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018804"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229516"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Didacticiel : Configurer des réponses automatisées aux menaces dans la préversion d’Azure Sentinel
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Didacticiel : Configurer des réponses automatisées aux menaces dans Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Ce didacticiel vous aide à utiliser des playbooks de sécurité dans Azure Sentinel afin de définir des réponses automatisées aux menaces pour les problèmes de sécurité détectés par Azure Sentinel.
 
@@ -78,7 +76,9 @@ Pour créer un playbook de sécurité dans Azure Security, procédez comme suit
 
 6. Vous accédez au Concepteur d’application logique où vous pouvez créer ou modifier le modèle. Pour plus d’informations sur la création d’un playbook avec [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Si vous créez un playbook vide, dans le champ **Rechercher dans l’ensemble des connecteurs et déclencheurs**, tapez *Azure Sentinel*, puis sélectionnez **Quand une réponse à une alerte Azure Sentinel est déclenchée**. <br>Une fois créé, le nouveau playbook s’affiche dans la liste **Playbooks**. S’il n’y figure pas, cliquez sur **Actualiser**. 
+7. Si vous créez un playbook vide, dans le champ **Rechercher dans l’ensemble des connecteurs et déclencheurs**, tapez *Azure Sentinel*, puis sélectionnez **Quand une réponse à une alerte Azure Sentinel est déclenchée**. <br>Une fois créé, le nouveau playbook s’affiche dans la liste **Playbooks**. S’il n’y figure pas, cliquez sur **Actualiser**.
+
+1. Utilisez les fonctions **Obtenir des entités**, afin d’obtenir les entités pertinentes de la liste **Entités**, telles que les comptes, les adresses IP et les hôtes. Vous pourrez ainsi exécuter des actions sur les entités de votre choix.
 
 7. Maintenant, vous pouvez définir l’action effectuée lorsque vous déclenchez le playbook. Vous pouvez ajouter une action, une condition logique, des boucles ou des conditions de casse de commutateur.
 

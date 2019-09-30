@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: e5666a64e4160964e2c1b35707a0f064edb72460
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706902"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179125"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Didacticiel : Migrer SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database en ligne à l’aide de DMS
 
@@ -78,16 +78,16 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 - Si aucune des tables ne comporte de clé primaire, activez la capture des changements de données (CDC) sur la base de données et sur une ou plusieurs tables spécifiques.
     > [!NOTE]
     > Vous pouvez utiliser le script ci-après pour rechercher toutes les tables dépourvues de clé primaire.
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >Si les résultats indiquent une ou plusieurs tables pour lesquelles « is_tracked_by_cdc » présente la valeur 0, activez la capture des changements de données pour la base de données et pour les tables spécifiques en exécutant la procédure décrite dans l’article [Activer et désactiver la capture de données modifiées (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
+    Si les résultats indiquent une ou plusieurs tables pour lesquelles « is_tracked_by_cdc » présente la valeur 0, activez la capture des changements de données pour la base de données et pour les tables spécifiques en exécutant la procédure décrite dans l’article [Activer et désactiver la capture de données modifiées (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
 
 - Configurez le rôle de base de données du serveur de distribution pour le serveur SQL Server source.
 
@@ -127,17 +127,17 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 Avant de pouvoir migrer les données d’une instance locale de SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database, vous devez évaluer la base de données SQL Server pour détecter les problèmes de blocage susceptibles d’empêcher la migration. Une fois que vous avez téléchargé et installé l’Assistant Migration de données v3.3 ou version ultérieure, suivez les étapes décrites dans l’article [Évaluation de la migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) pour évaluer la base de données locale.
 
-Pour évaluer une base de données locale, procédez comme suit :
+Pour évaluer une base de données locale, effectuez les étapes suivantes :
 
 1. Dans DMA, sélectionnez l’icône Nouveau (+), puis sélectionnez le type de projet **Évaluation**.
 2. Spécifiez un nom de projet, dans la zone de texte **Type de serveur source**, sélectionnez **SQL Server** puis, dans la zone de texte **Type de serveur cible**, sélectionnez **Azure SQL Database**, puis sélectionnez **Créer** pour créer le projet.
 
-    Quand vous évaluez la base de données SQL Server source qui doit faire l’objet d’une migration vers une base de données unique ou mise en pool dans Azure SQL Database, vous pouvez choisir l’un des types de rapport d’évaluation suivants, ou les deux :
+   Quand vous évaluez la base de données SQL Server source qui doit faire l’objet d’une migration vers une base de données unique ou mise en pool dans Azure SQL Database, vous pouvez choisir l’un des types de rapport d’évaluation suivants, ou les deux :
 
    - Vérifier la compatibilité de la base de données
    - Vérifier la parité de fonctionnalité
 
-     Les deux types de rapports sont sélectionnés par défaut.
+   Les deux types de rapports sont sélectionnés par défaut.
 
 3. Dans DMA, sur l’écran **Options**, sélectionnez **Suivant**.
 4. Dans l’écran **Sélectionner les sources**, dans la boîte de dialogue **Se connecter à un serveur**, fournissez les détails de connexion à votre SQL Server, puis sélectionnez **Se connecter**.

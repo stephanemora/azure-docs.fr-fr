@@ -1,51 +1,47 @@
 ---
 title: Créer des actions et des ressources personnalisées dans Azure
-description: Ce tutoriel passe en revue la création d’actions et de ressources personnalisées dans Azure Resource Manager, ainsi que leur intégration dans des workflows personnalisés pour Modèles Azure Resource Manager, Azure CLI, Azure Policy et Journal d’activité.
+description: Ce tutoriel explique comment créer des actions et des ressources personnalisées dans Azure Resource Manager. Il montre également comment les workflows personnalisés interagissent avec les modèles Azure Resource Manager, Azure CLI, Azure Policy et les journaux d’activité Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 4bbfcf070611e3df5c0fe47070f2ab6961111e07
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: dc1601e344c371a5f0feaadd272a2c6ff40af031
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799188"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172942"
 ---
 # <a name="create-custom-actions-and-resources-in-azure"></a>Créer des actions et des ressources personnalisées dans Azure
 
-Les fournisseurs personnalisés vous permettent de personnaliser des workflows dans Azure. Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison (`endpoint`). Il permet d’ajouter des API personnalisées à Azure Resource Manager pour bénéficier de nouvelles fonctionnalités de gestion et de déploiement. Ce tutoriel fait appel à un exemple simple pour vous montrer comment ajouter de nouvelles actions et ressources à Azure et comment les intégrer.
+Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Avec les fournisseurs personnalisés, vous pouvez modifier les workflows dans Azure en ajoutant de nouvelles API à Azure Resource Manager. Avec ces API personnalisées, Resource Manager peut utiliser de nouvelles fonctionnalités de déploiement et de gestion.
 
-Dans ce tutoriel, vous allez effectuer les étapes suivantes :
+Ce tutoriel fait appel à un exemple simple pour vous montrer comment ajouter de nouvelles actions et ressources à Azure, et comment les intégrer.
 
-- Configurer des fonctions Azure pour des fournisseurs personnalisés Azure
-- Créer un point de terminaison RESTful pour des fournisseurs personnalisés
-- Créer et utiliser le fournisseur personnalisé
+## <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurer Azure Functions pour les fournisseurs personnalisés Azure
 
-## <a name="setup-azure-functions-for-azure-custom-providers"></a>Configurer des fonctions Azure pour des fournisseurs personnalisés Azure
+La première partie de ce tutoriel montre comment configurer une application de fonction Azure pour qu’elle fonctionne avec les fournisseurs personnalisés :
 
-Cette partie du tutoriel explique en détail comment configurer une fonction Azure pour fonctionner avec des fournisseurs personnalisés. Les fournisseurs personnalisés peuvent utiliser n’importe quelle URL publique.
+- [Configurer Azure Functions pour les fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md)
 
-- [Configurer des fonctions Azure pour des fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md)
+Les fournisseurs personnalisés peuvent utiliser n’importe quelle URL publique.
 
-## <a name="authoring-a-restful-endpoint-for-custom-providers"></a>Créer un point de terminaison RESTful pour des fournisseurs personnalisés
+## <a name="author-a-restful-endpoint-for-custom-providers"></a>Créer un point de terminaison RESTful pour des fournisseurs personnalisés
 
-Cette partie du tutoriel explique en détail la création d’un point de terminaison RESTful pour des fournisseurs personnalisés.
+La deuxième partie de ce tutoriel explique comment créer un point de terminaison RESTful pour les fournisseurs personnalisés :
 
 - [Créer un point de terminaison RESTful pour des fournisseurs personnalisés](./tutorial-custom-providers-function-authoring.md)
 
-## <a name="creating-and-utilizing-the-custom-provider"></a>Créer et utiliser le fournisseur personnalisé
+## <a name="create-and-use-a-custom-provider"></a>Créer et utiliser un fournisseur personnalisé
 
-Cette partie du tutoriel explique en détail comment créer un fournisseur personnalisé et utiliser ses actions et ressources personnalisées.
+La troisième partie de ce tutoriel explique comment créer un fournisseur personnalisé et utiliser ses actions et ses ressources personnalisées :
 
-- [Créer et utiliser un fournisseur personnalisé Azure](./tutorial-custom-providers-create.md)
+- [Créer et utiliser un fournisseur personnalisé](./tutorial-custom-providers-create.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris ce qu’est un fournisseur personnalisé et comment en créer un. Pour passer à l’étape suivante du tutoriel :
-
-- [Tutoriel : Configurer des fonctions Azure pour des fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md)
+Dans ce tutoriel, vous avez appris ce qu’est un fournisseur personnalisé et comment en créer un. Pour passer au tutoriel suivant, consultez [Tutoriel : Configurer Azure Functions pour les fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md).
 
 Si vous cherchez des références ou un guide de démarrage rapide, voici quelques liens utiles :
 
