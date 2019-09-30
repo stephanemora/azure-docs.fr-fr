@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/26/2019
+ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092008"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259325"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Didacticiel : Créer votre premier modèle de classification avec Machine Learning automatisé
 
@@ -58,100 +58,103 @@ Vous effectuez les étapes de configuration et d’exécution de l’expérience
 
 1. Sélectionnez **Prise en main**.
 
-1.  Sélectionnez **Automated ML** dans la section **Authoring** (Création), dans le volet gauche.
-L’écran **Getting started** (Bien démarrer) s’affiche, car il s’agit de votre première expérience avec le Machine Learning automatisé.
+1. Dans le volet gauche, sélectionnez **Automated ML** dans la section **Authoring** (Création).
 
-    ![Azure Machine Learning Studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+   Puisqu’il s’agit de votre premier essai d’Automated ML, l’écran Getting started (Bien démarrer) s’affiche.
+
+   ![Azure Machine Learning Studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
 1. Sélectionnez **Créer une expérience**. 
 
-1. Entrez **my-1st-automl-experiment** comme nom de l’expérience.
+1. Entrez le nom suivant pour l’expérience : `my-1st-automl-experiment`
 
-1. Sélectionnez **Create a new compute** (Créer un calcul). Un calcul est un environnement de ressources local ou cloud utilisé pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service. Pour cette expérience, nous utilisons un calcul cloud. 
+1. Sélectionnez **Create a new compute** (Créer un nouveau calcul), puis configurez la cible de calcul. Une cible de calcul est un environnement de ressources local ou cloud utilisé pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service. Pour cette expérience, nous utilisons un calcul cloud. 
 
-    1. Configurez votre contexte de calcul pour cette expérience.
+   Champ | Description | Valeur pour le tutoriel
+   ----|---|---
+   Nom du calcul |Nom unique qui identifie votre contexte de calcul.|automl-compute
+   Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.|Standard_DS12_V2
+   Nœuds min./max. (dans les paramètres avancés)| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
+
+   >[!NOTE]
+   >Pour ce tutoriel, vous utiliserez le compte de stockage et le conteneur par défaut créés avec votre nouveau calcul. Ces informations sont insérées automatiquement dans le formulaire.
+    
+1. Sélectionnez **Créer** pour accéder à la cible de calcul. 
+
+   **Quelques minutes sont nécessaires pour achever l’opération**. 
+
+1. Une fois la création terminée, sélectionnez votre nouvelle cible de calcul dans la liste déroulante, puis sélectionnez **Next** (Suivant).
+
+1. Sélectionnez **Upload from local file** (Charger à partir d’un fichier local) pour commencer la création d’un jeu de données. 
+
+    1. Sélectionnez **Parcourir**.
+    
+    1. Choisissez le fichier **bankmarketing_train.csv** sur votre ordinateur local. Il s’agit du fichier que vous avez téléchargé en tant que [prérequis](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+
+    1. Donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
+
+    1. En bas à gauche, sélectionnez **Next** (Suivant) pour le charger dans le conteneur par défaut qui a été configuré automatiquement lors de la création de votre espace de travail. La préversion publique prend en charge uniquement les chargements de fichiers locaux. 
+    
+       Une fois le chargement terminé, le formulaire Settings and preview (Paramètres et aperçu) est prérenseigné en fonction du type de fichier. 
+       
+    1. Vérifiez que le formulaire **Settings and preview** est renseigné comme ci-dessous, puis sélectionnez **Next** (Suivant).
         
-        Champ | Valeur
-        ----|---
-        Nom du calcul |  Entrez un nom unique qui identifie votre contexte de calcul. Pour cet exemple, utilisez **automl-compute**.
-        Taille de la machine virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul. Utilisez la valeur par défaut, **Standard_DS12_V2**.
-        Paramètres supplémentaires| *Nœuds min* : 1. Pour activer le profilage des données, vous devez disposer d’un ou de plusieurs nœuds. <br> *Nœuds max* : 6.
- 
-    1. Pour créer votre calcul, sélectionnez **Créer**. Quelques minutes sont nécessaires pour achever l’opération. 
-
-    1. Une fois la création terminée, sélectionnez votre nouveau calcul dans la liste déroulante, puis sélectionnez **Suivant**.
-
-    >[!NOTE]
-    >Pour ce tutoriel, vous utiliserez le compte de stockage et le conteneur par défaut créés avec votre nouveau calcul. Ces informations sont insérées automatiquement dans le formulaire.
-
-1. Sélectionnez **Upload from local file** (Charger à partir d’un fichier local). À partir de là, vous créez un jeu de données avec le fichier **bankmarketing_train.csv** que vous avez téléchargé pour ce tutoriel. 
-
-    1. Sélectionnez **Browse** (Parcourir), puis sélectionnez le fichier **bankmarketing_train.csv** sur votre ordinateur local. 
-
-    1. Donnez un nom unique à votre jeu de données et fournissez une description facultative. 
-
-    1. Sélectionnez **Next** (Suivant) pour le charger dans le conteneur par défaut qui a été configuré automatiquement lors de la création de votre espace de travail. La préversion publique prend en charge uniquement les chargements de fichiers locaux. 
-
-    1. Une fois le chargement terminé, le formulaire **Settings and preview** (Paramètres et aperçu) est renseigné intelligemment en fonction du type de fichier. Vérifiez que le formulaire est renseigné comme suit.
-        
-        Champ|Valeur
+        Champ|Valeur pour le tutoriel
         ---|---
         Format de fichier| Delimited
         Délimiteur| Comma
         Encodage| UTF-8
-        Column headers| Tous les fichiers ont les mêmes en-têtes
+        En-têtes de colonne| Tous les fichiers ont les mêmes en-têtes
         Ignorer les lignes | Aucun
-
-        >[!NOTE]
-        > Si l’un des paramètres de ce formulaire est mis à jour, l’aperçu est mis à jour en conséquence.
-
-        Sélectionnez **Suivant**.
     
-
     1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour cette expérience. Sélectionnez **Done** (Terminer) pour terminer le chargement de fichier et la création du jeu de données pour votre expérience.
 
         ![Configuration de l’onglet Aperçu](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-        
 1. Sélectionnez **Classification** comme tâche de prédiction.
 
 1. Sélectionnez **y** comme colonne cible, ce que vous souhaitez prédire. Cette colonne indique si le client a souscrit à un compte de dépôt à terme.
 
 1. Développez **Paramètres avancés** et renseignez les champs comme suit.
 
-    Paramètres avancés|Valeur
-    ------|------
-    Métrique principale| AUC_weighted 
-    Critères de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement se termine avant la fin : <br> *Délai du travail de formation (minutes)*  : 5.  <br> *Nombre maximal d’itérations* : 10 
-    Prétraitement| Active le prétraitement effectué par le Machine Learning automatisé. Cela comprend le nettoyage automatique des données, la préparation et la transformation pour générer des caractéristiques synthétiques.
-    Validation| Sélectionnez la validation croisée « K-fold » et **2** comme nombre de validations croisées. 
-    Accès concurrentiel| Sélectionnez **5** comme nombre maximal d’itérations simultanées.
-
    >[!NOTE]
-   > Pour cette expérience, vous ne définissez pas de seuil de métriques ni de nombre de cœurs maximal par itérations. Vous n’empêchez pas non plus le test des algorithmes.
+   > Dans ce tutoriel, vous n’allez pas définir un score de métrique ni un nombre de cœurs maximal par itération. Vous n’allez pas non plus bloquer le test des algorithmes.
+   
+   Paramètres&nbsp;avancés|Description|Valeur&nbsp;pour&nbsp;le tutoriel
+   ------|---------|---
+   Métrique principale| Métrique d’évaluation selon laquelle l’algorithme de Machine Learning sera mesuré.|AUC_weighted
+   Critères de sortie| Lorsqu’une condition est remplie, la tâche d’entraînement est arrêtée. |Durée&nbsp;de la tâche&nbsp;d’entraînement : 5. <br> <br> &nbsp;#&nbsp; max d’&nbsp;itérations : 10
+   Prétraitement| Active le prétraitement effectué par le Machine Learning automatisé. Cela comprend le nettoyage automatique des données, la préparation et la transformation pour générer des caractéristiques synthétiques.| Activer
+   Type de validation | Choisissez un type de validation croisée.|Validation croisée k-fold
+   Nombre de validations | Nombre de tests. | 2 validations croisées 
+   Accès concurrentiel| Nombre maximal d’itérations simultanées.|5\.
+   
+1. Sélectionnez **Démarrer** pour exécuter l’expérience. Au début de la préparation de l’expérience, un message d’état s’affiche.
 
-1. Sélectionnez **Démarrer** pour exécuter l’expérience.
+>[!IMPORTANT]
+> La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes. Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  
+>
+> Dans un environnement de production, cette durée est un peu plus longue. Toutefois, dans le cadre de ce tutoriel, nous vous suggérons de commencer à explorer les résultats des itérations à mesure que celles-ci se terminent, pendant que les autres s’exécutent. 
 
-   Au démarrage de l’expérience, un écran vide apparaît avec un message d’état en haut.
+##  <a name="explore-iteration-results"></a>Explorer les résultats des itérations
 
-Le processus de préparation de l’expérience prend plusieurs minutes. Une fois ce processus terminé, le message d’état devient **Run is Running** (L’exécution est en cours d’exécution).
+À mesure que l’expérience progresse, l’écran met à jour le graphique d’itération (**Iteration chart**) et la liste d’itération (**Iteration list**) avec les différentes itérations (modèles) créées à mesure qu’elles se terminent, puis il les classe en fonction de leur score de métrique. Par défaut, le modèle qui obtient le score le plus élevé d’après la métrique **AUC_weighted** choisie figure en haut de la liste.
 
-##  <a name="view-experiment-details"></a>Afficher les détails de l'expérience
+En attendant que toutes les itérations d’expérience se terminent, sélectionnez le nom (**Name**) d’une itération terminée pour explorer ses performances en détail. 
+   
+L’exemple suivant montre les graphiques et les métriques d’exécution générés pour chaque itération, tels qu’une courbe de précision et de rappel, une matrice de confusion, des scores de précision pondérée, etc. 
 
-À mesure que l’expérience progresse, l’écran met à jour le graphique d’itération (**Iteration chart**) et la liste d’itération (**Iteration list**) avec les différentes itérations (modèles) qui sont exécutées. La liste des itérations est triée par score de métrique. Par défaut, le modèle qui obtient la valeur la plus élevée d’après notre métrique **AUC_weighted** figure en haut de la liste.
-
->[!WARNING]
-> Les travaux d’entraînement prennent plusieurs minutes, le temps que l’exécution de chaque pipeline se termine.
-
-[![Tableau de bord des détails de l’exécution](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+![Détails sur l’exécution de l’itération](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## <a name="deploy-the-model"></a>Déployer le modèle
 
-En utilisant le machine learning automatisé dans la page de destination de l’espace de travail, vous pouvez déployer le meilleur modèle en tant que service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. Dans le cadre de cette expérience, le déploiement sur un service web signifie que l’établissement financier dispose désormais d’une solution web itérative et scalable pour identifier les clients potentiels d’un compte à terme. 
+Dans la page d’accueil de l’espace de travail, le Machine Learning automatisé vous permet de déployer le meilleur modèle en tant que service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. Dans le cadre de cette expérience, le déploiement sur un service web signifie que l’établissement financier dispose désormais d’une solution web itérative et scalable pour identifier les clients potentiels d’un compte à terme. 
+
+Une fois l’exécution terminée, revenez aux pages de détails **Iteration chart** et **Iterations list**. 
 
 Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le meilleur modèle d’après la métrique **AUC_weighted**.  Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
 
-1. Dans la page **Run Detail** (Détails de l’exécution), sélectionnez le bouton **Deploy Best Model** (Déployer le meilleur modèle) en haut à droite.
+1. Sélectionnez le bouton **Deploy Best Model** (Déployer le meilleur modèle) en haut à droite.
 
 1. Renseignez le volet **Déployer le meilleur modèle** comme suit :
 
