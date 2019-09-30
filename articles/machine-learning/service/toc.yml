@@ -49,6 +49,10 @@
         - name: Classification (données bancaires)
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+    - name: Interface CLI de Machine Learning
+      items:
+        - name: Entraîner et déployer un modèle
+          href: tutorial-train-deploy-model-cli.md
 - name: Exemples
   items:
     - name: Notebooks
@@ -63,6 +67,9 @@
     - name: Cible de calcul
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: Apprentissage du modèle
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
     - name: Interface visuelle
       displayName: studio
       href: ui-concept-visual-interface.md
@@ -138,7 +145,7 @@
     - name: Entraîner des modèles
       items:
         - name: Configurer des environnements d’entraînement
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: Utiliser des estimateurs pour l’entraînement
           items:

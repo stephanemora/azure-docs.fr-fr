@@ -85,6 +85,8 @@
           href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Java
           href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: JavaScript
+          href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Python
           href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
@@ -188,7 +190,7 @@
                 - name: Forum Aux Questions
                   href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: API REST
-                  href: 'https://docs.microsoft.com/rest/api/storageimportexport/jobs'
+                  href: /rest/api/storageimportexport/jobs
                 - name: Contacter le support technique
                   href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Archivage
@@ -348,10 +350,10 @@
                   href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurer la sécurité réseau
               items:
-                - name: Configurer des pare-feu et des réseaux virtuels
-                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Exiger un transfert sécurisé
                   href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurer des pare-feu et des réseaux virtuels
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Activer TLS (Transport Layer Security)
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Récupération d'urgence
@@ -414,54 +416,54 @@
                   href: storage-quickstart-blobs-nodejs.md
         - name: Gérer les objets blob
           items:
-            - name: PowerShell
-              href: /powershell/module/azure.storage
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Classic CLI
               href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Passer d’une région à l’autre
+          href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Informations de référence
       items:
-        - name: PowerShell
-          href: /powershell/module/azure.storage
+        - name: Azure PowerShell
+          href: /powershell/module/az.storage
         - name: Azure CLI
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Objets blob, files d’attente, tables et fichiers'
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
+            - name: 'Objets blob, files d’attente et fichiers'
+              href: /dotnet/api/overview/azure/storage/client
             - name: Déplacement des données
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Gestionnaire de ressources
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+            - name: Fournisseur de ressources de stockage
+              href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Objets blob, files d’attente, tables et fichiers (v7)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable'
-            - name: Kit de développement logiciel (SDK) de l’objet Blob (v10)
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview'
+            - name: "Objets blob, files d’attente et fichiers (version\_12.x - préversion)"
+              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: Fournisseur de ressources de stockage
+              href: /java/api/overview/azure/storage/management
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-        - name: Ruby
-          href: 'https://azure.github.io/azure-storage-ruby'
-        - name: PHP
-          href: 'https://azure.github.io/azure-storage-php/'
+          href: /javascript/api/overview/azure/storage
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-        - name: C++
-          href: 'https://azure.github.io/azure-storage-cpp'
-        - name: iOS
-          href: 'https://azure.github.io/azure-storage-ios/'
-        - name: Android
-          href: 'https://azure.github.io/azure-storage-android'
+          href: /python/api/overview/azure/storage
         - name: REST
           items:
             - name: 'Objets blob, files d’attente, tables et fichiers'
               href: /rest/api/storageservices
-            - name: Fournisseur de ressources
+            - name: Fournisseur de ressources de stockage
               href: /rest/api/storagerp
             - name: Importation/Exportation
               href: /rest/api/storageimportexport
+        - name: C++
+          href: 'https://azure.github.io/azure-storage-cpp'
+        - name: Ruby
+          href: 'https://azure.github.io/azure-storage-ruby'
+        - name: PHP
+          href: 'https://azure.github.io/azure-storage-php/'
+        - name: iOS
+          href: 'https://azure.github.io/azure-storage-ios/'
+        - name: Android
+          href: 'https://azure.github.io/azure-storage-android'
         - name: AzCopy v10
           items:
             - name: azcopy
@@ -497,23 +499,13 @@
           href: /azure/templates/microsoft.storage/allversions
     - name: Ressources
       items:
-        - name: Feuille de route Azure
-          href: 'https://azure.microsoft.com/roadmap/?product=storage'
-        - name: Outils clients du stockage Azure
-          href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Forum
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-        - name: Tarifs
-          href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
-        - name: Calculatrice de prix
-          href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-        - name: Videos
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: Mises à jour Azure
+          href: 'https://azure.microsoft.com/updates/?product=storage'
         - name: Explorateur de stockage Azure
           items:
-            - name: Explorateur Stockage
+            - name: Téléchargez l’Explorateur Stockage
+              href: 'https://azure.microsoft.com/features/storage-explorer/'
+            - name: Prise en main de l’Explorateur Stockage
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Notes de version de l’Explorateur de stockage
               href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -521,54 +513,62 @@
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Accessibilité de l’Explorateur Stockage Azure
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Packages NuGet
+        - name: Forum Internet du Stockage Azure
+          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+        - name: Stockage Azure sur Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+        - name: Prix du stockage d’objets blob
+          href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+        - name: Calculatrice de prix Azure
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Videos
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: Packages NuGet (.NET)
           items:
-            - name: Bibliothèque cliente Stockage Azure commune
+            - name: "Microsoft.Azure.Storage.Common (version\_11.x)"
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-            - name: Bibliothèque cliente Stockage Blob Azure
+            - name: "Azure.Storage.Common (version\_12.x - préversion)"
+              href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+            - name: "Microsoft.Azure.Storage.Blob (version\_11.x)"
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
-            - name: Bibliothèque de déplacement des données dans le stockage Azure
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+            - name: "Azure.Storage.Blob (version\_12.x - préversion)"
+              href: 'https://www.nuget.org/packages/Azure.Storage.Blobs/'
             - name: Gestionnaire de configuration Azure
               href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+            - name: Bibliothèque de déplacement des données dans le stockage Azure
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Code source
           items:
             - name: .NET
               items:
-                - name: 'Objets blob, files d’attente et fichiers'
-                  href: 'https://github.com/Azure/azure-storage-net'
-                - name: Déplacement des données
-                  href: /dotnet/api/microsoft.azure.storage.datamovement
-                - name: Fournisseur de ressources de stockage
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+                - name: Bibliothèque de client Stockage Azure
+                  items:
+                    - name: "Version\_12.x (préversion)"
+                      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                    - name: "Versions\_11.x et antérieures"
+                      href: 'https://github.com/Azure/azure-storage-net'
+                - name: Bibliothèque de déplacement des données
+                  href: 'https://github.com/Azure/azure-storage-net-data-movement'
+                - name: Bibliothèque du fournisseur de ressources de stockage
+                  href: /dotnet/api/overview/azure/storage/management
             - name: Java
               items:
-                - name: 'Objets blob, files d’attente, tables et fichiers (v7)'
-                  href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable'
-                - name: Kit de développement logiciel (SDK) de l’objet Blob (v10)
-                  href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview'
+                - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+                  href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+                - name: "Bibliothèque de client Stockage Azure versions\_8.x et antérieures"
+                  href: 'https://github.com/Azure/azure-storage-java'
             - name: Node.js
-              href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-            - name: Ruby
-              href: 'https://azure.github.io/azure-storage-ruby'
-            - name: PHP
-              href: 'https://azure.github.io/azure-storage-php/'
-            - name: Python
-              href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-            - name: C++
-              href: 'https://azure.github.io/azure-storage-cpp'
-            - name: iOS
-              href: 'https://azure.github.io/azure-storage-ios/'
-            - name: Android
-              href: 'https://azure.github.io/azure-storage-android'
-            - name: REST
               items:
-                - name: 'Objets blob, files d’attente, tables et fichiers'
-                  href: /rest/api/storageservices
-                - name: Fournisseur de ressources
-                  href: /rest/api/storagerp
-                - name: Importation/Exportation
-                  href: /rest/api/storageimportexport
+                - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+                  href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+                - name: "Bibliothèque de client Stockage Azure version\_10.x"
+                  href: 'https://github.com/Azure/azure-storage-node'
+            - name: Python
+              items:
+                - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+                  href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+                - name: "Bibliothèque de client Stockage Azure version\_2.1"
+                  href: 'https://github.com/Azure/azure-storage-python'
         - name: Offres de conformité
           href: ../common/storage-compliance-offerings.md
 - name: Data Lake Storage Gen2
@@ -732,23 +732,23 @@
         - name: .NET
           items:
             - name: 'Objets blob, files d’attente, tables et fichiers'
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
+              href: /dotnet/api/overview/azure/storage/client
             - name: Déplacement des données
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Gestionnaire de ressources
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+              href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
             - name: 'Objets blob, files d’attente, tables et fichiers (v7)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable'
+              href: /java/api/overview/azure/storage/client?view=azure-java-stable
             - name: Kit de développement logiciel (SDK) de l’objet Blob (v10)
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview'
+              href: /java/api/overview/azure/storage/client?view=azure-java-preview
         - name: REST
           items:
             - name: 'Objets blob, files d’attente, tables et fichiers'
               href: /rest/api/storageservices
             - name: Data Lake Storage Gen2
-              href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+              href: /rest/api/storageservices/data-lake-storage-gen2
             - name: Fournisseur de ressources
               href: /rest/api/storagerp
             - name: Importation/Exportation

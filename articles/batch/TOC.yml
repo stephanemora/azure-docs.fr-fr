@@ -80,6 +80,8 @@
         - name: Configurer l’accès aux nœuds de calcul
           href: pool-endpoint-configuration.md
         - name: Créer un pool avec Shared Image Gallery
+          href: batch-sig-images.md
+        - name: Créer un pool avec une ressource d’image managée
           href: batch-custom-images.md
         - name: Créer un pool dans un réseau virtuel
           href: batch-virtual-network.md
