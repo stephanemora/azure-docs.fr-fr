@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177036"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266838"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -54,12 +54,12 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 
 Vous pouvez également accéder aux données de journal d’activité à l’aide d’[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), d’[Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ou des [API REST Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-Les [journaux de diagnostic Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux d’activité émis par votre machine virtuelle qui fournissent des informations riches et fréquentes relatives à son opération. Le journal d’activité diffère du journal de diagnostic dans la mesure où il fournit un éclairage sur les opérations effectuées au sein de la machine virtuelle.
+Les [journaux de ressources Azure](../articles/azure-monitor/platform/resource-logs-overview.md) sont des journaux émis par votre machine virtuelle et qui fournissent des données enrichies et fréquentes sur son fonctionnement. Les journaux de ressources diffèrent des journaux d'activité dans la mesure où ils fournissent un éclairage sur les opérations effectuées au sein de la machine virtuelle.
 
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 - [Enregistrez-les dans un compte de stockage](../articles/azure-monitor/platform/archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
-- [Diffusez-les en streaming sur Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
+- [Diffusez-les en streaming sur Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
 - Analysez-les avec [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée

@@ -17,25 +17,33 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4de1fa903120fa6adc50d34428d8c3e2a28cf23
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835005"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264271"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
-Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’authentification Azure AD pour .NET (ADAL.NET) sont tous les deux utilisés pour authentifier des entités Azure AD et demander des jetons auprès d’Azure AD. Jusqu’à présent, la plupart des développeurs utilisent la plateforme Azure AD pour développeurs (v1.0) afin d’authentifier les identités Azure AD (comptes professionnels et scolaires) en demandant des jetons avec la Bibliothèque d’authentification Active Directory (ADAL). À présent, grâce à MSAL.NET, vous pouvez authentifier un ensemble plus large d’identités Microsoft (identités Azure AD et comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d’Azure AD B2C) via le point de terminaison de la plateforme d’identités Microsoft. 
+Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’authentification Azure AD pour .NET (ADAL.NET) sont tous les deux utilisés pour authentifier des entités Azure AD et demander des jetons auprès d’Azure AD. Jusqu’à présent, la plupart des développeurs utilisent la plateforme Azure AD pour développeurs (v1.0) afin d’authentifier les identités Azure AD (comptes professionnels et scolaires) en demandant des jetons avec la Bibliothèque d’authentification Active Directory (ADAL). Grâce à MSAL :
 
-Cet article explique comment choisir entre Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’authentification Azure AD pour .NET (ADAL.NET) et compare ces deux bibliothèques.  
+- vous pouvez authentifier un ensemble plus large d'identités Microsoft (identités Azure AD et comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d'Azure AD B2C) via le point de terminaison de la plateforme d'identités Microsoft ;
+- vos utilisateurs bénéficieront de la meilleure expérience d'authentification unique ;
+- votre application peut activer le consentement incrémentiel, et l'accès conditionnel est plus facile à prendre en charge ;
+- vous bénéficiez de l'innovation.
+
+**MSAL.NET est désormais la bibliothèque d'authentification recommandée avec la plateforme d'identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
+
+Cet article décrit les différences entre la Bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) et la Bibliothèque d'authentification Azure AD pour .NET (ADAL.NET). Il vous aide également à migrer vers MSAL.  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Différences entre les applications ADAL et MSAL
+
 Dans la plupart des cas, vous avez besoin d’utiliser MSAL.NET et le point de terminaison de la plateforme d’identités Microsoft, à savoir la dernière génération de bibliothèques d’authentification de Microsoft. En utilisant MSAL.NET, vous acquérez des jetons pour la connexion des utilisateurs à votre application avec Azure AD (comptes professionnels et scolaires), des comptes (personnels) Microsoft (MSA) ou Azure AD B2C. 
 
 Si vous connaissez déjà le point de terminaison Azure AD pour développeurs (v1.0) (et ADAL.NET), envisagez de lire l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](active-directory-v2-compare.md).
 
-En revanche, vous devez quand même utiliser ADAL.NET si votre application a besoin de connecter les utilisateurs avec des versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Pour plus d’informations, consultez [Prise en charge des services de fédération Active Directory (AD FS)](https://aka.ms/msal-net-adfs-support).
+En revanche, vous devez quand même utiliser ADAL.NET si votre application a besoin de connecter les utilisateurs avec des versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Pour plus d'informations, consultez le [support ADFS](https://aka.ms/msal-net-adfs-support).
 
 L’image suivante résume certaines des différences entre le ![code côte à côte](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) ADAL.NET et MSAL.NET
 
@@ -206,7 +214,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>Étendues à demander en cas de flux d’informations d’identification du client/application de démon
 
-En cas de flux d’informations d’identification du client, l’étendue à passer est également `/.default`. Cela indique à Azure AD toutes les autorisations au niveau de l’application que l’administrateur a acceptées dans l’inscription de l’application.
+En cas de flux d’informations d’identification du client, l’étendue à passer est également `/.default`. Cette étendue indique à Azure AD toutes les autorisations au niveau de l'application que l'administrateur a acceptées dans l'inscription de l'application.
 
 ## <a name="adal-to-msal-migration"></a>Migration ADAL vers MSAL
 
@@ -214,9 +222,9 @@ Dans ADAL.NET v2. X, les jetons d’actualisation ont été exposés, ce qui vou
 * Services durables qui exécutent des actions, notamment l’actualisation des tableaux de bord pour le compte des utilisateurs alors que ces utilisateurs ne sont plus connectés. 
 * Scénarios WebFarm pour permettre au client d’apporter le RT au service web (la mise en cache est effectuée côté client, le cookie est chiffré, et non côté serveur).
 
-Cela n’est pas le cas avec MSAL.NET car nous ne recommandons plus d’utiliser des jetons d’actualisation de cette manière pour des raisons de sécurité. La migration vers MSAL 3.x deviendrait difficile car l’API ne fournit pas de moyen de passer les jetons d’actualisation précédemment acquis. 
+Pour des raisons de sécurité, MSAL.NET n'expose pas les jetons d'actualisation : MSAL gère l'actualisation des jetons pour vous. 
 
-Heureusement, MSAL.NET dispose maintenant d’une API qui vous permet de migrer vos jetons d’actualisation précédents dans `IConfidentialClientApplication`. 
+Heureusement, MSAL.NET dispose maintenant d'une API qui vous permet de migrer vos jetons d'actualisation précédents (acquis avec ADAL) dans `IConfidentialClientApplication` :
 
 ```CSharp
 /// <summary>

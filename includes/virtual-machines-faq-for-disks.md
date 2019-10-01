@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541463"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266872"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -183,8 +183,26 @@ Non, la prise en charge de Sauvegarde Azure n’est pas encore disponible.
 **Puis-je attacher un disque Ultra à une machine virtuelle s’exécutant dans un groupe à haute disponibilité ?**
 Non, cela n’est pas encore pris en charge.
 
-**Puis-je activer ASR (Azure Site Recovery) pour les machines virtuelles utilisant des disques Ultra ?**
-Non, ASR n’est pas encore pris en charge pour les disques Ultra.
+**Puis-je activer Azure Site Recovery pour les machines virtuelles qui utilisent des disques Ultra ?**
+Non, Azure Site Recovery n'est pas encore pris en charge pour les disques Ultra.
+
+## <a name="uploading-to-a-managed-disk"></a>Chargement sur un disque managé
+
+**Puis-je charger des données sur un disque managé existant ?**
+
+Non, le chargement ne peut être utilisé que lors de la création d'un disque vierge dont l'état est **ReadyToUpload**.
+
+**Comment puis-je charger des données sur un disque managé ?**
+
+Créez un disque managé en définissant la propriété [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) sur « Upload » (Charger). Vous pourrez ensuite y charger des données.
+
+**Puis-je joindre un disque en état de chargement à une machine virtuelle ?**
+
+Non.
+
+**Puis-je prendre une capture instantanée d'un disque managé en état de chargement ?**
+
+Non.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 

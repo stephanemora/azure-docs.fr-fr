@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: a47589728bdbe3842790a7c13fe35d04dbbe6883
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d89feaa5225aea56af86aa7f70d3666994fdaec
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881654"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266889"
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement.
 
@@ -80,13 +80,15 @@ Les tailles des machines virtuelles de la série Dsv3 sont basées sur le proce
 
 <sup>1</sup> Machines virtuelles de la série Dsv3 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="dasv3-series"></a>Série Dasv3
+## <a name="dasv3-series-preview"></a>Série Dasv3 (Préversion)
 
 Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium : Pris en charge
 
-Les tailles de la série Dasv3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Dasv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+Les tailles de la série Dasv3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Dasv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+
+[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
 |---|---|---|---|
@@ -123,13 +125,15 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 <sup>1</sup> Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="dav3-series"></a>Série Dav3
+## <a name="dav3-series-preview"></a>Série Dav3 (Préversion)
 
 Premium Storage : Non pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-Les tailles de la série Dav3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz. Les tailles des machines virtuelles de la série Dav3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dasv3. Les tarifs et les compteurs de facturation pour les tailles Dasv3 sont identiques à celles de la série Dav3.
+Les tailles de la série Dav3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz , qui peut atteindre une Fmax renforcée de 3,35 GHz. Les tailles des machines virtuelles de la série Dav3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dasv3. Les tarifs et les compteurs de facturation pour les tailles Dasv3 sont identiques à celles de la série Dav3.
+
+[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
 |---|---|---|---|

@@ -1,19 +1,19 @@
 ---
-title: Utilisation des sources de données « volumineuses » dans Azure Data Catalog
+title: Comment cataloguer des données volumineuses (Big Data) dans Azure Data Catalog ?
 description: Article de procédure expliquant comment utiliser Azure Data Catalog avec des sources de données « volumineuses », notamment le Stockage Blob Azure, Azure Data Lake et les fichiers Hadoop HDFS.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 00b9d6ab6ca8d9b4154e0fba491081597dc08402
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882533"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300583"
 ---
-# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Utilisation des sources de données volumineuses dans Azure Data Catalog
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Comment cataloguer des données volumineuses (Big Data) dans Azure Data Catalog ?
 
 ## <a name="introduction"></a>Introduction
 

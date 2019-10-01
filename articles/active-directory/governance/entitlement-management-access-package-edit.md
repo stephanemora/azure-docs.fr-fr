@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618371"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291028"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modifier et gérer l’accès à un package d’accès existant dans la gestion des droits d’utilisation d’Azure Active Directory (préversion)
 
@@ -294,7 +294,15 @@ Vous pouvez uniquement annuler une requête en attente qui n'a pas encore été 
 
 ## <a name="copy-my-access-portal-link"></a>Copier le lien du portail Mon Accès
 
-La plupart des utilisateurs de votre répertoire peuvent se connecter au portail Mon Accès et voir automatiquement la liste des packages d’accès qu’ils peuvent demander. Toutefois, pour les utilisateurs partenaires externes qui ne figurent pas encore dans votre répertoire, vous devrez leur envoyer un lien qui leur servira à demander un package d'accès. Tant que le package d'accès est activé pour les utilisateurs externes et que vous avez défini une stratégie pour le répertoire de l'utilisateur externe, ce dernier peut utiliser le lien du portail Mon Accès afin de demander le package d'accès.
+La plupart des utilisateurs de votre répertoire peuvent se connecter au portail Mon Accès et voir automatiquement la liste des packages d’accès qu’ils peuvent demander. Toutefois, pour les utilisateurs partenaires externes qui ne figurent pas encore dans votre répertoire, vous devrez leur envoyer un lien qui leur servira à demander un package d'accès. 
+
+Il est important de copier l'intégralité du lien du portail Mon Accès lors de son envoi à un partenaire interne. Cela garantit que le partenaire aura accès au portail de votre répertoire pour effectuer sa demande. 
+
+Le lien commencera par « myaccess », inclura un indicateur de répertoire et se terminera par un identifiant de package d'accès. Assurez-vous que le lien comprend l'ensemble des éléments suivants :
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+Tant que le package d'accès est activé pour les utilisateurs externes et que vous avez défini une stratégie pour le répertoire de l'utilisateur externe, ce dernier peut utiliser le lien du portail Mon Accès afin de demander le package d'accès.
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 

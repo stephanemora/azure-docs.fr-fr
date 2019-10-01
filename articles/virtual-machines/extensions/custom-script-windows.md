@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774578"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204205"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -69,7 +69,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -100,6 +100,9 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 > [!NOTE]
 > Il n’est possible d’installer qu’une seule version d’une extension sur une machine virtuelle à un moment donné. Spécifier deux fois un script personnalisé dans le même modèle Azure Resource Manager pour une même machine virtuelle aboutira à un échec.
+
+> [!NOTE]
+> Nous pouvons utiliser ce schéma dans la ressource VirtualMachine ou en tant que ressource autonome. Le nom de la ressource doit être au format « NomMachineVirtuelle / NomExtension », si cette extension est utilisée en tant que ressource autonome dans le modèle Resource Manager. 
 
 ### <a name="property-values"></a>Valeurs de propriétés
 

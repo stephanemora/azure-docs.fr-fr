@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325808"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178571"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Didacticiel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325808"
 
 Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un [groupe de conteneurs](container-instances-container-groups.md). Un groupe de conteneurs est utile lors de la création d’une annexe d’application pour la journalisation, la surveillance ou toute autre configuration dans laquelle un service a besoin d’un deuxième processus associé.
 
-Dans ce didacticiel, vous suivez des étapes pour exécuter une configuration d’annexe simple à deux conteneurs en déployant un fichier YAML à l’aide d’Azure CLI. Un fichier YAML fournit un format concis destiné à spécifier les paramètres d’instance. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce didacticiel, vous suivez des étapes pour exécuter une configuration d'annexe simple à deux conteneurs en déployant un [fichier YAML](container-instances-reference-yaml.md) à l'aide d'Azure CLI. Un fichier YAML fournit un format concis destiné à spécifier les paramètres d’instance. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer un fichier YAML

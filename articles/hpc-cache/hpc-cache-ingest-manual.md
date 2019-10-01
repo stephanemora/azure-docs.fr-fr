@@ -1,19 +1,19 @@
 ---
-title: Ingestion de données Azure HPC Cache - Copie manuelle
+title: Ingestion de données Azure HPC Cache (préversion) - Copie manuelle
 description: Comment utiliser les commandes cp pour déplacer des données vers une cible de stockage Blob dans Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775037"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299987"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache - Copie manuelle
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache (préversion) - Méthode de copie manuelle
 
 Cet article fournit des instructions détaillées sur la copie manuelle de données vers un conteneur de stockage Blob en vue d’une utilisation avec Azure HPC Cache. Il utilise des opérations parallèles multithread pour accélérer la copie des données.
 
@@ -23,7 +23,7 @@ Pour plus d’informations sur le déplacement des données vers le stockage Blo
 
 Vous pouvez créer manuellement une copie multithread sur un client en exécutant plusieurs commandes de copie à la fois en arrière-plan sur des ensembles de fichiers ou chemins prédéfinis.
 
-La commande Linux/UNIX ``cp`` inclut l’argument ``-p`` afin de préserver la propriété et les métadonnées mtime. L’ajout de cet argument aux commandes ci-dessous est facultatif. (Il augmente le nombre d’appels de système de fichiers envoyés à partir du client au système de fichiers de destination pour la modification de métadonnées.)
+La commande Linux/UNIX ``cp`` inclut l’argument ``-p`` afin de préserver la propriété et les métadonnées mtime. L’ajout de cet argument aux commandes ci-dessous est facultatif. (Il augmente le nombre d'appels de système de fichiers envoyés par le client au système de fichiers de destination pour la modification des métadonnées.)
 
 Ce simple exemple copie deux fichiers en parallèle :
 
@@ -81,9 +81,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>Quand ajouter des points de montage
 
-Une fois que vous avez suffisamment de threads parallèles transmis à un seul point de montage de système de fichiers de destination, il arrive un moment où l’ajout de threads supplémentaires ne produit pas davantage de débit. (Le débit est mesuré en fichiers/seconde ou octets/seconde, selon votre type de données.) Pire encore, un threading excessif peut parfois provoquer une dégradation du débit.  
+Une fois que suffisamment de threads parallèles sont transmis à un même point de montage du système de fichiers de destination, il arrive un moment où l'ajout de threads supplémentaires ne permet pas d'obtenir davantage de débit. (Le débit est mesuré en fichiers/seconde ou octets/seconde, selon votre type de données.) Pire encore, un threading excessif peut parfois provoquer une dégradation du débit.  
 
-Dans ce cas, vous pouvez ajouter des points de montage côté client à d’autres adresses de montage Azure HPC Cache, en utilisant le même chemin de montage de système de fichiers distant :
+Dans ce cas, vous pouvez ajouter des points de montage côté client à d'autres adresses de montage Azure HPC Cache, en utilisant le même chemin de montage du système de fichiers distant :
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
