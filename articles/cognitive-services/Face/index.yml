@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation sur l'API Visage
+title: Documentation sur l'API Face
 metadata:
-  title: 'Documentation de l’API Visage - Guides de démarrage rapide, tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs'
-  description: Découvrez comment utiliser l’API Visage pour détecter et identifier les visages sur les images et retourner des informations les concernant. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
+  title: 'Documentation de l’API Face - Guides de démarrage rapide, tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs'
+  description: Découvrez comment utiliser l’API Face pour détecter et identifier les visages sur les images et retourner des informations les concernant. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
@@ -13,7 +13,7 @@ metadata:
   ms.date: 12/20/2018
   ms.author: nitinme
 abstract:
-  description: 'L’API Visage basée sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.'
+  description: 'L’API Face basée sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.'
 sections:
   - items:
       - type: list
@@ -22,20 +22,20 @@ sections:
         columns: 3
         items:
           - href: /azure/cognitive-services/face/overview
-            html: <p>Découvrez l’API Visage.</p>
+            html: <p>Découvrez l’API Face.</p>
             image:
               src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que l’API Visage\_?"
+            title: "Qu’est-ce que l’API Face\_?"
           - href: /azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage
             html: <p>Découvrez comment détecter les visages dans une image.</p>
             image:
               src: ../media/index/i_tasks.svg
             title: Détecter les visages dans les images
           - href: /azure/cognitive-services/face/face-how-to-install-containers
-            html: <p>Découvrez comment utiliser l’API Visage dans des conteneurs.</p>
+            html: <p>Découvrez comment utiliser l’API Face dans des conteneurs.</p>
             image:
               src: ../media/index/i_tasks.svg
-            title: Utiliser l’API Visage dans des conteneurs
+            title: Utiliser l’API Face dans des conteneurs
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
@@ -66,7 +66,7 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: "Découvrez comment développer des applications avec l’API Visage\_:"
+        text: "Découvrez comment développer des applications avec l’API Face\_:"
       - type: list
         style: unordered
         items:
@@ -75,7 +75,7 @@ sections:
   - title: Exemples
     items:
       - type: paragraph
-        text: "Retrouvez des exemples pour l’API Visage\_:"
+        text: "Retrouvez des exemples pour l’API Face\_:"
       - type: list
         style: unordered
         items:
@@ -87,7 +87,7 @@ sections:
         className: cardsD
         items:
           - title: API
-            html: <p><a href="APIReference">API Visage</a></p>
+            html: <p><a href="APIReference">API Face</a></p>
           - title: Kits SDK
             html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>'
           - title: PowerShell
