@@ -244,7 +244,7 @@
             - name: Créer une base de connaissances dans le portail Azure
               href: knowledge-store-create-portal.md
             - name: Créer avec REST et Postman
-              href: knowledge-store-howto.md
+              href: knowledge-store-create-rest.md
             - name: Voir avec l’Explorateur Stockage
               href: knowledge-store-view-storage-explorer.md
             - name: Se connecter avec Power BI
