@@ -36,13 +36,15 @@
     - name: 10 - Gouverner les machines virtuelles
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
-    - name: 11 - Surveiller et mettre à jour les machines virtuelles
-      href: tutorial-monitoring.md
-    - name: 12 - Gérer la sécurité des machines virtuelles
+    - name: 11 - Suivre et mettre à jour les machines virtuelles
+      href: tutorial-config-management.md
+    - name: 12 - Superviser les machines virtuelles
+      href: tutorial-monitor.md
+    - name: 13 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
-    - name: 13 - Installer une pile SQL\IIS\.NET
+    - name: 14 - Installer une pile SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14 - Sécuriser un serveur web avec SSL
+    - name: 15 - Serveur web sécurisé avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
