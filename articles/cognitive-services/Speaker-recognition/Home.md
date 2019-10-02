@@ -1,7 +1,7 @@
 ---
-title: Qu’est-ce que l’API Reconnaissance de l’orateur ?
+title: Qu’est-ce que l’API Speaker Recognition ?
 titleSuffix: Azure Cognitive Services
-description: Utilisez les algorithmes avancés de vérification de l’orateur et d’identification de l’orateur avec l’API Reconnaissance de l’orateur dans Cognitive Services.
+description: Utilisez les algorithmes avancés de vérification de l’orateur et d’identification de l’orateur avec l’API Speaker Recognition dans Cognitive Services.
 services: cognitive-services
 author: dwlin
 manager: nitinme
@@ -18,9 +18,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 08/01/2019
 ms.locfileid: "68707163"
 ---
-# <a name="speaker-recognition-api"></a>API Reconnaissance de l’orateur
+# <a name="speaker-recognition-api"></a>API Speaker Recognition
 
-Découvrez les API Reconnaissance de l’orateur d’Azure Cognitive Services. Les API Reconnaissance de l’orateur sont des API basées sur le cloud qui fournissent les algorithmes les plus avancés de vérification de l’orateur et d’identification de l’orateur. Les API Reconnaissance de l’orateur peuvent être divisées en deux catégories : vérification de l’orateur et identification de l’orateur.
+Découvrez les API Speaker Recognition d’Azure Cognitive Services. Les API Speaker Recognition sont des API basées sur le cloud qui fournissent les algorithmes les plus avancés de vérification de l’orateur et d’identification de l’orateur. Les API Speaker Recognition peuvent être divisées en deux catégories : vérification de l’orateur et identification de l’orateur.
 
 
 ## <a name="speaker-verification"></a>Vérification de l’orateur
