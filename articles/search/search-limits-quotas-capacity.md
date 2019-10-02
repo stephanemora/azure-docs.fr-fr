@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141148"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300659"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
@@ -62,11 +62,13 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 
 ## <a name="document-limits"></a>Limites du document 
 
-Depuis octobre 2018, il n’y a plus de limites au nombre de documents pour tout nouveau service créé, quels que soient le niveau facturable (De base, S1, S2, S3, S3 HD) et la région. Si la plupart des régions prennent en charge des nombres illimités de documents depuis novembre/décembre 2017, cinq régions ont continué d’imposer de telles limites. Selon le moment et le lieu de création d’un service de recherche, vous pourriez exécuter un service toujours sujet à des limites de nombre de documents.
+Depuis octobre 2018, il n’y a plus de limites au nombre de documents<sup>1</sup> pour tout nouveau service créé, quels que soient le niveau facturable (De base, S1, S2, S3, S3 HD) dans une région. Si la plupart des régions prennent en charge des nombres illimités de documents depuis novembre/décembre 2017, cinq régions ont continué d’imposer de telles limites. Selon le moment et le lieu de création d’un service de recherche, vous pourriez exécuter un service toujours sujet à des limites de nombre de documents.
 
 Pour savoir si votre service a un nombre limité de documents, consultez la vignette Utilisation dans la page de présentation de votre service. Les nombres de documents sont illimités ou soumis à une limite établie en fonction du niveau.
 
   ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+<sup>1</sup> Même s’il n’existe aucune limite de nombre de documents spécifique d’une référence SKU, chaque index reste soumis à une limite maximale de sécurité pour garantir la stabilité du service. Cette limite provient de Lucene. Chaque document Azure Search est indexé en interne en tant qu’un ou plusieurs documents Lucene. Le nombre de documents Lucene par document de recherche Azure dépend du nombre total d’éléments dans les champs de collection complexes. Chaque élément est indexé en tant que document Lucene distinct. Par exemple, un document comportant 3 éléments dans un champ de collection complexe est indexé en tant que 4 documents Lucene : 1 pour le document et 3 pour les éléments. Le nombre maximal de documents Lucene est approximativement de 25 milliards par index.
 
 ### <a name="regions-previously-having-document-limits"></a>Régions précédemment sujettes à des limites de nombre de documents
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515421"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299667"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -40,7 +40,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 * Les ports appropriés doivent être ouverts sur le serveur Windows Active Directory (AD) applicable.  
     Les ports requis sont les suivants : 
 
-    |     de diffusion en continu           |     Port     |     Protocole     |
+    |     de diffusion en continu           |     Port     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    Services web AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -95,6 +95,9 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     * **Chemin d’accès de l’unité d’organisation**  
         Chemin d’accès de l’unité d’organisation (UO) où les comptes de machine du serveur SMB sont créés. Autrement dit, OU=second level, OU=first level. 
+
+        Si vous utilisez Azure NetApp files avec Azure Active Directory Domain Services, le chemin d’accès de l’unité d’organisation est `OU=AADDC Computers` lorsque vous configurez Active Directory pour votre compte NetApp.
+        
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
     ![Rejoindre Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
@@ -118,7 +121,9 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     * **Nom du volume**      
         Spécifiez le nom du volume que vous créez.   
 
-        Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.
+        Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.   
+
+        Vous ne pouvez pas utiliser `default` comme nom de volume.
 
     * **Pool de capacités**  
         Spécifiez le pool de capacité dans lequel vous souhaitez que le volume soit créé.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2aa2dd8373a9568478a02691ca5e6a43e80cd408
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951930"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289427"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -234,8 +234,8 @@ ResultCode | Identique à OperationResult | Ce champ indique le résultat de l�
 OperationType | 1 - Installation<br> 0 - Rechercher et télécharger.| L’installation est le seul OperationType qui s’affiche dans les résultats par défaut.
 WindowsUpdateQuery | La valeur par défaut est « IsInstalled=0 » |Requête Windows Update utilisée pour rechercher les mises à jour. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | true : le redémarrage était requis<br> false : le redémarrage n’était pas requis | Indique si le redémarrage était requis pour terminer l’installation des mises à jour.
-OperationStartTime | Datetime | Indique l’heure de démarrage de l’opération (Téléchargement/Installation).
-OperationTime | Datetime | Indique l’heure de fin de l’opération (Téléchargement/Installation).
+OperationStartTime | DateTime | Indique l’heure de démarrage de l’opération (Téléchargement/Installation).
+OperationTime | DateTime | Indique l’heure de fin de l’opération (Téléchargement/Installation).
 HResult | 0 - Réussite<br> Autre valeur - Échec| Indique la raison de l’échec de la mise à jour Windows avec updateID « 7392acaf-6a85-427c-8a8d-058c25beb0d6 ».
 
 Si aucune mise à jour n’est planifiée, le JSON de résultat est vide.
@@ -273,7 +273,11 @@ Le service NodeAgentNTService crée des [tâches de réparation](https://docs.mi
 
     [![Image de l’état de mise à jour corrective de cluster](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
-4. Une fois le nœud désactivé, la tâche de réparation passe à l’état Exécution. Notez qu’une tâche de réparation est bloquée à l’état de préparation, car un nœud qui est bloqué à l’état de désactivation peut entraîner le blocage de la nouvelle tâche de réparation et, par conséquent, arrêter la mise à jour corrective du cluster.
+4. Une fois le nœud désactivé, la tâche de réparation passe à l’état Exécution.
+   
+   >[!NOTE]
+   > Un nœud bloqué dans un état désactivé peut bloquer une nouvelle tâche de réparation, ce qui entraîne l’arrêt de l’opération de mise à jour corrective sur le cluster.
+
 5. Une fois que la tâche de réparation passe à l’état d’exécution, l’installation du correctif commence sur ce nœud. Une fois le correctif installé, le nœud peut ou non redémarrer en fonction de celui-ci. Notez que la tâche de réparation passe à l’état Restauration, ce qui permet de réactiver le nœud et de le marquer comme terminé.
 
    Dans les versions v1.4.0 et supérieures de l’application, vous pouvez connaître l’état de la mise à jour en examinant les événements d’intégrité sur NodeAgentService au niveau de la propriété « WUOperationStatus-[NodeName] ». Les sections en surbrillance dans les images ci-dessous montrent l’état de la mise à jour Windows sur les nœuds « poanode_0 » et « poanode_2 » :
@@ -293,7 +297,7 @@ Le service NodeAgentNTService crée des [tâches de réparation](https://docs.mi
 
    Pour effectuer des recherches plus poussées, connectez-vous à la ou aux machines virtuelles spécifiques afin de consulter les journaux d’événements Windows. La tâche de réparation mentionnée ci-dessus ne peut posséder que ces sous-états exécuteur :
 
-      ExecutorSubState | Détails
+      ExecutorSubState | Detail
     -- | -- 
       None=1 |  Implique qu’il n’y avait pas d’opération en cours sur le nœud. Transitions d’état possibles.
       DownloadCompleted=2 | Signifie que l’opération de téléchargement s’est achevée avec succès, en échec partiel ou en échec total.

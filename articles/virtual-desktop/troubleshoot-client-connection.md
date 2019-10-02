@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876761"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300721"
 ---
 # <a name="remote-desktop-client-connections"></a>Connexions au client Bureau à distance
 
@@ -152,6 +152,11 @@ Suivez ces instructions de dépannage générales pour les codes d’erreur de c
 **Cause :** les machines virtuelles auxquelles l’utilisateur tente de se connecter ne sont pas jointes à un domaine.
 
 **Correctif :** joignez toutes les machines virtuelles faisant partie d’un pool d’hôtes au contrôleur de domaine.
+
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Error: ConnectionFailedUserSIDInformationMismatch
+**Cause :** Le SID du jeton Azure Active Directory (AD) de l’utilisateur ne correspond pas au SID renvoyé par le contrôleur de domaine lors de la tentative d’activation de l’utilisateur pour la connexion à distance. Cette erreur se produit généralement lorsque vous tentez de vous connecter à un environnement Azure Active Directory Domain Services (Azure AD DS) avec un utilisateur initialement issu d’un Windows Server AD.
+
+**Correctif :** Ce scénario n’est pas pris en charge pour l’instant. Seuls des utilisateurs provenant d’Azure Active Directory peuvent se connecter à des machines virtuelles Windows Virtual Desktop connectées à Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Lorsqu’un utilisateur se connecte, rien ne s’affiche (aucun flux)
 

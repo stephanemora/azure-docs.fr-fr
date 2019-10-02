@@ -6,14 +6,14 @@ author: ellacroi
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561480"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300338"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applications Azure : Guide de publication d’offres de modèle de solution
 
@@ -21,7 +21,7 @@ Les modèles de solution constituent l’un des principaux moyens de publier une
 
 Utilisez le type d’offre Application Azure : modèle de solution si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, en plus d’une machine virtuelle. Vous pouvez automatiser la mise en service d’une ou plusieurs machines virtuelles à l’aide du type d’offre Applications Azure : modèles de solution. Vous pouvez également approvisionner des ressources réseau et de stockage. Le type d’offre Applications Azure : modèles de solution offre les avantages de l’automatisation pour des machines virtuelles individuelles et des solutions IaaS complètes.
 
-Ces modèles de solution sont des offres de type Transaction qui sont déployées et facturées via la Place de marché. L’appel à l’action qu’un utilisateur voit est « Obtenir maintenant ».
+Ces modèles de solution ne sont pas des offres de transaction, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la place de marché commerciale de Microsoft. L’appel à l’action qu’un utilisateur voit est « Obtenir maintenant ».
 
 
 ## <a name="requirements-for-solution-templates"></a>Exigences requises pour les modèles de solution

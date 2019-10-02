@@ -11,18 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836951"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299463"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
 La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et celle dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
 
 Cet article explique ce à quoi correspond la **capacité**, ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
+
+> [!IMPORTANT]
+> Cet article explique comment surveiller et mettre à l’échelle votre instance de Gestion des API Azure en fonction de sa métrique de capacité. Toutefois, il est tout aussi important de comprendre ce qui se passe quand une instance de Gestion des API Azure a réellement *atteint* sa capacité. La Gestion des API Azure n’applique pas de limitation au niveau du service pour empêcher une surcharge physique des instances. Quand une instance atteint sa capacité physique, elle se comporte comme tout serveur web surchargé incapable de traiter des demandes entrantes : la latence augmente, des connexions sont abandonnées, des erreurs de délai d’attente se produisent, etc. Cela signifie que les clients d’API doivent être prêts à gérer cette éventualité comme avec tout autre service externe (par exemple, en appliquant des stratégies de nouvelle tentative).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,8 +46,9 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
 La **capacité** est un indicateur de charge sur une instance de gestion des API. Elle reflète l’utilisation des ressources (UC, mémoire) et les longueurs de files d’attente réseau. L’utilisation de la mémoire et de l’UC indique la consommation des ressources par :
 
-+ Les services de gestion des API, comme les actions de gestion ou le traitement des requêtes, qui peuvent inclure le transfert de requêtes ou l’exécution d’une stratégie
-+ les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
++ Les services de plan de données de Gestion des API, tels que le traitement des demandes, qui incluent le transfert de demandes ou l’exécution d’une stratégie.
++ Les services de plan de gestion de Gestion des API, tels que les actions de gestion appliquées via le portail Azure ou ARM, ou une charge provenant du [portail des développeurs](api-management-howto-developer-portal.md).
++ Les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
 
 La **capacité** totale est une moyenne de ses propres valeurs issues de chacune des unités d’une instance du service Gestion des API.
 
@@ -73,7 +78,7 @@ Une **métrique de capacité faible** ne signifie pas nécessairement que votre 
 ![Métrique de capacité](./media/api-management-capacity/capacity-metric.png)  
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre instance APIM.
-2. Sélectionnez **Métriques (préversion)** .
+2. Sélectionnez **Métriques**.
 3. Dans la section de couleur violette, sélectionnez la métrique **Capacité** parmi les métriques disponibles et conservez la valeur d’agrégation **Moy** par défaut.
 
     > [!TIP]

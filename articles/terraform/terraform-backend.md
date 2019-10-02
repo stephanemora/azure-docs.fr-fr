@@ -5,14 +5,14 @@ services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693299"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169944"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Stocker l’état de Terraform dans le stockage Azure
 
@@ -28,7 +28,7 @@ Terraform inclut le concept de serveur principal d’état, qui est un stockage 
 
 Avant d’utiliser le stockage Azure comme serveur principal, un compte de stockage doit être créé. Le compte de stockage peut être créé avec le portail Azure, PowerShell, l’interface Azure CLI ou Terraform lui-même. L’exemple suivant permet de configurer le compte de stockage avec l’interface Azure CLI.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -67,13 +67,13 @@ Chacune de ces valeurs peut être spécifiée dans le fichier de configuration T
 
 Créez une variable d’environnement nommée `ARM_ACCESS_KEY` avec la valeur de la clé d’accès de stockage Azure.
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
 Pour mieux protéger la clé d’accès du compte de stockage Azure, stockez-la dans Azure Key Vault. La variable d’environnement peut ensuite être définie à l’aide d’une commande semblable à ce qui suit. Pour plus d’informations sur Azure Key Vault, consultez la [documentation concernant Azure Key Vault][azure-key-vault].
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
@@ -81,7 +81,7 @@ Pour configurer Terraform afin d’utiliser le serveur principal, vous devez inc
 
 L’exemple suivant configure un back-end Terraform et crée un groupe de ressources Azure. Remplacez les valeurs avec les valeurs de votre environnement.
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"
@@ -100,7 +100,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 ## <a name="state-locking"></a>Verrouillage de l’état
 
-Lorsque vous utilisez un blob Azure Storage Blob pour le stockage de l’état, l’objet blob est automatiquement verrouillé avant toute opération d’écriture de l’état. Cette configuration empêche plusieurs opérations d’état simultanées, lesquelles peuvent entraîner une corruption. Pour plus d’informations, consultez le [Verrouillage d’état][terraform-state-lock] dans la documentation Terraform.
+Lorsque vous utilisez un blob Azure Storage Blob pour le stockage de l’état, l’objet blob est automatiquement verrouillé avant toute opération d’écriture de l’état. Cette configuration empêche plusieurs opérations d’état simultanées, lesquelles peuvent entraîner une corruption. Pour plus d’informations, voir [Verrouillage d’état][terraform-state-lock] dans la documentation Terraform.
 
 Le verrou peut être vu lorsque vous examinez l’objet blob via le portail Azure ou d’autres outils de gestion Azure.
 

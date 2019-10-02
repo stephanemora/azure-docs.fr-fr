@@ -1,6 +1,6 @@
 ---
-title: Utiliser un modèle Azure Data Factory pour la copie en bloc à partir d’une base de données vers Azure Data Explorer
-description: Dans cette rubrique, vous apprenez à utiliser un modèle Azure Data Factory pour la copie en bloc à partir d’une base de données vers Azure Data Explorer
+title: Copier en bloc à partir d’une base de données vers Azure Data Explorer à l’aide du modèle Azure Data Factory
+description: Cet article explique comment utiliser un modèle Azure Data Factory pour copier en bloc à partir d’une base de données vers Azure Data Explorer
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,35 +8,40 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: 5a6aebd276ef8658da9ca763be7da5c38a9c772a
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873420"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300444"
 ---
-# <a name="use-azure-data-factory-template-for-bulk-copy-from-database-to-azure-data-explorer"></a>Utiliser un modèle Azure Data Factory pour la copie en bloc à partir d’une base de données vers Azure Data Explorer
+# <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copier en bloc à partir d’une base de données vers Azure Data Explorer à l’aide du modèle Azure Data Factory 
 
-Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par de nombreuses sources telles que des applications, des sites web ou des appareils IoT. Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service Azure Data Factory pour remplir votre base de données Azure Data Explorer avec les données de votre système existant, et gagner du temps lors de la création de vos solutions d’analyse. 
+Azure Data Explorer est un service d’analyse de données rapide et complètement managé. Il effectue une analyse en temps réel de grands volumes de données diffusées en continu à partir de nombreuses sources, telles que des applications, des sites web et des appareils IoT. 
 
-[Les modèles Azure Data Factory](/azure/data-factory/solution-templates-introduction) sont des pipelines Azure Data Factory prédéfinis qui vous permettent de commencer rapidement à utiliser Data Factory et de réduire le temps de développement pour la création de projets d’intégration de données. Le modèle **Copie en bloc à partir d’une base de données vers Azure Data Explorer** est créé à l’aide des activités **Lookup** et **ForEach**. Vous pouvez utiliser le modèle pour créer un grand nombre de pipelines par base de données ou par table afin de copier plus rapidement les données. 
+Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez l’utiliser pour remplir votre base de données Azure Data Explorer avec les données de votre système existant. Et cela peut vous aider à gagner du temps lorsque vous créez des solutions d’analyse. 
+
+Les [modèles Azure Data Factory](/azure/data-factory/solution-templates-introduction) sont des pipelines Data Factory prédéfinis. Ces modèles peuvent vous aider à commencer rapidement à utiliser Data Factory et à réduire le temps de développement de projets d’intégration de données. 
+
+Vous créez le modèle *Copie en bloc à partir d’une base de données vers Azure Data Explorer* à l’aide des activités *Lookup* et *ForEach*. Pour accélérer la copie de données, vous pouvez utiliser le modèle pour créer un grand nombre de pipelines par base de données ou par table. 
 
 > [!IMPORTANT]
-> * Utilisez le modèle **Copie en bloc à partir d’une base de données vers Azure Data Explorer** pour copier de grandes quantités de données à partir de bases de données comme SQL Server et Google BigQuery vers Azure Data Explorer. 
-> * Utilisez [l’outil de copie](data-factory-load-data.md) pour copier quelques tables avec des quantités de données petites ou modérées dans Azure Data Explorer. 
+> Veillez à utiliser l’outil approprié pour la quantité de données que vous souhaitez copier.
+> * Utilisez le modèle *Copie en bloc à partir d’une base de données vers Azure Data Explorer* pour copier de grandes quantités de données à partir de bases de données comme SQL Server et Google BigQuery vers Azure Data Explorer. 
+> * Servez-vous de l’outil de [*copie de données Data Factory*](data-factory-load-data.md) pour copier quelques tables contenant des quantités de données faibles ou modérées dans Azure Data Explorer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* [Un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
-* [Créer une fabrique de données](data-factory-load-data.md#create-a-data-factory)
-* Source des données dans la base de données
+* [Un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md).
+* [Créez une fabrique de données](data-factory-load-data.md#create-a-data-factory).
+* Une source des données dans une base de données.
 
 ## <a name="create-controltabledataset"></a>Créer ControlTableDataset
 
-**ControlTableDataset** indique les données qui seront copiées de la source vers la destination dans le pipeline. Le nombre de lignes indique le nombre total de pipelines nécessaires pour copier les données. **ControlTableDataset** doit être défini dans le cadre de la base de données source.
+*ControlTableDataset* indique les données qui seront copiées de la source vers la destination dans le pipeline. Le nombre de lignes indique le nombre total de pipelines nécessaires pour copier les données. Vous devez définir ControlTableDataset dans le cadre de la base de données source.
 
-Exemple de format de table source SQL Server :
+Un exemple du format de table source SQL Server est illustré dans le code suivant :
     
 ```sql   
 CREATE TABLE control_table (
@@ -45,65 +50,69 @@ SourceQuery varchar(255),
 ADXTableName varchar(255)
 );
 ```
-    
+
+Les éléments de code sont décrits dans le tableau suivant :
+
 |Propriété  |Description  | Exemples
 |---------|---------| ---------|
-|PartitionId   |   ordre de copie | 1  |  
-|SourceQuery   |   requête qui indique les données qui seront copiées pendant l’exécution du pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-|ADXTableName  |  nom de la table de destination | MyAdxTable       |  
+|PartitionId   |  Ordre de copie | 1  |  
+|SourceQuery   |  Requête indiquant les données qui seront copiées pendant l’exécution du pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  Nom de la table de destination | MyAdxTable       |  
 
-Si votre **ControlTableDataset** est dans un format différent, créez un **ControlTableDataset** comparable pour votre format.
+Si votre ControlTableDataset est dans un format différent, créez un ControlTableDataset comparable pour votre format.
 
-## <a name="use-bulk-copy-from-database-to-azure-data-explorer-template"></a>Utiliser la copie en bloc à partir d’une base de données vers un modèle Azure Data Explorer
+## <a name="use-the-bulk-copy-from-database-to-azure-data-explorer-template"></a>Utiliser le modèle Copie en bloc à partir d’une base de données vers Azure Data Explorer
 
-1. Dans la page **Prise en main**, sélectionnez la vignette **Créer un pipeline à partir d’un modèle** ou sélectionnez l’icône en forme de crayon (onglet **Auteur**) à droite > **+**  >  **Pipeline à partir d’un modèle** pour ouvrir la Galerie de modèles.
+1. Dans le volet **C’est parti**, sélectionnez **Créer un pipeline à partir d’un modèle** pour ouvrir le volet **Galerie de modèles**.
 
-    ![Prise en main - Azure Data Factory](media/data-factory-template/adf-get-started.png)
+    ![Volet « C’est parti » d’Azure Data Factory](media/data-factory-template/adf-get-started.png)
 
 1. Sélectionnez le modèle **Copie en bloc à partir d’une base de données vers Azure Data Explorer**.
  
-    ![Sélectionner un pipeline à partir d’un modèle](media/data-factory-template/pipeline-from-template.png)
+    ![Modèle « Copie en bloc à partir d’une base de données vers Azure Data Explorer »](media/data-factory-template/pipeline-from-template.png)
 
-1.  Dans la fenêtre **Copie en bloc à partir d’une base de données vers Azure Data Explorer**, sélectionnez les jeux de données existants dans la liste déroulante. 
+1.  Dans le volet **Copie en bloc à partir d’une base de données vers Azure Data Explorer**, sous **Entrées d’utilisateur**, spécifiez vos jeux de données en procédant comme suit : 
 
-    * **ControlTableDataset** : service lié à la table de contrôle qui indique quelles données sont copiées de la source vers la destination et où elles seront placées dans la destination. 
-    * **SourceDataset** : service lié à la base de données source. 
-    * **AzureDataExplorerTable** : table Azure Data Explorer. Si le jeu de données n’existe pas, [créez le service lié Azure Data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) pour ajouter le jeu de données.
-    * Sélectionnez **Utiliser ce modèle**.
+    a. Dans la liste déroulante **ControlTableDataset**, sélectionnez le service lié à la table de contrôle qui indique quelles données sont copiées de la source vers la destination et où elles seront placées dans celle-ci. 
 
-    ![configurer le modèle de copie en bloc Azure Data Explorer](media/data-factory-template/configure-bulk-copy-adx-template.png)
+    b. Dans la liste déroulante **SourceDataset**, sélectionnez le service lié à la base de données source. 
 
-1. Sélectionnez une zone dans le canevas, en dehors des activités, pour accéder au pipeline de modèle. Sélectionnez **Paramètres** pour entrer les paramètres de la table, y compris le **Nom** de la table de contrôle et la **Valeur par défaut** (noms des colonnes).
+    c. Dans la liste déroulante **AzureDataExplorerTable**, sélectionnez la table Azure Data Explorer. Si le jeu de données n’existe pas, [créez le service lié Azure Data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) pour ajouter le jeu de données.
+
+    d. Sélectionnez **Utiliser ce modèle**.
+
+    ![Volet « Copie en bloc à partir d’une base de données vers Azure Data Explorer »](media/data-factory-template/configure-bulk-copy-adx-template.png)
+
+1. Sélectionnez une zone dans le canevas, en dehors des activités, pour accéder au pipeline de modèle. Sélectionnez l’onglet **Paramètres** pour entrer les paramètres de la table, à savoir le **Nom** de la table de contrôle et la **Valeur par défaut** (noms des colonnes).
 
     ![Paramètres du pipeline](media/data-factory-template/pipeline-parameters.png)
 
-1.  Sélectionnez l’activité de recherche, **GetPartitionList**, pour afficher les paramètres par défaut. La requête est automatiquement créée.
-1.  Sélectionnez l’activité de commande **ForEachPartition**, sélectionnez **Paramètres**
-    * **Nombre de lots** : Sélectionnez un nombres entre 1 et 50. Cette sélection détermine le nombre de pipelines qui s’exécutent en parallèle jusqu’à ce que le nombre de lignes **ControlTableDataset** soit atteint. 
-    * N’activez PAS la case à cocher **Séquentiel** afin que les lots de pipeline s’exécutent en parallèle.
+1.  Sous **Rechercher**, sélectionnez **GetPartitionList** pour afficher les paramètres par défaut. La requête est automatiquement créée.
+1.  Sélectionnez l’activité Command, **ForEachPartition**, sélectionnez l’onglet **Paramètres**, puis procédez comme suit :
+
+    a. Dans la zone **Nombre de lots**, entrez un nombre compris entre 1 et 50. Cette sélection détermine le nombre de pipelines qui s’exécutent en parallèle jusqu’à ce que le nombre de lignes de *ControlTableDataset* soit atteint. 
+
+    b. Pour vous assurer que les lots du pipeline s’exécutent en parallèle, *n’activez pas* la case à cocher **Séquentiel**.
 
     ![Paramètres ForEachPartition](media/data-factory-template/foreach-partition-settings.png)
 
     > [!TIP]
-    > La meilleure pratique consiste à exécuter un grand nombre de pipelines en parallèle afin que les données puissent être copiées plus rapidement. Partitionnez les données de la table source et allouez une partition par pipeline, en fonction de la date et de la table, pour accroître l’efficacité.
+    > La meilleure pratique consiste à exécuter un grand nombre de pipelines en parallèle afin d’accélérer la copie de vos données. Pour accroître l’efficacité, partitionnez les données de la table source et allouez une partition par pipeline, en fonction de la date et de la table.
 
-1. Sélectionnez **Tout valider** pour valider le pipeline ADF. Consultez **Sortie de validation de pipeline**.
+1. Sélectionnez **Valider tout** pour valider le pipeline Azure Data Factory, puis affichez le résultat dans le volet de **sortie de la validation du pipeline**.
 
     ![Valider les pipelines du modèle](media/data-factory-template/validate-template-pipelines.png)
 
-1. Sélectionnez **Déboguer**, si nécessaire, puis **Ajouter un déclencheur** pour exécuter le pipeline.
+1. Si nécessaire, sélectionnez **Déboguer**, puis **Ajouter un déclencheur** pour exécuter le pipeline.
 
-    ![Exécuter le pipeline](media/data-factory-template/trigger-run-of-pipeline.png)    
+    ![Boutons « Déboguer » et « Exécuter le pipeline »](media/data-factory-template/trigger-run-of-pipeline.png)    
 
-
-Vous pouvez maintenant utiliser le modèle de **copie en bloc à partir d’une base de données vers Azure Data Explorer** pour copier efficacement de grandes quantités de données à partir de vos bases de données et tables.
+Vous pouvez maintenant utiliser le modèle pour copier efficacement de grandes quantités de données à partir de vos bases de données et tables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez la procédure pour [copier des données dans Azure Data Explorer à l’aide d’Azure Data Factory](data-factory-load-data.md).
-
+* Découvrez comment [copier des données vers Azure Data Explorer à l’aide d’Azure Data Factory](data-factory-load-data.md).
 * Découvrez le [connecteur Azure Data Explorer](/azure/data-factory/connector-azure-data-explorer) dans Azure Data Factory.
-
 * Découvrez les [requêtes Azure Data Explorer](/azure/data-explorer/web-query-data) pour l’interrogation de données.
 
 

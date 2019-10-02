@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170564"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299394"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
 Le runtime Azure Functions prend en charge [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Ce guide contient des informations sur les complexités de l’écriture de fonctions Azure avec Java.
 
-Une fonction Java est une méthode `public` dotée de l’annotation `@FunctionName`. Cette méthode définit l’entrée d’une fonction Java et doit être unique dans un package particulier. 
+Comme c’est le cas pour d’autres langages, une application de fonction peut avoir une ou plusieurs fonctions. Une fonction Java est une méthode `public` dotée de l’annotation `@FunctionName`. Cette méthode définit l’entrée d’une fonction Java et doit être unique dans un package particulier. Une application de fonction écrite en Java peut avoir plusieurs classes avec plusieurs méthodes publiques annotées avec `@FunctionName`.
 
 Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également compléter le démarrage rapide de Functions pour créer votre première fonction, à l’aide de [Visual Studio Code](functions-create-first-function-vs-code.md) ou de [Maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modèle de programmation 
 
 Les concepts de [déclencheurs et liaisons](functions-triggers-bindings.md) sont fondamentaux pour Azure Functions. Les déclencheurs démarrent l’exécution de votre code. Les liaisons vous permettent de transmettre des données et de retourner des données à partir d’une fonction, sans avoir à écrire du code d’accès aux données personnalisées.
+
+## <a name="project-scaffolding"></a>Génération de modèles automatique du projet
+
+La façon la plus simple de générer un modèle automatique pour un projet de Fonction Azure basé sur Java consiste à utiliser des archétypes `Apache Maven`. Vous pouvez également trouver des assistants de génération de projet sur Visual Studio Code, ainsi que les boîtes à outils Azure pour Eclipse et IntelliJ.
+
+Il existe actuellement deux archétypes Azure Functions pour Maven :
+
+### <a name="java-archetype"></a>Archétype Java
+
+Cet archétype est publié sou les groupId et artifactId suivants [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Archétype Kotlin (préversion)
+
+Cet archétype est publié sou les groupId et artifactId suivants [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+Le code source de ces archétypes se trouve dans le [dépôt GitHub Archétypes Azure Maven](https://github.com/microsoft/azure-maven-archetypes).
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
@@ -55,6 +83,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* Le projet Kotlin semble très similaire, car il est toujours Maven_
 
 Vous pouvez utiliser un fichier [host.json](functions-host-json.md) partagé pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.java) et un fichier de configuration de liaison (function.json).
 

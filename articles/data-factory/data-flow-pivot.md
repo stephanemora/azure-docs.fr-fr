@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348447"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178665"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformation d’ajout de tableau croisé dynamique Azure Data Factory
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -55,6 +55,12 @@ Utiliser le langage d’expression ADF Data Flow pour décrire les transformatio
 ## <a name="pivot-metadata"></a>Métadonnées de tableau croisé dynamique
 
 La transformation Ajout de tableau croisé dynamique produit de nouveaux noms de colonnes dynamiques en fonction de vos données entrantes. La clé de tableau croisé dynamique génère les valeurs pour chaque nouveau nom de colonne. Si vous ne spécifiez pas de valeurs individuelles et que vous souhaitez créer des noms de colonnes dynamiques pour chaque valeur unique dans votre clé de tableau croisé dynamique, l’interface utilisateur n’affichera pas les métadonnées dans Inspecter et il n’y aura aucune propagation de colonne sur la transformation Récepteur. Si vous définissez des valeurs pour la clé de tableau croisé dynamique, ADF peut déterminer les nouveaux noms de colonnes et ces noms de colonnes seront disponibles dans le mappage Inspecter et Récepteur.
+
+### <a name="generate-a-new-model-from-dynamic-columns"></a>Générer un nouveau modèle à partir de colonnes dynamiques
+
+Un tableau croisé dynamique génère de nouveaux noms de colonnes de manière dynamique en fonction des valeurs de ligne. Vous pouvez convertir ces nouvelles colonnes en métadonnées qui peuvent ensuite être référencées dans votre flux de données. Pour ce faire, cliquez sur l’onglet Aperçu des données. Toutes les nouvelles colonnes générées par la transformation de votre tableau croisé dynamique s’affichent avec une icône « dérivée » dans l’en-tête du tableau. Cliquez sur le bouton « Mapper les dérivées » pour transformer ces nouvelles colonnes en métadonnées, de sorte qu’elles fassent partie du modèle de votre flux de données.
+
+![Colonnes de tableau croisé dynamique](media/data-flow/newpivot1.png "Mappage de colonnes de tableau croisé dérivées")
 
 ### <a name="landing-new-columns-in-sink"></a>Chargement de nouvelles colonnes dans Récepteur
 

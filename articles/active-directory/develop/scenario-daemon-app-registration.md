@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f590010a655fb01529a4a59b5540cc03068f2b8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: fddd95564e3683aaee067f0442573c41e93376dd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056471"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264391"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Application démon qui appelle des API web - inscription d'application
 
@@ -29,7 +29,7 @@ Voici ce que vous devez savoir lors de l'inscription d'une application démon.
 
 ## <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Dans la mesure où les applications démon ne présentent pas d'intérêt en dehors du locataire Azure AD, lorsque vous créez l'application, vous devez choisir :
+Dans la mesure où les applications démon ne présentent d’intérêt que dans des locataires Azure AD, lorsque vous créez l’application, vous devez choisir :
 
 - **Comptes dans cet annuaire organisationnel uniquement** : ce choix est le plus fréquent car les applications démon sont généralement créées par des développeurs métier ;
 - ou **Comptes dans un annuaire organisationnel** : ce choix s'applique aux éditeurs de logiciels indépendants qui fournissent un utilitaire à leurs clients. Les admins de locataire du client sont requis pour l'approuver.
@@ -43,6 +43,9 @@ Si votre application cliente confidentielle utilise **uniquement** le flux d'inf
 Une application démon peut uniquement demander des permissions d'application (et non des permissions déléguées) aux APIs. Sur la page **Autorisation d'API** du processus d'inscription d'application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d'API, choisissez **Permissions d'application**, puis sélectionnez vos autorisations.
 
 ![Permissions d'application et consentement administrateur](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+
+> [!NOTE]
+> L’API web que vous souhaitez appeler doit définir des **autorisations d’application (rôles d’application)** , et non des autorisations déléguées. Pour plus d’informations sur la façon d’exposer une telle API, voir [API web protégée : Inscription d’application – Si votre API web est appelée par une application démon](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)
 
 Les applications démon ont besoin de l'accord préalable de l'administrateur du locataire pour appeler l'API web. Ce consentement est fourni sur la même page **Autorisation d'API** par un administrateur de locataire qui sélectionne **Accorder le consentement administrateur à *notre organisation*** .
 

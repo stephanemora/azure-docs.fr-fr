@@ -12,15 +12,33 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061236"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299245"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
+
+## <a name="using-the-application-insights-java-agent"></a>Utilisation de l’agent Java Application Insights
+
+Vous pouvez configurer l’agent Java application Insights pour qu’il capture automatiquement vos journaux, en activant la fonctionnalité dans le fichier `AI-Agent.xml` :
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+Vous pouvez également suivre les instructions ci-dessous.
 
 ## <a name="install-the-java-sdk"></a>Installer le Kit de développement logiciel (SDK) Java
 

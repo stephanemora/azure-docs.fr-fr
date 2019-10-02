@@ -6,19 +6,21 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325599"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300458"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
-Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md).
+Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md). 
+
+Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
@@ -28,7 +30,7 @@ Lorsque vous définissez la spécification du conteneur, certains paramètres re
 | --- | --- | --- | --- | --- | --- |
 | Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Ports du conteneur | Entre 1 et 65 535 |Entier |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
+| Ports du conteneur | Entre 1 et 65 535 |Integer |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
 | Étiquette du nom DNS | 5 à 63 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
 | Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
 | Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
@@ -200,9 +202,28 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 
 Azure Container Instances n’expose pas un accès direct à l’infrastructure sous-jacente qui héberge les groupes de conteneurs. Cela inclut l’accès à l’API Docker en cours d’exécution sur l’hôte du conteneur et les conteneurs privilégiés en cours d’exécution. Si vous avez besoin d’interaction avec le Docker, vérifiez la [Documentation de référence REST](https://aka.ms/aci/rest) pour voir ce que l’API ACI prend en charge. S’il manque des informations, envoyez une requête sur le [Forum Internet de commentaires ACI](https://aka.ms/aci/feedback).
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Adresses IP éventuellement inaccessibles en raison de ports non correspondants
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Il se peut que l’adresse IP d’un groupe de conteneurs soit inaccessible en raison d’une discordance de ports
 
-Azure Container Instances ne prend pas en charge le mappage de ports, contrairement à la configuration Docker classique. Toutefois, ce correctif est sur la feuille de route. Si vous constatez que des adresses IP ne sont pas accessibles alors qu’elles le devraient, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
+Azure Container Instances ne prend pas encore en charge le mappage de ports, contrairement à une configuration Docker classique. Si vous constatez que l’adresses IP d’un groupe de conteneurs n’est pas accessible alors que vous pensez qu’elle devrait l’être, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
+
+Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port que vous avez configuré dans votre image conteneur, testez un déploiement de l’image `aci-helloworld` qui expose le port. Exécutez également l’application `aci-helloworld` afin qu’elle écoute le port. `aci-helloworld` accepte une variable d’environnement facultative `PORT` pour remplacer le port 80 écouté par défaut. Par exemple, pour tester le port 9000 :
+
+1. Configurez le groupe de conteneurs pour exposer le port 9000 et transmettez le numéro de port comme valeur de la variable d’environnement :
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Recherchez l’adresse IP du groupe de conteneurs dans la sortie de commande de `az container create`. Recherchez la valeur de **ip**. 
+1. Une fois le conteneur correctement approvisionné, accédez à l’adresse IP et au port de l’application conteneur dans votre navigateur, par exemple : `192.0.2.0:9000`. 
+
+    Vous devriez voir le message « Bienvenue dans Azure Container Instances ! » s’afficher dans l’application web.
+1. Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l’aide de la commande `az container delete` :
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

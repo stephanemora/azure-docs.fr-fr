@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 3c4c70aeed833e25eb75a9eaa385e2299c2a4b7e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984850"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300757"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -178,7 +178,7 @@ Pour obtenir une clé à utiliser dans le chiffrement ou le déchiffrement des d
 - Le client a l’entière responsabilité de la gestion du cycle de vie des clés
 - Charge de travail supplémentaire pour l’installation et la configuration
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Chiffrement côté serveur à l’aide de clés gérées par le service sur du matériel contrôlé par le client
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Chiffrement côté serveur à l’aide de clés gérées par le client dans du matériel contrôlé par le client
 
 Certains services Azure activent le modèle de gestion de clés HYOK (Host Your Own Key). Ce mode de gestion est utile dans les scénarios où il est nécessaire de chiffrer les données au repos et de gérer les clés dans un référentiel propriétaire non contrôlé par Microsoft. Dans ce modèle, le service doit récupérer la clé à partir d’un site externe. Les garanties de disponibilité et de performances sont affectées et la configuration est plus complexe. En outre, comme le service n’a pas accès à la clé de chiffrement des données pendant les opérations de chiffrement et de déchiffrement, les garanties de sécurité globale de ce modèle sont similaires à celles du modèle où les clés sont gérées par le client dans Azure Key Vault.  Par conséquent, ce modèle n’est pas approprié pour la plupart des organisations, sauf si elles ont des exigences spécifiques de gestion des clés. En raison de ces limitations, la plupart des services Azure ne gèrent pas le chiffrement côté serveur à l’aide de clés gérées par le serveur dans le matériel contrôlé par le client.
 
@@ -262,7 +262,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une gestion par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
-| Recherche Azure                     | OUI                | -                  | -                  |
+| Recherche Azure                     | OUI                | PRÉVERSION            | -                  |
 | Service Azure Machine Learning   | OUI                | -                  | -                  |
 | Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
 | Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |

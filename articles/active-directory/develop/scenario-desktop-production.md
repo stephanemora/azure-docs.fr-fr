@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2343a416bd810792e7267b94395f953aa4f880a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111198"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268337"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Application de bureau appelant des API web : passage en production
 
@@ -48,6 +48,8 @@ Vous devez utiliser le modificateur `.WithAdditionalPromptToConsent` ayant le pa
 
 Exemple :
 
+### <a name="in-msalnet"></a>Dans MSAL.NET
+
 ```CSharp
 string[] scopesForCustomerApi = new string[]
 {
@@ -67,9 +69,39 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
+### <a name="in-msal-for-ios-and-macos"></a>Dans MSAL pour iOS et macOS
+
+Objective-C :
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                                @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
+    
+NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                              @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+    
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Swift :
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                            "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
+        
+let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                          "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+        
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
 Cet appel vous permet d’obtenir un jeton d’accès pour la première API web.
 
-Lorsque vous avez besoin d’appeler la deuxième API web, vous pouvez appeler :
+Lorsque vous avez besoin d’appeler la deuxième API web, vous pouvez appeler l’API `AcquireTokenSilent` :
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

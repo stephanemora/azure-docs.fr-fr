@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875201"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258567"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
-Activer la supervision de vos applications web .NET et .NET Core exécutées sur [Azure App Services](https://docs.microsoft.com/azure/app-service/) n’a jamais été aussi facile. Alors qu’auparavant vous deviez installer manuellement une extension de site, la dernière version de l’agent/extension est désormais intégrée à l’image App Service par défaut. Cet article explique pas à pas comment activer la supervision Application Insights et vous donne des conseils d’automatisation du processus pour les déploiements à grande échelle.
+L’activation de la supervision de vos applications web ASP.NET et ASP.NET Core exécutées sur [Azure App Services](https://docs.microsoft.com/azure/app-service/) n’a jamais été aussi facile. Alors qu’auparavant vous deviez installer manuellement une extension de site, la dernière version de l’agent/extension est désormais intégrée à l’image App Service par défaut. Cet article explique pas à pas comment activer la supervision Application Insights et vous donne des conseils d’automatisation du processus pour les déploiements à grande échelle.
 
 > [!NOTE]
 > L’ajout manuel d’une extension de site Application Insights via **Outils de développement** > **Extensions** est une méthode dépréciée. Cette méthode d’installation de l’extension était dépendante des mises à jour manuelles pour chaque nouvelle version. La version stable la plus récente de l’extension est désormais [préinstallée](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) dans l’image App Service. Les fichiers se trouvent dans `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` et sont automatiquement mis à jour avec chaque version stable. Si vous suivez les instructions ci-dessous pour activer la supervision basée sur un agent, l’extension dépréciée sera automatiquement supprimée.
@@ -325,6 +325,9 @@ Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les pro
 
 > [!NOTE]
 > Les applications Java et Node.js sont uniquement prises en charge sur Azure App Services avec l’instrumentation manuelle basée sur un SDK. Les étapes ci-dessous ne s’appliquent donc pas à ces scénarios.
+
+> [!NOTE]
+> Les applications ASP.NET Core 3.0 ne sont pas prises en charge. Suivez les instructions d’[instrumentation manuelle](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via un code pour les applications ASP.NET Core 3.0.
 
 1. Vérifiez que l’application est supervisée via `ApplicationInsightsAgent`.
     * Vérifiez que le paramètre d’application `ApplicationInsightsAgent_EXTENSION_VERSION` est défini à une valeur « ~2 ».

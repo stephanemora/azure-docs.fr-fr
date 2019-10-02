@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102646"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240284"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -71,11 +71,11 @@ L’inscription d’une machine auprès du service Update Management dans plusie
 
 ### <a name="supported-client-types"></a>Types de clients pris en charge
 
-Le tableau suivant répertorie la liste des systèmes d’exploitation pris en charge :
+Le tableau suivant affiche la liste des systèmes d’exploitation pris en charge pour les évaluation des mises à jour. Une mise à jour corrective nécessite un Runbook Worker hybride. Pour plus d’informations sur les exigences de Runbook Worker hybride, voir les guides d’installation de [Runbook Worker hybride Windows](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) et de [Runbook Worker hybride Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)|**Évaluations de mises à jour** : Pris en charge<br><br>**Mise à jour corrective** : Exige un runbook Worker hybride. Consultez [Exigences du runbook Worker hybride](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM et SP1 Standard)||
 |CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
@@ -83,7 +83,7 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 
 > [!NOTE]
 > Les groupes de machines virtuelles identiques Azure peuvent être gérés avec Update Management. Update Management fonctionne sur les instances, mais pas sur l’image de base. Vous devez planifier les mises à jour de façon incrémentielle, afin de ne pas mettre à jour toutes les instances de machines virtuelles en même temps.
-> Vous pouvez ajouter des nœuds VMSS en suivant les étapes figurant sous [Intégrer une machine non-Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Vous pouvez ajouter des nœuds VMSS en suivant les étapes décrites dans [Intégrer une machine non-Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 
@@ -249,6 +249,9 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | Contrôle du redémarrage| Détermine la façon dont doivent être gérés les redémarrages. Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
 Vous pouvez également créer des déploiements de mises à jour par programmation. Pour savoir comment créer un déploiement de mises à jour avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un déploiement de mises à jour hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+> [!NOTE]
+> Les clés de Registre répertoriées sous [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) peuvent entraîner un événement de redémarrage même si l’option **Contrôle de redémarrage** est définie sur **Ne jamais redémarrer**.
 
 ### <a name="maintenance-windows"></a>Fenêtres de maintenance
 

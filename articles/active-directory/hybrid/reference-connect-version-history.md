@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0b210868c87b06a6b7caf55aece74cba956b406a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097593"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290780"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -46,7 +46,13 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 ## <a name="14x0"></a>1.4.X.0
 
 >[!IMPORTANT]
->Auparavant, dans certaines circonstances, les ordinateurs Windows de bas niveau joints à Active Directory local n’étaient pas synchronisés correctement dans le cloud. Par exemple, la valeur de l’attribut userCertificate des appareils Windows de bas niveau dans Active Directory était remplie. Dans Azure AD, en revanche, ces appareils conservaient l’état « en attente », car ces versions de système d’exploitation n’étaient pas conçues pour être inscrites auprès d’Azure AD par le biais d’AAD Sync. Dans cette version d’Azure AD Connect, AAD Sync arrête la synchronisation des ordinateurs Windows de bas niveau sur Azure AD et supprime également d’Azure AD les appareils Windows de bas niveau précédemment synchronisés de manière incorrecte. Notez que cette modification ne supprime pas les appareils Windows de bas niveau qui ont été correctement inscrits auprès d’Azure AD à l’aide du package MSI. Ces appareils continuent de fonctionner comme prévu dans le cadre de l’accès conditionnel basé sur les appareils. Certains clients peuvent voir une partie ou l’ensemble de leurs appareils Windows de bas niveau disparaître d’Azure AD. Cela ne constitue pas une source de préoccupation, car ces identités d’appareil n’ont jamais réellement été utilisées par Azure AD pendant l’autorisation d’accès conditionnel. Ces clients devront peut-être consulter de nouveau https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan pour inscrire leurs appareils Windows de bas niveau correctement et ainsi s’assurer qu’ils peuvent pleinement participer à l’accès conditionnel basé sur les appareils. Notez que si vous voyez dans Azure AD ces suppressions d’objets ordinateur/appareil de bas niveau dépasser le seuil de suppression des exportations, il est conseillé que le client autorise ces suppressions pour poursuivre.
+>Les ordinateurs Windows inscrits en tant que jonction Azure AD Hybride sont représentés dans Azure AD en tant qu’objets appareils. Ces objets appareils peuvent être utilisés pour un accès conditionnel. Les ordinateurs Windows 10 sont synchronisés avec le cloud via Azure AD Connect. Les ordinateurs Windows de niveau inférieur sont inscrits directement à l’aide d’AD FS ou d’une authentification unique transparente.
+>
+>Seuls les ordinateurs Windows 10 avec une valeur d’attribut userCertificate spécifique configurée par jonction Azure AD Hybride sont censés être synchronisés dans le cloud par Azure AD Connect.  Dans les versions précédentes d’Azure AD Connect, cette exigence n’était pas rigoureusement appliquée, ce qui entraînait la présence d’objets appareils superflus dans Azure AD. Dans Azure AD, de tels appareils conservaient toujours l’état « en attente », car ces ordinateurs n’avaient pas pour vocation d’être inscrits auprès d’Azure AD.
+>
+>Cette version de Azure AD Connect synchronise uniquement les ordinateurs Windows 10 correctement configurés pour être joints à une version hybride d’Azure AD. Azure AD Connect ne doit jamais se synchroniser [des appareils Windows de niveau supérieur](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Tous les appareils dans Azure AD précédemment synchronisés de manière incorrecte sont désormais supprimés d’Azure AD.  Toutefois, cette modification ne supprime pas d’appareils Windows correctement inscrits auprès d’Azure AD pour une jonction Azure AD Hybride. 
+>
+>Certains clients peuvent voir tout ou partie de leurs appareils Windows disparaître d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces identités d’appareil durant l’autorisation d’accès conditionnel. Il se peut que certains clients doivent revisiter la rubrique [Comment planifier l’implémentation de la jointure Azure Active Directory hybride](../../active-directory/devices/hybrid-azuread-join-plan.md) pour inscrire leurs ordinateurs Windows correctement et s’assurer que ces appareils puissent bénéficier pleinement d’un accès conditionnel basé sur l’appareil. Si Azure AD Connect tente de supprimer un [appareil Windows de niveau inférieur](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices), l’appareil n’est pas celui qui a été créé par le [MSI Microsoft Workplace Join pour les ordinateurs non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) et n’est pas utilisable par une autre fonctionnalité Azure AD.  Si vous constatez que les suppressions d’objets ordinateurs/appareils dans Azure AD dépassent le seuil de suppression des exportations, il est conseillé que le client autorise la poursuite de ces suppressions.
 
 ### <a name="release-status"></a>État de la version
 10/09/2019 : publiée pour la mise à niveau automatique uniquement
@@ -57,7 +63,7 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 - Les clients doivent être informés que les points de terminaison WMI dépréciés pour MIIS_Service sont désormais supprimés. Toutes les opérations WMI doivent à présent être effectuées par le biais des applets de commande PS.
 - Amélioration de la sécurité en réinitialisant la délégation contrainte sur l’objet AZUREADSSOACC
 - Lors de l’ajout ou de la modification d’une règle de synchronisation, si des attributs sont utilisés dans la règle et qu’ils se trouvent dans le schéma du connecteur, mais ne sont pas ajoutés au connecteur, ces attributs sont automatiquement ajoutés au connecteur. Il en va de même pour le type d’objet affecté par la règle. Si quelque chose est ajouté au connecteur, le connecteur sera marqué pour une importation complète au cours du prochain cycle de synchronisation.
-- L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge.
+- L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge dans les nouveaux déploiements d’Azure AD Connect. Cette mise en production n’affectera pas le déploiements en cours d’Azure AD Connect à l’aide d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur.
 - Dans le gestionnaire de synchronisation, une synchronisation complète est exécutée lors de la création, de la modification ou de la suppression d’une règle. Une fenêtre contextuelle s’affiche pour toute modification de règle, notifiant l’utilisateur que l’importation complète ou la synchronisation totale va être exécutée.
 - Ajout d’étapes d’atténuation pour les erreurs de mot de passe à la page Connecteurs > Propriétés > Connectivité
 - Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées par le biais de l’Assistant AADC.

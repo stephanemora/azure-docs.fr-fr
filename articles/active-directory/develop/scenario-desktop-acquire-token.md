@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5409b5619f8be16ef92f517b4b598e2a8e5e2b7
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3e8d46e873d48de5f7e507566b5af6095b9c4e1c
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872823"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268384"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau conçue pour appeler des API web - acquérir un jeton
 
@@ -32,6 +32,8 @@ L’API web est définie par ses valeurs de `scopes`. Quelle que soit l’expér
 
 - Systématiquement tenter d’obtenir un jeton à partir du cache de jeton en appelant `AcquireTokenSilent`
 - Si cet appel échoue, utiliser le flux `AcquireToken` que vous souhaitez utiliser (ici représenté par `AcquireTokenXX`)
+
+### <a name="in-msalnet"></a>Dans MSAL.NET
 
 ```CSharp
 AuthenticationResult result;
@@ -50,12 +52,52 @@ catch(MsalUiRequiredException ex)
                     .ExecuteAsync();
 }
 ```
+### <a name="in-msal-for-ios-and-macos"></a>Dans MSAL pour iOS et macOS
+
+Objective-C :
+
+```objc
+MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
+    
+MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
+[application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
+    
+    // Check the error
+    if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
+    {
+        // Interactive auth will be required, call acquireTokenWithParameters:error:
+    }
+}];
+```
+Swift :
+
+```swift
+guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
+let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
+application.acquireTokenSilent(with: silentParameters) { (result, error) in
+            
+    guard let authResult = result, error == nil else {
+                
+    let nsError = error! as NSError
+                
+        if (nsError.domain == MSALErrorDomain &&
+            nsError.code == MSALError.interactionRequired.rawValue) {
+                    
+            // Interactive auth will be required, call acquireToken()
+            return
+        }
+        return
+    }
+}
+```
 
 Voici à présent la description détaillée des différentes étapes permettant d’obtenir des jetons dans une application de bureau
 
 ## <a name="acquiring-a-token-interactively"></a>Acquisition d’un jeton de manière interactive
 
 L’exemple suivant montre le code minimal permettant d’obtenir un jeton de manière interactive pour lire le profil de l’utilisateur avec Microsoft Graph.
+
+### <a name="in-msalnet"></a>Dans MSAL.NET
 
 ```CSharp
 string[] scopes = new string[] {"user.read"};
@@ -74,13 +116,47 @@ catch(MsalUiRequiredException)
 }
 ```
 
+### <a name="in-msal-for-ios-and-macos"></a>Dans MSAL pour iOS et macOS
+
+Objective-C :
+
+```objc
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
+    if (!error) 
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
+            
+        NSString *accessToken = result.accessToken;
+    }
+}];
+```
+
+Swift :
+
+```swift
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
+                
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
+                
+    // Get access token from result
+    let accessToken = authResult.accessToken
+})
+```
+
 ### <a name="mandatory-parameters"></a>Paramètres obligatoires
 
 `AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’api de chaque API Microsoft graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), vous aurez besoin des étendues « User.Read », « Contacts.Read ». Voir aussi [Informations de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 Sur Android, vous devez également spécifier l’activité parente (au moyen de `.WithParentActivityOrWindow`, voir ci-dessous), afin que le jeton retourne à cette activité parente après l’interaction. Si vous ne le précisez pas, une exception est levée lors de l’appel de `.ExecuteAsync()`.
 
-### <a name="specific-optional-parameters"></a>Paramètres facultatifs particuliers
+### <a name="specific-optional-parameters-in-msalnet"></a>Paramètres facultatifs particuliers dans MSAL.NET
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 

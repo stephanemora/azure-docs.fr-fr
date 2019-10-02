@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101547"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266417"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication SQL Database
 
@@ -60,6 +60,7 @@ Cet article répertorie les fonctionnalités SQL Database actuellement en préve
 
 ### <a name="managed-instance-h2-2019-updates"></a>Mises à jour des instances managées (deuxième partie de l’exercice 2019)
 
+- Des [groupes de basculement automatique](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) vous permettent de répliquer toutes les bases de données de l’instance principale vers une instance secondaire dans une autre région.
 - Configurez le comportement de votre instance managée avec des [indicateurs de trace globaux](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
 ### <a name="managed-instance-h1-2019-updates"></a>Mises à jour des instances managées (première partie de l’exercice 2019)
@@ -69,7 +70,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement d�
   - Prise en charge de <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 et SharePoint 2019 </a> ainsi que de <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Création d’instances pour lesquelles vous choisissez le <a href="https://aka.ms/managed-instance-collation">classement au niveau du serveur</a> et le <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuseau horaire</a>.
   - Les instances managées sont maintenant protégées par un <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">pare-feu intégré</a>.
-  - Configurer des instances pour utiliser des [points de terminaison publics](sql-database-managed-instance-public-endpoint-configure.md), [remplacer par proxy](/sql-database-connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La conservation des sauvegardes à long terme (jusqu’à 10 ans) n’est toujours pas activée. À la place, vous pouvez utiliser des <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">sauvegardes de copie uniquement</a>.
+  - Configurer des instances pour utiliser des [points de terminaison publics](sql-database-managed-instance-public-endpoint-configure.md), [remplacer par proxy](sql-database-connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La conservation des sauvegardes à long terme (jusqu’à 10 ans) n’est toujours pas activée. À la place, vous pouvez utiliser des <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">sauvegardes de copie uniquement</a>.
   - De nouvelles fonctionnalités vous permettent de <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">géo-restaurer votre base de données dans un autre centre de données à l’aide de PowerShell</a>, de [renommer la base de données](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) et de [supprimer un cluster virtuel](sql-database-managed-instance-delete-virtual-cluster.md).
   - Le nouveau [rôle Contributeur d’instance intégré](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) permet la conformité de la séparation des tâches aux principes de sécurité et le respect des normes d’entreprise.
   - L’instance managée est disponible dans les régions Azure Government suivantes pour la disponibilité générale (US Gov Texas, US Gov Arizona) ainsi que dans les régions Chine Nord 2 et Chine Est 2. Elle est également disponible dans les régions publiques suivantes : Australie Centre, Australie Centre 2, Brésil Sud, France Sud, Émirats arabes unis Centre, Émirats arabes unis Nord, Afrique du Sud Nord, Afrique du Sud Ouest.

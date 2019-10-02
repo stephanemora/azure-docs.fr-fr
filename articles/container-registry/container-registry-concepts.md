@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: danlep
-ms.openlocfilehash: a14f0a2a86c5e4922fcddf3c92d48c6dfb1497a3
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9a3d4a7d9c3fd4a0465d4e780024559a71372d9d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799934"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300203"
 ---
 # <a name="about-registries-repositories-and-images"></a>À propos des registres, des dépôts et des images
 
@@ -94,7 +94,7 @@ Chaque image conteneur (ou artefact) envoyée (push) à un registre de conteneur
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-Par exemple, voici la liste des codes de hachage de manifeste pour le référentiel « acr-helloworld » :
+Par exemple, voici la liste des manifestes pour le référentiel « acr-helloworld » :
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -137,8 +137,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> Si vous envoyez plusieurs fois des images modifiées ayant une même étiquette, vous risquez de créer des images orphelines (c’est-à-dire sans étiquette), mais qui occupent toujours de l’espace dans votre registre. Lorsque vous répertoriez les images par étiquette, les images sans étiquette ne s’affichent pas dans Azure CLI ni dans le portail Azure. Toutefois, leurs calques se trouvent toujours dans le registre et consomment de l’espace de stockage. Pour plus d’informations sur la libération d’espace utilisé par les images non balisées, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
-
+> Si vous envoyez plusieurs fois des images modifiées ayant une même étiquette, vous risquez de créer des images orphelines (c’est-à-dire sans étiquette), mais qui occupent toujours de l’espace dans votre registre. Lorsque vous répertoriez les images par étiquette, les images sans étiquette ne s’affichent pas dans Azure CLI ni dans le portail Azure. Toutefois, leurs calques se trouvent toujours dans le registre et consomment de l’espace de stockage. La suppression d’une image sans balise libère de l’espace dans le Registre lorsque le manifeste est le seul ou le dernier à pointer vers une couche particulière. Pour plus d’informations sur la libération d’espace utilisé par les images non balisées, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

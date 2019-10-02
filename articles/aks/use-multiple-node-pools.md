@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996894"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212271"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une versi
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.12 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.16 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,6 +79,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Vous ne pouvez pas supprimer le pool de nœuds par défaut (premier).
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 * Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
+* Le nom d’un pool de nœuds doit commencer par une lettre minuscule et ne peut contenir que des caractères alphanumériques. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
 
 Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
@@ -131,6 +132,9 @@ az aks nodepool add \
     --kubernetes-version 1.12.7
 ```
 
+> [!NOTE]
+> Le nom d’un pool de nœuds doit commencer par une lettre minuscule et ne peut contenir que des caractères alphanumériques. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
+
 Pour afficher l’état de vos pools de nœuds, utilisez la commande [az aks node pool list][az-aks-nodepool-list] et spécifiez votre groupe de ressources et le nom du cluster :
 
 ```azurecli-interactive
@@ -174,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds ne peuvent pas se produire simultanément. Toute tentative de les exécuter simultanément retourne une erreur. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
 
-Lors de la création de votre cluster AKS à la première étape, la valeur *1.13.10* a été spécifiée pour `--kubernetes-version`. Celle-ci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds par défaut. Les commandes de cette section expliquent comment mettre à niveau un seul pool de nœuds. La relation entre la mise à niveau de la version Kubernetes du plan de contrôle et le pool de est décrite [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Lors de la création de votre cluster AKS à la première étape, la valeur *1.13.10* a été spécifiée pour `--kubernetes-version`. Celle-ci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds par défaut. Les commandes de cette section expliquent comment mettre à niveau un seul pool de nœuds.
+
+La relation entre la mise à niveau de la version Kubernetes du plan de contrôle et le pool de est décrite [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La version de l'image de système d'exploitation du pool de nœuds est liée à la version Kubernetes du cluster. Vous n'obtiendrez les mises à niveau de l'image de système d'exploitation qu'après une mise à niveau du cluster.
@@ -189,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> Pour mettre à niveau le plan avec la version *1.14.6*, exécutez `az aks upgrade -k 1.14.6`. Pour en savoir plus sur [les mises à niveau de plan de contrôle avec plusieurs pools de nœuds, cliquez ici](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.13.10* :
 
@@ -228,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Il faut quelques minutes pour mettre à niveau les nœuds vers la version spécifiée.
 
-En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds dans un cluster AKS vers la même version de Kubernetes. La possibilité de mettre à niveau les pools de nœuds individuels vous permet d’effectuer une mise à niveau propagée et de planifier des pods entre les pools de nœuds pour maintenir la disponibilité des applications au sein des contraintes susmentionnées.
+En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds dans un cluster AKS vers la même version de Kubernetes. Le comportement par défaut de `az aks upgrade` est de mettre à niveau tous les pools de nœuds en même temps que le plan de contrôle pour obtenir cet alignement. La possibilité de mettre à niveau les pools de nœuds individuels vous permet d’effectuer une mise à niveau propagée et de planifier des pods entre les pools de nœuds pour maintenir la disponibilité des applications au sein des contraintes susmentionnées.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Mettre à niveau un plan de contrôle de cluster avec plusieurs pools de nœuds
 
@@ -239,17 +242,18 @@ En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds
 > * La version du pool de nœuds peut être une version secondaire inférieure à la version du plan de contrôle.
 > * La version du pool de nœuds peut être n'importe quelle version de correctif tant que les deux autres contraintes sont respectées.
 
-Un cluster AKS possède deux objets de ressource de cluster. Le premier est une version Kubernetes du plan de contrôle. Le second est un pool d'agents avec une version de Kubernetes. Un plan de contrôle est mappé à un ou plusieurs pools de nœuds, chacun possédant sa propre version de Kubernetes. Le comportement d'une opération de mise à niveau dépend de la ressource ciblée et de la version de l'API sous-jacente qui est appelée.
+Un cluster AKS possède deux objets de ressource de cluster avec des versions Kubernetes associées. Le premier est une version Kubernetes du plan de contrôle. Le second est un pool d'agents avec une version de Kubernetes. Un plan de contrôle est mappé à un ou plusieurs pools de nœuds. Le comportement d’une opération de mise à niveau dépend de la commande Azure CLI utilisée.
 
 1. La mise à niveau du plan de contrôle requiert l'utilisation de `az aks upgrade`
-   * Elle entraîne également la mise à niveau de tous les pools de nœuds dans le cluster
-1. Mise à niveau à l'aide de `az aks nodepool upgrade`
-   * Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée.
+   * Cela met à niveau la version du plan de contrôle et tous les pools de nœuds dans le cluster
+   * En transmettant `az aks upgrade` avec l’indicateur `--control-plane-only`, seul le plan de contrôle de cluster est mis à niveau et aucun des pools de nœuds associés n’est modifié. L’indicateur `--control-plane-only` est disponible dans l’**extension AKS-Preview v0.4.16** ou une version ultérieure.
+1. La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az aks nodepool upgrade`
+   * Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée
 
 La relation entre les versions de Kubernetes détenues par les pools de nœuds doit également suivre un ensemble de règles.
 
 1. Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.
-1. Si aucune version de Kubernetes n’est spécifiée pour le pool de nœuds, la version utilisée est celle du plan de contrôle.
+1. Si une version de Kubernetes de pool de nœuds n’est pas spécifiée, le comportement dépend du client utilisé. Pour la déclaration dans le modèle ARM, la version existante définie pour le pool de nœuds est utilisée. Si elle n’est définie, la version du plan de contrôle est utilisée.
 1. Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre les deux opérations simultanément.
 1. La version de Kubernetes d'un pool de nœuds doit correspondre à la version principale du plan de contrôle.
 1. La version de Kubernetes d'un pool de nœuds peut être au maximum de deux (2) versions mineures inférieure à celle du plan de contrôle, mais jamais supérieure.
@@ -580,8 +584,8 @@ La mise à jour de votre cluster AKS peut prendre quelques minutes selon les par
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds
 
-> [!NOTE]
-> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. Pendant la période de préversion, utilisez la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
+> [!WARNING]
+> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. Pendant la période de préversion, vous devez utiliser la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
 
 Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, dans certains cas, les nœuds d’un pool de nœuds doivent avoir leurs propres adresses IP publiques. C’est par exemple le cas du gaming, où une console doit être directement connectée à une machine virtuelle dans le cloud pour réduire les tronçons. Pour ce faire, vous devez vous inscrire pour une fonctionnalité d’évaluation distincte, à savoir Node Public IP (préversion).
 
@@ -589,7 +593,7 @@ Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour co
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Après l’inscription, déployez un modèle Azure Resource Manager selon les instructions [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et en ajoutant la propriété de valeur booléenne suivante, « enableNodePublicIP » sur agentPoolProfiles. Définissez-la sur `true`, étant donné qu’elle sera définie sur `false` par défaut si elle n’est pas spécifiée. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
+Après l’inscription, déployez un modèle Azure Resource Manager selon les instructions [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et en ajoutant la propriété de valeur booléenne suivante, « enableNodePublicIP » sur agentPoolProfiles. Définissez-la sur `true` car, par défaut, elle est définie sur `false`. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
 
 ```
 "agentPoolProfiles":[  

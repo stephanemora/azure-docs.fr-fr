@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852682"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268344"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
@@ -32,7 +32,7 @@ Découvrez tout ce que vous devez savoir pour générer une application de burea
 
 ## <a name="getting-started"></a>Prise en main
 
-Si ce n’est pas déjà fait, créez votre première application en suivant le Guide de démarrage rapide du bureau .NET ou le guide de démarrage rapide UWP :
+Si ce n’est pas déjà fait, créez votre première application en suivant le Guide de démarrage rapide du bureau .NET, le guide de démarrage rapide d’UWP ou le guide de démarrage rapide de l’application native macOS :
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
@@ -41,13 +41,16 @@ Si ce n’est pas déjà fait, créez votre première application en suivant le 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application native macOS](./quickstart-v2-ios.md)
+
 ## <a name="overview"></a>Vue d'ensemble
 
 Vous écrivez une application de bureau et vous voulez connecter des utilisateurs à votre application et appeler des API Web telles que Microsoft Graph, d’autres API Microsoft ou votre propre API Web. Vous avez plusieurs possibilités :
 
 - Vous pouvez utiliser l’acquisition de jetons interactive :
 
-  - Si votre application de bureau prend en charge les contrôles graphiques, par exemple s’il s’agit d’une application Windows.Form ou WPF.
+  - Si votre application de bureau prend en charge les contrôles graphiques, par exemple s’il s’agit d’une application Windows.Form, d’une application WPF ou d’une application native macOS.
   - S’il s’agit d’une application .NET Core et que vous acceptez que l’interaction d’authentification avec Azure AD se produise dans le navigateur système.
 
 - Pour les applications hébergées sous Windows, il est également possible pour les applications s’exécutant sur des ordinateurs reliés à un domaine Windows ou AAD relié à un domaine Windows d’acquérir un jeton en silence en utilisant l’authentification Windows intégrée.

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091730"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179091"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Suivez des étapes similaires lors de réduction d’échelle de votre cluster : videz vos tables et désactivez-les pour arrêter les données entrantes. Vous ne pouvez pas réduire l’échelle votre cluster à moins de trois nœuds.
+
+Ces étapes garantissent la réussite de la réduction d’échelle et évitent la possibilité qu’un namenode passe en mode sans échec en raison de la présence de fichiers temporaires ou sous-répliqués.
+
+Si votre namenode passe en mode sans échel après une réduction d’échelle, utilisez des commandes de HDFS pour re-répliquer les blocs sous-répliqués et sortir HDFS du mode sans échec. Cette re-réplication vous permettra de redémarrer HBase avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

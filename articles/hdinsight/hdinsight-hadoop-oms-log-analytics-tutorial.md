@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816034"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240370"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
@@ -109,6 +109,15 @@ Pour obtenir des instructions sur l’installation d’une solution de gestion, 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
 
 Azure Monitor prend également en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations sur l’activation et la configuration de cette fonctionnalité, voir [Sources de données de performances Linux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+
+## <a name="cluster-auditing"></a>Audit de cluster
+
+HDInsight prend en charge l’audit de cluster avec des journaux Azure Monitor en important les types de journaux suivants :
+
+* `log_gateway_audit_CL` : ce tableau répertorie les journaux d’audit de nœuds de passerelle de cluster qui affichent des tentatives de connexion réussies et ayant échoué.
+* `log_auth_CL` : ce tableau répertorie les journaux SSH contenant des tentatives de connexion réussies et ayant échoué.
+* `log_ambari_audit_CL` : ce tableau répertorie les journaux d’audit d’Ambari.
+* `log_ranger_audti_CL` : ce tableau répertorie les journaux d’audit d’Apache Ranger sur des clusters ESP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

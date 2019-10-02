@@ -17,12 +17,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: cb279441e8ed0c0110a5b18d32609ed5b01bd7e2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074263"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291043"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -80,7 +80,7 @@ Cette liste affiche les revendications présentes par défaut dans la plupart de
 |`email` | Chaîne | La revendication `email` est présente par défaut pour les comptes invités qui disposent d’une adresse de messagerie.  Votre application peut demander la revendication de courrier électronique pour les utilisateurs gérés (ceux provenant du même locataire que la ressource) à l’aide de la `email` [revendication facultative](active-directory-optional-claims.md).  Sur le point de terminaison v2.0, votre application peut également demander l’étendue OpenID Connect `email` : vous n’avez pas besoin de demander la revendication facultative et l’étendue pour obtenir la revendication.  La revendication de courrier électronique prend uniquement en charge la messagerie adressable provenant des informations du profil de l’utilisateur. |
 |`name` | Chaîne | La revendication `name` fournit une valeur explicite qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 |`nonce`| Chaîne | La valeur à usage unique correspond au paramètre inclus dans la requête /authorize d’origine au point de distribution d’émission. Si ce n’est pas le cas, votre application doit rejeter le jeton. |
-|`oid` | Chaîne, GUID | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
+|`oid` | Chaîne, GUID | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. La revendication `oid` est un GUID qui ne peut pas être réutilisé. |
 |`roles`| Tableau de chaînes | Ensemble des rôles attribués à l’utilisateur qui se connecte. |
 |`rh` | Chaîne opaque |Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`sub` | Chaîne, GUID | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. L’objet est un identificateur par paire ; il est spécifique à un ID d’application donné. Si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos exigences en matière d’architecture et de confidentialité. |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d881ffff81119167f54b5ef8f0c5e2c1ad1e4791
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075129"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264184"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,10 @@ L’exemple suivant met à niveau le cluster vers la version *1.13.10* :
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds.
+Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds. 
+
+> [!NOTE]
+> Il existe un temps total alloué à la mise à niveau de cluster. Cette durée est calculée en prenant le produit de l’opération `10 minutes * total number of nodes in the cluster`. Par exemple, dans un cluster de 20 nœuds, les opérations de mise à niveau doivent réussir en 200 minutes. Dans le cas contraire, AKS fait échouer l’opération pour éviter un état de cluster irrécupérable. Pour effectuer une récupération en cas d’échec de mise à niveau, retentez l’opération de mise à niveau une fois le délai d’expiration atteint.
 
 Pour vérifier si la mise à niveau a réussi, utilisez la commande [az aks show][az-aks-show] :
 

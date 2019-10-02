@@ -1,5 +1,5 @@
 ---
-title: Connecter des données d’événement de sécurité Windows à Azure Sentinel en préversion | Microsoft Docs
+title: Connecter les données d’événement de sécurité Windows à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données d’événement de sécurité Windows à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673763"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240515"
 ---
 # <a name="connect-windows-security-events"></a>Connecter les événements de sécurité Windows 
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Vous pouvez transmettre en continu tous les événements de sécurité des serveurs Windows connectés à votre espace de travail Azure Sentinel. Cette connexion vous permet d’afficher des tableaux de bord, de créer des alertes personnalisées et d’améliorer les investigations. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité.  Vous pouvez sélectionner les événements à transmettre en continu :
 
@@ -40,6 +38,8 @@ Les événements qui ont un volume très faible ont été inclus dans l’ensemb
 > [!NOTE]
 > 
 > - Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> - Si Azure Security Center et Azure Sentinel s’exécutent sur le même espace de travail, le connecteur des événements de sécurité ne peut être connecté qu’à partir d’Azure Security Center ou d’Azure Sentinel. Pour gérer ces événements à partir d’Azure Sentinel, nous vous recommandons de le déconnecter d’Azure Security Center et de ne le connecter qu’à Azure Sentinel.
+
 
 La liste suivante fournit le détail complet des ID d’événement App Locker et de sécurité pour chaque ensemble :
 
@@ -73,5 +73,5 @@ Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter les événements de sécurité Windows à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 

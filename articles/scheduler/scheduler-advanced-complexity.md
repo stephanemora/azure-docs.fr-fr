@@ -10,17 +10,17 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531827"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300962"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de mise hors service. Pour planifier des travaux, [utilisez plutôt Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est [en cours de retrait](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, [migrez vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
 
 La planification constitue le cœur d’un travail [Azure Scheduler](../scheduler/scheduler-intro.md), car elle détermine quand et comment Azure Scheduler exécute le travail. Avec Scheduler, vous pouvez créer plusieurs planifications ponctuelles et récurrentes pour un travail. Les planifications ponctuelles se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence définie. Cette flexibilité vous permet d’utiliser Scheduler dans divers scénarios d’entreprise, comme les exemples ci-après :
 

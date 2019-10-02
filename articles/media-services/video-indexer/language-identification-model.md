@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931108"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147192"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifier automatiquement la langue parlée avec le modèle d’identification de langue
 
@@ -53,7 +53,7 @@ Le langage dominant du modèle est disponible dans Insights JSON en tant qu’at
 * Si l’audio contient des langues autres que la liste prise en charge ci-dessus, le résultat est incertain.
 * Si Video Indexer ne parvient pas à identifier la langue avec un niveau de confiance suffisant (`>0.6`), la langue par défaut est l’anglais.
 * Il n’existe pas de prise en charge actuelle du fichier avec des langues audio mixtes. Si l’audio contient des langues mixtes, le résultat est incertain. 
-* L’effet caustique audio de faible qualité peut avoir un impact sur les résultats du modèle.
+* Un audio de faible qualité peut avoir un impact sur les résultats du modèle.
 * Le modèle requiert au moins une minute de parole dans l’audio.
 * Le modèle est conçu pour reconnaître une parole de conversation spontanée (pas les commandes vocales, le chant, etc.).
 
