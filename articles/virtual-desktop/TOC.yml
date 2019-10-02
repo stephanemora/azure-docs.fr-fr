@@ -66,6 +66,8 @@
   items:
     - name: Environnement Windows Virtual Desktop
       href: environment-setup.md
+    - name: Recommandations en bande passante pour les sessions à distance
+      href: bandwidth-recommendations.md
     - name: Accès délégué dans Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Méthodes d’équilibrage de charge des pools d’hôtes

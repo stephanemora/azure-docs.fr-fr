@@ -19,6 +19,8 @@
         - name: 2. Déployer une application
           href: get-started-portal-deploy-app.md
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
+    - name: Utiliser le navigateur
+      href: luis-get-started-get-intent-from-browser.md
     - name: Utilisation du Kit de développement logiciel (SDK) .NET
       items:
         - name: Créer et gérer une application
@@ -32,17 +34,7 @@
     - name: Utiliser les API REST
       items:
         - name: Reconnaître l’intention
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-get-intent.md
-            - name: Go
-              href: luis-get-started-go-get-intent.md
-            - name: Java
-              href: luis-get-started-java-get-intent.md
-            - name: Node.js
-              href: luis-get-started-node-get-intent.md
-            - name: Python
-              href: luis-get-started-python-get-intent.md
+          href: luis-get-started-get-intent-from-rest.md
         - name: Changer de modèle
           items:
             - name: 'C#'
@@ -403,8 +395,6 @@
   items:
     - name: Azure Bot Service
       href: 'https://dev.botframework.com/'
-    - name: 'C# du SDK Bot Builder 3.x'
-      href: 'https://github.com/Microsoft/BotBuilder'
     - name: 'C# du SDK Bot Builder 4.x'
       href: 'https://github.com/Microsoft/botbuilder-dotnet'
     - name: QnA Maker
