@@ -1,18 +1,18 @@
 ---
-title: Nouveautés d’Azure Site Recovery | Microsoft Docs
+title: Nouveautés d’Azure Site Recovery
 description: Fournit un récapitulatif des nouvelles fonctionnalités introduites dans Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146897"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212802"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -24,16 +24,56 @@ Vous pouvez suivre et vous abonner aux notifications de mise à jour Site Recove
 
 Pour les composants Site Recovery, nous prenons en charge les versions N-4, où N correspond à la dernière version publiée. Celles-ci sont récapitulées dans le tableau ci-dessous.
 
-**Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services** 
---- | --- | --- | --- | ---
+**Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
+--- | --- | --- | --- | --- | ---
+[Rollup 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [Correctif cumulatif 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[Correctif cumulatif 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
+
+
+## <a name="updates-september-2019"></a>Mises à jour (septembre 2019)
+
+### <a name="update-rollup-40"></a>Mise à jour Rollup 40
+
+La [mise à jour Rollup 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif)
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité des machines virtuelles Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**Nettoyage après restauration automatique** | Après un basculement vers le serveur Azure secondaire, puis la restauration automatique vers la région primaire, Site Recovery nettoie automatiquement les machines de la région secondaire. Il n’est pas nécessaire de supprimer manuellement les machines virtuelles et les cartes réseau.
+**Le test de basculement conserve l’adresse IP** | Vous pouvez maintenant conserver l’adresse IP de la machine virtuelle source pendant une reprise d’activité après sinistre et sélectionner une adresse IP statique pour un test de basculement.
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/récupération d’urgence de serveur physique
+
+Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+Nouvelles alertes du serveur de processus | Nous avons ajouté de nouvelles alertes de serveur de processus. [Plus d’informations](vmware-physical-azure-monitor-process-server.md) 
+
+### <a name="hyper-v-disaster-recovery"></a>Reprise d’activité Hyper-V
+
+Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+Compte de stockage | Site Recovery prend désormais en charge l’utilisation de comptes de stockage avec un pare-feu activé pour la reprise d’activité Hyper-V vers Azure.  Vous pouvez sélectionner des comptes de stockage avec pare-feu comme compte cible ou pour le stockage du cache. Si vous utilisez un compte de stockage avec pare-feu, veillez à activer l’option permettant d’autoriser les services Microsoft approuvés.
 
 
 ## <a name="updates-august-2019"></a>Mises à jour (août 2019)
@@ -71,7 +111,7 @@ Le [Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) fournit
 
 ### <a name="general"></a>Généralités
 
-Site Recovery prend désormais en charge l’utilisation de comptes de stockage universel v2 pour le stockage de cache ou le stockage cible. Auparavant, seul v1 était pris en charge.
+Site Recovery prend désormais en charge l’utilisation de comptes de stockage v2 à usage général pour le stockage de cache ou le stockage cible. Auparavant, seul v1 était pris en charge.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Récupération d’urgence VMware vers Azure
 
