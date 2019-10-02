@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177306"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279885"
 ---
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -38,27 +38,20 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
    > Le mot de passe d'administration du serveur que vous spécifiez ici est requis pour se connecter au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
 
 5. Cliquez sur **Configurer le groupe de serveurs**. Laissez inchangés les paramètres de cette section et cliquez sur **Enregistrer**.
-6. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour provisionner le serveur. Le provisionnement prend quelques minutes.
-7. La page redirige vers la supervision du déploiement. Quand l’état passe de **Votre déploiement est en cours** à **Votre déploiement a été effectué**, cliquez sur l’élément de menu **Sorties** à gauche de la page.
-8. La page des sorties contient un nom d’hôte de coordinateur avec un bouton en regard de celui-ci pour copier la valeur dans le Presse-papiers. Prenez note de ces informations pour une utilisation ultérieure.
+6. Cliquez sur **Suivant : Networking (Réseau) >** au bas de la page.
 
-## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
-
-Le service Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion) utilise un pare-feu au niveau du serveur. Par défaut, le pare-feu empêche les outils et les applications externes de se connecter au nœud coordinateur et aux bases de données qui s’y trouvent. Nous devons ajouter une règle pour ouvrir le pare-feu pour une plage d’adresses IP spécifiques.
-
-1. Dans la section **Sorties** où vous avez précédemment copié le nom d’hôte du nœud coordinateur, recliquez sur l’élément de menu **Vue d’ensemble**.
-
-2. Recherchez le nom du groupe de serveurs de votre déploiement et cliquez dessus. (Le nom du groupe de serveurs ne comportera *pas* de suffixe. Les éléments dont le nom se termine par exemple par « -c », « -w0 », ou « -w1 » ne correspondent pas au groupe de serveurs.)
-
-3. Cliquez sur **Pare-feu** sous **Sécurité** dans le menu de gauche.
-
-4. Cliquez sur le lien **+ Ajouter une règle de pare-feu pour l’adresse IP du client**.
-
-5. Enfin, cliquez sur le bouton **Enregistrer**.
+7. Sous l’onglet **Networking** (Réseau), cliquez sur la case d’option **Public endpoint** (Point de terminaison public).
+   ![Public endpoint (Point de terminaison public) sélectionné](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. Cliquez sur le lien **+ Add current client IP address** (+ Ajouter l’adresse IP actuelle du client).
+   ![Adresse IP du client ajoutée](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
    >
+
+9. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour provisionner le serveur. Le provisionnement prend quelques minutes.
+10. La page redirige vers la supervision du déploiement. Quand l’état passe de **Votre déploiement est en cours** à **Votre déploiement a été effectué**, cliquez sur l’élément de menu **Sorties** à gauche de la page.
+11. La page des sorties contient un nom d’hôte de coordinateur avec un bouton en regard de celui-ci pour copier la valeur dans le Presse-papiers. Prenez note de ces informations pour une utilisation ultérieure.
 
 ## <a name="connect-to-the-database-using-psql"></a>Se connecter à la base de données à l'aide de psql
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721230"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212690"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et Java
 
@@ -58,7 +58,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     import java.nio.file.Paths;
     ```
 
-2. Créez des variables pour votre clé d’abonnement et votre point de terminaison. Vous trouverez ci-dessous l’URI que vous pouvez utiliser pour la reconnaissance de l’écriture manuscrite. Il sera ajouté ultérieurement à votre point de terminaison de service pour créer l’URL de requête d’API.
+2. Créez des variables pour votre clé d’abonnement et votre point de terminaison. Remplacez le point de terminaison ci-dessous par celui généré pour votre ressource Ink Recognizer. Ajoutez-le à l’URI d’Ink Recognizer pour la connexion à l’API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,7 +66,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

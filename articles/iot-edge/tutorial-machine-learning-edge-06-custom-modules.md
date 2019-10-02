@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840107"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299863"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Didacticiel : Créer et déployer des modules IoT Edge personnalisés
 
@@ -56,7 +56,7 @@ Les étapes décrites dans cet article sont généralement effectuées par un d�
 
 ## <a name="create-a-new-iot-edge-solution"></a>Créer une solution IoT Edge
 
-Pendant l’exécution du deuxième de nos deux notebooks Azure, nous avons créé et publié une image conteneur qui contient notre modèle de durée de vie restante. Azure Machine Learning, dans le cadre du processus de création de l’image, intègre les éléments qui permettent de déployer l’image sous la forme d’un module Azure IoT Edge. Dans cette étape, nous créons une solution Azure IoT Edge à l’aide du module « Azure Machine Learning » et faisons pointer le module sur l’image que nous avons publiée à l’aide de notebooks Azure.
+Pendant l’exécution du deuxième de nos deux notebooks Azure, nous avons créé et publié une image conteneur qui contient notre modèle de durée de vie restante. Pendant le processus de création d’image, Azure Machine Learning empaquetait ce modèle pour offrir la possibilité de déployer l’image en tant que module Azure IoT Edge. Dans cette étape, nous créons une solution Azure IoT Edge à l’aide du module « Azure Machine Learning » et faisons pointer le module sur l’image que nous avons publiée à l’aide de notebooks Azure.
 
 1. Ouvrez une session Bureau à distance sur votre machine de développement.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564878"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146619"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -35,7 +35,7 @@ Application Gateway prend en charge l’arrêt SSL/TLS au niveau de la passerel
 
 ## <a name="autoscaling"></a>Mise à l’échelle automatique
 
-Les déploiements d’Application Gateway ou du WAF sous la référence SKU Standard_v2 ou WAF_v2 prennent en charge la mise à l’échelle automatique et peuvent subir un scale-up ou un scale-down en fonction de l’évolution des modèles de charge du trafic. La mise à l’échelle automatique vous évite aussi d’avoir à choisir une taille de déploiement ou un nombre d’instances au moment du provisionnement. Pour plus d’informations sur les fonctionnalités standard_v2 et WAF_v2 d’Application Gateway, consultez [Mise à l’échelle automatique de la référence SKU v2](application-gateway-autoscaling-zone-redundant.md).
+Les déploiements d’Application Gateway ou du WAF sous la référence SKU Standard_v2 ou WAF_v2 prennent en charge la mise à l’échelle automatique et peuvent subir un scale-up ou un scale-down en fonction de l’évolution des modèles de charge du trafic. La mise à l’échelle automatique vous évite aussi d’avoir à choisir une taille de déploiement ou un nombre d’instances au moment du provisionnement. Pour plus d’informations sur les fonctionnalités Standard_v2 et WAF_v2 d’Application Gateway, consultez [Mise à l’échelle automatique de la référence SKU v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Redondance de zone
 
@@ -47,7 +47,7 @@ L’adresse IP virtuelle de la passerelle d’application sur la référence SKU
 
 ## <a name="web-application-firewall"></a>Pare-feu d’application web
 
-Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d’application qui protège vos applications web de manière centralisée contre les vulnérabilités et exploits courants. WAF suit les règles des [Ensembles de règles de base OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. 
+Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d’application qui protège vos applications web de manière centralisée contre les vulnérabilités et exploits courants. WAF suit les règles des [ensembles de règles de base OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 uniquement), 3.0 et 2.2.9. 
 
 Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau d’un grand nombre de couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
 
@@ -63,7 +63,7 @@ Pour plus d’informations, consultez [Routage basé sur l’URL avec Applicatio
 
 ## <a name="multiple-site-hosting"></a>Hébergement de plusieurs sites
 
-L’hébergement de plusieurs sites vous permet de configurer plusieurs sites web sur la même instance de passerelle d’application. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle d’application. Chaque site web peut être dirigé vers son propre pool. Par exemple, la passerelle d’application peut traiter le trafic pour `contoso.com` et `fabrikam.com` à partir de deux pools de serveurs appelés ContosoServerPool et FabrikamServerPool.
+L’hébergement de plusieurs sites vous permet de configurer plusieurs sites web sur la même instance de passerelle d’application. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une instance d’Application Gateway, ou 40 à WAF (pour des performances optimales). Chaque site web peut être dirigé vers son propre pool. Par exemple, la passerelle d’application peut traiter le trafic pour `contoso.com` et `fabrikam.com` à partir de deux pools de serveurs appelés ContosoServerPool et FabrikamServerPool.
 
 Les requêtes adressées à `http://contoso.com` sont acheminées vers ContosoServerPool et les requêtes adressées à `http://fabrikam.com` sont acheminées vers FabrikamServerPool.
 
@@ -107,6 +107,8 @@ Pour plus d’informations, consultez [Contrôleur d’entrée d’Azure Applica
 
 Le vidage des connexions permet d’éliminer délicatement les membres du pool principal lors des mises à jour planifiées de maintenance. Ce paramètre est activé via le paramètre du http principal et peut s’appliquer à tous les membres d’un pool principal pendant la création de règles. Une fois activée, Application Gateway s’assure que toutes les instances de désinscription d’un pool principal ne reçoivent aucune nouvelle requête tout en permettant aux requêtes existantes de se terminer dans un délai défini. Cela s’applique à la fois aux instances principales explicitement supprimées du pool principal par un appel d’API et aux instances secondaires signalées comme étant non intègres d’après les résultats des sondes d’intégrité.
 
+Pour plus d’informations, consultez la section relative au drainage des connexions de [Vue d’ensemble de la configuration d’Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
+
 ## <a name="custom-error-pages"></a>Pages d’erreur personnalisées
 
 Application Gateway vous permet de créer des pages d’erreur personnalisées au lieu d’afficher les pages d’erreur par défaut. Vous pouvez utiliser votre marque et votre mise en page personnelle à l’aide d’une page d’erreur personnalisée.
@@ -127,13 +129,13 @@ Pour plus d’informations, consultez [Réécrire les en-têtes HTTP](rewrite-ht
 
 ## <a name="sizing"></a>Dimensionnement
 
-Les références SKU Standard_v2 et WAF_v2 d’Application Gateway peuvent être configurées dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. Ces références SKU n’offrent pas de tailles d’instance différentes.
+Les références SKU Standard_v2 et WAF_v2 d’Application Gateway peuvent être configurées dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. Ces références SKU n’offrent pas de tailles d’instance différentes. Pour plus d’informations sur les performances et les tarifs de v2, consultez [Mise à l’échelle automatique de la référence SKU v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 La référence SKU WAF et Standard d’Application Gateway est proposée en trois tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
 Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
 
-Le tableau suivant présente un débit moyen de performances pour chaque instance d’application Gateway avec le déchargement SSL activé :
+Le tableau suivant présente un débit moyen de performances pour chaque instance d’Application Gateway v1 avec le déchargement SSL activé :
 
 | Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
 | --- | --- | --- | --- |

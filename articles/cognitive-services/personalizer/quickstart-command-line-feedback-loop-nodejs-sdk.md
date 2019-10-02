@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 49fa2cd53ebefa811673ea25a1851081f8cfa415
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958956"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265960"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Personalizer pour Node.js
 
@@ -143,6 +143,11 @@ Le code de bouclage ci-après applique, en boucle, le cycle suivant : il demand
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
 Dans les sections suivantes, examinez de plus près les appels de classement et de récompense.
+
+Ajoutez les méthodes suivantes, qui [obtiennent les choix de contenu](#get-content-choices-represented-as-actions) avant d’exécuter le fichier de code :
+
+* getActionsList
+* getContextFeaturesList
 
 ## <a name="request-a-rank"></a>Demander un classement
 

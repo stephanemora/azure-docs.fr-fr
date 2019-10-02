@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622884"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300050"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
 
@@ -37,6 +37,9 @@ Ce tutoriel suppose que vous avez [terminé votre configuration Azure Digital Tw
 - Le [kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour générer et exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée. 
 - [Visual Studio Code](https://code.visualstudio.com/) pour explorer l’exemple de code. 
 
+> [!TIP]
+> Utilisez un nom d’instance Digital Twins unique si vous provisionnez une nouvelle instance.
+
 ## <a name="define-conditions-to-monitor"></a>Définition des conditions à surveiller
 
 Vous pouvez définir un ensemble de conditions spécifiques à superviser dans les données de capteur ou d’appareil ; il est appelé *détecteur de problèmes de correspondance*. Vous pouvez ensuite définir des fonctions appelées *fonctions définies par l’utilisateur*. Ces fonctions exécutent une logique personnalisée sur les données provenant de vos espaces et de vos appareils, quand les conditions spécifiées par les détecteurs de problèmes de correspondance se produisent. Pour plus d’informations, consultez [Traitement des données et fonctions définies par l’utilisateur](concepts-user-defined-functions.md). 
@@ -50,25 +53,23 @@ Ajoutez le détecteur de problèmes de correspondance suivant sous ceux qui exis
         dataTypeValue: Temperature
 ```
 
-Ce détecteur de problèmes de correspondance va assurer le suivi du capteur SAMPLE_SENSOR_TEMPERATURE que vous avez ajouté dans le [premier tutoriel](tutorial-facilities-setup.md). 
-
-<a id="udf"></a>
+Ce détecteur de problèmes de correspondance va assurer le suivi du capteur `SAMPLE_SENSOR_TEMPERATURE` que vous avez ajouté dans [le premier tutoriel](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Création d’une fonction définie par l’utilisateur
 
 Vous pouvez utiliser les fonctions définies par l’utilisateur pour personnaliser le traitement de vos données de capteur. Celles-ci sont constituées d’un code JavaScript personnalisé pouvant être exécuté au sein de votre instance Azure Digital Twins lorsque des conditions spécifiques se produisent, telles que décrites par les détecteurs de problèmes de correspondance. Vous pouvez créer des détecteurs de problèmes de correspondance et des fonctions définies par l’utilisateur pour chaque capteur que vous souhaitez superviser. Pour plus d’informations, consultez [Traitement des données et fonctions définies par l’utilisateur](concepts-user-defined-functions.md). 
 
-Dans l’exemple de fichier provisionSample.yaml, recherchez une section commençant par le type **userdefinedfunctions**. Cette section configure une fonction définie par l’utilisateur avec un **Nom** donné. Cette fonction définie par l’utilisateur agit sur la liste des détecteurs de problèmes de correspondance, sous **matcherNames** (Noms des détecteurs de problèmes de correspondance). Notez la façon dont vous pouvez fournir votre propre fichier JavaScript à l’UDF en tant que **script**.
+Dans l’exemple de fichier *provisionSample.yaml*, recherchez une section qui commence par le type **userdefinedfunctions**. Cette section configure une fonction définie par l’utilisateur avec un **Nom** donné. Cette fonction définie par l’utilisateur agit sur la liste des détecteurs de problèmes de correspondance, sous **matcherNames** (Noms des détecteurs de problèmes de correspondance). Notez la façon dont vous pouvez fournir votre propre fichier JavaScript à l’UDF en tant que **script**.
 
 Notez également la section nommée **roleassignments**. Il affecte le rôle d’administrateur de l’espace à la fonction définie par l’utilisateur. Ce rôle lui permet d’accéder aux événements qui proviennent d’un des espaces provisionnés. 
 
-1. Configurez la fonction définie par l’utilisateur pour inclure le détecteur de problèmes de température en ajoutant ou en supprimant les marques de commentaire de la ligne suivante dans le nœud `matcherNames` du fichier provisionSample.yaml :
+1. Configurez l’UDF pour inclure le détecteur de problèmes de température en ajoutant ou en supprimant les marques de commentaire de la ligne suivante dans le nœud `matcherNames` du fichier *provisionSample.yaml* :
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. Ouvrez le fichier **src\actions\userDefinedFunctions\availability.js** dans votre éditeur. Il s’agit du fichier indiqué dans l’élément **script** du fichier provisionSample.yaml. La fonction définie par l’utilisateur dans ce fichier recherche des conditions d’absence de mouvement dans la salle, et des niveaux de dioxyde de carbone inférieurs à 1 000 ppm. 
+1. Ouvrez le fichier **src\actions\userDefinedFunctions\availability.js** dans votre éditeur. Il s’agit du fichier référencé dans l’élément **script** du fichier *provisionSample.yaml*. La fonction définie par l’utilisateur dans ce fichier recherche des conditions d’absence de mouvement dans la salle, et des niveaux de dioxyde de carbone inférieurs à 1 000 ppm. 
 
    Modifiez le fichier JavaScript pour surveiller la température ainsi que d’autres conditions. Ajoutez les lignes de code suivantes pour rechercher les conditions où aucun mouvement n’est détecté dans la salle, où le niveau de dioxyde de carbone est inférieur à 1 000 ppm et celui de la température inférieur à 25,5 degrés Celsius (78 degrés Fahrenheit).
 
@@ -135,15 +136,12 @@ Notez également la section nommée **roleassignments**. Il affecte le rôle d�
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -182,16 +180,14 @@ Notez également la section nommée **roleassignments**. Il affecte le rôle d�
    > [!IMPORTANT]
    > Pour empêcher tout accès non autorisé à votre API de gestion Digital Twins, l’application **occupancy-quickstart** vous oblige à vous connecter avec vos informations d’identification de compte Azure. Elle enregistre vos informations d’identification pour une courte période, afin que vous n’ayez pas besoin de vous connecter à chaque exécution. Lorsque ce programme s’exécute pour la première fois et que vos informations d’identification enregistrées expirent, l’application vous dirige vers une page de connexion et vous donne un code propre à la session qui doit être entré sur cette page. Suivez les instructions de l’invite pour vous connecter avec votre compte Azure.
 
-1. Une fois votre compte authentifié, l’application commence à créer un exemple de graphe spatial, tel que configuré dans provisionSample.yaml. Attendez la fin du provisionnement. Cette opération peut prendre quelques minutes. Examinez ensuite les messages dans la fenêtre de commande et voyez comment votre graphe spatial est créé. Remarquez la façon dont l’application crée un hub IoT au niveau du nœud racine ou de `Venue`.
+1. Une fois votre compte authentifié, l’application commence à créer un exemple de graphe spatial, tel que configuré dans *provisionSample.yaml*. Attendez la fin du provisionnement. Cette opération peut prendre quelques minutes. Examinez ensuite les messages dans la fenêtre de commande et voyez comment votre graphe spatial est créé. Remarquez la façon dont l’application crée un hub IoT au niveau du nœud racine ou de `Venue`.
 
 1. À partir de la sortie dans la fenêtre de commande, copiez la valeur de `ConnectionString`, sous la section `Devices`, dans le presse-papiers. Vous en aurez besoin pour simuler la connexion de l’appareil à la section suivante.
 
-    ![Exemple de provisionnement](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![Provisionner l’exemple](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Si au cours de l’opération de provisionnement, vous obtenez un message d’erreur semblable à celui-ci : « L’opération d’E/S a été abandonnée en raison d’une sortie du thread ou d’une requête d’application », essayez de réexécuter la commande. Il est possible que le client HTTP ait expiré suite à un problème de réseau.
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulation de données de capteur
 
@@ -209,9 +205,9 @@ Dans cette section, vous utilisez le projet nommé *device-connectivity* dans l�
 
    a. **DeviceConnectionString** : affectez la valeur de `ConnectionString` dans la fenêtre de sortie de la section précédente. Copiez cette chaîne entièrement, entre guillemets, pour que le simulateur puisse se connecter correctement au hub IoT.
 
-   b. **HardwareId** dans le tableau **Sensors** : étant donné que vous simulez des événements à partir des capteurs provisionnés dans votre instance Azure Digital Twins, l’ID du matériel et les noms des capteurs de ce fichier doivent correspondre au nœud `sensors` du fichier provisionSample.yaml.
+   b. **HardwareId** dans le tableau **Sensors** : comme vous simulez des événements à partir des capteurs provisionnés dans votre instance Azure Digital Twins, l’ID du matériel et les noms des capteurs contenus dans ce fichier doivent correspondre au nœud `sensors` du fichier *provisionSample.yaml*.
 
-      Ajoutez une nouvelle entrée pour le capteur de température. Le nœud **Sensors** (Capteurs) dans le fichier appsettings.json doit se présenter de la façon suivante :
+      Ajoutez une nouvelle entrée pour le capteur de température. Le nœud **Sensors** (Capteurs) dans le fichier *appsettings.json* doit se présenter de la façon suivante :
 
       ```JSON
       "Sensors": [{
@@ -249,9 +245,9 @@ La fonction définie par l’utilisateur s’exécute chaque fois que votre inst
 
 La fenêtre de sortie illustre la façon dont la fonction définie par l’utilisateur s’exécute et intercepte les événements à partir de la simulation d’appareil. 
 
-   ![Sortie de la fonction définie par l’utilisateur](./media/tutorial-facilities-udf/udf-running.png)
+   [![Sortie de la fonction définie par l’utilisateur](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-Si la condition supervisée est remplie, la fonction définie par l’utilisateur détermine la valeur de l’espace avec le message approprié, comme nous l’avons vu [plus tôt](#udf). La fonction `GetAvailableAndFreshSpaces` affiche le message sur la console.
+Si la condition supervisée est remplie, la fonction définie par l’utilisateur détermine la valeur de l’espace avec le message approprié, comme nous l’avons vu [plus tôt](#create-a-user-defined-function). La fonction `GetAvailableAndFreshSpaces` affiche le message sur la console.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

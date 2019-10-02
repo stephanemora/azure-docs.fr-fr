@@ -1,38 +1,38 @@
 ---
-title: Créer une zone privée Azure DNS avec Azure CLI
-description: Dans cette procédure, vous pourrez créer et tester une zone DNS privée et faire un enregistrement dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone privée DNS et de votre premier enregistrement à l’aide d’Azure CLI.
+title: Démarrage rapide - Créer une zone Azure DNS privée avec l’interface Azure CLI
+description: Dans ce guide de démarrage rapide, vous allez créer et tester une zone DNS privée et un enregistrement DNS privé dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone privée DNS et de votre premier enregistrement à l’aide d’Azure CLI.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: article
-ms.date: 6/13/2019
+ms.topic: quickstart
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: d882a9c40efc5e9bcb1a5e1c02f1ac73970d57db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8aee640d8648abb623fe5ead0b21e3ae3084424a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076429"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162137"
 ---
-# <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Créer une zone privée Azure DNS avec Azure CLI
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Démarrage rapide : Créer une zone Azure DNS privée avec l’interface Azure CLI
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-Cette procédure vous guide pas à pas pour créer votre première zone et votre premier enregistrement DNS privés avec Azure CLI.
+Ce guide de démarrage rapide vous guide tout au long des étapes de création de votre première zone DNS privée et de votre premier enregistrement DNS privé à l’aide de l’interface Azure CLI.
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Pour publier une zone DNS privée sur votre réseau virtuel, vous spécifiez la liste des réseaux virtuels qui sont autorisés à résoudre les enregistrements dans la zone.  On les appelle réseaux virtuels *liés*. Quand l’inscription automatique est activée, Azure DNS met également à jour les enregistrements de zone chaque fois qu’une machine virtuelle est créée, change d’adresse IP ou est supprimée.
 
-Dans cette procédure, vous allez découvrir comment :
+Dans ce guide de démarrage rapide, vous apprenez à :
 
 > [!div class="checklist"]
-> * Créer une zone DN privée DNS
+> * Créer une zone DNS privée
 > * Créer des machines virtuelles de test
 > * Créer un enregistrement DNS supplémentaire
 > * Tester la zone privée
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure PowerShell](private-dns-getstarted-powershell.md).
+Si vous préférez, vous pouvez suivre ce guide de démarrage rapide en utilisant [Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,7 +44,7 @@ Tout d’abord, créez un groupe de ressources pour contenir la zone DNS :
 az group create --name MyAzureResourceGroup --location "East US"
 ```
 
-## <a name="create-a-dns-private-zone"></a>Créer une zone DN privée DNS
+## <a name="create-a-private-dns-zone"></a>Créer une zone DNS privée
 
 L’exemple suivant crée un réseau virtuel nommé **myAzureVNet**. Il crée ensuite une zone DNS nommée **private.contoso.com** dans le groupe de ressources **MyAzureResourceGroup**, puis il lie la zone DNS au réseau virtuel **MyAzureVnet** et active l’inscription automatique.
 
@@ -206,7 +206,7 @@ Répétez l’opération pour myVM02.
 
 ## <a name="delete-all-resources"></a>Supprimer toutes les ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources **MyAzureResourceGroup** afin de supprimer les ressources créées dans cette procédure.
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources **MyAzureResourceGroup** afin de supprimer les ressources créées dans cette guide de démarrage rapide.
 
 ```azurecli
 az group delete --name MyAzureResourceGroup
@@ -214,8 +214,6 @@ az group delete --name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette procédure, vous avez déployé une zone DNS privée, créé un enregistrement DNS et testé la zone.
-Ensuite, vous pouvez en apprendre davantage sur les zones DNS privées.
-
 > [!div class="nextstepaction"]
-> [Utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md)
+> [Scénarios Azure DNS Private Zones](private-dns-scenarios.md)
+

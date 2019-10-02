@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dc7ba3585ec49921c0a0e66185fc5550d3d4a006
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e7bdc62f7fa46bbacce7f264d8f331ea64b05430
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303609"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273689"
 ---
 # <a name="what-is-azure-signalr-service"></a>Qu’est-ce que le service Azure SignalR ?
 
@@ -32,7 +32,7 @@ Azure SignalR Service a été utilisé dans un large éventail de secteurs d’a
 * **Tableaux de bord et surveillance :** tableau de bord d’entreprise, données des marchés financiers, mise à jour instantanée des ventes, tableau de bord multijoueurs et surveillance IoT.
 * **Conversation :** visioconférence, bot conversationnel, support technique en ligne, assistant d’achat en temps réel, messagerie instantanée, conversation intégrée à un jeu, entre autres.
 * **Localisation en temps réel sur une carte :** suivi logistique, suivi de l’état de livraison, mises à jour sur l’état de la circulation, applications GPS.
-* **Publicités ciblées en temps réel :** publicités et offres push avec temps de lecture personnalisé, publicités interactives.
+* **Publicités ciblées en temps réel :** publicités et offres push en temps réel personnalisées, publicités interactives.
 * **Applications collaboratives :** rédaction conjointe, applications de tableau blanc et logiciels de réunion d’équipe.
 * **Notifications Push :** réseau social, e-mail, jeux, alertes de voyage.
 * **Diffusion en temps réel :** diffusion audio/vidéo en direct, sous-titrage en direct, traduction, diffusion d’événements/d’actualités.

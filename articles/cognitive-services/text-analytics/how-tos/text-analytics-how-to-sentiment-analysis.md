@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845346"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211774"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemple : Détecter les sentiments avec Analyse de texte
 
@@ -139,7 +139,7 @@ La [prochaine version d’Analyse des sentiments](https://westcentralus.dev.cogn
 > [!NOTE]
 > * Analyse des sentiments v3 nécessite le même format de requête et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
 > * À l’heure actuelle, Analyse des sentiments v3 :
->    * Prend actuellement en charge l’anglais, le chinois simplifié et le japonais.
+>    * Actuellement prend en charge l’anglais, le français, l’italien, le japonais, le chinois simplifié et le chinois traditionnel.
 >    * Est disponible dans les régions suivantes : `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` et `West US 2`.
 
 |Fonctionnalité |Description  |

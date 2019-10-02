@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699755"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260392"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
 
@@ -46,7 +46,7 @@ Ensuite, créez un partage de fichiers.
 
     ![Sélectionner des fichiers](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Sélectionnez **+ Partage de fichiers**.
+1. Sélectionnez **Partage de fichiers**.
 
     ![Sélectionner le bouton Ajouter un partage de fichiers](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -73,7 +73,7 @@ Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichi
 1. Sous **Compte d’administrateur**, ajoutez *VMadmin* comme **Nom d’utilisateur** et entrez un **Mot de passe** pour la machine virtuelle.
 1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans la liste déroulante.
 1. Sélectionnez **Revoir + créer**.
-1. Sélectionnez **Créer**. La création d’une machine virtuelle prend plusieurs minutes.
+1. Sélectionnez **Create** (Créer). La création d’une machine virtuelle prend plusieurs minutes.
 
 1. Une fois le déploiement de votre machine virtuelle terminé, sélectionnez **Accéder à la ressource**.
 

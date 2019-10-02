@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: dcbbaa2f4c6ebe709c879909f873b212f238ff2a
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6759b8fdf6e68d4f0030fc4eda5eee5d1ce608b1
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375855"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203208"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client QnA Maker pour Node.js
 
@@ -122,12 +122,15 @@ Appelez la méthode [create](https://docs.microsoft.com/javascript/api/@azure/co
 
 [!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb&highlight=15)]
 
+Veillez à inclure la fonction [`wait_for_operation`](#get-status-of-an-operation), référencée dans le code ci-dessus, afin de créer une base de connaissances. 
 
 ## <a name="update-a-knowledge-base"></a>Mettre à jour une base de connaissances
 
 Vous pouvez mettre à jour une base de connaissances en passant l’ID de celle-ci et un [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) contenant des objets DTO [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update) et [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) à la méthode [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-). Utilisez la méthode [Operation.getDetail](#get-status-of-an-operation) pour déterminer si la mise à jour a réussi.
 
 [!code-javascript[Update a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=updatekb&highlight=19)]
+
+Veillez à inclure la fonction [`wait_for_operation`](#get-status-of-an-operation), référencée dans le code ci-dessus, afin de mettre à jour une base de connaissances. 
 
 ## <a name="publish-a-knowledge-base"></a>Publier une base de connaissances
 
@@ -153,6 +156,9 @@ L’appel _setTimeout_ dans le bloc de code suivant est utilisé pour simuler le
 
 Exécutez l’application avec la commande `node index.js` à partir de votre répertoire d’application.
 
+
+Tous les extraits de code de cet article sont [disponibles](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js) et peuvent être exécutés en tant que fichier unique.
+
 ```console
 node index.js
 ```
@@ -172,4 +178,3 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 * [Qu’est-ce que l’API QnA Maker ?](../Overview/overview.md)
 * [Modifier une base de connaissances](../how-to/edit-knowledge-base.md)
 * [Obtenir une analyse de l'utilisation](../how-to/get-analytics-knowledge-base.md)
-* Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js).

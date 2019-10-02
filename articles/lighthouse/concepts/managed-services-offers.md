@@ -4,15 +4,15 @@ description: Les offres de services managés permettent aux fournisseurs de serv
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a6fcf5f1d0ac194d60f834fb8d26db019c538410
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810873"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155271"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 
@@ -20,9 +20,9 @@ Cet article décrit le nouveau type d’offre **Services managés** sur la [Plac
 
 ## <a name="understand-managed-services-offers"></a>Comprendre les offres de services managés
 
-Les offres de services managés simplifient le processus d’intégration des clients pour la gestion des ressources déléguées Azure. Une fois qu’un client achète une offre sur la Place de marché Azure, il peut spécifier les abonnements ou groupes de ressources à intégrer afin que des membres spécifiés de votre organisation puissent accomplir des tâches d’administration pour le client à partir du locataire de votre organisation.
+Les offres de services managés simplifient le processus d’intégration des clients pour la gestion des ressources déléguées Azure. Quand un client achète une offre dans la Place de marché Azure, il peut spécifier les abonnements et/ou les groupes de ressources à intégrer. Notez que l’intégration de chaque abonnement doit d’abord être autorisée par le biais d’une inscription manuelle du fournisseur de ressources **Microsoft.ManagedServices**.
 
-Ensuite, aucune action supplémentaire du client ou du fournisseur de services n’est requise pour l’intégration du client. En effet, lorsque vous définissez l’offre sur le [portail Cloud Partner](https://cloudpartner.azure.com/), vous créez un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure AD qui auront accès aux ressources du client à l’aide de la gestion des ressources déléguées Azure, ainsi que les rôles déterminant leur niveau d’accès. En affectant des autorisations à un groupe Azure AD plutôt qu’à une série de comptes d’utilisateur ou d’application individuels, vous pouvez ajouter ou supprimer des utilisateurs lorsque vos besoins d’accès changent.
+Après cela, les utilisateurs de votre organisation seront en mesure d’effectuer des tâches d’administration pour ces ressources à partir du locataire de votre organisation, en fonction de l’accès que vous avez défini lors de la création de l’offre dans le [portail Cloud Partner](https://cloudpartner.azure.com/). Cette opération s’effectue par le biais d’un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure AD qui auront accès aux ressources du client à l’aide de la gestion des ressources déléguées Azure, ainsi que les rôles déterminant leur niveau d’accès. En affectant des autorisations à un groupe Azure AD plutôt qu’à une série de comptes d’utilisateur ou d’application individuels, vous pouvez ajouter ou supprimer des utilisateurs lorsque vos besoins d’accès changent.
 
 ## <a name="public-and-private-offers"></a>Offres publiques et privées
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142080"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162453"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -78,7 +78,7 @@ La vue Préparé pour Azure de l’évaluation indique l’état de préparation
 
 **Préparation** | **State** | **Détails**
 --- | --- | ---
-Disponible pour Azure | Aucun problème de compatibilité. La machine peut être migrée telle quelle vers Azure, démarrera dans Azure et sera totalement prise en charge. | Pour les machines virtuelles qui sont prêtes, Azure Migrate recommande une taille de machine virtuelle dans Azure.
+Disponible pour Azure | Aucun problème de compatibilité. La machine peut être migrée telle quelle vers Azure. Elle démarrera dans Azure avec une prise en charge complète d’Azure. | Pour les machines virtuelles qui sont prêtes, Azure Migrate recommande une taille de machine virtuelle dans Azure.
 Préparé pour Azure sous condition | La machine peut démarrer dans Azure, mais risque de ne pas être totalement prise en charge. Par exemple, une machine avec une version précédente de Windows Server qui n’est pas prise en charge dans Azure. | Azure Migrate explique les problèmes de préparation et fournit des étapes de correction.
 Non préparé pour Azure |  La machine virtuelle ne démarrera pas dans Azure. Par exemple, si une machine virtuelle dispose d’un disque d’une capacité supérieure à 4 To, elle ne peut pas être hébergée sur Azure. | Azure Migrate explique les problèmes de préparation et fournit des étapes de correction.
 Préparation inconnue | Azure Migrate ne peut pas identifier l’état de préparation pour Azure, généralement parce qu’il n’y pas de données disponibles.
@@ -91,7 +91,7 @@ La préparation prend en compte un certain nombre de propriétés de machine vir
 **Propriété** | **Détails** | **Préparation**
 --- | --- | ---
 **Type de démarrage** | BIOS pris en charge. UEFI non prise en charge. | Préparé sous condition si le type de démarrage est UEFI.
-**Cœurs** | Cœurs de la machine <= nombre maximal de cœurs (128) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés.<br/>Si un <br/>facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
+**Cœurs** | Cœurs de la machine <= nombre maximal de cœurs (128) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés.<br/>Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
 **Mémoire** | Taille de la mémoire de la machine <= mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) d’une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée.<br/><br/>Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 4 To (4 096 Go).<br/><br/> Le nombre de disques attachés à la machine doit être inférieur ou égal à 65, disque du système d’exploitation compris. | Prêt si dans les limites.
 **Mise en réseau** | Au maximum 32 cartes réseau doivent être attachées à une machine. | Prêt si dans les limites.
@@ -142,7 +142,7 @@ Les estimations de coûts affichent le coût total du calcul et du stockage rés
 
 Chaque évaluation basée sur les performances est associée à une note de confiance.
 
-- Une note de confiance attribue un score de une à cinq étoiles (de la note la plus basse à la plus élevée).
+- Une évaluation de la certitude attribue un score de une à cinq étoiles (de la note la plus basse à la plus élevée).
 - La note de confiance est attribue à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation.
 - Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate.
 - Une note de confiance n’est pas disponible pour les évaluations locales « en l’état ».
@@ -216,7 +216,7 @@ Après avoir configuré un espace de travail, vous devez télécharger et instal
 4. Copiez l’ID et la clé de l’espace de travail. Vous en aurez besoin lorsque vous installerez MMA sur la machine locale.
 
 > [!NOTE]
-> Pour automatiser l’installation des agents, vous pouvez utiliser un outil de déploiement tel que System Center Configuration Manager ou un outil de partenaire tel qu’[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), qui offre une solution de déploiement de l’agent pour Azure Migrate.
+> Pour automatiser l’installation des agents, vous pouvez utiliser un outil de déploiement comme System Center Configuration Manager ou un outil partenaire comme [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), qui offre une solution de déploiement d’agent pour Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installer l’agent MMA sur une machine Windows

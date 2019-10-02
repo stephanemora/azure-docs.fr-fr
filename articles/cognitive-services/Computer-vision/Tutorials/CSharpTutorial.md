@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141283"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170036"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
 
@@ -80,7 +80,7 @@ Vous pouvez exécuter l’exemple d’application pour vérifier son interaction
    ![Page Subscription Key Management (Gestion des clés d’abonnement)](../Images/Vision_UI_Subscription.PNG)  
 1. Entrez votre clé d’abonnement dans **Clé de l’abonnement**.
 1. Entrez l’URL du point de terminaison dans **Point de terminaison**.  
-   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante : `https://westcentralus.api.cognitive.microsoft.com`
+   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante : `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Si vous ne souhaitez pas entrer votre clé d’abonnement ni l’URL du point de terminaison lors de la prochaine exécution de l’exemple d’application, sélectionnez **Enregistrer le paramètre** pour enregistrer l’URL du point de terminaison et la clé d’abonnement sur votre ordinateur. Si vous souhaitez supprimer l’URL du point de terminaison et la clé d’abonnement précédemment enregistrées, sélectionnez **Supprimer le paramètre**.
 

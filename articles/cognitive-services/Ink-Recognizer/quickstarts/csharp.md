@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721250"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211786"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#
 
@@ -60,7 +60,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     using Newtonsoft.Json.Linq;
     ```
 
-2. Créez des variables pour votre clé d’abonnement et votre point de terminaison. Vous trouverez ci-dessous l’URI que vous pouvez utiliser pour la reconnaissance de l’écriture manuscrite. Il sera ajouté ultérieurement à votre point de terminaison de service pour créer l’URI de requête d’API.
+2. Créez des variables pour votre clé d’abonnement et votre point de terminaison. Remplacez le point de terminaison ci-dessous par celui généré pour votre ressource Ink Recognizer. Ajoutez-le à l’URI d’Ink Recognizer pour la connexion à l’API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,7 +70,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

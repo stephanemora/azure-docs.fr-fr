@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105262"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155143"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -24,6 +24,8 @@ Cet article explique comment publier une offre de services managés publics ou p
 > Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, voir [Intégrer un client dans la gestion des ressources déléguées Azure](onboard-customer.md).
 
 La publication d’une offre de services managés est similaire à la publication d’un autre type d’offre sur la Place de marché Azure. Pour découvrir ce processus, voir [Guide de publication de la Place de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) et [Gérer les offres sur les places de marché Azure et AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), en particulier la section [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+
+Une fois qu’un client a ajouté votre offre, il est en mesure de déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques qui seront ensuite [intégrés pour la gestion des ressources déléguées Azure](#the-customer-onboarding-process). Notez que l’intégration de l’abonnement doit être autorisée par le biais d’une inscription manuelle du fournisseur de ressources **Microsoft.ManagedServices** pour qu’un abonnement (ou que des groupes de ressources au sein d’un abonnement) puissent être intégrés.
 
 > [!IMPORTANT]
 > Chaque plan d’une offre de services managés comprend une section **Détails du manifeste** dans laquelle vous définissez les entités Azure Active Directory (Azure AD) de votre locataire qui ont accès aux groupes de ressources ou aux abonnements délégués pour les clients qui achètent ce plan. Il est important de savoir que tout groupe (ou utilisateur ou principal de service) que vous incluez ici offrira les mêmes autorisations à chaque client achetant le plan. Pour affecter différents groupes à chaque client, vous devez publier un plan privé distinct exclusif pour chaque client.

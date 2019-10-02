@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799237"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203825"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -58,7 +58,7 @@ Les données qui circulent vers et depuis Data Box sont protégées par les fonc
 
 - Chiffrement AES 256 bits pour les données au repos.
 - Des protocoles chiffrés peuvent être utilisés pour les données en transit.
-- Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux normes NIST 800-88r1. L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
+- Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux instructions de l’[annexe A relative aux lecteurs de disque dur ATA dans les normes NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protection du service Data Box
 
@@ -84,7 +84,7 @@ Azure Data Box collecte et affiche des informations personnelles dans les instan
   - Adresse postale
   - City
   - Code postal
-  - État
+  - State
   - Pays/Province/Région
   - Numéro de compte du transporteur
   - Numéro de suivi d’expédition
@@ -106,7 +106,7 @@ Les consignes de sécurité suivantes sont implémentées dans Data Box :
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Pour résister à des conditions de transport défavorables          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Pour la mise à jour sécurisée du microprogramme         |
 |[FIPS 140-2 niveau 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Pour la protection des données         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
+|Annexe A, concernant les lecteurs de disque durs ATA dans [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

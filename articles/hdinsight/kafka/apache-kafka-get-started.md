@@ -1,19 +1,19 @@
 ---
 title: Configurer Apache Kafka sur HDInsight à l’aide du portail Azure - Démarrage rapide
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Kafka sur Azure HDInsight à l’aide du Portail Azure. Vous découvrirez également les rubriques, les abonnés et les consommateurs Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960321"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123581"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
@@ -38,8 +38,8 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. À partir du menu gauche, accédez à **+ Créer une ressource** > **Analytique** > **HDInsight**.
-   
-    ![Création d’un cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+
+    ![Portail Azure > Créer une ressource > HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. Dans **Informations de base**, entrez ou sélectionnez les informations suivantes :
 
@@ -47,9 +47,9 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
     | --- | --- |
     | Nom du cluster | Nom unique du cluster HDInsight. |
     | Abonnement | Sélectionnez votre abonnement. |
-    
+
    Sélectionnez __Type de cluster__ pour afficher la **Configuration du cluster**.
-   
+
    ![Configuration de base du cluster Apache Kafka sur HDInsight](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. Dans __Configuration du cluster__, sélectionnez les valeurs suivantes :
@@ -61,7 +61,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
     Sélectionnez **Sélectionner** pour enregistrer les paramètres de type de cluster et revenir à __Informations de base__.
 
-    ![Sélectionner un type de cluster](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
+    ![Type de cluster Apache Kafka dans HDInsight](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. Dans __Informations de base__, entrez ou sélectionnez les informations suivantes :
 
@@ -77,7 +77,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
     Pour garantir la haute disponibilité des données, sélectionnez une région (emplacement) comportant __trois domaines d’erreur__. Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-   ![Sélectionnez un abonnement](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Portail Azure >Créer un cluster > Informations de base](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     Sélectionnez __Suivant__ pour terminer la configuration de base.
 
@@ -105,7 +105,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
 11. Dans le panneau **Résumé**, passez en revue la configuration du cluster. Utilisez les liens __Modifier__ pour modifier les éventuels paramètres incorrects. Enfin, sélectionnez **Créer** pour créer le cluster.
 
-    ![Résumé de la configuration du cluster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![Récapitulatif de la configuration du cluster Kafka](./media/apache-kafka-get-started/kafka-configuration-summary.png)
 
     La création du cluster peut prendre jusqu’à 20 minutes.
 

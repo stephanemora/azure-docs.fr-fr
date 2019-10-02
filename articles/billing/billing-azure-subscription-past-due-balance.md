@@ -4,7 +4,7 @@ description: Décrit comment procéder au paiement si votre abonnement Azure pr�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jureid
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491456"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300283"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Résoudre un solde impayé pour votre abonnement Azure
+
+Cet article s’applique aux clients disposant d’un compte du programme Microsoft Online Services.
 
 Si votre paiement n’a pas été reçu ou si nous ne pouvons pas traiter votre paiement, vous risquez de recevoir un e-mail ou une alerte dans le Centre des comptes Azure ou le portail Azure.
 Si vous êtes l’[administrateur du compte](billing-subscription-transfer.md#whoisaa), vous pouvez régler ces frais en souffrance dans le [portail Azure](https://portal.azure.com). Si vous payez à réception d’une facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture.
@@ -43,6 +45,13 @@ Si vous êtes l’[administrateur du compte](billing-subscription-transfer.md#wh
 1. Si le mode de paiement sélectionné a également des frais en souffrance pour les services Microsoft, cela apparaîtra dans le solde restant dû total. Vous devez également payer ces frais en souffrance.
 1. Cliquez sur **Payer**.
 
+## <a name="troubleshoot-declined-credit-card"></a>Résoudre les problèmes de cartes de crédit refusées
+
+Si un paiement effectué par carte de crédit est refusé par votre institution financière, contactez cette dernière pour résoudre le problème. Contactez votre banque pour vérifier que :
+- Les transactions internationales sont activées sur la carte.
+- La carte a une limite de crédit ou des fonds suffisants pour régler le solde.
+- Les paiements récurrents sont activés sur la carte.
+
 ## <a name="not-getting-billing-email-notifications"></a>Vous ne recevez pas les notifications de facturation par e-mail ?
 
 Si vous êtes administrateur de compte, [vérifiez quelle adresse e-mail est utilisée pour les notifications](billing-how-to-change-azure-account-profile.md). Nous vous recommandons d’utiliser une adresse e-mail que vous consultez régulièrement. Si l’adresse e-mail est correcte, consultez votre dossier de courrier indésirable.
@@ -52,6 +61,7 @@ Si vous êtes administrateur de compte, [vérifiez quelle adresse e-mail est uti
 Le service est annulé et vos ressources ne sont plus disponibles. Vos données Azure sont supprimées 90 jours après l’arrêt du service. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
 
 Si vous savez que votre paiement a été traité, alors que votre abonnement est toujours désactivé, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

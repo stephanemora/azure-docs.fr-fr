@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 159233da989a5bbec75dbd0a6cfe230b8a512979
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502736"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261292"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
 Azure Cosmos DB prend en charge le langage de traversées de graphes [Apache Tinkerpop](https://tinkerpop.apache.org), connu sous le nom de [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
@@ -37,7 +37,7 @@ TinkerPop est une norme qui couvre un large éventail de technologies de graphes
 
 Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par Azure Cosmos DB : 
 
-| Catégorie | Implémentation d’Azure Cosmos DB |  Notes | 
+| Category | Implémentation d’Azure Cosmos DB |  Notes | 
 | --- | --- | --- |
 | Fonctionnalités de graphe | Fournit la persistance et ConcurrentAccess. Conçu pour prendre en charge les transactions | Les méthodes de l’ordinateur peuvent être implémentées via le connecteur Spark. |
 | Fonctionnalités variables | Prend en charge les valeurs booléennes, entières, byte, doubles, flottantes, longues et de chaîne | Prend en charge les types primitifs, et est compatible avec des types complexes via un modèle de données |
@@ -48,7 +48,7 @@ Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par
 
 ## <a name="gremlin-wire-format-graphson"></a>Format de câble Gremlin : GraphSON
 
-Azure Cosmos DB utilise le [format GraphSON](https://tinkerpop.apache.org/docs/3.3.2/reference/#graphson-reader-writer) lors du renvoi des résultats des opérations Gremlin. GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON. 
+Azure Cosmos DB utilise le [format GraphSON](http://tinkerpop.apache.org/docs/current/reference/#graphson) lors du renvoi des résultats des opérations Gremlin. Azure Cosmos DB prend actuellement en charge la version « GraphSONv2 ». GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON.
 
 Par exemple, l’extrait de code suivant montre une représentation sous forme de GraphSON d’un sommet *retourné au client* dans Azure Cosmos DB. 
 

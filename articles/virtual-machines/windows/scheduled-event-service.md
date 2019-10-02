@@ -164,7 +164,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
 1. Sous **Actions**, sélectionnez **Créer un groupe d’actions**. La page **Ajouter un groupe d’actions** s’ouvre.
 1. Dans **Nom du groupe d’actions**, tapez *myActionGroup*.
 1. Dans **Nom court**, tapez **myActionGroup**.
-1. Dans **Groupe de ressources**, sélectionnez *myResourceGroupAvailability**.
+1. Dans **Groupe de ressources**, sélectionnez *myResourceGroupAvailability* *.
 1. Sous actions, dans **NOM DE L’ACTION**, tapez **E-mail**, puis sélectionnez **E-mail/SMS/Push/Voix**. La page **E-mail/SMS/Push/Voix** s’ouvre.
 1. Sélectionnez **E-mail**, tapez votre adresse de courrier, puis cliquez sur **OK**.
 1. Dans la page **Ajouter un groupe d’actions**, sélectionnez **OK**. 

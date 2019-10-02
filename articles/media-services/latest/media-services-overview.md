@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/13/2019
+ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602097"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123040"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -69,6 +69,10 @@ Les tutoriels montrent les procédures de scénarios pour certaines des tâches 
 * [Analyser votre vidéo - .NET](analyze-videos-tutorial-with-api.md)
 * [Chiffrement dynamique AES-128 - .NET](protect-with-aes128.md)
     
+### <a name="samples"></a>Exemples
+
+Utilisez [ce navigateur d’exemples](https://docs.microsoft.com/samples/browse/?products=azure-media-services) pour parcourir des exemples de code Azure Media Services.
+
 ### <a name="how-to-guides"></a>Guides pratiques
 
 Les articles contiennent des exemples de code qui montrent comment effectuer une tâche. Dans cette section, vous trouverez de nombreux exemples, dont ceux-ci :

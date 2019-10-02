@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e8c6c21efd1ea406c8293819a2889e198e8455bd
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242100"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240937"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
 
@@ -88,7 +88,7 @@ Créez une application web ASP.NET Core en effectuant les étapes suivantes :
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. Pour **Plan d’hébergement**, sélectionnez **Nouveau**.
+1. Pour le **Plan d’hébergement**, sélectionnez **Nouveau**.
 
 1. Dans la boîte de dialogue **Configurer le plan d’hébergement**, entrez les valeurs du tableau suivant, puis sélectionnez **OK**.
 

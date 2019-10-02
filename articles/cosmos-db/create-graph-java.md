@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 8689cb74e35d5b87c300f5fce239993691652ee2
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172529"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212626"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Démarrage rapide : Créer une base de données de graphe avec le kit Java SDK et l’API Table d’Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     Copiez la première partie de la valeur de l’URI.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/keys.png)
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Ouvrez le fichier src/remote.yaml et collez la valeur d’ID unique sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
 
     La ligne 1 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
@@ -219,15 +219,15 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
 
-    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Changer la cible d’un vertex dans un graphe - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Dans la zone **Cible**, entrez *rakesh*, et dans la zone **Edge label (Étiquette de relation)** , entrez *knows*, puis cochez la case.
 
-    ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Ajouter une connexion dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Deux vertex connectés dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 

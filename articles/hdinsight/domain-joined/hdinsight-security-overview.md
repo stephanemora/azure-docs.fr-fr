@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
-ms.openlocfilehash: 4619545ab1fed5f55504e80eede0d1cf240eea87
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 09/23/2019
+ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488690"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240399"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -52,7 +52,7 @@ L’audit de tous les accès aux ressources du cluster, et aux données, est né
 
 L’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut également voir et signaler toutes les modifications des stratégies de contrôle d’accès créées dans les points de terminaison pris en charge par Apache Ranger. 
 
-Pour accéder aux journaux d’audit Apache Ranger et Ambari, ainsi qu’aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) et affichez les enregistrements d’audit associés.
+Pour accéder aux journaux d’audit Apache Ranger et Ambari, ainsi qu’aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing), puis affichez les tables qui fournissent des enregistrements d’audit.
 
 ### <a name="encryption"></a>Chiffrement
 
@@ -73,6 +73,7 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 | Sécurité de l’accès aux données | Configurer des [listes de contrôle d’accès (ACL)](../../storage/blobs/data-lake-storage-access-control.md) pour Azure Data Lake Storage Gen1 et Gen2  | Client |
 |  | Activer la propriété [« Transfert sécurisé requis »](../../storage/common/storage-require-secure-transfer.md) sur le compte de stockage | Client |
 |  | Configurer des [pare-feu Stockage Azure](../../storage/common/storage-network-security.md) et des réseaux virtuels | Client |
+|  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Client |
 |  | Vérifier que le [chiffrement TLS](../../storage/common/storage-security-tls.md) est activé pour les données en transit | Client |
 |  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Client |
 | Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer l’authentification](apache-domain-joined-configure-using-azure-adds.md) | Client |

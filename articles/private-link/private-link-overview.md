@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: fc3ae87ce5c4547526ae50f371684ac14dfcf266
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104654"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300744"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Qu’est-ce que Liaison privée Azure ? (Préversion)
 Le service Liaison privée Azure vous permet d’accéder aux services PaaS Azure, comme Stockage Azure et SQL Database, ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre [service Liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer en privé à vos clients. L’expérience de configuration et de consommation à l’aide du service Liaison privée Azure est cohérente entre les services PaaS Azure, appartenant au client et de partenaires partagés.
@@ -40,11 +40,11 @@ Le service Liaison privée Azure offre les avantages suivants :
 
 |Scénario  |Services pris en charge   |Régions disponibles | Statut   |
 |---------|---------|---------|---------|
-|Liaison privée pour les services appartenant au client|Services Liaison privée derrière Standard Load Balancer |USA Centre Ouest, USA Ouest, USA Centre Sud, USA Est, USA Nord  |  PRÉVERSION  |
+|Liaison privée pour les services appartenant au client|Services Liaison privée derrière Standard Load Balancer |USA Centre-Ouest, USA Ouest, USA Centre Sud, USA Est, USA Centre Nord  |  PRÉVERSION  |
 |Liaison privée pour les services PaaS Azure   | Stockage Azure        |  USA Est, USA Ouest, USA Centre Ouest       | PRÉVERSION         |
 |  | Azure Data Lake Storage Gen2        |  USA Est, USA Ouest, USA Centre Ouest       | PRÉVERSION         |
-|  |  Azure SQL Database         | USA Centre Ouest, USA Ouest, USA Centre Sud, USA Est, USA Nord       |   PRÉVERSION      |
-||Azure SQL Data Warehouse| USA Centre Ouest, USA Ouest, USA Centre Sud, USA Est, USA Nord |PRÉVERSION|
+|  |  Azure SQL Database         | USA Centre-Ouest, USA Ouest, USA Centre Sud, USA Est, USA Centre Nord      |   PRÉVERSION      |
+||Azure SQL Data Warehouse| USA Centre-Ouest, USA Ouest, USA Centre Sud, USA Est, USA Centre Nord |PRÉVERSION|
 
 Pour obtenir les notifications les plus récentes, consultez la [page relative aux mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
 

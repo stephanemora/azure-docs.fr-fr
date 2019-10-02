@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432843"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299826"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Didacticiel : Configurer un environnement - Machine Learning sur Azure IoT Edge
 
@@ -26,7 +26,7 @@ Cet article du tutoriel Azure Machine Learning sur IoT Edge vous aide à prépar
 
 Cette étape est généralement effectuée par un développeur cloud. Certains logiciels peuvent également être utiles pour un scientifique des données.
 
-Au cours de cet article, nous effectuons diverses tâches de développement, notamment le codage, la compilation, la configuration et le déploiement de modules IoT Edge et d’appareils IoT. Pour faciliter l’utilisation, nous avons créé un script PowerShell qui crée une machine virtuelle Azure avec plusieurs des prérequis déjà configurés. La machine virtuelle que vous créez doit être en mesure de gérer [virtualisation imbriquée](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), c’est pourquoi nous avons choisi une taille de machine DS8V3.
+Au cours de cet article, nous effectuons diverses tâches de développement, notamment le codage, la compilation, la configuration et le déploiement de modules IoT Edge et d’appareils IoT. Pour faciliter l’utilisation, nous avons créé un script PowerShell qui crée une machine virtuelle Azure avec plusieurs des prérequis déjà configurés. La machine virtuelle que vous créez doit pouvoir gérer la [virtualisation imbriquée](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), c’est pourquoi nous avons choisi la taille de machine [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
 
 La machine virtuelle de développement sera mise en place avec :
 

@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: db62d2209207a807570e971ef4af5f9b10b06cb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827837"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300060"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights
 
@@ -38,6 +38,9 @@ Ce didacticiel suppose que vous avez [configuré](tutorial-facilities-setup.md) 
 - Les [exemples Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) téléchargés et extraits sur votre machine de travail.
 - [Le kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée.
 
+> [!TIP]
+> Utilisez un nom d’instance Digital Twins unique si vous provisionnez une nouvelle instance.
+
 ## <a name="stream-data-by-using-event-hubs"></a>Envoyer des données en utilisant Azure Event Hubs
 
 Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) pour créer un pipeline et envoyer vos données. Cette section vous montre comment créer votre hub d’événements en tant que connecteur entre vos instances Azure Digital Twins et Azure Time Series Insights.
@@ -48,30 +51,30 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
-1. Recherchez et sélectionnez **Event Hubs**. Sélectionnez **Créer**.
+1. Recherchez et sélectionnez **Event Hubs**. Sélectionnez **Create** (Créer).
 
-1. Entrez un **Nom** pour votre espace de noms Event Hubs. Choisissez **Standard** comme **Niveau tarifaire**, votre **Abonnement**, le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins et l’**Emplacement**. Sélectionnez **Créer**.
+1. Entrez un **Nom** pour votre espace de noms Event Hubs. Choisissez **Standard** comme **Niveau tarifaire**, votre **Abonnement**, le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins et l’**Emplacement**. Sélectionnez **Create** (Créer).
 
 1. Dans le déploiement d’espace de noms Event Hubs, sélectionnez le volet **Vue d’ensemble**, puis **Accéder à la ressource**.
 
-    ![Espace de noms Event Hubs après le déploiement](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    [![Espace de noms Event Hubs après le déploiement](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, sélectionnez le bouton **Hub d’événements** en haut.
-    ![Bouton Hub d’événements](./media/tutorial-facilities-analyze/create-event-hub.png)
+    [![Bouton Hub d’événements](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. Entrez un **Nom** pour votre hub d’événements et sélectionnez **Créer**.
 
    Une fois déployé, le hub d’événements apparaît dans le volet **Event Hubs** de l’espace de noms Event Hubs avec un état **Actif**. Sélectionnez ce hub d’événements pour ouvrir son volet **Vue d’ensemble**.
 
-1. Sélectionnez le bouton **Groupe de consommateurs** en haut et entrez un nom tel que **tsievents** pour le groupe de consommateurs. Sélectionnez **Créer**.
+1. Sélectionnez le bouton **Groupe de consommateurs** en haut et entrez un nom tel que **tsievents** pour le groupe de consommateurs. Sélectionnez **Create** (Créer).
 
-    ![Groupe de consommateurs du hub d’événements](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    [![Groupe de consommateurs Event Hub](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    Une fois créé, le groupe de consommateurs apparaît dans la liste en bas du volet **Vue d’ensemble** du hub d’événements.
 
 1. Ouvrez le volet **Stratégies d’accès partagé** pour votre hub d’événements et sélectionnez le bouton **Ajouter**. Entrez **ManageSend** comme nom de stratégie, assurez-vous que toutes les cases sont cochées, puis sélectionnez **Créer**.
 
-    ![Chaînes de connexion du concentrateur d’événements](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
+    [![Chaînes de connexion Event Hub](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. Ouvrez la stratégie ManageSend que vous avez créée, copiez les valeurs de **Chaîne de connexion--clé primaire** et **Chaîne de connexion--clé secondaire** dans un fichier temporaire. Vous en aurez besoin pour créer un point de terminaison du hub d’événements à la section suivante.
 
@@ -124,21 +127,21 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
    Il crée deux points de terminaison pour votre hub d’événements.
 
-   ![Points de terminaison pour Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+   [![Points de terminaison pour Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="analyze-with-time-series-insights"></a>Analyser avec Time Series Insights
 
 1. Dans le volet gauche du [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**. 
 
-1. Recherchez et sélectionnez une nouvelle ressource **Time Series Insights**. Sélectionnez **Créer**.
+1. Recherchez et sélectionnez une ressource en disponibilité générale **Time Series Insights**. Sélectionnez **Create** (Créer).
 
 1. Entrez un **nom** pour votre instance Time Series Insights, puis sélectionnez votre **abonnement**. Sélectionnez le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins, et votre **Emplacement**. Sélectionnez **Suivant : Source d’événement** ou l’onglet **Source d’événement**.
 
-    ![Sélections pour la création d’une instance Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
+    [![Sélections pour la création d’une instance Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. Dans **Source d’événement**, entrez un **Nom**, sélectionnez **Event Hub** en tant que le **Type de source** et assurez-vous que les autres valeurs sont sélectionnées correctement. Sélectionnez **ManageSend** pour le **Nom de la stratégie d’accès du hub d’évènements**, puis sélectionnez le groupe de consommateurs que vous avez créé à la section précédente pour le **Groupe de consommateurs du hub d’événements**. Sélectionnez **Revoir + créer**.
 
-    ![Sélections pour la création d’une source d’événement](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![Sélections pour la création d’une source d’événement](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. Dans le volet **Vérifier + créer**, vérifiez les informations que vous avez entrées et sélectionnez **Créer**.
 
@@ -150,13 +153,13 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
 1. Lorsque quelques événements simulés ont été générés, revenez à l’explorateur Time Series Insights et sélectionnez le bouton Actualiser, en haut. Vous devriez voir des graphiques analytiques en cours de création pour vos données de capteur simulées. 
 
-    ![Graphique dans l’explorateur Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![Graphique dans l’explorateur Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. Dans l’explorateur Time Series Insights, vous pouvez ensuite générer des graphiques et des cartes thermiques pour des événements et des données venant de vos locaux, de vos capteurs et d’autres ressources. Sur le côté gauche, utilisez les zones de liste déroulante **MESURER** et **DIVISÉ PAR** pour créer vos propres visualisations. 
 
    Par exemple, sélectionnez **Événements** pour **MESURER**, et **DigitalTwins-SensorHardwareId** pour **DIVISÉ PAR**, afin de générer une carte thermique pour chacun de vos capteurs. La carte thermique doit ressembler à l’image suivante :
 
-   ![Carte thermique dans l’explorateur Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![Carte thermique dans l’explorateur Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

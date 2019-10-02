@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371280"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212107"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe libre-service
 
@@ -31,7 +31,7 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
 
 ## <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
 
-> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+[Regardez ce processus sous forme de vidéo dans YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
 1. À partir de votre locataire Azure AD existant, sur le **portail Azure** sous **Azure Active Directory** sélectionnez **Réinitialisation du mot de passe**.
 

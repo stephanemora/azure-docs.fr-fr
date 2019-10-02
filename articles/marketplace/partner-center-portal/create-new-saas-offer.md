@@ -441,7 +441,7 @@ Sélectionnez la fréquence de paiement du prix indiqué. Vous devez renseigner 
 - **Prix** : USD par mois ou USD par an
 
 Les prix fixés dans une devise locale (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de la configuration. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. Vous êtes responsable de valider cette tarification et possédez ces paramètres.
-**Vous devez d’abord enregistrer les modifications de votre tarification pour autoriser l’export des données de tarification.*
+* *Vous devez d’abord enregistrer les modifications de votre tarification pour autoriser l’export des données de tarification.*
 
 Vérifiez vos prix avec soin avant la publication, car il y a des restrictions sur ce qui peut être modifié après la publication d’un plan :
 

@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105272"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155125"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -23,7 +23,7 @@ Vous pouvez répéter ce processus si vous gérez des ressources pour plusieurs 
 Vous pouvez associer votre ID Microsoft Partner Network (MPN) avec vos abonnements intégrés pour suivre votre impact sur les engagements client et recevoir une reconnaissance. Pour plus d’informations, voir [Lier un ID partenaire à vos comptes Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Notez que vous devez effectuer cette association dans le locataire de votre fournisseur de services.
 
 > [!NOTE]
-> Des clients peuvent être intégrés automatiquement quand ils achètent une offre de services managés (publics ou privés) que vous avez publiée sur la Place de marché Azure. Pour plus d’informations, voir [Publier des offres de services managés sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici avec une offre publiée sur la Place de marché Azure.
+> Les clients peuvent également être intégrés quand ils achètent une offre de services managés (publics ou privés) que vous avez publiée sur la Place de marché Azure. Pour plus d’informations, voir [Publier des offres de services managés sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici avec une offre publiée sur la Place de marché Azure.
 
 Le processus d’intégration requiert d’exécuter des actions tant dans le locataire du fournisseur de services que dans le locataire du client. Toutes ces étapes sont décrites dans cet article.
 
