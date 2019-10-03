@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622701"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272538"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -59,6 +59,25 @@ Dans le scénario ci-dessus, vous pouvez classer les applications en fonction de
 
 * Les applications qui ont besoin d’accéder aux ressources de façon sécurisée
 * Les applications qui jouent elles-mêmes le rôle de ressource
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
+
+Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par la plateforme d’identité Microsoft.  Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique présente une vue d’ensemble :
+
+|Flux | Nécessite | id_token | access token | jeton d'actualisation | code d’autorisation | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
+|[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Flux de code d’appareil](v2-oauth2-device-code.md) | | x| x| x| |
+|[Informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) | | | x (application uniquement)| | |
+
+**Remarques**:
+
+Les jetons émis via le mode implicite ont une longueur maximale du fait qu’ils sont renvoyés au navigateur via l’URL (où `response_mode` est `query` ou `fragment`).  Certains navigateurs limitent la taille de l’URL qui peut être placée dans la barre d’adresse et refusent les URL trop longues.  Par conséquent, ces jetons n’ont pas de revendications `groups` ou `wids`. 
+
 
 Maintenant que vous avez une vue d’ensemble des principes fondamentaux, poursuivez votre lecture pour comprendre l’API et le modèle d’application relatifs à l’identité et le fonctionnement du provisionnement dans la plateforme d’identités Microsoft. Vous trouverez également des liens pour obtenir des informations détaillées sur les scénarios courants pris en charge par la plateforme d’identités Microsoft.
 

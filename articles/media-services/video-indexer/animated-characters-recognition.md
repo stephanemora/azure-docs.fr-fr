@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962634"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300316"
 ---
 # <a name="animated-character-detection-preview"></a>Détection de personnages animés (préversion)
 
@@ -91,8 +91,13 @@ Si vous êtes propriétaire d’un compte Video Indexer payant, vous devez d’a
     1. Après avoir tapé le nouveau nom, cliquez sur l’icône de coche en regard du nouveau nom. Cela enregistre le nouveau nom dans le modèle dans Video Indexer.
     1. Une fois que vous avez fini de modifier tous les noms souhaités, vous devez effectuer la formation du modèle.
 
-        Ouvrez la page de personnalisation, puis cliquez sur l’onglet **Personnages animés**. Pour le modèle approprié, cliquez sur le lien **Modifier dans Custom Vision**. Cela vous redirigera vers la page du modèle dans Custom Vision. Cliquez sur le bouton **Entraîner** pour entraîner votre modèle. 
-    1. Une fois l’apprentissage effectué, toute vidéo qui sera indexée ou réindexée à l’aide de ce modèle reconnaîtra les personnages formés. 
+        Ouvrez la page de personnalisation, cliquez sur l’onglet **Personnages animés** et cliquez sur le bouton **Former** afin de former votre modèle.
+         
+        Si vous disposez d’un compte payant, vous pouvez cliquer sur le lien **Manage models in Custom Vision** (Gérer les modèles dans Customer Vision) (comme indiqué ci-dessous). Cela vous redirigera vers la page du modèle dans **Custom Vision**.
+ 
+        ![Personnalisation du modèle de contenu](./media/animated-characters-recognition/content-model-customization-tab.png)
+
+     1. Une fois l’apprentissage effectué, toute vidéo qui sera indexée ou réindexée à l’aide de ce modèle reconnaîtra les personnages formés. 
     Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. En savoir plus sur [l’amélioration de votre classifieur dans Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
 1. Supprimer un personnage animé.

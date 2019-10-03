@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779080"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290756"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Questions fréquentes (FAQ)
 
@@ -44,8 +44,7 @@ Non. L’authentification directe est uniquement disponible dans l’instance à
 Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?
-
-Oui, l’authentification directe prend en charge le nom d’utilisateur `Alternate ID` lorsqu’elle est configurée dans Azure AD Connect. Le prérequis est qu’Azure AD Connect doit synchroniser l’attribut `UserPrincipalName` Active Directory local sur Azure AD. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
+Dans une certaine mesure, l’authentification directe prend en charge le nom d’utilisateur Autre ID lorsqu’elle est configurée dans Azure AD Connect. Le prérequis est qu’Azure AD Connect doit synchroniser l’attribut `UserPrincipalName` Active Directory local sur Azure AD. Ainsi le nom `UserPrincipalName` est identique sur Active Directory localement et Azure AD. Si vous souhaitez utiliser un autre attribut pour effectuer une synchronisation entre l’annuaire Active Directory local en tant que nom d’utilisateur principal (UPN) vers Azure AD, vous devez utiliser la synchronisation de hachage de mot de passe ou AD FS. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 

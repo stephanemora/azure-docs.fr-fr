@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ab4447c8c07f8e8315c0258cc3254e5272ab7582
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934729"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272436"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utiliser l’apprentissage actif pour améliorer votre base de connaissances
 
@@ -79,6 +79,8 @@ L’apprentissage actif est désactivé par défaut. Activez-le pour afficher le
     Une fois que la fonctionnalité **Apprentissage actif** est activée, la base de connaissances suggère de nouvelles questions à intervalles réguliers en fonction des questions soumises par l’utilisateur. Vous pouvez désactiver la stratégie **Apprentissage actif** en basculant de nouveau le paramètre.
 
 ## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Accepter une suggestion d’apprentissage actif dans la base de connaissances
+
+L’apprentissage actif modifie la base de connaissances ou Search Service après approbation de la suggestion, puis elle est enregistrée et formée. Si vous approuvez la suggestion, elle est ajoutée en tant que question de substitution.
 
 1. Pour afficher les suggestions de questions, sur la page **Modifier** de la base de connaissances, sélectionnez **Afficher les options**, puis **Show active learning suggestions** (Afficher les suggestions d’apprentissage actif). 
 
@@ -387,7 +389,14 @@ La colonne `SuggestedQuestions` est un objet JSON d’informations des commentai
 ]
 ```
 
+Vous pouvez également utiliser l’API Download alterations pour passer en revue ces modifications, à l’aide de REST ou d'un kit de développement logiciel (SDK) basé sur le langage :
+* [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 Lorsque vous réimportez cette application, l’apprentissage actif continue à collecter des informations et à recommander des suggestions pour votre base de connaissances. 
+
+
 
 ## <a name="best-practices"></a>Bonnes pratiques
 

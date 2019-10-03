@@ -1,5 +1,5 @@
 ---
-title: Connecter des données F5 à Azure Sentinel en préversion | Microsoft Docs
+title: Connecter des données F5 à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données F5 à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679293"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240009"
 ---
 # <a name="connect-your-f5-appliance"></a>Connexion à votre appliance F5
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Vous pouvez connecter Azure Sentinel à n’importe quelle appliance F5 en enregistrant les fichiers journaux au format CEF Syslog. Avec l’intégration à Azure Sentinel, vous pouvez facilement exécuter des fonctions d’analytique et des requêtes sur les données des fichiers journaux à partir de F5. Pour plus d’informations sur la façon dont Azure Sentinel ingère les données au format CEF, consultez [Connecter des appliances CEF](connect-common-event-format.md).
 
@@ -130,5 +128,5 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commenc
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter les appliances F5 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 

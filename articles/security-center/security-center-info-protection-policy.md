@@ -3,9 +3,8 @@ title: Personnalisation de la stratégie de protection des informations SQL dans
 description: Découvrez comment personnaliser les stratégies de protection des informations dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
-ms.author: rkarlin
-ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875605"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202093"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
 Une stratégie de protection des informations SQL peut être définie et personnalisée pour votre locataire Azure entier, dans Azure Security Center.
 
-La protection des informations est une fonctionnalité de sécurité avancée pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos ressources de données Azure. La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, et ainsi de suite) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
+La protection des informations est une fonctionnalité de sécurité avancée pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos ressources de données Azure. La découverte et la classification de vos données les plus sensibles (professionnelles, financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 - Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases des magasins de données contenant des données sensibles

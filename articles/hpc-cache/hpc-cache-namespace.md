@@ -1,24 +1,25 @@
 ---
-title: Créer un cache Azure HPC Cache
+title: Créer un cache Azure HPC Cache (préversion)
 description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036840"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299931"
 ---
-# <a name="configure-aggregated-namespace"></a>Configurer un espace de noms agrégé
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
-Azure HPC Cache permet aux clients d’accéder à un large éventail de systèmes de stockage par le biais d’un espace de noms virtuels qui masque les détails du système de stockage back-end.
+Azure HPC Cache (préversion) permet aux clients d’accéder à un large éventail de systèmes de stockage par le biais d’un espace de noms virtuels qui masque les détails du système de stockage back-end.
 
-Lorsque vous ajoutez une cible de stockage, vous définissez le chemin de fichier côté client. Les ordinateurs clients montent ce chemin de fichier. Vous pouvez modifier la cible de stockage qui est associée à ce chemin. Par exemple, vous pouvez remplacer un système de stockage matériel par du stockage cloud sans avoir à réécrire les procédures côté client.
+Lorsque vous ajoutez une cible de stockage, vous définissez le chemin de fichier côté client. Les ordinateurs clients montent ce chemin de fichier et peuvent effectuer des requêtes de lecture de fichier dans le cache au lieu de monter directement le système de stockage.
+
+Azure HPC Cache gérant ce système de fichiers virtuel, vous pouvez modifier la cible de stockage sans modifier le chemin d’accès côté client. Par exemple, vous pouvez remplacer un système de stockage matériel par du stockage cloud sans avoir à réécrire les procédures côté client.
 
 ## <a name="aggregated-namespace-example"></a>Exemple d’espace de noms agrégé
 
@@ -31,7 +32,7 @@ Les données des modèle sont stockées dans un centre de données et les inform
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-Le système de stockage du centre de données expose les exportations suivantes : 
+Le système de stockage du centre de données expose les exportations suivantes :
 
     /
     /goldline
@@ -41,20 +42,22 @@ Les données à analyser ont été copiées dans un conteneur de stockage Blob A
 
 Pour permettre un accès facile via le cache, vous pouvez créer des cibles de stockage avec les chemins d’espace de noms virtuels suivants :
 
-| Chemin de fichier NFS back-end ou conteneur d’objets blob | Chemin d’espace de noms virtuels |
+| Système de stockage back-end <br/> (Chemin de fichier NFS ou conteneur d’objets blob) | Chemin d’espace de noms virtuels |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source/               |
 
-Étant donné que les chemins sources NFS sont des sous-répertoires d’une même exportation, vous devez définir plusieurs chemins d’espaces de noms à partir de la même cible de stockage. 
+Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de noms virtuels, à condition que chacun d’eux fasse référence à un chemin d’exportation unique.
+
+Les chemins sources NFS étant des sous-répertoires d’une même exportation, vous devez définir plusieurs chemins d’espaces de noms à partir de la même cible de stockage.
 
 | Nom d’hôte de la cible de stockage  | Chemin de l’exportation NFS      | Chemin du sous-répertoire | Chemin de l’espace de noms    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *Adresse IP ou nom d’hôte* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Adresse IP ou nom d’hôte* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Une application cliente peut monter le cache et accéder facilement aux chemins d’espaces de noms agrégés /source, /templates/sku798 et /templates/sku980.
+Une application cliente peut monter le cache et accéder facilement aux chemins d’espaces de noms agrégés ``/source``, ``/templates/sku798`` et ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

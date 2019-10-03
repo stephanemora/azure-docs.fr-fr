@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 09/4/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d686fad8471064f127e75f10f42f34350c764837
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a53de919960902fcc89a53293f31a07baa88cf32
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532545"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268546"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Vue d’ensemble de Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) permet aux développeurs d’acquérir des [jetons](developer-glossary.md#security-token) à partir du point de terminaison de la plateforme d’identités Microsoft afin d’accéder aux API web sécurisées. Ces API web peuvent être Microsoft Graph, d’autres APIS Microsoft, des API web de tiers ou vos propres API web. MSAL est disponible pour .NET, JavaScript, Android et iOS, qui prennent en charge de nombreuses architectures et plateformes d’application différentes.
@@ -54,15 +54,14 @@ MSAL peut être utilisé dans de nombreux scénarios d’application, dont les s
 
 | Bibliothèque | Plateformes et infrastructures prises en charge|
 | --- | --- | 
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET framework, .NET Core, Xamarin Android, Xamarin iOS, plateforme Windows universelle|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Infrastructures JavaScript/TypeScript telles que AngularJS, Ember.js ou Durandal.js|
-| ![MSAL pour Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL pour Android (préversion)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
-| ![MSAL pour iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (préversion)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
-| ![MSAL4J](media/sample-v2-code/logo_java.png) <br/>[Préversion MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
+| [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET framework, .NET Core, Xamarin Android, Xamarin iOS, plateforme Windows universelle|
+| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Infrastructures JavaScript/TypeScript telles que AngularJS, Ember.js ou Durandal.js|
+| [MSAL pour Android (préversion)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| [MSAL pour iOS et macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS et macOS|
+| [Préversion MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 
 ## <a name="differences-between-adal-and-msal"></a>Différences entre les bibliothèques ADAL et MSAL
+
 La Bibliothèque d’authentification Active Directory (ADAL) s’intègre avec le point de terminaison d’Azure AD pour les développeurs (v1.0), tandis que la bibliothèque MSAL s’intègre avec le point de terminaison de la plateforme d’identités Microsoft (v2.0). Le point de terminaison v1.0 prend en charge les comptes de travail, mais pas les comptes personnels. Le point de terminaison v2.0 est l’unification de comptes personnels et professionnels Microsoft dans un système d’authentification unique. En outre, avec MSAL, vous pouvez également obtenir des authentifications pour Azure AD B2C.
 
 Pour plus d’informations, lisez la documentation sur la [migration d’ADAL.NET vers MSAL.NET](msal-net-migration.md) et la [migration d’ADAL.js vers MSAL.js](msal-compare-msal-js-and-adal-js.md).
-
-            

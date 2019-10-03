@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224522"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle
 
@@ -34,7 +34,7 @@ Vous devez configurer le système d’exploitation de la machine virtuelle, la t
 
 ## <a name="fundamental-technical-knowledge"></a>Connaissances techniques fondamentales
 
-Concevoir, créer et tester ces ressources demande du temps et des connaissances techniques sur la plateforme Azure et les technologies utilisées pour créer l’offre. En plus de votre domaine de solution, votre équipe d’ingénierie doit connaître les technologies Microsoft suivantes : 
+Concevoir, créer et tester ces ressources demande du temps et des connaissances techniques sur la plateforme Azure et les technologies utilisées pour créer l’offre. En plus de votre domaine de solution, votre équipe d’ingénierie doit connaître les technologies Microsoft suivantes : 
 -   Connaissances de base des [services Azure](https://azure.microsoft.com/services/) 
 -   Comment [concevoir et créer des applications Azure](https://azure.microsoft.com/solutions/architecture/)
 -   Expérience de travail avec les [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), [Stockage Azure](https://azure.microsoft.com/services/?filter=storage) et [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking)

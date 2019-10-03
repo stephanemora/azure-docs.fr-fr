@@ -1,19 +1,19 @@
 ---
-title: Ajouter du stockage à Azure HPC Cache
+title: Ajouter du stockage à Azure HPC Cache (préversion)
 description: Comment définir des cibles de stockage pour qu’Azure HPC Cache puisse utiliser votre système NFS local ou des conteneurs d’objets blob Azure dans le but de stocker des fichiers à long terme
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037218"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300042"
 ---
-# <a name="add-storage"></a>Ajouter du stockage
+# <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
 Les *cibles de stockage* sont des stockages back-end destinés aux fichiers qui sont accessibles via une instance d’Azure HPC Cache. Vous pouvez ajouter un stockage NFS, tel qu’un système local, ou stocker des données dans un objet blob Azure.
 
@@ -21,11 +21,11 @@ Vous pouvez définir jusqu’à dix cibles de stockage différentes pour un mêm
 
 N’oubliez pas que les exportations de stockage doivent être accessibles à partir du réseau virtuel de votre cache. Pour le stockage matériel local, vous devrez peut-être configurer un serveur DNS capable de résoudre les noms d’hôtes pour l’accès au stockage NFS. Pour plus d’informations, lisez [Accès DNS](hpc-cache-prereqs.md#dns-access).
 
-Vous pouvez ajouter des cibles de stockage lors de la création de votre instance Azure HPC Cache, ou plus tard. La procédure est légèrement différente selon que vous ajoutez du stockage Blob Azure ou une exportation NFS. Vous trouverez ci-dessous des informations détaillées pour chacune de ces options.
+Vous pouvez ajouter des cibles de stockage lors de la création de votre instance cache, ou plus tard. La procédure est légèrement différente selon que vous ajoutez du stockage Blob Azure ou une exportation NFS. Vous trouverez ci-dessous des informations détaillées pour chacune de ces options.
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>Ajouter des cibles de stockage lors de la création du cache
 
-Utilisez l’onglet **Cibles de stockage** de l’Assistant Création de cache pour définir le stockage lors de la création de l’instance de cache.
+Utilisez l’onglet **Cibles de stockage** de l’Assistant Création Azure HPC Cache pour définir le stockage lors de la création de l’instance de cache.
 
 ![capture d’écran de la page des cibles de stockage](media/hpc-cache-storage-targets-pop.png)
 
@@ -45,6 +45,8 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
 
 ![capture d’écran de la page Ajouter une cible de stockage, où ont été renseignées les informations relatives à la nouvelle cible de stockage d’objets blob Azure](media/hpc-cache-add-blob.png)
 
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+
 * **Nom de la cible de stockage** : définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
 * **Type de cible** : choisissez **Objet blob**.
 * **Compte de stockage** : sélectionnez le compte qui comprend le conteneur à référencer.
@@ -52,13 +54,13 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
   Vous devez autoriser l’instance de cache à accéder au compte de stockage, en suivant la procédure décrite dans [Ajouter les rôles d’accès](#add-the-access-control-roles-to-your-account).
 * **Conteneur de stockage** : sélectionnez le conteneur d’objets blob pour cette cible.
 
-* **Chemin de l’espace de noms virtuels** : définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
+* **Chemin de l’espace de noms virtuels** - Définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
 
 Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Ajouter les rôles de contrôle d’accès à votre compte
 
-Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (RBAC) ](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser l’application de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
+Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser l’application de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
 
 Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) et [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) pour l’utilisateur « StorageCache Resource Provider ».
 
@@ -98,9 +100,14 @@ Fournissez les informations suivantes pour une cible de stockage NFS :
 
 * **Modèle d’utilisation** - Choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model).
 
-Vous pouvez créer plusieurs chemins d’espaces de noms pour représenter différentes exportations sur un même système de stockage NFS. Toutefois, vous devez les créer à partir d’une cible de stockage.
+### <a name="nfs-namespace-paths"></a>Chemin d'espaces de noms NFS
 
-Pour chaque exportation, renseignez les valeurs suivantes :
+Une cible de stockage NFS peut avoir plusieurs chemins d’accès virtuels, à condition que chaque chemin d’accès représente une exportation ou un sous-répertoire différent sur le même système de stockage.
+
+Créez tous les chemins d’accès à partir d’une cible de stockage.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Renseignez ces valeurs pour chaque chemin d’espace de noms : 
 
 * **Chemin de l’espace de noms virtuels** - Définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
 
@@ -112,8 +119,8 @@ Pour chaque exportation, renseignez les valeurs suivantes :
 
 Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
 
-### <a name="choose-a-usage-model"></a>Choisir un modèle d’utilisation 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>Choisir un modèle d’utilisation
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 Lorsque vous créez une cible de stockage qui pointe vers un système de stockage NFS, vous devez choisir le *modèle d’utilisation* de cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
 

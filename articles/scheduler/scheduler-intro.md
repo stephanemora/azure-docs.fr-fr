@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 21204e85adf1c68264ea448360c9e1120567ef3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f418a78f80d65cbb784685804a4cc6790c28b99
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530914"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300898"
 ---
 # <a name="what-is-azure-scheduler"></a>Présentation d’Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est actuellement mis hors service. Pour planifier des travaux, [essayez à la place Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) vous permet de créer des [travaux](../scheduler/scheduler-concepts-terms.md) qui s’exécutent dans le cloud en décrivant les actions de manière déclarative. Le service planifie et exécute ensuite ces actions automatiquement. Par exemple, vous pouvez appeler des services à l’intérieur et à l’extérieur d’Azure, notamment des points de terminaison HTTP ou HTTPS, et poster des messages sur des files d’attente Stockage Azure, ainsi que sur des files d’attente ou des rubriques Azure Service Bus. Vous pouvez exécuter des travaux immédiatement ou plus tard. Scheduler prend facilement en charge les [planifications complexes et la périodicité avancée](../scheduler/scheduler-advanced-complexity.md). Scheduler spécifie le moment où les travaux doivent être exécutés, conserve un historique des résultats des travaux pour que vous puissiez le consulter, et planifie l’exécution des charges de travail de manière prévisible et fiable.
 

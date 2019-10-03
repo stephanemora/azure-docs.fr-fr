@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 175ea1c0c25a0c6dd41c68ea0a340cc1b18cc8b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d0bdfbbad7e811ac8f1eeffb1991cc5430483a6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100604"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262904"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
@@ -78,7 +78,11 @@ Vous pouvez disposer d’une solution de récupération d’urgence pour vos bas
 Les machines virtuelles Azure, le stockage et le réseau ont des caractéristiques opérationnelles différentes par rapport à celles d’une infrastructure informatique non virtualisée sur site. Pour une implémentation réussie d’une solution HADR SQL Server dans Azure, vous devez comprendre ces différences et concevoir votre solution de façon à les gérer.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nœuds haute disponibilité d’un groupe à haute disponibilité
-Les groupes à haute disponibilité dans Azure vous permettent de placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. Pour les machines virtuelles Azure que vous devez placer dans le même groupe à haute disponibilité, vous devez les déployer dans le même service cloud. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Les groupes à haute disponibilité dans Azure vous permettent de placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un domaine de mise à jour et un domaine d’erreur par la plateforme Azure sous-jacente. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d'un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+### <a name="high-availability-nodes-in-an-availability-zone"></a>Nœuds haute disponibilité d’une zone de disponibilité
+Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. La séparation physique des zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données en veillant à ce qu'au moins une machine soit disponible et réponde au contrat de niveau de service Azure à 99,99 %. Pour une configuration à haute disponibilité, placez les machines virtuelles SQL correspondantes réparties sur les zones de disponibilité disponibles dans la région. Il y aura des frais supplémentaires de transfert des données de machine virtuelle à machine virtuelle entre les Zones de disponibilité. Pour plus d’informations, consultez [Zones de disponibilité](/azure/availability-zones/az-overview). 
+
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportement d’un cluster de basculement sur le réseau Azure
 Le service DHCP non compatible RFC dans Azure peut entraîner l’échec de la création de certaines configurations de cluster de basculement, en raison du nom du réseau de clusters auquel est affectée une adresse IP en double (même adresse IP qu’un des nœuds de cluster). Cela constitue un problème lorsque vous implémentez des groupes de disponibilité qui dépendent de la fonctionnalité Cluster de basculement Windows.

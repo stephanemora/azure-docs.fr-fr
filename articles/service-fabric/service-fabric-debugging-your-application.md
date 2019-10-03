@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 682059914b5d86f5e670e373a4acf3e4ac6246ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428217"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300682"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Débogage de votre application Service Fabric à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -61,6 +61,13 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 8. Les services de débogage ont la même fonction que le débogage de toute autre application. Les points d’arrêt sont normalement définis via Visual Studio pour faciliter le débogage. Bien que les Reliable Collections sont répliquées sur plusieurs nœuds, elles implémentent toujours IEnumerable. Cette implémentation signifie que vous pouvez utiliser l’affichage des résultats dans Visual Studio pendant le débogage pour voir ce que vous avez stocké à l’intérieur. Pour ce faire, définissez un point d’arrêt n’importe où dans votre code.
    
     ![Démarrer le débogage d'une application][breakpoint]
+
+
+### <a name="running-a-script-as-part-of-debugging"></a>Exécution d’un script dans le cadre du débogage
+Dans certains scénarios, vous devrez peut-être exécuter un script dans le cadre du démarrage d’une session de débogage (par exemple, lorsque vous n’utilisez pas les services par défaut).
+
+Dans Visual Studio, vous pouvez ajouter un fichier appelé **Start-Service.ps1** dans le dossier **Scripts** du projet d’application Service Fabric (. sfproj). Ce script est appelé après la création de l’application dans le cluster local.
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

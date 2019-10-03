@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613311"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240335"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
@@ -197,6 +197,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |942270|Recherche d’injection de code SQL de base. Chaîne d’attaque courante pour mysql oracle entre autres.|
 |942290|Recherche de tentatives d’injection de code SQL MongoDB de base|
 |942300|Détecte les commentaires MySQL, les conditions et les injections de ch(a)r|
+|942310|Détecte des tentatives d’injection de code SQL chaîné 2/2|
 |942320|Détecte des injections de fonctions/procédures stockées MySQL et PostgresSQL|
 |942330|Détecte les sondes d’injection SQL classiques 1/2|
 |942340|Détecte les tentatives de contournement d’authentification SQL de base 3/3|

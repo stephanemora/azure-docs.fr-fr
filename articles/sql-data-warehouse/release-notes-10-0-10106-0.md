@@ -5,25 +5,25 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 07/03/2019
+ms.date: 09/18/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798698"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300841"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
-Cet article résume les nouvelles fonctionnalités et améliorations des versions récentes d'[Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). Il répertorie également les mises à jour de contenu importantes qui ne sont pas directement associées à la version, mais qui ont été publiées en même temps. Pour connaître les améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates).
+Cet article résume les nouvelles fonctionnalités et améliorations des versions récentes d'[Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md) (Azure SQL DW). Il répertorie également les mises à jour de contenu importantes qui ne sont pas directement associées à la version, mais qui ont été publiées en même temps. Pour connaître les améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates).
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Vérifiez votre version d’Azure SQL Data Warehouse
 
-Au fur et à mesure que de nouvelles fonctionnalités sont déployées dans toutes les régions, vérifiez la version déployée dans votre instance et les dernières notes de version d'Azure SQL DW pour connaître la disponibilité des fonctionnalités. Pour vérifier votre version Azure SQL DW, connectez-vous à votre entrepôt de données via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION AS 'SQL Data Warehouse';` pour retourner la version actuelle d'Azure SQL DW.
+Au fur et à mesure que de nouvelles fonctionnalités sont déployées dans toutes les régions, vérifiez la version déployée dans votre instance et les dernières notes de version d'Azure SQL DW pour connaître la disponibilité des fonctionnalités. Pour vérifier votre version Azure SQL DW, connectez-vous à votre entrepôt de données via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION;` pour retourner la version actuelle d'Azure SQL DW.
 
 Exemple de sortie :
 
@@ -31,12 +31,23 @@ Exemple de sortie :
 
 Utilisez la date prévue pour confirmer quelle version a été appliquée à votre version d’Azure SQL DW.
 
+## <a name="september-2019"></a>Septembre 2019
+
+| Améliorations du service | Détails |
+| --- | --- |
+|**Azure Private Link (préversion)**|[Azure Private Link](https://azure.microsoft.com/blog/announcing-azure-private-link/) vous permet de créer un point de terminaison privé dans votre réseau virtuel (VNet) et de le mapper à votre Azure SQL DW. Ces ressources sont ensuite accessibles via une adresse IP privée dans votre réseau virtuel, offrant ainsi une connectivité à partir d’un serveur local via l'appairage privé Azure ExpressRoute et/ou une passerelle VPN. Globalement, cela simplifie la configuration réseau en vous évitant de l’ouvrir sur des adresses IP publiques. Cela active également la protection contre les risques d'exfiltration de données. Pour plus d’informations, consultez [Vue d'ensemble](/azure/private-link/private-link-overview) et [Documentation SQL DW](/azure/sql-database/sql-database-private-endpoint-overview).|
+|**Découverte et classification des données (GA)**|La fonctionnalité [Découverte et classification des données](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) est désormais mise à la disposition générale. Cette fonctionnalité offre des fonctionnalités avancées pour la **découverte, la classification, l’étiquetage et la**  des données sensibles dans vos bases de données.|
+|**Intégration en un clic d'Azure Advisor**|SQL Data Warehouse s’intègre désormais directement aux recommandations Azure Advisor dans le panneau de vue d’ensemble, et permet une utilisation en un clic. Vous pouvez maintenant découvrir des recommandations dans le panneau de vue d’ensemble, sans accéder au panneau Azure Advisor. Découvrez-en plus sur les recommandations [ici](sql-data-warehouse-concept-recommendations.md).|
+|**Niveau d'isolement de capture instantanée à lecture validée (préversion)**|Vous pouvez utiliser ALTER DATABASE pour activer ou désactiver l’isolement de capture instantanée pour une base de données utilisateur.  Pour éviter tout impact sur votre charge de travail en cours, vous pouvez définir cette option lors de la fenêtre de maintenance de la base de données ou attendre qu’il n’y ait aucune autre connexion active à la base de données. Pour plus d'informations, consultez [Options Alter database set](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
+|**EXECUTE AS (Transact-SQL)**| [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) T-SQL est désormais pris en charge dans SQL Data Warehouse et permet aux clients de définir le contexte d’exécution d’une session sur l’utilisateur spécifié.|
+|**Prise en charge supplémentaire pour T-SQL**|La surface d’exposition au langage T-SQL pour SQL Data Warehouse a été étendue afin d'inclure la prise en charge de : </br> - [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [sys.user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="july-2019"></a>Juillet 2019
 
 | Améliorations du service | Détails |
 | --- | --- |
 |**Vue matérialisée (préversion)**|Une vue matérialisée conserve les données renvoyées par la requête de définition de vue et est automatiquement mise à jour à mesure que les données changent dans les tables sous-jacentes. Elle améliore les performances des requêtes complexes (généralement des requêtes contenant des jointures et agrégations) tout en offrant des opérations de maintenance simples. Pour plus d'informations, consultez les pages suivantes : </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Instructions T-SQL prises en charge dans Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
-|**Prise en charge supplémentaire pour T-SQL**|La surface d’exposition au langage T-SQL pour SQL Data Warehouse a été étendue afin d'inclure la prise en charge de : </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Prise en charge supplémentaire pour T-SQL**|La surface d’exposition au langage T-SQL pour SQL Data Warehouse a été étendue afin d'inclure la prise en charge de : </br> - [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG (Transact-SQL)](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
 |**Mise en cache de jeu de résultats (Préversion)**|Commandes DBCC ajoutées pour gérer le cache du jeu de résultats annoncé précédemment. Pour plus d'informations, consultez les pages suivantes : </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Voir également la nouvelle colonne result_set_cache dans [ sys.dm_pdw_exec_requests ](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest), qui indique quand une requête exécutée à utilisé le cache du jeu de résultats.|
 |**Index columnstore en cluster ordonné (préversion)**|Nouvelle colonne, column_store_order_ordinal, ajoutée à [ sys.index_columns ](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) pour identifier l’ordre des colonnes dans un index columstore en cluster ordonné.|
 

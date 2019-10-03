@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018167"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268773"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -233,7 +233,11 @@ Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
 ### <a name="clean_up_restore_point_collection"></a> Nettoyer la collection de points de restauration
 
-Après avoir supprimé le verrou, vous devez nettoyer les points de restauration. Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes :<br>
+Après avoir supprimé le verrou, vous devez nettoyer les points de restauration.
+
+Si vous supprimez le groupe de ressources de la machine virtuelle, voire la machine virtuelle elle-même, les instantanés de restauration des disques managés restent actifs et expirent en fonction de la conservation définie. Pour supprimer les instantanés de restauration (dont vous n'avez plus besoin) stockés dans la collection de points de restauration, nettoyez cette dernière en suivant la procédure indiquée ci-dessous.
+
+Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes :<br>
 
 - [Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Nettoyer la collection de points de restauration sur le portail Azure](#clean-up-restore-point-collection-from-azure-portal)<br>

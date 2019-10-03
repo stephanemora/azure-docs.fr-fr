@@ -1,19 +1,19 @@
 ---
-title: Prérequis pour Azure HPC Cache
+title: Prérequis pour la préversion d’Azure HPC Cache
 description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036866"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299912"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
+# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prérequis pour Azure HPC Cache (préversion)
 
 Avant d’utiliser le portail Azure pour créer une nouvelle instance d’Azure HPC Cache, vérifiez que votre environnement répond à ces exigences.
 
@@ -26,7 +26,7 @@ Un abonnement payant est recommandé.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 
-Avant de pouvoir utiliser votre cache, vous devez configurer deux options liées au réseau :
+Avant de pouvoir utiliser votre cache, vous devez configurer deux prérequis liés au réseau :
 
 * Un sous-réseau dédié pour l’instance Azure HPC Cache
 * La prise en charge du DNS afin que le cache puisse accéder au stockage et aux autres ressources
@@ -37,13 +37,13 @@ Azure HPC Cache a besoin d’un sous-réseau dédié avec les qualités suivante
 
 * Le sous-réseau doit disposer d’au moins 64 adresses IP.
 * Le sous-réseau ne peut pas héberger d’autres machines virtuelles, même pour les services associés tels que les ordinateurs clients.
-* Si vous utilisez plusieurs instances de cache, chacune d’elles doit avoir son propre sous-réseau.
+* Si vous utilisez plusieurs instances Azure HPC Cache, chacune d’elles doit avoir son propre sous-réseau.
 
-La méthode recommandée consiste à créer un nouveau sous-réseau pour le cache. Vous pouvez créer un réseau virtuel et un sous-réseau dans le cadre de la création du cache.
+La méthode recommandée consiste à créer un nouveau sous-réseau pour chaque cache. Vous pouvez créer un réseau virtuel et un sous-réseau dans le cadre de la création du cache.
 
 ### <a name="dns-access"></a>Accès DNS
 
-Azure HPC Cache a besoin d’un accès DNS pour accéder aux ressources situées en dehors de son réseau virtuel. Selon les ressources que vous utilisez, vous devrez peut-être configurer un serveur DNS personnalisé et configurer un transfert entre ce serveur et les serveurs Azure DNS : 
+Le cache a besoin d’un accès DNS pour accéder aux ressources situées en dehors de son réseau virtuel. Selon les ressources que vous utilisez, vous devrez peut-être configurer un serveur DNS personnalisé et configurer un transfert entre ce serveur et les serveurs Azure DNS :
 
 * Pour accéder aux points de terminaison du stockage Blob Azure et à d’autres ressources internes, vous avez besoin d’un serveur DNS basé sur Azure.
 * Pour accéder au stockage local, vous devez configurer un serveur DNS personnalisé capable de résoudre les noms d’hôte de votre stockage.
@@ -56,14 +56,16 @@ Pour plus d’informations sur les réseaux virtuels Azure et les configurations
 
 Consultez les prérequis liés aux autorisations avant de créer votre cache.
 
-* Azure HPC Cache doit pouvoir créer des interfaces réseau virtuelles (NIC). L’utilisateur qui crée le cache doit disposer de privilèges suffisants dans l’abonnement pour créer des cartes réseau.
+* L’instance de cache doit pouvoir créer des interfaces réseau virtuelles (NIC). L’utilisateur qui crée le cache doit disposer de privilèges suffisants dans l’abonnement pour créer des cartes réseau.
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* Si vous utilisez le stockage Blob, l’instance d’Azure HPC Cache a besoin d’une autorisation pour accéder à votre compte de stockage. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour permettre au cache d’accéder à votre stockage Blob. Deux rôles sont nécessaires : Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Suivez les instructions fournies dans [Ajouter du stockage au cache](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
+* Si vous utilisez le stockage Blob, Azure HPC Cache a besoin d’une autorisation pour accéder à votre compte de stockage. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour permettre au cache d’accéder à votre stockage Blob. Deux rôles sont nécessaires : Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
 ## <a name="storage-infrastructure"></a>Infrastructure du stockage
 
-Le cache prend en charge les conteneurs d’objets blob Azure et les exportations de stockage matériel NFS. Vous pouvez définir des cibles de stockage lors de la création du cache ou après. 
+Le cache prend en charge les conteneurs d’objets blob Azure et les exportations de stockage matériel NFS. Vous pouvez définir des cibles de stockage lors de la création du cache mais aussi ajouter l’espace de stockage ultérieurement.
+
+Chaque type de stockage possède des conditions préalables spécifiques. 
 
 ### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
 
@@ -73,7 +75,7 @@ Le stockage back-end NFS doit être une plateforme matérielle ou logicielle co
 
 ### <a name="blob-storage-requirements"></a>Exigences relatives au stockage Blob
 
-Si vous souhaitez utiliser le stockage Blob Azure avec Azure HPC Cache, vous aurez besoin d’un compte de stockage compatible, et soit d’un conteneur d’objets blob vide, soit d’un conteneur comprenant des données au format Azure HPC Cache. Pour plus d’informations, consultez [Déplacer des données vers le stockage Blob Azure](hpc-cache-ingest.md).
+Si vous souhaitez utiliser le stockage Blob Azure avec votre cache, vous aurez besoin d’un compte de stockage compatible, et soit d’un conteneur d’objets blob vide, soit d’un conteneur comprenant des données au format Azure HPC Cache. Pour plus d’informations, consultez [Déplacer des données vers le stockage Blob Azure](hpc-cache-ingest.md).
 
 Créez le compte et le conteneur avant d’ajouter celui-ci comme cible de stockage.
 
@@ -85,8 +87,9 @@ Pour créer un compte de stockage compatible, utilisez les paramètres suivants�
 * Niveau d’accès (par défaut) : **Chaud**
 
 Il est recommandé d’utiliser un compte de stockage se trouvant au même emplacement que votre cache.
+<!-- need to clarify location - same region or same resource group or same virtual network? -->
 
-Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure. Suivez les instructions fournies dans [Ajouter du stockage au cache](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
+Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure. Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

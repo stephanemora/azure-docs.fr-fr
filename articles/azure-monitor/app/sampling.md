@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 4da91150999864c64ead28b74242e85d23a51ead
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310448"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169484"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -459,6 +459,10 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 * Assurez-vous que vous utilisez bien le kit de développement logiciel version 2.0 ou ultérieure.
 * Vérifiez que vous définissez le même pourcentage d’échantillonnage dans le client et dans le serveur.
 
+### <a name="sampling-in-azure-functions"></a>Échantillonnage dans Azure Functions
+
+Suivez [ces](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) instructions pour configurer l’échantillonnage des applications qui s’exécutent dans Azure Functions.
+
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
 *Quel est le comportement d’échantillonnage par défaut dans les SDK ASP.NET et ASP.NET Core ?*
@@ -515,13 +519,19 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
-* La meilleure façon d’y parvenir consiste à écrire un [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Cela garantit que toutes les techniques d’échantillonnage ignoreront cet élément pour toutes les considérations d’échantillonnage.
+* La meilleure façon d’y parvenir consiste à écrire un [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Les initialiseurs étant assurés d’être exécutés avant les processeurs de télémétrie (échantillonnage compris), toutes les techniques d’échantillonnage ignorent cet élément des considérations d’échantillonnage.
 
 ```csharp
-    if(somecondition)
-    {
-        ((ISupportSampling)item).SamplingPercentage = 100;
-    }
+     public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+         public void Initialize(ITelemetry telemetry)
+        {
+            if(somecondition)
+            {
+                ((ISupportSampling)item).SamplingPercentage = 100;
+            }
+        }
+      }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

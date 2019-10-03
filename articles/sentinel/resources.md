@@ -1,5 +1,5 @@
 ---
-title: Ressources utiles lorsque vous travaillez avec la préversion d’Azure Sentinel | Microsoft Docs
+title: Ressources utiles lorsque vous travaillez avec Azure Sentinel | Microsoft Docs
 description: Ce document vous fournit une liste des ressources utiles lorsque vous travaillez avec Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036235"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71239976"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Ressources utiles lorsque vous travaillez avec la préversion d’Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Cet article répertorie les ressources qui peuvent vous aider à obtenir plus d’informations sur l’utilisation d’Azure Sentinel.
 
 Connecteurs Azure Logic Apps : <https://docs.microsoft.com/connectors/>
 
-## <a name="vendor-documentation"></a>Documentation du fournisseur
 
+## <a name="auditing-and-reporting"></a>Audit et création de rapports
+Les journaux d’audit Azure Sentinel sont conservés dans les [journaux d'activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+
+
+## <a name="vendor-documentation"></a>Documentation du fournisseur
 
 | **Fournisseur**  | **Utiliser un incident dans Azure Sentinel** | **Lien**|
 |----|----|----|
