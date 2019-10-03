@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628867"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828525"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
@@ -89,7 +89,7 @@ Oui. La direction commerciale du partenaire et l’équipe en charge du compte c
 Vous pouvez consulter le forum dédié à StorSimple dans le programme des fournisseurs de solutions cloud ; vous trouverez des réponses à des questions fréquentes. Dans un premier temps, il vous faudra rejoindre le [groupe Yammer des conseillers Azure](https://www.yammer.com/azureadvisors). Recherchez ensuite le groupe à rejoindre, consacré aux **conseillers des partenaires StorSimple**.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Comment le support fonctionne-t-il pour StorSimple pour le programme de fournisseurs de solutions cloud ? 
-Le modèle de support dédié à StorSimple pour le programme de fournisseurs de solutions cloud est identique à celui mis à disposition pour d’autres services Azure du programme. Pour plus d’informations, accédez au [Support client pour le programme de fournisseurs de solutions cloud](https://msdn.microsoft.com/partner-center/customer-support). 
+Le modèle de support dédié à StorSimple pour le programme de fournisseurs de solutions cloud est identique à celui mis à disposition pour d’autres services Azure du programme. Pour plus d’informations, accédez au [Support client pour le programme de fournisseurs de solutions cloud](/partner-center/csp-overview).
 
 Pour plus d’informations sur StorSimple pour le programme de fournisseurs de solutions cloud, consultez les ressources suivantes :
 

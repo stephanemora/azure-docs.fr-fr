@@ -11,20 +11,18 @@ ms.topic: quickstart
 ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 97db9e145c290e97dbda63a6207f5101a80d67ec
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: fc2d75c47cb9a1f4011e6147f46ec2df31216482
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393930"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827441"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour déterminer la longueur des phrases
 
 Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur des phrases à l’aide de l’API de traduction de texte Translator Text.
 
 Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0ae2b695a64e55b493453549627860872166ed25
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3d05e71726ae37dd30bbb68ceb84b67a3bef0e5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202488"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822275"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Appliquer le chiffrement de disque dans Azure Security Center
 Azure Security Center vous recommande d’appliquer le chiffrement de disques si vous avez des disques de machines virtuelles Windows ou Linux qui ne sont pas chiffrés à l’aide d’Azure Disk Encryption. Disk Encryption vous permet de chiffrer vos disques de machines virtuelles IaaS Windows et Linux.  Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.
@@ -43,7 +43,7 @@ Pour chiffrer les machines virtuelles Azure qui ont fait l’objet d’une alert
 * Récupérez et exécutez le script Azure PowerShell de configuration d’Azure Disk Encryption.
 * Chiffrez vos machines virtuelles.
 
-[Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../security/azure-disk-encryption-linux-powershell-quickstart.md) vous guide pas à pas. Pour suivre cette procédure, vous devez utiliser Windows en tant qu’ordinateur client à partir duquel vous allez configurer le chiffrement de disque.
+[Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) vous guide pas à pas. Pour suivre cette procédure, vous devez utiliser Windows en tant qu’ordinateur client à partir duquel vous allez configurer le chiffrement de disque.
 
 Vous pouvez utiliser de nombreuses approches pour les Machines virtuelles Azure. Si vous êtes déjà familiarisé avec Azure PowerShell ou avec l’interface de ligne de commande Azure, vous pouvez opter pour d’autres approches. Pour en savoir plus sur ces autres approches, consultez [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 

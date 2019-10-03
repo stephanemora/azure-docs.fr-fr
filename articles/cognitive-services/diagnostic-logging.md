@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516371"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827895"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Activer la journalisation des diagnostics pour Azure Cognitive Services
 
@@ -35,7 +35,7 @@ Pour activer la journalisation des diagnostics, vous aurez besoin d’un emplace
 Commençons par activer la journalisation des diagnostics à partir du portail Azure.
 
 > [!NOTE]
-> Pour activer cette fonctionnalité à l’aide de PowerShell ou d’Azure CLI, suivez les instructions fournies dans [Collecter et utiliser des données de journaux à partir de vos ressources Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Pour activer cette fonctionnalité à l’aide de PowerShell ou d’Azure CLI, suivez les instructions fournies dans [Collecter et utiliser des données de journaux à partir de vos ressources Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Accédez au portail Azure. Recherchez ensuite une ressource Cognitive Services et sélectionnez-la. Par exemple, votre abonnement à Recherche Web Bing.   
 2. Ensuite, dans le menu de navigation de gauche, recherchez **Supervision**, puis sélectionnez **Paramètres de diagnostic**. Cet écran contient tous les paramètres de diagnostic créés précédemment pour cette ressource.

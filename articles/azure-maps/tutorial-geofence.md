@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934186"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694922"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -148,10 +148,24 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
    }
    ```
 
-5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI permettant d’accéder aux données ou de les télécharger pour une utilisation ultérieure. Il contient également la valeur unique `udId` pour les données chargées.
+5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. Quand une requête réussit, l’en-tête **Location** (Emplacement) contient l’URI d’état qui sert à vérifier l’état actuel de la requête de chargement. L’URI d’état sera au format suivant. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copiez votre URI d’état et ajoutez-lui un paramètre `subscription-key`. La valeur de ce paramètre doit correspondre à la clé d’abonnement de votre compte Azure Maps. Le format de l’URI d’état doit être semblable à celui ci-dessous :
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Pour obtenir la valeur `udId`, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez la valeur udId pour une utilisation ultérieure.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configurer un gestionnaire d’événements

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306304"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338078"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Activer Application Insights Profiler pour votre application
@@ -36,7 +36,7 @@ Si vous avez activé Profiler et que vous ne voyez pas les traces, consultez not
 
 ## <a name="view-profiler-data"></a>Voir les données de Profiler
 
-Pour que Profiler charge des traces, votre application doit gérer activement les demandes. Si vous effectuez une expérience, vous pouvez générer des demandes pour votre application web à l’aide des [tests de performances Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si vous venez d’activer Profiler, vous pouvez exécuter un test de charge court. Pendant que le test de charge est en cours d’exécution, sélectionnez le bouton **Profiler maintenant** dans le volet [**Paramètres de Profiler**](profiler-settings.md#profiler-settings-pane). Une fois Profiler en cours d’exécution, il profile au hasard une fois par heure, pendant deux minutes. Si votre application traite un flux constant de demandes, Profiler charge les traces toutes les heures.
+Pour que Profiler charge des traces, votre application doit gérer activement les demandes. Si vous effectuez une expérience, vous pouvez générer des demandes pour votre application web à l’aide des [tests de performances Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si vous venez d’activer Profiler, vous pouvez exécuter un test de charge court. Pendant que le test de charge est en cours d’exécution, sélectionnez le bouton **Profiler maintenant** dans le volet [**Paramètres de Profiler**](profiler-settings.md). Une fois Profiler en cours d’exécution, il profile au hasard une fois par heure, pendant deux minutes. Si votre application traite un flux constant de demandes, Profiler charge les traces toutes les heures.
 
 Une fois que votre application a reçu du trafic et que Profiler a eu le temps de charger les traces, vous devez voir ces traces. Ce processus peut prendre entre 5 et 10 minutes. Pour voir les traces, dans le volet **Performances**, sélectionnez **Prendre des mesures**, puis sélectionnez le bouton **Traces de Profiler**.
 

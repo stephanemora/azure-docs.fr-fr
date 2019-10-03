@@ -11,20 +11,18 @@ ms.topic: quickstart
 ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 28dac7fffc6bb08e02c9d1af80f4237a40ceed65
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0d86c7d627eeb15fb41b4371f0f1aab7a08e9655
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393951"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827816"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Démarrage rapide : Utiliser l’API Traduction de texte
 
 Dans ce guide de démarrage rapide, vous allez apprendre à traduire une chaîne de texte de l’anglais vers l’allemand, l’italien, le japonais et le thaï à l’aide de l’API REST de traduction de texte Translator Text.
 
 Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

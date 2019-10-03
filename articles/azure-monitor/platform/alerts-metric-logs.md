@@ -1,19 +1,19 @@
 ---
 title: Création d’alertes de métrique de journaux d’activité dans Azure Monitor
 description: Didacticiel sur la création d’alertes de métrique en temps quasi réel sur les données Log Analytics courantes.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80ad38856686229c259730bb4e4a8fcd38d5df4f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872578"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677779"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 

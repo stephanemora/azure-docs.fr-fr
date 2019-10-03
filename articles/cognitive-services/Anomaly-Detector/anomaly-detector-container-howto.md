@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: 339aab3ffe228d306738d3c17394bd322ab5e06c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 11f041ed06117a7e3d495fb43d3a4904f6001520
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103767"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316394"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs Détecteur d’anomalies
 
@@ -97,7 +97,7 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. Consultez la section [Recueillir les paramètres requis](#gathering-required-parameters) pour plus d’informations sur la façon d’obtenir les valeurs `{ENDPOINT_URI}` et `{API_KEY}`.
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. Pour plus d’informations sur la façon d’obtenir les valeurs `{ENDPOINT_URI}` et `{API_KEY}`, consultez [Collecte des paramètres requis](#gathering-required-parameters).
 
 [Exemples ](anomaly-detector-container-configuration.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
@@ -164,7 +164,9 @@ Utilisez l’hôte, http://localhost:5000, pour les API de conteneur.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si vous exécutez le conteneur avec un [montage](anomaly-detector-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
+Si vous exécutez le conteneur avec un [montage](anomaly-detector-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturation
 

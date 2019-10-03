@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: 40a912a94dc61342c04528e902bb0e084546904d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 63065c918a6f78510b4908c5e2ae80df67665b40
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592811"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672615"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Connecter des fonctions à Stockage Azure avec Visual Studio Code
 
@@ -51,25 +51,25 @@ Dans l’[article du guide de démarrage rapide précédent](functions-create-fi
 
 Comme vous utilisez une liaison de sortie de Stockage File d’attente, vous devez disposer de l’extension de liaisons de Stockage avant d’exécuter le projet. 
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>Bibliothèque de classes C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 À l’exception des déclencheurs HTTP et de minuterie, les liaisons sont implémentées sous la forme de packages d’extension. Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package) suivante dans la fenêtre de terminal pour ajouter le package d’extension de Stockage à votre projet.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
-
+---
 Vous pouvez maintenant ajouter la liaison de sortie de stockage à votre projet.
 
 ## <a name="add-an-output-binding"></a>Ajouter une liaison de sortie
 
 Dans Functions, chaque type de liaison requiert la définition d’une `direction`, d’un `type` et d’un `name` unique dans le fichier function.json. La façon dont vous définissez ces attributs dépend du langage de votre application de fonction.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Les attributs de liaison sont définis directement dans le fichier function.json. Selon le type de liaison, des propriétés supplémentaires peuvent être requises. La [configuration de la sortie de la file d’attente](functions-bindings-storage-queue.md#output---configuration) décrit les champs requis pour une liaison de file d’attente Stockage Azure. L’extension vous permet d’ajouter facilement des liaisons au fichier function.json. 
 
@@ -116,15 +116,17 @@ Une liaison est ajoutée au tableau `bindings` dans votre fichier function.json,
 }
 ```
 
-### <a name="c-class-library"></a>Bibliothèque de classes C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+---
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
 Une fois que la liaison est définie, vous pouvez utiliser l’attribut `name` de la liaison pour y accéder en tant qu’attribut dans la signature de fonction. En utilisant une liaison de sortie, vous n’avez pas besoin de recourir au code du SDK Stockage Azure pour l’authentification, l’obtention d’une référence de file d’attente ou l’écriture de données. La liaison de sortie de file d’attente et le runtime Functions effectuent ces tâches.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Ajoutez le code qui utilise l’objet de liaison de sortie `msg` sur `context.bindings` pour créer un message de file d’attente. Ajoutez ce code avant l’instruction `context.res`.
 
@@ -158,9 +160,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="c"></a>C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 

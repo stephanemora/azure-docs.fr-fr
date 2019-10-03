@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995335"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338662"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -80,7 +80,7 @@ Azure propose des opérations de données qui vous permettent d’accorder l’a
 
 *Étendue* représente l’ensemble des ressources auxquelles l’accès s’applique. Lorsque vous attribuez un rôle, vous pouvez restreindre les actions autorisées en définissant une étendue. Cette possibilité s’avère utile si vous voulez par exemple attribuer le rôle de [contributeur de site web](built-in-roles.md#website-contributor) à quelqu’un, mais seulement pour un groupe de ressources.
 
-Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : [groupe d'administration](../governance/management-groups/index.md), abonnement, groupe de ressources ou ressource. Les étendues sont structurées dans une relation parent-enfant.
+Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : [groupe d'administration](../governance/management-groups/overview.md), abonnement, groupe de ressources ou ressource. Les étendues sont structurées dans une relation parent-enfant.
 
 ![Étendue pour une attribution de rôle](./media/overview/rbac-scope.png)
 

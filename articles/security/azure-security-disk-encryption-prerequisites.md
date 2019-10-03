@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224508"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828284"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption
 
@@ -70,6 +70,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Ubuntu | 18,04| Disque de système d’exploitation et de données |
 | Ubuntu | 16.04| Disque de système d’exploitation et de données |
 | Ubuntu | 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disque de système d’exploitation et de données |
+| RHEL | 7,7 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.6 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.5 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.4 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
@@ -77,6 +78,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | RHEL | 7,2 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 6.8 | Disque de données (voir la remarque ci-dessous) |
 | RHEL | 6.7 | Disque de données (voir la remarque ci-dessous) |
+| CentOS | 7,7 | Disque de système d’exploitation et de données |
 | CentOS | 7.6 | Disque de système d’exploitation et de données |
 | CentOS | 7.5 | Disque de système d’exploitation et de données |
 | CentOS | 7.4 | Disque de système d’exploitation et de données |
@@ -181,7 +183,7 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Flux de travail des prérequis pour Key Vault
-Si vous êtes déjà familiarisé avec les prérequis Key Vault et Azure AD pour Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Pour plus d’informations sur l’utilisation du script des prérequis, consultez le [Guide de démarrage rapide du chiffrement d’une machine virtuelle](azure-disk-encryption-linux-powershell-quickstart.md) et l’[Annexe Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Si vous êtes déjà familiarisé avec les prérequis Key Vault et Azure AD pour Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Pour plus d’informations sur l’utilisation du script des prérequis, consultez le [Guide de démarrage rapide du chiffrement d’une machine virtuelle](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) et l’[Annexe Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Si nécessaire, créez un groupe de ressources.
 2. Création d’un coffre de clés 

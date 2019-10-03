@@ -15,12 +15,12 @@ ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b628086a67f1d76357fda4f753350b6411b8f15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: fbea0567ec125ce12acd8f757b32df723876fe09
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273720"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338569"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Rôles personnalisés pour les ressources Azure
 
@@ -100,7 +100,7 @@ Un rôle personnalisé dispose des propriétés suivantes.
 | `NotActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations d’administration exclues des `Actions` autorisées. Pour plus d’informations, voir [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Pour plus d’informations, consultez [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, consultez [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | OUI | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Actuellement, vous ne pouvez pas associer `AssignableScopes` à l’étendue racine (`"/"`) ou à une étendue de groupe d’administration pour les rôles personnalisés. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | OUI | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Actuellement, vous ne pouvez pas associer `AssignableScopes` à l’étendue racine (`"/"`) ou à une étendue de groupe d’administration pour les rôles personnalisés. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 

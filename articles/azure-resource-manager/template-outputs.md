@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3805e0bb86772836ba4a1c91661477f29d5e0f70
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 0ff1e3cb71bd1bf5ee947eb5204839d48103628b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383992"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827942"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Sorties dans un modèle Azure Resource Manager
 
@@ -64,7 +64,7 @@ L’exemple suivant montre comment définir l’adresse IP sur un équilibreur d
 }
 ```
 
-Vous ne pouvez pas utiliser la fonction `reference` dans la section de sortie d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+Vous ne pouvez pas utiliser la fonction `reference` dans la section de sortie d’un [modèle imbriqué](resource-group-linked-templates.md#nested-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
 ## <a name="get-output-values"></a>Obtenir des valeurs de sortie
 

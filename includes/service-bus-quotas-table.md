@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d6c5d881c5ca6eee14835ab0ec10bff2749299dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b0c6d80bfa7a7ae27e5dc6565b0d15b94eb7cdd3
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68502285"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310597"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
 | Nom du quota | Étendue | Notes | Valeur |
 | --- | --- | --- | --- |
 | Nombre maximal d’espaces de noms de base/standard par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms de base/standard supplémentaires sont rejetées par le portail Azure. |100|
-| Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. |50 |
+| Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. |100 |
 | Taille de la file d’attente ou de la rubrique |Entité |Définie lors de la création de la file d’attente/rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 Go.<br /><br />Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](/azure/service-bus-messaging/service-bus-partitioning) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
 | Nombre de connexions simultanées sur un espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |NetMessaging : 1 000.<br /><br />AMQP : 5 000. |
 | Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |5 000 |

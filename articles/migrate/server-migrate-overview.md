@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: f27982b4e310d9865e497a3e1e10be9948beb928
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640735"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710050"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -34,7 +34,7 @@ Utilisez ces comparaisons sélectionnées pour vous aider à choisir la méthode
 **Étapes de déploiement d’appliance** | L'[appliance Azure Migrate](migrate-appliance.md) est déployée en local. | L'[appliance de réplication Azure Migrate](migrate-replication-appliance.md) est déployée en local.
 **Compatibilité Site Recovery** | Compatible. | Vous ne pouvez pas répliquer avec Azure Migrate Server Migration si vous avez défini la réplication pour une machine utilisant Site Recovery.
 **Disque cible** | Disques managés | Disques managés
-**Limites du disque** | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 4 To<br/><br/> Nombre maximal de disques : 60 | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 4 To<br/><br/> Nombre maximal de disques : 63
+**Limites du disque** | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 4 To<br/><br/> Nombre maximal de disques : 60 | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 8 To<br/><br/> Nombre maximal de disques : 63
 **Disques directs** | Non pris en charge | Pris en charge
 **Démarrage UEFI** | Non pris en charge | La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
 

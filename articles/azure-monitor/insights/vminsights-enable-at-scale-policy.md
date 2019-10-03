@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cbb471d337bd386b6c5f2c7a960565ef29855c9c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338237"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’Azure Policy
 
@@ -76,7 +76,7 @@ Pour activer Azure Monitor pour machines virtuelles à l’aide d’Azure Policy
 - Attribuez l’initiative à une étendue : groupe d’administration, abonnement ou groupe de ressources.
 - Examinez et corrigez les résultats de conformité.
 
-Pour plus d’informations sur l’affectation d’Azure Policy, consultez [Vue d’ensemble d’Azure Policy](../../governance/policy/overview.md#policy-assignment) et examinez la [présentation des groupes d’administration](../../governance/management-groups/index.md) avant de continuer.
+Pour plus d’informations sur l’affectation d’Azure Policy, consultez [Vue d’ensemble d’Azure Policy](../../governance/policy/overview.md#policy-assignment) et examinez la [présentation des groupes d’administration](../../governance/management-groups/overview.md) avant de continuer.
 
 ### <a name="policies-for-azure-vms"></a>Stratégies pour les machines virtuelles Azure
 

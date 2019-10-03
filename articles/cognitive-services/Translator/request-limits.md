@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226246"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671967"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de requête pour la traduction de texte Translator Text
 
@@ -32,7 +32,7 @@ Les tableaux suivants répertorient les limites d’éléments de tableau et de 
 | Translate | 5 000 | 100   | 5 000 |
 | Transliterate | 5 000 | 10    | 5 000 |
 | Detect | 10 000 | 100 |   50 000 |
-| BreakSentence | 10 000    | 100 | 50 000 |
+| BreakSentence | 10 000    | 100 | 50 000 |
 | Recherche dans le dictionnaire| 100 |  10  | 1 000 |
 | Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (200 au total)| 10|   2 000 |
 

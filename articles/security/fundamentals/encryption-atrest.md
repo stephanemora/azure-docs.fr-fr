@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 3c4c70aeed833e25eb75a9eaa385e2299c2a4b7e
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300757"
+ms.locfileid: "71316774"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -273,7 +273,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Azure Data Catalog               | OUI                | -                  | -                  |
 | Apache Kafka sur Azure HDInsight  | OUI                | Toutes les longueurs RSA.   | -                  |
 | Explorateur de données Azure              | OUI                | -                  | -                  |
-| Azure Data Factory               | OUI                | -                  | -                  |
+| Azure Data Factory               | OUI                | OUI                | -                  |
 | Azure Data Lake Store            | OUI                | Oui, RSA 2048 bits  | -                  |
 | **Containers**                   |                    |                    |                    |
 | Azure Kubernetes Service         | OUI                | -                  | -                  |

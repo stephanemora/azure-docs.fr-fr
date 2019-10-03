@@ -1,19 +1,19 @@
 ---
 title: Passer de l'API Alerte héritée de Log Analytics à la nouvelle API Alertes Azure
 description: Vue d'ensemble de l'API Alerte héritée et basée sur savedSearch de Log Analytics, et processus permettant de basculer des règles d'alerte vers la nouvelle API ScheduledQueryRules, avec des informations répondant aux préoccupations des clients.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034782"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677802"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 

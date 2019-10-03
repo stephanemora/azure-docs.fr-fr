@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640970"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828158"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Créer un cloud privé CloudSimple
 
-Un cloud privé est une pile VMware prenant en charge les hôtes ESXi, vCenter, vSAN et NSX. Les clouds privés sont gérés par le biais du portail CloudSimple. Ils possèdent leur serveur vCenter situé dans son propre domaine de gestion. La pile exécute des nœuds dédiés et des nœuds matériels nus isolés.
+Un cloud privé est une pile VMware prenant en charge les hôtes ESXi, vCenter, vSAN et NSX. Les clouds privés sont managés via le portail CloudSimple. Ils ont leur serveur vCenter situé dans son propre domaine de gestion. La pile exécute des nœuds dédiés et des nœuds matériels nus isolés.
 
 La création d’un cloud privé vous permet de répondre à divers besoins courants pour l’infrastructure réseau :
 
@@ -40,14 +40,14 @@ Accédez au [portail CloudSimple](access-cloudsimple-portal.md).
 1. Sélectionnez **Tous les services**.
 2. Recherchez **Services CloudSimple**.
 3. Sélectionnez le service CloudSimple où vous voulez créer votre cloud privé.
-4. Depuis la **vue d’ensemble**, cliquez sur **Créer un cloud privé** pour ouvrir un nouvel onglet de navigateur pour le portail CloudSimple. Si vous y êtes invité, connectez-vous avec vos informations d’identification Azure.
+4. Dans la **vue d’ensemble**, cliquez sur **Créer un cloud privé** afin d’ouvrir un nouvel onglet de navigateur pour le portail CloudSimple. Si vous y êtes invité, connectez-vous avec vos informations d’identification Azure.
 
     ![Créer un cloud privé depuis Azure](media/create-private-cloud-from-azure.png)
 
 5. Dans le portail CloudSimple, fournissez un nom pour votre cloud privé.
 6. Sélectionnez l’**Emplacement** de votre cloud privé.
-7. Sélectionnez le **type de nœud** conformément à ce que vous avez acheté sur Azure.  Vous pouvez choisir l’[option CS28 ou CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Cette dernière option inclut la capacité de calcul et de mémoire maximale.
-8. Spécifiez le **Nombre de nœuds**.  Au moins trois nœuds sont requis pour créer un cloud privé.
+7. Sélectionnez le **Type de nœud** conformément à ce que vous avez acheté sur Azure.
+8. Spécifiez le **Nombre de nœuds**.  Au moins trois nœuds sont nécessaires pour créer un cloud privé.
 
     ![Créer un cloud privé - Informations de base](media/create-private-cloud-basic-info.png)
 
@@ -57,12 +57,12 @@ Accédez au [portail CloudSimple](access-cloudsimple-portal.md).
     **Options de la plage CIDR :** /24, /23, /22 ou /21. Une plage CIDR /24 prend en charge jusqu'à neuf nœuds, une plage /23 jusqu'à 41 nœuds et une plage /22 ou /21 jusqu'à 64 nœuds (le nombre maximal de nœuds dans un cloud privé).
 
     > [!IMPORTANT]
-    > L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé.  N’utilisez pas d’adresses IP de cette plage pour vos machines virtuelles.
+    > L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé.  N’utilisez pas d’adresses IP de cette plage pour les machines virtuelles.
 
 11. Cliquez sur **Suivant : Examiner et créer**.
 12. Passez en revue les paramètres. Si vous avez besoin modifier des paramètres, cliquez sur **Précédent**.
 13. Cliquez sur **Créer**.
 
-Le processus d’approvisionnement du cloud privé démarre. L’approvisionnement du cloud privé peut prendre jusqu’à deux heures.
+Le processus de provisionnement du cloud privé démarre. L’approvisionnement du cloud privé peut prendre jusqu’à deux heures.
 
 Pour plus d’instructions sur le développement d’un Cloud privé existant, consultez [Développer un cloud privé](expand-private-cloud.md).

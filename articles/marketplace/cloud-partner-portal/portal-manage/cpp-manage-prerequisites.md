@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087463"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720064"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Conditions préalables pour la gestion des comptes sur le Portail Cloud Partner 
 
@@ -28,8 +28,7 @@ Choisissez soigneusement votre nom de compte.  Il représente votre organisation
 
 ## <a name="registration-steps"></a>Étapes d’inscription
 
-Le tableau suivant répertorie les étapes nécessaires pour s’inscrire pleinement en tant que serveur de publication de cloud Microsoft.  Pour obtenir des instructions complètes, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
-). 
+Le tableau suivant répertorie les étapes nécessaires pour s’inscrire pleinement en tant que serveur de publication de cloud Microsoft.  Pour obtenir des instructions complètes, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher). 
 
 
 |                   Étape                   |  Inscription ou ressource obtenue                     |

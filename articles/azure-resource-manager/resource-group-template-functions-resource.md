@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7e13e2bed4e881d12737d8e0df0ff0ba2bb2bca9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390703"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827477"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -400,7 +400,7 @@ Utilisez `'Full'` quand vous avez besoin de valeurs de ressource qui ne font pas
 
 La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement. Lorsqu’elle est utilisée avec une [itération de propriété](resource-group-create-multiple.md#property-iteration), vous pouvez utiliser la fonction de référence pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas l’utiliser avec `count`, car le nombre doit être déterminé avant que la fonction de référence ne soit résolue.
 
-Vous ne pouvez pas utiliser la fonction Référence dans les sorties d’un [modèle imbriqué](resource-group-linked-templates.md#nested-template) pour retourner une ressource que vous avez déployée dans le modèle imbriqué. Utilisez plutôt un [modèle lié](resource-group-linked-templates.md#external-template-and-external-parameters).
+Vous ne pouvez pas utiliser la fonction Référence dans les sorties d’un [modèle imbriqué](resource-group-linked-templates.md#nested-template) pour retourner une ressource que vous avez déployée dans le modèle imbriqué. Utilisez plutôt un [modèle lié](resource-group-linked-templates.md#external-template).
 
 Si vous utilisez une fonction **reference** dans une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée.  Vous obtenez une erreur si la fonction **reference** fait référence à une ressource qui n’existe pas. Utilisez la fonction **if** pour vous assurer que la fonction est évaluée lors du déploiement de la ressource. Consultez la [fonction if](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise « if » et « reference » avec une ressource déployée de manière conditionnelle.
 

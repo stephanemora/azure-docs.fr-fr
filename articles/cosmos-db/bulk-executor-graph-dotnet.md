@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 127c12b6a36f31f91fdce3700c43e2602a5c0194
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624535"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827270"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilisation de la bibliothèque graphique de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB
 
@@ -73,11 +73,11 @@ catch (Exception e)
 }
 ```
 
-Pour plus d’informations sur les paramètres de la bibliothèque de l’exécuteur en bloc, consultez la [rubrique BulkImportData vers Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db).
+Pour plus d’informations sur les paramètres de la bibliothèque de l’exécuteur en bloc, consultez la [rubrique BulkImportData vers Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 La charge utile doit être instanciée dans les objets `GremlinVertex` et `GremlinEdge`. Voici comment ces objets peuvent être créés :
 
-**Arêtes** :
+**Vertex** :
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -91,7 +91,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**Sommets** :
+**Bords** :
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(

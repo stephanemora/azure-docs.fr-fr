@@ -4,16 +4,16 @@ description: Une liste des pratiques éprouvées à utiliser avec Azure Storage
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e700cf04123bf02c1014aa418189221fbbb0b812
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985169"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670925"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de la scalabilité du Stockage Microsoft Azure
 

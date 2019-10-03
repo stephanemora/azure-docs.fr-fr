@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146463"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315723"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -101,7 +101,7 @@ Les plans de service pris en charge sont les suivants :
 
 La prise de contrôle par administration externe n’est pas prise en charge pour les services dont les plans de service incluent SharePoint, OneDrive ou Skype entreprise, par exemple, via un abonnement gratuit à Office. 
 
-Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. **L’option ForceTakeover ne déplace pas les utilisateurs et ne conserve pas non plus l’accès à l’abonnement. Cette option déplace uniquement le nom de domaine.**
+Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
 

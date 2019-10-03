@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278e873d01eb3dd7d614d771e5b50b8fe624800a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490350"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718721"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Comprendre vos frais de service externes Azure
 Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Microsoft Azure. Par exemple, SendGrid est un service externe que vous pouvez acheter dans Azure, mais qui n’est pas publié par Microsoft. Certains produits Microsoft sont aussi vendus sur la Place de marché Azure.

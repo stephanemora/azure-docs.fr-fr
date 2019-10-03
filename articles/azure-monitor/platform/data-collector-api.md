@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: bwren
-ms.openlocfilehash: 746166713a6d7d90afb77fb03cf86b311178c5f5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 50f973de8d1ca983725bc9e9e64eefc9de5237fa
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899663"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802129"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -171,7 +171,7 @@ Si vous envoyiez ensuite l’entrée suivante, avant que la création du type d�
 ## <a name="reserved-properties"></a>Propriétés réservées
 Les propriétés suivantes sont réservées et ne doivent pas être utilisées dans un type d’enregistrement personnalisé. Vous recevrez une erreur si votre charge utile contient l’un de ces noms de propriété.
 
-- locataire
+- tenant
 
 ## <a name="data-limits"></a>Limites de données
 Il existe certaines contraintes sur les données publiées sur l’API de collecte de données d’Azure Monitor.
@@ -232,7 +232,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = ""
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
@@ -240,13 +240,13 @@ $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
     "BooleanValue": true,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
 },
 {   "StringValue": "MyString2",
     "NumberValue": 43,
     "BooleanValue": false,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
 }]
 "@

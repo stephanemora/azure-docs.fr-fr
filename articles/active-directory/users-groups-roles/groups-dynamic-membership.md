@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909783"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673423"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -64,7 +64,7 @@ user.department -eq "Sales"
 
 Les parenthèses sont facultatives pour une expression unique. La longueur totale du corps de votre règle d’appartenance ne peut pas dépasser 2048 caractères.
 
-# <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
+## <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
 
 Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
 

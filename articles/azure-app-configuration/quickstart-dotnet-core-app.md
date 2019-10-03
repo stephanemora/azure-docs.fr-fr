@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 99a42102b30c91b7f1bba06cfaae7662b408b784
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 149542965737b2703bc18e985bfaf4d90c8dab29
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326571"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709412"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Démarrage rapide : Créer une application .NET Core avec App Configuration
 
@@ -54,9 +54,9 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 
-1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
+1. Ajoutez une référence au package NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` en exécutant la commande suivante :
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet :
 

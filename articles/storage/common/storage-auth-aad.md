@@ -4,17 +4,17 @@ description: Autorisez l’accès aux objets blob et aux files d’attente Azure
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: caf72d4af390956391fdab133cf0897abbee4633
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641092"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673150"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory
 

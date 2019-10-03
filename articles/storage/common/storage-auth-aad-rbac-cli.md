@@ -4,17 +4,17 @@ description: Utilisez Azure CLI pour octroyer l’accès aux conteneurs et files
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986740"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673207"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI
 

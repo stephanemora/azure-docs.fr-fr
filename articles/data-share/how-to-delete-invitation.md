@@ -1,17 +1,17 @@
 ---
 title: Supprimer une invitation à un destinataire dans Azure Data Share en préversion
 description: Supprimer une invitation
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 49fd3da721f3a9ef5d9810e88fa15a92709ee2e6
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: eacc4e5edb196d512d3b27b2a0acc72a82e8f0b9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258656"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327190"
 ---
 # <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>Procédure de suppression d’une invitation à un destinataire dans Azure Data Share en préversion
 

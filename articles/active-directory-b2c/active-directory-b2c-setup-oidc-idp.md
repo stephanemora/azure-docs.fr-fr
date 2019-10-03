@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe49a57e74822c0b4349b2919ea8aa89cbfb458d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622294"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672918"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C
 
@@ -48,7 +48,6 @@ L’étendue définit les informations et les autorisations que vous souhaitez c
 Le type de réponse décrit le type d’informations renvoyé dans l’appel initial au `authorization_endpoint` du fournisseur d’identité personnalisé. Les types de réponse suivants peuvent être utilisés :
 
 * `code`: conformément au [flux de code d’autorisation](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), un code est retourné vers Azure AD B2C. Azure AD B2C appelle ensuite le `token_endpoint` pour échanger le code pour le jeton.
-* `token`: un jeton d’accès est retourné à Azure AD B2C par le fournisseur d’identité personnalisé.
 * `id_token`: un jeton d’ID est retourné à Azure AD B2C par le fournisseur d’identité personnalisé.
 
 ## <a name="response-mode"></a>Mode de réponse

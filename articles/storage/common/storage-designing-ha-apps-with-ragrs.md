@@ -4,17 +4,17 @@ description: Comment utiliser le stockage RA-GZRS ou RA-GRS Azure pour concevoir
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036608"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673111"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
 

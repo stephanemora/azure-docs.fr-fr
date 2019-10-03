@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2019
+ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124121"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327460"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
 
@@ -58,7 +58,7 @@ L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous p
 
 1. Dans le portail Azure, sélectionnez l’**espace de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
 2. Cliquez sur **Données** > **Journaux d’activité personnalisés**.
-3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
+3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal

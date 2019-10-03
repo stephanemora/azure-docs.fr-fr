@@ -1,19 +1,19 @@
 ---
 title: Guide de résolution des problèmes de l’Explorateur de stockage Azure | Microsoft Docs
 description: Vue d’ensemble des techniques de débogage pour l’Explorateur Stockage Azure
-services: virtual-machines
+services: storage
 author: Deland-Han
 manager: dcscontentpm
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ad73520c99dd5418fd4444b3f41d7d1e22f8d52f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090829"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694695"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -103,8 +103,8 @@ Les boîtes de dialogue de connexion vides apparaissent le plus souvent quand le
 
 Si vous ne parvenez pas à vous connecter au compte que vous voulez utiliser parce que votre navigateur par défaut est déjà connecté à un autre compte, effectuez l’une des tâches suivantes :
 
-- Copiez manuellement le lien et le code dans une session privée de votre navigateur.
-- Copiez manuellement le lien et le code dans un autre navigateur.
+- copier manuellement le lien et le code dans une session privée de votre navigateur, ou
+- copier manuellement le lien et le code dans un autre navigateur.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Boucle de réauthentification ou modification du nom UPN
 

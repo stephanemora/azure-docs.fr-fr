@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: bd85353aa37cf182a807d99cdc9fb63ead00edeb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fa638a00e0d35e1d48bc3205ce2a77e7faf5d22e
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232436"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718383"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schéma d’événements Azure Event Grid pour le stockage Blob
 
@@ -321,8 +321,6 @@ L’objet de données comporte les propriétés suivantes :
 | recursive | string | `True` pour effectuer l’opération sur tous les répertoires enfants ; sinon, `False`. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
 | sequencer | string | Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob. |
 | storageDiagnostics | object | Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements. |
-|Propriété|Type|Description|
-|-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

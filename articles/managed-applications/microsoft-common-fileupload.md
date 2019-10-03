@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044638"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827998"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.FileUpload
 Contrôle qui permet à un utilisateur de spécifier un ou plusieurs fichiers à charger.
@@ -48,7 +48,7 @@ Contrôle qui permet à un utilisateur de spécifier un ou plusieurs fichiers à
 ```
 
 ## <a name="remarks"></a>Remarques
-- `constraints.accept` spécifie les types de fichiers qui figurent dans la boîte de dialogue du navigateur. Consultez la [spécification HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept) pour connaître les valeurs autorisées. La valeur par défaut est **null**.
+- `constraints.accept` spécifie les types de fichiers qui figurent dans la boîte de dialogue du navigateur. Consultez la [spécification HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) pour connaître les valeurs autorisées. La valeur par défaut est **null**.
 - Si `options.multiple` est défini sur **true**, l’utilisateur est autorisé à sélectionner plusieurs fichiers dans la boîte de dialogue du fichier du navigateur. La valeur par défaut est **false**.
 - Cet élément prend en charge le chargement de fichiers dans deux modes basés sur la valeur de `options.uploadMode`. Si **file** est spécifié, la sortie a le contenu du fichier sous la forme d’un objet blob. Si **url** est spécifié, le fichier est chargé sur un emplacement temporaire et la sortie a l’URL de l’objet blob. Les objets blob temporaires sont purgés après 24 heures. La valeur par défaut est **file**.
 - Un fichier chargé est protégé. L’URL de sortie inclut un [jeton SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour accéder au fichier durant le déploiement.

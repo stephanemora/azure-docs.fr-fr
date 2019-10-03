@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fd4bf602cb5ca409b957e9dbd6f963d88428a63f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103395"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694640"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET à l’aide d’Azure Active Directory B2C
 
@@ -54,23 +54,13 @@ Les ressources d’API web doivent être inscrites auprès de votre locataire po
 
 Les étendues permettent de gérer l'accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Dans ce didacticiel, vous allez utiliser des étendues pour définir des autorisations d’accès en lecture et en écriture pour l’API web.
 
-1. Sélectionnez **Applications**, puis *webapi1*.
-2. Sélectionnez **Étendues publiées**.
-3. Pour **Étendue**, entrez `Hello.Read`, puis pour la description, entrez `Read access to hello`.
-4. Pour **Étendue**, entrez `Hello.Write`, puis pour la description, entrez `Write access to hello`.
-5. Cliquez sur **Enregistrer**.
-
-Les étendues publiées peuvent être utilisées pour accorder à une application cliente l'autorisation d'accéder à l'API web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Dans le cadre du tutoriel de prérequis, vous avez créé dans Azure AD B2C une application web nommée *webapp1*. Vous allez utiliser cette application pour appeler l’API web.
+Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Dans le cadre du tutoriel de prérequis, vous avez créé dans Azure AD B2C une application web nommée *webapp1*. Vous allez utiliser cette application pour appeler l'API web.
 
-1. Sélectionnez **Applications**, puis *webapp1*.
-2. Sélectionnez **Accès aux API**, puis sélectionnez **Ajouter**.
-3. Dans la liste déroulante **Sélectionner une API**, sélectionnez *webapi1*.
-4. Dans la liste déroulante **Sélectionnez des étendues**, sélectionnez les étendues **Hello.Read** et **Hello.Write** que vous avez définies précédemment.
-5. Cliquez sur **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Votre application est inscrite pour appeler l'API web protégée. Un utilisateur s'authentifie auprès d'Azure AD B2C pour utiliser l'application. L’application obtient un octroi d’autorisation d’Azure AD B2C pour accéder à l’API web protégée.
 
@@ -79,8 +69,6 @@ Votre application est inscrite pour appeler l'API web protégée. Un utilisateur
 Maintenant que l’API web est inscrite et que les étendues sont définies, vous devez configurer l’API web pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous allez configurer un exemple d’API web. L’exemple d’API web est inclus dans le projet que vous avez téléchargé dans le tutoriel des prérequis.
 
 L’exemple de solution contient deux projets :
-
-L’exemple de solution contient les deux projets suivants :
 
 * **TaskWebApp** : permettant de créer et de modifier une liste de tâches. L’exemple utilise le flux d’utilisateur d’**inscription ou de connexion** pour inscrire ou connecter des utilisateurs.
 * **TaskService** : prend en charge les fonctionnalités de création, de lecture, de mise à jour et de suppression des listes de tâches. L’API est protégée par Azure AD B2C et appelée par TaskWebApp.
@@ -99,8 +87,8 @@ L’exemple de solution contient les deux projets suivants :
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### <a name="configure-the-web-api"></a>Configurer l’API web
@@ -128,8 +116,8 @@ L’exemple de solution contient les deux projets suivants :
 1. Configurez les paramètres d’étendues de sorte qu’ils correspondent à ceux que vous avez créés sur le portail.
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple

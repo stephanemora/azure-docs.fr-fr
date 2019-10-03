@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 5ca3305dd96ad9f14f028c88520368ae5a49016c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e9c7d5f79f2af77554122b607aeae470a1145954
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019020"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827290"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notes de publication du serveur de sauvegarde Microsoft Azure
 Cet article décrit les problèmes connus et les solutions de contournement pour le serveur de sauvegarde Microsoft Azure (MABS) V3.
@@ -62,7 +62,7 @@ Cet article décrit les problèmes connus et les solutions de contournement pour
 1.  [Sauvegardez](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) votre base de données SQL et désinstallez MABS V2 (choisissez de conserver les données protégées pendant la désinstallation).
 2.  Mettez à niveau vers SQL 2017 (Entreprise) et désinstallez Reporting dans le cadre de la mise à niveau.
 3. [Installez](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Installez](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182) SQL Server Management Studio (SSMS).
+4.  [Installez](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5.  Configurer Reporting à l’aide des paramètres indiqués dans [Configuration de SSRS avec SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Installez](backup-azure-microsoft-azure-backup.md) MABS V3.
 7. [Restaurez](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL à l’aide de SSMS et exécutez l’outil de synchronisation DPM comme décrit [ici](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).

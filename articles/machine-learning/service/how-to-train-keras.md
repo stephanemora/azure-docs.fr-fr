@@ -1,5 +1,5 @@
 ---
-title: Entraîner le réseau neuronal de deep learning avec Keras
+title: Apprentissage du réseau neural d’apprentissage profond avec Keras
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et enregistrer un modèle de classification de réseau neuronal profond Keras s’exécutant sur TensorFlow à l’aide d’Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9015fa445c64bffa74509e84d90eb77508da6d9e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0143a6075ef7b88cc0b365a544a5e69c92362ff
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076447"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710122"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entraîner et enregistrer un modèle de classification Keras avec Azure Machine Learning
 
@@ -80,6 +80,7 @@ Créez une expérience appelée « keras-mnist » dans votre espace de travail
 exp = Experiment(workspace=ws, name='keras-mnist')
 ```
 
+<a name="data-upload"></a>
 ### <a name="create-a-file-dataset"></a>Créer un jeu de données de fichier
 
 Un objet `FileDataset` référence un ou plusieurs fichiers dans votre magasin de données d’espace de travail ou vos URL publiques. Les fichiers peuvent être de n’importe quel format, et la classe vous offre la possibilité de télécharger ou de monter les fichiers dans votre calcul. En créant un `FileDataset`, vous créez une référence à l’emplacement de la source de données. Si vous avez appliqué des transformations au jeu de données, elles seront également stockées dans le jeu de données. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru. Pour plus d’informations, consultez le guide de [procédures](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets) sur le package `Dataset`.

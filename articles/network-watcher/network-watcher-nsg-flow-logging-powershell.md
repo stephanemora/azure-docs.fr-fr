@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c34ed9c5f1b5e422ba9e4e0b12fbaf833c8a4a7c
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563468"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676328"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec PowerShell
 
@@ -61,7 +61,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2
 
 #Configure Version 2 FLow Logs with Traffic Analytics Configured
-Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceid -WorkspaceLocation $workspaceRegion
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
 
 #Query Flow Log Status
 Get-AzNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
@@ -91,7 +91,7 @@ Si un compte de stockage est spécifié, les fichiers journaux de flux sont enre
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 > [!IMPORTANT]
-> Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les objets blob de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+> Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 Pour plus d’informations sur la structure du journal, consultez [Network Security Group Flow log Overview (Présentation de la journalisation des flux de groupe de sécurité réseau)](network-watcher-nsg-flow-logging-overview.md).
 

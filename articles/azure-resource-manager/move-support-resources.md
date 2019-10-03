@@ -4,14 +4,14 @@ description: Liste les types de ressources Azure qui peuvent être déplacés ve
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801352"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687123"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Il fournit également des informations sur les conditions spéciales à prendre en compte lors du déplacement d’une ressource.
@@ -72,7 +72,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -609,21 +608,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | labs / servicerunners | OUI | OUI |
 > | labs / virtualmachines | OUI | Non |
 > | schedules | OUI | OUI |
-
-## <a name="microsoftdns"></a>microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | Non | Non |
-> | dnszones / a | Non | Non |
-> | dnszones / aaaa | Non | Non |
-> | dnszones / cname | Non | Non |
-> | dnszones / mx | Non | Non |
-> | dnszones / ptr | Non | Non |
-> | dnszones / srv | Non | Non |
-> | dnszones / txt | Non | Non |
-> | trafficmanagerprofiles | Non | Non |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 

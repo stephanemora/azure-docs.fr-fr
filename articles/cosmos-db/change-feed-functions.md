@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 299799566f0d54cc3fa017b032e15b387fe8cdd5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467927"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709826"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur des événements serverless avec Azure Cosmos DB et Azure Functions
 
@@ -37,7 +37,7 @@ Pour implémenter un flux serverless basé sur des événements, vous avez besoi
 La création de votre fonction Azure avec un déclencheur Azure Functions pour Cosmos DB est désormais prise en charge sur toutes les intégrations de l’interface de commande Azure Functions IDE et CLI :
 
 * [Extension Visual Studio](../azure-functions/functions-develop-vs.md) pour les utilisateurs Visual Studio.
-* [Extension Visual Studio Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) pour les utilisateurs Visual Studio Code.
+* [Extension Visual Studio Core](/azure/javascript/tutorial-vscode-serverless-node-01) pour les utilisateurs Visual Studio Code.
 * Et enfin [outils Core CLI](../azure-functions/functions-run-local.md#create-func) pour une expérience sans dépendance d’IDE multiplateforme.
 
 ## <a name="run-your-trigger-locally"></a>Exécuter votre déclencheur localement

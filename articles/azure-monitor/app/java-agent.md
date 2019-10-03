@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338087"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 
@@ -122,7 +122,7 @@ Ajoutez le code suivant au fichier AI-Agent.xml :
 
 Idéalement, ce serait le cas si tous vos services avaient été mis à jour vers une version plus récente des SDK prenant en charge le protocole W3C. Il est vivement recommandé de migrer au plus vite vers une version plus récente des SDK prenant en charge le protocole W3C.
 
-Assurez-vous que les **configurations [entrante](correlation.md#w3c-distributed-tracing) et sortante (agent)** sont totalement identiques.
+Assurez-vous que les **configurations [entrante](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) et sortante (agent)** sont totalement identiques.
 
 ## <a name="view-the-data"></a>Visualiser les données
 Dans la ressource Application Insights, les temps d’exécution cumulés de la méthode et de la dépendance distante apparaissent [dans la vignette Performances][metrics].

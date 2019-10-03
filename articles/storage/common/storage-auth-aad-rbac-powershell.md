@@ -4,17 +4,17 @@ description: Utilisez Azure PowerShell pour octroyer l’accès aux conteneurs e
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f34e82a0011260ace4ffeed095903b033529a58d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514995"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673190"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide de PowerShell
 

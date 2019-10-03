@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 07db6c5cecf2b8dec803e73d5775edef3f8906fa
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726253"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828628"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prérequis d’Azure Disk Encryption (version précédente)
 
@@ -53,6 +53,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Ubuntu | 18,04| Disque de système d’exploitation et de données |
 | Ubuntu | 16.04| Disque de système d’exploitation et de données |
 | Ubuntu | 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disque de système d’exploitation et de données |
+| RHEL | 7,7 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.6 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.5 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.4 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
@@ -60,6 +61,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | RHEL | 7,2 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 6.8 | Disque de données (voir la remarque ci-dessous) |
 | RHEL | 6.7 | Disque de données (voir la remarque ci-dessous) |
+| CentOS | 7,7 | Disque de système d’exploitation et de données |
 | CentOS | 7.6 | Disque de système d’exploitation et de données |
 | CentOS | 7.5 | Disque de système d’exploitation et de données |
 | CentOS | 7.4 | Disque de système d’exploitation et de données |

@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 25ae54ea8dd75fae74d4578b33146483ade53e4c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e74dd54403ed599aa95e8fc8a94c2bd7a3ca41d8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240747"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719105"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
-
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez connecter Azure Sentinel à une solution externe qui vous permet d’enregistrer les fichiers journaux dans Syslog. Si votre appliance vous permet d'enregistrer les journaux au format Syslog Common Event Format (CEF), l'intégration avec Azure Sentinel vous permet d'exécuter facilement des analyses et des requêtes dans les données.
 

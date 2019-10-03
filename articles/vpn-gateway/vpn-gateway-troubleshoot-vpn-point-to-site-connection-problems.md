@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104820"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695538"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -250,32 +250,6 @@ Pour résoudre ce problème, retéléchargez et redéployez le package point à 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Trop de clients VPN sont connectés
 
 Le nombre de connexions maximal est atteint. Vous pouvez voir le nombre total de clients connectés dans le portail Azure.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Le VPN de point à site ajoute incorrectement un itinéraire pour 10.0.0.0/8 à la table de routage
-
-### <a name="symptom"></a>Symptôme
-
-Lorsque vous appelez la connexion VPN sur le client de point à site, le client VPN doit ajouter un itinéraire vers le réseau virtuel Azure. Le service d’assistance IP doit ajouter un itinéraire pour le sous-réseau des clients VPN. 
-
-La plage de clients VPN appartient à un plus petit sous-réseau de 10.0.0.0/8, comme 10.0.12.0/24. Au lieu d’un itinéraire pour 10.0.12.0/24, un itinéraire pour 10.0.0.0/8 ayant une priorité plus élevée est ajouté. 
-
-Cet itinéraire incorrect arrête la connectivité avec d’autres réseaux locaux pouvant appartenir à un autre sous-réseau dans la plage 10.0.0.0/8, comme 10.50.0.0/24 qui ne possède pas d’itinéraire spécifique. 
-
-### <a name="cause"></a>Cause :
-
-Ce comportement est lié aux clients Windows. Lorsque le client utilise le protocole PPP IPCP, il obtient l’adresse IP de l’interface de tunnel à partir du serveur (la passerelle VPN dans ce cas). Cependant, à cause de la limitation du protocole, le client ne possède pas de masque de sous-réseau. Étant donné qu’il n’existe aucun autre moyen de l’obtenir, le client essaie de deviner le masque de sous-réseau en se basant sur la classe de l’adresse IP de l’interface de tunnel. 
-
-Par conséquent, un itinéraire est ajouté sur la base du mappage statique suivant : 
-
-Si l’adresse appartient à la classe A --> appliquer la valeur /8
-
-Si l’adresse appartient à la classe B --> appliquer la valeur /16
-
-Si l’adresse appartient à la classe C --> appliquer la valeur /24
-
-### <a name="solution"></a>Solution
-
-Injecter des itinéraires pour d’autres réseaux dans la table de routage avec la correspondance de préfixe la plus longue ou une métrique inférieure (donc ayant une priorité plus élevée) à celle de la connexion point à site. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>Les clients VPN ne peuvent pas accéder aux partages de fichiers réseau
 

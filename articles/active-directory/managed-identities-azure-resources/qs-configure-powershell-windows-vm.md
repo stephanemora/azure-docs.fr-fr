@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ba8ce6fb8147736c8265148a9f3576390dcccc6
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112697"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309776"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell
 
@@ -34,7 +34,7 @@ Cet article explique comment effectuer les opérations suivantes d’identités 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Installez [la dernière version d’Azure PowerShell](/powershell/azure/install-az-ps) si ce n’est déjà fait.
 
@@ -57,8 +57,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de machine virtuelle de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
+
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Activer une identité managée affectée par le système sur une machine virtuelle Azure existante
 
@@ -77,8 +76,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-> [!NOTE]
-> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de machine virtuelle de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
+
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>Ajoutez l’identité attribuée par le système d’une machine virtuelle à un groupe
 
@@ -134,8 +132,7 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-> [!NOTE]
-> Si vous avez approvisionné l’identité managée pour l’extension de machine virtuelle de ressources Azure (déconseillé), vous devez la supprimer à l’aide de [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
+
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
@@ -156,8 +153,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
     - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de machine virtuelle de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
+
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Attribuer une identité managée affectée par l’utilisateur à une machine virtuelle Azure existante
 
@@ -187,8 +183,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-> [!NOTE]
-> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de machine virtuelle de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
+
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Supprimer une identité managée affectée par l’utilisateur d’une machine virtuelle Azure
 

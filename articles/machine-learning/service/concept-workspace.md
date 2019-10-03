@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: de215502f1ecb55bc331f29057a4f7c3f30b0132
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269212"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720174"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -66,9 +66,6 @@ Les tâches de Machine Learning lisent et/ou écrivent des artefacts sur votre e
 + Affichez les artefacts de Machine Learning (expériences, pipelines, modèles, déploiements, etc.).
 + Suivez et supervisez les modèles.
 
-
-
-
 ## <a name="workspace-management"></a>Gestion de l’espace de travail
 
 Vous pouvez également effectuer les tâches de gestion de l’espace de travail suivantes :
@@ -80,7 +77,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Gérer les accès à l’espace de travail    | **&check;**   | |  **&check;**    |
 | Création d’une machine virtuelle Notebook | **&check;**   | |     |
 
-### <a name='create-workspace'></a> Créer un espace de travail
+## <a name='create-workspace'></a> Créer un espace de travail
 
 Il existe plusieurs moyens de créer un espace de travail.
 

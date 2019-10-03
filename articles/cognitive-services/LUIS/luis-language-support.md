@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307427"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316353"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -34,18 +34,18 @@ LUIS comprend les énoncés dans les langues suivantes :
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinois](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Néerlandais |`nl-NL` |-|  -   |-|✔|
-| Français (France) |`fr-FR` |-| ✔ |✔ |✔|
+| Néerlandais |`nl-NL` |✔|  -   |-|✔|
+| Français (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | Français (Canada) |`fr-CA` |-|   -   |-|✔|
-| Allemand |`de-DE` |-| ✔ |✔ |✔|
+| Allemand |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italien |`it-IT` |-| ✔ |✔|✔|
-| *[Japonais](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Expression clé uniquement|
-| Coréen |`ko-KR` |-|   -   |-|Expression clé uniquement|
-| Portugais (Brésil) |`pt-BR` |-| ✔ |✔ |pas toutes les sous-cultures|
-| Espagnol (Espagne) |`es-ES` |-| ✔ |✔|✔|
+| Italien |`it-IT` |✔| ✔ |✔|✔|
+| *[Japonais](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Expression clé uniquement|
+| Coréen |`ko-KR` |✔|   -   |-|Expression clé uniquement|
+| Portugais (Brésil) |`pt-BR` |✔| ✔ |✔ |pas toutes les sous-cultures|
+| Espagnol (Espagne) |`es-ES` |✔| ✔ |✔|✔|
 | Espagnol (Mexique)|`es-MX` |-|  -   |✔|✔|
-| Turc | `tr-TR` |-|-|-|Sentiment uniquement|
+| Turc | `tr-TR` |✔|-|-|Sentiment uniquement|
 
 
 La prise en charge linguistique varie pour les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [domaines prédéfinis](luis-reference-prebuilt-domains.md).

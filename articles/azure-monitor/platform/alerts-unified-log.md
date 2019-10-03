@@ -1,19 +1,19 @@
 ---
 title: Alertes de journal dans Azure Monitor
 description: Déclenchez des e-mails, des notifications, des URL de sites web d’appel (webhooks) ou une automatisation lorsque les conditions de requête analytique que vous spécifiez sont remplies pour Alertes Azure.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ae35c735cffeb8cd85af1f32bb2d14ede6dc6b69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427415"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677746"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -102,13 +102,13 @@ Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’
 - **Période :** 30 minutes<br>
 - **Fréquence des alertes :** 5 minutes<br>
 - **Logique d'alerte - Condition et seuil :** Supérieur à 90<br>
-- **Champ de groupe (Aggregate-on) :** Ordinateur
+- **Champ de groupe (Aggregate-on) :** Computer
 - **Déclencher l’alerte selon :** nombre total de violations supérieur à 2<br>
 
 La requête créerait une valeur moyenne pour chaque ordinateur à intervalles de 5 minutes.  Cette requête serait exécutée toutes les 5 minutes pour les données collectées au cours des 30 minutes précédentes. Le champ de groupe choisi (Aggregate-on) correspondant à la colonne « Ordinateur », la valeur AggregatedValue est fractionnée pour différentes valeurs « Ordinateur » et l'utilisation moyenne du processeur de chaque ordinateur est déterminée pour une période de 5 minutes.  À titre d'exemple, le résultat de la requête pour trois ordinateurs se présenterait comme suit.
 
 
-|TimeGenerated [UTC] |Ordinateur  |AggregatedValue  |
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
 |---------|---------|---------|
 |20XX-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20XX-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |

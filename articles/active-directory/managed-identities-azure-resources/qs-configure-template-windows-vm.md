@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb96f4aaef461d049ca496780d542ad7db229e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31a33a000fdc07756d39e42c8f70fc06a58b170e
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307758"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309971"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
 
@@ -64,8 +64,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    },
    ```
 
-> [!NOTE]
-> Vous pouvez éventuellement approvisionner l'extension de machine virtuelle des identités managées pour ressources Azure en le spécifiant dans l’élément `resources` du modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d'informations, consultez [Migrer à partir de l'extension de machine virtuelle vers le point de terminaison IMDS d'Azure pour l'authentification](howto-migrate-vm-extension.md).
+
 
 3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 

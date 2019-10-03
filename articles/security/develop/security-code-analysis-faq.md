@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 846f0ecdd49fc1c501893209b60fa9acc8a32ed2
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242328"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828250"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 Vous avez des questions ? Pour plus d’informations, consultez le forum aux questions suivant.
@@ -152,12 +152,6 @@ Exemples de règles de suppression valides :
 
 #### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Quelles sont les recommandations en matière de gestion des secrets ?
 
-Il est important de détecter rapidement les secrets codés en dur et d’atténuer les risques. Mais il est encore plus important de prévenir l'archivage des secrets.
-
-Pour le faciliter, Microsoft a publié une préversion de Credential Scanner Code Analyzer dans le cadre de l’[extension Microsoft DevLabs](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) pour Visual Studio. L’analyseur est proposé en préversion. Il offre aux développeurs une expérience inline pour la détection des secrets potentiels placés dans leur code. En procédant ainsi, l’analyseur permet également aux développeurs de résoudre ces problèmes en temps réel.
-
-Pour plus d’informations, consultez le billet de blog sur la [gestion sécurisée des secrets dans le cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
-
 Les ressources suivantes vous aident à gérer les secrets et à accéder à des informations sensibles à partir de vos applications :
 
  - [Azure Key Vault](../../key-vault/index.yml)
@@ -166,6 +160,9 @@ Les ressources suivantes vous aident à gérer les secrets et à accéder à des
  - [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identités managées dans App Service et Azure Functions](../../app-service/overview-managed-identity.md)
  - [Bibliothèque AppAuthentication](../../key-vault/service-to-service-authentication.md)
+
+
+Pour plus d’informations, consultez le billet de blog sur la [gestion sécurisée des secrets dans le cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Puis-je écrire mes propres chercheurs personnalisés ?
 

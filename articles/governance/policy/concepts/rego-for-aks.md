@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fdb392533e28df1d50e90c842d0117385afb254b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454604"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338365"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -131,7 +131,7 @@ Une fois les prérequis satisfaits, installez le module complémentaire Azure Po
      > [!NOTE]
      > Si le bouton **Activer un module complémentaire** est grisé, l’abonnement n’a pas encore été ajouté à la préversion. Pour connaître les étapes requises, consultez [S’inscrire à la préversion](#opt-in-for-preview).
 
-- Azure CLI
+- D’Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -208,7 +208,7 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, util
 
      ![Désactiver le module complémentaire Azure Policy pour AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
-- Azure CLI
+- D’Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -223,5 +223,5 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, util
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
-- Découvrez comment [corriger les ressources non conformes](../how-to/remediate-resources.md).
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/index.md).
+- Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

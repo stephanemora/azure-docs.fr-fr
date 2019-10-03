@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063703"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678143"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
@@ -41,14 +41,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
 
 ## <a name="register-an-application"></a>Inscrire une application
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Applications**, puis **Ajouter**.
-5. Entrez un nom pour l’application, par exemple *ROPC_Auth_app*.
-6. Sélectionnez **Non** pour **Application/API web**, puis **Oui** pour **Client natif**.
-7. Laissez toutes les autres valeurs telles quelles, puis sélectionnez **Créer**.
-8. Sélectionnez la nouvelle application et enregistrez l’ID de l’application pour plus tard.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  <a name="create-a-resource-owner-policy"></a>Créer une stratégie de propriétaire de ressource
 

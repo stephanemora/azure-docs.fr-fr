@@ -4,15 +4,15 @@ description: Découvrez comment gérer les paramètres d’un compte de stockage
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303494"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671371"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gérer les paramètres de compte de stockage dans le portail Azure
 

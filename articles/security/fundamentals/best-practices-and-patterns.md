@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727571"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672626"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Meilleures pratiques et tendances Azure relatives à la sécurité
 
@@ -28,7 +28,7 @@ Les articles ci-après décrivent les meilleures pratiques de sécurité à appl
 
 Les meilleures pratiques sont destinées à constituer une ressource pour les professionnels de l’informatique. Ceux-ci peuvent être des concepteurs, architectes, développeurs et testeurs qui génèrent et déploient des solutions Azure sécurisées.
 
-* [Meilleures pratiques Azure en matière de sécurité des limites](network-best-practices.md)
+* [Meilleures pratiques Azure en matière de sécurité des limites](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Bonnes pratiques relatives à la sécurité des bases de données Azure](database-best-practices.md)
 * [Meilleures pratiques Azure en matière de chiffrement et de sécurité des données](data-encryption-best-practices.md)
 * [Bonnes pratiques relatives à la sécurité du contrôle d’accès et à la gestion des identités Azure](identity-management-best-practices.md)

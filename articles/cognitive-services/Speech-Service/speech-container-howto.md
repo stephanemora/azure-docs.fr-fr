@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 ms.author: dapine
-ms.openlocfilehash: 4b8ea102c7acc55acec05234303ff4c215a4bc0f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105159"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326695"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech
 
@@ -270,7 +270,9 @@ Le conteneur fournit des API de point de terminaison REST, qui se trouvent [ici]
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque vous exécutez le conteneur, celui-ci utilise **stdout** et **stderr** pour produire des informations utiles à la résolution des problèmes qui surviennent lors du démarrage ou de l’exécution du conteneur.
+Si vous exécutez le conteneur avec un [montage](speech-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturation
 

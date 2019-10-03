@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013967"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336904"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -197,7 +197,7 @@ Le guide [Démarrage rapide de recherche de salles disponibles](https://github.c
 
 Créez une attribution de rôle permettant à la fonction définie par l’utilisateur de s’exécuter. Si aucune attribution de rôle n’existe pour la fonction définie par l’utilisateur, cette dernière n’a pas les autorisations appropriées pour interagir avec l’API de gestion ou avoir l’accès permettant d’effectuer des actions sur les objets de graphe. Les actions susceptibles d’être effectuées par la fonction définie par l’utilisateur sont spécifiées et définies via le contrôle d’accès en fonction du rôle (RBAC) au sein des API de gestion Azure Digital Twins. Par exemple, les fonctions définies par l’utilisateur peuvent avoir une étendue limitée en spécifiant certains rôles ou certains chemins de contrôle d’accès. Pour plus d’informations, consultez la documentation sur le [contrôle d’accès en fonction du rôle (RBAC)](./security-role-based-access-control.md).
 
-1. [Interrogez l’API System](./security-create-manage-role-assignments.md#all) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction définie par l’utilisateur. Exécutez une requête HTTP GET authentifiée sur :
+1. [Interrogez l’API System](./security-create-manage-role-assignments.md#retrieve-all-roles) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction définie par l’utilisateur. Exécutez une requête HTTP GET authentifiée sur :
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
