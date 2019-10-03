@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101430"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241003"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle (préversion)
 
@@ -50,7 +50,7 @@ Le diagramme suivant est une vue d’ensemble approfondie de la solution connect
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-* La connectivité entre clouds en préversion est limitée à la région Azure USA Est (eastus) et à la région OCI Ashburn (us-ashburn-1).
+* La connectivité inter-clouds en préversion est limitée aux régions Azure USA Est (eastus) et Royaume-Uni Sud (uksouth) ainsi qu’aux régions OCI Ashburn (USA Est) et Londres (Royaume-Uni Sud). Pour Royaume-Uni Sud, utilisez le domaine de disponibilité 1 (AD 1) dans OCI durant le déploiement de l’interconnexion pour les latences plus faibles.
 
 ## <a name="networking"></a>Mise en réseau
 

@@ -1,32 +1,29 @@
 ---
-title: Connecter des données Office 365 à Azure Sentinel en préversion | Microsoft Docs
+title: Connecter des données Office 365 à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données Office 365 à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: ff7c862e-2e23-4a28-bd18-f2924a30899d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018993"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240659"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connecter des données de journaux Office 365
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic à partir d’[Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide). Vous pouvez diffuser des journaux d’audit dans un espace de travail unique d’Azure Sentinel à partir de plusieurs locataires. Le connecteur de journal d’activité Office 365 fournit des informations sur les activités de l’utilisateur en cours. Vous obtenez des informations sur plusieurs actions utilisateur, administrateur, système et de stratégie et d’événements d’Office 365. En connectant les journaux d’activité d’Office 365 dans Azure Sentinel, vous pouvez utiliser ces données pour afficher des tableaux de bord, créer des alertes personnalisées et améliorer votre processus d’investigation.
 
@@ -36,8 +33,8 @@ Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez être un administrateur général ou un administrateur de la sécurité sur ce locataire
-- Sur votre ordinateur, à partir duquel vous vous êtes connecté à Azure Sentinel pour créer la connexion, assurez-vous que le port 4433 est ouvert pour le trafic web.
-- Si votre abonné ne dispose pas d’une licence Office 365 E3 ou Office 365 E5, vous devez activer l’audit unifié pour celui-ci à l’aide de l’un des processus suivants :
+- Sur votre ordinateur, à partir duquel vous vous êtes connecté à Azure Sentinel pour créer la connexion, assurez-vous que le port 4433 est ouvert pour le trafic web. Ce port peut être refermé une fois la connexion établie.
+- Si votre locataire ne dispose pas d’une licence Office 365 E3 ou Office 365 E5, vous devez activer l’audit unifié pour celui-ci à l’aide de l’un des processus suivants :
     - [Utilisez le cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) et activez le paramètre « UnifiedAuditLogIngestionEnabled »).
     - [Ou utilisez l’interface utilisateur du Centre de sécurité et de conformité](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
@@ -58,5 +55,5 @@ Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Office 365 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 

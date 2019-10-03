@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092466"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147167"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Journalisation d’audit dans Azure Database pour PostgreSQL - Serveur unique
 
 La journalisation d’audit des activités de base de données dans Azure Database pour PostgreSQL - Serveur unique est disponible via l’extension d’audit PostgreSQL nommée [pgAudit](https://www.pgaudit.org/). pgAudit permet une journalisation d’audit détaillée des sessions et/ou des objets.
 
 > [!NOTE]
-> pgAudit peut uniquement être activé sur les serveurs à usage général et les serveurs à mémoire optimisée.
+> pgAudit est disponible en préversion sur Azure Database pour PostgreSQL.
+> L’extension peut être activée uniquement sur les serveurs à usage général et les serveurs à mémoire optimisée.
 
 ## <a name="usage-considerations"></a>Considérations sur l’utilisation
 Par défaut, les instructions de journal pgAudit sont émises en même temps que vos instructions de journal habituelles à l’aide de la fonctionnalité de journalisation standard de Postgres. Dans Azure Database pour PostgreSQL, ces fichiers .log peuvent être téléchargés à partir du portail Azure ou de l’interface CLI. La taille de stockage maximale d’une collection de fichiers est de 1 Go, et chaque fichier est disponible pendant une période maximale de sept jours (la valeur par défaut est de trois jours). Ce service est une option de stockage à court terme.

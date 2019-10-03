@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073804"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273539"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -122,7 +122,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 | Nom      | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| set-limit | Élément racine.                                                                                                                                                                                                                                                                                            | OUI      |
+| rate-limit | Élément racine.                                                                                                                                                                                                                                                                                            | OUI      |
 | api       | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
 | operation | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
 
@@ -185,9 +185,9 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description   | Obligatoire |
-| --------- | ------------- | -------- |
-| set-limit | Élément racine. | OUI      |
+| Nom              | Description   | Obligatoire |
+| ----------------- | ------------- | -------- |
+| rate-limit-by-key | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 

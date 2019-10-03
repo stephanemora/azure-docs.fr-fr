@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906386"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200204"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances pour l'évaluation
 
@@ -61,7 +61,7 @@ Joignez un espace de travail comme suit :
 
     ![Ajouter un espace de travail](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - Après avoir spécifié un nom pour un nouvel espace de travail, l’espace de travail est créé dans la même géographie que le projet Azure Migrate.
+    - Une fois que vous avez spécifié un nom pour un nouvel espace de travail, vous pouvez choisir la [région](https://azure.microsoft.com/global-infrastructure/regions/) dans laquelle l’espace de travail sera créé.
     - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration.
     - Vous avez besoin d’un accès Lecteur à l'espace de travail pour pouvoir le joindre.
     - Vous ne pouvez pas modifier l'espace de travail associé à un projet une fois qu'il est joint.

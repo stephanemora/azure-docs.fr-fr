@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098398"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130170"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -164,6 +164,13 @@ Il existe deux façons de supprimer les données de sauvegarde d’une machine v
 
   > [!NOTE]
   > Lorsque vous supprimez les données de sauvegarde, vous supprimez tous les points de récupération associés. Vous ne pouvez pas choisir des points de récupération spécifiques à supprimer.
+
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Élément de sauvegarde où la source de données primaire n’existe plus
+
+- Si les machines virtuelles Azure configurées pour la sauvegarde Azure sont supprimées ou déplacées sans arrêter la protection, les travaux de sauvegarde planifiés et à la demande (ad hoc) échouent avec l’erreur UserErrorVmNotFoundV2. La prévérification de sauvegarde apparaît comme étant critique uniquement pour les travaux de sauvegarde ad hoc qui ont échoué (les travaux planifiés qui ont échoué n’apparaissent pas). 
+- Ces éléments de sauvegarde restent actifs dans le système qui adhère à la stratégie de sauvegarde et de conservation définie par l’utilisateur. Les données sauvegardées pour ces machines virtuelles Azure sont conservées conformément à la stratégie de conservation. Les points de récupération qui ont expiré (à l’exception du dernier) sont nettoyés en fonction de la plage de conservation définie dans la stratégie de sauvegarde.
+- Il est recommandé aux utilisateurs de supprimer les éléments de sauvegarde dans lesquels la source de données principale n’existe plus afin d’éviter tout surcoût, si l’élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le dernier point de récupération est conservé indéfiniment et l’utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [sauvegarder une machine virtuelle Azure à partir des paramètres de celle-ci](backup-azure-vms-first-look-arm.md).

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/22/2019
+ms.openlocfilehash: 94efc87cdea8e1d9b63361d4652b63909c6ce3e7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734415"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203595"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Règles de pare-feu d’un serveur Azure Database for MariaDB
 Le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
@@ -48,7 +48,7 @@ En dehors du Portail Azure, les règles de pare-feu peuvent être gérées par p
 
 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
-## <a name="troubleshooting-the-database-firewall"></a>Dépannage du pare-feu de base de données
+## <a name="troubleshooting-firewall-issues"></a>Résolution des problèmes de pare-feu
 Tenez compte des points suivants quand l’accès au service de serveur Azure Database for MariaDB présente un comportement anormal :
 
 * **Les modifications apportées à la liste verte n’ont pas encore pris effet :** jusqu’à cinq minutes peuvent s’écouler avant que les changements apportés à la configuration du pare-feu du serveur Azure Database for MariaDB prennent effet.
@@ -57,9 +57,11 @@ Tenez compte des points suivants quand l’accès au service de serveur Azure Da
 
 * **Adresse IP dynamique :** si vous avez une connexion Internet avec un adressage IP dynamique et que le pare-feu demeure infranchissable, vous pouvez essayer l’une des solutions suivantes :
 
-* Demandez à votre fournisseur d’accès Internet (FAI) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur Azure Database for MariaDB, puis ajoutez cette plage dans une règle de pare-feu.
+   * Demandez à votre fournisseur d’accès Internet (FAI) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur Azure Database for MariaDB, puis ajoutez cette plage dans une règle de pare-feu.
 
-* Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
+   * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
+
+* **L’adresse IP du serveur semble être publique :** les connexions au serveur Azure Database for MariaDB sont routées par le biais d’une passerelle Azure accessible publiquement. Toutefois, l’adresse IP réelle du serveur est protégée par le pare-feu. Pour plus d’informations, consultez l’article [Architecture de connectivité](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du portail Azure](./howto-manage-firewall-portal.md)

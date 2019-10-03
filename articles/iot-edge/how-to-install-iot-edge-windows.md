@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877233"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266078"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -41,6 +41,14 @@ Cette section a pour but de vous aider à déterminer si votre appareil Windows 
 ### <a name="supported-windows-versions"></a>Versions de Windows prises en charge
 
 Pour les scénarios de développement et de test, Azure IoT Edge avec conteneurs Windows peut être installé sur n’importe quelle version de Windows 10 ou Windows Server 2019 (build 17763) qui prend en charge la fonctionnalité de conteneurs. Pour plus d’informations sur les systèmes d’exploitation actuellement pris en charge pour les scénarios de production, consultez [Systèmes pris en charge par Azure IoT Edge](support.md#operating-systems). 
+
+Les appareils IoT Core doivent inclure la fonctionnalité facultative IoT Core – Conteneurs Windows pour prendre en charge le runtime IoT Edge. Utilisez la commande suivante dans une [session PowerShell à distance](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) pour vérifier que les conteneurs Windows sont pris en charge sur votre appareil : 
+
+```powershell
+Get-Service vmcompute
+```
+
+Si le service est présent, vous devez obtenir une réponse positive avec l’état de service **en cours d’exécution**. Si le service vmcompute est introuvable, cela signifie que votre appareil ne présente pas la configuration requise pour IoT Edge. Contactez votre fournisseur en matériel pour vous renseigner à propos de la prise en charge de cette fonctionnalité. 
 
 ### <a name="prepare-for-a-container-engine"></a>Préparer pour un moteur de conteneur 
 

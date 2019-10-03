@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308313"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123256"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -84,7 +84,7 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
 Vous pouvez choisir d’utiliser des adresses IPv4 publiques ou privées pour l’homologation privée. Nous fournissons une isolation de bout en bout du trafic. Ainsi, le chevauchement des adresses avec d’autres clients n’est pas possible dans le cas d’une homologation privée. Ces adresses ne sont pas publiées sur Internet. 
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
-Le chemin d’accès d’homologation Microsoft vous permet de vous connecter aux services de cloud computing Microsoft. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise, Microsoft Teams et Dynamics 365. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
+Le chemin d’accès d’homologation Microsoft vous permet de vous connecter aux services de cloud computing Microsoft. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et Microsoft Teams. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres ci-dessous :
 
@@ -218,7 +218,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Exchange Online | 12076:5010 |
 | SharePoint Online | 12076:5020 |
 | Skype Entreprise Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Services globaux Azure* | 12076:5050 |
 | Autres services Office 365 en ligne | 12076:5100 |
 
@@ -249,7 +248,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype Entreprise Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Autres services Office 365 en ligne |12076:5200 |
 
 ## <a name="next-steps"></a>Étapes suivantes

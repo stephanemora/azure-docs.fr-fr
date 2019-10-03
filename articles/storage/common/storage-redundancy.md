@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074353"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122973"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -28,12 +28,7 @@ Le service Stockage Azure vérifie régulièrement l’intégrité des données 
 
 Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de redondance suivantes :
 
-- [Stockage localement redondant (LRS)](storage-redundancy-lrs.md)
-- [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md)
-- [Stockage géo-redondant (GRS)](storage-redundancy-grs.md)
-- [Stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [Stockage géoredondant interzone (GZRS)](storage-redundancy-gzrs.md)
-- [Stockage géo-redondant interzone avec accès en lecture (RA-GRS)](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la durabilité et de la disponibilité que chaque stratégie de réplication vous fournit pour un type d’événement donné (ou un événement d’impact similaire).
 
@@ -55,7 +50,7 @@ Pour obtenir des informations sur les prix des différentes options de redondanc
 Pour obtenir des informations sur les garanties de Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service de Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Le Stockage Premium Azure prend en charge uniquement un stockage localement redondant (LRS).
+> Actuellement, le Stockage Premium Azure prend en charge uniquement le stockage localement redondant (LRS).
 
 ## <a name="changing-replication-strategy"></a>Modification de la stratégie de réplication
 

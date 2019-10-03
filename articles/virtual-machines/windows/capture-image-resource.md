@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 33f3b03ba76a0c3fd33e057d0f15b2ab7a0f44e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089493"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273867"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -205,9 +205,9 @@ Vous pouvez créer une image gérée à partir d’une capture instantanée d’
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Créer une image à partir d’un disque dur virtuel dans un compte de stockage
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Créer une image à partir d’une machine virtuelle qui utilise un compte de stockage
 
-Créez une image gérée à partir d’un disque dur virtuel de système d’exploitation généralisé dans un compte de stockage. Vous devez utiliser l’URI du disque dur virtuel dans le compte de stockage, dont le format est le suivant : https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. Dans cet exemple, le disque dur virtuel se trouve dans *mystorageaccount*, dans un conteneur nommé *vhdcontainer*, et le nom de fichier du disque dur virtuel est *vhdfilename.vhd*.
+Pour créer une image managée à partir d’une machine virtuelle qui n’utilise pas de disques managés, vous devez disposer de l’URI du VHD (disque dur virtuel) de système d’exploitation dans le compte de stockage, au format suivant : https://*moncomptedestockage*.blob.core.windows.net/*conteneurvhd*/*nomdefichiervhd.vhd*. Dans cet exemple, le disque dur virtuel se trouve dans *mystorageaccount*, dans un conteneur nommé *vhdcontainer*, et le nom de fichier du disque dur virtuel est *vhdfilename.vhd*.
 
 
 1.  Définissez des variables.

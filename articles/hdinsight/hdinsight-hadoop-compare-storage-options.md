@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104535"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180772"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -95,9 +95,9 @@ Pour plus d’informations, consultez [Pilote ABFS (Azure Blob Filesystem) : pi
 
 Azure Data Lake Storage Gen2 utilise un nouveau schéma d’URI pour accéder aux fichiers de Stockage Azure à partir d’HDInsight :
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-Le schéma d’URI fournit un accès SSL chiffré (préfixe `abfss://`) et un accès SSL non chiffré (préfixe `abfs://`). Utilisez `abfss` dans la mesure du possible, même pour accéder à des données qui se trouvent dans la même région Azure.
+Le schéma d’URI fournit un accès chiffré SSL.
 
 `<FILE_SYSTEM_NAME>` identifie le chemin du système de fichiers Data Lake Storage Gen2.
 
@@ -108,8 +108,8 @@ Le schéma d’URI fournit un accès SSL chiffré (préfixe `abfss://`) et un ac
 Si vous ne spécifiez pas de valeurs pour `<FILE_SYSTEM_NAME>` et `<ACCOUNT_NAME>`, le système de fichiers par défaut est utilisé. Pour les fichiers du système de fichiers par défaut, utilisez un chemin relatif ou absolu. Par exemple, vous pouvez référencer le fichier `hadoop-mapreduce-examples.jar` fourni avec les clusters HDInsight en utilisant un des chemins suivants :
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]

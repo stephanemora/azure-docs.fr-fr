@@ -4,7 +4,7 @@ description: Cet article répertorie les questions fréquentes sur la connectivi
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941751"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154876"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -103,7 +103,7 @@ Pour vous assurer que l’adresse IP publique de votre service cloud (également
 - [Réserver l’adresse IP d’un service cloud existant](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Tant que vous avez plus d’une instance pour vos rôles, l’association d’une adresse IP réservée à votre service cloud ne devrait pas occasionner de temps d’arrêt. Vous pouvez également mettre en liste verte la plage d’adresses IP de votre centre de données Azure. Vous pouvez trouver toutes les plages d’adresses IP Azure dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Tant que vous avez plus d’une instance pour vos rôles, l’association d’une adresse IP réservée à votre service cloud ne devrait pas occasionner de temps d’arrêt. Vous pouvez aussi ajouter la plage d’adresses IP de votre centre de données Azure à une liste verte. Vous pouvez trouver toutes les plages d’adresses IP Azure dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL et de stockage) utilisées dans les centres de données Azure. Un fichier mis à jour est publié chaque semaine, qui reflète les plages actuellement déployées et toutes les modifications à venir des plages d’adresses IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine, et apportez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’ExpressRoute remarqueront peut-être que ce fichier est utilisé pour mettre à jour la publication de protocole de passerelle frontière de l’espace Azure la première semaine de chaque mois.
 

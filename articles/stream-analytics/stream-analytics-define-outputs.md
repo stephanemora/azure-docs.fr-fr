@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984875"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173584"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -210,6 +210,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format |Applicable uniquement pour le type JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
+| Colonnes de propriétés système | Facultatif. Paires clé/valeur de propriétés système et noms de colonnes correspondants qui doivent être attachés au message sortant au lieu de la charge utile. Pour plus d’informations sur cette fonctionnalité, consultez la section [Propriétés système pour les sorties de rubrique et de file d’attente Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs).  |
 
 Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
 
@@ -229,6 +230,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Encodage |Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge. |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
+| Colonnes de propriétés système | facultatif. Paires clé/valeur de propriétés système et noms de colonnes correspondants qui doivent être attachés au message sortant au lieu de la charge utile. Pour plus d’informations sur cette fonctionnalité, consultez la section [Propriétés système pour les sorties de rubrique et de file d’attente Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs). |
 
 Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
 
@@ -294,6 +296,25 @@ Dans l’exemple suivant, nous ajoutons les deux champs `DeviceId` et `DeviceSta
 La capture d’écran suivante montre les propriétés du message de sortie inspectées dans EventHub via [l’Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ![Propriétés personnalisées d’événement](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Propriétés système pour les sorties de rubrique et de file d’attente Service Bus 
+Vous pouvez attacher des colonnes de requête en tant que [propriétés système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) à vos messages sortants de file d’attente ou de rubrique Service Bus. Ces colonnes ne sont pas placées dans la charge utile ; au lieu de cela, la [propriété système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondante est renseignée avec les valeurs de la colonne de requête.
+Les propriétés système suivantes sont prises en charge : `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Les valeurs de chaîne de ces colonnes sont analysées en tant que type de valeur de propriété système correspondante et les échecs d’analyse sont traités comme des erreurs de données.
+Ce champ est fourni sous la forme d’un format d’objet JSON. Les détails relatifs à ce format sont les suivants :
+* Entouré par des accolades {}.
+* Écrit dans des paires clé-valeur.
+* Les clés et les valeurs doivent être des chaînes.
+* La clé est le nom de la propriété système et la valeur est le nom de la colonne de requête.
+* Les clés et les valeurs sont séparées par un signe deux-points.
+* Chaque paire clé-valeur est séparée par une virgule.
+
+Voici comment utiliser cette propriété :
+
+* Requête : `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Colonnes de propriétés système : `{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+Cela définit le `MessageId` sur les messages de la file d’attente Service bus avec les valeurs de `column1`, et PartitionKey est défini avec les valeurs de `column2`.
 
 ## <a name="partitioning"></a>Partitionnement
 

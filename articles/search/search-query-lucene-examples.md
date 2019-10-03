@@ -1,5 +1,5 @@
 ---
-title: Exemples de requête Lucene - Recherche Azure
+title: Utiliser la syntaxe de requête Lucene complète - Recherche Azure
 description: Syntaxe de requête Lucene pour la recherche approximative, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques dans le service Recherche Azure.
 author: HeidiSteen
 manager: nitinme
@@ -7,17 +7,17 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648233"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178161"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemples de requêtes utilisant une syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche Azure)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche Azure)
 
 Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](query-lucene-syntax.md), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409562"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180822"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -41,7 +41,7 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
 
 * Si vous utilisez le C#, la version de Visual Studio doit être 2013 ou ultérieure.
 
-* Le [schéma d’URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre compte de stockage. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si l’option de transfert sécurisé est activée pour Stockage Azure ou Data Lake Storage Gen2, l’URI serait `wasbs://` ou `abfss://`, respectivement. Consultez également l’article dédié au [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
+* Le [schéma d’URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre compte de stockage. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera `wasbs://`. Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 * Un cluster HDInsight existant auquel ajouter une signature d’accès partagé. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
 

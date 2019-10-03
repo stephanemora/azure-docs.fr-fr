@@ -1,18 +1,18 @@
 ---
 title: Intégrer Apache Spark et Apache Hive au le connecteur d’entrepôt Hive
 description: Découvrez comment intégrer Apache Spark et Apache Hive au connecteur d’entrepôt Hive sur Azure HDInsight.
-ms.service: hdinsight
 author: nakhanha
 ms.author: nakhanha
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811662"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122201"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Intégrer Apache Spark et Apache Hive au le connecteur d’entrepôt Hive
 
@@ -22,7 +22,7 @@ Le connecteur d’entrepôt Hive vous permet de profiter des fonctionnalités un
 
 Apache Spark dispose d'une API de flux structuré qui offre des capacités de diffusion en continu non disponibles dans Apache Hive. À partir de HDInsight 4.0, Apache Spark 2.3.1 et Apache Hive 3.1.0 proposent des metastores distincts, ce qui peut nuire à l'interopérabilité. Le connecteur d'entrepôt Hive facilite l'utilisation simultanée de Spark et de Hive. La bibliothèque HWC charge les données des démons LLAP vers les exécuteurs Spark en parallèle, une solution plus efficace et plus évolutive qu’une connexion JDBC standard de Spark vers Hive.
 
-![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+![Architecture du connecteur d’entrepôt Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
 Voici quelques-unes des opérations prises en charge par le connecteur d'entrepôt Hive :
 
@@ -42,14 +42,14 @@ Suivez ces étapes pour configurer le connecteur d'entrepôt Hive entre un clust
 1. Créez un cluster HDInsight Interactive Query (LLAP) 4.0 en utilisant le portail Azure avec le même compte de stockage et le même réseau virtuel Azure que pour le cluster Spark.
 1. Copiez le contenu du fichier `/etc/hosts` sur le nœud principal (headnode0) de votre cluster Interactive Query vers le fichier `/etc/hosts` du nœud principal (headnode0) de votre cluster Spark. Cette étape permettra à votre cluster Spark de résoudre les adresses IP des nœuds dans le cluster Interactive Query. Affichez le contenu du fichier mis à jour avec `cat /etc/hosts`. Le résultat devrait ressembler à la capture d'écran ci-dessous.
 
-    ![visualisation du fichier hosts](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+    ![Fichier d’hôte du connecteur d’entrepôt Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. Configurez les paramètres du cluster Spark en procédant comme suit : 
     1. Accédez au portail Azure, sélectionnez les clusters HDInsight, puis cliquez sur le nom de votre cluster.
     1. Sur le côté droit, sous **Tableaux de bord des clusters**, sélectionnez **Accueil Ambari**.
     1. Dans l'interface utilisateur Web Ambari, cliquez sur **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
 
-        ![Configuration Spark2 Ambari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+        ![Apache Ambari - Configuration Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
     1. Définissez `spark.hadoop.hive.llap.daemon.service.hosts` sur la même valeur que la propriété **hive.llap.daemon.service.hosts** sous **Advanced hive-interactive-site**. Par exemple, `@llap0`
 
@@ -59,7 +59,7 @@ Suivez ces étapes pour configurer le connecteur d'entrepôt Hive entre un clust
         jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
         ```
 
-        >[!Note] 
+        > [!Note]
         > L'URL JDBC doit contenir les informations d'identification pour se connecter à Hiveserver2, y compris un nom d'utilisateur et un mot de passe.
 
     1. Définissez `spark.datasource.hive.warehouse.load.staging.dir` sur un répertoire de préproduction compatible HDFS approprié. Si vous utilisez deux clusters différents, ce répertoire doit être un dossier dans le répertoire de préproduction du compte de stockage du cluster LLAP afin que HiveServer2 puisse y accéder. Par exemple, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` où `STORAGE_ACCOUNT_NAME` est le nom du compte de stockage utilisé par le cluster, et `STORAGE_CONTAINER_NAME` est le nom du conteneur de stockage.
@@ -159,14 +159,14 @@ Spark ne prend pas en charge nativement l'écriture dans des tables ACID gérée
     ```
 
 2. Filtrez la table `hivesampletable`, où la colonne `state` est égale à `Colorado`. Cette requête de la table Hive est retournée sous la forme d'un DataFrame Spark. Le DataFrame est ensuite enregistré dans la table Hive `sampletable_colorado` à l'aide de la fonction `write`.
-    
+
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
 Vous pouvez voir la table ainsi obtenue dans la capture d'écran ci-dessous.
 
-![afficher la table obtenue](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+![Connecteur d’entrepôt Hive - Affichage de la table Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Écritures à l’aide du streaming structuré
 
@@ -185,7 +185,9 @@ Procédez comme suit pour créer un exemple de connecteur d'entrepôt Hive qui i
     1. Ouvrez un autre terminal sur le même cluster Spark.
     1. Dans l’invite de commandes, tapez `nc -lk 9999`. Cette commande utilise l'utilitaire netcat pour envoyer des données de la ligne de commande au port spécifié.
     1. Entrez les mots que le flux Spark va ingérer, puis validez avec un retour chariot.
-        ![saisie de données dans le flux spark](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
+        ![Saisie de données dans le flux Apache Spark](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
 1. Créez une nouvelle table Hive qui contiendra les données en continu. Dans l’interpréteur de commandes de Spark, tapez les commandes suivantes :
 
     ```scala
@@ -230,8 +232,11 @@ Procédez comme suit pour créer un exemple de connecteur d'entrepôt Hive qui i
     1. Accédez à l’interface utilisateur de l’administrateur Ranger à l’adresse `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Cliquez sur le service Hive pour votre cluster sous **Hive**.
         ![Gestionnaire de service Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Cliquez sur l’onglet **Masquage**, puis sur **Ajouter une nouvelle stratégie** ![Liste des stratégies hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. Nommez la stratégie. Sélectionnez la base de données : **Default**, Table Hive : **demo**, Colonne Hive : **name**, Utilisateur : **rsadmin2**, Types d’accès : **select**, et **Partial mask: show last 4** dans le menu **Select Masking Option** (Sélectionner l’option de masquage). Cliquez sur **Add**.
+    1. Cliquez sur l’onglet **Masquage**, puis sur **Ajouter une nouvelle stratégie**
+
+        ![Connecteur de l’entrepôt Hive - Liste des stratégies Ranger Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+
+    a. Nommez la stratégie. Sélectionnez la base de données : **Default**, Table Hive : **demo**, Colonne Hive : **name**, Utilisateur : **rsadmin2**, Types d’accès : **select**, et **Partial mask: show last 4** dans le menu **Select Masking Option** (Sélectionner l’option de masquage). Cliquez sur **Add**.
                 ![Créer une stratégie](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Affichez à nouveau le contenu de la table. Après avoir appliqué la stratégie Ranger, nous ne voyons que les quatre derniers caractères de la colonne.
 

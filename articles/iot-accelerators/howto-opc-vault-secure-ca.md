@@ -1,6 +1,6 @@
 ---
 title: Comment exécuter le service de gestion de certificats OPC Vault en toute sécurité – Azure | Microsoft Docs
-description: Décrit comment exécuter le service de gestion de certificats OPC Vault en toute sécurité dans Azure et fournit d’autres instructions de sécurité à prendre en compte.
+description: Explique comment exécuter le service de gestion de certificats OPC Vault de manière sécurisée dans Azure et passe en revue les autres consignes de sécurité à prendre en considération.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019
@@ -8,27 +8,25 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f35836f60fae11c0955c128e96a4cea188681942
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997658"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200086"
 ---
-# <a name="how-to-run-the-opc-vault-certificate-management-service-securely"></a>Comment exécuter le service de gestion de certificats OPC Vault en toute sécurité
+# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Exécuter le service de gestion de certificats OPC Vault de manière sécurisée
 
-Cet article explique comment exécuter le service de gestion de certificats OPC Vault en toute sécurité dans Azure et fournit d’autres instructions de sécurité à prendre en compte.
+Cet article explique comment exécuter le service de gestion de certificats OPC Vault de manière sécurisée dans Azure et passe en revue les autres consignes de sécurité à prendre en considération.
 
 ## <a name="roles"></a>contrôleur
 
 ### <a name="trusted-and-authorized-roles"></a>Rôles approuvés et autorisés
 
-Le microservice OPC Vault est configuré pour autoriser des rôles distincts à accéder aux différentes parties du service.
+Le microservice OPC Vault prévoit des rôles distincts pour accéder à différentes parties du service.
 
 > [!IMPORTANT]
-> Pendant le déploiement, le script ajoute uniquement l’utilisateur qui exécute le script de déploiement en tant qu’utilisateur pour tous les rôles.
-> Cette attribution de rôle doit être examinée pour un déploiement de production et reconfigurée correctement en suivant les instructions ci-dessous.
-> Cette tâche nécessite une attribution manuelle de rôles et de services dans le portail Applications d’entreprise Azure AD.
+> Pendant le déploiement, le script ajoute uniquement l’utilisateur qui exécute le script de déploiement en tant qu’utilisateur pour tous les rôles. Pour un déploiement de production, vous devez examiner cette attribution de rôle et la reconfigurer de manière appropriée en suivant les consignes ci-dessous. Cette tâche nécessite une attribution manuelle de rôles et de services sur le portail Applications d’entreprise Azure Active Directory (Azure AD).
 
 ### <a name="certificate-management-service-roles"></a>Rôles de service de gestion des certificats
 
@@ -39,14 +37,14 @@ Le microservice OPC Vault définit les rôles suivants :
 - **Rédacteur** : Le rôle Rédacteur est attribué à un utilisateur appelé à ajouter des autorisations d’écriture pour certaines tâches. 
   - Accès en lecture/écriture aux applications et aux demandes de certificat. Peut inscrire, mettre à jour et annuler l’inscription des applications. Peut créer des demandes de certificat et obtenir des clés privées et des certificats approuvés. Peut également supprimer des clés privées.
 - **Approbateur** : Le rôle Approbateur est attribué à un utilisateur appelé à approuver ou à rejeter des demandes de certificat. Il n’inclut aucun autre rôle.
-  - Pour être en mesure de signer les certificats, en plus du rôle Approbateur pour accéder au microservice OPC Vault, l’utilisateur doit également disposer de l’autorisation de signature de clé dans Key Vault.
+  - Pour pouvoir signer les certificats, en plus du rôle Approbateur permettant d’accéder à l’API du microservice OPC Vault, l’utilisateur doit aussi disposer de l’autorisation de signature de clé dans Azure Key Vault.
   - Les rôles Rédacteur et Approbateur doit être attribué à des utilisateurs distincts.
-  - Le rôle principal de l’Approbateur est l’approbation de la génération et du rejet des demandes de certificat.
+  - Le rôle principal de l’approbateur est l’approbation de la génération et du rejet des demandes de certificats.
 - **Administrateur** : Le rôle Administrateur est attribué à un utilisateur appelé à gérer les groupes de certificats. Le rôle ne prend pas en charge le rôle Approbateur, mais il comprend le rôle Rédacteur.
   - L’administrateur peut gérer les groupes de certificats, modifier la configuration et révoquer des certificats d’application en émettant une nouvelle liste de révocation de certificats.
-  - Idéalement, les rôles Rédacteur, Approbateur et Administrateur sont attribués à des utilisateurs distincts. Pour renforcer la sécurité, un utilisateur auquel est attribué le rôle Approbateur ou Administrateur a également besoin de l’autorisation de signature de clé dans keyVault pour émettre des certificats ou renouveler un certificat d’autorité de certification émettrice.
-  - En plus du rôle d’administration du microservice, le rôle inclut notamment aussi les attributions suivantes :
-    - Administration de l’implémentation des pratiques de sécurité de l’autorité de certification.
+  - Idéalement, les rôles Rédacteur, Approbateur et Administrateur sont attribués à des utilisateurs distincts. Pour renforcer la sécurité, un utilisateur auquel est attribué le rôle Approbateur ou Administrateur a aussi besoin de l’autorisation de signature de clé dans Key Vault pour émettre des certificats ou renouveler un certificat d’autorité de certification émettrice.
+  - En plus du rôle d’administration du microservice, le rôle inclut notamment les attributions suivantes :
+    - Responsabilité d’administration de l’implémentation des pratiques de sécurité de l’autorité de certification.
     - Gestion de la génération, de la révocation et de la suspension des certificats. 
     - Gestion du cycle de vie des clés de chiffrement (par exemple, renouvellement des clés de l’autorité de certification émettrice).
     - Installation, configuration et maintenance des services qui utilisent l’autorité de certification.
@@ -55,28 +53,28 @@ Le microservice OPC Vault définit les rôles suivants :
 
 ### <a name="other-role-assignments"></a>Autres attributions de rôles
 
-Les rôles suivants doivent également être pris en compte et affectés lors de l’exécution du service :
+Prenez aussi en considération les rôles suivants au moment d’exécuter le service :
 
-- Propriétaire du contrat d’approvisionnement de certificat conclu avec l’autorité de certification racine externe (dans le cas où le propriétaire achète des certificats à une autorité de certification externe ou utilise une autorité de certification subordonnée à une autorité de certification externe).
+- Propriétaire du contrat d’approvisionnement de certificats conclu avec l’autorité de certification racine externe (par exemple, quand le propriétaire achète des certificats à une autorité de certification externe ou utilise une autorité de certification subordonnée à une autorité de certification externe).
 - Développement et validation de l’autorité de certification.
 - Révision des enregistrements d’audit.
-- Le personnel qui contribue au support de l’autorité de certification ou à la gestion des installations physiques et cloud, mais qui n’est pas directement approuvé pour effectuer des opérations d’autorité de certification, est défini comme faisant partir du rôle autorisé. L’ensemble des tâches que les personnes auxquelles est attribué le rôle autorisé peuvent effectuer doivent également être documentées.
+- Le personnel qui participe au support de l’autorité de certification ou à la gestion des installations physiques et cloud, mais qui n’est pas directement approuvé pour effectuer des opérations d’autorité de certification, appartient au rôle *autorisé*. L’ensemble des tâches que les personnes auxquelles est attribué le rôle autorisé peuvent effectuer doivent également être documentées.
 
-### <a name="memberships-of-trusted-and-authorized-roles-must-be-reviewed-annually"></a>Les appartenances des rôles approuvés et autorisés doivent être révisées annuellement
+### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Passer en revue les appartenances des rôles approuvés et autorisés tous les trimestres
 
-L’appartenance aux rôles approuvés et autorisés doit être vérifiée au moins une fois par trimestre pour s’assurer que le nombre des personnes (pour les processus manuels) ou des identités de service (pour les processus automatisés) auxquelles chaque rôle est attribué est réduit au minimum.
+Passez en revue l’appartenance des rôles approuvés et autorisés au moins tous les trimestres. Veillez à maintenir l’ensemble des personnes (pour les processus manuels) ou les identités de service (pour les processus automatisés) de chaque rôle au minimum.
 
-### <a name="certificate-issuance-process-must-enforce-role-separation-between-certificate-requester-and-approver"></a>Le processus d’émission de certificat doit appliquer le principe de la séparation des rôles entre le demandeur et l’approbateur de certificat.
+### <a name="role-separation-between-certificate-requester-and-approver"></a>Séparation des rôles entre le demandeur de certificat et l’approbateur
 
-Le processus d’émission de certificat doit appliquer le principe de la séparation des rôles de demandeur et d’approbateur de certificat (personnes ou systèmes automatisés). L’émission de certificat doit être autorisée par un rôle d’approbateur de certificat qui vérifie que le demandeur de certificat est autorisé à obtenir des certificats. Les personnes qui détiennent le rôle d’approbateur de certificat doivent être formellement autorisées.
+Le processus d’émission de certificat doit appliquer le principe de la séparation des rôles entre le demandeur et l’approbateur de certificat (personnes ou systèmes automatisés). L’émission de certificat doit être autorisée par un rôle d’approbateur de certificat qui vérifie que le demandeur de certificat est autorisé à obtenir des certificats. Les personnes qui détiennent le rôle d’approbateur de certificat doivent être formellement autorisées.
 
-### <a name="privileged-role-management-must-restrict-access-and-be-reviewed-quarterly"></a>La gestion des rôles privilégiés doit limiter l’accès et être révisée trimestriellement
+### <a name="restrict-assignment-of-privileged-roles"></a>Restreindre l’attribution de rôles privilégiés
 
-L’attribution de rôles privilégiés, tels que l’autorisation de l’appartenance aux groupes Administrateurs et Approbateurs, doit être limitée à un ensemble limité de personnes autorisées. Toute modification de rôle privilégié doit avoir un accès révoqué dans les 24 heures. Enfin, les attributions de rôles privilégiées doivent être révisées sur une base trimestrielle et toutes les affectations inutiles ou expirées doivent être supprimées.
+Vous avez tout intérêt à restreindre l’attribution de rôles privilégiés, par exemple en autorisant l’appartenance au groupe Administrateurs et Approbateurs, à un ensemble limité de personnes autorisées. Toute modification de rôle privilégié doit avoir un accès révoqué dans les 24 heures. Enfin, passez en revue les attributions de rôles privilégiés tous les trimestres et supprimez les affectations inutiles ou arrivées à expiration.
 
 ### <a name="privileged-roles-should-use-two-factor-authentication"></a>Les rôles privilégiés doivent utiliser une authentification à deux facteurs
 
-Une authentification multifacteur (authentification à deux facteurs, MFA ou TFA) doit être utilisée pour les connexions interactives d’approbateurs et d’administrateurs au service.
+Utilisez l’authentification multifacteur (aussi connue sous le nom d’authentification à deux facteurs) pour la connexion interactive des approbateurs et des administrateurs au service.
 
 ## <a name="certificate-service-operation-guidelines"></a>Instructions opérationnelles concernant le service de certificats
 
@@ -86,165 +84,162 @@ Le service de certificats doit disposer d’un plan de réponse de sécurité à
 
 ### <a name="security-updates"></a>Mises à jour de sécurité
 
-Tous les systèmes doivent être surveillés et mis à jour en permanence avec les mises à jour et correctifs de sécurité et de conformité les plus récents.
+Tous les systèmes doivent être surveillés et mis à jour en permanence avec les mises à jour de sécurité les plus récentes.
 
 > [!IMPORTANT]
-> Le dépôt GitHub du service OPC Vault est continuellement mis à jour avec des correctifs de sécurité. Les mises à jour disponibles sur GitHub doivent être surveillées et appliquées au service à intervalles réguliers.
+> Le dépôt GitHub du service OPC Vault est continuellement mis à jour avec des correctifs de sécurité. Surveillez ces mises à jour et appliquez-les au service à intervalles réguliers.
 
 ### <a name="security-monitoring"></a>Surveillance de la sécurité
 
-Souscrivez ou implémentez une analyse de sécurité appropriée, par exemple en vous abonnant à une solution de surveillance centralisée (telle qu’Azure Security Center, la solution de surveillance O365), et configurez-la de manière appropriée pour vous assurer que les événements de sécurité lui sont transmis.
+Abonnez-vous à une solution de supervision de la sécurité ou implémentez-en une. Par exemple, abonnez-vous à une solution de supervision centralisée (comme Azure Security Center ou la solution de supervision Office 365) et configurez-la de sorte que les événements de sécurité lui soient transmis.
 
 > [!IMPORTANT]
-> Par défaut, le service OPC Vault est déployé avec [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) en guise de solution de surveillance. L’ajout d’une solution de sécurité telle qu’[Azure Security Center](https://azure.microsoft.com/services/security-center/) est fortement recommandé.
+> Par défaut, le service OPC Vault est déployé avec [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) en guise de solution de supervision. L’ajout d’une solution de sécurité telle qu’[Azure Security Center](https://azure.microsoft.com/services/security-center/) est fortement recommandé.
 
-### <a name="assess-security-of-open-source-software-components"></a>Évaluer la sécurité de composants logiciels open source
+### <a name="assess-the-security-of-open-source-software-components"></a>Évaluer la sécurité des composants logiciels open source
 
 Tous les composants open source utilisés au sein d’un produit ou service doivent être exempts de failles de sécurité modérées ou importantes.
 
 > [!IMPORTANT]
-> Le dépôt GitHub du service OPC Vault analyse tous les composants pendant les générations d’intégration continue en lien avec des vulnérabilités. Les mises à jour disponibles sur GitHub doivent être surveillées et appliquées au service à intervalles réguliers.
+> Pendant les builds d’intégration continue, le dépôt GitHub du service OPC Vault analyse tous les composants à la recherche de vulnérabilités. Surveillez ces mises à jour sur GitHub et appliquez-les au service à intervalle réguliers.
 
 ### <a name="maintain-an-inventory"></a>Tenue d’inventaire
 
-Un inventaire des ressources doit être tenu à jour pour l’ensemble des hôtes de production (y compris les machines virtuelles persistantes), appareils, plages d’adresses IP internes, adresses IP virtuelles et noms de domaine DNS publics. Cet inventaire doit être mis à jour par l’ajout ou la suppression d’un système, d’une adresse IP d’appareils, d’une adresse IP virtuelle ou d’un domaine DNS public dans un délai de 30 jours.
+Tenez un inventaire des ressources pour tous les hôtes de production (y compris les machines virtuelles persistantes), appareils, plages d’adresses IP internes, adresses IP virtuelles et noms de domaine DNS publics. Chaque fois que vous ajoutez ou supprimez un système, une adresse IP d’appareil, une adresse IP virtuelle ou un domaine DNS public, vous devez mettre à jour l’inventaire dans un délai de 30 jours.
 
-#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventaire du déploiement de production de microservice Azure OPC Vault par défaut : 
+#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventaire du déploiement de production par défaut du microservice Azure OPC Vault 
 
-Dans **Azure** :
+Dans Azure :
 - **App Service Plan** (Plan App Service) : Plan App service pour les hôtes de service. Par défaut S1.
 - **App service** pour microservice : Hôte du service OPC Vault.
 - **App service** pour exemple d’application : Exemple d’application hôte d’OPC Vault.
-- **KeyVault Standard** : Pour stocker les secrets et les clés Cosmos DB pour les services web.
-- **KeyVault Premium** : Pour héberger les clés de l’autorité de certification émettrice, pour le service de signature, pour la configuration du coffre et pour le stockage des clés privées d’application.
-- **Cosmos DB** : Base de données pour les demandes d’application et de certificat. 
+- **Key Vault Standard** : Pour stocker les secrets et les clés Azure Cosmos DB pour les services web.
+- **Key Vault Premium** : Pour héberger les clés de l’autorité de certification émettrice, pour le service de signature et pour la configuration du coffre et le stockage des clés privées d’application.
+- **Azure Cosmos DB** : Base de données pour les demandes d’application et de certificat. 
 - **Application Insights** : solution de surveillance (facultative) pour le service web et l’application.
-- **Inscription d’application AzureAD** : Inscription de l’exemple d’application, du service et du module Edge.
+- **Inscription d’application Azure AD** : Inscription de l’exemple d’application, du service et du module Edge.
 
-Pour les services cloud, l’ensemble des noms d’hôte, groupes de ressources, noms de ressource, ID d’abonnement et ID de locataires utilisés pour déployer le service doivent être documentés. 
+Pour les services cloud, tous les noms d’hôte, groupes de ressources, noms de ressource, ID d’abonnement et ID de locataire utilisés pour déployer le service doivent être documentés. 
 
-Dans **IOT Edge** ou un **serveur IOT Edge** local :
+Dans Azure IoT Edge ou un serveur IoT Edge local :
 - **Module IoT Edge OPC Vault** : Pour prendre en charge un serveur de découverte global OPC UA de réseau de fabrique. 
 
 Pour les appareils IoT Edge, les noms d’hôte et les adresses IP doivent être documentés. 
 
 ### <a name="document-the-certification-authorities-cas"></a>Documenter les autorités de certification
 
-La documentation sur la hiérarchie des autorités de certification doit contenir toutes les autorités de certification utilisées, y compris toutes les autorités de certification secondaires, les autorités de certification parentes et les autorités de certification racines, même si elles ne sont pas gérées par le service. Un ensemble exhaustif des certificats d’autorité de certification non expirés peut être fourni à la place d’une documentation formelle.
+La documentation de la hiérarchie d’autorités de certification doit contenir toutes les autorités de certification utilisées. Cela englobe l’ensemble des autorités de certification secondaires, des autorités de certification parentes et des autorités de certification racines associées, même quand elles ne sont pas gérées par le service. Plutôt qu’une documentation formelle, vous pouvez fournir un ensemble exhaustif de tous les certificats d’autorité de certification non expirés.
 
 > [!NOTE]
 > L’exemple d’application OPC Vault prend en charge le téléchargement de tous les certificats utilisés et produits dans le service à des fins de documentation.
 
 ### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Documenter les certificats émis par toutes les autorités de certification
 
-Un ensemble exhaustif des certificats émis au cours des 12 derniers mois doit être fourni à des fins de documentation.
+Fournissez un ensemble exhaustif de tous les certificats émis au cours des 12 derniers mois.
 
 > [!NOTE]
 > L’exemple d’application OPC Vault prend en charge le téléchargement de tous les certificats utilisés et produits dans le service à des fins de documentation.
 
-### <a name="document-the-sop-for-securely-deleting-cryptographic-keys"></a>Documenter la procédure SOP pour supprimer des clés de chiffrement en toute sécurité
+### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documenter la procédure d’exploitation standard pour supprimer les clés de chiffrement de manière sécurisée
 
-Étant donné que la suppression de clé peut ne se produire que rarement pendant la durée de vie d’une autorité de certification, aucun utilisateur ne dispose d’un droit de suppression de certificat keyVault, et aucune API n’est exposée pour supprimer un certificat d’autorité de certification émettrice. La procédure manuelle standard pour la suppression sécurisée des clés de chiffrement d’autorité de certification n’est disponible qu’en accédant directement au KeyVault sur le Portail Azure et en supprimant le groupe de certificats dans le KeyVault. Pour garantir une suppression immédiate, la [suppression réversible du KeyVault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) doit être désactivée.
+Pendant la durée de vie d’une autorité de certification, il peut être très rare que des clés soient supprimées. C’est pourquoi aucun utilisateur ne dispose d’un droit de suppression de certificat Key Vault et qu’aucune API n’est exposée pour supprimer un certificat d’autorité de certification émettrice. La procédure d’exploitation standard manuelle pour la suppression sécurisée de clés de chiffrement d’autorité de certification n’est disponible qu’en accédant directement à Key Vault sur le portail Azure. Vous pouvez aussi supprimer le groupe de certificats dans Key Vault. Pour assurer une suppression immédiate, désactivez la fonctionnalité de [suppression réversible de Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 
 ## <a name="certificates"></a>Certificats
 
 ### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Les certificats doivent être conformes au profil de certificat minimal
 
-Le service OPC Vault est un service d’autorités de certification en ligne qui émet des certificats d’entité finale pour des abonnés.
-Le microservice OPC Vault respect ces directives dans on implémentation par défaut.
+Le service OPC Vault est une autorité de certification en ligne qui émet des certificats d’entité finale pour des abonnés. Le microservice OPC Vault respect ces directives dans on implémentation par défaut.
 
 - Tous les certificats doivent inclure les champs X.509 suivants, comme indiqué ci-dessous :
   - Le contenu du champ Version doit être v3. 
   - Le contenu du champ serialNumber doit inclure au moins 8 octets d’entropie obtenus auprès d’un générateur de nombres aléatoires certifié conforme à la norme FIPS (Federal Information Processing Standards) 140.<br>
     > [!IMPORTANT]
-    > Le numéro de série d’OPC Vault est par défaut de 20 octets et obtenu à partir du générateur de nombres aléatoires de chiffrement de système d’exploitation. Le générateur de nombres aléatoires est certifié conforme à la norme FIPS 140 sur les appareils Windows, mais pas sur les versions Linux. Ce fait doit être pris en compte lors du choix d’un déploiement de service qui utilise des machines virtuelles Linux ou des conteneurs Docker Linux sur lesquels la technologie sous-jacente OpenSSL n’est pas certifiée conforme à la norme FIPS 140.
+    > Par défaut, le numéro de série d’OPC Vault est de 20 octets et est obtenu auprès du générateur de nombres aléatoires de chiffrement du système d’exploitation. Le générateur de nombres aléatoires est certifié conforme à la norme FIPS 140 sur les appareils Windows, mais pas sur Linux. Tenez-en compte au moment de choisir un déploiement de service qui utilise des machines virtuelles Linux ou des conteneurs Docker Linux sur lesquels la technologie sous-jacente OpenSSL n’est pas certifiée conforme à la norme FIPS 140.
   - Les champs issuerUniqueID et subjectUniqueID ne doivent pas être présents.
-  - Les certificats d’entité finale doivent être identifiés avec l’extension Contraintes de base conformément à la norme IETF RFC 5280.
+  - Les certificats d’entité finale doivent être identifiés avec l’extension de contraintes de base, conformément à la norme IETF RFC 5280.
   - Le champ pathLenConstraint doit avoir la valeur 0 pour le certificat de l’autorité de certification émettrice. 
-  - L’extension Utilisation de clé étendue doit être présente et contenir l’ensemble minimal d’identificateurs d’objet (OID) pour l’Utilisation de clé étendue. L’OID anyExtendedKeyUsage (2.5.29.37.0) ne doit pas être spécifié. 
+  - L’extension Utilisation améliorée de la clé doit être présente et contenir l’ensemble minimal d’identificateurs d’objet (OID) pour l’Utilisation améliorée de la clé. L’OID anyExtendedKeyUsage (2.5.29.37.0) ne doit pas être spécifié. 
   - L’extension Point de distribution de liste de révocation de certificats (CDP) doit être présente dans le certificat de l’autorité de certification émettrice.<br>
     > [!IMPORTANT]
-    > L’extension Point de distribution de liste de révocation de certificats (CDP) est présente dans les certificats d’autorité de certification d’OPC Vault. Toutefois, les appareils OPC UA utilisent des méthodes personnalisées pour distribuer les listes de révocation de certificats.
+    > L’extension CDP est présente dans les certificats d’autorité de certification OPC Vault. Néanmoins, les appareils OPC UA utilisent des méthodes personnalisées pour distribuer les listes de révocation de certificats.
   - L’extension Accès aux informations de l’autorité doit être présente dans les certificats de l’abonné.<br>
     > [!IMPORTANT]
-    > L’extension Accès aux informations de l’autorité  est présente dans les certificats d’abonné d’OPC Vault. Toutefois, les appareils OPC UA utilisent des méthodes personnalisées pour distribuer les informations de l’autorité de certification émettrice.
+    > L’extension Accès aux informations de l’autorité doit être présente dans les certificats d’abonné OPC Vault. Néanmoins, les appareils OPC UA utilisent des méthodes personnalisées pour distribuer les informations sur l’autorité de certification émettrice.
 - Des algorithmes asymétriques approuvés, des longueurs de clé, des fonctions de hachage et des modes de remplissage doivent être utilisés.
-  - Les algorithmes **RSA** et **SHA-2** sont les seuls pris en charge (*).
-  - L’algorithme RSA peut être utilisé pour le chiffrement, la signature et l’échange de clés.
+  - Les algorithmes RSA et SHA-2 sont les seuls pris en charge.
+  - L’algorithme RSA peut être utilisé pour le chiffrement, l’échange de clés et la signature.
   - Le chiffrement RSA doit utiliser uniquement les modes de remplissage OAEP, RSA-KEM ou RSA-PSS.
-  - Les longueurs de clé doivent être au minimum de 2048 bits.
+  - Des longueurs de clé supérieures ou égales à 2 048 bits sont exigées.
   - Utilisez la famille d’algorithmes de hachage SHA-2 (SHA256, SHA384 et SHA512).
-  - La durée de vie des clés d’autorité de certification racine RSA doit au mois de 20 ans et elles doivent comprendre au minimum 4096 bits.
-  - Les clés d’autorité de certification émettrices RSA doivent comporter au moins 2048 bits ; si la date d’expiration du certificat de l’autorité de certification est postérieure à 2030, la clé d’autorité de certification doit comprendre au minimum 4096 bits.
-- Durée de vie du certificat
+  - Les clés d’autorité de certification racine RSA d’une durée de vie habituelle de 20 ans et plus doivent comporter au minimum 4 096 bits.
+  - Les clés de l’autorité de certification émettrice RSA doivent comporter au moins 2 048 bits. Si la date d’expiration du certificat de l’autorité de certification est postérieure à 2030, la clé de l’autorité de certification doit comporter au minimum 4 096 bits.
+- Durée de vie des certificats
   - Certificats d’autorité de certification racine : La période maximale de validité du certificat pour les autorités de certification racine ne doit pas dépasser 25 ans.
-  - Certificats d’autorité de certification d’abonné ou d’autorité de certification émettrice en ligne : La période maximale de validité du certificat pour les autorités de certification qui sont en ligne et n’émettent que des certificats d’abonné ne peut pas dépasser six ans. Pour ces autorités de certification, la clé de signature privée associée ne doit pas être utilisée pendant plus de trois ans pour émettre de nouveaux certificats.<br>
+  - Certificats d’autorité de certification d’abonné ou d’autorité de certification émettrice en ligne : La période maximale de validité des certificats pour les autorités de certification qui sont en ligne et n’émettent que des certificats d’abonné ne peut pas dépasser six ans. Pour ces autorités de certification, la clé de signature privée associée ne doit pas être utilisée pendant plus de trois ans pour émettre de nouveaux certificats.<br>
     > [!IMPORTANT]
-    > Le certificat d’émetteur tel qu’il est généré dans le microservice OPC Vault par défaut sans autorité de certification racine externe est traité comme une autorité de certification d’abonné en ligne avec des exigences et durées de vie associées. La durée de vie par défaut est définie sur cinq ans, et la longueur de clé minimale est de 2048.
+    > Le certificat émetteur, tel qu’il est généré dans le microservice OPC Vault par défaut sans autorité de certification racine externe, est traité comme une sous-autorité de certification en ligne avec des exigences et durées de vie associées. La durée de vie définie par défaut est de cinq ans, avec une longueur de clé supérieure ou égale à 2 048.
   - Toutes les clés asymétriques doivent avoir une durée de vie maximale de cinq ans et une durée de vie recommandée d’un an.<br>
     > [!IMPORTANT]
-    > Par défaut, les durées de vie des certificats d’application émis avec OPC Vault sont de deux ans et ils doivent être remplacées chaque année. 
-  - Chaque fois qu’un certificat est renouvelé, il est renouvelé avec une nouvelle clé.
+    > Par défaut, la durée de vie des certificats d’application émis avec OPC Vault est de deux ans et ils doivent être remplacés tous les ans. 
+  - Un certificat est chaque fois renouvelé avec une nouvelle clé.
 - Extensions spécifiques d’OPC UA dans les certificats d’instance d’application
-  - L’extension subjectAltName inclut l’URI de l’application et des noms d’hôte qui peuvent également inclure un nom de domaine complet, ainsi que des adresses IPv4 et IPv6.
+  - L’extension subjectAltName comprend l’URI et les noms d’hôte de l’application. Ils peuvent aussi inclure des adresses de nom de domaine complet (FQDN), IPv4 et IPv6.
   - La valeur keyUsage inclut les informations digitalSignature, nonRepudiation, keyEncipherment et dataEncipherment.
-  - La valeur ExtendedKeyUsage inclut les informations serverAuth et/ou AutClient.
+  - La valeur extendedKeyUsage inclut les informations serverAuth et clientAuth.
   - La valeur authorityKeyIdentifier est spécifiée dans les certificats signés.
 
-### <a name="certificate-authority-ca-keys-and-certificates-must-meet-minimum-requirements"></a>Les clés et certificats d’autorité de certification doivent répondre à des exigences minimales
+### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Les clés et certificats d’autorité de certification doivent répondre à des exigences minimales
 
-- **Clés privées** : Les clés **RSA** émises doivent comporter au moins 2048 bits ; si la date d’expiration du certificat de l’autorité de certification est postérieure à 2030, la clé d’autorité de certification doit comprendre au minimum 4096 bits.
-- **Durée de vie** : La période maximale de validité du certificat pour les autorités de certification qui sont en ligne et n’émettent que des certificats d’abonné ne peut pas dépasser six ans. Pour ces autorités de certification, la clé de signature privée associée ne doit pas être utilisée pendant plus de trois ans pour émettre de nouveaux certificats.
+- **Clés privées** : Les clés RSA doivent comporter au moins 2 048 bits. Si la date d’expiration du certificat de l’autorité de certification est postérieure à 2030, la clé de l’autorité de certification doit comporter au minimum 4 096 bits.
+- **Durée de vie** : La période maximale de validité des certificats pour les autorités de certification qui sont en ligne et n’émettent que des certificats d’abonné ne peut pas dépasser six ans. Pour ces autorités de certification, la clé de signature privée associée ne doit pas être utilisée pendant plus de trois ans pour émettre de nouveaux certificats.
 
-### <a name="ca-keys-are-protected-using-hardware-security-modules-hsm"></a>Les clés d’autorité de certification sont protégées à l’aide de modules de sécurité matériels (HSM)
+### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>Les clés d’autorité de certification sont protégées à l’aide de modules de sécurité matériels
 
-- OpcVault utilise Azure Key Vault Premium, et les clés sont protégées par des modules de sécurité matériels (HSM) FIPS 140-2 de niveau 2. 
+OpcVault utilise Azure Key Vault Premium, et les clés sont protégées par des modules de sécurité matériels (HSM) FIPS 140-2 de niveau 2. 
 
-Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conformes aux standards FIPS (Federal Information Processing Standards).<br>
-Les clés créées ou importées comme clés protégées par module de sécurité matériel (HSM) sont traitées dans un HSM certifié conforme à la norme FIPS 140-2 de niveau 2.<br>
-Les clés créées ou importées comme clés protégées par logiciel sont traitées dans des modules de chiffrement certifiés conformes à la norme FIPS 140-2 de niveau 1.
+Les modules de chiffrement utilisés par Key Vault, HSM ou logiciels, sont conformes aux normes FIPS. Les clés créées ou importées comme clés protégées par module de sécurité matériel (HSM) sont traitées dans un HSM certifié conforme à la norme FIPS 140-2 de niveau 2. Les clés créées ou importées comme clés protégées par logiciel sont traitées dans des modules de chiffrement certifiés conformes à la norme FIPS 140-2 de niveau 1.
 
 ## <a name="operational-practices"></a>Pratiques opérationnelles
 
 ### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Documenter et tenir à jour les pratiques d’infrastructure à clé publique (PKI) opérationnelles standard pour l’inscription de certificat
 
 Documentez et tenez à jour les procédures opérationnelles standard (SOP) régissant la manière dont les autorités de certification (CA) émettent les certificats, à savoir : 
-- Mode d’identification et d’authentification de l’abonné 
-- Façon dont les demandes de certificat sont traitées et validées (le cas échéant, spécifier également la manière dont les demandes de renouvellement de certificat et de recréation de clé sont traitées) 
-- Mode de distribution des certificats émis aux abonnés 
+- Mode d’identification et d’authentification de l’abonné. 
+- Mode de traitement et de validation des demandes de certificats (le cas échéant, précisez également comment les demandes de renouvellement de certificats et de recréation de clés sont traitées). 
+- Mode de distribution des certificats émis aux abonnés. 
 
-La procédure opérationnelle standard du microservice OPC Vault est décrite dans les documents [Vue d’ensemble](overview-opc-vault-architecture.md) et [Comment gérer](howto-opc-vault-manage.md). Les pratiques suivent la spécification d’architecture unifiée OPC, partie 12 : Services de découverte et globaux.
+Les procédures SOP du microservice OPC Vault sont décrites dans [Architecture d’OPC Vault](overview-opc-vault-architecture.md) et [Gérer le service de certificats OPC Vault](howto-opc-vault-manage.md). Les pratiques suivent le standard « OPC Unified Architecture Specification Part 12 : Discovery and Global Services ».
 
 
 ### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Documenter et tenir à jour les pratiques d’infrastructure à clé publique (PKI) opérationnelles standard pour la révocation de certificat
 
-Le processus de révocation de certificat est décrit dans les documents [Vue d’ensemble](overview-opc-vault-architecture.md) et [Comment gérer](howto-opc-vault-manage.md).
+Le processus de révocation de certificat est décrit dans [Architecture d’OPC Vault](overview-opc-vault-architecture.md) et [Gérer le service de certificats OPC Vault](howto-opc-vault-manage.md).
     
-### <a name="document-certification-authority-ca-key-generation-ceremony"></a>Documenter le cérémonial de génération de clé de l’autorité de certification (CA) 
+### <a name="document-ca-key-generation-ceremony"></a>Documenter le cérémonial de génération de clés de l’autorité de certification 
 
-La génération de clé par l’autorité de certification émettrice dans le microservice OPC Vault est simplifiée en raison du stockage sécurisé dans Azure keyVault, et décrite dans la documentation [Comment gérer](howto-opc-vault-manage.md).
+La génération de clés par l’autorité de certification émettrice dans le microservice OPC Vault est simplifiée en raison du stockage sécurisé dans Azure Key Vault. Pour plus d’informations, consultez [Gérer le service de certificats OPC Vault](howto-opc-vault-manage.md).
 
-Toutefois, quand une autorité de certification racine externe est utilisée, le cérémonial de génération de clé de l’autorité de certification doit répondre aux exigences suivantes :
+Cependant, quand vous avez recours à une autorité de certification racine externe, le cérémonial de génération de clés de l’autorité de certification doit répondre aux exigences suivantes.
 
 Le cérémonial de génération de clé de l’autorité de certification doit être conforme à un script documenté spécifiant au moins les points suivants : 
-1. Définition des rôles et des responsabilités des participants
-2. Approbation de la conduite du cérémonial de génération de clé de l’autorité de certification
-3. Matériel de chiffrement et supports d’activation requis pour la cérémonie
-4. Préparation du matériel (y compris mise à jour et validation des informations relatives aux ressources et à la configuration)
-5. Installation du système d’exploitation
-6. Étapes spécifiques effectuées pendant le cérémonial de génération de clé de l’autorité de certification, par exemple : 
-7. Installation et configuration de l’application de l’autorité de certification
-8. Génération de clé par l’autorité de certification
-9. Sauvegarde de la clé de l’autorité de certification
-10. Signature du certificat de l’autorité de certification
-9. Importation de clés signées dans le module de sécurité matériel (HSM) protégé du service.
-11. Arrêt du système par l’autorité de certification
-12. Préparation des supports pour le stockage
+- Définition des rôles et des responsabilités des participants.
+- Approbation de la conduite du cérémonial de génération de clés de l’autorité de certification.
+- Matériel de chiffrement et supports d’activation nécessaires au cérémonial.
+- Préparation du matériel (y compris mise à jour et validation des informations relatives aux ressources et à la configuration).
+- Installation du système d’exploitation.
+- Étapes spécifiques effectuées pendant le cérémonial de génération de clé de l’autorité de certification, par exemple : 
+  - Installation et configuration de l’application de l’autorité de certification.
+  - Génération de clés de l’autorité de certification.
+  - Sauvegarde des clés de l’autorité de certification.
+  - Signature des certificats de l’autorité de certification.
+  - Importation de clés signées dans le module de sécurité matériel (HSM) protégé du service.
+  - Arrêt du système de l’autorité de certification.
+  - Préparation des supports pour le stockage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer OPC Vault en toute sécurité, voici la prochaine étape suggérée :
+Maintenant que vous savez comment gérer OPC Vault de manière sécurisée, vous pouvez :
 
 > [!div class="nextstepaction"]
 > [Sécuriser des appareils OPC UA avec OPC Vault](howto-opc-vault-secure.md)

@@ -1,19 +1,19 @@
 ---
 title: Journaux Azure Monitor pour Apache Kafka - Azure HDInsight
 description: Découvrez comment utiliser les journaux Azure Monitor pour analyser les journaux d’activité du cluster Apache Kafka sur Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 44eea1bc6390e743aff104550e5b6d7e97c45929
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960135"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122592"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux d’activité pour Apache Kafka sur HDInsight
 
@@ -43,7 +43,7 @@ Les étapes permettant d’activer les journaux Azure Monitor pour HDInsight son
 * Utilisation du disque :
 
     ```kusto
-    Perf 
+    Perf
     | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) 
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
@@ -82,17 +82,17 @@ Les étapes permettant d’activer les journaux Azure Monitor pour HDInsight son
 
     > [!IMPORTANT]  
     > Remplacez les valeurs de la requête par les informations spécifiques à votre cluster. Par exemple, `ClusterName_s` doit être définie sur le nom de votre cluster. La valeur `HostName_s` doit être définie sur le nom de domaine d’un nœud de travail dans le cluster.
-    
+
     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux d’activité suivants sont disponibles pour les requêtes :
-    
+
     | Type de journal | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Mesures JMX Kafka |
-    
-    ![Image de la recherche de l’utilisation du processeur](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
- 
+
+    ![Apache Kafka - Utilisation de l’UC dans Log Analytics](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure Monitor, consultez [Vue d’ensemble d’Azure Monitor](../../log-analytics/log-analytics-get-started.md) et [Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 10e8edcd3a1e781866eaee2cbe48d1536dbc1229
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073580"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219492"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -78,7 +78,8 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 | Échantillonnage (%)                        | décimal                           | Valeurs comprises entre 0 et 100 (%). <br/> Indique le pourcentage de demandes qui seront consignées dans Azure Application Insights. Un échantillonnage à 0 % signifie qu’aucune demande ne sera consignée, tandis qu’un échantillonnage à 100 % indique qu’elles le seront toutes. <br/> Ce paramètre permet de réduire les conséquences des demandes de journalisation sur les performances d’Azure Application Insights (voir la section ci-dessous). |
 | Toujours consigner les erreurs                   | boolean                           | Si ce paramètre est sélectionné, toutes les défaillances seront consignées dans Azure Application Insights, quel que soit le paramètre **Échantillonnage**.                                                                                                                                                                                                                  |
 | Options de base : headers              | list                              | Précise quels en-têtes seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, aucun en-tête n’est consigné.                                                                                                                                                                                                             |
-| Options de base : Premiers octets du corps  | integer                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                              |
+| Options de base : Premiers octets du corps  | integer                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                                    |
+| Options avancées : Commentaires         |                                   | Spécifie le niveau de verbosité. Seules les traces personnalisées avec un niveau de gravité supérieur sont journalisées. Valeur par défaut : Information.                                                                                                                                                                                                                               |
 | Options avancées : Demande du serveur frontal  |                                   | Précise si des *demandes frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *demande frontale* est une demande entrante dans le service Gestion des API Azure.                                                                                                                                                                        |
 | Options avancées : Réponse du serveur frontal |                                   | Précise si des *réponses frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *réponse frontale* est une réponse sortante du service Gestion des API Azure.                                                                                                                                                                   |
 | Options avancées : Demande principale   |                                   | Précise si des *demandes principales* seront consignées dans Azure Application Insights et, si oui, comment. Une *demande principale* est une demande sortante du service Gestion des API Azure.                                                                                                                                                                        |

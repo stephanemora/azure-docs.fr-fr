@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274819"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147341"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274819"
 >[!NOTE] 
 >Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
-Des équilibrages de charge accessibles sur Internet peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
+Des équilibreurs de charge de la référence SKU De base, accessibles sur Internet, peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
 
 * Une connectivité IPv6 de bout en bout native entre les clients Internet publics et les machines virtuelles Azure via l’équilibrage de charge
 * Une connectivité IPv6 de bout en bout native sortante entre les machines virtuelles et les clients Internet publics compatibles IPv6.
@@ -79,6 +79,7 @@ Limites
 * La modification du paramètre loadDistributionMethod pour IPv6 n’est **pas prise en charge pour le moment**.
 * Les adresses IP IPv6 réservées (où IPAllocationMethod = static) ne sont **pas prises en charge pour le moment**.
 * NAT64 (traduction d’IPv6 vers IPv4) n’est pas pris en charge.
+* Actuellement, les équilibreurs de charge de la référence SKU Standard ne prennent pas en charge les adresses IPv6.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

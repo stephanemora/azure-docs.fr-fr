@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098471"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260141"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -309,7 +309,10 @@ Une application avec une identité managée a deux variables d’environnement d
 > |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu. Il peut s’agir d’un des [services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou toute autre ressource URI.|
 > |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
 > |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET. Cet en-tête est utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF).|
-> |clientid|Requête|(Facultatif) L’ID de l’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
+> |clientid|Requête|(Facultatif sauf en cas d’attribution par l’utilisateur) ID d’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
+
+> [!IMPORTANT]
+> Si vous tentez d’obtenir des jetons pour des identités attribuées par l’utilisateur, vous devez inclure la propriété `clientid`. Sinon, le service de jetons essaie d’obtenir un jeton pour une identité attribuée par le système, laquelle peut exister ou non.
 
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
 

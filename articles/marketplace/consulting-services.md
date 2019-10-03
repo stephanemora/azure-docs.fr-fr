@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876690"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147289"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -24,15 +24,17 @@ Ces offres de services de conseil sont des engagements propres au client. Les é
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Services de conseil de la Place de marché Azure et vitrine AppSource
 Les vitrines de la Place de marché s’adaptent au public visé et aux produits cloud de Microsoft, pour que les clients puissent trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécifiques, destinées à optimiser vos efforts de publication. Ces options sont décrites dans le tableau suivant :
 
-|         |Place de marché Azure  |AppSource |
+|         |Place de marché Azure  |Microsoft AppSource |
 |---------|---------|---------|
 |**Public ciblé**   |**IT Pros et développeurs cloud**|**Utilisateurs professionnels/Décideurs métier**|
 |Pertinence de la solution     |Applications techniques générées pour ou reposant sur Azure|Applications métier qui optimisent/étendent D365, Power BI, O365, Azure (applications finies sous la forme de complément ou d’extension)|
-|Options de publication     |Me contacter, Version d’essai, Transaction ou Services de conseil|Me contacter, Version d’essai ou Services de conseil|
+|Options de publication     |Me contacter, Essai gratuit, Transact ou Services pour Azure|Me contacter, Essai gratuit ou Services pour Dynamics 365 et Power BI|
 |Expérience du produit      |Portail de gestion Azure|Dynamics 365, Office 365, applications clientes Office| 
-|Autres      |Publication locale via Azure Stack|Services de conseil pour Dynamics et Power BI|
+|Autres      |Publication locale par le biais d’Azure Stack, Services de conseil pour Azure, Services managés pour Azure|Services de conseil pour Dynamics et Power BI|
 
-Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 et Power BI peuvent être répertoriées sur AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+Les offres de services de conseil qui sont basées sur Microsoft Dynamics 365 et Power BI peuvent être listées sur Microsoft AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+
+Les offres de services de conseil et de services managés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles sur la [publication d’un service de conseil Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) et sur la [publication d’une offre de services managés sur la Place de marché Azure](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou PowerApps pour référencer leurs offres de services de conseil dans AppSource

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: 88d140c4890492b6a53c2e73328ab814293550e6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: eac9264a98c6224af56618e439a1cd3f00f7157c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994921"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146815"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -49,6 +49,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | de diffusion en continu | Niveau tarifaire pris en charge | Conteneur | Description |
 |---------|----------|----------|-------------|
 |[Détecteur d’anomalies][ad-containers] |F0, S0|**Détecteur d’anomalies** |L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès](https://aka.ms/adcontainer)|
+|[Vision par ordinateur][cv-containers] |F0, S1|**Lire** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur Lire détecte le *texte manuscrit* dans les images et prend en charge les documents PDF/TIFF/multipage.<br/><br/>**Important :** Le conteneur Lire prend uniquement en charge l’anglais.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Vision par ordinateur][cv-containers] |F0, S1|**Reconnaître le texte** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite.<br/><br/>**Important :** Le conteneur Reconnaître le texte ne fonctionne qu’en anglais pour le moment.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Visage][fa-containers] |F0, S0|**Visage** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form Recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès](https://aka.ms/FormRecognizerContainerRequestAccess)|

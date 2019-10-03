@@ -15,20 +15,22 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: bc8e8219c8f8de75b01c584a2a5ce13cc1429fec
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991773"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146892"
 ---
-# <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Verizon actuelle pour Azure CDN
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP actuelle pour Azure CDN
+
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Verizon actuelle pour Azure CDN
 
 Vous pouvez utiliser l’API REST pour récupérer l’ensemble des adresses IP pour les serveurs POP (point de présence) de Verizon. Ces serveurs POP effectuent des requêtes aux serveurs d’origine qui sont associés à des points de terminaison Azure Content Delivery Network (CDN) sur un profil Verizon (**Azure CDN Standard de Verizon** ou **Azure CDN Premium de Verizon**). Notez que cet ensemble d’adresses IP est différent des adresses IP qu’un client voit lorsqu’ils effectue des requêtes auprès des serveurs POP. 
 
 Pour connaître la syntaxe de l’opération d’API REST pour la récupération de la liste POP, consultez [Nœuds de périphérie - Liste](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
 
-# <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Microsoft actuelle pour Azure CDN
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Microsoft actuelle pour Azure CDN
 
 Pour verrouiller votre application de sorte qu’elle n’accepte que le trafic provenant de Microsoft Azure CDN, vous devez configurer les ACL IP pour votre back-end. Vous pouvez également restreindre l’ensemble des valeurs acceptées pour l’en-tête « X-Forwarded-Host » envoyé par Microsoft Azure CDN. Voici le détail de ces étapes :
 

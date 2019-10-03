@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312137"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146835"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l'aide d'étiquettes
 
@@ -23,7 +23,7 @@ Pour appliquer des étiquettes à des ressources, l'utilisateur doit disposer de
 
 ## <a name="policies"></a>Stratégies
 
-Vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour appliquer des règles et des conventions d'étiquetage. En créant une stratégie, vous éviterez que des ressources non conformes aux étiquettes attendues par votre organisation soient déployées dans le cadre de votre abonnement. Au lieu d'appliquer des étiquettes ou de rechercher des ressources non conformes manuellement, vous pouvez créer une stratégie qui appliquera automatiquement les étiquettes nécessaires pendant le déploiement. La section suivante présente des exemples de stratégies pour les étiquettes.
+Vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour appliquer des règles et des conventions d'étiquetage. En créant une stratégie, vous éviterez que des ressources non conformes aux étiquettes attendues par votre organisation soient déployées dans le cadre de votre abonnement. Au lieu d'appliquer des étiquettes ou de rechercher des ressources non conformes manuellement, vous pouvez créer une stratégie qui appliquera automatiquement les étiquettes nécessaires pendant le déploiement. Les étiquettes peuvent également être appliquées aux ressources existantes avec le nouvel effet [Modifier](../governance/policy/concepts/effects.md#modify) et une [tâche de correction](../governance/policy/how-to/remediate-resources.md). La section suivante présente des exemples de stratégies pour les étiquettes.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 

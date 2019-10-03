@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 83581b22389efe5c9c19689e3116b39ea049ccdc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 087a88322175b1908ab591a5b9afb5ae45227bb1
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694205"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177963"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -83,7 +83,7 @@ Nous avons augmenté les limites de stockage dans nos niveaux de service Usage g
 
 Les serveurs avec moins de 100 Go de stockage approvisionnés sont marqués en lecture seule si l’espace de stockage libre est inférieur à 512 Mo ou à 5 % de la taille approvisionnée. Les serveurs avec plus de 100 Go de stockage approvisionnés sont marqués en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
 
-Par exemple, si vous avez approvisionné 110 Go de stockage et que l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Sinon, si vous avez approvisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 512 Mo.
+Par exemple, si vous avez approvisionné 110 Go de stockage et que l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Sinon, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule quand le stockage disponible est inférieur à 256 Mo.
 
 Pendant que le service tente de marquer le serveur en lecture seule, toutes les nouvelles demandes de transactions d’écriture sont bloquées et les transactions actives existantes continuent de s’exécuter. Une fois que le serveur est marqué en lecture seule, toutes les opérations d’écriture et validations de transaction ultérieures échouent. Les requêtes de lecture continueront de fonctionner sans interruption. Après avoir augmenté le stockage provisionné, le serveur sera prêt à accepter de nouvelles transactions d’écriture.
 
@@ -91,11 +91,11 @@ Nous vous recommandons d’activer la croissance automatique du stockage ou de c
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-La croissance automatique du stockage permet à votre serveur de toujours disposé d’un espace de stockage suffisant et à ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 Go dès que l’espace de stockage libre est inférieur à 1 Go ou 10 % (selon la valeur la plus élevée) du stockage approvisionné. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
+La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage provisionnés, la taille de stockage provisionné augmente de 5 Go quand l’espace de stockage libre est inférieur à 10 % de la taille de stockage provisionné. Pour les serveurs avec plus de 100 Go de stockage provisionnés, la taille de stockage provisionné augmente de 5 % quand l’espace de stockage libre est inférieur à 10 % de la taille de stockage provisionné. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
 
-Par exemple, si vous avez approvisionné 1 000 Go de stockage et que l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur passe à 1 050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
+Par exemple, si vous avez provisionné 1000 Go de stockage et que l’utilisation réelle dépasse 900 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
 
-Le stockage peut seulement monter en puissance.
+N’oubliez pas que le stockage peut seulement monter en puissance.
 
 ## <a name="backup"></a>Sauvegarde
 

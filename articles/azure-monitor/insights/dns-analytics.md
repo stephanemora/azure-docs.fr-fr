@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982583"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265167"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -179,6 +179,12 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 1. Dans la **zone de requête de recherche**, tapez `DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
 
     ![Recherche dans les journaux des inventaires DNS](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>Résolution de problèmes
+
+Étapes de résolution des problèmes courantes :
+
+1. Données de recherches DNS manquantes : Pour résoudre ce problème, essayez de réinitialiser la configuration ou simplement de charger la page de configuration une fois dans le portail. Pour la réinitialisation, il vous suffit de modifier un paramètre en lui affectant une autre valeur, puis de rétablir la valeur d’origine et d’enregistrer la configuration.
 
 ## <a name="feedback"></a>Commentaires
 

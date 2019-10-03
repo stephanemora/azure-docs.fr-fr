@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910605"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202016"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -38,7 +38,7 @@ Pour réduire l’exposition aux attaques par force brute, vous pouvez limiter l
 
 Lorsque la fonctionnalité juste-à-temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau (NSG). Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution juste-à-temps.
 
-Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui lui permettent de demander l’accès à une machine virtuelle. Si la requête est approuvée, Security Center configure automatiquement les groupes de sécurité réseau (NSG) et le pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés et vers les plages ou adresses IP source demandées, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Ces connexions déjà établies ne sont cependant pas interrompues.
+Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) sur cette machine virtuelle. Si la requête est approuvée, Security Center configure automatiquement les groupes de sécurité réseau (NSG) et le pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés et vers les plages ou adresses IP source demandées, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Ces connexions déjà établies ne sont cependant pas interrompues.
 
  > [!NOTE]
  > Si une demande d’accès juste-à-temps est approuvée pour une machine virtuelle derrière un pare-feu Azure, Security Center modifie automatiquement les règles de stratégie du groupe de sécurité réseau et du pare-feu. Pendant la durée qui a été spécifiée, les règles autorisent le trafic entrant vers les ports sélectionnés et les plages ou adresses IP sources demandées. Une fois la durée écoulée, Security Center restaure les règles du groupe de sécurité réseau et du pare-feu à leur état précédent.

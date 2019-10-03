@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités de recherche à l’aide de notebooks dans Azure Sentinel en préversion | Microsoft Docs
+title: Fonctionnalités de recherche à l’aide de notebooks dans Azure Sentinel | Microsoft Docs
 description: Cet article décrit comment utiliser des notebooks avec les fonctionnalités de recherche Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,19 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6372a7958caf108903321e5ee87ea6bf1a42271c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5b90ecc1db686b698668b07bd839304b425445ca
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689596"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240523"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
-
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Sentinel repose sur le magasin de données. Il associe des capacités d’interrogation hautes performances, un schéma dynamique et s’adapte aux volumes de données importants. Le portail Azure Sentinel et tous les outils Azure Sentinel utilisent une API commune pour accéder à ce magasin de données. La même API est également disponible pour les outils externes tels que les notebooks [Jupyter](https://jupyter.org/) et Python. Bien que de nombreuses tâches courantes puissent être effectuées dans le portail, Jupyter étend l’étendue de ce que vous pouvez faire avec ces données. Il combine une programmabilité totale à une vaste collection de bibliothèques pour l’apprentissage automatique, la visualisation et l’analyse des données. Ces attributs transforment Jupyter en un outil essentiel pour les scénarios de recherche et d’enquête relatifs à la sécurité.
 

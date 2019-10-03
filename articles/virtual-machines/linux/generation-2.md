@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: lahugh
-ms.openlocfilehash: 5dbd13775bd91a2bab3a7a4989cb14f4d7b44fa8
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 6bd74fa299385acb1abe4b32db5d35366249eaa6
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900732"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173927"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Prise en charge des machines virtuelles de 2e génération (préversion) sur Azure
 
@@ -49,7 +49,7 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 * [Série NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) et [série NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [Série ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [Série NVv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Images de machine virtuelle de 2e génération dans la Place de marché Azure
 
@@ -80,20 +80,21 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 
 | Fonctionnalité | Génération 1 | Génération 2 |
 |---------|--------------|--------------|
-| Démarrage             | PCAT                      | UEFI                               |
-| Contrôleurs de disque | IDE                       | SCSI                               |
+| Démarrage             | PCAT         | UEFI |
+| Contrôleurs de disque | IDE          | SCSI |
 | Tailles de machine virtuelle         | Toutes les tailles de machine virtuelle | Uniquement les machines virtuelles qui prennent en charge le stockage Premium |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Capacités de 1ère et 2e générations
 
 | Fonctionnalité | Génération 1 | Génération 2 |
 |------------|--------------|--------------|
-| Disque OS > 2 To                    | :x:                        | :heavy_check_mark: |
-| Disque/image/système d’exploitation d’échange personnalisé         | :heavy_check_mark:         | :heavy_check_mark: |
-| Prise en charge de groupes de machines virtuelles identiques | :heavy_check_mark:         | :heavy_check_mark: |
-| Sauvegarde et récupération automatique du système                        | :heavy_check_mark:         | :x:                |
-| Galerie d’images partagées              | :heavy_check_mark:         | :x:                |
-| Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
+| Disque OS > 2 To                    | :x:                | :heavy_check_mark: |
+| Disque/image/système d’exploitation d’échange personnalisé         | :heavy_check_mark: | :heavy_check_mark: |
+| Prise en charge de groupes de machines virtuelles identiques | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Sauvegarde/restauration                    | :heavy_check_mark: | :heavy_check_mark: |
+| Galerie d’images partagées              | :heavy_check_mark: | :x:                |
+| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Création d’une machine virtuelle de 2e génération
 
@@ -101,14 +102,37 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 
 Dans le portail Azure ou Azure CLI, vous pouvez créer des machines virtuelles de 2e génération à partir d’une image de la Place de marché qui prend en charge le démarrage UEFI.
 
-L’offre `windowsserver-gen2preview` contient uniquement des images Windows de 2e génération. Ce package permet d’éviter toute confusion entre images de 1ère et 2e génération. Pour créer une machine virtuelle de 2e génération, sélectionnez **Images** dans cette offre et suivrez le processus standard de création d’une machine virtuelle.
+#### <a name="azure-portal"></a>Portail Azure
 
-Actuellement, la Place de marché offre les images Windows de 2e génération suivantes :
+Les images de génération 2 pour Windows et SLES sont incluses dans la même offre serveur que celle des images Gen1. Du point de vue du flux, cela signifie que vous sélectionnez l’offre et le SKU à partir du portail de votre machine virtuelle. Si le SKU prend en charge les images de génération 1 et de génération 2, vous pouvez choisir de créer une machine virtuelle de génération 2 à partir de l’onglet *Avancé* dans le flux de création de machine virtuelle.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+Les SKU suivants prennent en charge les images de génération 1 et de génération 2 :
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+Quand vous sélectionnez une offre correspondant au SKU Windows Server, sous l’onglet **Avancé**, vous pouvez créer une machine virtuelle **Génération 1** (BIOS) ou **Génération 2** (UEFI). Si vous sélectionnez **Génération 2**, vérifiez que la taille de la machine virtuelle sélectionnée sous l’onglet **Général** est [prise en charge pour les machines virtuelles de génération 2](#generation-2-vm-sizes).
+
+![Sélectionner une machine virtuelle de génération 1 ou de génération 2](./media/generation-2/gen1-gen2-select.png)
+
+#### <a name="powershell"></a>PowerShell
+
+Vous pouvez également utiliser PowerShell pour créer une machine virtuelle en référençant directement le SKU de génération 1 ou de génération 2.
+
+Par exemple, utilisez l’applet de commande PowerShell suivante pour obtenir une liste des SKU dans l’offre `WindowsServer`.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Si vous créez une machine virtuelle avec le système d’exploitation Windows Server 2012, vous devez sélectionner le SKU de machine virtuelle génération 1 (BIOS) ou génération 2 (UEFI), comme suit :
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 Consultez la section [ Fonctionnalités et capacités](#features-and-capabilities) pour obtenir une liste actuelle des images de la Place de marché prises en charge.
 
@@ -130,8 +154,8 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
 
 * **J’ai un fichier .vhd de ma machine virtuelle de 2e génération locale. Puis-je utiliser ce fichier .vhd pour créer une machine virtuelle de 2e génération dans Azure ?**
   Oui, vous pouvez placer votre fichier .vhd de 2e génération sur Azure et l’utiliser pour créer une machine virtuelle de 2e génération. Pour ce faire, procédez comme suit :
-    1. Chargez le fichier. vhd sur un compte de stockage situé dans la région où vous souhaitez créer votre machine virtuelle.
-    1. Créez un disque managé à partir du fichier .vhd. Affectez à la propriété Génération Hyper-V la valeur V2. Les commandes PowerShell suivantes définissent la propriété Génération Hyper-V lors de la création d’un disque managé.
+    1. Chargez le fichier .vhd sur un compte de stockage situé dans la région où vous souhaitez créer votre machine virtuelle.
+    1. Créez un disque managé à partir du fichier .vhd. Affectez à la propriété Génération Hyper-V la valeur V2. Les commandes PowerShell suivantes définissent la propriété Génération Hyper-V au moment de la création d’un disque managé.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>

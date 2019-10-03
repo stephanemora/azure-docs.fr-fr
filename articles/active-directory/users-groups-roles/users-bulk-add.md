@@ -1,5 +1,5 @@
 ---
-title: Importer en bloc pour ajouter des utilisateurs (préversion) dans le portail Azure Active Directory | Microsoft Docs
+title: Créer des utilisateurs en bloc (préversion) dans le portail Azure Active Directory | Microsoft Docs
 description: Ajouter des utilisateurs en bloc dans le centre d’administration Azure AD dans Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901309"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146306"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Importer des utilisateurs en bloc (préversion) dans Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Créer des utilisateurs en bloc (préversion) dans Azure Active Directory
 
 Azure Active Directory (Azure AD) prend en charge les opérations de création, de suppression et d’invitation en bloc d’utilisateurs, ainsi que le téléchargement de listes d’utilisateurs, de groupes et de membres de groupes.
 
@@ -37,6 +37,9 @@ Pour créer des utilisateurs en bloc dans le portail d’administration, vous de
 1. [Connectez-vous à votre organisation Azure AD](https://aad.portal.azure.com) avec un compte Administrateur d’utilisateurs de celle-ci.
 1. Dans Azure AD, sélectionnez **Utilisateurs** > **Créer en bloc**.
 1. Dans la page **Créer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier de valeurs séparées par des virgules (CSV) valide contenant des propriétés utilisateur, puis ajoutez-y vos nouveaux utilisateurs.
+
+   ![Le fichier CSV contient les noms et les ID des utilisateurs à créer](./media/users-bulk-add/add-csv-file.png)
+
 1. Lorsque vous avez fini de modifier le fichier CSV ou si vous avez un fichier prêt pour chargement, sélectionnez **Charger votre fichier CSV** pour valider l’opération.
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à ajouter](./media/users-bulk-add/upload-button.png)

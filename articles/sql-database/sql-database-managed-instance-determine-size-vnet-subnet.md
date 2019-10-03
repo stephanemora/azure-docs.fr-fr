@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 4b627b13fb79cd5105a95d9161d9239f28f2e062
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567505"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273552"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Déterminer la taille du sous-réseau d’un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -29,7 +29,7 @@ Quand vous créez une option Managed Instance, Azure alloue plusieurs machines v
 Par défaut, une option Managed Instance a besoin d’un minimum de 16 adresses IP dans un sous-réseau et peut en utiliser jusqu’à 256. Ainsi, vous pouvez utiliser un masque de sous-réseau entre /28 et /24 lors de la définition de vos plages d’adresses IP de sous-réseau. Un bit de masque de réseau de /28 (14 hôtes par réseau) convient à un usage général ou à un déploiement critique pour l'entreprise. Un bit de masque de /27 (30 hôtes par réseau) est idéal pour plusieurs déploiements de Managed Instance au sein du même réseau virtuel. Les paramètres de bit de masque de /26 (62 hôtes) et /24 (254 hôtes) permettent une meilleure mise à l'échelle du réseau virtuel afin de prendre en charge plus de déploiements de Managed Instance.
 
 > [!IMPORTANT]
-> La taille d'un sous-réseau avec 16 adresses IP correspond au minimum absolu avec un potentiel limité pour la montée en puissance ultérieure de Managed Instance. Le choix d'un sous-réseau avec le préfixe /27 ou un préfixe inférieur est fortement recommandé.
+> Une taille de sous-réseau avec 16 adresses IP est le strict minimum, avec un potentiel limité où une opération de mise à l’échelle telle que la modification de taille vCore n’est pas prise en charge. Le choix d’un sous-réseau avec le préfixe /27 ou le préfixe le plus long est fortement recommandé.
 
 ## <a name="determine-subnet-size"></a>Déterminer la taille du sous-réseau
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564746"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262045"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -101,19 +101,19 @@ La plupart des services Azure envoient des [métriques de plateforme](data-platf
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
 | Métriques Azure Monitor | Les métriques de la plate-forme seront inscrites dans la base de données de métriques Azure Monitor, sans aucune configuration. Accédez aux métriques de la plate-forme depuis Metrics Explorer.  | [Prise en main de l’explorateur de métriques Azure](metrics-getting-started.md)<br>[Mesures prises en charge avec Azure Monitor](metrics-supported.md) |
-| Journaux d’activité Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](diagnostic-logs-stream-log-store.md) |
+| Journaux d’activité Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](resource-logs-collect-workspace.md) |
 | Event Hubs | Diffusez en continu des métriques sur d’autres emplacements à l'aide d’Event Hubs. |[Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](stream-monitoring-data-event-hubs.md) |
 
-### <a name="diagnostic-logs"></a>Journaux de diagnostic
-Les [journaux de diagnostic](diagnostic-logs-overview.md) fournissent des informations sur le fonctionnement _interne_ d'une ressource Azure.  Les journaux de diagnostic ne sont pas activés par défaut. Vous devez les activer et spécifier une destination pour chaque ressource. 
+### <a name="resource-logs"></a>Journaux d’activité de ressources
+Les [journaux de ressources](resource-logs-overview.md) fournissent des insights sur le fonctionnement _interne_ d’une ressource Azure.  Les journaux de ressources sont créés automatiquement, mais vous devez créer un paramètre de diagnostic pour spécifier une destination pour eux.
 
-Les exigences de configuration et le contenu des journaux de diagnostic varient selon le type de ressource, et tous les services ne créent pas encore de journaux de diagnostic. Consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](diagnostic-logs-schema.md) pour plus de détails sur chaque service et des liens vers les procédures de configuration détaillées. Si le service n'est pas répertorié dans cet article, alors ce service n'écrit actuellement aucune donnée dans les journaux de diagnostic.
+La configuration requise et le contenu des journaux de ressources varient selon le type de ressource, et tous les services ne créent pas encore de tels journaux. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](diagnostic-logs-schema.md) pour plus d’informations sur chaque service et des liens vers les procédures de configuration détaillées. Si le service n’est pas répertorié dans cet article, alors il ne crée actuellement pas de journaux d’activité de ressources.
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Envoyer les journaux de diagnostic aux journaux Azure Monitor pour analyse avec d'autres données de journaux collectées. Certaines ressources peuvent écrire directement dans Azure Monitor, tandis que d'autres écrivent dans un compte de stockage avant d'être importées dans un espace de travail Log Analytics. | [Diffuser en continu les journaux de diagnostic Azure vers un espace de travail Log Analytics d'Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Utiliser le portail Azure pour collecter les journaux d’activité à partir de Stockage Azure](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| Stockage | Envoyez les journaux de diagnostic vers Stockage Azure à des fins d’archivage. | [Archivage des journaux de diagnostic Azure](archive-diagnostic-logs.md) |
-| Event Hubs | Diffusez en continu des journaux de diagnostic sur d’autres emplacements à l'aide d’Event Hubs. |[Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements](diagnostic-logs-stream-event-hubs.md) |
+| Journaux Azure Monitor | Envoyez les journaux d’activité de ressources aux journaux Azure Monitor pour analyse avec d’autres données de journaux collectées. | [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](resource-logs-collect-storage.md) |
+| Stockage | Envoyez les journaux d’activité de ressources vers Stockage Azure à des fins d’archivage. | [Archiver les journaux d’activité de ressources Azure](resource-logs-collect-workspace.md) |
+| Event Hubs | Diffusez en continu des journaux d’activité de ressources sur d’autres emplacements à l’aide d’Event Hubs. |[Streaming des journaux d’activité de ressources Azure sur un hub d’événements](resource-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>Système d’exploitation (invité)
 Les ressources de calcul dans Azure, dans d’autres clouds et en local ont un système d’exploitation invité à surveiller. Avec l’installation d’un ou plusieurs agents, vous pouvez collecter la télémétrie de l’invité dans Azure Monitor pour l’analyser avec les mêmes outils de surveillance qu’utilisent les services Azure eux-mêmes.

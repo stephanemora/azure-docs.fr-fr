@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501356"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200457"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets) représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Chaque type de nœud que vous définissez dans un cluster Azure Service Fabric configure une mise à l’échelle différente.  Le runtime Service Fabric installé sur chaque machine virtuelle dans le groupe identique par l’extension de machine virtuelle Microsoft.Azure.ServiceFabric. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, modifier la référence SKU du système d’exploitation s’exécutant sur chaque nœud de cluster, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.
@@ -78,7 +78,7 @@ Voici les descriptions des propriétés :
 | **Nom** | **Valeurs autorisées** | ** --- ** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 | name | string | --- | Nom unique de l’extension |
-| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode | --- | Identifie le système d’exploitation sur lequel démarre Service Fabric |
+| Type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | --- | Identifie le système d’exploitation sur lequel démarre Service Fabric |
 | autoUpgradeMinorVersion | true ou false | --- | Active la mise à niveau automatique des versions mineures du runtime SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nom de l’éditeur d’extension Service Fabric |
 | clusterEndpont | string | --- | URI : port vers le point de terminaison de gestion |

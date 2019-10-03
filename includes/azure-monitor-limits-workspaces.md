@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70392906"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210213"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -64,6 +64,19 @@ ms.locfileid: "70392906"
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
 | Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite devrait être traitée d’ici à la fin du mois d’octobre 2019. |
 | Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
+
+**Débit d’ingestion de données**
+
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le débit d’ingestion maximal est défini sur **500 Mo/min** pour chaque espace de travail. Si vous envoyez des données vers un espace de travail à un débit supérieur, certaines données seront supprimées et un événement sera envoyé toutes les six heures à la table *Opération* de votre espace de travail tant que le seuil sera dépassé. Si votre volume d’ingestion continue de dépasser le débit maximal, ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
+ 
+Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](../articles/azure-monitor/platform/alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 >[!NOTE]
 >En fonction de la durée pendant laquelle vous utilisez Log Analytics, vous pouvez avoir accès aux niveaux de tarification hérités. En savoir plus sur les [niveaux tarifaires hérités de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

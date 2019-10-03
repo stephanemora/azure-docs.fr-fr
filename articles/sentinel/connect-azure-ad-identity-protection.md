@@ -1,5 +1,5 @@
 ---
-title: Connexion des données Azure AD Identity Protection à Azure Sentinel (préversion) | Microsoft Docs
+title: Connexion des données Azure AD Identity Protection à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter les données Azure AD Identity Protection à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7478e5a5ec2260760bb6ddb1a90a66e3acdf2201
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129255"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240797"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Connecter des données depuis Azure AD Identity Protection
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Vous pouvez diffuser des journaux en continu depuis [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) vers Azure Sentinel pour transmettre en continu des alertes à Azure Sentinel et afficher des tableaux de bord, créer des alertes personnalisées et améliorer les examens. Azure Active Directory Identity Protection fournit une vue consolidée des utilisateurs à risque, des détections de risques et des vulnérabilités, et permet d’éliminer ces risques immédiatement et de définir des stratégies de remédiation automatique pour les événements futurs. Le service repose sur l’expérience de Microsoft en matière de protection des identités des consommateurs et bénéficie d’une précision spectaculaire grâce à plus de 13 milliards d’ouvertures de session par jour. 
 
@@ -53,4 +51,4 @@ Si Azure AD Identity Protection est déployé et obtient des données, les donn
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Azure AD Identity Protection à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).

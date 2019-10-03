@@ -1,18 +1,18 @@
 ---
 title: Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 description: Cet article explique comment utiliser votre propre clé Azure Key Vault pour chiffrer des données stockées dans Apache Kafka sur Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000099"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122680"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 
@@ -22,7 +22,7 @@ Tous les disques managés dans HDInsight sont protégés par Azure Storage Servi
 
 Le chiffrement BYOK est un processus en une étape géré pendant la création d’un cluster sans coût supplémentaire. Il vous suffit d’inscrire HDInsight comme identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement pendant la création du cluster.
 
-Tous les messages adressés au cluster Kafka (y compris les réplicas gérés par Kafka) sont chiffrés avec une clé de chiffrement de données (DEK) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight. 
+Tous les messages adressés au cluster Kafka (y compris les réplicas gérés par Kafka) sont chiffrés avec une clé de chiffrement de données (DEK) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight.
 
 Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé alterne, le cluster HDInsight Kafka démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés « Suppression réversible » pour vous protéger contre les scénarios de ransomware et de suppression accidentelle. Les coffres de clés dépourvus de cette fonctionnalité de protection ne sont pas pris en charge.
 
@@ -46,6 +46,7 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
    1. Pour créer un coffre de clés, suivez le guide de démarrage rapide [Azure Key Vault](../../key-vault/key-vault-overview.md). Pour plus d’informations sur l’importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../../key-vault/about-keys-secrets-and-certificates.md).
 
    2. Activez la fonctionnalité « Suppression réversible » sur le coffre de clés à l’aide de la commande CLI [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update).
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -58,16 +59,16 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
 
         b. Définissez **Options** sur **Générer** et donnez un nom à la clé.
 
-        ![Générer le nom de la clé](./media/apache-kafka-byok/apache-kafka-create-key.png "Générer le nom de la clé")
+        ![Apache Kafka : Générer le nom de la clé](./media/apache-kafka-byok/apache-kafka-create-key.png "Générer le nom de la clé")
 
         c. Sélectionnez la clé que vous avez créée dans la liste des clés.
 
-        ![Liste des clés Azure Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Apache Kafka - Liste des clés Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. Lorsque vous utilisez votre propre clé pour le chiffrement du cluster Kafka, vous devez fournir l’URI de la clé. Copiez l’**identificateur de clé** et enregistrez-le quelque part jusqu’à la création du cluster.
 
-        ![Copier l’identificateur de clé](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Apache Kafka - Obtenir l’identificateur de clé d’accès](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. Ajoutez l’identité managée à la stratégie d’accès au coffre de clés.
 
         a. Créez une stratégie d’accès Azure Key Vault.
@@ -99,6 +100,7 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
    Pendant la création du cluster, indiquez l’URL complète de la clé en incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
 
 ## <a name="rotating-the-encryption-key"></a>Rotation de la clé de chiffrement
+
    Dans certains scénarios, vous pouvez être amené à modifier les clés de chiffrement qui sont utilisées par le cluster Kafka une fois que celui-ci a été créé. Cette tâche peut être facilement effectuée dans le portail. Pour cette opération, le cluster doit avoir accès à la clé actuelle et à la nouvelle clé prévue. Sinon, l’opération de rotation des clés échouera.
 
    Pour procéder à la rotation des clés, vous devez disposer de l’URL complète de la nouvelle clé (voir l’étape 3 de [Configurer Key Vault et les clés](#setup-the-key-vault-and-keys)). Une fois que vous avez effectué cette opération, accédez à la section Propriétés du cluster Kafka dans le portail, puis cliquez sur **Changer de clé** sous **URL de la clé de chiffrement de disque**. Entrez la nouvelle URL de clé et envoyez-la pour effectuer la rotation.
@@ -122,7 +124,7 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
 **Que se passe-t-il si le cluster ne peut plus accéder au coffre de clés ou à la clé ?**
 Si le cluster ne peut plus accéder à la clé, des avertissements s’affichent dans le portail Apache Ambari. Dans ce cas, l’opération **Changer la clé** échouera. Une fois l’accès à la clé rétabli, les avertissements Ambari disparaissent et les opérations telles que la rotation des clés peuvent de nouveau être effectuées.
 
-   ![Alerte Ambari concernant l’accès à la clé dans Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Apache Kafka - Alerte Ambari concernant l’accès aux clés](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **Comment puis-je récupérer le cluster si les clés sont supprimées ?**
 

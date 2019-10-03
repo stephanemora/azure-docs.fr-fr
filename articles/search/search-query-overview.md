@@ -7,73 +7,57 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647967"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178012"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
+# <a name="query-types-and-composition-in-azure-search"></a>Types et composition de requête dans Recherche Azure
 
-Dans Recherche Azure, une requête est une spécification complète d’une opération d’aller-retour. Les paramètres de la requête fournissent des critères de correspondance pour la recherche de documents dans un index, des instructions d'exécution pour le moteur et des directives pour la mise en forme de la réponse. 
+Dans Recherche Azure, une requête est une spécification complète d’une opération d’aller-retour. Les paramètres de la requête fournissent des critères de correspondance pour la recherche de documents dans un index, les champs à inclure ou exclure, les instructions d’exécution transmises au moteur et des directives pour la mise en forme de la réponse. Non spécifiée (`search=*`), une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
 
-Une demande de requête permet de spécifier les champs à prendre en compte, la méthode de recherche, les champs à renvoyer, les critères de tri ou de filtre, etc. Non spécifiée, une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
-
-## <a name="apis-and-tools-for-testing"></a>API et outils de test
-
-Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
-
-| Méthodologie | Description |
-|-------------|-------------|
-| [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
-| [Postman ou Fiddler](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
-
-## <a name="a-first-look-at-query-requests"></a>Présentation rapide des demandes de requête
-
-Les exemples sont utiles pour présenter de nouveaux concepts. En tant que requête représentative construite dans [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), cet exemple cible [l’index immobilier de démonstration](search-get-started-portal.md) et inclut des paramètres communs.
+L’exemple suivant est une requête représentative construite dans l’[API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Cet exemple cible l’[index de démonstration des hôtels](search-get-started-portal.md) et comprend des paramètres courants.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** définit l’analyseur. Dans Recherche Azure, cet analyseur peut être [l’analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou [l’analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques, et bien d’autres encore.
++ **`queryType`** définit l’analyseur qui peut être l’[analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’[analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
 
 + **`search`** fournit le critère de correspondance, généralement le texte, qui est néanmoins souvent accompagné d’opérateurs booléens. Les termes autonomes uniques constituent des requêtes de *terme*. Les requêtes en plusieurs parties entre guillemets sont des requêtes *d’expression clé*. Si la recherche peut être non définie, comme dans **`search=*`** , elle se compose le plus souvent de termes, d’expressions et d’opérateurs, tel qu’illustré dans l’exemple.
 
-+ **`searchFields`** est facultatif et utilisé pour limiter l’application de la requête à des champs spécifiques.
++ **`searchFields`** limite l’exécution des requêtes à des champs spécifiques. Tout champ attribué en tant que champ avec *possibilité de recherche* dans le schéma d’index peut être utilisé avec ce paramètre.
 
-Les réponses sont également mises en forme par les paramètres que vous incluez dans la requête. Dans l’exemple, le jeu de résultats se compose de champs répertoriés dans l’instruction **`select`** . Seules les 10 premières correspondances sont retournées pour cette requête, mais **`count`** vous indique combien de documents correspondent au total. Dans cette requête, les lignes sont triées à l’aide du critère daysOnMarket.
+Les réponses sont également mises en forme par les paramètres que vous incluez dans la requête. Dans l’exemple, le jeu de résultats se compose de champs répertoriés dans l’instruction **`select`** . Seuls les champs marqués comme *récupérables* peuvent être utilisés dans une instruction $select. De plus, seules les 10 correspondances **`top`** sont retournées dans cette requête, et **`count`** indique le nombre total de documents correspondants, qui peut être supérieur au nombre de correspondances retournées. Dans cette requête, les lignes sont triées par évaluation dans l’ordre décroissant.
 
 Dans Recherche Azure, la requête s’exécute toujours sur un seul index qui est authentifié à l’aide d’une clé d’API (api-key) fournie dans la requête. Dans l’API REST, les deux éléments sont fournis dans les en-têtes de la requête.
 
 ### <a name="how-to-run-this-query"></a>Comment exécuter cette requête
 
-Pour exécuter cette requête, utilisez l’option [Search explorer and the real estate demo index](search-get-started-portal.md) (Rechercher dans l’explorateur et l’index immobilier de démonstration). 
+Pour exécuter cette requête, utilisez [l’explorateur de recherche et l’index de démonstration des hôtels](search-get-started-portal.md). 
 
-Vous pouvez coller cette chaîne de requête dans la barre de recherche de l’explorateur : `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+Vous pouvez coller cette chaîne de requête dans la barre de recherche de l’explorateur : `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Comment les opérations de requête sont activées par l’index
 
 La conception des index et la conception des requêtes sont étroitement liées dans Recherche Azure. Il est important de savoir que le *schéma d’index*, qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
 
-Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré*, etc. Dans l’exemple de chaîne de requête, `"$orderby": "daysOnMarket"` fonctionne uniquement parce que le champ daysOnMarket est marqué comme *triable* dans le schéma d’index. 
+Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré*, etc. Dans l’exemple de chaîne de requête, `"$orderby": "Rating"` fonctionne uniquement parce que le champ Évaluation est marqué comme *triable* dans le schéma d’index. 
 
-![Définition de l’index pour l’exemple d’index immobilier](./media/search-query-overview/realestate-sample-index-definition.png "Définition de l’index pour l’exemple d’index immobilier")
+![Définition d’index pour l’exemple des hôtels](./media/search-query-overview/hotel-sample-index-definition.png "Définition d’index pour l’exemple des hôtels")
 
-La capture d’écran ci-dessus est une liste partielle des attributs d’index pour l’exemple d’index immobilier. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+La capture d’écran ci-dessus présente une liste partielle des attributs d’index pour l’exemple des hôtels. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
 > Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](search-synonyms.md), les [analyseurs personnalisés](index-add-custom-analyzers.md), les [constructions de générateur de suggestions (pour les requêtes de saisie semi-automatique et de suggestion automatique)](index-add-suggesters.md) et la [logique de notation pour le classement des résultats](index-add-scoring-profiles.md).
@@ -92,22 +76,33 @@ Les éléments obligatoires dans une demande de requête incluent les composants
 
 Tous les autres paramètres de recherche sont facultatifs. Pour obtenir la liste complète des attributs, consultez la section relative à la [création d’index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Pour en savoir plus sur le rôle des paramètres lors du traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md).
 
+## <a name="choose-apis-and-tools"></a>Choisir les API et les outils
+
+Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
+
+| Méthodologie | Description |
+|-------------|-------------|
+| [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. Il est recommandé pour l’exploration, le test et la validation. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
+| [Postman ou autres outils REST](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
+
 ## <a name="choose-a-parser-simple--full"></a>Choisir un analyseur : simple | full
 
 Le service Recherche Azure repose sur Apache Lucene et vous offre le choix entre deux analyseurs de requêtes pour la gestion des requêtes classiques et spécialisées. Les requêtes qui utilisent l’analyseur simple sont formulées à l’aide de la [syntaxe de requête simple](query-simple-syntax.md), qui est sélectionnée par défaut pour sa rapidité et son efficacité dans les requêtes de texte au format libre. Cette syntaxe prend en charge un certain nombre d’opérateurs de recherche courants, notamment les opérateurs AND, OR, NOT, les expressions, les suffixes et les opérateurs de priorité.
 
 La [syntaxe de requête complète Lucene](query-Lucene-syntax.md#bkmk_syntax), activée lorsque vous ajoutez `queryType=full` à la requête, expose le langage de requête expressif et largement adopté développé dans le cadre [d’Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La syntaxe complète étend la syntaxe simple. Toute requête que vous écrivez avec la syntaxe simple s’exécute dans l’analyseur Lucene complet. 
 
-Les exemples suivants illustrent parfaitement la situation : la même requête, mais avec des paramètres queryType différents, génère des résultats différents. Dans la première requête, l’élément `^3` est traité comme une partie du terme recherché.
+Les exemples suivants illustrent parfaitement la situation : la même requête, mais avec des paramètres queryType différents, génère des résultats différents. Dans la première requête, l’élément `^3` après `historic` est traité comme une partie du terme recherché. Pour cette requête, le résultat qui arrive en tête du classement est « Marquis Plaza & Suites », dont la description comprend le terme *ocean*.
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-La même requête exécutée via l’analyseur Lucene complet donne la priorité au terme « ranch » dans les champs, ce qui élève le rang des résultats contenant ce terme spécifique.
+La même requête exécutée à l’aide de l’analyseur Lucene complet interprète `^3` comme élément de champ prioritaire. Le changement d’analyseur modifie le classement. Ainsi, les résultats contenant le terme *historic* arrivent en tête.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>

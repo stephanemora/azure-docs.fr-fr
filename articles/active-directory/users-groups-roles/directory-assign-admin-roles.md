@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70861162"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219357"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -68,8 +68,6 @@ Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les infor
 * Lecteur du Centre de messages
 * Lecteur de rapports
 
-Le rôle d’administrateur d’authentification est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!IMPORTANT]
 > Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
 
@@ -78,6 +76,12 @@ Le rôle d’administrateur d’authentification est actuellement en préversion
 * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
 * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
 * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
+
+### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Administrateur Azure DevOps](#azure-devops-administrator-permissions)
+
+Les utilisateurs disposant de ce rôle peuvent gérer la stratégie Azure DevOps pour restreindre la création d’une nouvelle organisation Azure DevOps à un ensemble d’utilisateurs ou de groupes configurables. Les utilisateurs de ce rôle peuvent gérer cette stratégie par le biais de n’importe quelle organisation Azure DevOps secondée par l’organisation Azure AD de l’entreprise.
+
+Toutes les stratégies Azure DevOps d’entreprise peuvent être gérées par les utilisateurs de ce rôle.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Administrateur Azure Information Protection](#azure-information-protection-administrator-permissions)
 
@@ -491,6 +495,19 @@ Permet d’afficher, de définir et de réinitialiser les informations de métho
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 | microsoft.directory/users/password/update | Mettez à jour les mots de passe de tous les utilisateurs de l’organisation Office 365. Pour plus d’informations, consultez la documentation en ligne. |
+
+### <a name="azure-devops-administrator-permissions"></a>Autorisations de l’administrateur Azure DevOps
+
+Peut gérer la stratégie et les paramètres de l’organisation Azure DevOps.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la [description des rôles](#azure-devops-administrator) ci-dessus.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.devOps/allEntities/allTasks | Lisez et configurez Azure DevOps. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Autorisations d’administrateur Azure Information Protection
 

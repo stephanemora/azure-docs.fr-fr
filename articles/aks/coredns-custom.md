@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 909b32890ea7ff33d6b5b5db3bb55f36f7007c6b
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018664"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130015"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personnaliser CoreDNS avec Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ AKS (Azure Kubernetes Service) utilise le projet [CoreDNS][coredns] pour la gest
 
 AKS étant un service managé, vous ne pouvez pas modifier la configuration principale pour CoreDNS (fichier *CoreFile*). Au lieu de cela, vous utilisez un fichier *ConfigMap* Kubernetes pour remplacer les paramètres par défaut. Pour afficher les ConfigMaps CoreDNS AKS par défaut, utilisez la commande `kubectl get configmaps --namespace=kube-system coredns -o yaml`.
 
-Cet article vous montre comment utiliser les ConfigMaps pour les options de personnalisation de base de CoreDNS dans AKS.
+Cet article vous montre comment utiliser les ConfigMaps pour les options de personnalisation de base de CoreDNS dans AKS. Cette approche diffère de la configuration de CoreDNS dans d’autres contextes comme l’utilisation de CoreFile. Vérifiez la version de CoreDNS que vous exécutez, car les valeurs de configuration peuvent changer d’une version à l’autre.
 
 > [!NOTE]
 > `kube-dns` proposait différentes [options de personnalisation][kubednsblog] via une carte de configuration Kubernetes. CoreDNS n’est **pas** rétrocompatible avec kube-dns. Les personnalisations que vous avez utilisées précédemment doivent être mises à jour pour pouvoir être utilisées avec CoreDNS.
@@ -31,7 +31,7 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 
 ## <a name="what-is-supportedunsupported"></a>Ce qui est pris en charge/non pris en charge
 
-Tous les plug-ins CoreDNS intégrés sont pris en charge. Aucun module complémentaire/plug-in tiers n’est pris en charge. 
+Tous les plug-ins CoreDNS intégrés sont pris en charge. Aucun module complémentaire/plug-in tiers n’est pris en charge.
 
 ## <a name="rewrite-dns"></a>Réécriture DNS
 

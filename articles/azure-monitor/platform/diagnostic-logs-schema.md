@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 362b696351e4faca02fa6ea8aed7e7447454cd34
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155309"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262021"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
-Les [journaux de diagnostic Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux d’activité générés par les services Azure qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de diagnostic Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md) sont des journaux d’activité générés par les services Azure qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
 Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Cet article décrit le schéma de niveau supérieur pour les journaux de diagnostic et les liens vers les schémas pour chaque service.
 
@@ -70,7 +70,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protection DDOS | [Gérer le service Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
-| Dédié à PowerBI | [Journalisation des diagnostics pour Power BI Embedded dans Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
+| Power BI dédiées | [Journalisation des diagnostics pour Power BI Embedded dans Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|
 | Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../../search/search-traffic-analytics.md) |
 | Service Bus |[Journaux de diagnostic Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -81,7 +81,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Passerelles de réseau virtuel | Schéma non disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
-|Type de ressource|Catégorie|Nom d’affichage de la catégorie|
+|Type de ressource|Category|Nom d’affichage de la catégorie|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
 |Microsoft.AnalysisServices/servers|de diffusion en continu|de diffusion en continu|
@@ -205,7 +205,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+* [En savoir plus sur les journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md)
+* [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analyser les journaux d’activité du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

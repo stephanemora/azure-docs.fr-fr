@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592063"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123431"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -55,11 +55,23 @@ Pour plus d’informations, consultez la page [SLA ExpressRoute](https://azure.m
 
 ## <a name="supported-services"></a>Services pris en charge
 
-ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-peerings.md) pour différents types de services.
+ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-peerings.md) pour différents types de services : l’appairage privé, l’appairage Microsoft et l’appairage public.
 
 ### <a name="private-peering"></a>Homologation privée
 
 * Réseaux virtuels, comprenant l’ensemble des machines virtuelles et des services cloud
+
+### <a name="microsoft-peering"></a>Homologation Microsoft
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI.
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
+* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>**Les services suivants ne sont pas pris en charge** :
+    * CDN
+    * Azure Front Door
+    * Multi-Factor Authentication
+    * Traffic Manager
 
 ### <a name="public-peering"></a>Homologation publique
 
@@ -68,7 +80,6 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 >
 
 * Power BI
-* Dynamics 365 for Finance and Operations (anciennement Dynamics AX Online)
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>
   **Les services suivants ne sont pas pris en charge** :
     * CDN
@@ -76,18 +87,10 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
     * Multi-Factor Authentication
     * Traffic Manager
 
-### <a name="microsoft-peering"></a>Homologation Microsoft
+### <a name="is-dynamics-365-supported-on-expressroute"></a>Dynamics 365 est-il pris en charge dans ExpressRoute ?
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI. 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
-* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>**Les services suivants ne sont pas pris en charge** :
-    * CDN
-    * Azure Front Door
-    * Multi-Factor Authentication
-    * Traffic Manager
+Les environnements Dynamics 365 et Common Data Service (CDS) sont hébergés dans Azure. Par conséquent, les clients bénéficient de la prise en charge ExpressRoute sous-jacente des ressources Azure. Vous pouvez vous connecter à ses points de terminaison de service si votre filtre de routeur contient les régions Azure où sont hébergés les environnements Dynamics 365/CDS.
+
 
 ## <a name="data-and-connections"></a>Données et connexions
 
@@ -262,7 +265,7 @@ ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-desso
 
 * Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation privée.
 * Augmentation du nombre de réseaux virtuels et de connexions ExpressRoute Global Reach activables sur un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau [Limites d’ExpressRoute](#limits).
-* Connectivité à Office 365 et Dynamics 365.
+* Connexion à Office 365
 * Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région.<br>
     **Exemples :**
 
@@ -332,7 +335,7 @@ ExpressRoute Local est disponible aux emplacements de peering proches d’une ou
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Mes circuits ExpressRoute existants peuvent-ils prendre en charge la connectivité aux services Office 365 et Dynamics 365 ?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>Mes circuits ExpressRoute existants peuvent-ils prendre en charge la connectivité aux services Office 365 ?
 
 Oui. Votre circuit ExpressRoute existant peut être configuré pour prendre en charge la connectivité aux services Office 365. Assurez-vous d'avoir une capacité suffisante pour vous connecter aux services Office 365 et d’avoir activé le module complémentaire premium. [Planification réseau et optimisation des performances pour Office 365](https://aka.ms/tune/) vous aide à prévoir vos besoins de connectivité. Voir également [Création et modification d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md).
 
@@ -369,13 +372,9 @@ Aucun itinéraire ne s’affichera. Vous devez joindre un filtre de routage à v
 
 Lorsque vous utilisez des filtres de routage, n’importe quel client peut activer homologation Microsoft. Toutefois, pour utiliser les services Office 365, vous devez toujours obtenir l’autorisation de la part de Office 365.
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>Ai-je besoin d’obtenir une autorisation pour activer Dynamics 365 via l’homologation Microsoft ?
-
-Non, vous n’avez pas besoin d’autorisation pour Dynamics 365. Vous pouvez créer une règle et sélectionner la Communauté Dynamics 365 sans autorisation.
-
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé l’homologation Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
 
-Votre circuit existant continuera à publier des préfixes pour Office 365 et Dynamics 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur la même homologation Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris le(s) service(s) Office 365 dont vous avez besoin et Dynamics 365) et joindre le filtre à votre homologation Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
+Votre circuit existant continuera à publier des préfixes pour Office 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur le même appairage Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris les services Office 365 dont vous avez besoin) et joindre le filtre à votre appairage Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Je dispose de l’homologation Microsoft à un emplacement, maintenant j’essaie de l’activer à un autre emplacement et aucun préfixe ne s’affiche.
 

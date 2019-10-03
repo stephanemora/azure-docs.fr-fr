@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035502"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123141"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
 
@@ -37,7 +37,7 @@ Consultez les définitions suivantes pour comprendre la différence entre le dee
 
 - L’**intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
  
-Il est important de comprendre les relations entre l’intelligence artificielle, le Machine Learning et le Deep Learning. Le Machine Learning est un moyen d’aboutir à l’intelligence artificielle. Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la perception visuelle, la reconnaissance vocale, la prise de décision et la traduction de langue.
+Il est important de comprendre les relations entre l’intelligence artificielle, le Machine Learning et le Deep Learning. Le Machine Learning est un moyen d’aboutir à l’intelligence artificielle. Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la reconnaissance d’images, la reconnaissance vocale et la traduction linguistique.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Techniques de Deep Learning et de Machine Learning 
 
@@ -47,12 +47,12 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 
 | |Machine Learning dans sa globalité |Uniquement le Deep Learning|
 |---|---|---|
-|  **Nombre de points de données** | Peut utiliser de petites quantités de données fournies par les utilisateurs. | Requiert une grande quantité de données d’apprentissage pour en tirer des conclusions concises. |
+|  **Nombre de points de données** | Peut utiliser de petites quantités de données pour faire des prédictions. | A besoin de grandes quantités de données d’entraînement pour effectuer des prédictions. |
 |  **Dépendances matérielles** | Peut fonctionner sur des machines bas de gamme. Ne nécessite pas beaucoup de puissance de calcul. | Nécessite des machines haut de gamme. Effectue fondamentalement un grand nombre d’opérations de multiplication de matrices. Un GPU peut optimiser efficacement ces opérations. |
 |  **Processus de personnalisation** | Nécessite que les caractéristiques soient identifiées et créées avec précision par les utilisateurs. | Apprend des caractéristiques de haut niveau à partir de données, et crée de nouvelles caractéristiques de façon autonome. |
-|  **Approche d’apprentissage** | Fractionne les tâches en petits morceaux, puis combine les résultats reçus dans une conclusion. | Résout le problème de bout en bout. |
-|  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite un temps d’apprentissage anormalement long, car un algorithme d’apprentissage profond implique de nombreux paramètres. |
-|  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut être un texte, une note, un élément ou un son. |
+|  **Approche d’apprentissage** | Scinde le processus d’apprentissage en étapes plus petites. Combine ensuite les résultats de chaque étape dans une seule sortie. | Parcourt le processus d’apprentissage en résolvant le problème de bout en bout. |
+|  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite généralement un temps d’entraînement assez long, car un algorithme de deep learning implique de nombreuses couches. |
+|  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut avoir plusieurs formats, comme un texte, un score ou un son. |
 
 ## <a name="deep-learning-use-cases"></a>Cas d’utilisation du Deep Learning
 
@@ -62,7 +62,7 @@ Certaines applications courantes du Deep Learning sont décrites dans les paragr
 
 ### <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
 
-L’une des utilisations des réseaux de Deep Learning est la reconnaissance d’entité nommée, qui permet d’extraire certains types d’informations de données non structurées et non étiquetées. Ces informations peuvent être des personnes, des lieux, des sociétés ou des objets. Elles peuvent ensuite être stockées dans un schéma structuré afin d’établir une liste d’adresses ou de servir de référence pour un moteur de validation d’identité.
+La reconnaissance d’entité nommée est une méthode de deep learning qui prend du texte en entrée et le transforme en une classe prédéfinie. Les informations obtenues peuvent être un code postal, une date, un ID de produit, par exemple. Elles peuvent ensuite être stockées dans un schéma structuré afin d’établir une liste d’adresses ou de servir de référence pour un moteur de validation d’identité.
 
 ### <a name="object-detection"></a>Détection d’objets
 
@@ -72,17 +72,21 @@ La détection d’objets est déjà utilisée dans les secteurs du jeu, de la 
 
 ### <a name="image-caption-generation"></a>Génération de légende d’image
 
-À l’instar de la reconnaissance d’image, la génération de légende d’image consiste à générer une légende décrivant le contenu d’une image. Lorsque vous pouvez détecter et étiqueter des objets dans des photographies, l’étape suivante consiste à convertir ces étiquettes en phrases descriptives et cohérentes. Généralement, les systèmes de génération de légende d’image utilisent de très grands réseaux neuronaux convolutifs pour la détection d’objets sur des photographies, puis un réseau neuronal récurrent (RNN) pour convertir les étiquettes en phrases cohérentes.
+À l’instar de la reconnaissance d’image, la génération de légende d’image consiste à générer une légende décrivant le contenu d’une image. Lorsque vous pouvez détecter et étiqueter des objets dans des photos, l’étape suivante consiste à convertir ces étiquettes en phrases descriptives. 
+
+Les applications de légendage d’images utilisent habituellement des réseaux neuronaux convolutifs pour identifier les objets dans les images, puis un réseau neuronal récurrent pour convertir les étiquettes en phrases cohérentes.
 
 ### <a name="machine-translation"></a>Traduction automatique
 
-La traduction automatique consiste à traduire des mots, des phrases ou des expressions d’une langue dans une autre langue. La traduction automatique existe depuis longtemps, mais le Deep Learning produit des résultats impressionnants dans deux domaines spécifiques : la traduction automatique de texte (et la reconnaissance vocale) et la traduction automatique d’images. 
+La traduction automatique consiste à traduire des mots ou des phrases d’une langue dans une autre langue. La traduction automatique existe depuis longtemps, mais le deep learning produit des résultats impressionnants dans deux domaines particuliers : la traduction automatique de texte (et la reconnaissance vocale) et la traduction automatique d’images.
 
-Avec une conversion appropriée des données, un réseau neuronal profond est capable de comprendre du texte, du son et des signaux visuels. La traduction automatique permet d’identifier des extraits de son dans des fichiers audio volumineux, ainsi que de transcrire de la parole ou des images en texte.
+Avec une transformation appropriée des données, un réseau neuronal est capable de comprendre du texte, du son et des images. La traduction automatique permet d’identifier des extraits de son dans des fichiers audio volumineux, ainsi que de transcrire de la parole ou des images en texte.
 
 ### <a name="text-analytics"></a>Analyse de texte
 
-L’une des tâches importantes du Deep Learning est la découverte électronique. Les entreprises utilisent l’analytique de texte basée sur le Deep Learning pour détecter les échanges internes et la conformité aux réglementations gouvernementales. Des fonds spéculatifs utilisent l’analytique de texte pour explorer de vastes référentiels de documents afin de recueillir des informations sur les performances futures de leurs investissements et les tendances du marché. Le cas d’utilisation de l’analyse de texte basée sur le Deep Learning consiste à traiter des quantités considérables de données textuelles ainsi qu’à produire des agrégations.
+L’analyse de texte basée sur des méthodes de deep learning implique l’analyse de grandes quantités de données texte (par exemple, des documents médicaux ou des justificatifs de frais), la reconnaissance de modèles, et la création d’informations structurées et concises à partir des résultats.
+
+Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres. 
 
 ## <a name="artificial-neural-networks"></a>Réseaux neuronaux artificiels
 
@@ -96,13 +100,13 @@ Le réseau neuronal feedforward est le type de réseau neuronal artificiel le pl
 
 ### <a name="recurrent-neural-network"></a>Réseau de neurones récurrents
 
-Les réseaux neuronaux récurrents sont un type de réseau neuronal artificiel largement utilisé. Ces réseaux enregistrent la sortie d’une couche et la renvoient à la couche d’entrée pour aider à prédire le résultat de la couche. Les réseaux neuronaux récurrents ont des capacités d’apprentissage exceptionnelles. Ils sont largement utilisés pour accomplir des tâches complexes telles que l’apprentissage d’écriture manuscrite et la reconnaissance du langage.
+Les réseaux neuronaux récurrents sont un type de réseau neuronal artificiel largement utilisé. Ces réseaux enregistrent la sortie d’une couche et la renvoient à la couche d’entrée pour aider à prédire le résultat de la couche. Les réseaux neuronaux récurrents ont des capacités d’apprentissage exceptionnelles. Ils sont largement utilisés pour accomplir des tâches complexes comme la prévision de séries chronologiques, l’apprentissage d’écriture manuscrite et la reconnaissance linguistique.
 
 ### <a name="convolutional-neural-networks"></a>Réseaux neuronaux convolutifs
 
 Un réseau neuronal convolutif est un réseau neuronal artificiel particulièrement efficace qui présente une architecture unique. Les couches sont organisées en trois dimensions : largeur, hauteur et profondeur. Les neurones d’une couche ne sont pas connectés à tous les neurones de la couche suivante, mais uniquement à une petite région de neurones de celle-ci. Le résultat final est réduit à un seul vecteur de notes de probabilité, organisées dans la dimension de la profondeur. 
 
-Les réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la reconnaissance et la classification d’images.
+Les réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la reconnaissance vidéo, la reconnaissance d’images et les systèmes de recommandation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,17 +4,17 @@ description: Guide pratique pour configurer des appareils en aval ou de nœud te
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999402"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266122"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -33,6 +33,10 @@ Cet article identifie les problèmes courants liés aux connexions d’appareils
 * Présente différents exemples Azure IoT dans plusieurs langues pour vous aider à démarrer. 
 
 Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référence à un appareil IoT Edge configuré comme passerelle transparente. 
+
+## <a name="prerequisites"></a>Prérequis 
+
+Mettez le fichier de certificat **azure-iot-test-only.root.ca.cert.pem** généré dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle. 
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
@@ -89,6 +93,14 @@ Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs
 ### <a name="windows"></a>Windows
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** tiré des articles sur les prérequis et que vous avez copié le certificat dans un emplacement de l’appareil en aval.
+
+Vous pouvez installer des certificats en utilisant l’applet de commande PowerShell [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) en tant qu’administrateur :
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+Vous pouvez aussi installer des certificats avec l’utilitaire **certlm** : 
 
 1. Dans le menu Démarrer, recherchez et sélectionnez **Manage computer certificates** (Gérer les certificats d’ordinateur). Un utilitaire appelé **certlm** s’ouvre.
 2. Accédez à **Certificats - Ordinateur local** > **Autorités de certification racines de confiance**.

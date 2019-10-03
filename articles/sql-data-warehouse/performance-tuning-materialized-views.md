@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985284"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172790"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées 
 Les vues matérialisées dans Azure SQL Data Warehouse fournissent une méthode de maintenance modérée pour les requêtes analytiques complexes en vue d’obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
@@ -84,19 +84,21 @@ Voici des conseils d’ordre général sur l’utilisation des vues matérialis�
 
 **Conception pour votre charge de travail**
 
-- Avant de commencer à créer des vues matérialisées, il est important de bien comprendre votre charge de travail en termes de modèles de requête, d’importance, de fréquence et de taille des données obtenues.  
+Avant de commencer à créer des vues matérialisées, il est important de bien comprendre votre charge de travail en termes de modèles de requête, d’importance, de fréquence et de taille des données obtenues.  
 
-- Les utilisateurs peuvent exécuter EXPLAIN WITH_RECOMMENDATIONS <Instruction_SQL> pour les vues matérialisées recommandées par l’optimiseur de requête.  Étant donné que ces recommandations sont propres aux requêtes, une vue matérialisée qui tire parti d’une seule requête risque de ne pas être optimale pour d’autres requêtes dans la même charge de travail.  Évaluez ces recommandations en tenant compte des besoins de votre charge de travail.  Les vues matérialisées idéales sont celles qui tirent parti des performances de la charge de travail.  
+Les utilisateurs peuvent exécuter EXPLAIN WITH_RECOMMENDATIONS <Instruction_SQL> pour les vues matérialisées recommandées par l’optimiseur de requête.  Étant donné que ces recommandations sont propres aux requêtes, une vue matérialisée qui tire parti d’une seule requête risque de ne pas être optimale pour d’autres requêtes dans la même charge de travail.  Évaluez ces recommandations en tenant compte des besoins de votre charge de travail.  Les vues matérialisées idéales sont celles qui tirent parti des performances de la charge de travail.  
 
 **Compromis entre des requêtes plus rapides et le coût** 
 
-- Pour chaque vue matérialisée, il existe un coût de stockage et un coût de maintenance par le moteur de tuple. Il y a un seul moteur de tuple par instance de serveur Azure SQL Data Warehouse.  Lorsqu’il y a trop de vues matérialisées, la charge de travail du moteur de tuple augmente et les performances des requêtes qui exploitent des vues matérialisées peuvent se dégrader si le moteur de tuple ne peut pas déplacer les données vers des segments d’index assez rapidement.  Les utilisateurs doivent vérifier si les coûts engendrés par toutes les vues matérialisées peuvent être compensés par le gain de performance des requêtes.  Exécutez cette requête pour obtenir la liste des vues matérialisées dans une base de données : 
+Pour chaque vue matérialisée, il existe un coût de stockage des données et un coût de maintenance de la vue.  À mesure que les données sont modifiées dans les tables de base, la taille de la vue matérialisée augmente et sa structure physique change également.  Pour éviter la dégradation des performances des requêtes, chaque vue matérialisée est tenue à jour séparément par le moteur de l’entrepôt de données, y compris le déplacement de lignes à partir du magasin Delta vers les segments d’index columnstore et la consolidation des modifications de données.  La charge de travail de maintenance est plus élevée quand le nombre de vues matérialisées et de modifications des tables de base augmente.   Les utilisateurs doivent vérifier si les coûts engendrés par toutes les vues matérialisées peuvent être compensés par le gain de performance des requêtes.  
+
+Vous pouvez exécuter cette requête pour obtenir la liste des vues matérialisées dans une base de données : 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Options pour réduire le nombre de vues matérialisées : 
 

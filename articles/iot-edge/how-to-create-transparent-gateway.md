@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 467ec25bb9e41180da36f118094324e4fea48cf8
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982953"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266097"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -34,7 +34,7 @@ La configuration d’une connexion de passerelle transparente s’effectue en tr
 
 Pour qu’un appareil fonctionne comme une passerelle, il doit être capable de se connecter de manière sécurisée aux appareils en aval associés. Azure IoT Edge vous permet d’utiliser une infrastructure à clé publique (PKI) pour configurer des connexions sécurisées entre les appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente. Pour assurer un niveau raisonnable de sécurité, l’appareil en aval doit confirmer l’identité de l’appareil de passerelle. Cette vérification d’identité empêche vos appareils de se connecter à des passerelles potentiellement malveillantes.
 
-Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Pour des raisons pratiques, un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. 
+Un appareil en aval dans un scénario de passerelle transparente peut être n’importe quelle application ou plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Pour des raisons pratiques, un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Cependant, un appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge. 
 
 Vous pouvez créer n’importe quelle infrastructure de certificat permettant l’approbation requise pour votre topologie de l’appareil à la passerelle. Dans cet article, nous nous basons sur la même configuration de certificat que vous utiliseriez pour activer la [sécurité d’autorité de certification X.509](../iot-hub/iot-hub-x509ca-overview.md) dans IoT Hub, ce qui implique d’avoir un certificat d’autorité de certification X.509 associé à un hub IoT spécifique (l’autorité de certification racine du hub IoT), une série de certificats signés par cette autorité de certification ainsi qu’une autorité de certification pour l’appareil IoT Edge.
 
@@ -49,7 +49,8 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un appareil Azure IoT Edge à configurer comme passerelle. Effectuez les étapes d’installation IoT Edge pour l’un des systèmes d’exploitation suivants :
+* Une machine de développement pour créer des certificats. 
+* Un appareil Azure IoT Edge à configurer comme passerelle. Effectuez les étapes d’installation IoT Edge pour l’un des systèmes d’exploitation suivants :
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
 
@@ -63,7 +64,7 @@ Les certificats générés dans cette section ne doivent servir qu’à des fins
 
 Installez OpenSSL pour Windows sur l’ordinateur que vous utilisez pour générer les certificats. Si vous avez déjà installé OpenSSL sur votre appareil Windows, vous pouvez ignorer cette étape. Vérifiez toutefois que le fichier openssl.exe est disponible dans la variable d’environnement PATH. 
 
-Il existe plusieurs moyens d’installer OpenSSL :
+Il existe plusieurs méthodes d’installation d’OpenSSL, à savoir :
 
 * **Plus facile :** Téléchargez et installez les [binaires OpenSSL de fournisseurs tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir d’[OpenSSL sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH. 
    
@@ -140,7 +141,7 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
    Cette commande de script crée plusieurs fichiers de clés et de certificats, mais nous parlerons d’un de ces fichiers en particulier plus loin dans cet article :
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Donnez un nom au certificat d’autorité de certification, par exemple **MonEdgeDeviceCA**. Le nom est utilisé pour nommer les fichiers et pendant la génération des certificats. 
+2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Donnez un nom au certificat d’autorité de certification, par exemple **MyEdgeDeviceCA**. Le nom est utilisé pour nommer les fichiers et pendant la génération des certificats. 
 
    ```powershell
    New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
@@ -286,7 +287,7 @@ Les appareils IoT Edge standard peuvent fonctionner sans connexions entrantes, c
 
 Dans un scénario de passerelle opérationnel, au moins un des protocoles pris en charge par le hub IoT Edge doit être ouvert pour recevoir le trafic entrant des appareils en aval. Les protocoles pris en charge sont MQTT, AMQP et HTTPS. 
 
-| Port | Protocole |
+| Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
@@ -321,4 +322,4 @@ Pour activer les fonctionnalités hors connexion étendues, établissez une rela
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que votre appareil IoT Edge fonctionne comme une passerelle transparente, il vous faut configurer vos appareils en aval de façon à ce qu’ils approuvent la passerelle et lui envoient des messages. Pour plus d’informations, consultez [Connecter un appareil en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md) et [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
+Maintenant que votre appareil IoT Edge fonctionne comme une passerelle transparente, il vous faut configurer vos appareils en aval de façon à ce qu’ils approuvent la passerelle et lui envoient des messages. Pour poursuivre la configuration de votre scénario de passerelle transparente, suivez les étapes décrites dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md). 

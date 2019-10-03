@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 09/21/2019
 ms.author: juliako
-ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: bc4be8eaafe805e5d9a985b005efe80bc4af1d21
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376200"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177999"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analyser des fichiers vidéo et audio
 
-Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer via les présélections de l’analyseur d’AMS v3 (décrites dans cet article). Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer par le biais des présélections de l’analyseur Media Services v3 (décrites dans cet article). Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Pour analyser votre contenu à l’aide des préréglages Media Services v3, vous créez une **transformation** et envoyez un **travail** qui utilise l’un de ces préréglages : [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. L’article suivant montre comment utiliser **VideoAnalyzerPreset** : [Tutoriel : Analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md).
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102289"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129962"
 ---
-# <a name="configure-recognize-text-docker-containers"></a>Configurer des conteneurs Docker Reconnaître le texte
+# <a name="configure-computer-vision-docker-containers"></a>Configurer les conteneurs Docker Vision par ordinateur
 
-L’environnement d’exécution de conteneur **Reconnaître le texte** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation. 
+Configurez l’environnement d’exécution du conteneur Vision par ordinateur à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation. 
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 
@@ -63,9 +63,9 @@ Pensez à ajouter le routage `vision/v1.0` à l’URI de point de terminaison, c
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d’identification du proxy HTTP
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Paramètres de journalisation
  
@@ -84,14 +84,12 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 |Non autorisé| `Input` | Chaîne | Les conteneurs Vision par ordinateur n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
+## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 
 Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](computer-vision-how-to-install-containers.md#stop-the-container).
 
 * **Caractère de continuation de ligne** : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
 * **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
-
-Pensez à ajouter le routage `vision/v1.0` à l’URI de point de terminaison, comme dans le tableau suivant. 
 
 Remplacez {_argument_name_} par vos propres valeurs :
 
@@ -104,17 +102,19 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
-> La valeur ApiKey est la **Clé** de la page Clés des ressources Azure `Cognitive Services`. 
+> La valeur ApiKey est la **Clé** de la page Clés des ressources Azure `Cognitive Services`.
 
-## <a name="recognize-text-container-docker-examples"></a>Exemples de conteneur Docker Reconnaître le texte
+## <a name="container-docker-examples"></a>Exemples de conteneur Docker
 
-Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte. 
+#### <a name="readtabread"></a>[Lire](#tab/read)
 
-### <a name="basic-example"></a>Exemple de base 
+Les exemples Docker suivants s’appliquent au conteneur Lire.
+
+### <a name="basic-example"></a>Exemple de base
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -123,13 +123,40 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
 ### <a name="logging-example"></a>Exemple de journalisation 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
+  Logging:Console:LogLevel:Default=Information
+  ```
+
+#### <a name="recognize-texttabrecognize-text"></a>[Reconnaître le texte](#tab/recognize-text)
+
+Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
+
+### <a name="basic-example"></a>Exemple de base
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
+  ```
+
+### <a name="logging-example"></a>Exemple de journalisation
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+***
 
 ## <a name="next-steps"></a>Étapes suivantes
 

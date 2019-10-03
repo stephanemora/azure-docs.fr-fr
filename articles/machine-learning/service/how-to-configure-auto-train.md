@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035029"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259991"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -69,7 +69,9 @@ automl_config = AutoMLConfig(task="classification")
 ```
 
 ## <a name="data-source-and-format"></a>Source et format des données
+
 Le machine learning automatisé prend en charge les données qui se trouvent sur votre poste de travail local ou dans le cloud, comme Stockage Blob Azure. Les données peuvent être lues dans les formats de données pris en charge par scikit-learn. Vous pouvez lire les données dans :
+
 * Tableaux Numpy X (caractéristiques) et Y (variable cible, également appelée « étiquette »)
 * Tramedonnées Pandas
 
@@ -93,55 +95,25 @@ Exemples :
     ```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
+
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    y = df["Label"]
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
+    y_df = df["Label"]
+    x_df = df.drop(["Label"], axis=1)
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Récupérer des données pour exécuter une expérience sur une capacité de calcul distante
 
-Pour les exécutions à distance, vous devez rendre les données accessibles à partir du calcul distant. Pour ce faire, vous pouvez charger les données vers DataStore.
+Pour les exécutions à distance, les données d’entraînement doivent être accessibles à partir de la ressource de calcul distante. La classe [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) dans le SDK expose les fonctionnalités pour :
 
-Voici un exemple d’utilisation de `datastore` :
+* transférer facilement des données de fichiers statiques ou d’URL sources vers votre espace de travail
+* rendre vos données disponibles pour l’entraînement des scripts dans le cas de l’exécution sur des ressources de calcul cloud
 
-```python
-    import pandas as pd
-    from sklearn import datasets
-
-    data_train = datasets.load_digits()
-
-    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
-
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
-```
-
-### <a name="define-dprep-references"></a>Définir des références dprep
-
-Définissez X et y en tant que référence dprep, qui seront passées à l’objet `AutoMLConfig` du machine learning automatisé comme ci-dessous :
-
-```python
-
-    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
-    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-
-
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 path = project_folder,
-                                 run_configuration=conda_run_config,
-                                 X = X,
-                                 y = y,
-                                 **automl_settings
-                                )
-```
+Pour obtenir un exemple d’utilisation de la classe `Dataset` pour monter des données sur la cible de calcul, consultez ce [guide pratique](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target).
 
 ## <a name="train-and-validation-data"></a>Données pour l’entraînement et la validation
 
-Vous pouvez spécifier des jeux de données distincts pour l’entraînement et la validation directement dans la méthode `AutoMLConfig`.
+Vous pouvez spécifier des jeux de données distincts pour l’entraînement et la validation directement dans le constructeur `AutoMLConfig`.
 
 ### <a name="k-folds-cross-validation"></a>Validation croisée K-Folds
 
@@ -175,7 +147,7 @@ Vous disposez de plusieurs options pour configurer votre expérience de machine 
 
 Voici quelques exemples :
 
-1.  Expérience de classification avec AUC pondéré comme métrique principale avec une durée maximale de 12 000 secondes par itération, avec l’expérience se terminant au bout de 50 itérations et 2 tranches de validation croisée.
+1.  Expérience de classification utilisant l’AUC pondéré comme métrique principale avec une durée maximale de 12 000 secondes par itération, l’expérience se terminant au bout de 50 itérations et 2 tranches de validation croisée.
 
     ```python
     automl_classifier = AutoMLConfig(
@@ -202,12 +174,10 @@ Voici quelques exemples :
         n_cross_validations=5)
     ```
 
-Les trois valeurs de paramètre `task` différentes déterminent la liste des algorithmes à appliquer.  Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les algorithmes disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge sur [SupportedAlgorithms classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+Les trois valeurs différentes du paramètre `task` (le troisième type de tâche, `forecasting`, utilise le même pool d’algorithmes que les tâches `regression`) déterminent la liste des modèles à appliquer. Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les modèles disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge dans [Classe SupportedModels](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Métrique principale
-La métrique principale ; comme indiqué dans les exemples ci-dessus, elle détermine la métrique à utiliser pendant la formation du modèle dans un but d’optimisation. La métrique principale que vous pouvez sélectionner est déterminée par le type de tâche que vous choisissez. Vous trouverez plus bas une liste des métriques disponibles.
-
-Pour découvrir les définitions spécifiques de celles-ci, voir [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
+La métrique principale détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
 
 |classification ; | régression ; | Prévision de séries chronologiques
 |-- |-- |--
@@ -217,9 +187,11 @@ Pour découvrir les définitions spécifiques de celles-ci, voir [Comprendre les
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+Pour découvrir les définitions spécifiques de celles-ci, voir [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
+
 ### <a name="data-preprocessing--featurization"></a>Prétraitement et personnalisation des données
 
-Dans chaque expérience d’apprentissage automatique automatisé, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour aider les algorithmes à s’exécuter correctement.  Toutefois, vous pouvez également activer un prétraitement/une personnalisation supplémentaires, tels que l’absence d’imputation des valeurs, de codage et de transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
+Dans chaque expérience d’apprentissage automatique automatisée, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour faciliter l’exécution de *certains* algorithmes qui sont sensibles aux caractéristiques d’échelles différentes.  Toutefois, vous pouvez également activer un prétraitement/une personnalisation supplémentaires, tels que l’absence d’imputation des valeurs, de codage et de transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
 
 Pour activer cette personnalisation, spécifiez `"preprocess": True` pour la classe [`AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -227,12 +199,13 @@ Pour activer cette personnalisation, spécifiez `"preprocess": True` pour la cla
 > Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant la formation sont appliquées automatiquement à vos données d’entrée.
 
 ### <a name="time-series-forecasting"></a>Prévision de séries chronologiques
-Pour le type de tâche prévision de séries chronologiques, vous devez définir des paramètres supplémentaires.
-1. time_column_name : paramètre obligatoire qui définit le nom de la colonne dans vos données de formation contenant des séries date/heure.
-1. max_horizon : définit la durée pendant laquelle que vous souhaitez prédire sur la base de la périodicité des données de formation. Par exemple si vous avez des données de formation avec des fragments de temps quotidiens, vous définissez jusqu’à quand vous souhaitez que le modèle soit formé.
-1. grain_column_names : définit le nom des colonnes qui contiennent des données de séries chronologiques individuelles dans vos données de formation. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme fragments de colonnes.
+La tâche `forecasting` de prévision de séries chronologiques nécessite des paramètres supplémentaires dans l’objet de configuration :
 
-Voir ci-dessous des exemples d’utilisation de ces paramètres, un exemple de notebooks est disponible [ici](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+1. `time_column_name`: paramètre obligatoire qui définit le nom de la colonne dans vos données d’entraînement contenant une série chronologique valide.
+1. `max_horizon`: définit la durée pendant laquelle vous souhaitez prédire sur la base de la périodicité des données d’entraînement. Par exemple si vous avez des données de formation avec des fragments de temps quotidiens, vous définissez jusqu’à quand vous souhaitez que le modèle soit formé.
+1. `grain_column_names`: définit le nom des colonnes qui contiennent des données de séries chronologiques individuelles dans vos données d’entraînement. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme fragments de colonnes. Des séries chronologiques et des prévisions distinctes sont créées pour chaque grain/regroupement. 
+
+Pour obtenir des exemples des paramètres utilisés ci-dessous, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -343,9 +316,9 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>Critères de sortie
 Vous pouvez définir quelques options pour terminer votre expérience.
 1. Aucun critère : si vous ne définissez pas de paramètres de sortie, l’expérience continuera jusqu’à ce que votre métrique principale ne progresse plus.
-1. Nombre d’itérations : vous définissez le nombre d’itérations pour l’expérience à exécuter. Facultativement, vous pouvez ajouter iteration_timeout_minutes afin de définir une limite de temps en minutes pour chaque itération.
-1. Quitter après un certain temps : avec experiment_timeout_minutes dans vos paramètres, vous pouvez définir la durée en minutes de l’exécution d’une expérience.
-1. Quitter après qu’un score a été atteint : avec experiment_exit_score, vous pouvez choisir de terminer l’expérience après qu’un score basé sur votre métrique principale a été atteint.
+1. Nombre d’itérations : vous définissez le nombre d’itérations pour l’expérience à exécuter. Facultativement, vous pouvez ajouter `iteration_timeout_minutes` afin de définir une limite de temps en minutes pour chaque itération.
+1. Quitter après un certain temps : utilisez `experiment_timeout_minutes` dans vos paramètres pour définir la durée en minutes pendant laquelle l’expérience doit s’exécuter.
+1. Quitter une fois qu’un score a été atteint : si vous utilisez `experiment_exit_score`, l’expérience se termine après qu’un score de métrique principal a été atteint.
 
 ### <a name="explore-model-metrics"></a>Explorer les métriques du modèle
 

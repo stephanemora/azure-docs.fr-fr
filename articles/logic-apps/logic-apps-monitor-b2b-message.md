@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106298"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261202"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Superviser les messages B2B avec les journaux Azure Monitor dans Azure Logic Apps
 
@@ -124,7 +124,7 @@ Lorsque vous avez terminé, choisissez **Ajouter le paramètre de diagnostic**.
 Avec les journaux Azure Monitor, vous pouvez étendre le mode d’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple : 
 
 * [Archivage des journaux Diagnostics Azure dans Stockage Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Envoyer les journaux Diagnostics Azure vers Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Envoyer les journaux Diagnostics Azure vers Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple :
 

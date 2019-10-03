@@ -1,33 +1,30 @@
 ---
-title: Utiliser l'outil de l'explorateur pour interroger les données dans le portail Azure - Recherche Azure
-description: Utilisez les outils du portail Azure comme l’Explorateur de recherche pour interroger des index dans Recherche Azure. Entrez des termes de recherche ou des chaînes de recherche complètes avec une syntaxe avancée.
+title: Utiliser l’explorateur de recherche pour interroger des données dans le portail Azure - Recherche Azure
+description: Intégré au portail Azure, l’explorateur de recherche s’avère utile pour l’exploration du contenu et la validation des requêtes dans Recherche Azure. Entrez les chaînes correspondant au terme ou à l’expression recherché ou des expressions de recherche complètes en utilisant la syntaxe avancée.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649964"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178139"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Utiliser l'explorateur pour interroger les données Recherche Azure 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Utiliser l’explorateur de recherche dans le portail Azure pour interroger des documents dans Recherche Azure 
 
-Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service. 
+Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez lancer l’explorateur de recherche à partir de la barre de commandes pour envoyer des expressions de requête Lucene simples ou complètes à un index existant dans votre service. 
 
    ![Commande Explorateur de recherche dans le portail](./media/search-explorer/search-explorer-cmd2.png "Commande Explorateur de recherche dans le portail")
 
-
-Pour obtenir de l'aide, consultez [Démarrer l'Explorateur de recherche](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Chaînes de recherche de base
 
-Les exemples suivants supposent l’index intégré realestate. Pour créer cet index, consultez [Démarrage rapide : Importer, indexer et interroger dans le portail Azure](search-get-started-portal.md).
+Les exemples suivants sont basés sur l’exemple d’index intégré realestate. Vous pouvez créer cet index à l’aide de l’Assistant Importation de données du portail, en choisissant la source de données **Exemples**.
 
 ### <a name="example-1---empty-search"></a>Exemple 1 : recherche vide
 

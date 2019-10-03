@@ -17,12 +17,12 @@ ms.date: 06/07/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e50f2b92318ada729ad8e3405af8403f31d7b6e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987895"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129283"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
@@ -47,7 +47,7 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 | Cause : | Procédure de résolution |
 | ---   | ---        |
 | Les erreurs d’échec d’actualisation peuvent être générées quand les informations d’identification des utilisateurs se connectant au pack de contenu ont été réinitialisées, mais pas mises à jour dans les paramètres de connexion du pack de contenu. | Dans Power BI, recherchez le jeu de données correspondant au tableau de bord Journaux d’activité Azure AD (**journaux d’activité Azure Active Directory**), choisissez Planifier l’actualisation, puis entrez vos informations d’identification Azure AD. |
-| Une actualisation peut échouer en raison de jeux de données volumineux. | Actuellement, le pack de contenu Azure AD avec Power BI peut prendre en charge uniquement les petits jeux de données (de moins de 500 000 lignes) suite à certaines limitations concernant les délais d’expiration dans le service Power BI. Si vous rencontrez des erreurs de limitation, ou si l’actualisation échoue en raison de problèmes de délai d’expiration, cela peut être lié au fait que vous tentez de récupérer un jeu de données volumineux. Réduisez la période dans la requête et réessayez.|
+| Une actualisation peut échouer en raison de jeux de données volumineux. | Actuellement, le pack de contenu Azure AD avec Power BI peut prendre en charge uniquement les petits jeux de données (de moins de 500 000 lignes) suite à certaines limitations concernant les délais d’expiration dans le service Power BI. Si vous rencontrez des erreurs de limitation, ou si l’actualisation échoue en raison de problèmes de délai d’expiration, cela peut être lié au fait que vous tentez de récupérer un jeu de données volumineux. Réduisez la période dans la requête et réessayez.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Échec de la mise à jour des informations d’identification de la source de données 

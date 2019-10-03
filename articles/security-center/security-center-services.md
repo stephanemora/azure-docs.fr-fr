@@ -3,23 +3,22 @@ title: Fonctionnalités prises en charge disponibles dans Azure Security Center 
 description: Ce document fournit la liste des services pris en charge par Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0d2b417dd01e26f0f93722be66d82972b52aca83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 09/24/2019
+ms.author: memildin
+ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234568"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218264"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -42,7 +41,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 ||**Machine virtuelle**|**Groupe de machines virtuelles identiques**||**Machine virtuelle**|**Groupe de machines virtuelles identiques**|
 |Alertes de détection des menaces VMBA|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
 |Alertes de détection des menaces réseau|✔|✔|X|✔|✔|X|standard|
-|Intégration de Windows Defender ATP|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
+|Intégration de Microsoft Defender ATP|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
 |Correctifs manquants|✔|✔|✔|✔|✔|✔|Gratuit|
 |Configurations de sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
 |Évaluation de la protection des points de terminaison|✔|✔|✔|X|X|X|Gratuit|

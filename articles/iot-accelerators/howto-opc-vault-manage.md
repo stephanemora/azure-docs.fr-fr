@@ -8,131 +8,127 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995992"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203656"
 ---
-# <a name="how-to-manage-the-opc-vault-certificate-service"></a>Guide pratique pour gérer le service de certificats OPC Vault
+# <a name="manage-the-opc-vault-certificate-service"></a>Gérer le service de certificats OPC Vault
 
-Cet article décrit les tâches d’administration relatives au service de gestion de certificats OPC Vault dans Azure. Il explique également comment renouveler des certificats d’autorité de certification émettrice, renouveler la liste de révocation de certificats (CRL), ainsi qu’accorder et révoquer l’accès utilisateur.
+Cet article décrit les tâches d’administration liées au service de gestion de certificats OPC Vault dans Azure. Il indique notamment comment renouveler les certificats de l’autorité de certification émettrice, comment renouveler la liste de révocation de certificats et comment accorder et révoquer un accès utilisateur.
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>Créer ou renouveler le certificat d’autorité de certification racine
 
-La création du certificat d’autorité de certification racine est une étape obligatoire après le déploiement. Sans certificat d’autorité de certification émettrice valide, aucun certificat d’application ne peut être signé et délivré.<br>Reportez-vous au chapitre sur la [durée de vie des certificats](howto-opc-vault-secure-ca.md#certificates) pour gérer vos certificats avec des durées de vie raisonnables et garanties. Un certificat d’autorité de certification émettrice doit être renouvelé à la moitié de sa durée de vie, mais au plus tard avant que la durée de vie configurée d’un certificat d’application nouvellement signé dépasse la durée de vie du certificat émetteur.<br>
+Après avoir déployé OPC Vault, vous devez créer le certificat d’autorité de certification racine. Sans un certificat d’autorité de certification émettrice valide, vous ne pouvez pas signer ou émettre de certificats d’application. Consultez [Certificats](howto-opc-vault-secure-ca.md#certificates) pour gérer vos certificats avec des durées de vie raisonnables et garanties. Renouvelez un certificat d’autorité de certification émettrice une fois qu’il a dépassé la moitié de sa durée de vie. À cette occasion, tenez aussi compte du fait que la durée de vie configurée d’un certificat d’application nouvellement signé ne doit pas dépasser la durée de vie du certificat de l’autorité de certification émettrice.
 > [!IMPORTANT]
-> Le rôle « Administrateur » est exigé pour créer ou renouveler le certificat d’autorité de certification émettrice.
+> Le rôle Administrateur est nécessaire pour créer ou renouveler le certificat de l’autorité de certification émettrice.
 
-1. Ouvrez votre service de certificats sur `https://myResourceGroup-app.azurewebsites.net`, puis connectez-vous.
-2. Accédez à la page `Certificate Groups`.
-3. Un groupe de certificats `Default` est listé. Cliquez sur `Edit`.
-4. Dans `Edit Certificate Group Details`, vous pouvez modifier le Nom du sujet et la Durée de vie de votre autorité de certification et de vos certificats d’application.<br>Le sujet et les durées de vie ne doivent être définis qu’une seule fois avant l’émission du premier certificat d’autorité de certification. Les changements de durée de vie pendant les opérations peuvent entraîner des durées de vie irrégulières pour les certificats émis et les listes de révocation de certificats.
-5. Entrez un sujet valide, par exemple `CN=My CA Root, O=MyCompany, OU=MyDepartment`.<br>
+1. Ouvrez votre service de certificats à l’adresse `https://myResourceGroup-app.azurewebsites.net`, puis connectez-vous.
+2. Accédez à **Certificate Groups** (Groupes de certificats).
+3. Un groupe de certificats par défaut est listé. Sélectionnez **Modifier**.
+4. Dans **Edit Certificate Group Details** (Modifier les détails du groupe de certificats), vous pouvez modifier le nom du sujet et la durée de vie de vos certificats d’application et d’autorité de certification. Le sujet et les durées de vie ne doivent être définis qu’une seule fois avant l’émission du premier certificat d’autorité de certification. Les changements de durée de vie pendant les opérations peuvent entraîner des discordances entre les durées de vie des certificats émis et les listes de révocation de certificats.
+5. Entrez un sujet valide (par exemple, `CN=My CA Root, O=MyCompany, OU=MyDepartment`).<br>
    > [!IMPORTANT]
-   > Le changement du sujet exige de renouveler le certificat émetteur, sans quoi le service ne parvient pas à signer les certificats d’application. Le sujet de la configuration fait l’objet de contrôles d’intégrité par rapport au sujet du certificat émetteur actif. Si les sujets ne correspondent pas, la signature du certificat est refusée.
-6. Cliquez sur le bouton `Save`.
-7. Si vous rencontrez une erreur « Interdit » à ce stade, vos informations d’identification d’utilisateur n’ont pas de l’autorisation d’administrateur pour modifier ou créer un certificat racine. Par défaut, l’utilisateur qui a déployé le service dispose des rôles d’administrateur et de signature avec le service. Les autres utilisateurs doivent être ajoutés aux rôles « Approbateur », « Auteur » ou « Administrateur », selon les besoins, dans l’inscription de l’application Azure AD.
-8. Cliquez sur le bouton `Details`. L’option `View Certificate Group Details` doit afficher les informations mises à jour.
-9. Cliquez sur le bouton `Renew CA Certificate` pour émettre le premier certificat d’autorité de certification émettrice ou renouveler le certificat émetteur. Appuyez sur `Ok` pour continuer.
-10. Après quelques secondes, les détails du certificat (`Certificate Details`) s’affichent. Appuyez sur `Issuer` ou `Crl` pour télécharger le certificat d’autorité de certification et la liste de révocation de certificats (CLR) les plus récents en vue de les distribuer à vos applications OPC UA.
-11. Le service de gestion de certificats OPC UA est maintenant prêt à émettre des certificats pour les applications OPC UA.
+   > Si vous modifiez le sujet, vous devez renouveler le certificat émetteur, sans quoi le service ne pourra pas signer les certificats d’application. Le sujet de la configuration est comparé au sujet du certificat émetteur actif. Si les sujets ne correspondent pas, la signature du certificat est refusée.
+6. Sélectionnez **Enregistrer**.
+7. Si, à ce stade, vous rencontrez une erreur qui indique une interdiction, cela signifie que vos informations d’identification utilisateur ne disposent pas de l’autorisation d’administrateur permettant de modifier ou de créer un certificat racine. Par défaut, l’utilisateur qui a déployé le service possède les rôles d’administrateur et de signature pour le service. Les autres utilisateurs doivent être ajoutés aux rôles Approbateur, Rédacteur ou Administrateur (selon le cas) pendant l’inscription d’application Azure Active Directory (Azure AD).
+8. Sélectionnez **Details** (Détails). Des informations mises à jour s’affichent à l’écran.
+9. Sélectionnez **Renew CA Certificate** (Renouveler le certificat d’autorité de certification) pour émettre le premier certificat d’autorité de certification émettrice ou pour renouveler le certificat émetteur. Sélectionnez ensuite **OK**.
+10. Au bout de quelques secondes, **Certificate Details** (Détails du certificat) s’affiche. Pour télécharger le certificat d’autorité de certification et la liste de révocation de certificats les plus récents en vue de les distribuer à vos applications OPC UA, sélectionnez **Issuer** (Émetteur) ou **Crl** (Liste de révocation de certificats).
+
+Le service de gestion de certificats OPC UA est maintenant prêt à émettre des certificats pour les applications OPC UA.
 
 ## <a name="renew-the-crl"></a>Renouveler la liste de révocation de certificats (CRL)
 
-Le renouvellement de la liste de révocation de certificats (CRL) est une mise à jour qui doit être distribuée aux applications à intervalles réguliers. Les appareils OPC UA, qui prennent en charge l’extension Point de distribution de liste de révocation de certificats x509, peuvent mettre à jour la liste de révocation de certificats directement à partir du point de terminaison du microservice. Les autres appareils OPC UA peuvent nécessiter des mises à jour manuelles ou, dans le meilleur des cas, peuvent être mis à jour à l’aide d’extensions de transmission des messages par le serveur GDS (*) pour mettre à jour les listes de confiance avec les certificats et les listes de révocation de certificats.
+Le renouvellement de la liste de révocation de certificats est une mise à jour qui doit être distribuée aux applications à intervalles réguliers. Les appareils OPC UA, qui prennent en charge l’extension Point de distribution de liste de révocation de certificats x509, peuvent mettre à jour la liste de révocation de certificats directement à partir du point de terminaison du microservice. Les autres appareils OPC UA peuvent nécessiter des mises à jour manuelles ou peuvent être mis à jour à l’aide d’extensions de transmission (de type push) des messages par le serveur GDS (*) pour mettre à jour les listes de confiance avec les certificats et les listes de révocation de certificats.
 
-Dans le workflow suivant, toutes les demandes de certificat dans l’état Supprimée sont révoquées dans les listes de révocation de certificats, ce qui correspond au certificat d’autorité de certification émettrice pour lequel elles ont été émises. Le numéro de version de la liste de révocation de certificats est incrémenté de 1. <br>
+Dans le workflow suivant, toutes les demandes de certificats à l’état supprimé sont révoquées dans les listes de révocation de certificats, ce qui correspond au certificat d’autorité de certification émettrice pour lequel elles ont été émises. Le numéro de version de la liste de révocation de certificats est incrémenté de 1. <br>
 > [!NOTE]
-> Toutes les listes de révocation de certificats émises sont valides jusqu’à l’expiration du certificat d’autorité de certification émettrice, car la spécification OPC UA ne nécessite pas de modèle de distribution déterministe obligatoire pour la liste de révocation de certificats.
+> Toutes les listes de révocation de certificats émises sont valides jusqu’à l’expiration du certificat de l’autorité de certification émettrice. Cela est dû au fait que la spécification OPC UA n’exige pas de modèle de distribution déterministe obligatoire pour la liste de révocation de certificats.
 
 > [!IMPORTANT]
-> Le rôle « Administrateur » est exigé pour renouveler la liste de révocation de certificats émettrice.
+> Le rôle Administrateur est nécessaire pour renouveler la liste de révocation de certificats émettrice.
 
-1. Ouvrez votre service de certificats sur `https://myResourceGroup.azurewebsites.net`, puis connectez-vous.
-2. Accédez à la page `Certificate Groups`.
-3. Cliquez sur le bouton `Details`. L’option `View Certificate Group Details` doit afficher les informations sur le certificat et la liste de révocation de certificats actuels.
-4. Cliquez sur le bouton `Update CRL Revocation List(CRL)` pour émettre une liste de révocation de certificats mise à jour pour tous les certificats émetteurs actifs dans le stockage OPC Vault.
-5. Après quelques secondes, les détails du certificat (`Certificate Details`) s’affichent. Appuyez sur `Issuer` ou `Crl` pour télécharger le certificat d’autorité de certification et la liste de révocation de certificats (CLR) les plus récents en vue de les distribuer à vos applications OPC UA.
+1. Ouvrez votre service de certificats à l’adresse `https://myResourceGroup.azurewebsites.net`, puis connectez-vous.
+2. Accédez à la page **Certificate Groups** (Groupes de certificats).
+3. Sélectionnez **Details** (Détails). Les informations sur le certificat et la liste de révocation de certificats actuels s’affichent.
+4. Sélectionnez **Update CRL Revocation List (CRL)** (Mettre à jour la liste de révocation de certificats) pour émettre une liste de révocation de certificats mise à jour pour tous les certificats émetteurs actifs dans le stockage OPC Vault.
+5. Au bout de quelques secondes, **Certificate Details** (Détails du certificat) s’affiche. Pour télécharger le certificat d’autorité de certification et la liste de révocation de certificats les plus récents en vue de les distribuer à vos applications OPC UA, sélectionnez **Issuer** (Émetteur) ou **Crl** (Liste de révocation de certificats).
 
 ## <a name="manage-user-roles"></a>Gérer les rôles d’utilisateur
 
-Les rôles d’utilisateur pour le microservice OPC Vault sont gérés dans l’application d’entreprise Azure Active Directory.
+Vous pouvez gérer les rôles d’utilisateur pour le microservice OPC Vault dans l’application d’entreprise Azure AD. Pour obtenir une description détaillée des définitions de rôles, consultez [Rôles](howto-opc-vault-secure-ca.md#roles).
 
-Pour obtenir une description détaillée des définitions de rôles, reportez-vous à la section [Rôles](howto-opc-vault-secure-ca.md#roles).
-
-Par défaut, un utilisateur authentifié dans le locataire peut se connecter au service en tant que « Lecteur ». Les rôles dotés de privilèges supérieurs nécessitent une gestion manuelle dans le portail Azure ou à l’aide de PowerShell.
+Par défaut, un utilisateur authentifié dans le locataire peut se connecter dans le service en tant que Lecteur. Les rôles dotés de privilèges supérieurs doivent être gérés manuellement sur le portail Azure ou à l’aide de PowerShell.
 
 ### <a name="add-user"></a>Ajouter un utilisateur
 
-1. Ouvrez le portail Azure sur `portal.azure.com`.
-2. Accédez à `Azure Active Directory`/`Enterprise applications`.
-3. Choisissez l’inscription du microservice OPC Vault, qui est par défaut votre `resourceGroupName-service`.
-4. Accédez à `Users and Groups`.
-5. Cliquez sur `Add User`.
+1. Ouvrez le portail Azure.
+2. Accédez à **Azure Active Directory** > **Enterprise applications (Applications d’entreprise)** .
+3. Choisissez l’inscription du microservice OPC Vault (par défaut, votre `resourceGroupName-service`).
+4. Accédez à **Users and Groups** (Utilisateurs et Groupes).
+5. Sélectionnez **Add User** (Ajouter un utilisateur).
 6. Sélectionnez ou invitez l’utilisateur afin de l’attribuer à un rôle spécifique.
 7. Sélectionnez le rôle pour les utilisateurs.
-8. Appuyez sur le bouton `Assign`.
-9. Pour les utilisateurs bénéficiant du rôle `Administrator` ou `Approver`, continuez à ajouter des stratégies d’accès Azure Key Vault.
+8. Sélectionnez **Attribuer**.
+9. Pour les utilisateurs possédant le rôle Administrateur ou Approbateur, continuez à ajouter des stratégies d’accès Azure Key Vault.
 
 ### <a name="remove-user"></a>Supprimer un utilisateur
 
-1. Ouvrez le portail Azure sur `portal.azure.com`.
-2. Accédez à `Azure Active Directory`/`Enterprise applications`.
-3. Choisissez l’inscription du microservice OPC Vault, qui est par défaut votre `resourceGroupName-service`.
-4. Accédez à `Users and Groups`.
-5. Sélectionnez un utilisateur avec un rôle à supprimer.
-6. Appuyez sur le bouton `Remove`.
-7. Retirez également des stratégies Azure Key Vault les administrateurs et les approbateurs supprimés.
+1. Ouvrez le portail Azure.
+2. Accédez à **Azure Active Directory** > **Enterprise applications (Applications d’entreprise)** .
+3. Choisissez l’inscription du microservice OPC Vault (par défaut, votre `resourceGroupName-service`).
+4. Accédez à **Users and Groups** (Utilisateurs et Groupes).
+5. Sélectionnez un utilisateur avec un rôle à supprimer, puis sélectionnez **Remove** (Supprimer).
+6. Pour les utilisateurs retirés du rôle Administrateur ou Approbateur, retirez-les aussi des stratégies Azure Key Vault.
 
 ### <a name="add-user-access-policy-to-azure-key-vault"></a>Ajouter une stratégie d’accès utilisateur à Azure Key Vault
 
-Des stratégies d’accès supplémentaires sont nécessaires pour les **Approbateurs** et les **Administrateurs**.
+Des stratégies d’accès supplémentaires sont nécessaires pour les Approbateurs et Administrateurs.
 
-Par défaut, l’identité du service dispose uniquement d’autorisations limitées pour accéder à Key Vault afin d’empêcher que des changements ou opérations avec élévation de privilèges aient lieu sans emprunt d’identité d’utilisateur. Les autorisations de service de base sont `Get` et `List` aussi bien pour les secrets que pour les certificats. Pour les secrets, il n’existe qu’une seule exception : le service peut supprimer (`Delete`) une clé privée du magasin des secrets une fois qu’elle a été acceptée par un utilisateur. Toutes les autres opérations exigent des autorisations d’utilisateur dont l’identité a été empruntée.<br>
+Par défaut, l’identité du service dispose uniquement d’autorisations d’accès limitées à Key Vault. Cela vise à empêcher les opérations avec élévation de privilèges ou que des changements se produisent sans emprunt d’identité d’utilisateur. Les autorisations de service de base sont Get (Obtenir) et List (Lister), aussi bien pour les secrets que pour les certificats. Pour les secrets, il n’existe qu’une seule exception : le service peut supprimer une clé privée du magasin des secrets après qu’elle a été acceptée par un utilisateur. Toutes les autres opérations exigent des autorisations d’utilisateur dont l’identité a été empruntée.
 
-#### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Pour un **rôle Approbateur**, les autorisations suivantes doivent être ajoutées à Key Vault :
+#### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Pour un rôle Approbateur, les autorisations suivantes doivent être ajoutées à Key Vault
 
-1. Ouvrez le portail Azure sur `portal.azure.com`.
+1. Ouvrez le portail Azure.
 2. Accédez à votre `resourceGroupName` OPC Vault utilisé pendant le déploiement.
 3. Accédez au `resourceGroupName-xxxxx` Key Vault.
-4. Accédez aux stratégies d’accès (`Access Policies`).
-5. Cliquez sur `Add new`.
-6. Ignorez le modèle. Il n’existe aucun modèle qui correspond aux exigences.
-7. Cliquez sur `Select Principal`, puis sélectionnez l’utilisateur à ajouter ou invitez un nouvel utilisateur dans le locataire.
-8. Vérifiez les autorisations de clé (`Key permissions`) : `Get`, `List` et surtout `Sign`.
-9. Vérifiez les autorisations de secret (`Secret permissions`) : `Get`, `List`, `Set` et `Delete`.
-10. Vérifiez les autorisations de certificat (`Certificate permissions`) : `Get` et `List`.
-11. Cliquez sur `Ok`.
-12. Enregistrez (`Save`) les changements.
+4. Accédez à **Stratégies d’accès**.
+5. Sélectionnez **Ajouter**.
+6. Ignorez le modèle. Il n’existe aucun modèle conforme aux exigences.
+7. Choisissez **Select Principal** (Sélectionner le principal), puis sélectionnez l’utilisateur à ajouter ou invitez un nouvel utilisateur dans le locataire.
+8. Sélectionnez les autorisations de clé (**Key permissions**à suivantes : **Get** (Obtenir), **List** (Lister) et **Sign** (Signer).
+9. Sélectionnez les autorisations de secret (**Secret permissions**) suivantes : **Get** (Obtenir), **List** (Lister), **Set** (Définir) et **Delete** (Supprimer).
+10. Sélectionnez les autorisations de certificat (**Certificate permissions**) suivantes : **Get** (Obtenir) et **List** (Lister).
+11. Sélectionnez **OK**, puis sélectionnez **Save** (Enregistrer).
 
-#### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Pour un **rôle Administrateur**, les autorisations suivantes doivent être ajoutées à Key Vault :
+#### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Pour un rôle Administrateur, les autorisations suivantes doivent être ajoutées à Key Vault
 
-1. Ouvrez le portail Azure sur `portal.azure.com`.
+1. Ouvrez le portail Azure.
 2. Accédez à votre `resourceGroupName` OPC Vault utilisé pendant le déploiement.
 3. Accédez au `resourceGroupName-xxxxx` Key Vault.
-4. Accédez aux stratégies d’accès (`Access Policies`).
-5. Cliquez sur `Add new`.
-6. Ignorez le modèle. Il n’existe aucun modèle qui correspond aux exigences.
-7. Cliquez sur `Select Principal`, puis sélectionnez l’utilisateur à ajouter ou invitez un nouvel utilisateur dans le locataire.
-8. Vérifiez les autorisations de clé (`Key permissions`) : `Get`, `List` et surtout `Sign`.
-9. Vérifiez les autorisations de secret (`Secret permissions`) : `Get`, `List`, `Set` et `Delete`.
-10. Vérifiez les autorisations de certificat (`Certificate permissions`) : `Get`, `List`, `Update`, `Create` et `Import`.
-11. Cliquez sur `Ok`.
-12. Enregistrez (`Save`) les changements.
+4. Accédez à **Access Policies** (Stratégies d’accès).
+5. Sélectionnez **Ajouter**.
+6. Ignorez le modèle. Il n’existe aucun modèle conforme aux exigences.
+7. Choisissez **Select Principal** (Sélectionner le principal), puis sélectionnez l’utilisateur à ajouter ou invitez un nouvel utilisateur dans le locataire.
+8. Sélectionnez les autorisations de clé (**Key permissions**à suivantes : **Get** (Obtenir), **List** (Lister) et **Sign** (Signer).
+9. Sélectionnez les autorisations de secret (**Secret permissions**) suivantes : **Get** (Obtenir), **List** (Lister), **Set** (Définir) et **Delete** (Supprimer).
+10. Sélectionnez les autorisations de certificat (**Certificate permissions**) suivantes : **Get** (Obtenir), **List** (Lister), **Update** (Mettre à jour), **Create** (Créer) et **Import** (Importer).
+11. Sélectionnez **OK**, puis sélectionnez **Save** (Enregistrer).
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Supprimer une stratégie d’accès utilisateur d’Azure Key Vault
 
-1. Ouvrez le portail Azure sur `portal.azure.com`.
+1. Ouvrez le portail Azure.
 2. Accédez à votre `resourceGroupName` OPC Vault utilisé pendant le déploiement.
 3. Accédez au `resourceGroupName-xxxxx` Key Vault.
-4. Accédez aux stratégies d’accès (`Access Policies`).
-5. Recherchez l’utilisateur à supprimer, puis cliquez sur `... / Delete` pour supprimer l’accès utilisateur.
+4. Accédez à **Access Policies** (Stratégies d’accès).
+5. Recherchez l’utilisateur à supprimer, puis sélectionnez **Delete** (Supprimer).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer les utilisateurs et les certificats OPC Vault, voici la prochaine étape suggérée :
+Maintenant que vous savez comment gérer les utilisateurs et les certificats OPC Vault, vous pouvez :
 
 > [!div class="nextstepaction"]
 > [Sécuriser la communication des appareils OPC](howto-opc-vault-secure.md)

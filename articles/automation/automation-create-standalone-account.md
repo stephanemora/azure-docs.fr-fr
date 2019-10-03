@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779152"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146649"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -28,7 +28,6 @@ Lorsque vous créez un compte Automation dans le portail Azure, ces comptes sont
   * Création d’un principal du service dans Azure Active Directory (Azure AD).
   * Création d’un certificat.
   * Affectation du rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
-* **Compte d’identification Classic**. Ce compte charge un certificat de gestion. Le certificat gère les ressources classiques à l’aide de runbooks.
 
 Avec ces comptes créés pour vous, vous êtes en mesure de commencer rapidement à générer et à déployer des runbooks pour répondre à vos besoins d’automatisation.
 
@@ -97,14 +96,13 @@ Une fois le compte Automation créé, plusieurs ressources vous sont automatique
 | AzureRunAsCertificate |Ressource de certificat automatiquement créée lors de la création du compte Automation, ou à l’aide d’un script PowerShell pour un compte existant. Le certificat permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Resource Manager des runbooks. Ce certificat a une durée de vie d’un an. |
 | AzureRunAsConnection |Ressource de connexion automatiquement créée lors de la création du compte Automation, ou à l’aide d’un script PowerShell pour un compte existant. |
 
-Le tableau ci-dessous récapitule les ressources du compte d’identification Classic.
+## <a name="classic-run-as-accounts"></a>Comptes d’identification Classic
 
-| Ressource | Description |
-| --- | --- |
-| Runbook AzureClassicAutomationTutorial |Exemple de runbook graphique. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
-| Runbook AzureClassicAutomationTutorialScript |Exemple de runbook PowerShell. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
-| AzureClassicRunAsCertificate |Ressource de certificat créée automatiquement. Le certificat permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. Ce certificat a une durée de vie d’un an. |
-| AzureClassicRunAsConnection |Ressource de connexion créée automatiquement. La ressource permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. |
+Les comptes d’identification Classic ne sont plus créés par défaut quand vous créez un compte Azure Automation. Si vous avez encore besoin d’un compte d’identification Classic, effectuez les étapes suivantes.
+
+1. À partir de la page de votre **compte Automation**, sélectionnez **Comptes d’identification** sous **Paramètres du compte**.
+2. Sélectionnez **Compte d’identification Azure Classic**.
+3. Cliquez sur **Créer** pour confirmer la création du compte d’identification Classic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

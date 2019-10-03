@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/22/2019
+ms.openlocfilehash: 91ba485347aeb19ce9b173bd4cec944a655a56dc
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067495"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203500"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
-Cet article décrit comment vous pouvez créer des utilisateurs dans un serveur Azure Database pour PostgreSQL.
+Cet article décrit comment créer des utilisateurs dans un serveur Azure Database pour PostgreSQL. 
+
+Si vous souhaitez en savoir plus sur la création et la gestion des utilisateurs ayant un abonnement Azure et de leurs privilèges, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/built-in-roles.md) ou lisez [comment personnaliser les rôles](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Compte d’administrateur de serveur
 Quand vous avez créé votre serveur Azure Database pour PostgreSQL, vous avez fourni un nom d’utilisateur et un mot de passe d’administrateur de serveur. Pour plus d’informations, vous pouvez suivre la procédure détaillée du [Guide de démarrage rapide](quickstart-create-server-database-portal.md). Étant donné que le nom d’utilisateur administrateur de serveur est un nom personnalisé, vous pouvez rechercher le nom d’utilisateur administrateur de serveur choisi à partir du portail Azure.

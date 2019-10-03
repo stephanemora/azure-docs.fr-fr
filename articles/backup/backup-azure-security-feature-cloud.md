@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018181"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129334"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Fonctionnalités de sécurité pour protéger les charges de travail cloud utilisant Sauvegarde Azure
 
@@ -122,9 +122,9 @@ Une annulation de la suppression suivie d’une opération de reprise reprotège
 
 Le coffre Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde dans l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours de l’opération de suppression. Vous pouvez supprimer le coffre qu’une fois que tous les éléments supprimés de manière réversible ont été vidés.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Comment puis-je supprimer les données antérieures à la période de suppression réversible de 14 jours après la suppression ?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Puis-je supprimer les données antérieures à la période de suppression réversible de 14 jours après la suppression ?
 
-Il n’existe aucun moyen de vider les données avant les 14 jours qui suivent la suppression. Si vous êtes confronté à un problème bloquant ou de conformité, contactez le support technique de Microsoft.
+Non. Vous ne pouvez pas forcer la suppression des éléments supprimés de manière réversible, ils sont automatiquement supprimés à l’issue de 14 jours. Cette fonctionnalité de sécurité est activée pour protéger les données sauvegardées contre des suppressions accidentelles ou malintentionnées.  Vous devez attendre 14 jours avant d’effectuer toute autre action sur la machine virtuelle.  Les éléments supprimés de façon réversible ne sont pas facturés.  Si vous avez besoin de reprotéger les machines virtuelles marquées pour une suppression réversible dans un délai de 14 jours dans un nouveau coffre, contactez le support technique Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Est-il possible d’effectuer des opérations de suppression réversible dans PowerShell ou CLI ?
 

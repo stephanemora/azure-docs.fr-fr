@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 06733103980086fad0975514ae3489c3652e428a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846743"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178223"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -44,7 +44,9 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     * **Nom du volume**      
         Spécifiez le nom du volume que vous créez.   
 
-        Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.
+        Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.   
+
+        Vous ne pouvez pas utiliser `default` comme nom de volume.
 
     * **Pool de capacités**  
         Spécifiez le pool de capacité dans lequel vous souhaitez que le volume soit créé.

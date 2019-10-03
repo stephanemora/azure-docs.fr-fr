@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 246e76a0ab94624945723b500ef136e038ab40ec
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999646"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155229"
 ---
 # <a name="where-can-you-use-personalizer"></a>Où pouvez-vous utiliser Personalizer ?
 
@@ -33,7 +33,7 @@ Vous pouvez appliquer Personalizer dans les situations où :
 * Le meilleur choix peut et doit être appris du comportement collectif des utilisateurs et du score de récompense total.
 * L’utilisation du machine learning pour la personnalisation suit des [guides pour une utilisation responsable](ethics-responsible-use.md) et les choix que vous faites.
 * La décision contextuelle peut être exprimée sous la forme d’un classement de la meilleure option (action) à partir d’un ensemble limité de choix.
-* Le degré de pertinence du choix classé pour votre application peut être déterminé en mesurant certains aspects du comportement de l’utilisateur et en l’exprimant dans un _score de récompense_. Il s’agit d’un nombre compris entre -1 et 1.
+* Le degré de pertinence du choix classé pour votre application peut être déterminé en mesurant certains aspects du comportement de l’utilisateur et en l’exprimant dans un _[score de récompense](concept-rewards.md)_ .
 * Le score de récompense n’introduit pas trop de facteurs perturbants ou externes. La durée de l’expérience est suffisamment courte pour que le score de récompense puisse être calculé pendant la période de temps où il reste pertinent.
 * Vous pouvez exprimer le contexte pour le classement sous la forme d’une liste d’au moins 5 [caractéristiques](concepts-features.md) dont vous pensez qu’elles peuvent aider à faire le bon choix ; ceci n’inclut pas d’informations d’identification personnelles. (PII).
 * Vous disposez d’informations sur chaque choix de contenu, _action_, sous la forme d’une liste d’au moins 5 [caractéristiques](concepts-features.md) dont vous pensez qu’elles peuvent aider Personalizer à faire le bon choix.

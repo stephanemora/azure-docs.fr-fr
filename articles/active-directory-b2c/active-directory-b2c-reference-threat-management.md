@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065419"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256900"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ Les 10 premiers verrouillages durent une minute. Les 10 verrouillages suivants d
 
 Pour gérer les paramètres de protection par mot de passe, y compris le seuil de verrouillage :
 
-1. Accédez au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **répertoire + abonnement** dans le menu en haut à droite du portail, puis sélectionnez votre locataire Azure AD B2C.
-1. Sélectionnez **Azure Active Directory** dans le menu de gauche (ou sélectionnez **Tous les services** dans la section en haut à gauche du portail, puis recherchez et sélectionnez *Azure Active Directory*).
-1. Sous **Sécurité**, sélectionnez **Méthodes d’authentification**, puis sélectionnez **Protection par mot de passe**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com)
+1. Utilisez le filtre **Annuaire + abonnement** dans le menu du haut pour sélectionner l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Sécurité**, sélectionnez **Méthodes d’authentification (préversion)** , puis **Protection par mot de passe**.
 1. Entrez les paramètres de protection de mot par passe souhaités, puis sélectionnez **Enregistrer**.
 
     ![Page de protection par mot de passe du portail Azure dans les paramètres Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

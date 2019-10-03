@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/26/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c9e293a6e9c8126f2b82f68d591aee56ec32aec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a89988fd369a382ac86f0f4b1ef0f61c0b7b9cad
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67672274"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178427"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre instance Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
@@ -62,6 +62,9 @@ Voir aussi [Partitionnement de table][Table partitioning]
 Les instructions INSERT, UPDATE et DELETE s’exécutent dans une transaction, et en cas d’échec elles doivent être restaurées.  Pour minimiser le risque d’une restauration longue, réduisez si possible les tailles de transactions.  Pour ce faire, vous pouvez diviser les instructions INSERT, UPDATE et DELETE en plusieurs parties.  Par exemple, si vous disposez d’une instruction INSERT qui devrait prendre une heure, décomposez si possible l’insertion en 4 parties, qui seront chacune exécutées en 15 minutes.  Exploitez des cas spéciaux de journalisation minimale, tels que CTAS, TRUNCATE, DROP TABLE ou INSERT, dans des tables vides, afin de réduire le risque de restauration.  Un autre moyen d’éliminer les restaurations consiste à utiliser des opérations de métadonnées uniquement comme le basculement de partitions pour la gestion des données.  Par exemple, plutôt que d’exécuter une instruction DELETE pour supprimer toutes les lignes d’une table où order_date était octobre 2001, vous pouvez partitionner vos données tous les mois et ensuite extraire la partition contenant les données vers une partition vide à partir d’une autre table (voir les exemples ALTER TABLE).  Pour les tables non partitionnées, utilisez une instruction CTAS pour écrire les données que vous souhaitez conserver dans une table plutôt que l’instruction DELETE.  Si une instruction CTAS prend le même laps de temps, elle permet une opération beaucoup plus sûre car elle offre une journalisation des transactions très minime et peut être annulée rapidement si nécessaire.
 
 Voir aussi [Transactions][Understanding transactions], [Optimisation des transactions][Optimizing transactions], [Partitionnement de table][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)]
+
+## <a name="reduce-query-result-sizes"></a>Réduire la taille des résultats de requête  
+Cela vous aide à éviter les problèmes côté client causés par des résultats de requête volumineux.  Vous pouvez modifier votre requête afin de réduire le nombre de lignes retournées. Certains outils de génération de requêtes vous permettent d’ajouter la syntaxe « N premiers » à chaque requête.  Vous pouvez également utiliser CREATE EXTERNAL TABLE AS SELECT (CETAS) pour exporter le résultat de la requête dans une table temporaire, puis utiliser l’exportation PolyBase pour le traitement de niveau inférieur.
 
 ## <a name="use-the-smallest-possible-column-size"></a>Utiliser la plus petite taille de colonne possible
 Lorsque vous définissez votre commande DDL, l’utilisation du plus petit type de données prenant en charge vos données améliore les performances de requête.  Ceci est particulièrement important pour les colonnes CHAR et VARCHAR.  Si la valeur la plus longue dans une colonne est de 25 caractères, définissez la colonne en tant que VARCHAR(25).  Évitez de définir toutes les colonnes de caractères sur une grande longueur par défaut.  En outre, définissez des colonnes VARCHAR lorsque cela suffit, au lieu d’utiliser NVARCHAR.

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018992"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128883"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -538,11 +538,19 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 
-### <a name="error-logs"></a>Des journaux d’activité d’erreurs
+### <a name="error-logs"></a>Journaux d’erreurs
 
 Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Problèmes connus
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours
+
+**Date :** Septembre 2019
+
+Les instructions `RESTORE` en cours, le processus de migration Data Migration Service et la limite de restauration dans le temps intégrée bloquent la mise à jour du niveau de service ou le redimensionnement de l’instance existante et la création de nouvelles instances jusqu’à la fin du processus de restauration. Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de changement du niveau de service n’échoueront pas et n’expireront pas : elles se poursuivront une fois le processus de restauration terminé ou annulé.
+
+**Solution de contournement** : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
 
 ### <a name="missing-validations-in-restore-process"></a>Validations manquantes dans le processus de restauration
 

@@ -72,7 +72,7 @@
   items:
     - name: Laboratoires de classe - Types de classe
       items:
-        - name: Types de classe
+        - name: Vue d’ensemble des types de classe
           href: classroom-labs/class-types.md
         - name: Deep learning en traitement naturel
           href: classroom-labs/class-type-deep-learning-natural-processing.md

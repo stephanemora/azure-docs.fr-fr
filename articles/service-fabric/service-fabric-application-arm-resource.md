@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953223"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153588"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -272,7 +272,7 @@ Supprimer Microsoft.ServiceFabric/clusters/application du modèle ARM ne suffit 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gérer une application existante par le biais de Resource Manager
 
-Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
+Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. Pour plus d’informations, consultez [Qu’est-ce qu’un modèle de ressource d’application Service Fabric ?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model).
 
 > [!NOTE]
 > Pour permettre une mise à niveau du cluster destinée à ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).

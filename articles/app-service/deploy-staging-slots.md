@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070596"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129716"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -220,6 +220,9 @@ Vous pouvez également personnaliser le comportement d’initialisation en utili
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin permettant d’effectuer un test ping afin d’initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. Par exemple `/statuscheck`. La valeur par défaut est `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple `200,202`. Si le code d’état retourné ne figure pas dans la liste, les opérations d’initialisation et d’échange sont arrêtées. Par défaut, tous les codes de réponse sont valides.
 
+> [!NOTE]
+> `<applicationInitialization>` fait partie de chaque démarrage d’application, où ces deux paramètres d’application s’appliquent uniquement aux échanges d’emplacements.
+
 Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux échanges](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Superviser un échange
@@ -368,6 +371,8 @@ Voici quelques erreurs courantes liées aux échanges :
     </conditions>
     ```
 - Certaines [règles de restriction IP](app-service-ip-restrictions.md) peuvent empêcher l’opération d’échange d’envoyer des requêtes HTTP à votre application. Les plages d’adresses IPv4 qui commencent par `10.` et `100.` sont internes à votre déploiement. Vous devez les autoriser à se connecter à votre application.
+
+- Après des échanges d’emplacements, l’application peut rencontrer des redémarrages inattendus. En effet, après un échange, la configuration de la liaison du nom d’hôte se désynchronise, ce qui n’entraîne pas de redémarrages. En revanche, certains événements de stockage sous-jacents (comme des basculements de volume de stockage) peuvent détecter ces différences et forcer le redémarrage de tous les processus Worker. Pour minimiser ces types de redémarrages, définissez le [paramètre d’application`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) sur *tous les emplacements*. En revanche, ce paramètre d’application ne fonctionne *pas* avec des applications Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Bloquer l’accès à des emplacements hors production](app-service-ip-restrictions.md)

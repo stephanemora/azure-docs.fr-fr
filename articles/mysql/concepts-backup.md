@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfbf416c93c78e6ba5e23819084d69e57c47edc8
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532124"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273654"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -19,7 +19,7 @@ Azure Database pour MySQL crée automatiquement des sauvegardes de serveur et le
 
 ## <a name="backups"></a>Sauvegardes
 
-Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
+Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez [éventuellement la configurer](howto-restore-server-portal.md#set-backup-configuration) sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 

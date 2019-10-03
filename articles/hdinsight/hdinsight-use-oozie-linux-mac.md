@@ -1,18 +1,18 @@
 ---
 title: Utiliser des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux
 description: Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900566"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181092"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -37,14 +37,13 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 
 * **Une base de données Azure SQL**.  Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure](../sql-database/sql-database-get-started.md).  Cet article utilise une base de données nommée `oozietest`.
 
-* Le [schéma d’URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre stockage principal de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si l’option de transfert sécurisé est activée pour Stockage Azure ou Data Lake Storage Gen2, l’URI serait `wasbs://` ou `abfss://`, respectivement. Consultez également l’article dédié au [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
-
+* Le [schéma d’URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre stockage principal de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera `wasbs://`. Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Exemple de flux de travail
 
 Le workflow utilisé dans ce document comporte deux actions. Les actions sont des définitions de tâches, telles que l’exécution de Hive, Sqoop, MapReduce ou d’autres processus :
 
-![Diagramme du workflow][img-workflow-diagram]
+![Diagramme du workflow HDInsight Oozie](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
 1. Une action Hive exécute un script HiveQL pour extraire des enregistrements à partir de `hivesampletable`, élément inclus avec HDInsight. Chaque ligne de données décrit un accès depuis un appareil mobile spécifique. Le format d’enregistrement ressemble à ce qui suit :
 
@@ -510,29 +509,29 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie** > **Liens rapides** > **Interface utilisateur web Oozie**.
 
-    ![Image des menus](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    ![Étapes dans l’interface utilisateur web d’Apache Ambari Oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. L’interface utilisateur web Oozie affiche par défaut les travaux du workflow en cours d’exécution. Pour voir tous les travaux du workflow, sélectionnez **Tous les travaux**.
 
-    ![Tous les travaux affichés](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    ![Travaux du workflow de la console web Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. Pour afficher plus d’informations sur un travail, sélectionnez le travail.
 
-    ![Job Info](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    ![Informations sur un travail HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. Sous l’onglet **Infos travail**, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail**, la **configuration du travail**, accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
 
    * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
 
-       ![Journal du travail](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       ![Journal des travaux HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **DAG de la tâche** : le graphique orienté acyclique est une représentation graphique des chemins de données utilisés à travers le workflow.
 
-       ![Graphique non cyclique dirigé du travail](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![DAG des travaux HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Si vous sélectionnez l’une des actions sous l’onglet **Infos travail**, des informations sur l’action s’affichent. Par exemple, sélectionnez l’action **RunSqoopExport**.
 
-    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    ![Informations sur les actions de travaux HDInsight Oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. Vous pouvez voir les détails de l’action, notamment un lien vers **l’URL de la console** Utilisez ce lien pour afficher les informations de suivi pour le travail.
 
@@ -632,18 +631,18 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
 
 7. Si vous accédez à l’interface utilisateur web Oozie et sélectionnez l’onglet **Travaux du coordinateur**, vous obtenez des informations semblables à l’image suivante :
 
-    ![Onglet Travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    ![Onglet Travaux du coordinateur dans la console web Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     L’entrée **Next Materialization** (Matérialisation suivante) indique l’heure de la prochaine exécution du travail.
 
 8. De même que pour le travail de workflow précédent, si vous sélectionnez l’entrée du travail dans l’interface utilisateur web, des informations sur le travail s’affichent :
 
-    ![Informations sur le travail du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    ![Informations sur les travaux du coordinateur Apache Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour afficher les actions individuelles, sélectionnez l’une des entrées **Action**.
 
-    ![Informations sur l’action du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    ![Onglet Infos travail dans la console web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -747,7 +746,6 @@ Dans cet article, vous avez appris comment définir un workflow Oozie et comment
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

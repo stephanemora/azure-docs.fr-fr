@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615670"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219893"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -42,7 +42,7 @@ Cette fonctionnalité est prise en charge par les API et les SDK clients Azure C
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 
-Aujourd’hui, vous pouvez voir toutes les opérations dans le flux de modification. Il n’est pas encore possible de contrôler le flux de modification pour certaines opérations (par exemple, mises à jour sans insertions). Vous pouvez ajouter un « marqueur conditionnel » de mise à jour à l’élément, et filtrer les résultats selon ce marqueur lorsque vous effectuez le traitement des éléments du flux de modification. Pour le moment, le flux de modification ne consigne pas les suppressions. Comme pour l’exemple précédent, vous pouvez ajouter un marqueur conditionnel aux éléments en cours de suppression. Par exemple, vous pouvez ajouter l’attribut « supprimé » à l’élément, lui attribuer la valeur « true », puis définir une durée de vie pour l’élément, afin que celui-ci soit supprimé automatiquement. Vous pouvez lire les éléments d’historique dans le flux de modification, par exemple, les éléments qui ont été ajoutés il y a cinq ans. Si l’élément n’a pas été supprimé, vous pouvez lire le flux de modification correspondant en remontant jusqu’à la date de création de votre conteneur.
+Aujourd’hui, vous pouvez voir toutes les opérations dans le flux de modification. Il n’est pas encore possible de contrôler le flux de modification pour certaines opérations (par exemple, mises à jour sans insertions). Vous pouvez ajouter un « marqueur conditionnel » de mise à jour à l’élément, et filtrer les résultats selon ce marqueur lorsque vous effectuez le traitement des éléments du flux de modification. Pour le moment, le flux de modification ne consigne pas les suppressions. Comme pour l’exemple précédent, vous pouvez ajouter un marqueur conditionnel aux éléments en cours de suppression. Par exemple, vous pouvez ajouter l’attribut « supprimé » à l’élément, lui attribuer la valeur « true », puis définir une durée de vie pour l’élément, afin que celui-ci soit supprimé automatiquement. Vous pouvez lire le flux de modification pour les éléments historiques, par exemple, pour les éléments qui ont été ajoutés il y a cinq ans (la modification la plus récente correspondant à l’élément, il n’inclut pas les modifications intermédiaires). Si l’élément n’a pas été supprimé, vous pouvez lire le flux de modification correspondant en remontant jusqu’à la date de création de votre conteneur.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordre de tri des éléments du flux de modification
 

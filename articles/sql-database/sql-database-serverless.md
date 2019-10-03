@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993465"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123084"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -160,6 +160,12 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |GP_S_Gen5_1|Usage général|Gen5|1|
    |GP_S_Gen5_2|Usage général|Gen5|2|
    |GP_S_Gen5_4|Usage général|Gen5|4|
+   |GP_S_Gen5_6|Usage général|Gen5|6|
+   |GP_S_Gen5_8|Usage général|Gen5|8|
+   |GP_S_Gen5_10|Usage général|Gen5|10|
+   |GP_S_Gen5_12|Usage général|Gen5|12|
+   |GP_S_Gen5_14|Usage général|Gen5|14|
+   |GP_S_Gen5_16|Usage général|Gen5|16|
 
 2. Si vous le souhaitez, spécifiez un nombre minimal de vCores et un délai de mise en pause automatique différents des valeurs par défaut. Le tableau suivant présente les valeurs disponibles pour ces paramètres.
 
@@ -282,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limites des ressources
 
-Pour les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+Pour connaître les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## <a name="billing"></a>Facturation
 

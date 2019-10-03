@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117872"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123444"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
@@ -66,7 +66,7 @@ Les étapes suivantes permettent de valider un circuit ExpressRoute (avec le poi
 Des validations et des vérifications complémentaires seront ajoutées prochainement, vérifiez tous les mois !
 
 ## <a name="validate-circuit-provisioning-and-state"></a>Validation de l'approvisionnement et l’état du circuit
-Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être créé et une clé de service générée pour l’approvisionnement du circuit. L’approvisionnement d’un circuit ExpressRoute établit une connexion de couche 2 redondante entre les PE-MSEE (4) et les MSEE (5). Pour plus d’informations sur la manière de créer, de modifier, d'approvisionner et de vérifier un circuit ExpressRoute, consultez l’article [Création et modification d’un circuit ExpressRoute][CreateCircuit].
+Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être créé et une clé de service générée pour l’approvisionnement du circuit. L’approvisionnement d’un circuit ExpressRoute établit une connexion de couche 2 redondante entre les PE-MSEE (4) et les MSEE (5). Pour plus d’informations sur la manière de créer, de modifier, de provisionner et de vérifier un circuit ExpressRoute, consultez l’article [Création et modification d’un circuit ExpressRoute][CreateCircuit].
 
 >[!TIP]
 >Une clé de service identifie un circuit ExpressRoute de façon unique. Cette clé est exigée pour la plupart des commandes powershell mentionnées dans ce document. Si vous avez également besoin d'assistance de la part de Microsoft ou d’un partenaire ExpressRoute pour résoudre un problème lié à ExpressRoute, entrez la clé de service afin d’identifier facilement le circuit.
@@ -83,7 +83,7 @@ Dans ExpressRoute Essentials, *l'état du circuit* indique l’état du circuit 
 Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit être *activé* et *l'état du fournisseur* doit être *approvisionné*.
 
 > [!NOTE]
-> Si *l'état du circuit* est désactivé, contactez le [support Microsoft][Support]. Si *l'état du fournisseur* n'est pas approvisionné, contactez votre fournisseur de services.
+> Si l’*état du circuit* est désactivé, contactez le [support Microsoft][Support]. Si *l'état du fournisseur* n'est pas approvisionné, contactez votre fournisseur de services.
 >
 >
 
@@ -160,12 +160,12 @@ Voici un exemple de réponse :
 Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attention particulière aux champs suivants : ServiceProviderProvisioningState : État approvisionné                           : activé
 
 > [!NOTE]
-> Si *l'état* est désactivé, contactez le [support Microsoft][Support]. Si *ServiceProviderProvisioningState* n'est pas approvisionné, contactez votre fournisseur de services.
+> Si *l’état* est désactivé, contactez le [support Microsoft][Support]. Si *ServiceProviderProvisioningState* n'est pas approvisionné, contactez votre fournisseur de services.
 >
 >
 
 ## <a name="validate-peering-configuration"></a>Validation de la configuration de l’homologation
-Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l’homologation privée Azure (trafic vers des réseaux virtuels privés dans Azure), l’homologation publique Azure (le trafic vers des adresses IP publiques dans Azure) et l’homologation Microsoft (Office 365 et Dynamics 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l’appairage privé Azure (trafic vers des réseaux virtuels privés dans Azure), l’appairage public Azure (le trafic vers des adresses IP publiques dans Azure) et l’appairage Microsoft (trafic vers Office 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
 
@@ -181,7 +181,7 @@ Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifi�
 Dans l’exemple précédent, nous avons noté que le contexte de routage Homologation privée Azure est activé, tandis que les contextes de routage Homologation publique Azure et Microsoft ne sont pas activés. Un contexte d’homologation correctement activé doit également répertorier les sous-réseaux de point à point principaux et secondaires (nécessaires pour BGP). Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE. 
 
 > [!NOTE]
-> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur les PE-MSEE. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
+> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur les PE-MSEE. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
@@ -231,7 +231,7 @@ Si aucune homologation n’est configurée, un message d’erreur est généré.
 
 
 > [!NOTE]
-> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].  
+> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
 >
 >
 
@@ -271,12 +271,12 @@ Pour obtenir les détails sur la configuration de l'homologation Microsoft, util
 >
 
 > [!NOTE]
-> Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+> Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validation de l'ARP entre Microsoft et le fournisseur de service
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement. Pour le dépannage à l’aide des commandes Azure Resource Manager, reportez-vous au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
 
 > [!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir l’ARP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.
@@ -330,7 +330,7 @@ Voici un exemple de réponse :
 Comme indiqué dans l’exemple précédent, la commande est utile pour déterminer pour la durée de mise en place du contexte de routage. Il indique également le nombre de préfixes d’itinéraire annoncés par le routeur d'homologation.
 
 > [!NOTE]
-> Si l’état est Activé ou Inactif, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+> Si l’état est Activé ou Inactif, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
@@ -383,7 +383,7 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 - [Support Microsoft][Support]
 - [Création et modification d’un circuit ExpressRoute][CreateCircuit]
-- [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
+- [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Connectivité logique ExpressRoute"

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113557"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162392"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -163,9 +163,10 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 **Description :**<br> Nécessite un minimum de deux arguments, qui sont définis à l’aide d’expressions de règles de génération de valeur unique. La fonction évalue chaque règle, puis vérifie la valeur générée pour l’unicité dans le répertoire/application cible. La première valeur unique trouvée est celle retournée. Si toutes les valeurs existent déjà dans la cible, l’entrée sera déposée et le motif de cette action consigné dans les journaux d’audit. Il n’existe aucune limite supérieure au nombre d’arguments qui peuvent être fournis.
 
 > [!NOTE]
->1. Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
->2. Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.  
->3. Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
+> - Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
+> - Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.  
+> - Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
+> - Cette fonction est actuellement prise en charge uniquement pour le « Provisionnement d’utilisateurs de Workday vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications de provisionnement. 
 
 
 **Paramètres :**<br> 
@@ -191,7 +192,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 ### <a name="split"></a>Split
 **Fonction :**<br> Split (source, délimiteur)
 
-**Description :**<br> Fractionne une chaîne en un tableau de multi-valeur, en utilisant le caractère délimiteur spécifié.
+**Description :**<br> Fractionne une chaîne en un tableau à plusieurs valeurs, en utilisant le caractère délimiteur spécifié.
 
 **Paramètres :**<br> 
 

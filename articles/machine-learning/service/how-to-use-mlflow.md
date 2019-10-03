@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c32b587464d66148957672be16493b66dc051ada
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999283"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219697"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>Suivre des métriques et déployer des modèles avec MLflow et Azure Machine Learning (préversion)
 
@@ -146,6 +146,7 @@ MLflow Tracking avec Azure Machine Learning vous permet de stocker les métrique
 Pour exécuter vos expériences MLflow avec Azure Databricks, vous devez d’abord créer un [espace de travail et un cluster Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
 Dans votre cluster, veillez à installer la bibliothèque *azureml-mlflow* de PyPi pour vous assurer que votre cluster peut accéder aux fonctions et classes nécessaires.
+Maintenant, importez votre notebook d'expérience, attachez-le à votre cluster et exécutez votre expérience. 
 
 ### <a name="install-libraries"></a>Installation des bibliothèques
 
@@ -184,10 +185,17 @@ workspace_name = 'workspace_name'
 ws = Workspace.get(name=workspace_name,
                    subscription_id=subscription_id,
                    resource_group=resource_group)
-
 ```
+
+#### <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>Lier vos espaces de travail Azure Databricks et Azure Machine Learning
+
+Dans le [portail Azure](https://ms.portal.azure.com), vous pouvez lier votre espace de travail Azure Databricks (ADB) à un espace de travail Azure Machine Learning (nouveau ou existant). Pour ce faire, accédez à votre espace de travail ADB et sélectionnez le bouton **Link Azure Machine Learning workspace** (Lier l’espace de travail Azure Machine Learning ) en bas à droite. Le fait de lier vos espaces de travail vous permet de suivre vos données d’expérience dans l’espace de travail Azure Machine Learning. 
+
 ### <a name="link-mlflow-tracking-to-your-workspace"></a>Lier le suivi MLflow à votre espace de travail
+
 Après avoir instancié votre espace de travail, définissez l'URI de MLflow Tracking. Vous reliez ainsi MLflow Tracking à l'espace de travail Azure Machine Learning. Après cela, toutes vos expériences seront consignées dans le service de suivi géré d'Azure Machine Learning.
+
+#### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>Configurer directement le suivi MLflow dans votre notebook
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
@@ -200,6 +208,12 @@ Dans votre script d’apprentissage, importez mlflow pour utiliser les API de jo
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
+
+#### <a name="automate-setting-mlflow-tracking"></a>Automatiser la configuration du suivi MLflow
+
+Au lieu de définir manuellement l’URI de suivi dans chaque session suivante du notebook d’expérience sur vos clusters, faites-le automatiquement à l’aide de ce [script d’initialisation du cluster de suivi Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
+
+Une fois cette configuration effectuée, vous pouvez voir vos données de suivi MLflow dans l’API REST d’Azure Machine Learning et sur tous les clients, ainsi que dans Azure Databricks via l’interface utilisateur MLflow ou en utilisant le client MLflow.
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Afficher les métriques et les artefacts dans votre espace de travail
 

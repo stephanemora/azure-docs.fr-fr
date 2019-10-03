@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 48357adccea201aaeb99863b39e9c8cabce915ce
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606975"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262066"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -48,7 +48,7 @@ Les [journaux](data-platform-logs.md) sont les événements qui se sont produits
 Dans Azure Monitor, les journaux sont stockés dans un espace de travail Log Analytics basé sur [Azure Data Explorer](/azure/data-explorer/), qui fournit un moteur d’analyse puissante et un [langage de requête riche](/azure/kusto/query/). En général, les journaux contiennent suffisamment d’informations pour fournir le contexte complet du problème identifié et sont utiles pour identifier la cause racine des problèmes.
 
 > [!NOTE]
-> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de diagnostic](diagnostic-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de diagnostic ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
+> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de diagnostic](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de diagnostic ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
 
 
  Vous pouvez utiliser des [requêtes de journal](../log-query/log-query-overview.md) interactivement avec [Log Analytics](../log-query/portals.md) dans le portail Azure ou ajouter les résultats à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données. Vous pouvez également créer des [alertes de journal](alerts-log.md) qui déclenchent une alerte basée sur les résultats d’une requête de planification.

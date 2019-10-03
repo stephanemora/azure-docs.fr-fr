@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813977"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180735"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -23,7 +23,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Le schéma d'URI de votre principal espace de stockage de clusters. Il s'agirait de `wasb://` pour Stockage Blob Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si l'option de transfert sécurisé était activée pour Stockage Blob ou Data Lake Storage Gen2, l'URI serait `wasbs://` ou `abfss://`, respectivement.  Pour plus d'informations, consultez également [Exiger un transfert sécurisé dans Stockage Azure](../../storage/common/storage-require-secure-transfer.md).
+* Le schéma d'URI de votre principal espace de stockage de clusters. Il s'agirait de `wasb://` pour Stockage Blob Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Pour plus d'informations, consultez également [Exiger un transfert sécurisé dans Stockage Azure](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Lancer un bloc-notes Apache Zeppelin
 

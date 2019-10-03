@@ -1,5 +1,5 @@
 ---
-title: Créer, utiliser et gérer des environnements pour l’entraînement et le déploiement de modèles
+title: Créer des environnements ML réutilisables
 titleSuffix: Azure Machine Learning
 description: Créez et gérez des environnements pour l’entraînement et le déploiement de modèles. Gérez des packages Python et d’autres paramètres pour l’environnement.
 services: machine-learning
@@ -9,16 +9,15 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.custom: seodec18
-ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/16/2019
+ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996619"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147328"
 ---
-# <a name="create-and-manage-environments-for-training-and-deployment"></a>Créer et gérer des environnements pour l’entraînement et le déploiement
+# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Créez et gérez des environnements réutilisables pour l’entraînement et le déploiement avec Azure Machine Learning.
 
 Dans cet article, découvrez comment créer et gérer des [environnements](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning afin de pouvoir suivre et reproduire les dépendances logicielles de vos projets à mesure qu’elles évoluent.
 
@@ -51,7 +50,7 @@ Les environnements gérés par le système sont utilisés quand vous souhaitez q
 
 ## <a name="prerequisites"></a>Prérequis
 
-* SDK Azure Machine Learning pour Python [installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* SDK Azure Machine Learning pour Python [installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="create-an-environment"></a>Créer un environnement

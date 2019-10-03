@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129325"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219507"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -95,7 +95,7 @@ Le niveau Gratuit de Security Center offre une sécurité limitée pour vos ress
 
 Utilisez Security Center pour obtenir une vue centralisée de l’état de sécurité de toutes vos ressources Azure. Vérifiez d’un coup d’œil que les contrôles de sécurité appropriés sont en place et configurés correctement, et identifiez rapidement les ressources nécessitant votre attention.
 
-Security Center s’intègre également à [Windows Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), qui fournit des fonctionnalités complètes de détection du point de terminaison et de réponse (EDR). L’intégration de Windows Defender ATP vous permet de repérer les anomalies. Vous pouvez également détecter les attaques avancées sur les points de terminaison de serveur surveillés par Security Center et y répondre.
+Security Center s’intègre également à [Microsoft Defender ATP (Advanced Threat Protection)](../../security-center/security-center-wdatp.md), qui fournit des fonctionnalités complètes de protection évolutive des points de terminaison (PEPT). L’intégration de Microsoft Defender ATP vous permet de repérer les anomalies. Vous pouvez également détecter les attaques avancées sur les points de terminaison de serveur surveillés par Security Center et y répondre.
 
 Presque toutes les organisations d’entreprises ont un système Security Information and Event Management (SIEM) pour aider à identifier les menaces émergentes en consolidant les informations de journaux à partir de divers appareils de collecte de signaux. Les journaux sont ensuite analysés par un système d’analytique de données pour déterminer ce qui est « intéressant » à partir du bruit inévitable dans toutes les solutions d’analytique et de collecte de données.
 
@@ -121,7 +121,7 @@ Le degré de sécurisation, qui est basé sur les contrôles du Center for Inter
 **Détail** : utilisez [Azure Monitor pour collecter et exporter des données](/azure/azure-monitor/overview#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).
 
 **Bonne pratique** : accélérez vos processus d’investigation et de recherche et réduisez les faux positifs en intégrant des fonctionnalités de détection de point de terminaison et de réponse (EDR) dans votre examen de l’attaque.   
-**Détail** : [activez l’intégration de Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via votre stratégie de sécurité Security Center. Envisagez d’utiliser Azure Sentinel pour rechercher les menaces et répondre aux incidents.
+**Détail** : [activez l’intégration de Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) par le biais de votre stratégie de sécurité Security Center. Envisagez d’utiliser Azure Sentinel pour rechercher les menaces et répondre aux incidents.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Superviser le réseau selon un scénario de bout en bout
 Les clients créent un réseau de bout en bout dans Azure en combinant des ressources réseau comme un réseau virtuel, ExpressRoute, Application Gateway et des équilibreurs de charge. La surveillance est disponible sur chacune des ressources réseau.

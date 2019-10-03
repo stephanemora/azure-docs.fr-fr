@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177458"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148408"
 ---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour en savoir plus sur le coût de chaque *unité* dans chaque couche, consultez [la tarification relative à Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -38,6 +38,7 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 | Taille maximale du message cloud-à-appareil |64 Ko |
 | Durée de vie maximale des messages cloud-à-appareil |2 jours |
 | Nombre de remises maximal pour les messages <br/> Cloud vers appareil |100 |
+| Profondeur maximale de la file d’attente cloud-à-appareil pour chaque appareil |50 |
 | Nombre de remises maximal pour les messages de commentaire <br/> en réponse à un message Cloud vers appareil |100 |
 | Durée de vie maximale des messages de commentaire <br/> en réponse à un message Cloud vers appareil |2 jours |
 | [Taille maximale du jumeau d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (balises, propriétés signalées et propriétés souhaitées) | 8 Ko |

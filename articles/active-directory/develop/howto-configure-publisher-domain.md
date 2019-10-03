@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835139"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257931"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Activation Configurer un domaine d’éditeur d’application (préversion)
 
@@ -96,6 +96,12 @@ Si votre application n’est pas inscrite dans un locataire, vous ne verrez que 
 ### <a name="to-select-a-verified-domain"></a>Pour sélectionner un domaine vérifié
 
 - Si votre client contient des domaines vérifiés, sélectionnez un des domaines dans la liste déroulante **Sélectionner un domaine vérifié**.
+
+>[!Note]
+> L’en-tête « Content-type » attendu qui doit être retourné est `application/json`. Vous pouvez recevoir une erreur comme indiqué ci-dessous si vous utilisez autre chose, tel que `application/json; charset=utf-8`. 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## <a name="implications-on-the-app-consent-prompt"></a>Conséquences sur l’invite de consentement d’application
 

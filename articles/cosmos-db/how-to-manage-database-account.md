@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: db7746bc91935c0385e97d494a45d34819665ced
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 95e3ee31ea6a700253e372d183944c17c85e327c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093398"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178325"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -166,10 +166,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-portal"></a>Portail Azure
 
-Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Activer** pour activer l’écriture dans plusieurs régions. Une fois que vous avez activé l’écriture dans plusieurs régions, toutes les régions de lecture indiquées sur votre compte deviennent des régions de lecture et d’écriture. 
-
-> [!NOTE]
-> Une fois l’écriture dans plusieurs régions activée, vous ne pouvez plus la désactiver. 
+Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Activer** pour activer l’écriture dans plusieurs régions. Une fois que vous avez activé l’écriture dans plusieurs régions, toutes les régions de lecture indiquées sur votre compte deviennent des régions de lecture et d’écriture. Vous pouvez également désactiver les écritures dans plusieurs régions si nécessaire.
 
 ![Capture d’écran de la configuration de la fonction multimaître dans un compte Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
 
@@ -182,6 +179,8 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
 ```
+
+Pour créer un compte Azure Cosmos sans écritures dans plusieurs régions, vous pouvez définir le paramètre `--enable-multiple-write-locations` sur false.
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 

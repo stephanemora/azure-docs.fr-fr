@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a8cffe83ec0f2cdfd2e71accfa55966e5dedcd89
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051825"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259134"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -1146,7 +1146,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |AverageBandwidth|Bande passante S2S de passerelle|BytesPerSecond|Moyenne|Bande passante site à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
 |P2SBandwidth|Bande passante P2S de passerelle|BytesPerSecond|Moyenne|Bande passante point à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
-|P2SConnectionCount|Nombre de connexions P2S|Count|Maximale|Nombre de connexions point à site d’une passerelle|Protocole|
+|P2SConnectionCount|Nombre de connexions P2S|Count|Maximale|Nombre de connexions point à site d’une passerelle|Protocol|
 |TunnelAverageBandwidth|Bande passante de tunnel|BytesPerSecond|Moyenne|Bande passante moyenne d’un tunnel en octets par seconde|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Octets de sortie de tunnel|Octets|Total|Octets sortants d’un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressBytes|Octets d’entrée de tunnel|Octets|Total|Octets entrants d’un tunnel|ConnectionName, RemoteIP|
@@ -1804,4 +1804,4 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les mesures dans Azure Monitor](data-platform.md)
 * [Créer des alertes sur les mesures](alerts-overview.md)
-* [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](diagnostic-logs-overview.md)
+* [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](resource-logs-overview.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370678"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262006"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
@@ -52,7 +52,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-La propriété **\_TimeReceived** contient la date et l'heure auxquelles l'enregistrement a été reçu par le point d'ingestion Azure Monitor dans le cloud Azure. Cela peut être utile pour identifier les problèmes de latence entre la source de données et le cloud. Par exemple un problème de mise en réseau entraînant un retard dans l'envoi des données par un agent. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).
+La propriété **\_TimeReceived** contient la date et l'heure auxquelles l'enregistrement a été reçu par le point d'ingestion Azure Monitor dans le cloud Azure. Cela peut être utile pour identifier les problèmes de latence entre la source de données et le cloud. Par exemple, un problème de mise en réseau entraîne un retard dans l’envoi des données par un agent. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).
 
 La requête suivante fournit la latence moyenne par heure pour les enregistrements d'événements d'un agent. Cela comprend le temps entre l'agent et le cloud et le temps total pendant lequel l'enregistrement doit être disponible pour les requêtes du journal.
 

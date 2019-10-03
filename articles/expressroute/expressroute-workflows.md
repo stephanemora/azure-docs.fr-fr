@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883181"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123376"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
@@ -29,7 +29,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
    
    * Activer l’homologation privée Azure : activez cette homologation pour vous connecter aux machines virtuelles/services cloud déployés au sein de réseaux virtuels.
 
-   * Activer l’homologation Microsoft : activez cette option pour accéder aux services Office 365 et Dynamics 365. De plus, tous les services Azure PaaS sont accessibles via l’homologation Microsoft.
+   * Activer l’appairage Microsoft - Activer cette option pour accéder aux services Office 365. De plus, tous les services Azure PaaS sont accessibles via l’homologation Microsoft.
      
      > [!IMPORTANT]
      > Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.

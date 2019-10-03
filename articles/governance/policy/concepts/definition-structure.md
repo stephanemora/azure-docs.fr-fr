@@ -3,23 +3,23 @@ title: Détails de la structure des définitions de stratégies
 description: Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et la mesure à prendre.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239184"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181191"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
 Les définitions de stratégies de ressources sont utilisées par Azure Policy pour établir des conventions pour les ressources. Chaque définition décrit la conformité des ressources et les mesures à prendre en cas de non-conformité.
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Une stratégie appliquée à un groupe de ressources s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
-Le schéma utilisé par Azure Policy se trouve ici : [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+Le schéma utilisé par Azure Policy se trouve ici : [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
@@ -398,6 +398,7 @@ Azure Policy prend en charge les types d’effet suivants :
 - **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
 - **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
 - **EnforceRegoPolicy** : configure le contrôleur d’admissions d’agent de stratégie ouverte dans Azure Kubernetes Service (préversion)
+- **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
 
 Pour **append**, vous devez fournir les détails suivants :
 
@@ -424,6 +425,8 @@ L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDe
     ]
 }
 ```
+
+De même, **Modify** nécessite la présence de la propriété **roleDefinitionId** dans la partie **détails** de la règle de stratégie pour la [tâche de correction](../how-to/remediate-resources.md). **Modify** a également besoin du tableau **operations** pour définir quelles actions entreprendre sur les étiquettes de ressources.
 
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, consultez [Présentation des effets Azure Policy](effects.md).
 

@@ -3,23 +3,19 @@ title: Détection des menaces pour les machines virtuelles et les serveurs dans 
 description: Cette rubrique présente les alertes de machine virtuelle et de serveur disponibles dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 055b578c1d976b7f85c65ab4e028f9d609861cd4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 50d4023b09eb14fcfafe752ca60b8e888acc1fef
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013326"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273884"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center
 
@@ -32,14 +28,14 @@ Cette rubrique présente les différents types de méthodes de détection et d�
 
 Azure Security Center s’intègre aux services Azure pour superviser et protéger vos machines Windows. Security Center présente les alertes et les suggestions de correction de l’ensemble de ces services dans un format facile à utiliser.
 
-### Windows Server Defender ATP <a nanme="windows-atp"></a>
+### Microsoft Defender ATP<a nanme="windows-atp"></a>
 
-Security Center étend ses plateformes de protection de charge de travail cloud en s’intégrant à Windows Server Defender Advanced Threat Protection (ATP). Vous bénéficiez ainsi de fonctionnalités complètes de détection et de réponse des points de terminaison (EDR).
+Security Center étend ses plateformes de protection de charge de travail cloud en s’intégrant à Microsoft Defender ATP (Advanced Threat Protection). Vous bénéficiez ainsi de fonctionnalités complètes de détection et de réponse des points de terminaison (EDR).
 
 > [!NOTE]
-> Le capteur Windows Server Defender ATP est automatiquement activé sur les serveurs Windows qui utilisent Security Center.
+> Le capteur Microsoft Defender ATP est automatiquement activé sur les serveurs Windows qui utilisent Security Center.
 
-Quand Windows Server Defender ATP détecte une menace, il déclenche une alerte. L’alerte s’affiche dans le tableau de bord de Security Center. À partir du tableau de bord, vous pouvez accéder à la console Windows Defender ATP et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Pour plus d’informations sur Windows Server Defender ATP, consultez [Intégrer des serveurs au service Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quand Microsoft Defender ATP détecte une menace, il déclenche une alerte. L’alerte s’affiche dans le tableau de bord de Security Center. À partir du tableau de bord, vous pouvez accéder à la console Microsoft Defender ATP et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Pour plus d’informations sur Microsoft Defender ATP, consultez [Intégrer des serveurs au service Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Analyse de vidage sur incident <a nanme="windows-dump"></a>
 

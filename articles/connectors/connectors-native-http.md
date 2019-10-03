@@ -1,6 +1,6 @@
 ---
-title: Connexion à des points de terminaison HTTP ou HTTPS à partir de Microsoft Azure Logic Apps
-description: Surveillez les points de terminaison HTTP ou HTTPS dans les tâches automatisées, les processus et les flux de travail à l’aide d’Azure Logic Apps
+title: Appeler des points de terminaison HTTP ou HTTPS – Azure Logic Apps
+description: Envoyer des requêtes sortantes à des points de terminaison HTTP et HTTPS avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,18 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234359"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122695"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS via Azure Logic Apps
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envoyer des appels sortants à des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur HTTP intégré, vous pouvez automatiser les flux de travail qui appellent régulièrement n’importe quel point de terminaison HTTP ou HTTPS en générant des applications logiques. Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification définie. Lorsqu’un événement se produit au niveau de ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés qui envoient régulièrement des requêtes à un point de terminaison HTTP ou HTTPS quelconque. Pour recevoir et répondre aux appels HTTP ou HTTPS entrants, utilisez le [déclencheur de requête ou l’action Réponse](../connectors/connectors-native-reqres.md) intégrés.
+
+Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification définie. Lorsqu’un événement se produit au niveau de ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées.
 
 Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux de travail pour vérifier ou *interroger* un point de terminaison selon une planification régulière. À chaque vérification, le déclencheur envoie un appel ou une *demande* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse aux actions de votre application logique.
 
@@ -148,8 +150,8 @@ Voici d’autres informations sur les sorties d’un déclencheur ou d’une act
 
 | Nom de la propriété | type | Description |
 |---------------|------|-------------|
-| headers | objet | En-têtes de la requête |
-| body | objet | Objet JSON | Objet avec le contenu du corps de la requête |
+| headers | object | En-têtes de la requête |
+| body | object | Objet JSON | Objet avec le contenu du corps de la requête |
 | Code d’état | int | Code d’état de la requête |
 |||
 

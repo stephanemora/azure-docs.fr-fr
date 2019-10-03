@@ -4,17 +4,17 @@ description: Explique comment authentifier les appareils en aval ou « appareil
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7a032056a684107de3dd00fe4861f34c013a80db
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003614"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266141"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -32,7 +32,7 @@ Les étapes décrites dans cet article montrent comment provisionner manuellemen
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivez les étapes décrites dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
+Suivez les étapes décrites dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md). Si vous utilisez l’authentification X.509 pour votre appareil en aval, vous devez utiliser le même script de génération de certificat que celui que vous avez configuré dans l’article relatif à la passerelle transparente. 
 
 Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config.yaml sur l’appareil de passerelle IoT Edge. Il est utilisé pour créer les certificats dans cet article et est référencé dans la chaîne de connexion des appareils en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte.
 

@@ -2,18 +2,18 @@
 title: Analyser des journaux d’activité de site web avec des bibliothèques Python dans Spark - Azure
 description: Ce bloc-notes montre comment analyser les données de journal à l’aide d’une bibliothèque personnalisée avec Spark sur Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: hrasheed
-ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6d23e8cfa8d20169d2b63723138b60dafb1069de
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448758"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146994"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analyser des journaux d’activité de site web en utilisant une bibliothèque Python personnalisée avec un cluster Apache Spark sur HDInsight
 
@@ -21,8 +21,6 @@ Ce bloc-notes montre comment analyser les données de journal à l'aide d'une bi
 
 > [!TIP]  
 > Cet article est également disponible en tant que notebook Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour appliquer l’article dans un notebook, créez un cluster Spark, lancez un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le notebook **Analyse des journaux d’activité avec Spark à l’aide d’une bibliothèque personnalisée au format .ipynb** sous le dossier **PySpark**.
->
->
 
 **Configuration requise :**
 
@@ -37,18 +35,19 @@ Dans cette section, nous utilisons le bloc-notes [Jupyter](https://jupyter.org) 
 
 Une fois vos données enregistrées dans une table Apache Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
+
 2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord du cluster**, puis sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
    > [!NOTE]
    > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
+
 3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
-    ![Créer un bloc-notes Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Créer un bloc-notes Jupyter")
+    ![Créer un notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Créer un notebook Jupyter")
+
 4. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
 
     ![Donnez un nom au bloc-notes](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Donnez un nom au bloc-notes")
@@ -57,13 +56,11 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
-
-1. Créez un RDD à l’aide de l’exemple de données de journal déjà disponible sur le cluster. Vous pouvez accéder aux données dans le compte de stockage par défaut associé au cluster dans **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+6. Créez un RDD à l’aide de l’exemple de données de journal déjà disponible sur le cluster. Vous pouvez accéder aux données dans le compte de stockage par défaut associé au cluster dans **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
-
-1. Récupérez un exemple de jeu de journal pour vérifier que l'étape précédente a été correctement effectuée.
+7. Récupérez un exemple de jeu de journal pour vérifier que l'étape précédente a été correctement effectuée.
 
         logs.take(5)
 
@@ -80,12 +77,12 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analysez les données de journal à l'aide d'une bibliothèque Python personnalisée
+
 1. Dans la sortie ci-dessus, les premières lignes comprennent les informations d'en-tête et chaque ligne restante correspond au schéma décrit dans l'en-tête. L’analyse de tels journaux d’activité peut s’avérer complexe. Par conséquent, nous utilisons une bibliothèque Python personnalisée (**iislogparser.py**) qui facilite beaucoup l’analyse de tels journaux d’activité. Par défaut, cette bibliothèque est incluse avec votre cluster Spark sur HDInsight dans **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
     Toutefois, cette bibliothèque n'est pas dans le `PYTHONPATH`. Par conséquent, nous ne pouvons pas l'utiliser à l'aide d'une instruction d'importation telle que `import iislogparser`. Pour utiliser cette bibliothèque, nous devons la distribuer à tous les nœuds de travail. Exécutez l'extrait de code suivant.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
-
 
 1. `iislogparser` fournit une fonction `parse_log_line` qui retourne `None` si une ligne de journal est une ligne d'en-tête et retourne une instance de la classe `LogLine` si elle rencontre une ligne de journal. Utilisez la classe `LogLine` pour extraire uniquement les lignes de journal du RDD :
 
@@ -93,7 +90,8 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Récupérez quelques lignes de journal extraites pour vérifier que l'étape a été correctement effectuée.
+
+1. Récupérez quelques lignes de journal extraites pour vérifier que l'étape a été correctement effectuée.
 
        logLines.take(2)
 
@@ -105,7 +103,8 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. La classe `LogLine`, quant à elle, dispose de méthodes utiles, telles que `is_error()`, qui retourne si une entrée de journal présente un code d’erreur. Elle permet de calculer le nombre d'erreurs dans les lignes de journal extraites, puis de consigner toutes les erreurs dans un fichier différent.
+
+1. La classe `LogLine`, quant à elle, dispose de méthodes utiles, telles que `is_error()`, qui retourne si une entrée de journal présente un code d’erreur. Elle permet de calculer le nombre d'erreurs dans les lignes de journal extraites, puis de consigner toutes les erreurs dans un fichier différent.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -120,7 +119,7 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
        # -----------------
 
        There are 30 errors and 646 log entries
-4. **Matplotlib** permet également de construire une visualisation des données. Par exemple, si vous souhaitez isoler la cause des requêtes qui s'exécutent pendant une longue période, il se peut que vous souhaitiez trouver les fichiers qui mettent le plus de temps à répondre en moyenne.
+1. **Matplotlib** permet également de construire une visualisation des données. Par exemple, si vous souhaitez isoler la cause des requêtes qui s'exécutent pendant une longue période, il se peut que vous souhaitiez trouver les fichiers qui mettent le plus de temps à répondre en moyenne.
    L’extrait de code ci-dessous récupère les 25 ressources qui mettent le plus de temps à répondre à une requête.
 
        def avgTimeTakenByKey(rdd):
@@ -162,7 +161,8 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Vous pouvez également présenter ces informations sous forme de diagramme. La première étape pour créer un tracé consiste à créer un tableau temporaire **AverageTime**. Le tableau regroupe les journaux d’activité par heure pour voir si des pics de latence inhabituels sont survenus à un moment donné.
+
+1. Vous pouvez également présenter ces informations sous forme de diagramme. La première étape pour créer un tracé consiste à créer un tableau temporaire **AverageTime**. Le tableau regroupe les journaux d’activité par heure pour voir si des pics de latence inhabituels sont survenus à un moment donné.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -170,7 +170,8 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. Vous pouvez ensuite exécuter la requête SQL suivante pour obtenir tous les enregistrements du tableau **AverageTime** .
+
+1. Vous pouvez ensuite exécuter la requête SQL suivante pour obtenir tous les enregistrements du tableau **AverageTime** .
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
@@ -179,10 +180,11 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
 
    Un résultat similaire à ce qui suit s’affiche normalement :
 
-   ![Résultat de la requête SQL](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Résultat de la requête SQL")
+   ![Sortie de requête SQL HDInsight Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Sortie de requête SQL")
 
    Pour plus d’informations sur `%%sql` Magic, consultez [Paramètres pris en charge avec %%SQL Magic](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Vous pouvez désormais utiliser Matplotlib, une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **averagetime** conservé localement, l’extrait de code doit commencer par la méthode magique `%%local`. Cela garantit l’exécution locale du code sur le serveur Jupyter.
+
+1. Vous pouvez désormais utiliser Matplotlib, une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **averagetime** conservé localement, l’extrait de code doit commencer par la méthode magique `%%local`. Cela garantit l’exécution locale du code sur le serveur Jupyter.
 
        %%local
        %matplotlib inline
@@ -194,8 +196,9 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
 
    Un résultat similaire à ce qui suit s’affiche normalement :
 
-   ![Résultat Matplotlib](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Résultat Matplotlib")
-8. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
+   ![Tracé de l’analyse des journaux web Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Sortie Matplotlib")
+
+1. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
 ## <a name="seealso"></a>Voir aussi
 * [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)

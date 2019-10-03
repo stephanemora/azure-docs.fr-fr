@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035593"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170435"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -63,10 +63,10 @@ Utilisez ces outils pour Azure Machine Learning :
 + <a href="#compute-targets">Cibles de calcul</a>
 + <a href="#training-scripts">Script d’entraînement</a>
 + <a href="#runs">Run</a>
++ <a href="#environments">Environnements</a>
 + <a href="#github-tracking-and-integration">Suivi Git</a>
 + <a href="#snapshots">Instantané</a>
 + <a href="#activities">Activité</a>
-+ <a href="#images">Image</a>
 + <a href="#deployment">Déploiement</a>
 + <a href="#web-service-deployments">Services web</a>
 + <a href="#iot-module-deployments">Modules IoT</a>
@@ -180,28 +180,15 @@ Une activité représente une opération de longue durée. Les opérations suiva
 
 Les activités peuvent envoyer des notifications via le SDK ou l’interface utilisateur web, ce qui vous permet de superviser facilement la progression de ces opérations.
 
-### <a name="images"></a>Images
+### <a name="environments"></a>Environnements
 
-Les images constituent un moyen fiable de déployer un modèle et tous les composants dont vous avez besoin pour son utilisation. Une image contient les éléments suivants :
+Les environnements Azure ML sont utilisés pour spécifier la configuration (Docker, Python, Spark, etc.) qui permet de créer un environnement reproductible pour la préparation des données, l’entraînement des modèles et le déploiement des modèles. Il s’agit d’entités gérées et avec version dans votre espace de travail Azure Machine Learning qui permettent des workflows Machine Learning reproductibles, pouvant être audités et portables sur différentes cibles de calcul.
 
-* Un modèle
-* Un script ou une application de scoring. Vous utilisez le script pour passer l’entrée au modèle et retourner la sortie du modèle.
-* Les dépendances dont ont besoin le modèle ou l’application/le script de scoring. Par exemple, vous pouvez inclure un fichier d’environnement Conda qui répertorie les dépendances du package Python.
+Vous pouvez utiliser un objet d’environnement sur votre calcul local pour développer votre script d’entraînement, réutiliser le même environnement sur la Capacité de calcul Azure Machine Learning pour l’entraînement de modèle à grande échelle, et même déployer votre modèle dans ce même environnement. 
 
-Azure Machine Learning peut créer deux types d’image :
+Découvrez [comment créer et gérer un environnement ML réutilisable](how-to-use-environments.md) pour l’entraînement et l’inférence.
 
-* **Image FPGA** : Utilisée lorsque vous effectuez un déploiement vers un tableau FPGA (field programmable gate array) dans Azure.
-* **Image Docker** : Utilisée lorsque vous effectuez un déploiement vers des cibles de calcul autres que les tableaux FPGA. Il peut s’agir, par exemple, d’Azure Container Instances et d’Azure Kubernetes Service.
 
-Azure Machine Learning fournit une image de base, qui est utilisée par défaut. Vous pouvez également fournir vos propres images personnalisées.
-
-### <a name="image-registry"></a>Registre d’images
-
-Les images sont cataloguées dans le **registre d’images** dans votre espace de travail. Vous pouvez fournir des catégories de métadonnées supplémentaires lorsque vous créez l’image. Vous pouvez ensuite les interroger plus tard pour rechercher votre image.
-
-Pour obtenir un exemple de création d’image, consultez [Déployer un modèle de classification d’images dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
-
-Pour obtenir un exemple de déploiement d’un modèle à l’aide d’une image personnalisée, consultez [Déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md).
 
 ### <a name="deployment"></a>Déploiement
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933770"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162183"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -120,7 +120,7 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | disableAjaxTracking | false | Si la valeur est true, les appels Ajax ne sont pas collectés automatiquement. La valeur par défaut est false. |
 | disableFetchTracking | true | Si la valeur est true, les demandes Fetch ne sont pas collectées automatiquement. La valeur par défaut est true |
 | overridePageViewDuration | false | Si la valeur est true, le comportement par défaut de trackPageView est modifié pour enregistrer la fin de l’intervalle de durée de consultation de page lorsque trackPageView est appelé. Si la valeur est false et qu’aucune durée personnalisée n’est fournie à trackPageView, les performances d’affichage de la page sont calculées à l’aide de l’API de minutage de la navigation. La valeur par défaut est false. |
-| maxAjaxCallsPerView | 500 | Valeur par défaut 500 - contrôle le nombre d’appels AJAX qui seront surveillés par affichage de page. Affectez la valeur -1 pour surveiller tous les appels AJAX (illimités) sur la page. |
+| maxAjaxCallsPerView | 500 | Valeur par défaut 500 - contrôle le nombre d’appels Ajax qui seront supervisés par affichage de page. Affectez la valeur -1 pour superviser tous les appels Ajax (illimités) dans la page. |
 | disableDataLossAnalysis | true | Si la valeur est false, les mémoires tampons d’expéditeur de données de télémétrie internes sont vérifiées au démarrage à la recherche d’éléments qui n’ont pas encore été envoyés. |
 | disableCorrelationHeaders | false | Si la valeur est false, le kit SDK ajoute deux en-têtes ('Request-Id' et 'Request-Context') à toutes les demandes de dépendance pour les mettre en corrélation avec les demandes correspondantes côté serveur. La valeur par défaut est false. |
 | correlationHeaderExcludedDomains |  | Désactiver les en-têtes de corrélation pour des domaines spécifiques |
@@ -132,12 +132,16 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | isRetryDisabled | false | La valeur par défaut est false. Si la valeur est false, réessayez avec 206 (succès partiel), 408 (délai d’expiration), 429 (trop de requêtes), 500 (erreur de serveur interne), 503 (service non disponible) et 0 (hors connexion, uniquement si détecté) |
 | isStorageUseDisabled | false | Si la valeur est true, le kit SDK ne stocke pas ou ne lit pas les données à partir du stockage local et de session. La valeur par défaut est false. |
 | isBeaconApiDisabled | true | Si la valeur est false, le kit SDK envoie toutes les données de télémétrie à l’aide de l’[API Beacon](https://www.w3.org/TR/beacon) |
+| onunloadDisableBeacon | false | La valeur par défaut est false. Quand l’onglet est fermé, le SDK envoie toutes les données de télémétrie restantes à l’aide de l’[API Beacon](https://www.w3.org/TR/beacon). |
 | sdkExtension | null | Définit le nom de l’extension du kit SDK. Seuls les caractères alphabétiques sont autorisés. Le nom de l’extension est ajouté comme préfixe à la balise 'ai.internal.sdkVersion' (par exemple, 'ext_javascript:2.0.0'). La valeur par défaut est Null. |
 | isBrowserLinkTrackingEnabled | false | La valeur par défaut est false. Si la valeur est true, le kit SDK effectue le suivi de toutes les demandes de [lien de navigateur](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink). |
 | appId | null | AppId est utilisé pour la corrélation entre les dépendances AJAX qui se produisent côté client avec les demandes côté serveur. Lorsque l’API Beacon est activée, elle ne peut pas être utilisée automatiquement, mais peut être définie manuellement dans la configuration. La valeur par défaut est Null |
 | enableCorsCorrelation | false | Si la valeur est true, le kit SDK ajoute deux en-têtes ('Request-Id' et 'Request-Context') à toutes les demandes CORS pour mettre en corrélation les dépendances AJAX sortantes avec les demandes correspondantes côté serveur. La valeur par défaut est false |
 | namePrefix | non défini | Valeur facultative qui sera utilisée comme suffixe de nom pour localStorage et le nom du cookie.
 | enableAutoRouteTracking | false | Effectuer le suivi automatique des modifications de route dans les applications monopages (SPA). Si la valeur est true, chaque modification de route envoie un nouveau Pageview à Application Insights. Les modifications des routes de hachage (`example.com/foo#bar`) sont également enregistrées en tant que nouveaux affichages de page.
+| enableRequestHeaderTracking | false | Si la valeur est true, les en-têtes de requête d’extraction AJAX & Fetch sont suivis, la valeur par défaut est false.
+| enableResponseHeaderTracking | false | Si la valeur est true, les en-têtes de réponse de requête d’extraction AJAX & Fetch sont suivis, la valeur par défaut est false.
+| distributedTracingMode | `DistributedTracingModes.AI` | Définit le mode de traçage distribué. Si le mode AI_AND_W3C ou le mode W3C sont définis, les en-têtes de contexte de trace W3C (traceparent/tracestate) sont générés et inclus dans toutes les demandes sortantes. AI_AND_W3C est fourni à des fins de compatibilité descendante avec tous les services instrumentés Application Insights hérités.
 
 ## <a name="single-page-applications"></a>Applications monopages
 

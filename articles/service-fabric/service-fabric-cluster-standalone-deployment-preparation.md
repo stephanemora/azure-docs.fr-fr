@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618848"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130329"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 
@@ -65,10 +65,11 @@ Voici quelques spécifications recommandées pour chaque ordinateur que vous sou
 * Un minimum de 40 Go d’espace disque disponible
 * Un processeur 4 cœurs ou plus
 * Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
-* Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709, 1803 ou 2019)
+* Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709 ou 1803). Les versions 6.4.654.9590 et ultérieures de Service Fabric prennent également en charge Windows Server 2019 et 1809.
 * [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs
+* Le lecteur d’installation de Service Fabric doit être au format de système de fichiers NTFS.
 
 L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
 

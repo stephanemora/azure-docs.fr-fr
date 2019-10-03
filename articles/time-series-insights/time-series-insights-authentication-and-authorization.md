@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 602623d48457498963cb5928081d24c1d1132ad4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935238"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264659"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -100,6 +100,50 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
     ```
 
 1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Insights Azure Time Series.
+
+## <a name="common-headers-and-parameters"></a>Paramètres et en-têtes communs
+
+Cette section décrit les en-têtes de requête HTTP et les paramètres qui sont couramment utilisés pour exécuter des requêtes sur les API Time Series Insights en disponibilité générale et en préversion. Les exigences spécifiques aux API sont décrites plus en détail dans la [documentation de référence sur l’API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+
+### <a name="authentication"></a>Authentication
+
+Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#). 
+
+> [!IMPORTANT]
+> Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
+> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc conforme à : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> Pour savoir comment s’authentifier programmatiquement auprès des API Time Series Insights à l’aide du [SDK JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), reportez-vous au tutoriel [Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md#authentication).
+
+### <a name="http-headers"></a>En-têtes HTTP
+
+En-têtes de requête nécessaires :
+
+- `Authorization` pour l’authentification et l’autorisation. Un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’autorisation. Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
+
+En-têtes de requête facultatifs :
+
+- `Content-type` - Seul `application/json` est pris en charge.
+- `x-ms-client-request-id` - ID de requête client. Le service enregistre cette valeur. Permet au service de suivre l’opération d’un service à l’autre.
+- `x-ms-client-session-id` - ID de session du client. Le service enregistre cette valeur. Permet au service de suivre un groupe d’opérations connexes d’un service à l’autre.
+- `x-ms-client-application-name` - Nom de l’application qui a généré cette requête. Le service enregistre cette valeur.
+
+En-têtes de réponse :
+
+- `Content-type` - Seul `application/json` est pris en charge.
+- `x-ms-request-id` - ID de requête généré par le serveur. Peut être utilisé pour demander à Microsoft d’examiner une requête.
+
+### <a name="http-parameters"></a>Paramètres HTTP
+
+Paramètres de chaîne de requête d’URL obligatoires :
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+Paramètres de chaîne de requête d’URL facultatifs :
+
+- `timeout=<timeout>` - Délai d’attente côté serveur pour l’exécution des requêtes. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

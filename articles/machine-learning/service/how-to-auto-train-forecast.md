@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035045"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170409"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -95,10 +95,12 @@ L’objet `AutoMLConfig` définit les paramètres et les données nécessaires p
 |`time_column_name`|Permet de spécifier la colonne DateHeure dans les données d’entrée utilisées pour la génération de la série chronologique et la déduction de sa fréquence.|✓|
 |`grain_column_names`|Nom(s) définissant des groupes de séries individuelles dans les données d’entrée. Si le grain n’est pas défini, le jeu de données est considéré être une série chronologique.||
 |`max_horizon`|Définit l’horizon maximal de prévision souhaité en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple, mensuelles, hebdomadaires) que l’analyste doit prévoir.|✓|
-|`target_lags`|*n* périodes pour décaler vers l’avant les valeurs cibles avant l’entraînement du modèle.||
-|`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet.||
+|`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Ce paramètre est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. Par exemple, quand vous essayez de prévoir la demande d’un produit, la demande mensuelle peut dépendre du prix de certaines matières premières trois mois auparavant. Dans ce cas, vous pouvez appliquer un décalage négatif de trois mois à la cible (la demande) afin que le modèle soit entraîné sur la relation appropriée.||
+|`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle.||
 
-Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et décalez les valeurs cibles de 2 périodes à l’avance avec le paramètre `target_lags`.
+Pour plus d’informations, consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour 2 périodes futures avec le paramètre `target_lags`.
 
 ```python
 time_series_settings = {
@@ -111,8 +113,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
+
+En définissant le paramètre `grain_column_names` dans l’extrait de code ci-dessus, AutoML crée deux groupes de séries chronologiques distincts, également appelés séries chronologiques multiples. Si aucun grain n’est défini, AutoML suppose que le jeu de données est une série chronologique unique. Pour en savoir plus sur les séries chronologiques uniques, consultez [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+
 
 Créez maintenant un objet `AutoMLConfig` standard, en spécifiant le type de tâche `forecasting` et soumettez l’expérience. Une fois le modèle terminé, récupérez la meilleure itération d’exécution.
 

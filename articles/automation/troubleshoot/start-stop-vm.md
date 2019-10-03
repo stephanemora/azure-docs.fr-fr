@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688048"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240844"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Cause :
 
 Les déploiements peuvent échouer pour les raisons suivantes :
@@ -52,6 +60,7 @@ Les déploiements peuvent échouer pour les raisons suivantes :
 2. Une stratégie en place interdit le déploiement de la solution Start/Stop VMs.
 3. Le type de ressource `Microsoft.OperationsManagement`, `Microsoft.Insights` ou `Microsoft.Automation` n’est pas inscrit.
 4. L’espace de travail Log Analytics est verrouillé.
+5. Vous avez une version obsolète des modules AzureRM ou de la solution Start/Stop.
 
 ### <a name="resolution"></a>Résolution :
 
@@ -66,6 +75,7 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
 
    Pour plus d’informations sur les erreurs à l’inscription des fournisseurs, voir [Résoudre les erreurs d’inscription des fournisseurs de ressources](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 4. Si votre espace de travail Log Analytics est verrouillé, accédez-y sur le Portail Azure et supprimez tous les verrous de la ressource.
+5. Si les solutions ci-dessus ne résolvent pas votre problème, suivez les instructions sous [Mettre à jour la solution](../automation-solution-vm-management.md#update-the-solution) pour redéployer la solution Start/Stop.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scénario : Le démarrage/l’arrêt de toutes les machines virtuelles échouent
 

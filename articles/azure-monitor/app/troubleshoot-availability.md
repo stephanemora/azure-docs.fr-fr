@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067074"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146595"
 ---
 # <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -46,10 +46,9 @@ Cet article va vous aider à résoudre les problèmes courants qui peuvent se pr
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Échecs intermittents des tests avec une erreur de violation de protocole
 
-|Symptôme/message d’erreur| Causes possibles|
-|----|---------|
-CR de violation de protocole doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui enfreint la spécification HTTP et entraîne donc l’échec de la validation au niveau WebRequest .NET.
- || Cela peut également être provoqué par des équilibreurs de charge ou des CDN.
+|Symptôme/message d’erreur| Causes possibles| Résolutions possibles |
+|----|---------|-----|
+|Le serveur a valider une violation de protocole. Section=ResponseHeader Detail=CR doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui viole la spécification HTTP. Application Insights applique cette spécification HTTP et fait échouer les réponses contenant des en-têtes mal formés.| a. Contactez le fournisseur CDN/de l’hôte du site web pour corriger les serveurs défectueux. <br> b. Si les demandes ayant échoué sont des ressources (par exemple, des fichiers de style, des images, des scripts), vous pouvez envisager de désactiver l’analyse des demandes dépendantes. Gardez à l’esprit que si vous procédez ainsi, vous perdrez la possibilité de superviser la disponibilité de ces fichiers.
 
 > [!NOTE]
 > L’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542657"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180046"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites du niveau de partage de fichiers premium supplémentaires
 
@@ -28,6 +28,6 @@ ms.locfileid: "67542657"
 |Size                  |1 Tio         |1 Tio|
 |Nb max. d’IOPS par fichier     |5 000         |1 000|
 |Descripteurs simultanés    |2 000         |2 000|
-|Entrée  |300 Mio/s|      Consultez les valeurs de débit de fichier standard|
-|Sortie   |200 Mio/s| Consultez les valeurs de débit de fichier standard|
+|Sortie  |300 Mio/s|      Consultez les valeurs de débit de fichier standard|
+|Entrée  |200 Mio/s| Consultez les valeurs de débit de fichier standard|
 |Débit| Voir les valeurs d’entrée et de sortie des fichiers Premium| Jusqu’à 60 Mio/s|

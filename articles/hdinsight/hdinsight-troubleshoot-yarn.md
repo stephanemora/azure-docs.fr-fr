@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes liés à YARN dans Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Hadoop YARN et d’Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076569"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122526"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
@@ -34,24 +34,24 @@ Dans cet exemple, la capacité de deux files d’attente existantes (**default**
 
 1. Cliquez sur l’icône **Vues Ambari**, puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
 
-    ![Cliquer sur l’icône Vues Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Tableau de bord Apache Ambari - YARN - Gestionnaire de files d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Sélectionnez la file d’attente **default** (par défaut).
 
-    ![Sélectionner la file d’attente default](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari - YARN - Sélection de la file d’attente par défaut](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Modifiez la valeur **Capacity** (Capacité) de 50 % à 25 % pour la file d’attente **default** (par défaut) et faites de **même** pour la file d’attente **thriftsvr** .
 
     ![Définir la capacité sur 25 % pour les files d’attente default et thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Cliquez sur **Add Queue** (Ajouter une file d’attente) pour créer une file d’attente.
 
-    ![Sélectionner Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Tableau de bord Apache Ambari - YARN - Ajout d’une file d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Nommez la nouvelle file d’attente.
 
-    ![Indiquer Spark comme nom de file d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Tableau de bord Apache Ambari - YARN - Nommage d’une file d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Conservez la valeur de **capacité** de 50 %, puis cliquez sur le bouton **Actions**.
 
-    ![Cliquer sur le bouton Actions](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Apache Ambari - YARN - Sélection d’une action](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Sélectionnez **Save and Refresh Queues** (Enregistrer et actualiser les files d’attente).
 
     ![Sélectionner Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Comment télécharger les journaux d’activité YARN à partir d’un cluster ?
 
-### <a name="resolution-steps"></a>Étapes de résolution 
+### <a name="resolution-steps"></a>Étapes de résolution
 
 1. Connectez-vous au cluster HDInsight à l’aide d’un client Secure Shell (SSH). Pour plus d’informations, consultez la section [Documentation supplémentaire](#additional-reading-2).
 

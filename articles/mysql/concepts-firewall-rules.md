@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443908"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203584"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Règles de pare-feu d’un serveur de base de données Azure pour MySQL
 Le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
@@ -46,7 +46,7 @@ Pour autoriser des applications d’Azure à se connecter à votre serveur Azure
 ## <a name="programmatically-managing-firewall-rules"></a>Gestion par programmation des règles de pare-feu
 En dehors du Portail Azure, les règles de pare-feu peuvent être gérées par programmation à l’aide d’Azure CLI. Consultez également la page [Créer et gérer des règles de pare-feu de la base de données Azure pour MySQL à l’aide d’Azure CLI](./howto-manage-firewall-using-cli.md).
 
-## <a name="troubleshooting-the-database-firewall"></a>Dépannage du pare-feu de base de données
+## <a name="troubleshooting-firewall-issues"></a>Résolution des problèmes de pare-feu
 Tenez compte des points suivants quand l’accès au service de serveur Azure Database pour MySQL présente un comportement anormal :
 
 * **Les modifications apportées à la liste verte n’ont pas encore pris effet :** jusqu’à cinq minutes peuvent s’écouler avant que les changements apportés à la configuration du pare-feu du serveur Azure Database pour MySQL ne soient effectives.
@@ -55,9 +55,11 @@ Tenez compte des points suivants quand l’accès au service de serveur Azure Da
 
 * **Adresse IP dynamique :** si vous avez une connexion Internet avec un adressage IP dynamique et que le pare-feu demeure infranchissable, vous pouvez essayer l’une des solutions suivantes :
 
-* Demandez à votre fournisseur de services Internet (ISP) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur de base de données Azure pour MySQL, puis ajoutez cette plage dans une règle de pare-feu.
+   * Demandez à votre fournisseur de services Internet (ISP) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur de base de données Azure pour MySQL, puis ajoutez cette plage dans une règle de pare-feu.
 
-* Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
+   * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
+
+* **L’adresse IP du serveur semble être publique :** les connexions au serveur Azure Database pour MySQL sont routées par le biais d’une passerelle Azure accessible publiquement. Toutefois, l’adresse IP réelle du serveur est protégée par le pare-feu. Pour plus d’informations, consultez l’article [Architecture de connectivité](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441991"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181112"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -124,11 +124,9 @@ Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI s
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
-Lorsque vous utilisez __Azure Data Lake Storage Gen2__, utilisez l’un des schémas d’URI suivants :
+Lorsque vous utilisez __Azure Data Lake Storage Gen2__, utilisez le schéma d’URI suivant :
 
-* `abfs:///`: accès au stockage par défaut avec une communication non chiffrée.
-
-* `abfss:///`: Accédez au stockage par défaut à l’aide d’une communication chiffrée.  Le schéma abfss est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
+* `abfs://`: Accédez au stockage par défaut à l’aide d’une communication chiffrée.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 

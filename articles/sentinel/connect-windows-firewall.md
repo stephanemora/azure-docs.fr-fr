@@ -1,5 +1,5 @@
 ---
-title: Connecter des données de pare-feu Windows à Azure Sentinel en préversion | Microsoft Docs
+title: Connecter des données de pare-feu Windows à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données de pare-feu Windows à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,26 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a863910ee338da5655e9f3b5610b0a8049b8b2a9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620779"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240622"
 ---
 # <a name="connect-windows-firewall"></a>Connecter le Pare-feu Windows
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Le connecteur de pare-feu Windows vous permet de connecter facilement les journaux d’activité du pare-feu Windows, s’ils sont connectés à votre espace de travail Azure Sentinel. Cette connexion vous permet d’afficher des tableaux de bord, de créer des alertes personnalisées et d’améliorer les investigations. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. La solution collecte les événements de pare-feu Windows à partir des machines Windows sur lesquelles un agent Log Analytics est installé. 
 
 
 > [!NOTE]
-> Les données seront stockées à l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="enable-the-connector"></a>Activer le connecteur 
 
@@ -54,12 +52,12 @@ Le connecteur de pare-feu Windows vous permet de connecter facilement les journa
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
-Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
+Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter le pare-feu Windows à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 

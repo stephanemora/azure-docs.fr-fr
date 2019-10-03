@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699577"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260213"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
 Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
@@ -52,14 +52,14 @@ Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un g
     ![Création d'un compte de stockage pour un partage de fichiers premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Une fois que votre ressource de compte de stockage a été créée, accédez-y.
 
 ### <a name="create-a-premium-file-share"></a>Créer un partage de fichiers premium
 
 1. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de fichiers**, puis sélectionnez **Fichiers**.
-1. Sélectionnez **+Partage de fichiers** pour créer un partage de fichiers premium.
+1. Sélectionnez **Partage de fichiers** pour créer un partage de fichiers premium.
 1. Saisissez un nom et le quota souhaité pour votre partage de fichiers, puis sélectionnez **Créer**.
 
 > [!NOTE]

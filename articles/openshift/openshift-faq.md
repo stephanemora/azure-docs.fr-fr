@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991640"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203540"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -164,3 +164,45 @@ Pour plus d’informations, consultez la [documentation OpenShift](https://docs.
 Azure Red Hat OpenShift prend en charge l’appairage de réseaux virtuels et permet au client de fournir un réseau virtuel avec lequel effectuer un appairage, ainsi qu’un CIDR de réseau virtuel pour le réseau OpenShift.
 
 Le réseau virtuel créé par ARO est protégé et sa configuration ne peut pas être modifiée. Le réseau virtuel appairé est contrôlé par le client et se trouve dans son abonnement.
+
+## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>Le cluster réside-t-il dans un abonnement client ? 
+
+L’application managée Azure réside dans un groupe de ressources verrouillé avec l’abonnement client. Le client peut voir les objets de ce groupe de ressources, mais ne peut pas les modifier.
+
+## <a name="is-the-sdn-module-configurable"></a>Le module SDN est-il configurable ?
+
+Le module SDN est de type openshift-ovs-networkpolicy et n’est pas configurable.
+
+## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quels droits UNIX (dans IaaS) sont disponibles pour les nœuds principaux/d’infrastructure/d’application ?
+
+Ceci ne s’applique pas à cette offre. L’accès aux nœuds est interdit.
+
+## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>De quels droits OCP disposons-nous ? Administrateur de cluster ? Administrateur de projet ?
+
+Pour plus d’informations, consultez la [vue d’ensemble de l’administration des clusters](https://docs.openshift.com/aro/admin_guide/index.html) Azure Red Hat OpenShift.
+
+## <a name="which-kind-of-federation-with-ldap"></a>Quel est le type de fédération avec LDAP ?
+
+Cela sera possible avec l’intégration Azure AD. 
+
+## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>Des éléments d’ARO sont-ils partagés avec d’autres clients ? Ou est-ce que tout est indépendant ?
+
+Chaque cluster Azure Red Hat OpenShift est dédié à un client donné et se trouve dans l’abonnement du client. 
+
+## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Est-il possible de choisir une solution de stockage persistant ? OCS ? 
+
+Il est possible de choisir entre deux classes de stockage : Disque Azure et Fichier Azure.
+
+## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Comment s’effectuent les mises à jour de cluster (y compris les mises à jour majeures et mineures pour la résolution des vulnérabilités) ?
+
+Consultez [En quoi consiste le processus général de mise à niveau ?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process).
+
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Quel équilibreur de charge Azure ARO utilise-t-il ?  Est-il de niveau Standard ou De base, et peut-il être configuré ?
+
+ARO utilise l’équilibreur de charge Azure Standard, qui n’est pas configurable.
+
+## <a name="can-aro-use-netapp-based-storage"></a>ARO peut-il utiliser un stockage NetApp ?
+
+À l’heure actuelle, les seules options de stockage prises en charge sont les classes de stockage Disque Azure et Fichier Azure. 
+
+

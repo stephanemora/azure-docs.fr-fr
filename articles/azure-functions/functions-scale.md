@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874948"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180104"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -62,6 +62,8 @@ Le plan d’hébergement par défaut (le plan Consommation) présente les avanta
 * Augmentation automatique de la taille des instances même pendant les périodes de charge élevée
 
 Les Function App d’une même région peuvent être affectées au même plan Consommation. Avoir plusieurs applications qui s’exécutent dans le même plan Consommation n’entraîne aucun inconvénient ou impact. Attribuer plusieurs applications au même plan Consommation n’affecte pas la résilience, l’extensibilité ou la fiabilité de chaque application.
+
+Pour en savoir plus sur la façon d’estimer les coûts pour une exécution dans le cadre d’un plan Consommation, consultez [Compréhension des coûts d’un plan Consommation](functions-consumption-costs.md).
 
 ## <a name="premium-plan"></a>Plan Premium (préversion)
 
@@ -129,7 +131,9 @@ Lorsque la sortie de cette commande est `dynamic`, votre application de fonction
 
 ## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
 
-Dans n’importe quel plan, une Function App nécessite un compte de stockage Azure général prenant en charge les stockages Blob, File d’attente, Fichiers et Table Azure. Cela s’explique par le fait que Functions utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent cependant pas en charge les files d’attente et les tables. Ces comptes, qui incluent les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication de stockage redondant interzone (ZRS), ne sont pas inclus dans la liste de **comptes de stockage** existants que vous pouvez sélectionner lorsque vous créez une application de fonction.
+Dans n’importe quel plan, une Function App nécessite un compte de stockage Azure général prenant en charge les stockages Blob, File d’attente, Fichiers et Table Azure. Cela s’explique par le fait qu’Azure Functions utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent cependant pas en charge les files d’attente et les tables. Ces comptes, qui incluent les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication de stockage redondant interzone (ZRS), ne sont pas inclus dans la liste de **comptes de stockage** existants que vous pouvez sélectionner lorsque vous créez une application de fonction.
+
+Le même compte de stockage que celui utilisé par votre application de fonction peut également être utilisé par vos déclencheurs et liaisons pour stocker vos données d’application. Toutefois, pour les opérations gourmandes en stockage, il est préférable d’utiliser un compte de stockage distinct.   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 

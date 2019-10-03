@@ -9,14 +9,14 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: fcc5c4008c0fdef3b77e436761d8958fe31458d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036401"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257367"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Stocker des données critiques pour l’entreprise dans le Stockage Blob Azure de manière immuable 
 
 Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Au cours de cette période de conservation, il est possible de créer et de lire des objets blob, mais non de les modifier ou de les supprimer. Le stockage immuable est activé pour les comptes de stockage Blob et comptes de stockage Usage général v2 dans toutes les région Azure.
 
@@ -42,7 +42,7 @@ L’espace de stockage immuable prend en charge les éléments suivants :
 
 - **Configuration au niveau du conteneur** : Les utilisateurs peuvent configurer des stratégies de conservation limitée dans le temps et des balises de conservation légale au niveau du conteneur. Grâce à de simples paramètres au niveau du conteneur, ils ont la possibilité de créer et verrouiller des stratégies de conservation limitée dans le temps, d’étendre les périodes de conservation, de définir et supprimer des archivages juridiques, etc. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux.
 
-- **Prise en charge des enregistrements d’audit** : chaque conteneur comprend un journal d’audit de stratégie. Il présente jusqu’à sept commandes pour les stratégies de conservation limitée dans le temps verrouillées, et contient l’ID utilisateur, le type commande, les valeurs d’horodatage et l’intervalle de rétention. En ce qui concerne les stratégies d’archivage juridique, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f). Le [Journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) est un journal plus complet de toutes les activités du plan de contrôle tandis que les [journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) mémorisent et affichent les opérations du plan de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux d’activité de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
+- **Prise en charge des enregistrements d’audit** : chaque conteneur comprend un journal d’audit de stratégie. Il présente jusqu’à sept commandes pour les stratégies de conservation limitée dans le temps verrouillées, et contient l’ID utilisateur, le type commande, les valeurs d’horodatage et l’intervalle de rétention. En ce qui concerne les stratégies d’archivage juridique, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f). Le [Journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) est un journal plus complet de toutes les activités du plan de contrôle tandis que les [journaux de diagnostic Azure](../../azure-monitor/platform/resource-logs-overview.md) mémorisent et affichent les opérations du plan de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux d’activité de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

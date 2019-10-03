@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515357"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162255"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -54,7 +54,7 @@ Les niveaux de service basés sur des vCore diffèrent principalement en disponi
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
 | | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
-|**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 15 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
+|**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 4 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 
 \* Pools élastiques non pris en charge dans le niveau de service Hyperscale
@@ -361,6 +361,11 @@ Nous créons par défaut deux réplicas pour les bases de données Hyperscale. S
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Comment se connecter à ces nœuds de calcul secondaires ?
 
 Vous pouvez vous connecter à ces nœuds de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `readonly`. Les connexions marquées avec `readonly` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Comment faire pour vérifier si la connexion au nœud de calcul secondaire a bien été établie à l’aide de SSMS/autres outils clients ?
+
+Vous pouvez exécuter la requête T-SQL suivante à l’aide de SSMS/autres outils clients : `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+Le résultat est `READ_ONLY` si votre connexion pointe vers le nœud secondaire en lecture seule ou `READ_WRITE` si votre connexion pointe vers le nœud principal.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Puis-je créer un point de terminaison dédié pour le réplica en échelle lecture ?
 

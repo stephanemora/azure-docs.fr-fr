@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595313"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257620"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -29,7 +29,7 @@ Avec Custom Translator, vous pouvez générer des systèmes de traduction neuron
 
 ### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-Utilisez vos documents traduits précédemment (dépliants, pages web, documentation, etc.) pour générer un système de traduction qui reflète la terminologie et le style propres à un domaine, plutôt qu’un système de traduction générique. Les utilisateurs peuvent charger des documents TMX, XLIFF, TXT, DOCX et XLSX.  
+Utilisez vos documents traduits précédemment (dépliants, pages web, documentation, etc.) pour générer un système de traduction qui reflète la terminologie et le style propres à un domaine, plutôt qu’un système de traduction général. Les utilisateurs peuvent charger des documents TMX, XLIFF, TXT, DOCX et XLSX.  
 
 Le système accepte également des données parallèles au niveau du document, mais pas encore alignées au niveau de la phrase. Si les utilisateurs ont accès à des versions du même contenu dans plusieurs langues, mais dans des documents distincts, Custom Translator est capable de faire correspondre automatiquement les phrases dans les documents.  Le système peut utiliser également des données unilingues dans une ou les deux langages pour compléter les données d’apprentissage parallèles et améliorer les traductions.
 

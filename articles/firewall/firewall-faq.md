@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018848"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130221"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -163,3 +163,7 @@ Le Pare-feu Azure doit approvisionner davantage de machines virtuelles au fil de
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>La taille du sous-réseau du pare-feu doit-elle changer au fil de la mise à l'échelle du service ?
 
 Non. Un sous-réseau de /26 suffit au Pare-feu Azure.
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Le Pare-feu Azure autorise-t-il l’accès à Active Directory par défaut ?
+
+Non. Le Pare-feu Azure bloque l’accès à Active Directory par défaut. Pour autoriser l’accès, configurez l’étiquette du service Azure Active Directory. Pour plus d’informations, consultez [Étiquettes du service Pare-feu Azure](service-tags.md).

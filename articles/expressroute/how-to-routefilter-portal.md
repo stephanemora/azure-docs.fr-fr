@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508609"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122937"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour le peering Microsoft : Portail Azure
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "67508609"
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
 
-Les services Dynamics 365 et les services Office 365, comme Exchange Online, SharePoint Online et Skype pour entreprises, et les services Azure, comme le stockage et la base de données SQL, sont accessibles via l’homologation Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
+Des services Office 365 comme Exchange Online, SharePoint Online et Skype Entreprise, et des services Azure comme le stockage et SQL Database sont accessibles via un appairage Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
 
 Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais de l’homologation de Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
 
@@ -38,10 +38,10 @@ Lorsque l’homologation Microsoft est configurée sur votre circuit ExpressRout
 
 Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste de toutes les valeurs de communauté BGP que vous souhaitez autoriser. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
 
-Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). La connectivité aux services Dynamics 365 ne nécessite pas d’autorisation préalable.
+Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
 
 > [!IMPORTANT]
-> L’homologation Microsoft des circuits ExpressRoute configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres de routage ne sont pas définis. L’homologation Microsoft des circuits ExpressRoute configurés à compter du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été joint au circuit.
+> L’homologation Microsoft des circuits ExpressRoute ayant été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres d’itinéraire ne sont pas définis. L’homologation Microsoft des circuits ExpressRoute configurés à compter du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été joint au circuit.
 > 
 > 
 

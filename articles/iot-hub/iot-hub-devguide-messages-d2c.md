@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877187"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147359"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -25,13 +25,17 @@ Le routage des messages vous permet d’envoyer des messages de vos appareils ve
 
 * **Le filtrage des données avant leur routage vers différents points de terminaison** en appliquant des requêtes avancées. Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Découvrez plus d’informations sur l’utilisation de [requêtes dans le routage des messages](iot-hub-devguide-routing-query-syntax.md).
 
-IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Lorsque vous configurez votre solution IoT pour la première fois, vous devrez peut-être surveiller vos points de terminaison supplémentaires et apporter les modifications nécessaires en fonction de la charge réelle.
+IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Par exemple, si vous utilisez Event Hubs comme point de terminaison personnalisé, vous devez configurer les **unités de débit** pour ce hub d’événements afin qu’il puisse gérer l’entrée des événements que vous envisagez d’envoyer via le routage des messages IoT Hub. De même, lors de l’utilisation d’une file d’attente Service Bus comme point de terminaison, vous devez configurer la **taille maximale** afin que la file d’attente puisse contenir toutes les données entrantes, jusqu’à ce qu’elles soient sorties par les consommateurs. Lorsque vous configurez votre solution IoT pour la première fois, vous devrez peut-être surveiller vos points de terminaison supplémentaires et apporter les modifications nécessaires en fonction de la charge réelle.
 
 IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d'interopérabilité entre les protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Points de terminaison de routage
 
-Un hub IoT a un point de terminaison intégré par défaut (**messages/événements**) qui est compatible avec Event Hubs. Vous pouvez créer des [points de terminaison personnalisés](iot-hub-devguide-endpoints.md#custom-endpoints) pour y router les messages en liant d’autres services de votre abonnement au hub IoT. IoT Hub prend actuellement en charge les services suivants en tant que points de terminaison personnalisés :
+Un hub IoT a un point de terminaison intégré par défaut (**messages/événements**) qui est compatible avec Event Hubs. Vous pouvez créer des [points de terminaison personnalisés](iot-hub-devguide-endpoints.md#custom-endpoints) pour y router les messages en liant d’autres services de votre abonnement au hub IoT. 
+
+Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
+
+IoT Hub prend actuellement en charge les services suivants en tant que points de terminaison personnalisés :
 
 ### <a name="built-in-endpoint"></a>Point de terminaison intégré
 
@@ -43,9 +47,9 @@ IoT Hub prend en charge l’écriture de données sur Stockage Blob Azure au for
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub prend également en charge le routage des messages vers les comptes ADLS Gen2 qui sont des comptes de stockage compatibles avec l’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) basés sur le Stockage Blob. Cette fonctionnalité en préversion public est disponible pour les nouveaux comptes ADLS Gen2 dans les régions USA Ouest 2 et USA Centre-Ouest. Nous la déploierons bientôt dans toutes les régions du cloud.
+IoT Hub prend également en charge le routage des messages vers les comptes [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2, qui sont des comptes de stockage compatibles avec l’[espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) basés sur le Stockage Blob. Cette fonctionnalité en préversion public est disponible pour les nouveaux comptes ADLS Gen2 dans les régions USA Ouest 2 et USA Centre-Ouest. [Inscrivez-vous](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) pour en avoir un aperçu. Nous la déploierons bientôt dans toutes les régions du cloud. 
 
-IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand le lot atteint une certaine taille ou après un certain laps de temps. IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante :
+IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand le lot atteint une certaine taille ou après un certain laps de temps. IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante : 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}

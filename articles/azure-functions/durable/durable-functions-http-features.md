@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b909918ff4f9abc1dd64d4c7e5ccb35954b233f7
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 5a9143643b1a1cabb32903933dbd68d665d0424f
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935546"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171126"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -205,7 +205,7 @@ La prise en charge intégrée de l’appel des API HTTP est une fonctionnalité 
 Si l’une de ces limitations peut avoir un impact sur votre cas d’utilisation, envisagez plutôt d’utiliser des fonctions d’activité et des bibliothèques clientes HTTP spécifiques à un langage pour effectuer des appels HTTP sortants.
 
 > [!NOTE]
-> Si vous êtes un développeur .NET, vous vous demandez peut-être pourquoi cette fonctionnalité utilise les types `DurableHttpRequest` et `DurableHttpResponse` au lieu des types .NET intégrés `HttpRequestMessage` et `HttpResponseMessage`. Ce choix de conception est intentionnel. La raison principale est que les types personnalisés permettent de s’assurer que les utilisateurs ne font pas de suppositions incorrectes sur les comportements pris en charge du client HTTP interne. Les types spécifiques aux fonctions durables permettent également de simplifier la conception des API et de mettre plus facilement en lumière des fonctionnalités spéciales, telles que l’[intégration des identités managées](#managed-identities) et le [modèle d’interrogation de consommateur](#http-202-handling).
+> Si vous êtes un développeur .NET, vous vous demandez peut-être pourquoi cette fonctionnalité utilise les types `DurableHttpRequest` et `DurableHttpResponse` au lieu des types .NET intégrés `HttpRequestMessage` et `HttpResponseMessage`. Ce choix de conception est intentionnel. La principale raison est que les types personnalisés permettent de s’assurer que les utilisateurs ne font pas de suppositions incorrectes sur les comportements pris en charge du client HTTP interne. Les types spécifiques aux fonctions durables permettent également de simplifier la conception des API et de mettre plus facilement en lumière des fonctionnalités spéciales, telles que l’[intégration des identités managées](#managed-identities) et le [modèle d’interrogation de consommateur](#http-202-handling).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

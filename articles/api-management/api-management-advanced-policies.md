@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: efc439d56ee864d940942369b3d226ed2a94a383
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072634"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219553"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -38,8 +38,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Set request method](#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
 -   [Set status code](#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.
 -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.
--   [Trace](#Trace) : ajoute une chaîne à la sortie de l’[inspecteur d’API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).
--   [Wait](#Wait) : attend l’exécution des stratégies incluses [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose) pour continuer.
+-   [Trace](#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), aux données de télémétrie Application Insights et aux journaux de diagnostic.
+-   [Wait](#Wait) : attend l’exécution des stratégies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Control flow](api-management-advanced-policies.md#choose) pour continuer.
 
 ## <a name="choose"></a> Control flow
 
@@ -913,16 +913,31 @@ Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un
 
 ## <a name="Trace"></a> Trace
 
-La stratégie `trace` ajoute une chaîne à la sortie de l’[inspecteur d’API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/). La stratégie s’exécute uniquement lorsque le traçage est déclenché, c’est-à-dire que l’en-tête de la demande `Ocp-Apim-Trace` est présent et a la valeur `true` et que l’en-tête de la demande `Ocp-Apim-Subscription-Key` est présent et contient une clé valide associée au compte Administrateur.
+La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector, aux données de télémétrie Application Insights et/ou aux journaux de diagnostic. 
+
+* La stratégie ajoute une trace personnalisée à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi. 
+* La stratégie crée des données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) dans Application Insights, quand l’intégration à [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic. 
+* La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de diagnostic](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.  
+
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a> Exemple
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### <a name="elements"></a>Éléments
@@ -930,12 +945,17 @@ La stratégie `trace` ajoute une chaîne à la sortie de l’[inspecteur d’API
 | Élément | Description   | Obligatoire |
 | ------- | ------------- | -------- |
 | trace   | Élément racine. | OUI      |
+| message | Chaîne ou expression à journaliser. | OUI |
+| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut | Description                                                                             | Obligatoire | Default |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message. | OUI      | N/A     |
+| severity    | Spécifie le niveau de gravité de la trace. Les valeurs autorisées sont `verbose`, `information` et `error` (de la plus petite à la plus élevée). | Non      | Détaillé     |
+| Nom    | Nom de la propriété. | OUI      | N/A     |
+| value    | Valeur de la propriété. | OUI      | N/A     |
 
 ### <a name="usage"></a>Usage
 

@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fa1737a8627fe9561a2a84e7f0ef69aefb6deb14
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ee3a1fef379e2950172dddc389b30e0a363127ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170616"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262124"
 ---
 # <a name="overview-of-azure-activity-log"></a>Présentation du journal d’activité Azure
 
@@ -23,10 +23,10 @@ Avec le journal d’activité, répondez aux questions _quoi_, _qui_ et _quand_ 
 
 Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations sur les ressources basées sur le modèle Classic/RDFE.
 
-## <a name="comparison-to-diagnostic-logs"></a>Comparaison avec les journaux de diagnostic
-Il y a un seul journal d’activité par abonnement Azure. Il fournit des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le « plan de contrôle »). Les [journaux de diagnostic](diagnostic-logs-overview.md), qui sont générés par une ressource, contiennent des informations sur le fonctionnement de cette ressource (le « plan de données »). Vous devez activer les paramètres de diagnostic pour chaque ressource.
+## <a name="comparison-to-resource-logs"></a>Comparaison avec les journaux de ressources
+Il y a un seul journal d’activité par abonnement Azure. Il fournit des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le « plan de contrôle »). Les [journaux de ressources](resource-logs-overview.md), qui sont générés par une ressource, contiennent des informations sur le fonctionnement de cette ressource (le « plan de données »). Vous devez créer un paramètre de diagnostic pour chaque ressource afin de collecter les journaux de ressources.
 
-![Comparaison des journaux d’activité avec les journaux de diagnostic](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Comparaison entre les journaux d’activité et les journaux de ressources](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Chaque événement dans le journal d’activité est associé à l’une des cat
 | Service Health | Contient l’enregistrement de tous les incidents d’intégrité du service qui se sont produits dans Azure. L’événement _SQL Azure dans la région USA Est rencontre des temps d’arrêt_ est un exemple d’événement d’intégrité du service. <br><br>Les événements Service Health se présentent sous six types : _Action requise_, _Récupération assistée_, _Incident_, _Maintenance_, _Information_ ou _Sécurité_. Ces événements sont créés uniquement si une ressource dans l’abonnement est impactée par l’événement.
 | Intégrité des ressources | Contient l’enregistrement de tous les événements d’intégrité de ressource survenus dans vos ressources Azure. L’événement _L’état d’intégrité de la machine virtuelle est passé à Indisponible_ est un exemple d’événement d’intégrité de ressource.<br><br>Les événements d’intégrité de ressource peuvent représenter l’un de ces quatre états d’intégrité : _Disponible_, _Indisponible_, _Détérioré_ et _Inconnu_. En outre, les événements d’intégrité de ressource peuvent être classés dans la catégorie _Lancé par la plateforme_ ou _Lancé par l’utilisateur_. |
 | Alerte | Contient l’enregistrement des activations d’alertes Azure. L’événement _Le % processeur sur ma machine virtuelle a dépassé 80 au cours des 5 dernières minutes_.|
-| Autoscale | Contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle automatique selon les paramètres d’échelle automatique définis dans votre abonnement. L’événement _Échec de l’action de scale-up de la mise à l’échelle automatique_ est un exemple d’événement de mise à l’échelle automatique. |
+| Mise à l’échelle automatique | Contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle automatique selon les paramètres d’échelle automatique définis dans votre abonnement. L’événement _Échec de l’action de scale-up de la mise à l’échelle automatique_ est un exemple d’événement de mise à l’échelle automatique. |
 | Recommandation | Contient les événements de recommandation d’Azure Advisor. |
 | Sécurité | Contient l’enregistrement de toutes les alertes générées par Azure Security Center. L’événement _Fichier à extension double suspect exécuté_ est un exemple d’événement de sécurité. |
 | Stratégie | Contient les enregistrements de toutes les opérations d’action à effet effectuées par Azure Policy. Les événements _Audit_ et _Refuser_ sont des exemples d’événements de stratégie. Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource. |

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010190"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146804"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -52,23 +52,24 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 | **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 |
-| Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
-| Taille de stockage réservé maximale d’instance | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
-| Taille de base de données maximale | 8 To | 4 To |
-| Nombre maximal de bases de données par instance | 100 | 100 |
-| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
-| Taille maximale des fichiers | 8 To | 4 To |
-| Taille maximale du fichier journal | 2 To | 2 To |
+| Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
+| Taille de stockage maximale d’instance (réservée) | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
+| Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2-8 To en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
+| Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Jusqu’à la taille de stockage d’instance actuellement disponible. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
+| Nombre maximal de bases de données par instance | 100, sauf si la limite de taille de stockage d’instance a été atteinte. | 100, sauf si la limite de taille de stockage d’instance a été atteinte. |
+| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
+| Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
+| Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
 | IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5 500 - 110 000 (1 375/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
-| Limite de débit d’écriture du journal | 3 Mo/s par vCore<br/>22 Mo/s max par instance | 4 Mo/s par vCore<br/>48 Mo/s par instance|
-| Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>22 Mo/s max. | 4 Mo/s par vCore<br/>48 Mo/s max. |
+| Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limité. |
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
-| Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore)<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Limité par la taille de stockage maximale d’instance. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
 | OLTP en mémoire | Non pris en charge | Disponible |
 | Nombre maximal de sessions | 30000 | 30000 |
 | [Réplicas en lecture seule](sql-database-read-scale-out.md) | 0 | 1 (inclus dans le prix) |
 
 > [!NOTE]
+> - **La taille de stockage d’instance actuellement disponible** est la différence entre la taille d’instance réservée et l’espace de stockage utilisé.
 > - Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’activité d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
 > - Le débit et les IOPS dépendent également de la taille de page qui n’est pas explicitement limitée par instance gérée.
 > Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
@@ -93,10 +94,10 @@ L’instance gérée prend actuellement en charge le déploiement uniquement sur
 
 ## <a name="regional-resource-limitations"></a>Limitations des ressources régionales
 
-Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. L’instance gérée a deux limites par défaut par région Azure en fonction d’un type d’abonnement :
+Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. Une instance managée a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](#obtaining-a-larger-quota-for-sql-managed-instance)) en fonction du type d’abonnement :
 
 - **Limite de sous-réseaux** : nombre maximal de sous-réseaux dans lesquels des instances gérées sont déployées dans une seule et même région.
-- **Limite de vCore**: Le nombre maximal de vCores qui peut être déployé dans toutes les instances dans une seule région. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite vCore.
+- **Limite d’unités de vCore** : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
 
 > [!Note]
 > Ces limites sont des paramètres par défaut : il ne s’agit pas de limitations techniques. Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le Portail Microsoft Azure](#obtaining-a-larger-quota-for-sql-managed-instance) si vous avez besoin de plus d’instances gérées dans la région actuelle. Vous pouvez aussi créer des instances gérées dans une autre région Azure sans envoyer de demandes de support.

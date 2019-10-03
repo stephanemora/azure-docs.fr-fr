@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités de repérage dans Azure Sentinel en préversion | Microsoft Docs
+title: Fonctionnalités de repérage dans Azure Sentinel | Microsoft Docs
 description: Cet article décrit comment utiliser les fonctionnalités de repérage Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780458"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240609"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Repérer les menaces à l’aide d’Azure Sentinel en préversion
+# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Repérer les menaces dans Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Si vous êtes chargé d’examiner les menaces pour la sécurité, les puissants outils de repérage et de requête offerts par Azure Sentinel vous aideront à détecter ces menaces de manière proactive dans l’ensemble des sources de données de votre organisation. Toutefois, vos systèmes et appliances de sécurité génèrent des montagnes de données qui peuvent se révéler difficiles à analyser et à convertir en événements significatifs. Afin de faciliter la tâche des analystes de la sécurité dans la recherche proactive des nouvelles anomalies non détectées par vos applications de sécurité, les requêtes de repérage intégrées d’Azure Sentinel vous aident à poser les bonnes questions pour identifier les problèmes au niveau des données déjà présents dans le réseau. 
 
@@ -41,8 +39,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 - Langage de requête performant avec IntelliSense : repose sur un langage de requête suffisamment flexible pour garantir des fonctionnalités de repérage de niveau supérieur.
 
-- Création de vos propres signets : lors du processus de repérage, vous pouvez rencontrer des correspondances, conclusions, tableaux de bord ou activités qui vous semblent inhabituels ou suspects. Pour marquer ces éléments afin d’y réaccéder plus facilement par la suite, utilisez la fonctionnalité de création de signets. Les signets vous permettent d’enregistrer des éléments pour plus tard, afin de les utiliser pour créer un incident à des fins d’investigation. Pour plus d’informations sur les signets, consultez l’article [Use bookmarks to hunt] (Utiliser des signets pour le repérage).
-
+- Création de vos propres signets : lors du processus de repérage, vous pouvez rencontrer des correspondances, conclusions, tableaux de bord ou activités qui vous semblent inhabituels ou suspects. Pour marquer ces éléments afin d’y réaccéder plus facilement par la suite, utilisez la fonctionnalité de création de signets. Les signets vous permettent d’enregistrer des éléments pour plus tard, afin de les utiliser pour créer un incident à des fins d’investigation. Pour plus d’informations sur les signets, consultez l’article [Utiliser des signets dans le repérage](hunting.md).
 - Automatisation de l’examen à l’aide de notebooks : les notebooks sont semblables à des playbooks pas à pas que vous pouvez générer pour suivre les différentes étapes d’une procédure d’examen et de repérage.  Les notebooks encapsulent toutes les étapes de repérage dans un playbook réutilisable qui peut être partagé avec d’autres personnes de votre organisation. 
 - Interrogation des données stockées : les données sont accessibles dans des tables sur lesquelles vous pouvez exécuter des requêtes. Par exemple, vous pouvez interroger les événements de création de processus, les événements DNS (Domain Name Service), ainsi que de nombreux autres types d’événements.
 

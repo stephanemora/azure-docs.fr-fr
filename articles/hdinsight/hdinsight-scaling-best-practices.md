@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105398"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161971"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -42,7 +42,7 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 Grâce à ces méthodes, vous pouvez monter ou descendre en puissance votre cluster HDInsight en quelques minutes.
 
 > [!IMPORTANT]  
-> * L’interface de ligne de commande Azure Classic est déconseillée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * L’interface de ligne de commande Azure Classic est dépréciée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * Le module PowerShell AzureRM est déconseillé.  Utilisez le [module Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) autant que possible.
 
 ## <a name="impact-of-scaling-operations"></a>Impact des opérations de mise à l’échelle

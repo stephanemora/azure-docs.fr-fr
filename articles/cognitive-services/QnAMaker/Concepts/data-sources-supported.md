@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615977"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130117"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
@@ -202,6 +202,15 @@ Nouvelle ligne entre 2 phrases.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 |Listes imbriquées|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Vous pouvez imbriquer des listes triées et non triées ensemble. L’onglet, `\t`, indique le niveau de mise en retrait de l’élément enfant.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format de la liste non triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format de la liste triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 *QnA Maker ne traite pas du tout l’image. C’est le rôle de l’application cliente d’effectuer le rendu de l’image. 
+
+Si vous souhaitez ajouter du contenu à l’aide des API de mise à jour ou de remplacement de la base de connaissances, et si le contenu ou le fichier contiennent des balises HTML, vous pouvez conserver le code HTML de votre fichier en veillant à ce que l’ouverture et la fermeture des balises soient converties au format encodé.
+
+| Conserver le code HTML  | Représentation de la requête d’API  | Représentation dans la base de connaissances |
+|-----------|---------|-------------------------|
+| OUI | \&lt;br\&gt; | &lt;br&gt; |
+| OUI | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+En outre, CR LF (\r\n) est converti en \n dans la base de connaissances. LF (\n) est conservé tel quel. Si vous souhaitez échapper une séquence d’échappement telle que \t ou \n, vous pouvez utiliser la barre oblique inverse, par exemple : « \\\\r\\\\n » et « \\\\t ».
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modification de votre base de connaissances en local
 

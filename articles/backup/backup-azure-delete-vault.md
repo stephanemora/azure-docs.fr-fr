@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 719f7f1c30a79b9057f25d6137423451cc606bfa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088418"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162204"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
@@ -33,6 +33,9 @@ Vous ne pouvez pas supprimer un coffre Recovery Services qui a des dépendances 
 
   ![Supprimez l’erreur du serveur protégé.](./media/backup-azure-delete-vault/error-message.jpg)
 
+- Si les éléments de sauvegarde sont dans un état de suppression réversible, le message d’avertissement ci-dessous s’affiche et vous devez attendre jusqu’à ce qu’ils soient définitivement supprimés. Pour plus d’informations, reportez-vous à cet [article](https://aka.ms/SoftDeleteCloudWorkloads).
+
+   ![Supprimez l’erreur du coffre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 Pour supprimer le coffre, choisissez le scénario qui correspond à votre configuration et suivez les étapes recommandées :
 

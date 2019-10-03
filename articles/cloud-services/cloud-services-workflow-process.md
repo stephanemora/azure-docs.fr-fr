@@ -4,7 +4,7 @@ description: Cet article présente les processus de workflow lorsque vous déplo
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945322"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162158"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Workflow de l’architecture de machine virtuelle Windows Azure 
 Cet article présente les processus de workflow qui interviennent lorsque vous déployez ou mettez à jour une ressource Azure telle qu'une machine virtuelle. 
@@ -37,15 +37,16 @@ Le diagramme suivant présente l’architecture des ressources Azure.
 
 **B**. Le contrôleur de structure est responsable de la maintenance et de la surveillance de toutes les ressources du centre de données. Il communique avec les agents hôtes de structure sur le système d'exploitation de la structure et envoie des informations telles que la version du système d’exploitation invité, le package de service, la configuration de service et l'état de service.
 
-**C**. L’agent hôte, qui se trouve sur le système d'exploitation hôte, est chargé de configurer le système d’exploitation invité et de communiquer avec l’agent invité (WindowsAzureGuestAgent) afin de mettre à jour le rôle vers un état cible et de procéder à des vérifications de pulsation auprès de l’agent invité. Si l’agent hôte ne reçoit pas de réponse de pulsation pendant 10 minutes, il redémarre le système d’exploitation invité.
+**C**. L’agent hôte, qui se trouve sur le système d’exploitation hôte, est chargé de configurer le système d’exploitation invité et de communiquer avec l’agent invité (WindowsAzureGuestAgent) afin de mettre à jour le rôle vers un état cible déterminé et de procéder à des vérifications de pulsation auprès de l’agent invité. Si l’agent hôte ne reçoit pas de réponse de pulsation pendant 10 minutes, il redémarre le système d’exploitation invité.
 
 **C2**. L'agent WaAppAgent est responsable de l’installation, de la configuration et de la mise à jour de WindowsAzureGuestAgent.exe.
 
 **D**.  L'agent WindowsAzureGuestAgent est responsable des tâches suivantes :
 
-1. Configuration du système d’exploitation invité, pare-feu, ACL, ressources LocalStorage, package et configuration, et certificats. Configuration du SID du compte d'utilisateur sous lequel le rôle s'exécutera.
-2. Communication de l'état du rôle à la structure.
-3. Démarrage et surveillance de WaHostBootstrapper pour s'assurer que le rôle est dans l’état cible.
+1. Configuration du système d’exploitation invité, notamment du pare-feu, des listes de contrôle d’accès, des ressources LocalStorage, du package des services et de leur configuration ainsi que des certificats.
+2. Configuration du SID pour le compte d’utilisateur sous lequel le rôle s’exécutera.
+3. Communication de l'état du rôle à la structure.
+4. Démarrage et surveillance de WaHostBootstrapper pour s'assurer que le rôle est dans l’état cible.
 
 **E**. WaHostBootstrapper est responsable de ce qui suit :
 
@@ -76,7 +77,7 @@ Le diagramme suivant présente l’architecture des ressources Azure.
 
 ## <a name="workflow-processes"></a>Processus de workflow
 
-1. Un utilisateur envoie une requête, telle que le téléchargement de fichiers .cspkg et .cscfg, indiquant à une ressource de s'arrêter ou procédant à une modification de configuration, etc. Cela peut se faire via le portail Azure ou un outil utilisant l’API Gestion des services, tel que la fonctionnalité de publication Visual Studio. Cette requête est transmise à RDFE qui effectue toutes les tâches relatives à l’abonnement, puis transmet la requête à FFE. La suite de ces étapes de workflow consiste à déployer un nouveau package et à le démarrer.
+1. Un utilisateur formule une requête, par exemple télécharger des fichiers « .cspkg » et « .cscfg », demander à une ressource de s’arrêter ou apporter une modification à la configuration, etc. Cela peut se faire via le portail Azure ou un outil utilisant l’API Gestion des services, tel que la fonctionnalité de publication Visual Studio. Cette requête est transmise à RDFE qui effectue toutes les tâches relatives à l’abonnement, puis transmet la requête à FFE. La suite de ces étapes de workflow consiste à déployer un nouveau package et à le démarrer.
 2. FFE recherche le pool de machines qui convient (en fonction de l'entrée du client, comme groupe d'affinités, et de l'entrée de la structure, comme disponibilité des machines) et communique avec le contrôleur de structure principal dans ce pool d’ordinateurs.
 3. Le contrôleur de structure détecte un hôte doté de cœurs d'unité centrale disponibles (ou prépare un nouvel hôte). Le package de service et la configuration sont copiés dans l'hôte, et le contrôleur de structure communique avec l’agent hôte sur le système d’exploitation hôte pour déployer le package (configuration des DIP, des ports, du système d'exploitation invité, etc.).
 4. L’agent hôte démarre le système d’exploitation invité et communique avec l’agent invité (WindowsAzureGuestAgent). L’hôte envoie des pulsations à l’invité pour s'assurer que le rôle fonctionne dans l'état cible.
@@ -85,7 +86,7 @@ Le diagramme suivant présente l’architecture des ressources Azure.
 7. WaHostBootstrapper lit les tâches **Startup** depuis E:\RoleModel.xml et commence à exécuter les tâches de démarrage. WaHostBootstrapper attend la fin de toutes les tâches de démarrage simple et renvoie un message de « réussite ».
 8. Pour les rôles web IIS complets, WaHostBootstrapper indique à IISConfigurator de configurer le pool d’applications IIS et pointe le site vers `E:\Sitesroot\<index>`, où `<index>` correspond à un index basé sur 0 dans le nombre de `<Sites>` éléments définis pour le service.
 9. WaHostBootstrapper démarre le processus hôte en fonction du type de rôle :
-    1. **Rôle de travail** : WaWorkerHost.exe est démarré. WaHostBootstrapper exécute la méthode OnStart(). Ensuite, WaHostBootstrapper commence à exécuter la méthode Run(), puis marque simultanément le rôle comme Prêt et le place dans la rotation d'équilibrage de charge (si des InputEndpoints sont définis). WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
+    1. **Rôle de travail** : WaWorkerHost.exe est démarré. WaHostBootstrapper exécute la méthode OnStart(). Une fois les résultats retournés, WaHostBootstrapper commence à exécuter la méthode Run(), puis marque simultanément le rôle comme étant Prêt et le place dans la rotation de l’équilibreur de charge (si des InputEndpoints sont définis). WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
     1. **Rôle Web HWC SDK 1.2** : WaWebHost est démarré. WaHostBootstrapper exécute la méthode OnStart(). Ensuite, WaHostBootstrapper commence à exécuter la méthode Run(), puis marque simultanément le rôle comme Prêt et le place dans la rotation d'équilibrage de charge. WaWebHost émet une requête de préparation (/do.rd_runtime_init GET). Toutes les requêtes web sont envoyées à WaWebHost.exe. WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
     1. **Rôle web IIS complet** : aIISHost est démarré. WaHostBootstrapper exécute la méthode OnStart(). Ensuite, il commence à exécuter la méthode Run(), puis marque simultanément le rôle comme Prêt et le place dans la rotation d’équilibrage de charge. WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
 10. Les requêtes web entrantes vers un rôle web IIS complet déclenchent IIS pour démarrer le processus W3WP et répondre à la requête, comme dans un environnement IIS local.
@@ -115,7 +116,7 @@ Ce journal contient les mises à jour d'état ainsi que les notifications de pul
 
 `C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log`
  
-**Journaux d’activité IIS**
+**Journaux IIS**
 
 `C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1`
  

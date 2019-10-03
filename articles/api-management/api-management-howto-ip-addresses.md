@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861255"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178194"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Adresses IP du service Gestion des API Azure
 
@@ -61,7 +61,7 @@ Dans les [déploiements multirégionaux](api-management-howto-deploy-multi-regio
 
 Si votre service Gestion des API se trouve dans un réseau virtuel, il dispose de deux types d'adresses IP : publiques et privées.
 
-Les adresses IP publiques sont utilisées pour les communications internes sur le port `3443` - afin de gérer la configuration (par exemple, via Azure Resource Manager). En outre, lorsqu'une requête est envoyée du service Gestion des API vers un serveur principal public (Internet), une adresse IP publique est présentée comme origine de la requête.
+Les adresses IP publiques sont utilisées pour les communications internes sur le port `3443` - afin de gérer la configuration (par exemple, via Azure Resource Manager). Dans la configuration de réseau virtuel externe, elles sont également utilisées pour le trafic des API runtime. Quand une requête est envoyée du service Gestion des API vers un back-end public (Internet), une adresse IP publique est présentée comme origine de la requête.
 
 Les adresses IP virtuelles privées sont utilisées pour se connecter aux points de terminaison (passerelles, portail des développeurs et plan de gestion pour un accès direct à l'API) du service Gestion des API depuis le réseau. Vous pouvez les utiliser pour configurer des enregistrements DNS au sein du réseau.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d802e48231a03fbf3fee9439894371188f31d5e1
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576004"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200943"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -24,7 +24,7 @@ En raison des risques accrus associés aux protocoles d’authentification héri
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour demander à ces rôles d’administration affectés d’effectuer l’authentification multifacteur.
+Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées.
 
 1. Connectez-vous au  **Portail Microsoft Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.

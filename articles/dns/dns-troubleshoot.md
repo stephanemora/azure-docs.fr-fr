@@ -1,31 +1,24 @@
 ---
-title: Guide de résolution des problèmes d’Azure DNS | Microsoft Docs
+title: Guide de résolution des problèmes d’Azure DNS
 description: Résoudre les problèmes courants avec Azure DNS
 services: dns
-documentationcenter: na
-author: genlin
-manager: cshepard
-editor: ''
-ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
+author: vhorne
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/20/2017
+ms.date: 09/20/2019
 ms.author: genli
-ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885d41c9cea11805b08b19ec9c3cc4e533813673
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823893"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162062"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure DNS
 
-Cette page fournit des informations de résolution des problèmes pour les questions Azure DNS les plus fréquentes.
+Cet article fournit des solutions aux problèmes fréquemment rencontrés avec Azure DNS.
 
-Si cette procédure ne résout pas votre problème, vous pouvez également rechercher ou publier votre problème sur notre [forum de support communautaire sur MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Vous pouvez également ouvrir une demande de support Azure.
+Si cette procédure ne résout pas votre problème, vous pouvez également rechercher ou publier votre problème sur notre [forum de support communautaire sur MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Vous pouvez également effectuer une demande de support Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Impossible de créer une zone DNS
@@ -33,16 +26,15 @@ Si cette procédure ne résout pas votre problème, vous pouvez également reche
 Pour résoudre les problèmes courants, essayez une ou plusieurs des étapes suivantes :
 
 1.  Consultez les journaux d’audit Azure DNS pour déterminer la cause de l’échec.
-2.  Chaque nom de zone DNS doit être unique au sein de son groupe de ressources. Autrement dit, deux zones DNS portant le même nom ne peuvent pas partager un groupe de ressources. Essayez d’utiliser un autre nom de zone ou un autre groupe de ressources.
+2.  Chaque nom de zone DNS doit être unique au sein de son groupe de ressources. Autrement dit, deux zones DNS portant le même nom ne peuvent pas partager un même groupe de ressources. Essayez d’utiliser un autre nom de zone ou un autre groupe de ressources.
 3.  Il se peut que l'erreur « Vous avez atteint ou dépassé le nombre maximal de zones dans l'abonnement {subscription id} » s'affiche. Utilisez un autre abonnement Azure, supprimez certaines zones ou contactez le support Azure pour augmenter votre limite d’abonnement.
-4.  Il se peut que l'erreur « La zone {Nom de la zone} n’est pas disponible » s'affiche. Cette erreur signifie qu’Azure DNS n’a pas pu allouer des serveurs de noms de cette zone DNS. Essayez d’utiliser un autre nom de zone. Sinon, si vous êtes le propriétaire du nom de domaine, contactez le support Azure qui peut vous allouer des serveurs de noms.
+4.  Il se peut que l'erreur « La zone {Nom de la zone} n’est pas disponible » s'affiche. Cette erreur signifie qu’Azure DNS n’a pas pu allouer des serveurs de noms de cette zone DNS. Essayez d’utiliser un autre nom de zone. Sinon, si vous êtes le propriétaire du nom de domaine, vous pouvez contacter le support Azure qui peut vous allouer des serveurs de noms.
 
 
-### <a name="recommended-documents"></a>**Documents recommandés**
+### <a name="recommended-articles"></a>Articles recommandés
 
-[Enregistrements et zones DNS](dns-zones-records.md)
-<br>
-[Création d’une zone DNS](dns-getstarted-create-dnszone-portal.md)
+* [Enregistrements et zones DNS](dns-zones-records.md)
+* [Création d’une zone DNS](dns-getstarted-create-dnszone-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>Impossible de créer un enregistrement DNS
 
@@ -50,16 +42,15 @@ Pour résoudre les problèmes courants, essayez une ou plusieurs des étapes sui
 
 1.  Consultez les journaux d’audit Azure DNS pour déterminer la cause de l’échec.
 2.  Le jeu d’enregistrements existe-t-il déjà ?  Azure DNS gère les enregistrements à l’aide de *jeux* d’enregistrement, qui sont une collection d’enregistrements ayant le même nom et le même type. Si un enregistrement ayant le même nom et le même type existe déjà, pour ajouter un autre enregistrement vous devez modifier le jeu d’enregistrements existant.
-3.  Essayez-vous de créer un enregistrement à l’extrémité de la zone DNS (la « racine » de la zone) ? Si c’est le cas, la convention DNS exige d’utiliser le caractère ’@’ comme nom d’enregistrement. Notez également que les normes DNS n’autorisent pas les enregistrements CNAME au niveau de l’extrémité de la zone.
-4.  Constatez-vous un conflit d’enregistrement CNAME ?  Les normes DNS n’autorisent pas un enregistrement CNAME ayant le même nom qu’un enregistrement d’un autre type. Si vous avez un enregistrement CNAME existant, la création d’un enregistrement ayant le même nom mais de type différent échoue.  De même, la création d’un enregistrement CNAME échoue si le nom correspond à un enregistrement existant d’un autre type. Supprimez le conflit en supprimant l’autre enregistrement ou en choisissant un nom d’enregistrement différent.
-5.  Vous avez atteint la limite du nombre de jeux d’enregistrements autorisé dans une zone DNS ? Le nombre actuel de jeux d’enregistrement et le nombre maximal de jeux d’enregistrements sont affichés dans le portail Azure, sous les « Propriétés » de la zone. Si vous avez atteint cette limite, supprimez des jeux d’enregistrements ou contactez le Support Azure pour augmenter votre limite de jeux d’enregistrements pour cette zone, puis réessayez. 
+3.  Essayez-vous de créer un enregistrement à l’extrémité de la zone DNS (la « racine » de la zone) ? Si c’est le cas, la convention DNS exige d’utiliser le caractère ’@’ comme nom d’enregistrement. Notez également que les normes DNS n’autorisent pas les enregistrements CNAME au niveau de l’extrémité de la zone.
+4.  Constatez-vous un conflit d’enregistrement CNAME ?  Les normes DNS n’autorisent pas l’utilisation d’un même nom pour deux enregistrements CNAME de type différent. Si vous avez un enregistrement CNAME existant, la création d’un enregistrement ayant le même nom mais de type différent échoue.  De même, la création d’un enregistrement CNAME échoue si le nom correspond à un enregistrement existant d’un autre type. Supprimez le conflit en supprimant l’autre enregistrement ou en choisissant un nom d’enregistrement différent.
+5.  Vous avez atteint la limite du nombre de jeux d’enregistrements autorisé dans une zone DNS ? Le nombre actuel de jeux d’enregistrement et le nombre maximal de jeux d’enregistrements sont affichés dans le portail Azure, sous les « Propriétés » de la zone. Si vous avez atteint cette limite, supprimez des jeux d’enregistrements ou contactez le support Azure pour augmenter votre limite pour cette zone, puis réessayez. 
 
 
-### <a name="recommended-documents"></a>**Documents recommandés**
+### <a name="recommended-articles"></a>Articles recommandés
 
-[Enregistrements et zones DNS](dns-zones-records.md)
-<br>
-[Création d’une zone DNS](dns-getstarted-create-dnszone-portal.md)
+* [Enregistrements et zones DNS](dns-zones-records.md)
+* [Création d’une zone DNS](dns-getstarted-create-dnszone-portal.md)
 
 
 
@@ -76,9 +67,9 @@ La résolution de noms DNS est un processus en plusieurs étapes. Elle peut éch
 4.  Après avoir suivi les étapes ci-dessus, votre enregistrement DNS devrait se résoudre correctement. Pour vérifier, vous pouvez à nouveau utiliser [digwebinterface](https://digwebinterface.com), cette fois en vous servant des paramètres de serveur de noms par défaut.
 
 
-### <a name="recommended-documents"></a>**Documents recommandés**
+### <a name="recommended-articles"></a>Articles recommandés
 
-[Délégation de domaine à Azure DNS](dns-domain-delegation.md)
+* [Délégation de domaine à Azure DNS](dns-domain-delegation.md)
 
 
 
@@ -91,13 +82,11 @@ Exemples de noms d’enregistrement SRV (nom de service « sip », protocole �
 - \_sip.\_tcp (crée un jeu d’enregistrements à l’extrémité de la zone)
 - \_sip.\_tcp.sipservice (crée un jeu d’enregistrements nommé « sipservice »)
 
-### <a name="recommended-documents"></a>**Documents recommandés**
+### <a name="recommended-articles"></a>Articles recommandés
 
-[Enregistrements et zones DNS](dns-zones-records.md)
-<br>
-[Création de jeux d’enregistrements et d’enregistrements DNS à l’aide du portail Azure](dns-getstarted-create-recordset-portal.md)
-<br>
-[Type d’enregistrement SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+* [Enregistrements et zones DNS](dns-zones-records.md)
+* [Création de jeux d’enregistrements et d’enregistrements DNS à l’aide du portail Azure](dns-getstarted-create-recordset-portal.md)
+* [Type d’enregistrement SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

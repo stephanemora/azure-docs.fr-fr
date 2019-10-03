@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142900"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202900"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -44,11 +44,14 @@ Azure Migrate utilise la solution [Service Map](../operations-management-suite/o
     ![Ajouter un espace de travail](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Lors de l’association d’un espace de travail, vous aurez la possibilité de créer un nouvel espace de travail ou de joindre un espace existant :
-  - Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
+  - Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. Vous pouvez choisir la [région](https://azure.microsoft.com/global-infrastructure/regions/) dans laquelle l’espace de travail sera créé.
   - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Notez que seuls les espaces de travail qui ont été créés dans une région où [Service Map est pris en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) sont listés. Afin de joindre un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
 
   > [!NOTE]
   > Une fois que vous avez joint un espace de travail à un projet, vous ne pouvez plus le modifier.
+
+  > [!NOTE]
+  > Azure Migrate prend actuellement en charge la création d’un espace de travail OMS dans les régions USA Est, Asie Sud-Est et Europe Ouest. Si l’espace de travail est créé en dehors d’Azure Migrate dans une autre région, actuellement il ne peut pas être associé à un projet Azure Migrate. 
 
 - L’espace de travail associé est étiqueté avec la clé **Projet de migration** et la valeur **Nom du projet**, que vous pouvez utiliser pour effectuer une recherche dans le portail Azure.
 - Pour accéder à l’espace de travail associé au projet, vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du projet.

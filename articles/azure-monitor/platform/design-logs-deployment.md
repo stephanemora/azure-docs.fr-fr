@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034739"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211987"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -35,6 +35,8 @@ Un espace de travail Log Analytics offre :
 * Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [rétention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et la [limitation des données](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 Cet article fournit une présentation détaillée des considérations relatives à la conception et à la migration, une présentation du contrôle d’accès ainsi que des implémentations de conception recommandées pour votre service informatique.
+
+
 
 ## <a name="important-considerations-for-an-access-control-strategy"></a>Considérations importantes concernant une stratégie de contrôle d’accès
 
@@ -129,6 +131,19 @@ Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail
     > Si un utilisateur dispose uniquement des autorisations de ressource sur l’espace de travail, il peut uniquement accéder à l’espace de travail à l’aide du contexte de ressource, en supposant que le mode d’accès à l’espace de travail est défini sur **Utiliser les autorisations de ressource ou d’espace de travail**.
 
 Pour savoir comment modifier le mode de contrôle d’accès dans le portail, avec PowerShell ou à l’aide d’un modèle Resource Manager, consultez [Configurer le mode de contrôle d’accès](manage-access.md#configure-access-control-mode).
+
+## <a name="ingestion-volume-rate-limit"></a>Limite de débit du volume d’ingestion
+
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le seuil du débit d’ingestion a la valeur **500 Mo/min** par espace de travail. Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table *Operation* de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
+ 
+Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>Recommandations
 

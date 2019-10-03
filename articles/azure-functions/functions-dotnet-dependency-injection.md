@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 09bcce6daf519c7d5e99c7c120064f5c8bb92475
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996873"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162362"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -197,6 +197,9 @@ public class HttpTrigger
 ```
 
 Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+
+> [!WARNING]
+> Évitez d’essayer de lire les valeurs dans les fichiers comme *local.settings.json* ou *appsettings.{environnement}.json* dans le plan Consommation. Les valeurs lues à partir de ces fichiers associés à des connexions de déclencheurs ne sont pas disponibles à mesure que l’application est mise à l’échelle parce que l’infrastructure d’hébergement n’a pas accès aux informations de configuration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,33 +1,35 @@
 ---
-title: Exemples de requêtes utilisant la syntaxe de recherche « simple » - Recherche Azure
-description: Exemples de requêtes simples pour la recherche en texte intégral, la recherche filtrée, la recherche géographique, la recherche à facettes et autres chaînes de requête utilisées pour interroger un index Recherche Azure.
+title: Créer une requête simple - Recherche Azure
+description: Apprenez, à l’aide d’exemples, à exécuter des requêtes basées sur la syntaxe simple pour effectuer des recherches en texte intégral, filtrées, géographiques ou à facettes sur un index de Recherche Azure.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647616"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179195"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes utilisant la syntaxe de recherche « simple » dans Recherche Azure
+# <a name="create-a-simple-query-in-azure-search"></a>Créer une requête simple dans Recherche Azure
 
-La [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral par rapport à un index Recherche Azure. L’analyseur de requêtes simples est rapide et gère des scénarios courants dans Recherche Azure, notamment la recherche en texte intégral, la recherche filtrée et à facettes, ainsi que la recherche géographique. Dans cet article, vous allez découvrir des exemples illustrant les opérations de requête disponibles lors de l’utilisation de la syntaxe simple.
+Dans Recherche Azure, la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
 
-L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), qui prend en charge des structures de requête plus complexes, comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez [Exemples de requête de syntaxe Lucene](search-query-lucene-examples.md).
+Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple.
+
+L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), qui prend en charge des structures de requête plus complexes comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez l’article sur l’[utilisation de la syntaxe Lucene complète](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formuler des requêtes dans Postman
 
 Les exemples suivants utilisent un index de recherche NYC Jobs composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche Azure pour essayer ces requêtes.
 
-En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET. Pour plus d’informations, consultez l’article indiquant comment [explorer avec les clients REST](search-get-started-postman.md).
+En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET. Pour plus d’informations, consultez [Démarrage rapide : Créer un index Recherche Azure dans Postman à l’aide des API REST](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Définir l’en-tête de requête
 

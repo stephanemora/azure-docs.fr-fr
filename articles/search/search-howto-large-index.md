@@ -6,49 +6,50 @@ author: HeidiSteen
 manager: nitinme
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 09/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: a98d716562f53488e9adb5d485a1dbf7fafc3102
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: aaf0d5edb91d60be85360746f76c4ca1f8db8978
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648174"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257030"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Comment indexer des grands volumes de données dans Recherche Azure
 
-Au fur et à mesure que les volumes de données augmentent ou que les besoins en traitement évoluent, vous risquez de trouver que les stratégies d’indexation par défaut ne sont plus praticables. Pour Recherche Azure, il existe plusieurs approches pour prendre en charge les grands jeux de données, allant de la façon dont une demande de chargement de données est structurée à l’utilisation d’un indexeur spécifique à la source pour les charges de travail planifiées et distribuées.
+Au fur et à mesure que les volumes de données augmentent ou que les besoins en traitement évoluent, vous trouverez peut-être que les stratégies d’indexation simples ou par défaut ne sont plus adaptées. Pour Recherche Azure, il existe plusieurs approches pour prendre en charge les grands jeux de données, allant de la façon dont une demande de chargement de données est structurée à l’utilisation d’un indexeur spécifique à la source pour les charges de travail planifiées et distribuées.
 
-Les mêmes techniques pour les données volumineuses s’appliquent également aux processus à exécution longue. En particulier, les étapes décrites dans [Indexation parallèle](#parallel-indexing) sont utiles pour l’indexation gourmande en ressources, comme l’analyse d’images ou le traitement en langage naturel dans des [pipelines de recherche cognitive](cognitive-search-concept-intro.md).
+Les mêmes techniques s’appliquent également aux processus à exécution longue. En particulier, les étapes décrites dans [Indexation parallèle](#parallel-indexing) sont utiles pour l’indexation gourmande en ressources, comme l’analyse d’images ou le traitement en langage naturel dans des [pipelines de recherche cognitive](cognitive-search-concept-intro.md).
 
-## <a name="batch-indexing"></a>Indexation par lot
+Les sections suivantes décrivent trois techniques d’indexation de grandes quantités de données.
 
-Un des mécanismes les plus simples pour l’indexation d’un grand jeu de données consiste à soumettre plusieurs documents ou enregistrements dans une même demande. Tant que la charge utile entière est inférieure à 16 Mo, une demande peut gérer jusqu’à 1 000 documents dans une opération de chargement en bloc. Pour l’[API REST d’ajout ou de mise à jour de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), vous devez empaqueter 1 000 documents dans le corps de la demande.
+## <a name="option-1-pass-multiple-documents"></a>Option 1 : Transférer plusieurs documents
 
-L’indexation par lot est implémentée pour les demandes individuelles avec REST ou .NET, ou via des indexeurs. Quelques indexeurs fonctionnent avec des limites différentes. Plus précisément, l’indexation des objets blob Azure définit la taille des lots à 10 documents en fonction de la taille moyenne des documents la plus élevée. Pour les indexeurs basés sur l’[API REST de création d’un indexeur](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), vous pouvez définir l’argument `BatchSize` pour personnaliser ce paramètre de façon à le faire mieux correspondre aux caractéristiques de vos données. 
+Un des mécanismes les plus simples pour l’indexation d’un grand jeu de données consiste à soumettre plusieurs documents ou enregistrements dans une même demande. Tant que la charge utile entière est inférieure à 16 Mo, une demande peut gérer jusqu’à 1 000 documents dans une opération de chargement en bloc. Ces limites s’appliquent que vous utilisiez l’[API REST d’ajout de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou la [méthode Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) du SDK .NET. Pour l’une ou l’autre des API, vous devez empaqueter 1 000 documents dans le corps de chaque requête.
+
+L’indexation par lot est implémentée pour les demandes individuelles avec REST ou .NET, ou via des indexeurs. Quelques indexeurs fonctionnent avec des limites différentes. Plus précisément, l’indexation des objets blob Azure définit la taille des lots à 10 documents en fonction de la taille moyenne des documents la plus élevée. Pour les indexeurs basés sur l’[API REST de création d’un indexeur](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), vous pouvez définir l’argument `BatchSize` pour personnaliser ce paramètre de façon à le faire mieux correspondre aux caractéristiques de vos données. 
 
 > [!NOTE]
-> Pour réduire la taille du document, pensez à exclure de la requête les données non requêtables. Les images et autres données binaires ne peuvent pas faire l’objet de recherches directes et ne doivent pas être stockées dans l’index. Pour intégrer des données non interrogeables dans les résultats de la recherche, vous devez définir un champ sans possibilité de recherche qui stocke une référence d’URL vers la ressource.
+> Pour réduire la taille du document, évitez d’ajouter des données non interrogeables à un index. Les images et autres données binaires ne peuvent pas faire l’objet de recherches directes et ne doivent pas être stockées dans l’index. Pour intégrer des données non interrogeables dans les résultats de la recherche, vous devez définir un champ sans possibilité de recherche qui stocke une référence d’URL vers la ressource.
 
-## <a name="add-resources"></a>Ajouter des ressources
+## <a name="option-2-add-resources"></a>Option 2 : Ajout de ressources
 
 Les services qui sont provisionnés à un des [niveaux tarifaires standard](search-sku-tier.md) ont souvent des capacités sous-utilisées pour le stockage et les charges de travail (requêtes ou indexation), ce qui fait de l’[augmentation du nombre de partitions et de réplicas](search-capacity-planning.md) une solution évidente pour prendre en charge les grands jeux de données. Pour optimiser les résultats, vous avez besoin des deux ressources : les partitions pour le stockage et les réplicas pour le travail d’ingestion des données.
 
-L’augmentation des réplicas et des partitions est un événement facturable qui augmente les coûts, mais à moins d’indexer en continu sous une charge maximale, vous pouvez procéder à une mise à l’échelle pour la durée du processus d’indexation, puis baisser les niveaux de ressources une fois l’indexation terminée.
+L’augmentation des réplicas et des partitions est un événement facturable qui augmente les coûts, mais à moins d’indexer en continu sous une charge maximale, vous pouvez procéder à une mise à l’échelle pour la durée du processus d’indexation, puis baisser de nouveau les niveaux de ressources une fois l’indexation terminée.
 
-## <a name="use-indexers"></a>Utiliser des indexeurs
+## <a name="option-3-use-indexers"></a>Option 3 : Utiliser des indexeurs
 
-Les [indexeurs](search-indexer-overview.md) sont utilisés pour parcourir le contenu avec possibilité de recherche dans des sources de données externes. Bien qu’ils ne soient pas spécifiquement destinés à l’indexation à grande échelle, plusieurs fonctionnalités des indexeurs sont particulièrement utiles pour prendre en charge les grands jeux de données :
+Les [indexeurs](search-indexer-overview.md) sont utilisés pour analyser le contenu pouvant être recherché dans les sources de données Azure prises en charge. Bien qu’ils ne soient pas spécifiquement destinés à l’indexation à grande échelle, plusieurs fonctionnalités des indexeurs sont particulièrement utiles pour prendre en charge les grands jeux de données :
 
 + Les planificateurs vous permettent de diviser l’indexation pour l’effectuer à intervalles réguliers : vous pouvez ainsi la répartir dans le temps.
 + L’indexation planifiée peut reprendre au dernier point d’arrêt connu. Si une source de données n’est pas entièrement parcourue dans une fenêtre de 24 heures, l’indexeur reprend l’indexation au deuxième jour, là où elle s’était arrêtée.
-+ Le partitionnement des données en sources de données individuelles plus petites permet le traitement parallèle. Vous pouvez diviser un grand jeu de données en jeux de données plus petits, puis créer plusieurs définitions de source de données qui peuvent être indexées en parallèle.
++ Le partitionnement des données en sources de données individuelles plus petites permet le traitement parallèle. Vous pouvez séparer les données sources en composants plus petits, par exemple en plusieurs conteneurs dans un stockage Blob Azure, puis créer plusieurs [objets de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) correspondants dans Recherche Azure, qui peuvent être indexés en parallèle.
 
 > [!NOTE]
 > Les indexeurs sont spécifiques à une source de données : l’utilisation d’une approche par indexeur est donc viable seulement pour des sources de données sélectionnées sur Azure : [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Stockage Blob](search-howto-indexing-azure-blob-storage.md), [Stockage Table](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-## <a name="scheduled-indexing"></a>Indexation planifiée
+### <a name="scheduled-indexing"></a>Indexation planifiée
 
 La planification des indexeurs est un mécanisme important pour le traitement des grands jeux de données et pour les processus à exécution longue, comme l’analyse d’images dans un pipeline de recherche cognitive. Le traitement de l’indexeur s’exécute dans une fenêtre de 24 heures. Si le traitement n’est pas terminé dans ce délai de 24 heures, les fonctions de planification de l’indexeur peuvent vous être d’une aide précieuse. 
 
@@ -58,7 +59,7 @@ En pratique, pour les charges d’index réparties sur plusieurs jours, vous pou
 
 <a name="parallel-indexing"></a>
 
-## <a name="parallel-indexing"></a>Indexation parallèle
+### <a name="parallel-indexing"></a>Indexation parallèle
 
 Une stratégie d’indexation parallèle est basée sur l’indexation de plusieurs sources de données à l’unisson, où chaque définition de source de données spécifie un sous-ensemble des données. 
 

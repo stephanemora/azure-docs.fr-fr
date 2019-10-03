@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 49fd69c124ff9053f3934aefd349e039b437df0d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354955"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180755"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
 
@@ -29,7 +29,7 @@ HDInsight inclut également Jython, une implémentation de Python écrite en Jav
 
 * **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* Le [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre stockage principal de clusters. Il s’agirait de wasb:// pour Stockage Azure, de abfs:// pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour Stockage Azure ou Data Lake Storage Gen2, l’URI serait wasbs:// ou abfss://,respectivement. Consultez également [Transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
+* Le [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera wasbs://.  Voir aussi [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
 * **Changement possible de la configuration du stockage.**  Consultez [Configuration du stockage](#storage-configuration) si vous utilisez le type de compte de stockage `BlobStorage`.
 * facultatif.  Si vous prévoyez d’utiliser PowerShell, le [module AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) doit être installé.
 

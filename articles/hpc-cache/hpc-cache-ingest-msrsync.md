@@ -1,19 +1,19 @@
 ---
-title: Ingestion de données Azure HPC Cache - msrsync
+title: Ingestion de données Azure HPC Cache (préversion) - msrsync
 description: Comment utiliser msrsync pour déplacer des données vers une cible de stockage Blob dans Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: d49c2ba45b125f8e42ea5d10dcf3dcd68558a52c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 265ec55a6e013a37cf963b6256e900c070311f72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775161"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180935"
 ---
-# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingestion de données Azure HPC Cache - msrsync
+# <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Ingestion de données Azure HPC Cache (préversion) - msrsync
 
 Cet article fournit des instructions détaillées sur l’utilisation de l’utilitaire ``msrsync`` pour copier des données vers un conteneur de stockage Blob Azure en vue d’une utilisation avec Azure HPC Cache.
 

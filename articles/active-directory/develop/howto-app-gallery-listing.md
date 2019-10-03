@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033750"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176846"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -80,7 +80,7 @@ Pour lister une application dans la galerie d’applications Azure AD, vous deve
     ![Chronologie d’énumération des applications OpenID Connect dans la galerie](./media/howto-app-gallery-listing/openid.png)
 
     * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide d’OpenID Connect, sélectionnez **OpenID Connect & OAuth 2.0** comme indiqué ci-dessus.
-    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2.0** ou **WS-Fed** : Si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement dans un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../active-directory-saas-custom-apps.md).
 
@@ -98,6 +98,12 @@ Créez une application web qui a une page de connexion HTML pour configurer l’
 * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de l’authentification unique par mot de passe, sélectionnez **Authentification unique par mot de passe** comme indiqué ci-dessus.
 * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## <a name="requesting-for-user-provisioning"></a>Demande de provisionnement d’utilisateur
+
+Suivez le processus ci-dessous pour demander le provisionnement d’utilisateur :
+
+   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## <a name="updateremove-existing-listing"></a>Mettre à jour/supprimer un listing existant
 
 Pour mettre à jour ou supprimer une application existante dans la galerie d’applications Azure AD, vous devez tout d’abord envoyer la requête dans le [Portail du réseau d’applications](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte Office 365, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft (comme Outlook ou Hotmail) pour vous connecter.
@@ -106,9 +112,9 @@ Pour mettre à jour ou supprimer une application existante dans la galerie d’a
 
     ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * Si vous souhaitez mettre à jour une application existante, sélectionnez **Mettre à jour le listing des applications existantes**.
-    * Si vous souhaitez supprimer une application existante à partir de la galerie Azure AD, sélectionnez **Supprimer le listing des applications existantes**.
-    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Si vous souhaitez mettre à jour une application existante, sélectionnez l’option appropriée en fonction de vos besoins.
+    * Si vous souhaitez supprimer une application existante à partir de la galerie Azure AD, sélectionnez **Supprimer le listing de mes applications de la galerie**.
+    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="listing-requests-by-customers"></a>Demandes de référencement par les clients
 
@@ -124,11 +130,11 @@ Voici le flux relatif aux applications demandées par le client.
 
 La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans la galerie est de 7 à 10 jours ouvrables.
 
-   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/timeline.png)
+  ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/timeline.png)
 
 La durée du processus de listing d’une application OpenID Connect dans la galerie est de 2 à 5 jours ouvrables.
 
-   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/timeline2.png)
+  ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalades
 

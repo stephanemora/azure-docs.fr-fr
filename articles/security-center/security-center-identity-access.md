@@ -3,9 +3,8 @@ title: Surveiller l’identité et l’accès dans Azure Security Center | Mic
 description: Découvrez comment utiliser les fonctionnalités d’identité et d’accès dans Azure Security Center pour surveiller les problèmes liés à l’activité d’accès et à l’identité de vos utilisateurs.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: memildin
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905338"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268860"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
-
-> [!NOTE]
-> Le lien « Afficher *l’ancienne* version de la page Identité et Accès » sera supprimé le 31 juillet 2019. Cliquez [ici](security-center-features-retirement-july2019.md#menu_classicidentity)pour en savoir plus sur les autres services.
 
 > [!NOTE]
 > La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
@@ -68,7 +64,7 @@ Sous **Identité et accès**, se trouvent deux onglets :
 ### <a name="overview-section"></a>Section Vue d’ensemble
 Sous **Vue d’ensemble**, se trouve une liste de recommandations. La première colonne indique la recommandation. La deuxième colonne précise le nombre total d’abonnements qui sont concernés par cette recommandation. La troisième colonne renseigne sur la gravité du problème.
 
-1. Sélectionnez une recommandation. La fenêtre de la recommandation s’ouvre pour afficher les informations suivantes :
+1. Sélectionnez une recommandation. La fenêtre des recommandations s’ouvre pour afficher les informations suivantes :
 
    - Description de la recommandation
    - Liste des abonnements intègres et non intègres
@@ -81,7 +77,7 @@ Sous **Vue d’ensemble**, se trouve une liste de recommandations. La première 
 ### <a name="subscriptions-section"></a>Section Abonnements
 Sous **Abonnements**, se trouve une liste d’abonnements. La première colonne liste les abonnements. La deuxième colonne précise le nombre total de recommandations pour chaque abonnement. La troisième colonne renseigne sur le niveau de gravité des problèmes.
 
-![Onglet de l’abonnement][4]
+![Onglet Abonnements][4]
 
 1. Sélectionnez un abonnement. Une vue récapitulative s’ouvre avec trois onglets :
 
@@ -126,13 +122,13 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identit
 > Si vous avez créé une stratégie d’accès conditionnel impliquant l’authentification MFA mais comportant des exclusions, l’évaluation faite par la recommandation MFA de Security Center considère la stratégie comme non conforme, car elle permet à certains utilisateurs de se connecter à Azure sans authentification MFA.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
+Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les articles suivants :
 
 - [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
 - [Protection de vos données et du service Azure SQL Database dans Azure Security Center](security-center-sql-service-recommendations.md)
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Pour plus d’informations sur Security Center, consultez les articles suivants :
 * [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). Cherchez des réponses aux questions fréquentes concernant l’utilisation de Security Center.

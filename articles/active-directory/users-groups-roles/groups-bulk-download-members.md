@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914789"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146397"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Télécharger en bloc les membres d’un groupe (préversion) dans Azure Active Directory
 
@@ -26,10 +26,6 @@ ms.locfileid: "70914789"
 
 > [!NOTE]
 > Les opérations en bloc d’Azure AD sont une fonctionnalité en préversion publique d’Azure AD disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les conditions d’utilisation des préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
-
-Chaque opération en bloc pour télécharger une liste des membres d’un groupe peut prendre jusqu’à une heure. Cela vous permet de télécharger une liste d’au moins 500 000 membres.
 
 ## <a name="to-bulk-download-group-membership"></a>Pour télécharger en bloc des appartenances de groupes
 
@@ -42,9 +38,13 @@ Chaque opération en bloc pour télécharger une liste des membres d’un groupe
 
 ## <a name="check-download-status"></a>Vérifier l’état du téléchargement
 
-Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l'opération en bloc (préversion)** .
+Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc (préversion)** .
 
    ![La page Résultats des opérations en bloc indique l’état de la demande en bloc](./media/groups-bulk-download-members/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
+
+Chaque opération en bloc pour télécharger une liste des membres d’un groupe peut prendre jusqu’à une heure. Cela vous permet de télécharger une liste d’au moins 500 000 membres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

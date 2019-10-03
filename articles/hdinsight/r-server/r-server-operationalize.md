@@ -1,19 +1,19 @@
 ---
 title: Rendre opérationnel ML Services sur HDInsight - Azure
 description: Découvrez comment faire fonctionner votre modèle de données pour faire des prédictions avec ML Services dans Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967666"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123564"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
@@ -50,31 +50,31 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
 1. Les options disponibles s’affichent. Choisissez la première option, comme illustré dans la capture d’écran suivante, pour **configurer ML Server pour l’opérationnalisation**.
 
-    ![opérationnalisation à boîtier unique1](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![Sélection dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Vous devez maintenant choisir la configuration souhaitée pour rendre opérationnel ML Server. Sélectionnez la première option en entrant **A**.
 
-    ![opérationnalisation à boîtier unique2](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Rendre opérationnel ML Server dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quand vous y êtes invité, saisissez et saisissez à nouveau le mot de passe d’un utilisateur administrateur local.
 
 1. Vous devriez voir des sorties suggérant que l’opération a réussi. Vous êtes également invité à sélectionner une autre option dans le menu. Entrez E pour revenir au menu principal.
 
-    ![opérationnalisation à boîtier unique3](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Opération réussie dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Vous pouvez éventuellement effectuer des vérifications de diagnostic en exécutant un test de diagnostic, comme suit :
 
     a. Dans le menu principal, sélectionnez **6** pour exécuter les tests de diagnostic.
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnostics dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. Dans le menu Diagnostic Tests (Tests de diagnostic), sélectionnez **A**. Quand vous y êtes invité, entrez le mot de passe que vous avez fourni pour l’utilisateur administrateur local.
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Test dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Vérifiez que la sortie indique que l’intégrité globale est satisfaisante, comme illustré ci-dessous.
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Niveau d’intégrité satisfaisant dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. Dans les options de menu présentées, entrez **E** pour revenir au menu principal, puis **8** pour quitter l’utilitaire d’administration.
 
@@ -148,7 +148,7 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 
 1. Cliquez sur **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Activer le mode de maintenance**. Par exemple, dans l’image suivante, nous avons sélectionné wn3 et wn4 pour la désactivation.  
 
-   ![Désactiver les nœuds Worker](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Apache Ambari - Activer le mode Maintenance](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **DataNodes** > cliquez sur **Désactiver**.
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **NodeManagers** > cliquez sur **Désactiver**.

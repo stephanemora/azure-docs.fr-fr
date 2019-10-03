@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309018"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259954"
 ---
 # <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
 
@@ -244,6 +244,14 @@ Pour tout support technique concernant un produit, contactez le fournisseur édi
 Les achats effectués sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) ne peuvent pas être retournés, mais ils peuvent être annulés ou supprimés. Les offres basées sur la consommation sont facturées en fonction de l’utilisation : ainsi, quand la consommation s’arrête, les frais s’arrêtent également. Les abonnements sont annulés et ne seront pas facturés au-delà de la période de facturation actuelle. Si un abonnement est annulé peu de temps après l’achat (24 heures pour un abonnement mensuel, et 14 jours pour un abonnement annuel), un remboursement complet est prévu.
 
 Les clients doivent contacter directement l’éditeur pour tout problème technique lié à leur service ou achat Place de marché. Les coordonnées des éditeurs et/ou un lien vers le site web de support se trouvent sur la page des détails de la solution sur la Place de marché Azure.
+
+**Comment les ajouts de licence sont-ils gérés en cas d’augmentation à mi-terme ?**
+
+Les licences ajoutées à un abonnement existant sont gérées au prorata pour le reste de la durée de l’abonnement.
+
+**Comment les suppressions de licences sont-elles gérées à mi-terme ?**
+
+Les licences annulées sont soumises à la politique de remboursement figurant dans ce FAQ.  Toutes les licences qui sont annulées sont immédiatement supprimées de votre compte et ne peuvent plus être utilisées.
 
 ## <a name="faq-for-publishers"></a>FAQ pour les éditeurs
 

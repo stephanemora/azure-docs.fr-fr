@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694763"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200219"
 ---
-# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection par mot de passe Azure AD pour Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
-La protection par mot de passe Azure AD est une fonctionnalité qui améliore les stratégies de mot de passe au sein d’une organisation. Un déploiement local de protection par mot de passe utilise les listes globale et personnalisée de mots de passe interdits qui sont stockées dans Azure AD. Il effectue le mêmes vérifications en local qu’Azure AD pour les modifications basées sur le cloud.
+La protection par mot de passe Azure AD est une fonctionnalité qui améliore les stratégies de mot de passe au sein d’une organisation. Un déploiement local de protection par mot de passe utilise les listes globale et personnalisée de mots de passe interdits qui sont stockées dans Azure AD. Il effectue les mêmes vérifications locales qu’Azure AD pour les modifications basées sur le cloud. Ces vérifications sont effectuées lors des modifications de mots de passe et des scénarios de réinitialisation de mot de passe.
 
 ## <a name="design-principles"></a>Principes de conception
 
@@ -47,7 +47,7 @@ De nombreuses organisations tiennent à tester soigneusement la protection par m
 
 Avant de déployer la protection par mot de passe Azure AD dans un environnement Active Directory local, il est important d’en comprendre la conception et les concepts fonctionnels sous-jacents. Le diagramme suivant montre comment les composants de la protection par mot de passe Azure AD opèrent ensemble :
 
-![Comment les composants de protection par mot de passe Azure AD fonctionnent ensemble](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Comment les composants de protection de mot de passe Azure AD fonctionnent ensemble](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 * Le service proxy de la protection par mot de passe Azure AD s’exécute sur toute machine jointe au domaine dans la forêt Active Directory actuelle. Son principal objectif est de transférer les demandes de téléchargement de stratégie de mot de passe des contrôleurs de domaine à Azure AD. Il retourne ensuite les réponses d’Azure AD au contrôleur de domaine.
 * La DLL de filtre de mot de passe de l’agent du contrôleur de domaine reçoit les demandes de validation de mot de passe utilisateur du système d’exploitation. Elle les transmet au service de l’agent du contrôleur de domaine qui s’exécute localement sur le contrôleur de domaine.

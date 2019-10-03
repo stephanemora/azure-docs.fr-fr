@@ -1,6 +1,6 @@
 ---
 title: Rôles et tâches du responsable de l’équipe Team Data Science Process
-description: Présentation des composants clés, rôles du personnel et tâches associées pour un projet d’équipe de science des données.
+description: Présentation des composants clés, rôles du personnel et tâches associées pour un groupe de science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -8,137 +8,122 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/12/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 05fc742bba535ea3968e60cd0f40c80b812c09fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043035"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260652"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Rôles et tâches du responsable de l’équipe Team Data Science Process
 
 Team Data Science Process (TDSP) est une infrastructure développée par Microsoft qui fournit une méthodologie structurée pour créer efficacement des solutions d’analyse prédictive et des applications intelligentes. Cet article présente les rôles du personnel clé et les tâches qui incombent à une équipe de science des données dans le cadre de ce processus.
 
-Cette introduction référence des didacticiels qui fournissent des instructions sur la façon de configurer l’environnement TDSP pour tout le groupe de science des données, les équipes de science des données et les projets.
-Il fournit des instructions détaillées utilisant Azure DevOps dans les didacticiels. Azure DevOps constitue une plateforme d’hébergement de code et un outil de planification agile permettant de gérer les tâches des équipes, de contrôler l’accès et de gérer les référentiels.
+Cet article introductif référence des tutoriels sur la façon de configurer l’environnement TDSP pour un groupe de science des données entier, les équipes de science des données et les projets TDSP. Les tutoriels fournissent des instructions détaillées sur l’utilisation d’Azure DevOps Projects, des dépôts Azure Repos et des outils de planification agile Azure Boards pour contrôler l’accès, héberger et partager du code et gérer les tâches d’équipe.
 
-Vous pouvez utiliser ces informations pour implémenter TDSP dans votre propre outil d’hébergement de code et de planification agile.
+Les tutoriels recourent à Azure DevOps, car c’est la suite utilisée au sein de Microsoft pour l’implémentation du processus TDSP. Azure DevOps facilite la collaboration en intégrant la sécurité basée sur les rôles, la gestion et le suivi des éléments de travail ainsi que l’hébergement de code, le partage et le contrôle de code source. Les tutoriels utilisent également une [machine virtuelle Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) Azure comme bureau d’analytique, qui a plusieurs outils de science des données courants, préconfigurés et compatibles avec les logiciels Microsoft et services Azure. 
 
-## <a name="structures-of-data-science-groups-and-teams"></a>Structures des groupes et équipes de science des données
+Vous pouvez utiliser les tutoriels pour implémenter le processus TDSP à l’aide d’autres outils et environnements d’hébergement de code, de planification agile et de développement, mais certaines fonctionnalités peuvent ne pas être disponibles.
 
-Les fonctions de science des données dans les entreprises sont souvent organisées dans la hiérarchie suivante :
+## <a name="structure-of-data-science-groups-and-teams"></a>Structure des groupes et équipes de science des données
 
-1. ***Groupe/s de sciences des données***
+Les fonctions de science des données dans les entreprises sont souvent organisées selon la hiérarchie suivante :
 
-2. ***Équipe/s de sciences des données/s dans le/s groupe/s***
+- Groupe de science des données
+  - Équipe(s) de science des données au sein du groupe
 
-Ce type de structure comporte des responsables de groupe et d’équipe. En règle générale, un projet de science des données est effectué par une équipe de science des données, qui peut être composée de responsables de projet (pour les tâches de gestion de projet et de gouvernance), de scientifiques des données ou d’ingénieurs (contributeurs individuels/personnel technique) qui s’occuperont des phases du projet consacrées à la science des données et à l’ingénierie. Avant l’exécution, la configuration et la gouvernance sont effectuées par les responsables de groupe, d’équipe ou de projet.
+Ce type de structure comporte des responsables de groupe et des responsables d’équipe. En règle générale, un projet de science des données est effectué par une équipe de science des données. Les équipes de science des données ont des coordinateurs de projet pour les tâches de gestion et de gouvernance de projet ainsi que des ingénieurs et des scientifiques des données individuels pour la réalisation des parties de science des données et d’engineering données du projet. La configuration et la gouvernance initiales du projet sont effectuées par les responsables de groupe, d’équipe ou de projet.
 
-## <a name="definition-of-four-tdsp-roles"></a>Définition des quatre rôles TDSP
-Dans l’hypothèse ci-dessus, le personnel de l’équipe est articulé autour de quatre rôles distincts :
+## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Définition et tâches pour les quatre rôles TDSP
+En supposant que l’unité de science des données se compose d’équipes au sein d’un groupe, il existe quatre rôles distincts pour le personnel TDSP :
 
-1. ***Responsable de groupe***. Le responsable de groupe est le responsable de l’ensemble de l’unité de science des données dans une entreprise. Une unité de science des données peut avoir plusieurs équipes, chacune travaillant sur plusieurs projets de science des données dans différents secteurs d’activité. Un responsable de groupe peut déléguer ses tâches à un remplaçant, mais les tâches associées au rôle ne changent pas.
-
-2. ***Responsable d’équipe***. Un responsable d’équipe gère l’équipe Science des données d’une entreprise. Cette équipe est constituée de plusieurs scientifiques des données. Si le service chargé de la science des données ne comprend que quelques scientifiques des données, une même personne peut jouer le rôle de Responsable de groupe et de Responsable d’équipe.
-
-3. ***Coordinateur de projet***. Un coordinateur de projet gère les activités quotidiennes des différents scientifiques des données dans le cadre d’un projet de science des données spécifique.
-
-4. ***Contributeur individuel de projet***. Scientifique des données, analyste d’entreprise, ingénieur, architecte, etc. Un contributeur individuel de projet exécute un projet de science des données.
-
+1. **Responsable de groupe** : gère l’ensemble de l’unité de science des données dans une entreprise. Une unité de science des données peut avoir plusieurs équipes, chacune travaillant sur plusieurs projets de science des données dans différents secteurs d’activité. Un responsable de groupe peut déléguer ses tâches à un remplaçant, mais les tâches associées au rôle ne changent pas.
+   
+2. **Responsable d’équipe** : gère une équipe dans l’unité de science des données d’une entreprise. Cette équipe est constituée de plusieurs scientifiques des données. Pour une petite unité de science des données, une même personne peut jouer le rôle de Responsable de groupe et de Responsable d’équipe.
+   
+3. **Coordinateur de projet** : gère les activités quotidiennes des différents scientifiques des données dans le cadre d’un projet de science des données spécifique.
+   
+4. **Contributeurs individuels de projet** : scientifiques des données, analystes d’entreprise, ingénieurs de données, architectes et autres personnes qui exécutent un projet de science des données.
 
 > [!NOTE]
-> Selon la structure de l’entreprise, une même personne peut avoir plusieurs rôles OU plusieurs personnes peuvent occuper un même rôle. C’est souvent le cas dans les petites structures ou les entreprises dans lesquelles un petit nombre de personnes s’occupent de la science des données.
+> Selon la structure et la taille de l’entreprise, une même personne peut avoir plusieurs rôles ou plusieurs personnes peuvent remplir un même rôle.
 
-## <a name="tasks-to-be-completed-by-four-personnel"></a>Tâches à effectuer par quatre personnes
+### <a name="tasks-to-be-completed-by-the-four-roles"></a>Tâches à effectuer par les quatre rôles
 
-L’image suivante montre les tâches de niveau supérieur que doit effectuer le personnel par rôle dans le cadre de l’adoption et de l’implémentation du projet Team Data Science Process conceptualisé par Microsoft.
+Le diagramme suivant montre les tâches de niveau supérieur pour chaque rôle Team Data Science Process. Ce schéma et la présentation suivante plus détaillée des tâches pour chaque rôle TDSP vous aident à choisir le tutoriel dont vous avez besoin en fonction de vos responsabilités.
 
 ![Vue d’ensemble des rôles et tâches](./media/roles-tasks/overview-tdsp-top-level.png)
 
-Ce schéma et la présentation suivante, plus détaillée, des tâches attribuées à chaque rôle dans le projet TDSP doivent vous aider à choisir le didacticiel approprié en fonction de vos responsabilités au sein de l’organisation.
-
-> [!NOTE]
-> Les instructions suivantes expliquent comment configurer un environnement TDSP et effectuer d’autres tâches de science des données dans Azure DevOps. Nous indiquons comment accomplir ces tâches avec Azure DevOps, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Azure DevOps facilite la collaboration en intégrant la gestion des éléments qui effectuent le suivi des tâches et un service d’hébergement de code utilisé pour partager les utilitaires, organiser les versions et garantir une sécurité basée sur les rôles. Vous pouvez choisir d’autres plateformes pour implémenter les tâches présentées par le projet TDSP. Toutefois, toutes les fonctionnalités issues d’Azure DevOps ne sont pas forcément disponibles sur chaque plateforme.
->
->Les instructions présentées ici utilisent également la [machine virtuelle Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) sur le cloud Azure comme bureau d’analyse avec plusieurs outils de science des données courants, préconfigurés et compatibles avec différents logiciels Microsoft et services Azure. Vous pouvez utiliser la machine DSVM ou tout autre environnement de développement pour implémenter TDSP.
-
-
 ## <a name="group-manager-tasks"></a>Tâches du responsable de groupe
 
-Les tâches suivantes sont effectuées par le Responsable de groupe (ou un administrateur du système TDSP désigné) afin d’adopter le projet TDSP :
+Le Responsable de groupe ou un administrateur du système TDSP désigné effectue les tâches suivantes afin d’adopter TDSP :
 
-- Créer un **compte de groupe** sur une plateforme d’hébergement de code (par exemple, GitHub, Git, Azure DevOps, entre autres)
-- Créer un **référentiel de modèle de projet** sur le compte de groupe et l’alimenter à l’aide du référentiel de modèle de projet développé par l’équipe TDSP de Microsoft. Le référentiel de modèles de projet TDSP de Microsoft fournit :
-    - une **structure de répertoires normalisée** pour les données, le code et les documents ;
-    - un ensemble de **modèles de documents normalisés** pour aider à créer un processus de science des données efficace.
-- Créer un **référentiel d’utilitaire** et l’alimenter à l’aide du référentiel d’utilitaire développé par l’équipe TDSP de Microsoft. Le référentiel de l’utilitaire TDSP de Microsoft fournit :
-    - un ensemble d’utilitaires qui optimisent le travail du scientifique des données, notamment pour l’exploration interactive des données, l’analyse et la création de rapports, ainsi que la modélisation et la création de rapports de référence.
-- Configurer la **stratégie de contrôle de sécurité** de ces deux référentiels sur votre compte de groupe.
+- Crée une **organisation** Azure DevOps et un projet de groupe au sein de l’organisation. 
+- Crée un **dépôt de modèle de projet** dans le projet de groupe Azure DevOps et l’alimente à l’aide du dépôt de modèles de projet développé par l’équipe TDSP de Microsoft. Le dépôt de modèles de projet TDSP de Microsoft fournit :
+  - une **structure de répertoires normalisée** pour les données, le code et les documents ;
+  - un ensemble de **modèles de documents normalisés** pour aider à créer un processus de science des données efficace.
+- Crée un **dépôt d’utilitaire** et l’alimente à l’aide du dépôt d’utilitaires développé par l’équipe TDSP de Microsoft. Le dépôt d’utilitaires TDSP de Microsoft fournit un ensemble d’utilitaires pour améliorer l’efficacité du travail d’un scientifique des données. Le dépôt d’utilitaires de Microsoft comprend des utilitaires pour l’exploration interactive des données, l’analyse, la création de rapports ainsi que la modélisation et la création de rapports de base.
+- Configure la **stratégie de contrôle de la sécurité** pour le compte de l’organisation.
 
 Pour obtenir des instructions détaillées, consultez [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md).
 
-
 ## <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
 
-Les tâches suivantes sont effectuées par le Responsable d’équipe (ou un administrateur de projet désigné) afin d’adopter le projet TDSP :
+Le Responsable d’équipe ou un administrateur de projet désigné effectue les tâches suivantes afin d’adopter TDSP :
 
-- Si Azure DevOps est sélectionné comme plateforme d’hébergement de code pour le contrôle de version et la collaboration, créez un **projet** sur les Azure DevOps Services du groupe. Sinon, cette tâche peut être ignorée.
-- Créer le **référentiel de modèles du projet** sous le projet, puis l’alimenter à l’aide du référentiel de modèle de projet de groupe configuré par votre responsable de groupe ou le délégué du responsable.
-- Créer le **référentiel d’utilitaires d’équipe** et ajouter les utilitaires spécifiques à l’équipe au référentiel.
-- (Facultatif) Créer un **[stockage de fichiers Azure](https://azure.microsoft.com/services/storage/files/)** à utiliser pour stocker les ressources de données qui peuvent être utiles à toute l’équipe. D’autres membres de l’équipe peuvent monter ce magasin de fichiers partagés cloud sur leur bureau d’analyse.
-- (Facultatif) Monter le stockage de fichiers Azure sur l’instance **DSVM** (Data Science Virtual Machine) du responsable d’équipe, et y ajouter des ressources de données.
-- Configurer le **contrôle de sécurité** en ajoutant des membres d’équipe et en configurant leurs privilèges.
+- Crée un **projet** d’équipe dans l’organisation Azure DevOps du groupe.
+- Crée le **dépôt de modèles du projet** dans le projet, puis l’alimente à l’aide du dépôt de modèle de projet de groupe configuré par le Responsable de groupe ou un délégué.
+- Crée le **dépôt d’utilitaire d’équipe**, l’alimente à l’aide du dépôt d’utilitaire de groupe et y ajoute des utilitaires spécifiques à l’équipe.
+- Crée éventuellement un [stockage de fichiers Azure](https://azure.microsoft.com/services/storage/files/) afin de stocker des ressources de données utiles pour l’équipe. D’autres membres de l’équipe peuvent monter ce magasin de fichiers partagés cloud sur leur bureau d’analyse.
+- Monte éventuellement le stockage de fichiers Azure sur la machine **DSVM** de l’équipe et y ajoute des ressources de données d’équipe.
+- Configure le **contrôle de sécurité** en ajoutant des membres d’équipe et en configurant leurs autorisations.
 
 Pour obtenir des instructions détaillées, consultez [Tâches du responsable d’équipe pour une équipe de science des données](team-lead-tasks.md).
 
 
 ## <a name="project-lead-tasks"></a>Tâches du coordinateur de projet
 
-Les tâches suivantes sont effectuées par le responsable de projet pour adopter le projet TDSP :
+Le coordinateur de projet effectue les tâches suivantes pour adopter TDSP :
 
-- Créer un **référentiel de projet** sous le projet et l’alimenter à l’aide du référentiel du modèle de projet.
-- (Facultatif) Créer un **stockage de fichiers Azure** à utiliser pour stocker les ressources de données du projet.
-- (Facultatif) Monter le stockage de fichiers Azure sur l’instance **DSVM** (Data Science Virtual Machine) du responsable de projet, et y ajouter des ressources de données de projet.
-- Configurer le **contrôle de sécurité** en ajoutant des membres de projet et en configurant leurs privilèges.
+- Crée un **dépôt de projet** dans le projet d’équipe et l’alimente à l’aide du dépôt du modèle de projet.
+- Crée éventuellement un **stockage de fichiers Azure** afin de stocker les ressources de données du projet.
+- Monte éventuellement le stockage de fichiers Azure sur la machine **DSVM** et y ajoute des ressources de données de projet.
+- Configure le **contrôle de sécurité** en ajoutant des membres de projet et en configurant leurs autorisations.
 
 Pour obtenir des instructions détaillées, consultez [Tâches du responsable de projet pour une équipe de science des données](project-lead-tasks.md).
 
 ## <a name="project-individual-contributor-tasks"></a>Tâches du contributeur individuel de projet
 
-Les tâches suivantes sont effectuées par un contributeur individuel de projet (habituellement un scientifique des données) afin de mener le projet de science des données à l’aide de TDSP :
+Le contributeur individuel de projet, généralement un scientifique des données, effectue les tâches suivantes à l’aide de TDSP :
 
-- Cloner le **référentiel de projet** configuré par le responsable de projet.
-- (Facultatif) Monter le **stockage de fichiers Azure** partagé de l’équipe et du projet sur leur **Machine virtuelle de science des données** (DSVM).
-- Exécuter le projet.
+- Clone le **dépôt de projet** configuré par le responsable de projet.
+- Monte éventuellement le **stockage de fichiers Azure** partagé de l’équipe et du projet sur leur **Machine virtuelle de science des données** (DSVM).
+- Exécute le projet.
 
+Pour obtenir des instructions détaillées sur l’intégration dans un projet, consultez [Tâches d’un contributeur individuel de projet pour une équipe de science des données](project-ic-tasks.md).
 
-Pour obtenir des instructions détaillées sur l’intégration dans un projet, consultez [Contributeurs individuels de projet pour une équipe de science des données](project-ic-tasks.md).
+## <a name="data-science-project-execution-workflow"></a>Workflow d’exécution du projet de science des données
 
+En suivant les tutoriels appropriés, les scientifiques des données, les responsables de projet et les responsables d’équipe peuvent créer des éléments de travail afin d’effectuer le suivi de toutes les tâches et phases du projet du début à la fin. L’utilisation d’Azure Repos favorise la collaboration entre les scientifiques de données et garantit que les artefacts générés pendant l’exécution du projet sont contrôlés au niveau de la version et partagés par tous les membres du projet. Azure DevOps vous permet de lier vos éléments de travail Azure Boards à vos branches du dépôt Azure Repos et de suivre facilement ce qui a été fait pour un élément de travail.
 
-## <a name="data-science-project-execution"></a>Exécution du projet de science des données
+La figure suivante présente le workflow TDSP pour l’exécution du projet :
 
-En suivant l’ensemble d’instructions approprié, les scientifiques des données, le responsable de projet et les responsables d’équipe peuvent créer des éléments de travail afin d’effectuer le suivi de toutes les tâches et étapes nécessaires du début à la fin d’un projet. L’utilisation de Git favorise également la collaboration entre les scientifiques de données et garantit que les artefacts générés pendant l’exécution du projet sont contrôlés au niveau de la version et partagés par tous les membres du projet.
+![Workflow d’un projet de science des données standard](./media/roles-tasks/overview-project-execute.png)
 
-Les instructions fournies pour l’exécution du projet ont été développées en partant du principe que les deux éléments de travail et les référentiels Git du projet se trouvent sur Azure DevOps. Utiliser Azure DevOps pour ces composants vous permet de lier vos éléments de travail avec les branches Git des référentiels de votre projet. De cette façon, vous pouvez facilement suivre ce qui a été effectué au niveau d’un élément de travail.
+Les étapes du workflow peuvent être regroupées en trois activités :
 
-La figure suivante présente ce flux de travail pour l’exécution du projet à l’aide de TDSP.
+- Les coordinateurs de projet effectuent la planification des sprints
+- Les scientifiques des données développent des artefacts sur les branches `git` pour traiter les éléments de travail
+- Les coordinateurs de projet ou d’autres membres de l’équipe effectuent des revues de code et fusionnent les branches de travail dans la branche principale
 
-![Exécution d’un projet de science des données standard](./media/roles-tasks/overview-project-execute.png)
+Pour obtenir des instructions détaillées sur le workflow d’exécution du projet, consultez [Développement Agile de projets de science des données](agile-development.md).
 
-Le flux de travail inclut des étapes qui peuvent être regroupées en trois activités :
+## <a name="tdsp-project-template-repository"></a>Dépôt de modèles de projet TDSP
 
-- Planification sprint (coordinateur de projet)
-- Développement des artefacts sur les branches Git pour traiter les éléments de travail (scientifique des données)
-- Révision du code et fusion des branches avec les branches principales (coordinateur de projet ou autres membres de l’équipe)
-
-Pour obtenir des instructions détaillées sur le flux de travail d’exécution du projet, consultez [Réalisation de projets science des données](project-execution.md).
-
-## <a name="project-structure"></a>Structure de projet
-
-Utilisez ce [référentiel de modèles de projet](https://github.com/Azure/Azure-TDSP-ProjectTemplate) pour gérer la collaboration et l’exécution de projets efficaces. Il offre une structure de répertoires standardisée et des modèles de documents, que vous pouvez utiliser pour votre propre projet TDSP.
+Utilisez le [dépôt de modèles de projet](https://github.com/Azure/Azure-TDSP-ProjectTemplate) de l’équipe TDSP de Microsoft pour gérer la collaboration et l’exécution de projets efficaces. Il offre une structure de répertoires standardisée et des modèles de documents, que vous pouvez utiliser pour vos propres projets TDSP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -147,4 +132,4 @@ Voici des descriptions plus détaillées des rôles et des tâches définis par 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)
 - [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md)
-- [Contributeurs individuels de projet pour une équipe de science des données](project-ic-tasks.md)
+- [Tâches d’un contributeur individuel de projet pour une équipe de science des données](project-ic-tasks.md)

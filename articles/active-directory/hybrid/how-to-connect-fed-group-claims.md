@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 2d547c73137605e4666499b568bdcebce394935a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3cb53656adb1dbeb5e5597d02edfe5be4dbec6a8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595223"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170486"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory (préversion publique)
 

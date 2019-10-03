@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 9922d347fae154a3a9b1c37e813014225c28442d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103174"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162316"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -68,14 +68,14 @@ Les options de réglage automatique disponibles dans Azure SQL Database sont les
 | Option de réglage automatique | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** : identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées. | OUI | Non | 
-| **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index. | OUI | Non |
+| **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | OUI | Non |
 | **FORCE LAST GOOD PLAN** (correction de plan automatique) : identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression. | OUI | OUI |
 
 Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser les performances de votre base de données, les affiche dans le [portail Azure](sql-database-advisor-portal.md), puis les expose à l’aide de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) et de l’[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Pour en savoir plus sur FORCE LAST GOOD PLAN et la configuration des options de réglage automatique par le biais de T-SQL, consultez [Le réglage automatique présente la correction de plan automatique](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 Vous pouvez soit appliquer manuellement les recommandations de réglage à l’aide du portail, soit laisser le réglage automatique les appliquer en toute autonomie pour vous. L’avantage de laisser le système appliquer de manière autonome les recommandations de réglage pour vous est qu’il valide automatiquement qu’il existe un accroissement des performances de la charge de travail. En revanche, si une régression est détectée, il annule automatiquement les recommandations de réglage. Notez qu’en cas de requêtes affectées par des recommandations de réglage qui ne sont pas exécutées fréquemment, la phase de validation peut, par nature, prendre jusqu’à 72 heures.
 
-Si vous appliquez les recommandations de réglage via T-SQL, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles. Les recommandations appliquées de cette manière restent actives et s’affichent dans la liste des recommandations de paramétrage pour 24-48 heures. avant que le système ne les retire automatiquement. Si vous souhaitez supprimer une recommandation de cette liste avant cela, vous pouvez l’abandonner dans le portail Azure.
+Si vous appliquez les recommandations de réglage via T-SQL, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles. Les recommandations appliquées de cette manière restent actives et s’affichent dans la liste des recommandations de paramétrage pour 24-48 heures. avant que le système ne les retire automatiquement. Si vous souhaitez supprimer une recommandation avant cela, vous pouvez l’abandonner dans le portail Azure.
 
 Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur des serveurs SQL Database et les appliquer sur chaque base de données qui hérite des paramètres du serveur. Les serveurs SQL Database peuvent hériter des valeurs Azure par défaut pour les paramètres de réglage automatique. Actuellement, les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 

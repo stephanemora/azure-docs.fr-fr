@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827987"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120483"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -30,6 +30,7 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | Illimité |
 | Volume de stockage maximal par base de données | Illimité |
+| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go | 
 
 > [!NOTE]
 > Pour connaître les bonnes pratiques concernant la gestion des charges de travail dont les clés de partition nécessitent des limites de stockage ou de débit plus élevées, consultez [Conception de clés de partition à chaud](synthetic-partition-keys.md)

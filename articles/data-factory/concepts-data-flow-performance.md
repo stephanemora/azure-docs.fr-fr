@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992351"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180863"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -90,6 +90,13 @@ Cliquez sur cette icône pour afficher le plan d'exécution et le profil de perf
 * Au sein du concepteur de flux de données, utilisez l’onglet Aperçu des données sur les transformations pour afficher les résultats de votre logique de transformation.
 * Effectuez un test unitaire de vos flux de données à partir du concepteur de pipeline en plaçant une activité de flux de données sur le canevas de conception de pipeline, et utilisez le bouton « Déboguer » pour tester.
 * Les tests en mode de débogage fonctionneront dans un environnement de cluster chauffé en direct sans devoir attendre un préchauffage juste-à-temps du cluster.
+* Pendant le débogage dans l’aperçu des données à l’intérieur du concepteur de flux de données, vous pouvez limiter la quantité de données que vous testez pour chaque source en définissant la limite de lignes à partir du lien Paramètres de débogage dans l’interface utilisateur du concepteur de flux de données. Notez que vous devez d’abord activer le mode débogage.
+
+![Paramètres de débogage](media/data-flow/debug-settings.png "Paramètres de débogage")
+
+* Quand vous testez vos flux de données à partir d’une exécution de débogage de pipeline, vous pouvez limiter le nombre de lignes utilisées pour les tests en définissant la taille d’échantillonnage sur chacune de vos sources. Veillez à désactiver l’échantillonnage lors de la planification de vos pipelines selon un calendrier mis en œuvre régulier.
+
+![Échantillonnage de lignes](media/data-flow/source1.png "Échantillonnage de lignes")
 
 ### <a name="disable-indexes-on-write"></a>Désactivez les index lors de l’écriture
 * Utilisez une activité de procédure stockée du pipeline ADF avant votre activité de flux de données qui désactive les index sur vos tables cibles lors de l’écriture sur ces dernières à partir de votre récepteur.
@@ -140,6 +147,10 @@ Par exemple, si vous avez une liste de fichiers de données de juillet 2019 que
 ```DateFiles/*_201907*.txt```
 
 Cette opération sera plus performante qu’une recherche sur le magasin d’objets blob dans un pipeline qui effectue ensuite une itération sur tous les fichiers correspondants à l’aide d’une instruction ForEach avec une activité d’exécution de flux de données à l’intérieur.
+
+### <a name="increase-the-size-of-your-debug-cluster"></a>Augmenter la taille de votre cluster de débogage
+
+Par défaut, l’activation du débogage utilise le runtime d’intégration Azure par défaut qui est créé automatiquement pour chaque fabrique de données. Ce runtime d’intégration Azure par défaut est défini pour 8 cœurs, dont 4 pour un nœud de pilote et 4 pour un nœud Worker, à l’aide des propriétés de calcul général. Quand vous testez avec des données plus volumineuses, vous pouvez augmenter la taille de votre cluster de débogage en créant un runtime d’intégration Azure avec des configurations plus grandes et choisir ce dernier quand vous passez au débogage. ADF utilise alors ce runtime d’intégration Azure pour le débogage dans l’aperçu des données ou de pipeline avec des flux de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

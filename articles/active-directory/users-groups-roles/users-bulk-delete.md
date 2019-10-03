@@ -13,23 +13,26 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2204c572ca1f74f8060d0b6176df69359fe69a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901377"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146427"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Supprimer des utilisateurs en bloc (préversion) dans Azure Active Directory
 
-Azure Active Directory (Azure AD) prend en charge les opérations de création, de suppression et d’invitation en bloc d’utilisateurs, ainsi que le téléchargement de listes d’utilisateurs, de groupes et de membres de groupes.
+En utilisant le portail Azure Active Directory (Azure AD), vous pouvez supprimer un grand nombre de membres d’un groupe en utilisant un fichier de valeurs séparées par des virgules (CSV) pour supprimer en bloc les utilisateurs.
 
 ## <a name="to-bulk-delete-users"></a>Pour supprimer des utilisateurs en bloc
 
 1. Connectez-vous à votre organisation Azure AD avec un compte Administrateur d’utilisateurs de celle-ci.
 1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimer en bloc**.
 1. Dans la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier de valeurs séparées par des virgules (CSV) valide contenant des propriétés utilisateur, puis ajoutez-y les utilisateurs à supprimer.
-1. Lorsque vous avez fini de modifier le fichier CSV ou si vous avez un fichier prêt pour chargement, sélectionnez **Charger votre fichier CSV** pour valider l’opération.
+
+   ![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
+
+1. Quand vous avez fini de modifier le fichier CSV, sélectionnez-le sous **Charger votre fichier CSV** afin de le valider.
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à supprimer](./media/users-bulk-delete/bulk-delete.png)
 

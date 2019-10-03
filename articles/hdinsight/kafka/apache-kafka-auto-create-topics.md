@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960657"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122666"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement
 
@@ -25,7 +25,7 @@ Pour activer la création automatique de rubriques sur un cluster existant par l
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le cluster Kafka.
 
-2. Dans la __vue d’ensemble du cluster__, sélectionnez __Tableau de bord du cluster__. 
+2. Dans la __vue d’ensemble du cluster__, sélectionnez __Tableau de bord du cluster__.
 
     ![Image du portail avec le tableau de bord du cluster sélectionné](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -35,15 +35,15 @@ Pour activer la création automatique de rubriques sur un cluster existant par l
 
 3. Sélectionnez le service Kafka dans la liste à gauche de la page.
 
-    ![Liste de services](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    ![Apache Ambari - Onglet avec la liste des services](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. Sélectionnez Configs au milieu de la page.
 
-    ![Onglet de la configuration du service](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    ![Apache Ambari - Onglet Configs du service](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. Dans le champ Filter (Filtrer), entrez la valeur `auto.create`. 
+5. Dans le champ Filter (Filtrer), entrez la valeur `auto.create`.
 
-    ![Image du champ de filtrage](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    ![Apache Ambari - Champ Filtre de recherche](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     Cette option filtre la liste des propriétés et affiche le paramètre `auto.create.topics.enable`.
 
@@ -53,7 +53,7 @@ Pour activer la création automatique de rubriques sur un cluster existant par l
 
 7. Sélectionnez le service Kafka, choisissez __Restart__ (Redémarrer), puis __Restart all affected__ (Redémarrer tous les éléments affectés). Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
 
-    ![Image de la sélection du redémarrage](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![Apache Ambari - Redémarrer tous les éléments affectés](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > Vous pouvez également définir les valeurs Ambari par le biais de l’API REST d’Ambari. Cette méthode est généralement plus difficile, car vous devez effectuer plusieurs appels REST pour récupérer la configuration actuelle, la modifier, etc. Pour plus d’informations, consultez le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md).

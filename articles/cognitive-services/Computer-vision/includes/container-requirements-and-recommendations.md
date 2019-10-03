@@ -1,27 +1,42 @@
 ---
-title: Exigences et suggestions relatives au conteneur.
+title: Exigences et suggestions relatives au conteneur
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 8/26/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 5da088bf0356dd54d98ec5393fd2db8068f9c666
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 47c889a428ec2916dc8cad73e30ef5ff630372a7
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034484"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129817"
 ---
-Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur Reconnaître le texte.
+> [!NOTE]
+> Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total.
+
+#### <a name="readtabread"></a>[Lire](#tab/read)
+
+Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Lire.
+
+| Conteneur | Minimale | Recommandé |TPS<br>(Minimum, maximum)|
+|-----------|---------|-------------|--|
+| Lire | 1 cœur, 8 Go de mémoire, 0,24 TPS | 8 cœurs, 16 Go de mémoire, 1,17 TPS | 0,24 ; 1,17 |
+
+#### <a name="recognize-texttabrecognize-text"></a>[Reconnaître le texte](#tab/recognize-text)
+
+Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Reconnaître le texte.
 
 | Conteneur | Minimale | Recommandé |TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Reconnaître le texte|1 cœur, 8 Go de mémoire, 0,5 TPS|2 cœurs, 8 Go de mémoire, 1 TPS|0,5, 1|
+| Reconnaître le texte | 1 cœur, 8 Go de mémoire, 0,12 TPS | 8 cœurs, 16 Go de mémoire, 0,60 TPS | 0,12 ; 0,60 |
+
+***
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* TPS - transactions par seconde
+* TPS - transactions par seconde.
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.

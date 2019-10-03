@@ -1,6 +1,6 @@
 ---
-title: Conseils de gestion des erreurs d’Azure Functions | Microsoft Docs
-description: Fournit des conseils généraux pour la gestion des erreurs qui se produisent dans lors de l’exécution de vos fonctions, ainsi que des liens vers des rubriques d’erreurs spécifiques d’une liaison.
+title: Conseils de gestion des erreurs Azure Functions
+description: Apprenez à gérer les erreurs dans Azure Functions avec des liens vers des erreurs de liaison spécifiques.
 services: functions
 cloud: ''
 documentationcenter: ''
@@ -9,26 +9,28 @@ manager: gwallace
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: fdfee3442986322f242da730bb9ceccbc9f9e250
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d301940998175adb6469e46cff2de918b5cae9df
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097481"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155281"
 ---
 # <a name="azure-functions-error-handling"></a>Gestion d’erreurs d’Azure Functions
 
-Cette rubrique fournit des conseils généraux pour la gestion des erreurs qui se produisent dans lors de l’exécution de vos fonctions. Elle fournit également des liens vers des rubriques décrivant des erreurs spécifiques d’une liaison qui peuvent se produire. 
+La gestion des erreurs dans Azure Functions est importante pour éviter des pertes de données, des événements manqués et pour superviser l’intégrité de votre application.
 
-## <a name="handling-errors-in-functions"></a>Gestion des erreurs dans Azure Functions
+Cet article décrit les stratégies générales de gestion des erreurs, ainsi que des liens vers des erreurs propres à la liaison.
+
+## <a name="handling-errors"></a>Gestion des erreurs
+
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
- 
 ## <a name="binding-error-codes"></a>Codes d’erreur de liaison
 
-Lors de l’intégration avec les services Azure, vous pouvez rencontrer des erreurs provenant des API des services sous-jacents. Vous pouvez trouver des liens vers de la documentation relative aux codes d’erreur pour ces services dans la section **Exceptions et codes de retour** du déclencheur et des rubriques de référence de liaison suivants :
+Lors de l’intégration aux services Azure, vous pouvez rencontrer des erreurs provenant des API des services sous-jacents. Les informations relatives aux erreurs propres à la liaison sont disponibles dans la section **Exceptions et codes de retour** des articles suivants :
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

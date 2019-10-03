@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801378"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289606"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -183,8 +183,8 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | * | Créer et gérer les ressources de tous les types |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Supprimer des rôles et des attributions de rôles |
-> | Microsoft.Authorization/*/Write | Créer des rôles et des attributions de rôles |
+> | Microsoft.Authorization/*/Delete | Supprimer des rôles, des affectations de stratégie, des définitions de stratégie et des définitions d’ensemble de stratégies |
+> | Microsoft.Authorization/*/Write | Créer des rôles, des attributions de rôle, des affectations de stratégie, des définitions de stratégie et des définitions d’ensemble de stratégies |
 > | Microsoft.Authorization/elevateAccess/Action | Accorde à l’appelant un accès Administrateur de l’accès utilisateur au niveau de la portée du client |
 > | Microsoft.Blueprint/blueprintAssignments/write | Créer ou mettre à jour tous les artefacts de blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Supprimer tous les artefacts de blueprint |

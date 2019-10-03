@@ -1,5 +1,5 @@
 ---
-title: Surveillance d’un compte de stockage Azure | Microsoft Docs
+title: Guide pratique pour superviser un compte Stockage Azure dans le portail Azure | Microsoft Docs
 description: Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure.
 author: normesta
 ms.service: storage
@@ -8,16 +8,18 @@ ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844922"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211857"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
-[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux d’activité pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux d’activité enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
+[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux d’activité pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux d’activité enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique. 
+
+Nous vous recommandons de consulter [Azure Monitor pour le stockage](../../azure-monitor/insights/storage-insights-overview.md) (préversion). Il s’agit d’une fonctionnalité d’Azure Monitor qui fournit une analyse complète de vos comptes de Stockage Azure en présentant une vue unifiée des performances, de la capacité et de la disponibilité de vos services de Stockage Azure. Vous n’avez pas besoin d’activer ou de configurer quoi que ce soit, et vous pouvez afficher immédiatement ces métriques à partir des graphiques interactifs prédéfinis et d’autres visualisations incluses.
 
 > [!NOTE]
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81eabadba70a2d5334fab43157f17d24c41d97ec
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 275cf20329be04e86c2e7c2a613f657733e652df
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103415"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213452"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -185,7 +185,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Mise à jour des composants d’Azure Machine Learning dans le cluster AKS
 
-Les mises à jour des composants Azure Machine Learning installés dans un cluster Azure Kubernetes Service doivent être appliquées manuellement. Vous pouvez appliquer ces clusters en détachant le cluster de l’espace de travail Azure Machine Learning, puis en attachant à nouveau le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
+Les mises à jour des composants Azure Machine Learning installés dans un cluster Azure Kubernetes Service doivent être appliquées manuellement. Vous pouvez appliquer ces mises à jour en détachant le cluster de l’espace de travail Azure Machine Learning, puis en réattachant le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

@@ -1,22 +1,22 @@
 ---
 title: Remédier aux ressources non conformes
-description: Cette procédure vous guide tout au long de la correction des ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
+description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241138"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147060"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
-Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Azure Policy d’exécuter l’effet de l’action **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
+Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** ou **modify** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Azure Policy d’exécuter l’effet **deployIfNotExists** ou l’étiquette **operations** de la stratégie affectée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
@@ -26,11 +26,11 @@ Azure Policy crée automatiquement une identité managée pour chaque affectatio
 ![Identité managée : rôle manquant](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Si une ressource modifiée par **deployIfNotExists** est en dehors de l’étendue de l’affectation de stratégie ou que le modèle accède à des propriétés sur des ressources en dehors de l’étendue de l’affectation de stratégie, l’identité managée de l’affectation doit se voir [manuellement accorder l’accès](#manually-configure-the-managed-identity), sinon le déploiement de la correction échoue.
+> Si une ressource modifiée par **deployIfNotExists** ou **modify** est en dehors de l’étendue de l’affectation de stratégie ou que le modèle accède à des propriétés sur des ressources en dehors de l’étendue de l’affectation de stratégie, l’identité managée de l’affectation doit se voir [manuellement accorder l’accès](#manually-configure-the-managed-identity), sinon le déploiement de la correction échoue.
 
 ## <a name="configure-policy-definition"></a>Configurer une définition de stratégie
 
-La première étape consiste à définir les rôles dont **deployIfNotExists** a besoin dans la définition de stratégie pour déployer le contenu de votre modèle inclus. Sous la propriété **details**, ajoutez une propriété **roleDefinitionIds**. Il s’agit d’un tableau de chaînes qui correspondent à des rôles dans votre environnement. Pour obtenir un exemple complet, consultez [l’exemple deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
+La première étape consiste à définir les rôles dont **deployIfNotExists** ou **modify** ont besoin dans la définition de stratégie pour déployer le contenu du modèle inclus. Sous la propriété **details**, ajoutez une propriété **roleDefinitionIds**. Il s’agit d’un tableau de chaînes qui correspondent à des rôles dans votre environnement. Pour obtenir un exemple complet, consultez l’[exemple deployIfNotExists](../concepts/effects.md#deployifnotexists-example) ou les [exemples modify](../concepts/effects.md#modify-examples).
 
 ```json
 "details": {
@@ -42,7 +42,7 @@ La première étape consiste à définir les rôles dont **deployIfNotExists** a
 }
 ```
 
-**roleDefinitionIds** utilise l’identificateur de ressource complet et ne prend pas le **roleName** court du rôle. Pour obtenir l’ID du rôle « Contributeur » dans votre environnement, utilisez le code suivant :
+La propriété **roleDefinitionIds** utilise l’identificateur de ressource complet et n’accepte pas le **roleName** court du rôle. Pour obtenir l’ID du rôle « Contributeur » dans votre environnement, utilisez le code suivant :
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -126,7 +126,7 @@ Pour ajouter un rôle à l’identité managée de l’affectation, effectuez le
 
 ### <a name="create-a-remediation-task-through-portal"></a>Créer une tâche de correction via le portail
 
-Durant l’évaluation, l’affectation de stratégie avec l’effet **deployIfNotExists** détermine s’il existe des ressources non conformes. Quand des ressources non conformes sont trouvées, les détails sont fournis dans la page **Correction**. Outre la liste des stratégies qui ont des ressources non conformes se trouve l’option permettant de déclencher une **tâche de correction**. Cette option crée un déploiement à partir du modèle **deployIfNotExists**.
+Durant l’évaluation, l’affectation de stratégie avec les effets **deployIfNotExists** ou **modify** détermine s’il existe des ressources non conformes. Quand des ressources non conformes sont trouvées, les détails sont fournis dans la page **Correction**. Outre la liste des stratégies qui ont des ressources non conformes se trouve l’option permettant de déclencher une **tâche de correction**. Cette option crée un déploiement à partir du modèle **deployIfNotExists** ou des opérations **modify**.
 
 Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
@@ -138,7 +138,7 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
    ![Sélectionner une correction sur la page Azure Policy](../media/remediate-resources/select-remediation.png)
 
-1. Toutes les affectations de stratégie **deployIfNotExists** ayant des ressources non conformes sont incluses sous l’onglet **Stratégies à corriger** et dans la table de données. Cliquez sur une stratégie ayant des ressources non conformes. La page **Nouvelle tâche de correction** s’ouvre.
+1. Toutes les affectations de stratégie **deployIfNotExists** ou **modify** ayant des ressources non conformes sont incluses sous l’onglet **Stratégies à corriger** et dans la table de données. Cliquez sur une stratégie ayant des ressources non conformes. La page **Nouvelle tâche de correction** s’ouvre.
 
    > [!NOTE]
    > Pour ouvrir la page **Tâche de correction**, vous pouvez également rechercher la stratégie à partir de la page **Conformité**, cliquer dessus, puis cliquer sur le bouton **Créer une tâche de correction**.
@@ -161,7 +161,7 @@ Les ressources déployées par le biais d’une **tâche de correction** sont aj
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Créer une tâche de correction via Azure CLI
 
-Pour créer un **tâche de correction** avec Azure CLI, utilisez les commandes `az policy remediation`. Remplacez l’élément `{subscriptionId}` par votre ID d’abonnement et l’élément `{myAssignmentId}`, par l’ID d’affectation de stratégie **deployIfNotExists**.
+Pour créer un **tâche de correction** avec Azure CLI, utilisez les commandes `az policy remediation`. Remplacez `{subscriptionId}` par votre ID d’abonnement et `{myAssignmentId}` par l’ID d’affectation de stratégie **deployIfNotExists** ou **modify**.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +174,7 @@ Pour accéder à d’autres exemples et commandes de correction, consultez les c
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Créer une tâche de correction via Azure PowerShell
 
-Pour créer un **tâche de correction** avec Azure PowerShell, utilisez les commandes `Start-AzPolicyRemediation`. Remplacez l’élément `{subscriptionId}` par votre ID d’abonnement et l’élément `{myAssignmentId}`, par l’ID d’affectation de stratégie **deployIfNotExists**.
+Pour créer un **tâche de correction** avec Azure PowerShell, utilisez les commandes `Start-AzPolicyRemediation`. Remplacez `{subscriptionId}` par votre ID d’abonnement et `{myAssignmentId}` par l’ID d’affectation de stratégie **deployIfNotExists** ou **modify**.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

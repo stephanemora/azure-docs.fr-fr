@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638301"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266147"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connecter Raspberry Pi à Azure IoT Hub (Node.js)
 
@@ -135,7 +135,7 @@ Utilisez la platine d’expérimentation et les câbles de liaison pour connecte
 
 ![La connexion entre Raspberry Pi et le capteur](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-Le capteur BME280 peut collecter des données sur la température et l’humidité. La LED clignote quand l’appareil envoie un message vers le cloud. 
+Le capteur BME280 peut collecter des données sur la température et l’humidité. La LED clignote quand l’appareil envoie un message vers le cloud.
 
 Pour les broches du capteur, utilisez le câblage suivant :
 
@@ -170,8 +170,8 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 1. Connectez-vous à votre Raspberry Pi avec l’un des clients SSH suivants à partir de votre ordinateur hôte :
 
    **Utilisateurs Windows**
-  
-   a. Téléchargez et installez [PuTTY](https://www.putty.org/) pour Windows. 
+
+   a. Téléchargez et installez [PuTTY](https://www.putty.org/) pour Windows.
 
    b. Copiez l’adresse IP de votre Pi dans la section du nom d’hôte (ou adresse IP) et sélectionnez le type de connexion SSH.
 
@@ -192,10 +192,10 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    node -v
    ```
 
-   Si la version est inférieure à 11.x, ou que votre Pi ne comporte aucun Node.js, installez la dernière version.
+   Si la version est inférieure à 10.x, ou que votre Pi ne comporte aucun Node.js, installez la dernière version.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -209,7 +209,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
 
    > [!NOTE]
@@ -228,6 +228,8 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    Dans ce fichier, deux éléments sont configurables. Le premier est `interval`, qui définit l’intervalle de temps (en millisecondes) entre les messages envoyés dans le cloud. Le deuxième est `simulatedData`, une valeur booléenne qui spécifie si les données de capteur simulé sont utilisées ou non.
 
    Si vous **ne disposez pas du capteur**, définissez la valeur `simulatedData` sur `true` pour que l’exemple d’application crée et utilise des données de capteur simulées.
+
+   *Remarque : L’adresse i2c utilisée dans ce tutoriel est 0x77 par défaut. Selon votre configuration, elle peut également être 0x76 : si vous rencontrez une erreur i2c, essayez de définir la valeur sur 118 pour voir si cela fonctionne mieux. Pour voir l’adresse utilisée par votre capteur, exécutez `sudo i2cdetect -y 1` dans un interpréteur de commandes sur Raspberry Pi*
 
 2. Enregistrez et quittez en appuyant sur Ctrl-O > Entrée > Ctrl-X.
 

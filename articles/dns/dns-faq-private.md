@@ -5,21 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/12/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: fca7359f9fa54899bb72be3b939e1a1839dbfbd1
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274040"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155703"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
-> [!IMPORTANT]
-> Azure Private DNS est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## <a name="does-azure-dns-support-private-domains"></a>Azure DNS prend-il en charge les domaines privés ?
 
@@ -29,11 +26,11 @@ Pour plus d’informations sur les autres options DNS internes dans Azure, consu
 
 ## <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS Private Zones fonctionne-il d’une région Azure à une autre ?
 
-Oui. La fonctionnalité Private Zones est prise en charge pour la résolution DNS entre les réseaux virtuels de différentes régions Azure. Elle fonctionne même sans l’appairage explicite des réseaux virtuels. Tous les réseaux virtuels doivent être spécifiés en tant que réseaux virtuels de résolution pour la zone privée. Les clients peuvent avoir besoin que les réseaux virtuels soient appairés pour que le trafic TCP/HTTP circule d’une région à une autre.
+Oui. La fonctionnalité Private Zones est prise en charge pour la résolution DNS entre les réseaux virtuels de différentes régions Azure. Elle fonctionne même sans l’appairage explicite des réseaux virtuels. Tous les réseaux virtuels doivent être spécifiés en tant que réseaux virtuels de résolution pour la zone privée. Vous pouvez avoir besoin d’appairer les réseaux virtuels pour que le trafic TCP/HTTP circule d’une région à une autre.
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>La connectivité à Internet à partir de réseaux virtuels est-elle nécessaire pour les zones privées ?
 
-Non. Les zones privées fonctionnent avec les réseaux virtuels. Les clients les utilisent pour gérer les domaines pour les machines virtuelles ou d’autres ressources dans et entre les réseaux virtuels. Une connectivité à Internet n’est pas nécessaire pour la résolution de noms.
+Non. Les zones privées fonctionnent avec les réseaux virtuels. Vous les utilisez pour gérer les domaines des machines virtuelles et d’autres ressources, à l’intérieur et entre les réseaux virtuels. Une connectivité à Internet n’est pas nécessaire pour la résolution de noms.
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>La même zone privée peut-elle être utilisée pour plusieurs réseaux virtuels pour la résolution ?
 

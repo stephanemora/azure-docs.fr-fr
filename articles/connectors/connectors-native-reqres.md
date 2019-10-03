@@ -1,6 +1,6 @@
 ---
-title: Répondre aux requêtes HTTP - Azure Logic Apps
-description: Répondre aux événements en temps réel via HTTP avec Azure Logic Apps
+title: Recevoir et répondre aux appels HTTPS – Azure Logic Apps
+description: Gérer les requêtes et les événements HTTPS en temps réel à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,20 +12,22 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914326"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122708"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Répondre aux requêtes HTTP avec Azure Logic Apps
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps
 
-Avec [AzureLogicApps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête intégré ou l’action Réponse, vous pouvez créer des tâches et des flux de travail automatisés qui reçoivent et répondent en temps réel aux requêtes HTTP. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête intégré ou l’action Réponse, vous pouvez créer des tâches et des workflows automatisés qui reçoivent et répondent aux requêtes HTTP entrantes. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
 
-* Répondre à une requête HTTP pour des données dans une base de données locale.
+* Recevoir et répondre à une requête HTTP pour des données situées dans une base de données locale.
 * Déclencher un flux de travail lorsqu’un événement de webhook externe se produit.
-* Appeler une application logique à partir d’une autre application logique.
+* Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
+
+Le déclencheur de requête prend en charge *uniquement* HTTPS. Pour effectuer des appels HTTP ou HTTPS sortants, utilisez le [déclencheur ou l’action HTTP](../connectors/connectors-native-http.md) intégrés.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,15 +37,15 @@ Avec [AzureLogicApps](../logic-apps/logic-apps-overview.md) et le déclencheur d
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>Ajouter un déclencheur de requête
+## <a name="add-request-trigger"></a>Ajouter un déclencheur de requête
 
-Ce déclencheur intégré crée un point de terminaison pouvant être appelé manuellement et pouvant recevoir une requête HTTP entrante. Lorsque cet événement se produit, le déclencheur s’active et exécute l’application logique. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur l’appel de ce déclencheur, consultez [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
+Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être appelé manuellement et peut recevoir *uniquement* des requête HTTPS entrantes. Lorsque cet événement se produit, le déclencheur s’active et exécute l’application logique. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur la façon d’appeler ce dernier, consultez [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide.
 
 1. Une fois que le concepteur Logic Apps s’ouvre, entrez « requête HTTP » comme filtre dans la zone de recherche. Dans la liste de déclencheurs, sélectionnez le déclencheur **Quand une requête HTTP est reçue**, qui est la première étape du flux de travail de votre application logique.
 
-   ![Sélectionner le déclencheur de requête HTTP](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Sélectionner le déclencheur de requête](./media/connectors-native-reqres/select-request-trigger.png)
 
    Le déclencheur de requête affiche les propriétés suivantes :
 
@@ -52,10 +54,10 @@ Ce déclencheur intégré crée un point de terminaison pouvant être appelé ma
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
    |---------------|--------------------|----------|-------------|
    | **URL HTTP POST** | {aucune} | OUI | L’URL de point de terminaison générée après l’enregistrement de l’application logique et utilisée pour appeler votre application logique |
-   | **Schéma JSON du corps de la demande** | `schema` | Non | Le schéma JSON qui décrit les propriétés et les valeurs dans le corps de la requête HTTP entrante |
+   | **Schéma JSON du corps de la demande** | `schema` | Non | Schéma JSON qui décrit les propriétés et les valeurs dans le corps de la demande entrante |
    |||||
 
-1. Dans la zone **Schéma JSON du corps de la demande**, entrez éventuellement un schéma JSON qui décrit le corps de la requête HTTP dans la requête entrante, par exemple :
+1. Dans la zone **Schéma JSON du corps de la demande**, entrez éventuellement un schéma JSON qui décrit le corps de la demande entrante, par exemple :
 
    ![Exemple de schéma JSON](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -190,7 +192,7 @@ Voici plus d’informations sur les sorties du déclencheur de requête :
 
 ## <a name="add-a-response-action"></a>Ajouter une action Réponse
 
-Vous pouvez utiliser l’action Réponse pour répondre avec une charge utile (données) à une requête HTTP entrante, mais uniquement dans une application logique qui est déclenchée par une requête HTTP. Vous pouvez ajouter l’action Réponse à n’importe quelle phase de votre workflow. Pour plus d’informations sur la définition JSON sous-jacente pour ce déclencheur, consultez [Type d’action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+Vous pouvez utiliser l’action Réponse pour répondre avec une charge utile (données) à une requête HTTPS entrante, mais uniquement dans une application logique qui est déclenchée par une requête HTTPS. Vous pouvez ajouter l’action Réponse à n’importe quelle phase de votre workflow. Pour plus d’informations sur la définition JSON sous-jacente pour ce déclencheur, consultez [Type d’action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Votre application logique garde la requête entrante ouverte seulement pendant une minute. En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
 
@@ -224,7 +226,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
    |---------------|--------------------|----------|-------------|
-   | **Code d’état** | `statusCode` | OUI | Code d’état HTTP à renvoyer dans la réponse |
+   | **Code d’état** | `statusCode` | OUI | Code d’état à retourner dans la réponse |
    | **En-têtes** | `headers` | Non | Objet JSON qui décrit un ou plusieurs en-têtes à inclure dans la réponse |
    | **Corps** | `body` | Non | Le corps de texte de la réponse |
    |||||

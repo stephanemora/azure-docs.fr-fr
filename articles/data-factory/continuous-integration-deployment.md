@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002400"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265982"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
 
@@ -669,7 +669,7 @@ Si vous n’avez pas configuré Git, les modèles liés sont accessibles par le 
 
 ## <a name="hot-fix-production-branch"></a>Branche de production de correctifs
 
-Si vous déployez une fabrique en production et que vous vous rendez compte qu’il y a un bogue qui doit être corrigé immédiatement, mais que vous ne pouvez pas déployer la branche de collaboration actuelle, vous devrez peut-être déployer un correctif.
+Si vous déployez une fabrique en production et que vous vous rendez compte qu’il y a un bogue qui doit être corrigé immédiatement, mais que vous ne pouvez pas déployer la branche de collaboration actuelle, vous devrez peut-être déployer un correctif. Cette approche est également connue sous le nom de QFE (Quick-Fix Engineering). 
 
 1.  Dans Azure DevOps, accédez à la version qui a été déployée en production et recherchez la dernière validation qui a été déployée.
 
@@ -705,8 +705,11 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 
 ## <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 
--   Vous ne pouvez pas publier des ressources individuelles. Les entités Data Factory dépendent les unes des autres et le suivi des dépendances de modification peut être difficile et entraîner un comportement inattendu. Par exemple, des déclencheurs dépendent de pipelines, des pipelines de jeux de données et d’autres pipelines, etc. S’il a été possible de publier uniquement un sous-ensemble de l’ensemble des modifications, certaines erreurs imprévues peuvent se produire.
+- Par défaut, ADF _n’autorise pas_ les validations de type cherry-picking ou la publication sélective des ressources. Les publications incluent **toutes** les modifications apportées dans la fabrique de données.
+
+    - Les entités de la fabrique de données dépendent les unes des autres ; par exemple, des déclencheurs dépendent de pipelines, des pipelines de jeux de données et d’autres pipelines, etc. La publication sélective d’un sous-ensemble de ressources _peut_ engendrer des comportements et des erreurs inattendus.
+    - Dans les rares cas où la publication sélective est requise, vous pouvez envisager un correctif. Pour plus d’informations, consultez [Branche de production de correctifs](#hot-fix-production-branch).
 
 -   Vous ne pouvez pas publier à partir de branches privées.
 
--   Vous ne pouvez pas héberger de projets sur Bitbucket.
+-   À ce stade, vous ne pouvez pas héberger de projets sur Bitbucket.

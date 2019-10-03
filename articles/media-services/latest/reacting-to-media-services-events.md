@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878797"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147154"
 ---
 # <a name="handling-event-grid-events"></a>Traitement des événements Event Grid
 
@@ -38,6 +38,9 @@ Les applications qui gèrent des événements Media Services doivent suivre cert
 * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
 * Ignorez les champs que vous ne comprenez pas.  Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
 * Utilisez le préfixe « subject « et les correspondances de suffixe pour limiter les événements à un événement particulier.
+
+> [!NOTE]
+> Les événements sont soumis au [contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) Event Grid. Si vous souhaitez obtenir des notifications d’événements à l’aide d’API, consultez les exemples illustrant comment consommer des événements, avec le [kit SDK .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) ou le [kit SDK Java](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

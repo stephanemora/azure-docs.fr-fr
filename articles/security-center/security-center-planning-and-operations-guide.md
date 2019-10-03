@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910594"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201876"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -182,13 +182,13 @@ La section **Détection** est plus réactive. Ces alertes concernent les problè
 Prévoyez de consulter l’option [Informations sur les menaces](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) dans le cadre de vos opérations de sécurité quotidiennes. Vous pouvez y identifier les menaces de sécurité qui pèsent sur votre environnement. Par exemple, pour déterminer si un ordinateur fait parti d’un botnet.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Surveillance des ressources nouvelles ou modifiées
-La plupart des environnements Azure sont dynamiques, avec des nouvelles ressources ajoutées ou retirées régulièrement, des configurations ou des modifications, etc. Le Centre de sécurité vous offre une visibilité sur l’état de la sécurité de ces nouvelles ressources.
+La plupart des environnements Azure sont dynamiques, avec des ressources régulièrement créées, activées, désactivées, reconfigurées et modifiées. Le Centre de sécurité vous offre une visibilité sur l’état de la sécurité de ces nouvelles ressources.
 
 Lorsque vous ajoutez de nouvelles ressources (machines virtuelles, bases de données SQL) dans votre environnement Azure, le Centre de sécurité les détecte automatiquement et commence à surveiller leur sécurité. Cela inclut également les rôles Web et les rôles de travail PaaS. Si la collecte de données est activée dans la [stratégie de sécurité](tutorial-security-policy.md), des fonctionnalités de surveillance supplémentaires sont activées automatiquement pour vos machines virtuelles.
 
 ![Principaux aspects](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. Pour les machines virtuelles, cliquez sur **Compute**, sous la section **Prévention**. Les problèmes liés à l’activation des données ou aux recommandations associées s’affichent dans l’onglet **Présentation** et dans la section **Recommandations relatives à la surveillance**.
+1. Pour les machines virtuelles, cliquez sur **Calcul et applications**, sous la section **Hygiène de sécurité des ressources**. Les problèmes liés à l’activation des données ou aux recommandations associées s’affichent dans l’onglet **Présentation** et dans la section **Recommandations relatives à la surveillance**.
 2. Consultez les **recommandations** pour découvrir les éventuels risques de sécurité identifiés pour la nouvelle ressource.
 3. Il est très courant, lors de l’ajout de nouvelles machines virtuelles à votre environnement, que seul le système d’exploitation soit installé initialement. Le propriétaire de la ressource peut avoir besoin de temps pour déployer d’autres applications qui seront utilisées par ces machines virtuelles.  L’idéal est de connaître le but de cette charge de travail. Va-t-il s’agir d’un serveur d’applications ? Selon la nature de cette nouvelle charge de travail, vous pouvez activer la **stratégie de sécurité**appropriée, ce qui constitue la troisième étape de cette charge de travail.
 4. Lorsque de nouvelles ressources sont ajoutées à votre environnement Azure, il est possible que de nouvelles alertes s’affichent dans la vignette **Alertes de sécurité**. Recherchez les nouvelles alertes dans cette vignette et suivez les recommandations.

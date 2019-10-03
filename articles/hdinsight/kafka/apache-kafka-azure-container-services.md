@@ -1,19 +1,19 @@
 ---
 title: Utiliser Azure Kubernetes Service avec Kafka sur HDInsight
 description: Découvrez comment utiliser Kafka sur HDInsight à partir d’images de conteneur hébergées dans Azure Kubernetes Service (AKS).
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960572"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122642"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -43,10 +43,9 @@ Ce document suppose également que vous avez parcouru le [tutoriel Azure Kuberne
 
 HDInsight et AKS utilisent un réseau virtuel Azure comme conteneur pour les ressources de calcul. Pour activer la communication entre HDInsight et AKS, vous devez activer la communication entre leurs réseaux. Les étapes décrites dans ce document utilisent l’homologation de réseau virtuel pour les réseaux. D’autres connexions, comme les VPN, doivent également fonctionner. Pour plus d’informations sur l’homologation, consultez le document [Homologation de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
 
-
 Le diagramme suivant illustre la topologie de réseau utilisée dans ce document :
 
-![HDInsight dans un réseau virtuel, AKS dans un autre et les réseaux connectés à l’aide de l’homologation](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![HDInsight dans un réseau virtuel, AKS dans un autre avec un appairage](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]  
 > La résolution de noms n’est pas activée entre les réseaux homologués, l’adressage IP est donc utilisé. Par défaut, Kafka sur HDInsight est configuré pour retourner les noms d’hôte à la place des adresses IP lorsque les clients se connectent. Les étapes décrites dans ce document modifient Kafka pour utiliser la publication IP à la place.
@@ -113,7 +112,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 3. Pour afficher la configuration Kafka, sélectionnez __Configurations__ en haut et au centre de la page.
 
-    ![Liens vers les configurations Kafka](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    ![Apache Ambari - Configuration des services](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. Pour trouver la configuration __kafka-env__, entrez `kafka-env` dans le champ __Filtre__ situé en haut à droite.
 
@@ -135,7 +134,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 8. Utilisez le bouton __Enregistrer__ pour enregistrer les modifications apportées à la configuration. Entrez un message texte décrivant les modifications. Sélectionnez __OK__ une fois les modifications apportées.
 
-    ![Bouton pour enregistrer la configuration](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    ![Apache Ambari - Enregistrement de la configuration](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. Pour éviter des erreurs lors du redémarrage de Kafka, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Activer le mode de maintenance__. Sélectionnez OK pour terminer cette opération.
 
@@ -192,6 +191,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
     ```bash
     docker push <acrLoginServer>/kafka-aks-test:v1
     ```
+
     Cette opération prend plusieurs minutes.
 
 8. Modifiez le fichier manifeste Kubernetes (`kafka-aks-test.yaml`) et remplacez `microsoft` par le nom loginServer d’ACR récupéré à l’étape 4.
@@ -212,7 +212,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 11. Ouvrez un navigateur web et entrez l’adresse IP externe pour le service. Vous accédez à une page similaire à l’image ci-dessous :
 
-    ![Image de la page web](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    ![Image de page web de test Apache Kafka](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. Entrez le texte dans le champ, puis sélectionnez le bouton __Envoyer__. Les données sont envoyées à Kafka. Ensuite, le consommateur Kafka dans l’application lit le message et l’ajoute à la section __Messages à partir de Kafka__.
 

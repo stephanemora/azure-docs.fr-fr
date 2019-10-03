@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.openlocfilehash: e747f39ca84bb859b37550efef51e01cffd96876
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6b3fc4f9badeedbed55f89702933b41a952977b
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056740"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180803"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
@@ -25,7 +25,7 @@ Apache HBase est généralement interrogé soit avec son API de bas niveau (anal
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Le [schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de wasb:// pour Stockage Blob Azure, de abfs:// pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour Stockage Blob ou Data Lake Storage Gen2, l’URI serait wasbs:// ou abfss://,respectivement. Consultez également [Transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
+* Le [schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de wasb:// pour Stockage Blob Azure, de abfs:// pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Procédure générale
 
