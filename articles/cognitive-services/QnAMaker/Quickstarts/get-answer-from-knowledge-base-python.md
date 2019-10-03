@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34c85de456e7ec96f3244d327fd53c91ed90d109
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306909"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802974"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Python
 
@@ -43,6 +43,8 @@ Ouvrez VSCode et créez un fichier nommé `get-answer-3x.py`.
 En haut du fichier `get-answer-3x.py`, ajoutez les dépendances nécessaires au projet :
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 L’hôte et la route ne s’affichent pas comme dans la page **Publier**. En effet, la bibliothèque Python n’autorise aucun routage dans l’hôte. Le routage qui apparaît sur la page **Publier** comme faisant partie de l’hôte a été déplacé vers la route.
 
