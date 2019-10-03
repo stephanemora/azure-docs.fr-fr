@@ -10,17 +10,56 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 9/20/2019
 ms.author: raiye
-ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275506"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169369"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="september-2019-guest-os"></a>Système d’exploitation invité, septembre 2019
+
+>[!NOTE]
+>Le système d’exploitation invité de septembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de septembre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 09-19   |  [4516046]  |  Internet Explorer   |  2.90, 3.77, 4.70  |  10 septembre 2019  |
+|  Version 09-19   |  [4516115]  |  Flash   |  2.90, 3.77, 4.70, 5.35, 6.11  |  10 septembre 2019  |
+|  Version 09-19   |  [4512578]  |  Dernière mise à jour cumulative   |  6.11  |  10 septembre 2019  |
+|  Version 09-19   |  [4514366]  |  .NET Framework 3.5 et 4.7.2   |  6.11  |  10 septembre 2019  |
+|  Version 09-19   |  [4516044]  |  Dernière mise à jour cumulative   |  5.35  |  10 septembre 2019  |
+|  Version 09-19   |  [4516064]  |  Sécurité Windows   |  4,7  |  10 septembre 2019  |
+|  Version 09-19   |  [4514350]  |  .NET Framework 3.5   |  4,7  |  10 septembre 2019  |
+|  Version 09-19   |  [4514341]  |  .NET Framework 4.5.2   |  4,7  |  10 septembre 2019  |
+|  Version 09-19   |  [4516062]  |  Sécurité Windows   |  3.77  |  10 septembre 2019  |
+|  Version 09-19   |  [4514349]  |  .NET Framework 3.5   |  3.77  |  10 septembre 2019  |
+|  Version 09-19   |  [4514342]  |  .NET Framework 4.5.2   |  3.77  |  10 septembre 2019  |
+|  Version 09-19   |  [4516033]  |  Sécurité Windows   |  2,9  |  12 septembre 2019  |
+|  Version 09-19   |  [4512488]  |  Non relatif à la sécurité   |  4,7  |  13 août 2019  |
+|  Version 09-19   |  [4512518]  |  Non relatif à la sécurité   |  3.77  |  13 août 2019  |
+|  Version 09-19   |  [4512506]  |  Non relatif à la sécurité   |  2,9  |  13 août 2019  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
 
 
 ## <a name="august-2019-guest-os"></a>Système d’exploitation invité, août 2019

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 3d08105e78274300eb7ee0a8c0ad146a737d0ffa
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644949"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176646"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer le Bureau à distance pour les machines virtuelles Linux dans un labo Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
@@ -36,7 +36,8 @@ Dans la zone de message **Activation de la connexion Bureau à distance**, séle
 ![Activer la connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> L’activation de la **connexion Bureau à distance** ouvre uniquement le port **RDP** sur les machines Linux. En tant qu’enseignant, connectez-vous à la machine Linux à l’aide de SSH la première fois, et installez les packages RDP et GUI de manière à vous connecter à la machine Linux à l'aide de RDP ensuite. **Publiez** ensuite l'image pour permettre aux étudiants de se connecter à l'aide de RDP aux machines virtuelles Linux d'étudiant. 
+> L’activation de la **connexion Bureau à distance** ouvre uniquement le port **RDP** sur les machines Linux. Si RDP est déjà installé et configuré sur l’image de machine virtuelle (par exemple : image Ubuntu Data Science Virtual Machine), vous ou les étudiants pouvez vous connecter aux machines virtuelles via RDP sans suivre d’étapes supplémentaires.
+> Si le protocole RDP n’est pas installé et configuré sur l’image de machine virtuelle, vous devez vous connecter à la machine Linux à l’aide de SSH la première fois et installer les packages RDP et GUI afin que vous ou les étudiants puissiez vous connecter à la machine Linux à l’aide de RDP ensuite. Publiez ensuite l’image pour permettre aux étudiants de se connecter à l’aide de RDP aux machines virtuelles Linux d’étudiant.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Actuellement, la connexion Bureau à distance est prise en charge pour les systèmes d’exploitation suivants :
