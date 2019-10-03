@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: b574f7c4f30c3bce8bd7d0e234cb523c965772e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3d6b1ed2a3800058acba9fe5df2137811afed74a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727575"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300787"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recommandations de sécurité pour les images Place de marché Microsoft Azure
 
@@ -56,7 +56,7 @@ Ces recommandations peuvent également être utiles pour les organisations qui n
 | Sécurité                                                         | Utilisez une image de base de système d’exploitation sécurisée. Le disque dur virtuel utilisé pour la source de n’importe quelle image basée sur Windows Server doit venir d’images de système d’exploitation Windows Server obtenues via Microsoft Azure. |
 | Sécurité                                                         | Installez toutes les dernières mises à jour de sécurité.                                                                                                                                     |
 | Sécurité                                                         | Les applications ne doivent pas avoir une dépendance sur les noms d’utilisateur limités, comme administrator, root et admin.                                                                |
-| Sécurité                                                         | Le chiffrement de lecteur BitLocker n’est pas pris en charge sur le disque du système d’exploitation. BitLocker peut être utilisé sur les disques de données.                                                            |
+| Sécurité                                                         | Chiffrement de lecteur BitLocker est activé pour les disques durs du système d’exploitation et les disques durs de données.                                                             |
 | Sécurité                                                         | Limitez la surface d’attaque en conservant un encombrement minimal avec seulement les rôles Windows Server, fonctionnalités, services et ports réseau strictement nécessaires activés.                         |
 | Sécurité                                                         | Analysez le code source et l’image de machine virtuelle qui en résulte à la recherche de programmes malveillants.                                                                                                                     |
 | Sécurité                                                         | Réglez les mises à jour de sécurité pour les images Windows Server pour qu’elles se fassent automatiquement.                                                                                                                |

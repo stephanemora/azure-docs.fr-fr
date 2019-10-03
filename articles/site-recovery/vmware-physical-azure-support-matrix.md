@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910436"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266406"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -193,6 +193,7 @@ Ajout/retrait à chaud de disque d’Invité/de serveur | Non
 Invité/serveur - Exclure le disque | OUI
 Multipath invité/serveur (MPIO) | Non
 Partitions GPT invité/serveur | Cinq partitions sont prises en charge à partir du [Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) (version 9.25 de Mobility Service). Auparavant, elles étaient au nombre de quatre.
+ReFS | Resilient File System est pris en charge avec le service Mobility version 9.23 ou ultérieure
 Démarrage EFI/UEFI invité/serveur | - Pris en charge lorsque vous exécutez Mobility Service version 9.13 ou ultérieure.<br/> - Pris en charge lors de la migration de machines virtuelles ou serveurs physiques VMware exécutant Windows Server 2012 ou version ultérieure vers Azure.<br/> - Vous ne pouvez répliquer des machines virtuelles que pour la migration. La restauration automatique en local n’est pas pris en charge.<br/> - Seul le système NTFS est pris en charge <br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. <br/> - La taille de secteur de disque doit être de 512 octets par secteur physique.
 
 ## <a name="replication-channels"></a>Canaux de réplication

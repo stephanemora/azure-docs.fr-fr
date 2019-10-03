@@ -27,6 +27,8 @@
           href: tutorial-geofence.md
         - name: Analytique spatiale
           href: tutorial-iot-hub-maps.md
+        - name: Routage EV à l’aide d’Azure Notebooks (Python)
+          href: tutorial-ev-routing.md
 - name: Concepts
   items:
     - name: Authentification avec Azure Maps

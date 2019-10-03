@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996241"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212767"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage (préversion)
 
-Azure Monitor pour le stockage (préversion) fournit une analyse complète de vos comptes de stockage Azure en fournissant une vue unifiée de vos performances, de votre capacité et de vos services de stockage Azure. Vous pouvez observer la capacité de stockage et les performances de deux manières, en les affichant directement à partir d’un compte de stockage ou d’une vue dans Azure Monitor pour voir les différents groupes de comptes de stockage. 
+Azure Monitor pour le stockage (préversion) fournit une surveillance complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. Vous pouvez observer la capacité de stockage et les performances de deux manières, en les affichant directement à partir d’un compte de stockage ou d’une vue dans Azure Monitor pour voir les différents groupes de comptes de stockage. 
 
 Cet article vous aidera à comprendre l’expérience Azure Monitor pour le stockage (préversion) pour en tirer des connaissances exploitables sur l’intégrité et les performances des comptes de stockage à l’échelle, avec la possibilité de se concentrer sur les zones réactives et de diagnostiquer les problèmes de latence, de limitation et de disponibilité.
 

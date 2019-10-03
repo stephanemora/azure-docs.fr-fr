@@ -261,6 +261,8 @@
       items:
         - name: Créer des pipelines ML en Python
           href: how-to-create-your-first-pipeline.md
+        - name: Déboguer et dépanner des pipelines ML
+          href: how-to-debug-pipelines.md
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

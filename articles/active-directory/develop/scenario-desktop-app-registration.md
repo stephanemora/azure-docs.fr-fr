@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860881"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268412"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Application de bureau qui appelle des API web - Inscription d’application
 
@@ -51,6 +51,7 @@ Les URI de redirection à utiliser dans une application de bureau dépendent du 
   > [!IMPORTANT]
   > Aujourd’hui, MSAL.NET utilise une autre URI de redirection par défaut dans des applications de bureau qui s’exécutent sur Windows (`urn:ietf:wg:oauth:2.0:oob`). À l’avenir, nous voulons changer cela. Nous vous conseillons donc d’utiliser `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
+- Si vous générez une application objective-C ou Swift native pour macOS, vous souhaiterez enregistrer l’URI de redirection en fonction de l’ID de l’offre groupée de votre application au format suivant : **msauth.<votre.ID.offre groupée.application>://auth** (remplacer <votre.ID.offre groupée.application> par l’ID de l’offre groupée de votre application)
 - Si votre application n’utilise que l’authentification intégrée Windows ou un mot de passe/nom d’utilisateur, vous n’avez pas besoin d’inscrire d’URI de redirection pour votre application. Ces flux effectuent un aller-retour vers le point de terminaison v2.0 de la plateforme d’identités Microsoft et votre application n’est pas rappelée sur une URI spécifique.
 - Pour différencier le flux de code d’appareil, l’authentification Windows intégrée et l’authentification par mot de passe/nom d’utilisateur d’un flux d’application cliente confidentiel, qui ne dispose d’aucune URI de redirection (le flux d’informations d’identification client utilisé dans les applications démon), vous devez préciser que votre application est une application cliente publique. Pour réaliser cette configuration, accédez à la section **Authentification** de votre application. Ensuite, dans la sous-section **Paramètres avancés**, dans le paragraphe **Type de client par défaut**, répondez **Oui** à la question **Considérer l'application comme un client public**.
 

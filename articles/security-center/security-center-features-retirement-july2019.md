@@ -8,25 +8,24 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910568"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202212"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
+
 > [!NOTE]
 > Ce document détaille la liste des fonctionnalités qui ont été supprimées d’Azure Security Center le 31 juillet 2019.
 >
 >
 
-
-# <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
-
 Nous avons apporté plusieurs [améliorations](https://azure.microsoft.com/updates/?product=security-center) à Azure Security Center au cours des six mois précédant juillet 2019.
 Suite à ces améliorations de fonctionnalités, le 31 juillet 2019, nous avons retiré de Security Center certaines fonctionnalités aujourd’hui redondantes ainsi que leurs API connexes.
 
-La plupart de ces fonctionnalités mises hors service seront remplacées par une nouvelle fonctionnalité dans Azure Security Center ou Azure Log Analytics. D’autres fonctionnalités peuvent être implémentées en utilisant [Azure Sentinel (préversion)](https://azure.microsoft.com/services/azure-sentinel/).
+La plupart de ces fonctionnalités mises hors service seront remplacées par une autre fonctionnalité dans Azure Security Center ou Azure Log Analytics. D’autres fonctionnalités peuvent être implémentées en utilisant [Azure Sentinel (préversion)](https://azure.microsoft.com/services/azure-sentinel/).
 
 Les fonctionnalités de Security Center mises hors service sont notamment :
 
@@ -104,11 +103,11 @@ Nous avons retiré le bouton **Accéder à la carte des événements de sécurit
 
 ![Bouton pour accéder à la carte des alertes de sécurité][10]
 
-Lorsque vous sélectionnez bouton **Accéder à la carte des événements de sécurité**, vous ouvrez le tableau de bord Informations sur les menaces. Nous avons retiré le tableau de bord Threat Intelligence.
+Lorsque vous sélectionniez le bouton **Accéder à la carte des événements de sécurité**, il ouvrait le tableau de bord Informations sur les menaces (à présent mis hors service).
 
 ![Tableau de bord Informations sur les menaces][11]
 
-Lorsque vous sélectionnez un espace de travail pour afficher son tableau de bord Informations sur les menaces, vous ouvrez l’écran Carte des alertes de sécurité (préversion) dans Log Analytics. Nous avons mis hors service cet écran.
+Lorsque vous sélectionnez un espace de travail pour afficher son tableau de bord Informations sur les menaces, vous avez ouvert l’écran Carte des alertes de sécurité (obsolète) (préversion) dans Log Analytics.
 
 ![Carte d’alertes de sécurité dans Log Analytics][12]
 

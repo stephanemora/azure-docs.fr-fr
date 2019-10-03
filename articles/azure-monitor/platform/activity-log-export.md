@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034847"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258471"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
@@ -60,13 +60,9 @@ Le profil de journal définit ce qui suit.
 Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé, les stratégies de rétention n’ont aucun effet. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux d’activité de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’activité d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux d’activité de votre compte de stockage peut prendre jusqu’à 24 heures.
 
 
-
-> [!WARNING]
-> Depuis le 1er novembre 2018, le format des données de journal dans le compte de stockage est devenu JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > Vous pouvez recevoir un message d’erreur lors de la création d’un profil de journal, si le fournisseur de ressources Microsoft.Insights n’est pas inscrit. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ce fournisseur.
+
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Créer un profil de journal à l’aide du portail Azure
 
@@ -167,6 +163,9 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
 ## <a name="activity-log-schema"></a>Schéma du journal d'activité
 Qu'il soit envoyé à Stockage Azure ou Event Hub, le journal d’activité est écrit dans un JSON au format suivant.
+
+
+> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
 
 ``` JSON
 {

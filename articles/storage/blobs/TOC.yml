@@ -135,13 +135,15 @@
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
               href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Niveaux d’accès
+        - name: Niveaux d’accès et de performances
           items:
             - name: Niveaux d’accès
               href: storage-blob-storage-tiers.md
-            - name: Réalimenter les données à partir de Stockage archive
+            - name: Réalimenter les données à partir du niveau archive
               href: storage-blob-rehydration.md
-            - name: Gérer le cycle de vie du stockage Blob Azure
+            - name: Niveaux de performances
+              href: storage-blob-performance-tiers.md
+            - name: Gérer le cycle de vie du Stockage Blob Azure
               href: storage-lifecycle-management-concepts.md
         - name: Performances et mise à l’échelle
           items:

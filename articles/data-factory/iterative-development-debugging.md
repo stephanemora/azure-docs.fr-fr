@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142331"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178626"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 
@@ -51,6 +51,10 @@ Vous pouvez visualiser toutes les exécutions de débogage qui sont en cours pou
 ![Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Exemple de liste des exécutions de débogage actives](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+Si vous avez des sessions de débogage Data Flow actives, celles-ci apparaissent dans la partie inférieure de la fenêtre de débogage active. Vous pouvez sélectionner une session Data Flow active et arrêter le cluster correspondant.
+
+![Exemple de liste d’exécutions de débogage Data Flow actives](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>Supervision des exécutions de débogage
 

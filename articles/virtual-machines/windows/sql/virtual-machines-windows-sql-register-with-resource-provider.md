@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743917"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262879"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -27,11 +27,21 @@ Cet article explique comment inscrire votre machine virtuelle SQL Server dans Az
 
 Pendant le déploiement d’une image de machine virtuelle SQL Server de la Place de marché Azure via le portail Azure, la machine virtuelle SQL Server est inscrite automatiquement auprès du fournisseur de ressources. Si vous choisissez d’installer automatiquement SQL Server sur une machine virtuelle Azure au lieu de choisir une image à sur la Place de marché Azure, ou si vous provisionnez une machine virtuelle Azure à partir d’un disque dur virtuel personnalisé avec SQL Server, vous devez inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources pour les raisons suivantes :
 
-- **Conformité** : conformément aux conditions d’utilisation du produit Microsoft, les clients doivent informer Microsoft qu’ils utilisent [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Pour cela, ils doivent s’inscrire auprès du fournisseur de ressources de machine virtuelle SQL. 
+- **Simplifier la gestion des licences** : conformément aux conditions d’utilisation du produit Microsoft, les clients doivent informer Microsoft qu’ils utilisent [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). L’inscription auprès du fournisseur de ressources de machine virtuelle SQL simplifie la gestion des licences SQL Server et vous permet d’identifier rapidement les machines virtuelles SQL Server en utilisant d’Azure Hybrid Benefit dans le [portail](virtual-machines-windows-sql-manage-portal.md) ou l’interface de ligne de commande Azure : 
+
+   ```azurecli-interactive
+   $vms = az sql vm list | ConvertFrom-Json
+   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
+   ```
 
 - **Avantages en termes de fonctionnalités** : l’inscription de la machine virtuelle SQL Server auprès du fournisseur de ressources a pour effet de déverrouiller les fonctionnalités de [mise à jour corrective automatisée](virtual-machines-windows-sql-automated-patching.md), de [sauvegarde automatisée](virtual-machines-windows-sql-automated-backup-v2.md), de supervision et de gestion. De même, cela facilite la gestion des [licences](virtual-machines-windows-sql-ahb.md) et des [éditions](virtual-machines-windows-sql-change-edition.md). Auparavant, ces fonctionnalités étaient uniquement accessibles aux images de machine virtuelle SQL Server issues de la Place de marché Azure.
 
+- **Administration gratuite** :  L’inscription auprès du fournisseur de ressources de machine virtuelle SQL et de tous les modes de gestion est entièrement gratuite. Aucun coût supplémentaire n’est associé au fournisseur de ressources ou au changement de modes de gestion. 
+
 Pour utiliser le fournisseur de ressources de machines virtuelles SQL, vous devez également inscrire le fournisseur de ressources de machines virtuelles SQL à votre abonnement. Vous pouvez effectuer cette opération à partir du portail Azure, d’Azure CLI ou de PowerShell. 
+
+  > [!NOTE]
+  > Aucune exigence de licence supplémentaire n’est associée à l’inscription auprès du fournisseur de ressources. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL offre une méthode simplifiée permettant de notifier à Microsoft qu’Azure Hybrid Benefit a été activé à la place de la gestion des formulaires d’inscription de licence pour chaque ressource. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -172,13 +182,13 @@ Une erreur indique que la machine virtuelle SQL Server n’a pas été inscrite 
 
 ## <a name="change-management-modes"></a>Gérer les modes de gestion
 
-Il existe trois modes de gestion SQL pour l’extension IaaS SQL Server : 
+Il existe trois modes de gestion gratuits pour l’extension IaaS SQL Server : 
 
-- Le mode **complet** fournit toutes les fonctionnalités, mais nécessite un redémarrage des autorisations SQL Server et administrateur système. Il s’agit de l’option qui est installée par défaut. Utilisez-la pour gérer une machine virtuelle SQL Server avec une seule instance. 
+- Le mode **complet** fournit toutes les fonctionnalités, mais nécessite un redémarrage des autorisations SQL Server et administrateur système. Il s’agit de l’option qui est installée par défaut. Utilisez-la pour gérer une machine virtuelle SQL Server avec une seule instance. Le mode Full installe deux services Windows qui ont un impact minimal sur la mémoire et le processeur. L’activité de ces services est visible dans le gestionnaire des tâches. L’utilisation du mode de gestion Full est gratuite. 
 
-- Le mode **léger** ne nécessite pas de redémarrage de SQL Server, mais ne prend en charge que la modification du type de licence et de l’édition de SQL Server. Utilisez cette option pour les machines virtuelles SQL Server avec plusieurs instances, ou participant à une instance de cluster de basculement. 
+- Le mode **léger** ne nécessite pas de redémarrage de SQL Server, mais ne prend en charge que la modification du type de licence et de l’édition de SQL Server. Utilisez cette option pour les machines virtuelles SQL Server avec plusieurs instances, ou participant à une instance de cluster de basculement. Le mode Lightweight n’a aucun impact sur la mémoire ou l’UC. L’utilisation du mode de gestion Lightweight est gratuite. 
 
-- Le mode **sans agent** est dédié à SQL Server 2008 et à SQL Server 2008 R2 sur Windows Server 2008. 
+- Le mode **sans agent** est dédié à SQL Server 2008 et à SQL Server 2008 R2 sur Windows Server 2008. Le mode NoAgent n’a aucun impact sur la mémoire ou l’UC. L’utilisation du mode de gestion NoAgent est gratuite. 
 
 Vous pouvez afficher le mode actuel de votre agent SQL Server IaaS à l’aide de PowerShell : 
 
@@ -359,6 +369,12 @@ Oui. Les instances de cluster de basculement SQL Server sur une machine virtuell
 **Puis-je inscrire ma machine virtuelle auprès du fournisseur de ressources de machine virtuelle SQL si le groupe de disponibilité Always On est configuré ?**
 
 Oui. Il n’existe aucune restriction quant à l’inscription d’une instance SQL Server sur une machine virtuelle Azure auprès du fournisseur de ressources de machine virtuelle SQL si vous faites partie d’une configuration de groupe de disponibilité Always On.
+
+**Quel est le coût de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL ou de la mise à niveau vers le mode de gestion complet ?**
+Aucune. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL ou l’utilisation de l’un des trois modes de gestion n’est pas facturée. La gestion de votre machine virtuelle SQL Server avec le fournisseur de ressources est entièrement gratuite. 
+
+**Quel est l’impact de l’utilisation des différents modes de gestion sur les performances ?**
+Les modes de gestion *NoAgent* et *Lightweight* n’ont pas d’impact sur la mémoire et l’UC. L’utilisation du mode de gestion *Full* à partir de deux services installés sur le système d’exploitation a un impact minime. L’activité de ces services peut être surveillée à l’aide du gestionnaire des tâches. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

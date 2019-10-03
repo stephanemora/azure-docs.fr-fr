@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure DB for MariaDB\_?"
       href: overview.md
+    - name: "Quelle option MariaDB dois-je choisir\_?"
+      href: select-right-deployment-type.md
 - name: Démarrages rapides
   expanded: true
   items:

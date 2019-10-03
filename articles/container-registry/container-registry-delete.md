@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873204"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300184"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Supprimer des images conteneur dans Azure Container Registry à l’aide de l’interface de ligne de commande Azure
 
@@ -259,9 +259,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Vider automatiquement les balises et les manifestes (préversion)
 
 Au lieu de scripts d’interfaces de lignes de commande Azure, exécutez une tâche ACR à la demande ou planifiée pour supprimer toutes les balises qui sont antérieures à une certaine durée ou correspondent à un filtre de nom spécifié. Pour plus d’informations, consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
+
+Vous pouvez éventuellement définir une [stratégie de rétention](container-registry-retention-policy.md) pour chaque registre, afin de gérer les manifestes sans balise. Lorsque vous activez une stratégie de rétention, les fichiers manifestes d’image du registre qui n’ont aucune balise associée, ainsi que les données sous-jacentes, sont automatiquement supprimés après une période définie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

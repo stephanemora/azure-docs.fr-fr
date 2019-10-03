@@ -1,6 +1,6 @@
 ---
 title: Planifier le déploiement d’un panneau d’accès Azure Active Directory
-description: Guide de déploiement des fonctionnalités du panneau d’accès Azure AD
+description: Instructions pour le déploiement du panneau d’accès Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -15,23 +15,24 @@ ms.date: 08/16/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448af7075297c2b18df1eceaeaac34d5da762489
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575964"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258519"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planifier le déploiement d’un panneau d’accès Azure Active Directory
 
-Le panneau d’accès d’Azure Active Directory est un portail basé sur le web qui vous permet de réduire les coûts de support, d’accroître la productivité et la sécurité, et de réduire la frustration des utilisateurs. Le système inclut des rapports détaillés de suivi d’accès au système, et prévient les administrateurs de toute utilisation malveillante ou de tout abus.
+Le panneau d’accès d’Azure Active Directory (Azure AD) est un portail basé sur le web qui vous permet de réduire les coûts de support, d’accroître la productivité et la sécurité, et de réduire la frustration des utilisateurs. Le système inclut des rapports détaillés de suivi d’accès au système, et prévient les administrateurs de toute utilisation malveillante ou de tout abus.
 
-Le panneau d’accès d’Azure Active Directory permet aux utilisateurs d’effectuer les opérations suivantes :
+En utilisant le panneau d’accès Azure AD, vous pouvez :
 
-* Détecter et accéder à toutes les ressources Azure Active Directory connectées de leur entreprise, telles que les applications.
-* Demander l’accès à de nouvelles applications et de nouveaux groupes, ou gérer l’accès à ces ressources pour d’autres.
-* Gérer les réinitialisations de mot de passe en libre-service et les paramètres de l’authentification multifacteur.
-* Gérer leurs appareils.
+* Détecter et accéder à toutes les ressources Azure AD connectées de l’entreprise, telles que les applications
+* Demander l’accès aux nouvelles applications et aux nouveaux groupes
+* Gérer l’accès à ces ressources pour les autres personnes
+* Gérer les réinitialisations de mot de passe en libre-service et les paramètres d’Azure Multi-Factor Authentication
+* Gérer les appareils
 
 Il permet également aux administrateurs de gérer les éléments suivants :
 
@@ -40,63 +41,63 @@ Il permet également aux administrateurs de gérer les éléments suivants :
 * Révisions d’accès
 
 
-## <a name="benefits-of-azure-active-directory-access-panel-integration"></a>Avantages de l’intégration du panneau d’accès Azure Active Directory
+## <a name="benefits-of-azure-ad-access-panel-integration"></a>Avantages de l’intégration du panneau d’accès Azure AD
 
-Le panneau d’accès de Microsoft Azure Active Directory (Azure AD) est avantageux pour les entreprises des manières suivantes :
+Le panneau d’accès de Microsoft Azure Active Directory (Azure AD) offre aux entreprises les avantages suivants :
 
-**Offre une expérience utilisateur intuitive** : L’activation du panneau d’accès offre aux utilisateurs la possibilité d’avoir un seul point de lancement pour toutes leurs applications connectées avec l’authentification unique Azure. À mesure que des fonctionnalités telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service sont ajoutées, les utilisateurs continuent à disposer d’un portail unifié pour trouver ces paramètres. L’expérience intuitive permettra aux utilisateurs de continuer à travailler plus rapidement et à être plus productifs, tout en réduisant leur frustration.
+**Offre une expérience utilisateur intuitive** : Le panneau d’accès vous offre une plateforme unique pour toutes vos applications connectées à l’authentification unique Azure (SSO). Vous disposez d’un portail unifié pour trouver les paramètres existants et les nouvelles fonctionnalités telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service, à mesure qu’elles sont ajoutées. L’expérience intuitive permet aux utilisateurs de continuer à travailler plus rapidement et à être plus productifs, tout en réduisant leur frustration.
 
-**Augmente la productivité** : L’authentification unique (SSO) est activée pour toutes les applications utilisateur du panneau d’accès. L’activation de l’authentification unique sur les applications d’entreprise et Office 365 offre une expérience de connexion supérieure aux utilisateurs en réduisant ou en éliminant des invites de connexion excessives. Le panneau d’accès permet le libre-service et l’appartenance dynamique, et améliore la sécurité globale de votre système d’identité en garantissant que les bonnes personnes gèrent l’accès aux applications. Le panneau d’accès fait office de page d’accueil cohérente pour permettre à un utilisateur de rechercher rapidement des ressources et continuer à travailler.
+**Augmente la productivité** : L’authentification unique (SSO) est activée pour toutes les applications utilisateur du panneau d’accès. L’activation de l’authentification unique sur les applications d’entreprise et Office 365 offre une expérience de connexion supérieure en réduisant ou en éliminant des invites de connexion excessives. Le panneau d’accès utilise l’appartenance libre-service et dynamique, et améliore la sécurité globale de votre système d’identité. Il vérifie pour cela que l’accès aux applications est géré par des personnes appropriées. Le panneau d’accès fait office de page d’accueil cohérente pour vous permettre de trouver rapidement des ressources et continuer à travailler.
 
-**Vous aide à gérer les coûts** : L’activation du panneau d’accès dans Azure Active Directory peut permettre de réduire les infrastructures locales. Il réduit les coûts de support en permettant aux utilisateurs de disposer d’un portail cohérent pour trouver toutes leurs applications, demander l’accès aux ressources et gérer leur compte.
+**Vous aide à gérer les coûts** : L’activation du panneau d’accès dans Azure AD peut permettre de réduire les infrastructures locales. Cela permet également de réduire les coûts de support grâce à un portail cohérent pour trouver toutes vos applications, demander l’accès aux ressources et gérer vos comptes.
 
 **Augmente la flexibilité et la sécurité** : Le panneau d’accès vous permet d’accéder à la sécurité et à la flexibilité qu’offre une plateforme cloud. Les administrateurs peuvent facilement modifier les paramètres des applications et des ressources et répondre aux nouvelles exigences de sécurité sans affecter les utilisateurs.
 
-**Permet l’audit et le suivi de l’utilisation de façon robuste** : L’audit et le suivi de l’utilisation pour toutes les fonctionnalités de l’utilisateur final vous permettent de savoir quand les utilisateurs utilisent leurs ressources, ce qui vous aide à évaluer la sécurité.
+**Permet l’audit et le suivi de l’utilisation de façon robuste** : L’audit et le suivi de l’utilisation pour toutes les fonctionnalités de l’utilisateur vous permettent de savoir quand les utilisateurs utilisent leurs ressources, ce qui vous aide à évaluer la sécurité.
 
 ### <a name="licensing-considerations"></a>Considérations relatives aux licences
 
-Le panneau d’accès est gratuit et ne nécessite aucune licence pour tous les utilisateurs. Toutefois, le nombre d’objets contenus dans votre annuaire et les fonctionnalités que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Les scénarios Azure AD courants incluent les fonctionnalités de sécurité suivantes qui ont des exigences en matière de licences.
+Le panneau d’accès est gratuit et ne nécessite aucune licence pour une utilisation de base. Toutefois, le nombre d’objets contenus dans votre répertoire et les fonctionnalités supplémentaires que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Les scénarios Azure AD ayant des exigences en matière de licences incluent les fonctionnalités de sécurité suivantes :
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
-* [Appartenance basée sur un groupe](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
+* [Appartenance basée sur des groupes](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Condition de mot de passe en libre-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Réinitialisation de mot de passe en libre service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
-* [Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
-Consultez le [guide complet des licences pour Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Consultez le [guide complet des licences pour Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Conditions préalables pour le déploiement du panneau d’accès Azure AD
 
-Les conditions préalables suivantes doivent être remplies avant le début de ce projet.
+Avant de commencer ce projet, vérifiez que vous remplissez les conditions préalables suivantes :
 
 * [Intégration de l’authentification unique de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
-* [Infrastructure d’utilisateurs et de groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Gestion de l’infrastructure d’utilisateurs et de groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-the-azure-ad-access-panel-deployment"></a>Planifier le déploiement du panneau d’accès Azure AD
 
-Le tableau suivant présente les principaux cas d’utilisation d’un déploiement de panneau d’accès :
+Le tableau suivant présente les principaux cas d’utilisation d’un déploiement de panneau d’accès :
 
 | Domaine| Description |
 | - | - |
 | Access| Le portail du panneau d’accès est accessible depuis les appareils d’entreprise et personnels au sein du réseau d’entreprise. |
-|Access | Le portail du panneau d’accès est accessible aux appareils d’entreprise en dehors du réseau d’entreprise. |
+|Access | Le portail du panneau d’accès est accessible depuis les appareils d’entreprise en dehors du réseau d’entreprise. |
 | Audit| Les données d’utilisation sont téléchargées dans les systèmes de l’entreprise au moins tous les 29 jours. |
 | Gouvernance| Le cycle de vie des affectations d’utilisateurs aux applications et aux groupes connectés à Azure AD est défini et surveillé. |
 | Sécurité| L’accès aux ressources est contrôlé par le biais des attributions d’utilisateurs et de groupes. Seuls les utilisateurs autorisés peuvent gérer l’accès aux ressources. |
 | Performances| Les chronologies de propagation des affectations d’accès sont documentées et surveillées. |
-| Expérience utilisateur| Les utilisateurs connaissent les fonctionnalités du panneau d’accès et comment les utiliser.|
-| Expérience utilisateur| Les utilisateurs peuvent gérer eux-mêmes leur accès aux applications et aux groupes.|
+| Expérience utilisateur| Les utilisateurs connaissent les fonctionnalités du panneau d’accès et savent les utiliser.|
+| Expérience utilisateur| Les utilisateurs peuvent gérer leur accès aux applications et aux groupes.|
 | Expérience utilisateur| Les utilisateurs peuvent gérer leurs comptes. |
 | Expérience utilisateur| Les utilisateurs connaissent la compatibilité du navigateur. |
 | Support| Les utilisateurs peuvent trouver de l’aide pour les problèmes liés au panneau d’accès. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Meilleures pratiques pour le déploiement du panneau d’accès Azure AD
 
-La fonctionnalité de panneau d’accès peut être activée graduellement. Nous vous recommandons d’utiliser l’ordre de déploiement suivant :
+La fonctionnalité du panneau d’accès peut être activée graduellement. Nous vous recommandons d’utiliser l’ordre de déploiement suivant :
 
 1. My Apps
    * Lanceur d’applications
@@ -105,7 +106,7 @@ La fonctionnalité de panneau d’accès peut être activée graduellement. Nous
 
 1. Détection d’applications en libre-service
    * Réinitialisation de mot de passe libre-service
-   * Paramètres d’authentification multifacteur
+   * Paramètres de Multi-Factor Authentication
    * Gestion des appareils
    * Conditions d’utilisation
    * Gérer les organisations
@@ -119,30 +120,30 @@ Bien commencer avec My Apps présente aux utilisateurs le portail comme un empla
 
 ### <a name="plan-configurations-for-the-azure-ad-access-panel"></a>Planifier les configurations pour le panneau d’accès Azure AD
 
-Le tableau suivant répertorie plusieurs configurations importantes du panneau d’accès et les valeurs typiques que vous pouvez utiliser :
+Le tableau suivant répertorie plusieurs configurations importantes du panneau d’accès et les valeurs typiques que vous pouvez utiliser :
 
 | Configuration| Valeurs typiques |
 | - | - |
-| Déterminer le ou les groupes pilotes| Identifiez le groupe de sécurité Azure AD à utiliser et assurez-vous que tous les membres du pilote font partie du groupe. |
-| Déterminez le ou les groupes à activer pour la production.| Identifiez le ou les groupes de sécurité Azure AD, ou les groupes Active Directory synchronisés sur Azure AD à utiliser. Veillez à ce que tous les membres du pilote fassent partie du groupe. |
-| Autoriser les utilisateurs à utiliser l’authentification unique pour différents types d’applications| SSO fédérée, OAuth, authentification unique par mot de passe, proxy d’application |
-| Autoriser les utilisateurs à utiliser la réinitialisation de mot de passe en libre-service| OUI |
-| Permettre aux utilisateurs d’utiliser l’authentification multifacteur| OUI |
-| Autoriser les utilisateurs à utiliser la gestion de groupes en libre-service pour certains types de groupes| Groupes de sécurité, groupes O365 |
+| Déterminer les groupes pilotes| Identifiez le groupe de sécurité Azure AD à utiliser et assurez-vous que tous les membres du pilote font partie du groupe. |
+| Déterminez le ou les groupes à activer pour la production.| Identifiez les groupes de sécurité Azure AD ou les groupes Active Directory synchronisés sur Azure AD à utiliser. Veillez à ce que tous les membres du pilote fassent partie du groupe. |
+| Permettre aux utilisateurs d’utiliser l’authentification unique pour certains types d’applications| SSO fédérée, OAuth, authentification unique par mot de passe, proxy d’application |
+| Autoriser les utilisateurs à utiliser la réinitialisation de mot de passe en libre-service | OUI |
+| Permettre aux utilisateurs d’utiliser Multi-Factor Authentication| OUI |
+| Permettre aux utilisateurs d’utiliser la gestion de groupes en libre-service pour certains types de groupes| Groupes de sécurité, groupes Office 365 |
 | Autoriser les utilisateurs à utiliser la gestion des applications en libre-service| OUI |
 | Autoriser les utilisateurs à utiliser des révisions d’accès| OUI |
 
 ### <a name="plan-consent-strategy"></a>Stratégie de consentement au plan
 
-Les utilisateurs ou les administrateurs doivent accepter les conditions d’utilisation et les stratégies de confidentialité de l’application. Si possible, en fonction de vos règles d’entreprise, nous vous recommandons d’utiliser le consentement de l’administrateur, qui offre aux utilisateurs une meilleure expérience.
+Les utilisateurs ou les administrateurs doivent accepter les conditions d’utilisation et les stratégies de confidentialité de l’application. Si possible, en fonction de vos règles d’entreprise, utilisez le consentement de l’administrateur, qui offre aux utilisateurs une meilleure expérience.
 
-Pour utiliser le consentement de l’administrateur, vous devez être un administrateur général du locataire, et les applications doivent être :
+Pour utiliser le consentement de l’administrateur, vous devez être un administrateur général de l’organisation, et les applications doivent être :
 
-* Inscrite dans votre locataire, ou
+* Inscrites dans votre organisation
 
-* Inscrite dans un autre locataire Azure AD et a été précédemment autorisée par au moins un utilisateur final.
+* Inscrites dans une autre organisation Azure AD et précédemment autorisées par au moins un utilisateur
 
-Pour plus d’informations, consultez [Configurer le consentement de l'utilisateur final pour une application dans Azure Active Directory](configure-user-consent.md).
+Pour plus d’informations, consultez [Configurer le consentement de l’utilisateur final pour une application dans Azure Active Directory](configure-user-consent.md).
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
@@ -160,11 +161,11 @@ Microsoft fournit [des modèles personnalisables pour les e-mails et autres comm
 
 ## <a name="plan-your-sso-configuration"></a>Planifier votre configuration d’authentification unique
 
-Lorsqu’un utilisateur « se connecte » à une application, il passe par un processus d’authentification qui lui permet de prouver son identité. Sans l’authentification unique, il s’agit d’un mot de passe stocké au niveau de l’application. Cela implique que l’utilisateur connaisse ce mot de passe. Les informations d’identification des utilisateurs de l’authentification unique (SSO) sont transmises à l’application afin qu’ils n’aient pas à entrer à nouveau les mots de passe pour chaque application.
+Lorsqu’un utilisateur « se connecte » à une application, il passe par un processus d’authentification qui lui permet de prouver son identité. Sans l’authentification unique, il s’agit d’un mot de passe stocké au niveau de l’application. Cela implique que l’utilisateur connaisse ce mot de passe. Avec l’authentification unique, les informations d’identification des utilisateurs sont transmises à l’application afin qu’ils n’aient pas à entrer à nouveau les mots de passe pour chaque application.
 
-Pour lancer des applications dans My Apps, l’authentification unique (SSO) doit être activée pour les applications.
+Pour lancer des applications dans My Apps, l’authentification unique doit être activée.
 
-Azure AD prend en charge trois moyens d’activer [l’authentification unique sur les applications](what-is-single-sign-on.md) :
+Azure AD prend en charge trois moyens d’activer [l’authentification unique sur les applications](what-is-single-sign-on.md) :
 
 * **Authentification unique fédérée** 
     * Permet aux applications de se tourner vers Azure AD pour l’authentification des utilisateurs au lieu de leur demander un mot de passe. 
@@ -176,23 +177,23 @@ Azure AD prend en charge trois moyens d’activer [l’authentification unique s
 
 * **Authentification unique existante** 
     * Permet à Azure AD de tirer parti de l’authentification unique existante qui a été configurée pour l’application.
-    * Permet à ces applications d’être liées aux portails du panneau d’accès Office 365 ou Azure AD. 
+    * Permet à ces applications d’être liées aux portails du panneau d’accès Azure AD ou Office 365. 
     * Active la création de rapports supplémentaires dans Azure AD lorsque les applications sont lancées ici. 
     * Comprend l’utilisation du proxy d’application Azure et du mode d’authentification unique lié.
 
 Découvrez comment configurer le mode d’authentification unique d’une application ici : [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Pour une expérience optimale avec la page My Apps, nous vous recommandons de commencer avec l’intégration des applications cloud disponibles pour l’authentification unique fédérée. L’authentification unique fédérée permet aux utilisateurs d’avoir une expérience en un clic cohérente sur leurs surfaces de lancement d’application et a tendance à être plus robuste dans le contrôle de la configuration.
+Pour une expérience optimale sur la page My Apps, commencez par l’intégration des applications cloud disponibles pour l’authentification unique fédérée. L’authentification unique fédérée permet aux utilisateurs d’avoir une expérience en un clic cohérente sur leurs surfaces de lancement d’application et a tendance à être plus robuste dans le contrôle de la configuration.
 
-Utilisez l’authentification SSO fédérée avec Azure AD (OpenID Connect / SAML) si prise en charge par l’application plutôt que l’authentification unique basée sur les mots de passe ou sur ADFS.
+Utilisez l’authentification unique fédérée avec Azure AD (OpenID Connect/SAML) si elle est prise en charge par l’application plutôt que l’authentification unique basée sur les mots de passe ou sur ADFS.
 
-Pour plus d’informations sur le déploiement et la configuration des applications SaaS, consultez le [plan de déploiement de l’authentification unique SaaS](https://aka.ms/deploymentplans/sso).
+Pour plus d’informations sur le déploiement et la configuration de vos applications SaaS, consultez le [plan de déploiement de l’authentification unique SaaS](https://aka.ms/deploymentplans/sso).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planifier le déploiement de l’extension de navigateur My Apps
 
-Si des applications SSO basées sur un mot de passe sont mises à la disposition des utilisateurs finaux, elles doivent installer l’extension de connexion sécurisée My Apps pour se connecter. L’extension exécute un script qui transmet le mot de passe dans le formulaire de connexion de l’application. Les utilisateurs sont invités à installer l’extension lorsqu’ils lancent l’application SSO basée sur un mot de passe pour la première fois. Pour plus d’informations sur l’extension, consultez notre documentation sur [l’installation de l’extension de navigateur du panneau d’accès](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+Lorsque des utilisateurs se connectent à des applications SSO basées sur un mot de passe, ils doivent installer et utiliser l’extension de connexion sécurisée My Apps. L’extension exécute un script qui transmet le mot de passe dans le formulaire de connexion de l’application. Les utilisateurs sont invités à installer l’extension lorsqu’ils lancent l’application SSO basée sur un mot de passe pour la première fois. Pour plus d’informations sur l’extension, consultez la documentation sur [l’installation de l’extension de navigateur du panneau d’accès](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
 
-Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l'extension à l'échelle avec les [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
+Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l’extension à l’échelle avec les [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
 
 * [Stratégie de groupe pour Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
@@ -200,7 +201,7 @@ Si vous devez intégrer des applications SSO basées sur un mot de passe, vous d
 
 * [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-En savoir plus : [Configurer l’authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+En savoir plus : [Configurer l’authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery)
 
 Les utilisateurs qui n’utilisent pas d’applications SSO basées sur un mot de passe tirent également parti de l’extension. Ces avantages incluent la possibilité de lancer une application à partir de sa barre de recherche, de rechercher l’accès aux applications récemment utilisées et d’avoir un lien vers la page My Apps.
 
@@ -210,7 +211,7 @@ Voici ce que l’utilisateur verra lors du premier lancement d’une application
 
 #### <a name="plan-for-mobile-access"></a>Planifier l’accès mobile
 
-Un navigateur protégé avec la stratégie Intune (Microsoft Edge ou Intune Managed Browser) sera nécessaire pour les utilisateurs mobiles qui lancent des applications SSO basées sur un mot de passe. Un navigateur protégé par une stratégie permet de transférer le mot de passe enregistré pour l’application. Microsoft Edge et Managed Browser fournissent un ensemble de fonctionnalités de protection des données web. Vous pouvez également utiliser Microsoft Edge pour les scénarios d’entreprise sur les appareils iOS et Android. Microsoft Edge prend en charge les mêmes scénarios de gestion qu’Intune Managed Browser et améliore l’expérience de l’utilisateur final. En savoir plus : [Gérer l’accès web à l’aide d’un navigateur protégé par une stratégie Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+Un navigateur protégé avec la stratégie Intune (Microsoft Edge ou Intune Managed Browser) est nécessaire pour les utilisateurs mobiles qui lancent des applications SSO basées sur un mot de passe. Un navigateur protégé par une stratégie permet de transférer le mot de passe enregistré pour l’application. Microsoft Edge et Managed Browser fournissent un ensemble de fonctionnalités de protection des données web. Vous pouvez également utiliser Microsoft Edge pour les scénarios d’entreprise sur les appareils iOS et Android. Microsoft Edge prend en charge les mêmes scénarios de gestion qu’Intune Managed Browser et améliore l’expérience de l’utilisateur. En savoir plus : [Gérer l’accès web à l’aide d’un navigateur protégé par une stratégie Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>Planifier le déploiement de My Apps
 
@@ -220,34 +221,35 @@ La base du panneau d’accès est le lanceur d’applications My Apps, auquel le
 
 Les mêmes applications s’affichent dans le lanceur d’applications Office 365 quand les utilisateurs utilisent le portail Office 365.
 
-Planifiez l’ordre dans lequel vous allez ajouter des applications au lanceur My Apps, et indiquez si vous allez les déployer progressivement ou en une seule fois. Pour ce faire, créez un inventaire des applications répertoriant le type d’authentification et les intégrations de l’authentification unique (SSO) existantes pour chaque application.
+Planifiez l’ordre dans lequel vous allez ajouter des applications au lanceur My Apps, et indiquez si vous allez les déployer progressivement ou en une seule fois. Pour ce faire, créez un inventaire des applications répertoriant le type d’authentification et les intégrations de l’authentification unique existantes pour chaque application.
 
 #### <a name="add-applications-to-the-my-apps-panel"></a>Ajouter des applications au panneau My Apps
 
-Toutes les applications Azure AD compatibles avec l’authentification unique peuvent être ajoutées au lanceur My Apps. Les autres applications sont ajoutées à l’aide de l’option Authentification unique liée. Vous pouvez configurer une vignette d’application qui établit un lien vers l’URL de votre application web existante. L’authentification unique liée vous permet de commencer à diriger les utilisateurs vers le portail My Apps sans avoir à migrer toutes les applications vers l’authentification unique Azure Active Directory. Vous pouvez migrer vers des applications avec authentification unique Azure AD configurée sans interrompre l’expérience des utilisateurs.
+Toutes les applications Azure AD compatibles avec l’authentification unique peuvent être ajoutées au lanceur My Apps. Les autres applications sont ajoutées à l’aide de l’option Authentification unique liée. Vous pouvez configurer une vignette d’application qui établit un lien vers l’URL de votre application web existante. L’authentification unique liée vous permet de commencer à diriger les utilisateurs vers le portail My Apps sans avoir à migrer toutes les applications vers l’authentification unique Azure AD. Vous pouvez migrer vers des applications avec authentification unique Azure AD configurée sans interrompre l’expérience des utilisateurs.
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Choisir d’utiliser My Apps ou un portail existant
 
-Vos utilisateurs disposent peut-être déjà d’une application ou d’un portail autre que My Apps. Dans ce cas, décidez si vous souhaitez prendre en charge les deux portails, ou si vous n’en utiliserez qu’un seul.
+Vos utilisateurs disposent peut-être déjà d’une application ou d’un portail autre que My Apps. Dans ce cas, décidez si vous souhaitez prendre en charge les deux portails ou si vous n’en utiliserez qu’un seul.
 
-Si un portail existant est déjà utilisé comme point de départ pour les utilisateurs, vous pouvez intégrer la fonctionnalité My Apps à l’aide des « URL d’accès utilisateur ». Les URL d’accès utilisateur fonctionnent comme des liens directs vers les applications disponibles dans le portail My Apps. Ces URL peuvent être incorporées dans tout site web existant. Lorsqu’un utilisateur clique sur le lien, il lance l’application à partir du portail My Apps.
+Si un portail existant est déjà utilisé comme point de départ pour les utilisateurs, vous pouvez intégrer la fonctionnalité My Apps à l’aide des « URL d’accès utilisateur ». Les URL d’accès utilisateur fonctionnent comme des liens directs vers les applications disponibles dans le portail My Apps. Ces URL peuvent être incorporées dans tout site web existant. Lorsqu’un utilisateur clique sur le lien, il ouvre l’application à partir du portail My Apps.
 
-La propriété URL d’accès utilisateur se trouve dans la zone Propriétés de l’application dans le portail Azure.
+La propriété URL d’accès utilisateur se trouve dans la zone **Propriétés** de l’application dans le portail Azure.
 
 ![Capture d’écran du panneau d’applications](media/access-panel-deployment-plan/ap-dp-user-access-url.png)
 
 
 ## <a name="plan-self-service-application-discovery-and-access"></a>Planifier la découverte et l’accès aux applications en libre-service
 
-Une fois qu’un ensemble principal d’applications est déployé sur la page My Apps d’un utilisateur, nous vous recommandons d’activer les fonctionnalités de gestion des applications en libre-service. La découverte d’applications en libre-service permet ce qui suit :
-* Les utilisateurs peuvent trouver de nouvelles applications qu’ils peuvent ajouter à My Apps. 
-* Les utilisateurs peuvent ajouter des applications facultatives que vous ne saviez pas nécessaires au moment de l’installation.
+Une fois qu’un ensemble principal d’applications est déployé sur la page My Apps d’un utilisateur, nous vous recommandons d’activer les fonctionnalités de gestion des applications en libre-service. La découverte d’applications en libre-service permet aux utilisateurs :
+
+* De rechercher de nouvelles applications à ajouter à My Apps. 
+* D’ajouter des applications facultatives qu’ils ne savaient pas nécessaires au moment de l’installation.
 
 Des flux de travail d’approbation sont disponibles pour une approbation explicite pour l’accès aux applications. Les utilisateurs qui sont des approbateurs reçoivent des notifications dans le portail My Apps quand une demande d’accès à l’application est en attente.
 
 ## <a name="plan-self-service-group-membership"></a>Planifier l’appartenance de groupes en libre-service 
 
-Vous pouvez autoriser les utilisateurs à créer et gérer leurs propres groupes de sécurité ou Office 365 dans Azure Active Directory (Azure AD). Le propriétaire du groupe peut approuver ou refuser des demandes d’appartenance et peut déléguer le contrôle de l’appartenance au groupe. Les fonctionnalités de gestion de groupes en libre-service ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
+Vous pouvez autoriser les utilisateurs à créer et gérer leurs propres groupes de sécurité ou Office 365 dans Azure AD. Le propriétaire du groupe peut approuver ou refuser des demandes d’appartenance et peut déléguer le contrôle de l’appartenance au groupe. Les fonctionnalités de gestion de groupes en libre-service ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
 
 Pour planifier l’appartenance de groupe en libre-service, déterminez si vous autorisez tous les utilisateurs de votre organisation à créer et à gérer des groupes, ou seulement un sous-ensemble d’utilisateurs. S’il s’agit d’un sous-ensemble d’utilisateurs, vous devez configurer un groupe auquel ces personnes sont ajoutées. Pour plus d’informations sur l’activation de ces scénarios, consultez [Configurer la gestion de groupes en libre-service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).
 
@@ -270,7 +272,7 @@ Pour l’audit, les rapports et les sauvegardes de récupération d’urgence, d
 
 ## <a name="deploy-applications-to-users-my-apps-panel"></a>Déployer des applications dans le panneau My Apps des utilisateurs
 
-Une fois qu’une application a été configurée pour l’authentification unique, les groupes se voient attribuer l’accès. Les utilisateurs des groupes affectés auront accès à et verront l’application dans My Apps et le lanceur d’applications Office 365
+Une fois qu’une application a été configurée pour l’authentification unique, les groupes se voient attribuer l’accès. Les utilisateurs des groupes affectés auront accès à l’application et la verront dans My Apps et le lanceur d’applications Office 365.
 
 Consultez [Assigner des utilisateurs et des groupes à une application dans Active Directory](methods-for-assigning-users-and-groups.md).
 
@@ -278,15 +280,15 @@ Si, pendant le test ou le déploiement, vous souhaitez ajouter des groupes, mais
 
 ### <a name="deploy-microsoft-office-365-applications-to-my-apps"></a>Déployer des applications Microsoft Office 365 sur My Apps
 
-Pour les applications Office 365, les utilisateurs reçoivent une copie d’Office en fonction des licences qui leur sont attribuées. Une condition préalable à l’accès aux applications Office consiste à affecter aux utilisateurs les licences appropriées liées aux applications Office. Lorsque vous affectez la licence à un utilisateur, il voit automatiquement les applications associées à la licence dans la page My Apps et dans le lanceur d’applications O365.
+Pour les applications Office 365, les utilisateurs reçoivent une copie d’Office en fonction des licences qui leur sont attribuées. Une condition préalable à l’accès aux applications Office consiste à affecter aux utilisateurs les licences appropriées liées aux applications Office. Lorsque vous affectez une licence à un utilisateur, il voit automatiquement les applications associées à la licence dans la page My Apps et dans le lanceur d’applications Office 365.
 
-Si vous souhaitez masquer un ensemble d’applications Office auprès des utilisateurs, vous avez la possibilité de masquer les applications à partir du portail My Apps, tout en autorisant l’accès à partir du portail O365. Recherchez ces paramètres dans la partie Paramètres utilisateur de l’application. En savoir plus : [Masquer une application de l’expérience utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
+Si vous souhaitez masquer un ensemble d’applications Office auprès des utilisateurs, vous avez la possibilité de masquer les applications à partir du portail My Apps, tout en autorisant l’accès à partir du portail Office 365. Recherchez ces paramètres dans la partie Paramètres utilisateur de l’application. En savoir plus : [Masquer une application de l’expérience utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ![Capture d’écran de la configuration du masquage des applications](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
 
 ### <a name="deploy-application-self-service-capabilities"></a>Déployer des fonctionnalités de libre-service pour les applications
 
-L’accès aux applications en libre-service permet aux utilisateurs de découvrir et de demander l’accès à toutes les applications. Les utilisateurs ont la liberté d’accéder aux applications dont ils ont besoin sans passer par un groupe informatique à chaque fois pour demander l’accès. Lorsqu’un utilisateur demande l’accès et qu’il est approuvé soit automatiquement, soit manuellement par un propriétaire de l’application, il est ajouté à un groupe sur le système principal. La création de rapports note qui a demandé, approuvé ou supprimé un accès, et vous permet de contrôler la gestion des rôles affectés.
+L’accès aux applications en libre-service permet aux utilisateurs de découvrir et de demander l’accès aux applications. Les utilisateurs ont la liberté d’accéder aux applications dont ils ont besoin sans passer par un groupe informatique à chaque fois pour demander l’accès. Lorsqu’un utilisateur demande l’accès et qu’il est approuvé, soit automatiquement, soit manuellement par un propriétaire de l’application, il est ajouté à un groupe sur le système principal. La création de rapports note qui a demandé, approuvé ou supprimé un accès, et vous permet de contrôler la gestion des rôles affectés.
 
 Vous pouvez déléguer l’approbation des demandes d’accès aux applications aux approbateurs de l’entreprise. L’approbateur de l’entreprise peut définir les mots de passe d’accès aux applications à partir de la page My Apps de l’approbateur de l’entreprise.
 
@@ -298,7 +300,7 @@ En savoir plus : [Guide pratique pour utiliser l’accès aux applications en li
 
 Assurez-vous que le déploiement du panneau d’accès est soigneusement testé et qu’un plan de restauration est en place.
 
-Les tests suivants doivent être effectués avec les appareils d’entreprise et les appareils personnels. Ces cas de test doivent également refléter les cas d’utilisation de votre entreprise. Voici quelques cas basés sur les exemples d’exigences d’entreprise de ce document, ainsi que sur des scénarios techniques classiques. Ajoutez d’autres personnes spécifiques à vos besoins.
+Les tests suivants doivent être effectués avec les appareils d’entreprise et les appareils personnels. Ces cas de test doivent également refléter les cas d’utilisation de votre entreprise. Voici quelques cas basés sur les exemples d’exigences d’entreprise de ce document ainsi que sur des scénarios techniques classiques. Ajoutez d’autres personnes spécifiques à vos besoins.
 
 #### <a name="application-sso-access-test-case-examples"></a>Exemples de cas de test de l’authentification unique des applications :
 
@@ -309,7 +311,7 @@ Les tests suivants doivent être effectués avec les appareils d’entreprise et
 | L’utilisateur lance une application avec authentification unique fédérée| L’utilisateur est automatiquement connecté à l’application |
 | L’utilisateur lance une application avec authentification unique par mot de passe pour la première fois| L’utilisateur doit installer l’extension My Apps |
 | L’utilisateur lance une application avec authentification unique par mot de passe une nouvelle fois| L’utilisateur est automatiquement connecté à l’application |
-| L’utilisateur lance une application à partir du portail O365| L’utilisateur est automatiquement connecté à l’application |
+| L’utilisateur lance une application à partir du portail Office 365| L’utilisateur est automatiquement connecté à l’application |
 | L’utilisateur lance une application à partir de Managed Browser| L’utilisateur est automatiquement connecté à l’application |
 
 
@@ -328,23 +330,23 @@ Il est important d’avoir un plan de repli en cas d’échec de votre déploiem
 
 ## <a name="manage-your-implementation"></a>Gérer l’implémentation
 
-Microsoft recommande d’utiliser le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. Microsoft recommande de [passer en revue les différents rôles disponibles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) et de choisir celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
+Nous vous recommandons d’utiliser le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
 
 | Rôles| contrôleur| Rôle Azure AD  |
 | - | -| -|
-| Administrateur du support technique| Support de niveau 1| Aucun |
+| Administrateur de support technique| Support de niveau 1| Aucun |
 | Administrateur d’identité| Configurer et déboguer quand des problèmes impactent Azure AD| Administrateur général |
 | Administrateur d’application| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| Aucun |
 | Administrateurs de l’infrastructure| Propriétaire de la substitution de certificat| Administrateur général |
 | Chef d’entreprise/Partie prenante| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| Aucun |
 
-Nous vous recommandons d’utiliser [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
+Vous pouvez utiliser [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 
 ### <a name="troubleshoot-access-panel-issues"></a>Résoudre les problèmes liés au panneau d’accès
 
 Créez des guides de dépannage pour votre organisation de support avec des scénarios courants et pointant vers la documentation Microsoft quant à leur résolution. Vous pouvez créer des guides qui détaillent la prise en charge des niveaux utilisés par votre organisation.
 
-Consultez les guides de dépannage ci-dessous pour référence :
+Consultez les guides de dépannage ci-dessous pour référence :
 
 [Les applications ne s’affichent pas](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
 
@@ -358,4 +360,4 @@ Consultez les guides de dépannage ci-dessous pour référence :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Planifier un déploiement d’Azure Active Directory Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Planifier un déploiement d’Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

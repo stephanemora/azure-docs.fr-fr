@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fc25cffde264a5c9c9e9627bbf4b72ccda60673
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298756"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290869"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -237,9 +237,10 @@ Azure AD Connect n’est pas autorisé à établir une correspondance souple à 
 ### <a name="how-to-fix"></a>Procédure de résolution
 Pour corriger ce problème, effectuez l’une des opérations suivantes :
 
-
-- changez le UserPrincipalName en spécifiant une valeur qui ne correspond pas à celle d’un utilisateur administrateur dans Azure AD, ce qui créera un nouvel utilisateur dans Azure AD avec le UserPrincipalName correspondant
-- supprimez le rôle administratif de l’utilisateur administrateur dans Azure AD, ce qui permettra la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD existant.
+ - Supprimez le compte Azure AD (propriétaire) de tous les rôles d’administrateur. 
+ - **Supprimez définitivement** l’objet mis en quarantaine dans le cloud. 
+ - Le prochain cycle de synchronisation s’occupe de la mise en correspondance logicielle de l’utilisateur local avec le compte cloud (dans la mesure où l’utilisateur cloud n’est plus administrateur général). 
+ - Restaurez les appartenances aux rôles pour le propriétaire. 
 
 >[!NOTE]
 >Vous pouvez réaffecter le rôle administratif à l’objet utilisateur existant une fois la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD effectuée.

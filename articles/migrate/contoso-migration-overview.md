@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/22/2019
 ms.author: raynew
-ms.openlocfilehash: 82585a6f1df369e299bd9df4d57f6106aad4ead7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d20c0be47f44cdce8ea895007494565d37f5923f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696215"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179135"
 ---
 # <a name="contoso-migration-series"></a>Série de migration Contoso
 
@@ -41,14 +41,11 @@ Les articles de la série sont résumés dans le tableau ci-dessous.
 [Article 9 : Refactoriser une application vers une application web Azure et Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migre son application SmartHotel360 vers une application web Azure, et la base de données de l’application vers une instance Azure SQL Server avec l’Assistant Migration de données.     
 [Article 10 : Refactoriser une application Linux vers une application web Azure et Azure Database pour MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migre son application osTicket Linux vers Azure Web App dans plusieurs régions Azure à l’aide d’Azure Traffic Manager, intégré à GitHub de façon à assurer une livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. 
 [Article 11 : Refactoriser Team Foundation Server sur Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure.
-[Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. 
-[Article 13 : Regénérer une application dans Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB.  
-[Article 14 : Mettre à l’échelle une migration vers Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. 
-
-
-    
+[Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database.
+[Article 13 : Regénérer une application dans Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB.
+[Article 14 : Mettre à l’échelle une migration vers Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) la migration cloud. 
-
+- [Découvrez](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) la migration cloud.
+- Découvrez les stratégies des migrations pour les autres scénarios (paires source/cible) dans le [guide de migration de base de données](https://datamigration.microsoft.com/).

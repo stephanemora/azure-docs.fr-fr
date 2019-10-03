@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c642fe4a4453d72303470b5149d6d94436cdfa46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65774241"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262293"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -70,7 +70,7 @@ Circonus est une plateforme de surveillance et d’analyse de microservices con�
 
 Réunissez et automatisez votre cloud avec une plateforme conçue pour vous permettre de faire des économies de temps et d’argent. CloudHealth offre une visibilité, une optimisation intuitive et de solides pratiques de gouvernance pour la gestion du cloud. La plateforme CloudHealth permet aux entreprises et aux fournisseurs de services gérés d’optimiser leur retour sur investissement lié au cloud. Leurs décisions autour du coût, de l’utilisation, des performances et de la sécurité sont avisées.
 
-[Pour en savoir plus, cliquez ici.][cloudhealth-doc]
+[En savoir plus][cloudhealth-doc].
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -172,7 +172,7 @@ PagerDuty, la principale solution de gestion des incidents, propose une excellen
 
 ![Logo QRadar](./media/partners/qradar.png)
 
-Le module DSM Microsoft Azure et Microsoft Azure Event Hub Protocol sont disponibles au téléchargement sur le [site Web du support IBM](https://www.ibm.com/support). Vous pouvez [en savoir plus sur l’intégration à Azure ici][qradar-doc].
+Le module DSM Microsoft Azure et Microsoft Azure Event Hub Protocol sont disponibles au téléchargement sur le [site Web du support IBM](https://www.ibm.com/support). Pour plus d’informations sur l’intégration à Azure [cliquez ici][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 
@@ -237,7 +237,7 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 - [En savoir plus sur Azure Monitor](../../azure-monitor/overview.md)
 - [Accéder aux mesures avec l’API REST](rest-api-walkthrough.md)
 - [Transmettre en continu le journal d’activité vers un service non-Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmettre en continu les journaux de diagnostic vers un service non-Microsoft](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+- [Transmettre en continu les journaux de diagnostic vers un service non-Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

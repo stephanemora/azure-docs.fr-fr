@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959934"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268669"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -43,9 +43,9 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
 ## <a name="deployment-requirements"></a>Composants requis pour le déploiement
 
 * Les exigences en termes de licence pour la protection des mots de passe Azure AD sont fournies dans l’article [Éliminer les mots de passe incorrects de votre organisation](concept-password-ban-bad.md#license-requirements).
-* Tous les contrôleurs de domaine sur lesquels le service d’agent DC de protection par mot de passe Azure AD est installé doivent exécuter Windows Server 2012 ou version ultérieure. Cette exigence n’implique pas que le domaine ou la forêt Active Directory doive également être au niveau fonctionnel du domaine ou de la forêt Windows Server 2012. Comme mentionné dans [Principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel de domaine (DFL) ou de forêt (FFL) minimal n’est requis pour le logiciel de l’agent DC ni le logiciel de proxy à exécuter.
+* Tous les ordinateurs sur lesquels le logiciel agent de contrôleur de domaine de protection par mot de passe Azure AD seront installés doivent exécuter Windows Server 2012 ou une version ultérieure. Cette exigence n’implique pas que le domaine ou la forêt Active Directory doive également être au niveau fonctionnel du domaine ou de la forêt Windows Server 2012. Comme mentionné dans [Principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel de domaine (DFL) ou de forêt (FFL) minimal n’est requis pour le logiciel de l’agent DC ni le logiciel de proxy à exécuter.
 * Toutes les machines sur lesquelles le service d’agent de contrôleur de domaine est installé doivent avoir .NET 4.5 installé.
-* Toutes les machines sur lesquelles le service proxy de protection par mot de passe Azure AD est installé doivent exécuter Windows Server 2012 R2 ou version ultérieure.
+* Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent exécuter Windows Server 2012 R2 ou ultérieur.
    > [!NOTE]
    > Le déploiement du service proxy est une condition obligatoire pour le déploiement de la protection de mot de passe Azure AD même si le contrôleur de domaine peut avoir une connectivité internet directe sortante. 
    >
@@ -53,25 +53,26 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
   .NET 4.7 doit déjà être installé sur les instances de Windows Server entièrement mises à jour. Si ce n'est pas le cas, téléchargez et exécutez le programme d'installation disponible sur la page [Programme d'installation hors connexion de .NET Framework 4.7 pour Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Le runtime C universel doit être installé sur toutes les machines, y compris les contrôleurs de domaine, sur lesquelles les composants de protection par mot de passe Azure AD sont installés. Vous pouvez obtenir le runtime en vous assurant que vous disposez de toutes les mises à jour à partir de Windows Update. Ou vous pouvez l’obtenir dans un package de mise à jour spécifique au système d’exploitation. Pour plus d’informations, consultez [Mise à jour du runtime C universel sous Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service proxy de protection par mot de passe. Cette connectivité doit autoriser le contrôleur de domaine à accéder au port 135 du mappeur de point de terminaison RPC et au port du serveur RPC sur le service proxy. Par défaut, le port du serveur RPC est un port RPC dynamique, mais il peut être configuré pour [utiliser un port statique](#static).
-* Toutes les machines qui hébergent le service proxy doivent disposer d’un accès réseau aux points de terminaison suivants :
+* Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent disposer d’un accès réseau aux points de terminaison suivants :
 
     |**Point de terminaison**|**Objectif**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Demandes d’authentification|
     |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
 
+  Vous devez également activer l’accès réseau pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement Proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). Ces étapes de configuration sont nécessaires pour que le service de mise à jour de l’agent Microsoft Azure AD Connect puisse fonctionner (ce service est installé côte à côte avec le service proxy). Il est déconseillé d’installer le proxy de protection par mot de passe et le proxy d’application Azure AD côte à côte sur le même ordinateur en raison d’incompatibilités entre les versions du logiciel de mise à jour de l’agent Microsoft Azure AD Connect.
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurés pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Ceci est contrôlé par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurées de manière à autoriser le trafic HTTP TLS 1.2 sortant.
 * Un compte d’administrateur général pour inscrire la forêt et le service proxy de protection par mot de passe auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
 * Les domaines Active Directory qui exécutent le logiciel du service d’agent DC doivent utiliser la réplication du système de fichiers distribué (DFSR) pour la réplication sysvol.
 
-  Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour utiliser DFSR avant d’installer la protection de mot de passe Azure AD. Pour plus d’informations, consultez le lien suivant :
+  Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour utiliser DFSR avant d’installer la protection de mot de passe Azure AD. Pour plus d’informations, consultez le lien suivant :
 
-  [Guide de migration de la réplication sysvol : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+  [Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
   > [!WARNING]
-  > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS (la technologie qui précède DFSR) pour la réplication sysvol, mais le logiciel ne fonctionnera pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
+  > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS (la technologie qui précède DFSR) pour la réplication sysvol, mais le logiciel ne fonctionnera pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez faire migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
 
 * Le service de distribution de clés doit être activé sur tous les contrôleurs de domaine figurant dans le domaine qui exécutent Windows Server 2012. Par défaut, ce service est activé par le début du déclencheur manuel.
 

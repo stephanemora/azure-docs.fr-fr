@@ -65,8 +65,10 @@
           href: known-issues-azure-sql-online.md
         - name: Problèmes connus - Migration en ligne vers Azure DB pour MySQL
           href: known-issues-azure-mysql-online.md
-        - name: Problèmes connus - Migration en ligne vers Azure DB pour PostgreSQL–Serveur unique
+        - name: Problèmes connus - Migration en ligne de PostgreSQL vers Azure DB pour PostgreSQL–Serveur unique
           href: known-issues-azure-postgresql-online.md
+        - name: Problèmes connus - Migration en ligne d’Oracle vers Azure DB pour PostgreSQL–Serveur unique
+          href: known-issues-oracle-azure-postgresql-online.md
     - name: Videos
       items:
         - name: Utiliser le guide de migration des bases données

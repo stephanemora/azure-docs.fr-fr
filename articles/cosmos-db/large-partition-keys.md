@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: bd1697378e5db0432d181f9f688ccc2468b306e7
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: a1216daade2df832b606fceb648fca998c3fdec8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566022"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300132"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Créer des conteneurs avec une grande clé de partition
 
@@ -19,9 +19,21 @@ Azure Cosmos DB utilise le partitionnement basé sur le hachage pour mettre à l
 
 Les grandes clés de partition sont prises en charge moyennant une version améliorée de la fonction de hachage, qui peut générer un hachage unique à partir de grande clés de partition jusqu'à 2 Ko. Cette version de hachage est également recommandée pour les scénarios avec cardinalité des clés de partition élevée, indépendamment de la taille de la clé de partition. Une cardinalité de clé de partition correspond au nombre de partitions logiques uniques (de l'ordre d'environ 30 000, par exemple) d'un conteneur. Cet article explique comment créer un conteneur avec une grande clé de partition à l'aide du portail Azure et des kits de développement logiciel (SDK). 
 
-## <a name="create-a-large-partition-key-net-sdk-v2"></a>Créer une grande clé de partition (kit de développement logiciel (SDK) .Net V2)
+## <a name="create-a-large-partition-key-net-sdk"></a>Créer une grande clé de partition (kit de développement logiciel (SDK) .Net)
 
 Pour créer un conteneur avec une grande clé de partition à l’aide du kit de développement logiciel (SDK) .NET, vous devez spécifier la propriété `PartitionKeyDefinitionVersion.V2`. L’exemple suivant montre comment spécifier la propriété Version de l’objet PartitionKeyDefinition et la définir sur PartitionKeyDefinitionVersion.V2.
+
+### <a name="v3-net-sdk"></a>Kit SDK .NET v3
+
+```csharp
+await database.CreateContainerAsync(
+    new ContainerProperties(collectionName, $"/longpartitionkey")
+    {
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+    })
+```
+
+### <a name="v2-net-sdk"></a>Kit SDK .NET v2
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
