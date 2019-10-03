@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327216"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure
 
@@ -86,11 +86,10 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHealthProbe*. |
-    | Protocole | Sélectionnez **HTTP**. |
+    | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez *80*.|
     | Intervalle | Entrez *15* pour **l’intervalle** en secondes entre les tentatives de la sonde. |
     | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez *2* pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
-    | Sonde d’intégrité | Sélectionnez *myHealthProbe*. |
     
 4. Sélectionnez **OK**.
 
@@ -105,7 +104,7 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHTTPRule*. |
-    | Protocole | Sélectionnez **TCP**. |
+    | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez *80*.|
     | Port principal | Entrez *80*. |
     | Pool principal | Sélectionnez *MyBackendPool*.|
